@@ -1,0 +1,52 @@
+{
+    "name": "robinMod", 
+    "version": "1.0.1", 
+    "scriptFileList_earlyload": [],
+    "scriptFileList_preload": [],
+    "styleFileList": [],
+    "scriptFileList": [],
+    "tweeFileList": [
+        "game/robin-work/lemonadeUpgrade.twee"
+    ],
+    "imgFileList": [],
+    "additionFile": [],
+    "addonPlugin": [
+        {
+            "modName": "TweeReplacer",
+            "addonName": "TweeReplacerAddon",
+            "modVersion": "1.0.0",
+            "params": [
+                {
+                    "passage": "Robin's Lemonade",
+                    "findString": "<<lemonade_stand_options>>",
+                    "replaceFile": "game/robin-work/lemonadeUpgrade.txt"
+                },
+                {
+                    "passage": "Robin's Lemonade",
+                    "findString": "你看到罗宾站在<<his>>的柠檬水摊后面。",
+                    "replaceFile": "game/robin-work/lemonadeUpgradeResult.txt"
+                },
+                {
+                    "passage": "Robin's Lemonade Set",
+                    "findString": "<<lemonade_stand_options>>",
+                    "replaceFile": "game/robin-work/lemonadeUpgrade.txt"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<<widget \"robinroom\">>",
+                    "replaceFile": "game/robin-work/workUpgradeResult.txt"
+                }
+            ]
+        }
+    ],
+    "dependenceInfo": [
+        {
+            "modName": "TweeReplacer",
+            "version": "^1.0.0"
+        },
+        {
+            "modName": "ReplacePatcher",
+            "version": "^1.0.0"
+        }
+    ]
+}

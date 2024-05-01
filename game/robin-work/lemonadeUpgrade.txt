@@ -1,0 +1,17 @@
+	<<if ["helped", "sabotaged"].includes($balloonStand.robin.status) and $balloonStand.robin.talked is false and $robin.timer.customer is 0>>
+		<<link [[告诉罗宾真相|Balloon Robin Check-In]]>><<set $phase to ("confess_"+$balloonStand.robin.status)>><</link>>
+		<br>
+		<<link [[保持沉默|Balloon Robin Check-In]]>><<set $phase to ("quiet_"+$balloonStand.robin.status)>><</link>>
+	<<else>>
+		<<if $money gte 100>>
+			<<foodicon "lemonade">><<link [[买柠檬水 (0:15)|Robin's Lemonade Purchase]]>><<stress -6>><<trauma -1>><<pass 15>><</link>><<lstress>><<ltrauma>>
+			<br>
+		<</if>>
+		<<robinicon "lemonade">><<link [[提供帮助 (0:30)|Robin's Lemonade Help]]>><<npcincr Robin love 1>><<npcincr Robin trauma -1>><<pass 30>><</link>><<glove>><<lrtrauma>>
+		<br>
+		<<if $lemonadeUpgraded isnot 1>>
+        <<link [[建议升级柠檬水摊|Robin's Lemonade Upgrade]]>><</link>>
+        <br>
+		<</if>>
+		<<getouticon>><<link [[离开|Beach]]>><<endevent>><</link>>
+	<</if>>
