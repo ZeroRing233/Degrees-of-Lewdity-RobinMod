@@ -1,4 +1,0 @@
-你看到罗宾站在<<his>>的柠檬水摊后面。
-<<if $lemonadeUpgraded is 1>>
-<span class="gold">新招牌上的太阳仿佛正散发着温暖的光芒。</span>
-<</if>>

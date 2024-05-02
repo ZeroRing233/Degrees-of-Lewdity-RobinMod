@@ -1,15 +1,16 @@
 {
-    "name": "robinMod", 
-    "version": "1.0.1", 
-    "scriptFileList_earlyload": [],
-    "scriptFileList_preload": [],
+    "name": "robinMod",
+    "version": "1.0.1",
     "styleFileList": [],
     "scriptFileList": [],
     "tweeFileList": [
         "game/robin-work/lemonadeUpgrade.twee"
     ],
     "imgFileList": [],
-    "additionFile": [],
+    "additionFile": [
+        "game/robin-work/lemonadeUpgradeResult.txt",
+        "game/robin-work/lemonadeUpgrade.txt"
+    ],
     "addonPlugin": [
         {
             "modName": "TweeReplacer",
@@ -18,25 +19,30 @@
             "params": [
                 {
                     "passage": "Robin's Lemonade",
-                    "findString": "<<lemonade_stand_options>>",
-                    "replaceFile": "game/robin-work/lemonadeUpgrade.txt"
-                },
-                {
-                    "passage": "Robin's Lemonade",
-                    "findString": "你看到罗宾站在<<his>>的柠檬水摊后面。",
+                    "findString": "<<print $robin.timer.hurt",
                     "replaceFile": "game/robin-work/lemonadeUpgradeResult.txt"
                 },
                 {
-                    "passage": "Robin's Lemonade Set",
-                    "findString": "<<lemonade_stand_options>>",
-                    "replaceFile": "game/robin-work/lemonadeUpgrade.txt"
-                },
-                {
                     "passage": "Widgets Robin",
-                    "findString": "<<widget \"robinroom\">>",
-                    "replaceFile": "game/robin-work/workUpgradeResult.txt"
+                    "findString": "<<lrtrauma>>\n\t\t<br>",
+                    "replaceFile": "game/robin-work/lemonadeUpgrade.txt"
                 }
             ]
+        },
+        {
+            "modName": "ReplacePatcher",
+            "addonName": "ReplacePatcherAddon",
+            "modVersion": "1.0.0",
+            "params": {
+                "js": [
+                    {
+                        "from": "V.robinmoney += 300 + V.robin.moneyModifier;",
+                        "to": "{V.robinmoney += 300 + V.robin.moneyModifier;if (V.lemonadeUpgraded && Time.season != \"winter\") V.robinmoney += 600;}",
+                        "fileName": "time.js",
+                        "_comment1": "每周结束时，检测是否已升级柠檬水摊并加钱"
+                    }
+                ]
+            }
         }
     ],
     "dependenceInfo": [
