@@ -1,0 +1,4 @@
+<<if $lemonadeUpgraded is 1>>
+<span class="gold">新招牌上的太阳仿佛正散发着温暖的光芒。</span>
+<</if>>
+<<print $robin.timer.hurt

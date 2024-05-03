@@ -1,5 +1,0 @@
-<<widget "robinroom">>
-<<if $lemonadeUpgraded is 1 and $weekly.robinmoneyIncreased isnot 1 and Time.season isnot "winter">>
-<<set $robinmoney+=600>>
-<<set $weekly.robinmoneyIncreased to 1>>
-<</if>>
