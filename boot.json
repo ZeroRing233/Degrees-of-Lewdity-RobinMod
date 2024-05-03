@@ -53,6 +53,12 @@
                         "to": "V.robinmoney += 300 + V.robin.moneyModifier; let weeklyMoneyChange = 0; if (V.lemonadeUpgraded && Time.season != \"winter\") {weeklyMoneyChange += 600; }  if (V.danubeTutorIntro == 4) {weeklyMoneyChange += 750;}  V.robinmoney += weeklyMoneyChange;",
                         "fileName": "time.js",
                         "_comment1": "每周结束时，检查当前已有的工作并加钱"
+                    },
+                    {
+                        "from": "function dayPassed() {",
+                        "to": "function dayPassed() { if (V.danubeTutorIntro && V.danubeTutorIntro == 2){ V.danubeTutorIntro = 3;}",
+                        "fileName": "time.js",
+                        "_comment1": "如果当前家教状态为阶段3，一天后变为阶段4"
                     }
                 ]
             }

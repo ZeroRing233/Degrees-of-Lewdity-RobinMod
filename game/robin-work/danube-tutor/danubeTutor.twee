@@ -1,3 +1,6 @@
+/% $danubeTutorIntro 变量说明：
+0表示为触发介绍家教，1表示刚触发介绍家教，2表示罗宾答应去尝试多瑙河街的家教工作
+3表示罗宾尝试成功，4表示罗宾固定每周加150*5=750%/
 :: Danube Tutor Intro Robin
 <<if $phase is 3>>
 	你向<<person2>><<person>>推荐了另一个家教，
@@ -34,6 +37,8 @@
 <<npcincr Robin love 5>> 
 <<gggdom>>
 <<gglove>>
+<br>
+<span class="gold">罗宾现在已经在多瑙河街找到了新工作，此后放学后需在3点零五之前才能和罗宾一起回家。</span>
 <br><br>
 
 <<robinoptions>>
