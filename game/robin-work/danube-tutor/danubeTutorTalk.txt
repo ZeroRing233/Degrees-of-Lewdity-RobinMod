@@ -1,0 +1,9 @@
+        <<if $danubeTutorIntro is 1>>
+            <<link [[沟通多瑙河街的家教工作|Danube Tutor Talk]]>><</link>>
+            <br>
+        <<elseif $danubeTutorIntro is 3>>
+            <<link [[询问在多瑙河街的工作结果|Danube Tutor Result]]>><</link>>
+            <br>
+        <</if>>
+        <br>
+        <<robinbully>>

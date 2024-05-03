@@ -1,5 +1,5 @@
 <<lrtrauma>><br>
-<<if $lemonadeUpgraded isnot 1>>
+<<if $robindebtknown is 1 and $lemonadeUpgraded isnot 1>>
         <<link [[建议升级柠檬水摊|Robin's Lemonade Upgrade]]>><</link>>
         <br>
 <</if>>

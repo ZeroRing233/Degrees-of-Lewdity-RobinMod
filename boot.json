@@ -4,12 +4,15 @@
     "styleFileList": [],
     "scriptFileList": [],
     "tweeFileList": [
-        "game/robin-work/lemonadeUpgrade.twee"
+        "game/robin-work/lemonade/lemonadeUpgrade.twee",
+        "game/robin-work/danube-tutor/danubeTutor.twee"
     ],
     "imgFileList": [],
     "additionFile": [
-        "game/robin-work/lemonadeUpgradeResult.txt",
-        "game/robin-work/lemonadeUpgrade.txt"
+        "game/robin-work/lemonade/lemonadeUpgradeResult.txt",
+        "game/robin-work/lemonade/lemonadeUpgrade.txt",
+        "game/robin-work/danube-tutor/danubeTutorIntro.txt",
+        "game/robin-work/danube-tutor/danubeTutorTalk.txt"
     ],
     "addonPlugin": [
         {
@@ -20,12 +23,22 @@
                 {
                     "passage": "Robin's Lemonade",
                     "findString": "<<print $robin.timer.hurt",
-                    "replaceFile": "game/robin-work/lemonadeUpgradeResult.txt"
+                    "replaceFile": "game/robin-work/lemonade/lemonadeUpgradeResult.txt"
                 },
                 {
                     "passage": "Widgets Robin",
                     "findString": "<<lrtrauma>>\n\t\t<br>",
-                    "replaceFile": "game/robin-work/lemonadeUpgrade.txt"
+                    "replaceFile": "game/robin-work/lemonade/lemonadeUpgrade.txt"
+                },
+                {
+                    "passage": "Danube Tutor",
+                    "findString": "<</if>>\n<br><br>",
+                    "replaceFile": "game/robin-work/danube-tutor/danubeTutorIntro.txt"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<br>\n\t\t<<robinbully>>",
+                    "replaceFile": "game/robin-work/danube-tutor/danubeTutorTalk.txt"
                 }
             ]
         },
@@ -37,9 +50,9 @@
                 "js": [
                     {
                         "from": "V.robinmoney += 300 + V.robin.moneyModifier;",
-                        "to": "{V.robinmoney += 300 + V.robin.moneyModifier;if (V.lemonadeUpgraded && Time.season != \"winter\") V.robinmoney += 600;}",
+                        "to": "V.robinmoney += 300 + V.robin.moneyModifier; let weeklyMoneyChange = 0; if (V.lemonadeUpgraded && Time.season != \"winter\") {weeklyMoneyChange += 600; }  if (V.danubeTutorIntro == 4) {weeklyMoneyChange += 750;}  V.robinmoney += weeklyMoneyChange;",
                         "fileName": "time.js",
-                        "_comment1": "每周结束时，检测是否已升级柠檬水摊并加钱"
+                        "_comment1": "每周结束时，检查当前已有的工作并加钱"
                     }
                 ]
             }

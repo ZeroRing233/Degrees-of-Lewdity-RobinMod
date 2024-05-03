@@ -1,0 +1,39 @@
+:: Danube Tutor Intro Robin
+<<if $phase is 3>>
+	你向<<person2>><<person>>推荐了另一个家教，
+	<span class="gold">你渊博的知识和把问题描述清晰的能力折服了<<person2>><<person>>，<<he>>同意尝试雇佣对方来做家教。</span>
+<<set $danubeTutorIntro to 1>>
+<<else>>
+	你向<<person2>><<person>>推荐了另一个家教，
+    <span class="blue">但<<person2>><<person>>对你并不足够满意，</span><<he>>只是说"等你表现得足够好了，再来提这件事吧"。
+<</if>>
+<br><br>
+<<link [[离开 (1:00)|Danube Street]]>><<pass 60>><<endevent>><</link>>
+<br>
+
+:: Danube Tutor Talk
+你向罗宾讲述了自己在多瑙河街做家教的经历，以及对方所给予的丰厚的工资，罗宾惊讶地瞪大了眼睛，并表示自己愿意去试试看。
+<br>
+<span class="gold">罗宾已答应去尝试多瑙河街的家教工作，可在一天后再次与罗宾沟通。</span>
+<<set $danubeTutorIntro to 2>>
+
+<br><br>
+
+<<robinoptions>>
+
+:: Danube Tutor Result
+罗宾给了你一个大大的拥抱，<<his>>的声音中充满着惊喜:"我去试了你推荐的家教工作，对方对我十分满意，不仅给了我£150的丰厚工资，还邀请我每天放学后都去辅导一小时。
+真的太棒了，这样一来，
+<<if $robinpaid is 1>>
+	我说不定真的能替你付贝利的钱" 
+<<else>>
+	我也许就不用担心贝利的债务了" 
+<</if>>
+<<set $danubeTutorIntro to 4>>
+<<npcincr Robin dom 10>> 
+<<npcincr Robin love 5>> 
+<<gggdom>>
+<<gglove>>
+<br><br>
+
+<<robinoptions>>
