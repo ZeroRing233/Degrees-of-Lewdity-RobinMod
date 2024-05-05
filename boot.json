@@ -5,7 +5,8 @@
     "scriptFileList": [],
     "tweeFileList": [
         "game/robin-work/lemonade/lemonadeUpgrade.twee",
-        "game/robin-work/danube-tutor/danubeTutor.twee"
+        "game/robin-work/danube-tutor/danubeTutor.twee",
+        "game/robin-work/widgets.twee"
     ],
     "imgFileList": [],
     "additionFile": [
@@ -14,13 +15,11 @@
         "game/robin-work/danube-tutor/danubeTutorIntro.txt",
         "game/robin-work/danube-tutor/danubeTutorTalk.txt"
     ],
-    "addonPlugin": [
-        {
+    "addonPlugin": [{
             "modName": "TweeReplacer",
             "addonName": "TweeReplacerAddon",
             "modVersion": "1.0.0",
-            "params": [
-                {
+            "params": [{
                     "passage": "Robin's Lemonade",
                     "findString": "<<print $robin.timer.hurt",
                     "replaceFile": "game/robin-work/lemonade/lemonadeUpgradeResult.txt"
@@ -47,12 +46,11 @@
             "addonName": "ReplacePatcherAddon",
             "modVersion": "1.0.0",
             "params": {
-                "js": [
-                    {
+                "js": [{
                         "from": "V.robinmoney += 300 + V.robin.moneyModifier;",
-                        "to": "V.robinmoney += 300 + V.robin.moneyModifier; let weeklyMoneyChange = 0; if (V.lemonadeUpgraded && Time.season != \"winter\") {weeklyMoneyChange += 600; }  if (V.danubeTutorIntro == 4) {weeklyMoneyChange += 750;}  V.robinmoney += weeklyMoneyChange;",
+                        "to": "V.robinmoney += 300 + V.robin.moneyModifier; \n fragment.append(wikifier(\"weeklymoneycheck\"));",
                         "fileName": "time.js",
-                        "_comment1": "每周结束时，检查当前已有的工作并加钱"
+                        "_comment1": "每周结束时，检查当前已有的工作并调widget函数加钱"
                     },
                     {
                         "from": "function dayPassed() {",
@@ -64,8 +62,7 @@
             }
         }
     ],
-    "dependenceInfo": [
-        {
+    "dependenceInfo": [{
             "modName": "TweeReplacer",
             "version": "^1.0.0"
         },

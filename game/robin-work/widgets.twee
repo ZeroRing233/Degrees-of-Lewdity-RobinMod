@@ -1,0 +1,20 @@
+:: Widgets Weekly Robin Money Check [widget]
+<<widget "weeklymoneycheck">>
+    <<set $weeklyMoneyFixedChange to 0>>
+    <<set $weeklyMoneyRandomChange to 0>>
+    <<if $lemonadeUpgraded is 1 and Time.season isnot "winter">>
+        <<set $weeklyMoneyFixedChange += 600>>
+    <</if>>
+    <<if $danubeTutorIntro is 4>>
+        <<set $weeklyMoneyFixedChange += 750>>
+    <</if>>
+    <<set $robinmoney += $weeklyMoneyFixedChange + $weeklyMoneyRandomChange>> 
+    <<if $weeklyMoneyFixedChange gte 3700>>
+        <<set $robinCouldPayBoth to true>>
+    <<elseif $weeklyMoneyFixedChange gte 1700>>
+        <<set $robinCouldPaySelf to true>>
+    <<else>>
+        <<set $robinCouldPayBoth to false>>
+        <<set $robinCouldPaySelf to false>>
+    <</if>>
+<</widget>>
