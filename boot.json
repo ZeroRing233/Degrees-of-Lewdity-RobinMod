@@ -13,7 +13,11 @@
         "game/robin-work/lemonade/lemonadeUpgradeResult.txt",
         "game/robin-work/lemonade/lemonadeUpgrade.txt",
         "game/robin-work/danube-tutor/danubeTutorIntro.txt",
-        "game/robin-work/danube-tutor/danubeTutorTalk.txt"
+        "game/robin-work/danube-tutor/danubeTutorTalk.txt",
+        "game/robin-work/danube-tutor/danubeTutorAfterWalkHome.txt",
+        "game/robin-work/danube-tutor/danubeTutorAfterWalkHomeTopless1.txt",
+        "game/robin-work/danube-tutor/danubeTutorAfterWalkHomeTopless2.txt",
+        "game/robin-work/danube-tutor/danubeTutorWalkHome.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -38,6 +42,38 @@
                     "passage": "Widgets Robin",
                     "findString": "<br>\n\t\t<<robinbully>>",
                     "replaceFile": "game/robin-work/danube-tutor/danubeTutorTalk.txt"
+                },
+                {
+                    "passage": "Oxford Street",
+                    "findString": "\t\t<<if $robindebtevent gte 1>>",
+                    "replaceFile": "game/robin-work/danube-tutor/danubeTutorWalkHome.txt"
+                },
+                {
+                    "passage": "Robin Walk Home",
+                    "findString": "<<endevent>>",
+                    "replaceFile": "game/robin-work/danube-tutor/danubeTutorAfterWalkHome.txt"
+                },
+                {
+                    "passage": "Robin Walk Home Topless",
+                    "findString": "\t<<link [[继续|Orphanage]]>><<endevent>><</link>>",
+                    "replaceFile": "game/robin-work/danube-tutor/danubeTutorAfterWalkHomeTopless1.txt",
+                    "all": true
+                },
+                {
+                    "passage": "Robin Walk Home Topless",
+                    "findString": "\t<<endevent>>\n\t<<link [[继续|Orphanage]]>><</link>>",
+                    "replaceFile": "game/robin-work/danube-tutor/danubeTutorAfterWalkHomeTopless2.txt",
+                    "all": true
+                },
+                {
+                    "passage": "Robin Walk Home Refuse",
+                    "findString": "<<endevent>>",
+                    "replaceFile": "game/robin-work/danube-tutor/danubeTutorAfterWalkHome.txt"
+                },
+                {
+                    "passage": "Robin Walk Home Towel",
+                    "findString": "<<endevent>>",
+                    "replaceFile": "game/robin-work/danube-tutor/danubeTutorAfterWalkHome.txt"
                 }
             ]
         },

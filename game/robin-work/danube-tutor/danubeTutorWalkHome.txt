@@ -1,0 +1,18 @@
+		<<if $robindebtevent gte 1>>
+		<<elseif $danubeTutorIntro is 4>>
+			<<if Time.hour is 15 and Time.minute lte 5 and _robin_location is "school" and $exposed lte 0>>
+				你看到罗宾正匆匆忙忙地收拾东西，准备去多瑙河街做家教。
+				<br>
+				<<if _robin.trauma gte 80>>
+					<<homeicon>><<link [[与罗宾一起步行回家 (0:40)|Robin Walk Home]]>><<endevent>><<pass 40>><</link>><<glove>>
+					<br><br>
+				<<else>>
+					<<if ($player.gender is "f" or $player.gender is "h") and $worn.upper.exposed gte 2 and $genderknown.includes("Robin")>>
+						<<homeicon>><<link [[与罗宾一起步行回家 (0:15)|Robin Walk Home Topless]]>><<endevent>><<pass 15>><</link>><<glove>><<glust>>
+					<<else>>
+						<<homeicon>><<link [[与罗宾一起步行回家 (0:20)|Robin Walk Home]]>><<endevent>><<pass 20>><</link>><<glove>>
+					<</if>>
+					<br><br>
+				<</if>>
+			<</if>>
+	

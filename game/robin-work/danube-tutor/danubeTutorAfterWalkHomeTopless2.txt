@@ -1,0 +1,6 @@
+    <<if $danubeTutorIntro is 4>>
+        回到家后，罗宾看了看表，惋惜地说:"现在到了我去多瑙河街做家教的时间了，一会见"。说完<<he>>拥抱了一下你，就匆匆离开了。
+        <br><br>
+    <</if>>
+	<<endevent>>
+	<<link [[继续|Orphanage]]>><</link>>
