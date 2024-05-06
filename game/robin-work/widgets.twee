@@ -1,5 +1,22 @@
 :: Widgets Weekly Robin Money Check [widget]
 <<widget "weeklymoneycheck">>
+    /% 负向优化：罗宾交不起钱时，不进罗宾房间也会按时被卖，可去掉）%/
+    <<if !$robindebtevent>>
+        <<set $robindebtevent to 0>>
+    <</if>>
+    <<if !$ronbinRentStage>>
+        <<set $ronbinRentStage to Math.floor(Time.days/7)>>
+    <<else>>
+        <<set $ronbinRentStage += 1 >>
+    <</if>>
+    <<set $robinInDebt to false>>
+    /% 计算方式：当前阶段减少原游戏中已经减过的400 %/
+   	<<set $rentShouldPay to [100,300,500,700,1000,1500,2000][Math.clamp($ronbinRentStage - 1,0,6)]>>
+    <<set $rentShouldPay -= 400>>
+    <<if $robinpaid is 1>>
+         <<set $rentShouldPay to 0>>
+    <</if>>
+
     <<set $weeklyMoneyFixedChange to 0>>
     <<set $weeklyMoneyRandomChange to 0>>
     <<if $lemonadeUpgraded is 1 and Time.season isnot "winter">>
@@ -8,7 +25,19 @@
     <<if $danubeTutorIntro is 4>>
         <<set $weeklyMoneyFixedChange += 750>>
     <</if>>
-    <<set $robinmoney += $weeklyMoneyFixedChange + $weeklyMoneyRandomChange>> 
+    <<set $robinmoney += $weeklyMoneyFixedChange + $weeklyMoneyRandomChange - $rentShouldPay>> 
+
+    <<if $robinmoney < 0 and $robinpaid isnot 1>>
+        /% 先卖游戏机，再负债，此处为了简化逻辑，默认卖完当周能还得起，不考虑其他情况%/
+        <<if !$robinSoldConsole and $robinconsole is 1 and $robinconsolelost isnot 1>>
+            <<set $robinSoldConsole to true>>
+            <<set $robinmoney += 400>>
+        <<else>>
+            <<set $robinInDebt to true>>
+            <<set $robinmoney to 0>>
+        <</if>>
+    <</if>>
+
     <<if $weeklyMoneyFixedChange gte 3700>>
         <<set $robinCouldPayBoth to true>>
     <<elseif $weeklyMoneyFixedChange gte 1700>>
