@@ -1,5 +1,13 @@
 <<lrtrauma>><br>
 <<if $robindebtknown is 1 and $lemonadeUpgraded isnot 1>>
-        <<link [[建议升级柠檬水摊|Robin's Lemonade Upgrade]]>><</link>>
+        <<robinicon "lemonade">><<link [[建议升级柠檬水摊|Robin's Lemonade Upgrade]]>><</link>>
         <br>
+<</if>>
+<<if $plants["lemon"] isnot undefined and $plants["lemon"].amount gt 0>>
+       <<link [[给罗宾柠檬(0:30)|Robin's Lemonade Give Lemon]]>><<pass 30>><</link>> <<icon "tending/lemon.png">> <<glove>> 
+        <br>
+<</if>>
+<<if $plants["blood_lemon"] isnot undefined and $plants["blood_lemon"].amount gt 0>>
+       <<link [[给罗宾血柠(0:30)|Robin's Lemonade Give Blood Lemon]]>><<pass 30>><</link>> <<icon "tending/blood_lemon.gif">> <<glove>>
+       <br>
 <</if>>

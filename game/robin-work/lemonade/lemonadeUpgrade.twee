@@ -96,3 +96,40 @@
 <br><br>
 <<endevent>>
 <<lemonade_stand_options>>
+
+:: Robin's Lemonade Give Lemon
+<<npc Robin>>
+<<set _amount to $plants["lemon"].amount>>
+<<set _cost to Math.round(clone(setup.plants["lemon"].plant_cost))>>
+<<set _result to Math.round(_amount*_cost*4/100)>>
+你提出将自己所拥有的<span class="green"><<print _amount>></span>个柠檬送给罗宾，罗宾欣然答应了。
+<br>
+<<He>>兴奋地说:"这些柠檬是从森林里采摘的吗？用它们榨汁一定能卖得很好，你真是帮了我一个大忙！"<<glove>>
+<<npcincr Robin dom 1>> 
+<<npcincr Robin love 1>>
+<<set $plants["lemon"].amount to 0>>
+<br>
+从森林中采摘的新鲜柠檬做出来的柠檬汁大受欢迎，<span class = "gold"> 罗宾的存款增加了£<<print _result>>。</span> <<gdom>>
+<br><br>
+<<endevent>>
+
+<<lemonade_stand_options>>
+
+:: Robin's Lemonade Give Blood Lemon
+<<npc Robin>>
+<<set _amount to $plants["blood_lemon"].amount>>
+<<set _cost to Math.round(clone(setup.plants["blood_lemon"].plant_cost))>>
+<<set _result to Math.round(_amount*_cost*4/100)>>
+你提出将自己所拥有的<span class="green"><<print _amount>></span>个血柠送给罗宾，罗宾欣然答应了。
+<br>
+<<He>>惊奇地说:"我还是一次看到这样的柠檬！好奇特的颜色，希望榨出的饮料能好喝。"<<glove>>
+<<npcincr Robin dom 1>> 
+<<npcincr Robin love 1>>
+<<set $plants["blood_lemon"].amount to 0>>
+<br>
+每个路过的人都被血柠汁美丽的颜色所惊叹，纷纷来到柠檬水摊前排队购买血柠檬水，<span class = "gold"> 罗宾的存款增加了£<<print _result>>。</span>
+<<gdom>>
+<br><br>
+<<endevent>>
+
+<<lemonade_stand_options>>
