@@ -1,0 +1,6 @@
+<<elseif _robin_location is "danube">>
+    你走到罗宾的房间门口，门上有张纸条："去多瑙河街做家教了！"
+	<br><br>
+	<<getouticon>><<link [[离开|Orphanage]]>><</link>>
+	<br>
+<<elseif _robin_location is "school">>

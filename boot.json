@@ -17,7 +17,8 @@
         "game/robin-work/danube-tutor/danubeTutorAfterWalkHome.txt",
         "game/robin-work/danube-tutor/danubeTutorAfterWalkHomeTopless1.txt",
         "game/robin-work/danube-tutor/danubeTutorAfterWalkHomeTopless2.txt",
-        "game/robin-work/danube-tutor/danubeTutorWalkHome.txt"
+        "game/robin-work/danube-tutor/danubeTutorWalkHome.txt",
+        "game/robin-work/locationReplace.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -74,6 +75,11 @@
                     "passage": "Robin Walk Home Towel",
                     "findString": "<<endevent>>",
                     "replaceFile": "game/robin-work/danube-tutor/danubeTutorAfterWalkHome.txt"
+                },
+                {
+                    "passage": "Robin's Room Entrance",
+                    "findString": "<<elseif _robin_location is \"school\">>",
+                    "replaceFile": "game/robin-work/locationReplace.txt"
                 }
             ]
         },
@@ -93,6 +99,12 @@
                         "to": "function dayPassed() { if (V.danubeTutorIntro && V.danubeTutorIntro == 2){ V.danubeTutorIntro = 3;}",
                         "fileName": "time.js",
                         "_comment1": "如果当前家教状态为阶段3，一天后变为阶段4"
+                    },
+                    {
+                        "from": "else if (Time.schoolDay && between(Time.hour, 8, 15))",
+                        "to": "else if (V.danubeTutorIntro == 4 && Time.schoolDay && ((Time.hour === 15 && between(Time.minute, 6, 59)) || (Time.hour === 16 && between(Time.minute, 0, 30)))) \n { T.robin_location = \"danube\";} \n else if (Time.schoolDay && between(Time.hour, 8, 15))",
+                        "fileName": "ingame.js",
+                        "_comment1": "罗宾当前状态调整: 做家教成功后每天上学日3：06—4:30位置在多瑙河街"
                     }
                 ]
             }
