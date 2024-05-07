@@ -3,7 +3,7 @@
     <<if !$ronbinRentStage>>
         <<set $ronbinRentStage to Math.floor(Time.days/7)>>
     <<else>>
-        <<set $ronbinRentStage += 1 >>
+        <<set $ronbinRentStage += 1>>
     <</if>>
     <<set $robinInDebt to false>>
     /% 计算方式：当前阶段减少原游戏中已经减过的400 %/
@@ -15,12 +15,20 @@
 
     <<set $weeklyMoneyFixedChange to 0>>
     <<set $weeklyMoneyRandomChange to 0>>
+    /% 升级柠檬水摊 %/
     <<if $lemonadeUpgraded is 1 and Time.season isnot "winter">>
         <<set $weeklyMoneyFixedChange += 600>>
     <</if>>
+    /% 家教 %/
     <<if $danubeTutorIntro is 4>>
         <<set $weeklyMoneyFixedChange += 750>>
     <</if>>
+    /% 送柠檬/血柠檬 %/
+    <<if $weeklyLemonadeIncrease isnot undefined and $weeklyLemonadeIncrease gt 0>>
+        <<set $weeklyMoneyRandomChange += $weeklyLemonadeIncrease>>
+        <<set $weeklyLemonadeIncrease to 0>>
+    <</if>>
+
     <<set $robinmoney += $weeklyMoneyFixedChange + $weeklyMoneyRandomChange - $rentShouldPay>> 
 
     <<if $robinmoney < 0 and $robinpaid isnot 1>>
@@ -28,6 +36,9 @@
         <<if !$robinSoldConsole and $robinconsole is 1 and $robinconsolelost isnot 1>>
             <<set $robinSoldConsole to true>>
             <<set $robinmoney += 400>>
+            <<if $robinmoney < 0>>
+                <<set $robinmoney to 0>>
+            <</if>>
         <<else>>
             <<set $robinInDebt to true>>
             <<set $robinmoney to 0>>

@@ -108,8 +108,13 @@
 <<npcincr Robin dom 1>> 
 <<npcincr Robin love 1>>
 <<set $plants["lemon"].amount to 0>>
+<<if $weeklyLemonadeIncrease is undefined>>
+	<<set $weeklyLemonadeIncrease to 0>> 
+<</if>>
+<<set $weeklyLemonadeIncrease += _result>> 
 <br>
-从森林中采摘的新鲜柠檬做出来的柠檬汁大受欢迎，<span class = "gold"> 罗宾的存款增加了£<<print _result>>。</span> <<gdom>>
+从森林中采摘的新鲜柠檬做出来的柠檬汁大受欢迎，<span class = "gold"> 罗宾当周收入增加了£<<print _result>>。</span> <<gdom>>
+
 <br><br>
 <<endevent>>
 
@@ -126,8 +131,12 @@
 <<npcincr Robin dom 1>> 
 <<npcincr Robin love 1>>
 <<set $plants["blood_lemon"].amount to 0>>
+<<if $weeklyLemonadeIncrease is undefined>>
+	<<set $weeklyLemonadeIncrease to 0>> 
+<</if>>
+<<set $weeklyLemonadeIncrease += _result>> 
 <br>
-每个路过的人都被血柠汁美丽的颜色所惊叹，纷纷来到柠檬水摊前排队购买血柠檬水，<span class = "gold"> 罗宾的存款增加了£<<print _result>>。</span>
+每个路过的人都被血柠汁美丽的颜色所惊叹，纷纷来到柠檬水摊前排队购买血柠檬水，<span class = "gold"> 罗宾当周收入增加了£<<print _result>>。</span>
 <<gdom>>
 <br><br>
 <<endevent>>

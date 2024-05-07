@@ -106,6 +106,11 @@
                     "passage": "Robin's Lemonade Purchase",
                     "findString": "<<effects>>",
                     "replaceFile": "game/robin-work/lemonade/lemonadeUpgradeResultRain.txt"
+                },
+                {
+                    "passage": "Robin's Lemonade",
+                    "findString": "<<effects>>",
+                    "replaceFile": "game/robin-work/lemonade/lemonadeUpgradeResultRain.txt"
                 }
             ]
         },
@@ -124,13 +129,13 @@
                         "from": "function dayPassed() {",
                         "to": "function dayPassed() { if (V.danubeTutorIntro && V.danubeTutorIntro == 2){ V.danubeTutorIntro = 3;}",
                         "fileName": "time.js",
-                        "_comment1": "如果当前家教状态为阶段3，一天后变为阶段4"
+                        "_comment1": "如果当前家教状态为阶段2，一天后变为阶段3"
                     },
                     {
                         "from": "else if (Time.schoolDay && between(Time.hour, 8, 15))",
-                        "to": "else if (V.danubeTutorIntro == 4 && Time.schoolDay && ((Time.hour === 15 && between(Time.minute, 6, 59)) || (Time.hour === 16 && between(Time.minute, 0, 30)))) \n { T.robin_location = \"danube\";} \n else if (Time.schoolDay && between(Time.hour, 8, 15))",
+                        "to": "else if (V.danubeTutorIntro == 4 && Time.schoolDay && ((Time.hour === 15 && between(Time.minute, 6, 59)) || (Time.hour === 16 && between(Time.minute, 0, 20)))) \n { T.robin_location = \"danube\";} \n else if (Time.schoolDay && between(Time.hour, 8, 15))",
                         "fileName": "ingame.js",
-                        "_comment1": "罗宾当前状态调整: 做家教成功后每天上学日3：06—4:30位置在多瑙河街"
+                        "_comment1": "罗宾当前状态调整: 做家教成功后每天上学日3：06—4:20位置在多瑙河街"
                     }
                 ]
             }
