@@ -15,9 +15,10 @@
 <br>
 
 :: Danube Tutor Talk
+<<location "home">><<effects>>
 你向罗宾讲述了自己在多瑙河街做家教的经历，以及对方所给予的丰厚的工资，罗宾惊讶地瞪大了眼睛，并表示自己愿意去试试看。
 <br>
-<span class="gold">罗宾已答应去尝试多瑙河街的家教工作，可在一天后再次与罗宾沟通。</span>
+<span class="gold">罗宾已答应去尝试多瑙河街的家教工作，可在两天后再次与罗宾沟通。</span>
 <<set $danubeTutorIntro to 2>>
 
 <br><br>
@@ -25,6 +26,7 @@
 <<robinoptions>>
 
 :: Danube Tutor Result
+<<location "home">><<effects>>
 罗宾给了你一个大大的拥抱，<<his>>的声音中充满着惊喜:"我去试了你推荐的家教工作，对方对我十分满意，不仅给了我£150的丰厚工资，还邀请我每天放学后都去辅导一小时。
 真的太棒了，这样一来，
 <<if $robinpaid is 1>>

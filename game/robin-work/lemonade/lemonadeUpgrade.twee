@@ -33,7 +33,7 @@
 <<link [[之后再说|Robin's Lemonade]]>><</link>>
 
 :: Robin's Lemonade Upgrade Robin
-<<set $location to "home">>
+<<location "home">><<effects>>
 "我的存款已经足够负担各种材料费用了，这次就让我自己来出钱吧。"罗宾说。
 <br>
 你和罗宾一起去购物中心购置升级柠檬水摊所需的材料，买了比之前更大的小推车、更好的榨汁机以及崭新的招牌。
@@ -51,7 +51,7 @@
 
 
 :: Robin's Lemonade Upgrade Self
-<<set $location to "home">>
+<<location "home">><<effects>>
 你坚持要替罗宾支付各种材料费用，
 <<if C.npc.Robin.dom gte 40>>
 	罗宾一开始并不愿意，但最终没有拒绝。
