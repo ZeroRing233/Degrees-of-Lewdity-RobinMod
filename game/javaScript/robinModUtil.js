@@ -7,3 +7,8 @@ function getLastWord(str) {
     return str.substring(spaceIndex + 1);
 }
 window.getLastWord = getLastWord;
+
+function getRandomValueFromArray(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+}
+window.getRandomValueFromArray = getRandomValueFromArray;

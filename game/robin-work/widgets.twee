@@ -15,19 +15,13 @@
 
     <<set $weeklyMoneyFixedChange to 0>>
     <<set $weeklyMoneyRandomChange to 0>>
-    /% 升级柠檬水摊 %/
-    <<if $lemonadeUpgraded is 1 and Time.season isnot "winter">>
-        <<set $weeklyMoneyFixedChange += 600>>
-    <</if>>
+    /% 柠檬水摊相关检查 %/
+    <<weeklyLemonadeCheck>>
     /% 家教 %/
     <<if $danubeTutorIntro is 4>>
         <<set $weeklyMoneyFixedChange += 750>>
     <</if>>
-    /% 送柠檬/血柠檬 %/
-    <<if $weeklyLemonadeIncrease isnot undefined and $weeklyLemonadeIncrease gt 0>>
-        <<set $weeklyMoneyRandomChange += $weeklyLemonadeIncrease>>
-        <<set $weeklyLemonadeIncrease to 0>>
-    <</if>>
+  
 
     <<set $robinmoney += $weeklyMoneyFixedChange + $weeklyMoneyRandomChange - $rentShouldPay>> 
 
@@ -55,6 +49,34 @@
     <</if>>
 <</widget>>
 
+/% 柠檬水摊相关检查 %/
+<<widget "weeklyLemonadeCheck">>
+    /% 升级柠檬水摊 %/
+    <<if $lemonadeUpgraded is 1 and Time.season isnot "winter">>
+        <<set $weeklyMoneyFixedChange += 600>>
+    <</if>>
+    /% 送柠檬/血柠檬 %/
+    <<if $weeklyLemonadeIncrease isnot undefined and $weeklyLemonadeIncrease gt 0>>
+        <<set $weeklyMoneyRandomChange += $weeklyLemonadeIncrease>>
+        <<set $weeklyLemonadeIncrease to 0>>
+    <</if>>
+    /% 升级饮料（为了可读性简化了一些逻辑，毕竟一周就一次）%/
+    <<if $drinkUpgradedList is undefined>>
+        <<set $drinkUpgradedList to []>>
+    <</if>>
+    <<if $triedFruitList isnot undefined>>
+        <<for _i to 0; _i lt $triedFruitList.length; _i++>>
+            <<set $drinkUpgradedList.pushUnique($triedFruitList[_i])>>
+        <</for>>
+    <</if>>
+    <<for _i to 0; _i lt $drinkUpgradedList.length; _i++>>
+        <<if $drinkUpgradedList[_i] is "peach" or $drinkUpgradedList[_i] is "plum">>
+            <<set $weeklyMoneyFixedChange += 25>>
+        <<else>>
+            <<set $weeklyMoneyFixedChange += 50>>
+        <</if>>
+    <</for>>
+<</widget>>
 
 :: Widgets Lemonade Juicing [widget]
 <<widget "lemonadeJuicing">>

@@ -11,11 +11,11 @@
             <<set $untriedFruitList.pushUnique($allFruitList[_i])>>
         <</if>>
     <</for>>
-    <<if $untriedFruitList.length is 0>>
-        <span class="blue">你暂时没有可以尝试榨汁的水果。</span>
-    <</if>>
+
     <<if $triedFruitList.length is $allFruitList.length>>
-        <span class="gold">所有可以榨汁的水果已经尝试完毕。</span>
+        <span class="gold">各种各样的水果都已经尝试过榨汁了。</span>
+    <<elseif $untriedFruitList.length is 0>>
+        <span class="blue">你暂时没有可以尝试榨汁的水果。</span>
     <</if>>
 
     <<for _i to 0; _i lt $untriedFruitList.length; _i++>>
