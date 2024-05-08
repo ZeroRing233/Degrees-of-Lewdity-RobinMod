@@ -2,7 +2,7 @@
     "name": "robinMod",
     "version": "1.0.1",
     "styleFileList": [],
-    "scriptFileList": [],
+    "scriptFileList": ["game/javaScript/robinModUtil.js"],
     "tweeFileList": [
         "game/robin-work/lemonade/lemonadeUpgrade.twee",
         "game/robin-work/danube-tutor/danubeTutor.twee",
@@ -10,9 +10,11 @@
     ],
     "imgFileList": [],
     "additionFile": [
+        "README.md",
         "game/robin-work/lemonade/lemonadeUpgradeResult.txt",
         "game/robin-work/lemonade/lemonadeUpgrade.txt",
         "game/robin-work/lemonade/lemonadeUpgradeResultRain.txt",
+        "game/robin-work/lemonade/lemonadeUpgradeDevice.txt",
         "game/robin-work/danube-tutor/danubeTutorIntro.txt",
         "game/robin-work/danube-tutor/danubeTutorTalk.txt",
         "game/robin-work/danube-tutor/danubeTutorAfterWalkHome.txt",
@@ -93,11 +95,6 @@
                     "replace": "\t\t<<elseif $robinconsole is 1 and $robinpaid isnot 1 and $robinSoldConsole and $robinconsolelost isnot 1>>"
                 },
                 {
-                    "passage": "Widgets Robin",
-                    "findString": "\t\t<<elseif $robinconsole is 1 and $robinpaid isnot 1 and $robindebt gte ($robindebtlimit - 1) and $robinconsolelost isnot 1>>",
-                    "replace": "\t\t<<elseif $robinconsole is 1 and $robinpaid isnot 1 and $robinSoldConsole and $robinconsolelost isnot 1>>"
-                },
-                {
                     "passage": "Robin's Lemonade Help",
                     "findString": "<<effects>>",
                     "replaceFile": "game/robin-work/lemonade/lemonadeUpgradeResultRain.txt"
@@ -111,6 +108,11 @@
                     "passage": "Robin's Lemonade",
                     "findString": "<<effects>>",
                     "replaceFile": "game/robin-work/lemonade/lemonadeUpgradeResultRain.txt"
+                },
+                {
+                    "passage": "Robin's Lemonade",
+                    "findString": "<<lemonade_stand_options>>",
+                    "replaceFile": "game/robin-work/lemonade/lemonadeUpgradeDevice.txt"
                 }
             ]
         },

@@ -1,0 +1,33 @@
+<<if $lemonadeUpgraded is 1>>
+    升级后的榨汁机能够榨出更多品种的饮料，你可以放入不同品种的水果进行尝试。
+    <br>
+    <<set $allFruitList to ["apple","pear","strawberry","peach","plum","wild_carrot","blackberry"]>>
+    <<set $untriedFruitList to []>>
+    <<if $triedFruitList is undefined>>
+        <<set $triedFruitList to []>>
+    <</if>>
+    <<for _i to 0; _i lt $allFruitList.length; _i++>>
+        <<if $plants[$allFruitList[_i]] isnot undefined and $plants[$allFruitList[_i]].amount gt 0 and $triedFruitList.indexOf($allFruitList[_i]) is -1>>
+            <<set $untriedFruitList.pushUnique($allFruitList[_i])>>
+        <</if>>
+    <</for>>
+    <<if $untriedFruitList.length is 0>>
+        <span class="blue">你暂时没有可以尝试榨汁的水果。</span>
+    <</if>>
+    <<if $triedFruitList.length is $allFruitList.length>>
+        <span class="gold">所有可以榨汁的水果已经尝试完毕。</span>
+    <</if>>
+
+    <<for _i to 0; _i lt $untriedFruitList.length; _i++>>
+        <<set _type to $untriedFruitList[_i]>>
+        <<set _name to $plants[_type].name>>
+        <<if _name is "wild_carrot">>
+            <<set _name to "carrot">>
+        <</if>>
+        <<icon `"tending/" + _name + ".png"`>> 
+        <<link [["尝试给"+$plants[_type].plural+"榨汁(0:15)"|"Robin's Lemonade Juicing "+$plants[_type].name]]>><<pass 15>><</link>> 
+        <br>
+    <</for>>
+    <br><br>
+<</if>>
+<<lemonade_stand_options>>

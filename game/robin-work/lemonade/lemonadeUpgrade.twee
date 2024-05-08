@@ -142,3 +142,32 @@
 <<endevent>>
 
 <<lemonade_stand_options>>
+
+/% "apple","pear","strawberry","peach","plum","wild_carrot","blackberry" 希望我之后能找出更简洁的写法%/
+:: Robin's Lemonade Juicing apple
+<<set $fruitType to getLastWord($passage)>>
+<<lemonadeJuicing $fruitType>>
+
+:: Robin's Lemonade Juicing pear
+<<set $fruitType to getLastWord($passage)>>
+<<lemonadeJuicing $fruitType>>
+
+:: Robin's Lemonade Juicing strawberry
+<<set $fruitType to getLastWord($passage)>>
+<<lemonadeJuicing $fruitType>>
+
+:: Robin's Lemonade Juicing peach
+<<set $fruitType to getLastWord($passage)>>
+<<lemonadeJuicing $fruitType>>
+
+:: Robin's Lemonade Juicing plum
+<<set $fruitType to getLastWord($passage)>>
+<<lemonadeJuicing $fruitType>>
+
+:: Robin's Lemonade Juicing wild_carrot
+<<set $fruitType to getLastWord($passage)>>
+<<lemonadeJuicing $fruitType>>
+
+:: Robin's Lemonade Juicing blackberry
+<<set $fruitType to getLastWord($passage)>>
+<<lemonadeJuicing $fruitType>>
