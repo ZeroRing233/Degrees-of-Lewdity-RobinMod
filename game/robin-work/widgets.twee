@@ -87,8 +87,8 @@
     <</if>>
     你尝试了将<<print $plants[_fruitType].plural>>削皮后放入榨汁机中，不一会儿，一杯<<print $plants[$fruitType].plural>>汁就新鲜出炉了。
     <br>
-    你和罗宾分享了新榨出来的<<print $plants[_fruitType].plural>>汁，罗宾惊喜地说:"新饮料的味道真好"，我考虑把它加入菜单中，
-    <span class="gold">下周</span>你说不定就能在菜单上看到它了。" <<glove>> <<npcincr Robin love 1>>
+    你和罗宾分享了新榨出来的<<print $plants[_fruitType].plural>>汁，罗宾惊喜地说:"新饮料的味道真好，我考虑把它加入饮料单中，
+    <span class="gold">下周</span>你说不定就能在饮料单上看到它了。" <<glove>> <<npcincr Robin love 1>>
     <<set $triedFruitList.pushUnique(_fruitType)>>
     <<set $plants[_fruitType].amount -= 1>>
     <br><br>
