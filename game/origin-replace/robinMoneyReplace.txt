@@ -1,0 +1,15 @@
+	<</if>>
+<<elseif $robinpaid is 1>>
+	<<if $robinmoney lte 0>>
+		"对不起...贝利的要求太多了吗？真的很对不起，我已经把能给你的都给你了。"
+		<br><br>
+
+		<<robinoptions>>
+	<<else>>
+	    "好，"<<he>>说着，拿出钱，交给了你。<<He>>看起来有点担心。
+        "贝利的要求是有点苛刻...我很抱歉你也得为我付钱。" 你获得了£<<print $robinmoney>>。
+        <br><br>
+		<<set $money += ($robinmoney * 100)>><<set $robinmoney to 0>>
+		<<robinoptions>>
+	<</if>>
+<<elseif false>>

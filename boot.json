@@ -21,7 +21,8 @@
         "game/robin-work/danube-tutor/danubeTutorAfterWalkHomeTopless1.txt",
         "game/robin-work/danube-tutor/danubeTutorAfterWalkHomeTopless2.txt",
         "game/robin-work/danube-tutor/danubeTutorWalkHome.txt",
-        "game/robin-work/locationReplace.txt"
+        "game/robin-work/locationReplace.txt",
+        "game/origin-replace/robinMoneyReplace.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -113,6 +114,21 @@
                     "passage": "Robin's Lemonade",
                     "findString": "<<lemonade_stand_options>>",
                     "replaceFile": "game/robin-work/lemonade/lemonadeUpgradeDevice.txt"
+                },
+                {
+                    "passage": "Robin Money",
+                    "findString": "\t<</if>>\n<<else>>",
+                    "replaceFile": "game/origin-replace/robinMoneyReplace.txt"
+                },
+                {
+                    "passage": "Robin Hug Cry",
+                    "findString": "<<set $robincrycount to 0>>",
+                    "replace": "<<set $robincrycount to 1>>"
+                },
+                {
+                    "passage": "Robin Hug Cry",
+                    "findString": "<<if _robinlove gte 80 and $robincrycount gte 5>>",
+                    "replaceFile": "<<if _robinlove gte 80 and $robincrycount gte 2>>"
                 }
             ]
         },
