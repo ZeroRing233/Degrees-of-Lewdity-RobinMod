@@ -22,7 +22,9 @@
         "game/robin-work/danube-tutor/danubeTutorAfterWalkHomeTopless2.txt",
         "game/robin-work/danube-tutor/danubeTutorWalkHome.txt",
         "game/robin-work/locationReplace.txt",
-        "game/origin-replace/robinMoneyReplace.txt"
+        "game/origin-replace/robinMoneyReplace.txt",
+        "game/variables/gameStartOnly.txt",
+        "game/variables/versionUpdate.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -128,7 +130,7 @@
                 {
                     "passage": "Robin Hug Cry",
                     "findString": "<<if _robinlove gte 80 and $robincrycount gte 5>>",
-                    "replaceFile": "<<if _robinlove gte 80 and $robincrycount gte 2>>"
+                    "replace": "<<if _robinlove gte 80 and $robincrycount gte 2>>"
                 }
             ]
         },

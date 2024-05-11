@@ -1,5 +1,5 @@
 	<</if>>
-<<elseif $robinpaid is 1>>
+<<elseif C.npc.Robin.dom gte 50>>
 	<<if $robinmoney lte 0>>
 		"对不起...贝利的要求太多了吗？真的很对不起，我已经把能给你的都给你了。"
 		<br><br>
@@ -12,4 +12,4 @@
 		<<set $money += ($robinmoney * 100)>><<set $robinmoney to 0>>
 		<<robinoptions>>
 	<</if>>
-<<elseif false>>
+<<else>>

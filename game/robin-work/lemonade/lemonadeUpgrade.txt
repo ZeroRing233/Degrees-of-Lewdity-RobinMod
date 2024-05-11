@@ -8,10 +8,10 @@
         <br>
 <</if>>
 <<if $plants["lemon"] isnot undefined and $plants["lemon"].amount gt 0>>
-       <<icon "tending/lemon.png">> <<link [[给罗宾柠檬(0:05)|Robin's Lemonade Give Lemon]]>><<pass 5>><</link>> <<glove>> 
+       <<icon "tending/lemon.png">> <<link [[给罗宾柠檬(0:15)|Robin's Lemonade Give Lemon]]>><<pass 15>><</link>> <<glove>> 
         <br>
 <</if>>
 <<if $plants["blood_lemon"] isnot undefined and $plants["blood_lemon"].amount gt 0>>
-       <<icon "tending/blood_lemon.gif">> <<link [[给罗宾血柠(0:05)|Robin's Lemonade Give Blood Lemon]]>><<pass 5>><</link>> <<glove>>
+       <<icon "tending/blood_lemon.gif">> <<link [[给罗宾血柠(0:15)|Robin's Lemonade Give Blood Lemon]]>><<pass 15>><</link>> <<glove>>
        <br>
 <</if>>

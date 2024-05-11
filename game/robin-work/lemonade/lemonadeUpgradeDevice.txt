@@ -29,5 +29,23 @@
         <br>
     <</for>>
     <br><br>
+    <<if $lemonadeNewGoodsList is undefined>>
+        <<set $lemonadeNewGoodsList to []>>
+    <</if>>
+    <<switch $lemonadeNewGoodsList.length>>
+        <<case 0>>
+            扩大后的摊位现在有大量的额外空间。
+        <<case 1>>
+            扩大后的摊位还有许多额外空间。
+        <<case 2>>
+            扩大后的摊位还有一些额外空间。
+        <<case 3>>
+            扩大后的摊位还有一点额外空间。 
+        <<case 4>>
+            扩大后的摊位摆满了各种各样的商品。
+        <<default>>
+            <span class="blue">扩大后的摊位甚至产生了异次元空间，请联系mod作者反馈该问题。</span>
+    <</switch>>
+    <br><br>
 <</if>>
 <<lemonade_stand_options>>

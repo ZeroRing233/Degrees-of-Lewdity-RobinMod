@@ -11,6 +11,7 @@
 	<<npcincr Robin love 5>>
 	<<pass 180>>
 	<<set $lemonadeUpgraded to 1>>
+	<<set $lemonadeNewGoodsList to []>>
 	<<set $robinmoney-= 600>>
 	<</link>><<gggdom>><<gglove>>
 	<br>
@@ -22,6 +23,7 @@
 	<<npcincr Robin love 5>>
 	<<pass 180>>
 	<<set $lemonadeUpgraded to 1>>
+	<<set $lemonadeNewGoodsList to []>>
 	<<set $money-= 60000>>
 	<</link>><<lldom>><<gglove>>
 	<br>
@@ -98,46 +100,60 @@
 <<lemonade_stand_options>>
 
 :: Robin's Lemonade Give Lemon
-<<npc Robin>>
+<<location "beach">> <<npc Robin>>
 <<set _amount to $plants["lemon"].amount>>
 <<set _cost to Math.round(clone(setup.plants["lemon"].plant_cost))>>
 <<set _result to Math.round(_amount*_cost*4/100)>>
 你提出将自己所拥有的<span class="green"><<print _amount>></span>个柠檬送给罗宾，罗宾欣然答应了。
 <br>
-<<He>>兴奋地说:"这些柠檬是从森林里采摘的吗？用它们榨汁一定能卖得很好，你真是帮了我一个大忙！"<<glove>>
-<<npcincr Robin dom 1>> 
-<<npcincr Robin love 1>>
+<<He>>欣喜地说："谢谢你为我提供食材！更多的柠檬意味着我能在柠檬水的原料上花更少的钱。"<<glove>>
+<br>
+当罗宾为柠檬榨汁时，你能听见<<he>>在轻轻地哼着小曲。<<lstress>><<ltrauma>> <<stress -6>><<trauma -2>>
+<br>
+从森林中采摘的新鲜柠檬很受顾客欢迎。<span class = "gold">罗宾本周存款增加了£<<print _result>>。</span>
+
+<<npcincr Robin love 2>>
 <<set $plants["lemon"].amount to 0>>
 <<if $weeklyLemonadeIncrease is undefined>>
 	<<set $weeklyLemonadeIncrease to 0>> 
 <</if>>
 <<set $weeklyLemonadeIncrease += _result>> 
-<br>
-从森林中采摘的新鲜柠檬做出来的柠檬汁大受欢迎，<span class = "gold"> 罗宾当周收入增加了£<<print _result>>。</span> <<gdom>>
-
 <br><br>
 <<endevent>>
 
 <<lemonade_stand_options>>
 
 :: Robin's Lemonade Give Blood Lemon
-<<npc Robin>>
+<<location "beach">> <<npc Robin>>
 <<set _amount to $plants["blood_lemon"].amount>>
 <<set _cost to Math.round(clone(setup.plants["blood_lemon"].plant_cost))>>
 <<set _result to Math.round(_amount*_cost*4/100)>>
-你提出将自己所拥有的<span class="green"><<print _amount>></span>个血柠送给罗宾，罗宾欣然答应了。
-<br>
-<<He>>惊奇地说:"我还是一次看到这样的柠檬！好奇特的颜色，希望榨出的饮料能好喝。"<<glove>>
-<<npcincr Robin dom 1>> 
-<<npcincr Robin love 1>>
+<<if $bloodLemonGived isnot 1>>
+	<<set $bloodLemonGived to 1>>
+	你提出将自己所拥有的<span class="green"><<print _amount>></span>个血柠送给罗宾，罗宾答应了。
+	<br>
+	<<He>>惊奇地说："你从哪儿弄来它们的？我从没见过这样的柠檬！我希望用它们能榨出好喝的饮料。"<<glove>>
+	<br>
+	当血柠榨出红橙色的汁水时，你可以闻到一股幽香从罗宾的榨汁机里飘出来。<<ltiredness>> <<tiredness -6>>
+	<br>
+	人们被崭新的血柠汁所吸引，在罗宾的摊位前排起了长队。<span class = "gold"> 罗宾本周存款增加了£<<print _result>>。</span>
+<<else>>
+	你提出将自己所拥有的<span class="green"><<print _amount>></span>个血柠送给罗宾，罗宾欣然答应了。
+	<br>
+	<<He>>感激地笑着说："太感谢你了！新的柠檬水很受人们的欢迎。谢谢你为我提供这些特别的柠檬！"
+	<br>
+	罗宾正要再说什么，新顾客打断了<<he>>。罗宾开始忙于给人们倒血柠水，一股淡淡的香味弥漫在罗宾的摊位四周。<<ltiredness>> <<tiredness -6>>
+	<br>
+	人们被芳香的血柠汁所吸引，在罗宾的摊位前排起了长队。<span class = "gold"> 罗宾本周存款增加了£<<print _result>>。</span>
+<</if>>
+
+<<npcincr Robin love 2>>
 <<set $plants["blood_lemon"].amount to 0>>
 <<if $weeklyLemonadeIncrease is undefined>>
 	<<set $weeklyLemonadeIncrease to 0>> 
 <</if>>
 <<set $weeklyLemonadeIncrease += _result>> 
-<br>
-每个路过的人都被血柠汁美丽的颜色所惊叹，纷纷来到柠檬水摊前排队购买血柠檬水，<span class = "gold"> 罗宾当周收入增加了£<<print _result>>。</span>
-<<gdom>>
+
 <br><br>
 <<endevent>>
 
