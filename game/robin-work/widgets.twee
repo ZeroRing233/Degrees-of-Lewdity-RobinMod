@@ -22,7 +22,6 @@
         <<set $weeklyMoneyFixedChange += 750>>
     <</if>>
   
-
     <<set $robinmoney += $weeklyMoneyFixedChange + $weeklyMoneyRandomChange - $rentShouldPay>> 
 
     <<if $robinmoney < 0 and $robinpaid isnot 1>>
@@ -55,11 +54,13 @@
     <<if $lemonadeUpgraded is 1 and Time.season isnot "winter">>
         <<set $weeklyMoneyFixedChange += 600>>
     <</if>>
+
     /% 送柠檬/血柠檬 %/
     <<if $weeklyLemonadeIncrease isnot undefined and $weeklyLemonadeIncrease gt 0>>
         <<set $weeklyMoneyRandomChange += $weeklyLemonadeIncrease>>
         <<set $weeklyLemonadeIncrease to 0>>
     <</if>>
+  
     /% 升级饮料（为了可读性简化了一些逻辑，毕竟一周就一次）%/
     <<if $drinkUpgradedList is undefined>>
         <<set $drinkUpgradedList to []>>
@@ -72,10 +73,25 @@
     <<for _i to 0; _i lt $drinkUpgradedList.length; _i++>>
         <<if $drinkUpgradedList[_i] is "peach" or $drinkUpgradedList[_i] is "plum">>
             <<set $weeklyMoneyFixedChange += 25>>
+            <<if $weeklyHoneyCombGiven>>
+                <<set $weeklyMoneyRandomChange += 25>>
+            <</if>>
         <<else>>
             <<set $weeklyMoneyFixedChange += 50>>
+            <<if $weeklyHoneyCombGiven>>
+                <<set $weeklyMoneyRandomChange += 50>>
+            <</if>>
         <</if>>
     <</for>>
+
+    /% 送野蜂巢, 效果是当周饮料收益翻倍 %/
+    <<if $weeklyHoneyCombGiven>>
+        <<set $weeklyMoneyRandomChange += 300>>
+        <<if $lemonadeUpgraded is 1 and Time.season isnot "winter">>
+            <<set $weeklyMoneyRandomChange += 600>>
+        <</if>>
+        <<set $weeklyHoneyCombGiven to false>>
+    <</if>>
 <</widget>>
 
 :: Widgets Lemonade Juicing [widget]

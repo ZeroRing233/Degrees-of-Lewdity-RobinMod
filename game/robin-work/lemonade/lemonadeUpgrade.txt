@@ -15,3 +15,7 @@
        <<icon "tending/blood_lemon.gif">> <<link [[给罗宾血柠(0:15)|Robin's Lemonade Give Blood Lemon]]>><<pass 15>><</link>> <<glove>>
        <br>
 <</if>>
+<<if $plants["wild_honeycomb"] isnot undefined and $plants["wild_honeycomb"].amount gt 0>>
+       <<icon "tending/wild_honeycomb.png">> <<link [[给罗宾蜂巢(0:15)|Robin's Lemonade Give Honey Comb]]>><<pass 15>><</link>> <<glove>>
+       <br>
+<</if>>
