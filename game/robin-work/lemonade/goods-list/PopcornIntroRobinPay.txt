@@ -1,0 +1,15 @@
+<<set $robinmoney -= 10>><<set $popcorn += 1>>    
+            <<if $lemonadeUpgraded and !$lemonadeNewGoodsList.includes("popcorn")>>
+                <br><br>
+                你盯着罗宾递来的爆米花，<span class="gold">心中突然升起了一股念头。</span>
+                <br><br>
+               <<foodicon "popcorn">>
+                <<link [[建议罗宾售卖爆米花|Robin's Lemonade Goods Popcorn Intro]]>>
+                    <<set $phase to 2>>
+                    <<set $theatreLink to _theatreLink>>
+                <</link>>
+                <br>
+            <<else>>
+                <br><br>
+            <</if>>
+            

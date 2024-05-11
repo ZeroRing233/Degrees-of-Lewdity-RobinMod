@@ -1,0 +1,16 @@
+:: Robin's Lemonade Goods Popcorn Intro
+<<set $outside to 0>><<set $location to "town">><<effects>>
+
+你兴奋地对罗宾说:" 我们的柠檬水摊现在还有很多空间没有利用，不如开始卖爆米花吧？咸咸的爆米花配上甜蜜的柠檬水，一定会大受欢迎的! "
+<br><br>
+罗宾的语气也同样兴奋:" 对啊，我怎么没想到呢，我明天就立即行动起来，研究做爆米花所需要的设备和配方。" <<glove>> <<npcincr Robin love 2>>
+<br><br>
+<<set $lemonadeNewGoodsList.pushUnique("popcorn")>>
+<span class="gold"> 罗宾的摊位上将开始售卖爆米花，每周存款增加。</span>
+<br><br>
+<<if $phase is 1>>
+    <<foodicon "popcorn">><<link [[买爆米花 (£10)|"Robin Cinema " + $theatreLink]]>><<set $money -= 1000>><<set $popcorn += 1>><<set $phase to "purchase">><<set $phase2 to "popcorn">><</link>><br>
+    <<socialiseicon "cinema">><<link [[进入放映厅|"Robin Cinema " + $theatreLink]]>><</link>>
+<<else>>
+    <<socialiseicon "cinema">><<link [[进入放映厅|"Robin Cinema " + $theatreLink]]>><<set $phase2 to "popcorn">><</link>>
+<</if>>

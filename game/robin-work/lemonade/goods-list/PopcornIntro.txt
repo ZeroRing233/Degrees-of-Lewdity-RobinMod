@@ -1,0 +1,10 @@
+    <<if $money gte 1000>>
+        <<if $lemonadeUpgraded and !$lemonadeNewGoodsList.includes("popcorn")>>
+            你闻着柜台前爆米花的香气，<span class="gold">心中突然升起了一股念头。</span> <br><br>
+            <<foodicon "popcorn">>
+            <<link [[建议罗宾售卖爆米花|Robin's Lemonade Goods Popcorn Intro]]>>
+                <<set $phase to 1>>
+                <<set $theatreLink to _theatreLink>>
+            <</link>>
+            <br>
+        <</if>>

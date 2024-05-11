@@ -46,6 +46,9 @@
         <<default>>
             <span class="blue">扩大后的摊位甚至产生了异次元空间，请联系mod作者反馈该问题。</span>
     <</switch>>
+    <<if $lemonadeNewGoodsList.includes("popcorn")>>
+        摊位上的爆米花正散发着浓郁的香气。
+    <</if>>
     <br><br>
 <</if>>
 <<lemonade_stand_options>>

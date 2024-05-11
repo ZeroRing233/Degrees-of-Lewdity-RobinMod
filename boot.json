@@ -5,6 +5,7 @@
     "scriptFileList": ["game/javaScript/robinModUtil.js"],
     "tweeFileList": [
         "game/robin-work/lemonade/lemonadeUpgrade.twee",
+        "game/robin-work/lemonade/goods-list/lemonadeGoods.twee",
         "game/robin-work/danube-tutor/danubeTutor.twee",
         "game/robin-work/widgets.twee"
     ],
@@ -15,6 +16,8 @@
         "game/robin-work/lemonade/lemonadeUpgrade.txt",
         "game/robin-work/lemonade/lemonadeUpgradeResultRain.txt",
         "game/robin-work/lemonade/lemonadeUpgradeDevice.txt",
+        "game/robin-work/lemonade/goods-list/PopcornIntro.txt",
+        "game/robin-work/lemonade/goods-list/PopcornIntroRobinPay.txt",
         "game/robin-work/danube-tutor/danubeTutorIntro.txt",
         "game/robin-work/danube-tutor/danubeTutorTalk.txt",
         "game/robin-work/danube-tutor/danubeTutorAfterWalkHome.txt",
@@ -131,6 +134,16 @@
                     "passage": "Robin Hug Cry",
                     "findString": "<<if _robinlove gte 80 and $robincrycount gte 5>>",
                     "replace": "<<if _robinlove gte 80 and $robincrycount gte 2>>"
+                },
+                {
+                    "passage": "Robin Cinema Popcorn",
+                    "findString": "\t<<if $money gte 1000>>",
+                    "replaceFile": "game/robin-work/lemonade/goods-list/PopcornIntro.txt"
+                },
+                {
+                    "passage": "Robin Cinema Popcorn",
+                    "findString": "<<set $robinmoney -= 10>><<set $popcorn += 1>>\n\t\t\t<br><br>",
+                    "replaceFile": "game/robin-work/lemonade/goods-list/PopcornIntroRobinPay.txt"
                 }
             ]
         },

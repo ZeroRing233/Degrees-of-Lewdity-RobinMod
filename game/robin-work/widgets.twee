@@ -92,6 +92,14 @@
         <</if>>
         <<set $weeklyHoneyCombGiven to false>>
     <</if>>
+
+    /% 新增商品列表 %/
+    <<if $lemonadeNewGoodsList is undefined>>
+        <<set $lemonadeNewGoodsList to []>>
+    <</if>>
+    <<if $lemonadeNewGoodsList.includes("popcorn")>>
+        <<set $weeklyMoneyFixedChange += 300>>
+    <</if>>
 <</widget>>
 
 :: Widgets Lemonade Juicing [widget]
