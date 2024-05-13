@@ -50,8 +50,8 @@
                 },
                 {
                     "passage": "Widgets Robin",
-                    "findString": "<br>\n\t\t<<robinbully>>",
-                    "replaceFile": "game/robin-work/danube-tutor/danubeTutorTalk.txt"
+                    "findString": "\t\t<br>\n\t\t<<robinbully>>",
+                    "replaceFile": "game/robin-work/RobinWorkTalk.txt"
                 },
                 {
                     "passage": "Oxford Street",
