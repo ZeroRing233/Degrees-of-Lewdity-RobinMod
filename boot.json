@@ -18,6 +18,7 @@
         "game/robin-work/lemonade/lemonadeUpgradeDevice.txt",
         "game/robin-work/lemonade/goods-list/PopcornIntro.txt",
         "game/robin-work/lemonade/goods-list/PopcornIntroRobinPay.txt",
+        "game/robin-work/lemonade/goods-list/snackIntro.txt",
         "game/robin-work/danube-tutor/danubeTutorIntro.txt",
         "game/robin-work/danube-tutor/danubeTutorTalk.txt",
         "game/robin-work/danube-tutor/danubeTutorAfterWalkHome.txt",
@@ -26,8 +27,7 @@
         "game/robin-work/danube-tutor/danubeTutorWalkHome.txt",
         "game/robin-work/locationReplace.txt",
         "game/origin-replace/robinMoneyReplace.txt",
-        "game/variables/gameStartOnly.txt",
-        "game/variables/versionUpdate.txt"
+        "game/robin-work/RobinWorkTalk.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
