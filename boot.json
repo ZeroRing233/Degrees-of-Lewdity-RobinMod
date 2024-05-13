@@ -146,11 +146,6 @@
                     "replaceFile": "game/robin-work/lemonade/goods-list/PopcornIntroRobinPay.txt"
                 },
                 {
-                    "passage": "Robin Cinema Popcorn",
-                    "findString": "<<set $robinmoney -= 10>><<set $popcorn += 1>>\n\t\t\t<br><br>",
-                    "replaceFile": "game/robin-work/lemonade/goods-list/PopcornIntroRobinPay.txt"
-                },
-                {
                     "passage": "Orphanage Loft",
                     "findString": "<br>\n<<if $loft_spray isnot 1 and $spray lt $spraymax and $loft_kylar>>",
                     "replaceFile": "game/robin-work/lemonade/goods-list/snackIntro.txt"
