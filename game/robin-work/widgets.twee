@@ -100,6 +100,16 @@
     <<if $lemonadeNewGoodsList.includes("popcorn")>>
         <<set $weeklyMoneyFixedChange += 300>>
     <</if>>
+    <<if $lemonadeNewGoodsList.includes("snack")>>
+        <<set $weeklyMoneyFixedChange += 300>>
+    <</if>>
+    <<if $lemonadeNewGoodsList.includes("balloon")>>
+        <<if $lemonadeNewGoodsList.includes("popcorn")>>
+            <<set $weeklyMoneyFixedChange += 200>>
+        <<else>>
+            <<set $weeklyMoneyFixedChange += 150>>
+        <</if>>
+    <</if>>
 <</widget>>
 
 :: Widgets Lemonade Juicing [widget]

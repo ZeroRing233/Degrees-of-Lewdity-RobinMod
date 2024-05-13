@@ -1,0 +1,16 @@
+<<if $loft_river is 1 and !$lemonadeNewGoodsList.includes("snack") and getRobinLocation() is "orphanage">>
+    <br>
+    <<npc Robin>>
+    你看到罗宾和其他几个孤儿正在厨房里，他们正一边说笑着，一边烤制着各式各样的小点心，空气中弥漫着一股香甜的气味。<<gghope>> <<hope 2>>
+    <br><br>
+    罗宾注意到了你，<<he>>微笑着说:" 来得正好，我们正打算制作一些小点心到柠檬水摊上售卖，有厨房真是太棒了！你要一起来帮忙吗？"
+    <br><br>
+    你和罗宾一起制作了司康，巧克力曲奇，草莓挞，戚风蛋糕等点心，罗宾看上去对成品十分满意:" 这些点心一定会卖得很好的。" <<glove>> <<gdom>>
+    <<npcincr Robin love 2>> <<npcincr Robin dom 2>>
+    <br><br>
+    <span class="gold">罗宾的摊位上将开始售卖小点心，每周存款增加。</span>
+    <<set $lemonadeNewGoodsList.pushUnique("snack")>>
+    <br>
+<</if>>
+<br>
+<<if $loft_spray isnot 1 and $spray lt $spraymax and $loft_kylar>>
