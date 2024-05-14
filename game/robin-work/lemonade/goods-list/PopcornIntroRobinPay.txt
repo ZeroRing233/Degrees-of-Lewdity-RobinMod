@@ -1,7 +1,7 @@
 <<set $robinmoney -= 10>><<set $popcorn += 1>> 
-            <<if $lemonadeUpgraded and !$lemonadeNewGoodsList.includes("popcorn") and $workTopicList and !$workTopicList.includes("sellPopcorn")>>
+            <<if ($lemonadeUpgraded or $chocolateUpgraded) and !$lemonadeNewGoodsList.includes("popcorn") and $workTopicList and !$workTopicList.includes("sellPopcorn")>>
                 <br><br>
-                你盯着罗宾递来的爆米花，心中突然升起了一股念头，也许在柠檬水摊售卖爆米花会是一个好主意？
+                你盯着罗宾递来的爆米花，心中突然升起了一股念头，也许在罗宾的摊位上售卖爆米花会是一个好主意？
                 <br><br>
                 <span class="gold">你可以在回到罗宾的房间后与<<him>>沟通你的想法。</span>
                 <br><br>

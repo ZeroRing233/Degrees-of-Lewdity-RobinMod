@@ -6,6 +6,7 @@
     "tweeFileList": [
         "game/robin-work/lemonade/lemonadeUpgrade.twee",
         "game/robin-work/lemonade/goods-list/lemonadeGoods.twee",
+        "game/robin-work/chocolate/chocolateUpgrade.twee",
         "game/robin-work/danube-tutor/danubeTutor.twee",
         "game/robin-work/widgets.twee"
     ],
@@ -19,6 +20,10 @@
         "game/robin-work/lemonade/goods-list/PopcornIntro.txt",
         "game/robin-work/lemonade/goods-list/PopcornIntroRobinPay.txt",
         "game/robin-work/lemonade/goods-list/snackIntro.txt",
+        "game/robin-work/chocolate/chocolateUpgrade.txt",
+        "game/robin-work/chocolate/chocolateUpgradeResult.txt",
+        "game/robin-work/chocolate/chocolateUpgradeResultSnow.txt",
+        "game/robin-work/chocolate/chocolateUpgradeDevice.txt",
         "game/robin-work/danube-tutor/danubeTutorIntro.txt",
         "game/robin-work/danube-tutor/danubeTutorTalk.txt",
         "game/robin-work/danube-tutor/danubeTutorAfterWalkHome.txt",
@@ -149,6 +154,36 @@
                     "passage": "Orphanage Loft",
                     "findString": "<br>\n<<if $loft_spray isnot 1 and $spray lt $spraymax and $loft_kylar>>",
                     "replaceFile": "game/robin-work/lemonade/goods-list/snackIntro.txt"
+                },
+                {
+                    "passage": "Robin Chocolate Widgets",
+                    "findString": "<<lrtrauma>>\n\t\t<br>",
+                    "replaceFile": "game/robin-work/chocolate/chocolateUpgrade.txt"
+                },
+                {
+                    "passage": "Robin Chocolate",
+                    "findString": "<<robinChocolateOfferHelp>>",
+                    "replaceFile": "game/robin-work/chocolate/chocolateUpgradeDevice.txt"
+                },
+                {
+                    "passage": "Robin Chocolate Help",
+                    "findString": "<<effects>>",
+                    "replaceFile": "game/robin-work/chocolate/chocolateUpgradeResultSnow.txt"
+                },
+                {
+                    "passage": "Robin Chocolate Purchase",
+                    "findString": "<<effects>>",
+                    "replaceFile": "game/robin-work/chocolate/chocolateUpgradeResultSnow.txt"
+                },
+                {
+                    "passage": "Robin Chocolate",
+                    "findString": "<<effects>>",
+                    "replaceFile": "game/robin-work/chocolate/chocolateUpgradeResultSnow.txt"
+                },
+                {
+                    "passage": "Robin Chocolate",
+                    "findString": "<<print $robin.timer.hurt",
+                    "replaceFile": "game/robin-work/chocolate/chocolateUpgradeResult.txt"
                 }
             ]
         },

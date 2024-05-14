@@ -1,0 +1,240 @@
+:: Robin Chocolate Reform
+<<npc Robin>><<person1>><<location "park">>
+你看着罗宾的热巧克力摊，想到之前柠檬水摊升级时用到的设备或许可以复用。
+<br><br>
+你对罗宾说:" 我们可以用新的榨汁机卖热果汁，比如热苹果汁就是不错的选择，之前的商品也可以继续售卖，只要修改一下招牌就可以。"
+ <br><br>
+罗宾点了点头，赞许地说:"这是一个好注意，我们可以立刻就开始行动。"
+<br><br>
+<<if $robinmoney gte 300>>
+	<<link [[开始改造热巧克力摊(2:00)|Robin Chocolate Reform Start]]>>
+    <<set $phase to 1>>
+	<<npcincr Robin dom 5>> 
+	<<npcincr Robin love 5>>
+	<<pass 120>>
+	<<set $chocolateUpgraded to 1>>
+	<<set $robinmoney -= 300>>
+	<</link>><<ggdom>><<gglove>>
+	<br>
+<<elseif $money gte 30000>>
+	<span class="blue">罗宾的存款还不够改造热巧克力摊。</span>
+	<br>
+	<<link [[提出用你的钱帮罗宾改造热巧克力摊(£300 2:00)|Robin Chocolate Reform Start]]>>
+    <<set $phase to 2>>
+	<<npcincr Robin dom -5>> 
+	<<npcincr Robin love 5>>
+	<<pass 120>>
+	<<set $chocolateUpgraded to 1>>
+	<<set $money-= 30000>>
+	<</link>><<lldom>><<gglove>>
+	<br>
+<<else>>
+	<span class="blue">罗宾的存款和你的金钱均不足以改造热巧克力摊。</span>
+	<br>
+<</if>>
+<br>
+<<link [[之后再说|Robin Chocolate]]>><<endevent>><</link>>
+
+
+
+:: Robin Chocolate Upgrade
+<<npc Robin>><<person1>><<location "park">>
+贝利的债务问题涌上了你的心头，<span class="gold">一些灵感忽然在你的脑海里浮现。</span>
+<br><br>
+你向罗宾提出了要升级<<his>>的热巧克力摊，而罗宾也早有此想法，于是你们决定立刻行动。
+<br><br>
+<<if $robinmoney gte 600>>
+	<<link [[开始升级热巧克力摊(3:00)|Robin Chocolate Upgrade Start]]>>
+    <<set $phase to 1>>
+	<<npcincr Robin dom 10>> 
+	<<npcincr Robin love 5>>
+	<<pass 180>>
+	<<set $chocolateUpgraded to 1>>
+	<<set $robinmoney -= 600>>
+	<</link>><<gggdom>><<gglove>>
+	<br>
+<<elseif $money gte 60000>>
+	<span class="blue">罗宾的存款还不够升级热巧克力摊。</span>
+	<br>
+	<<link [[提出用你的钱帮罗宾改造热巧克力摊(£600 3:00)|Robin Chocolate Upgrade Start]]>>
+    <<set $phase to 2>>
+	<<npcincr Robin dom -5>> 
+	<<npcincr Robin love 5>>
+	<<pass 120>>
+	<<set $chocolateUpgraded to 1>>
+	<<set $money -= 60000>>
+	<</link>><<lldom>><<gglove>>
+	<br>
+<<else>>
+	<span class="blue">罗宾的存款和你的金钱均不足以改造热巧克力摊。</span>
+	<br>
+<</if>>
+<<link [[之后再说|Robin Chocolate]]>><<endevent>><</link>>
+
+:: Robin Chocolate Upgrade Start
+<<npc Robin>><<location "home">><<effects>>
+<<if $phase is 1>>
+    "我的存款已经足够负担各种材料费用了，这次就让我自己来出钱吧。"罗宾说。
+<<else>>
+    你坚持要替罗宾支付各种材料费用，
+    <<if C.npc.Robin.dom gte 40>>
+	    罗宾一开始并不愿意，但最终没有拒绝。
+    <<else>>
+	    罗宾没有拒绝。
+    <</if>>
+<</if>>
+<br><br>
+你和罗宾一起去购物中心购置升级热巧克力摊所需的材料，买了比之前更大的小推车、更好的榨汁机、微波炉以及崭新的招牌。
+<br><br>
+购买材料之后，你们一起将材料搬回孤儿院进行加工，许多孤儿凑过来好奇地看着你们。
+大家七嘴八舌地提供建议，一位擅长绘画的孤儿帮你们在新买的招牌上画上可爱的雪人，罗宾又在雪人肩上画了一只小鸟。<<gghope>> <<hope 3>>
+<br><br>
+<span class="gold">罗宾的热巧克力摊已完成升级。</span>
+<br><br>
+<<if Time.hour lte 16 and Time.hour gte 9>>
+	<<link [[一起回到摊位 (0:30)|Robin Chocolate Upgrade Back]]>><<pass 30>><</link>>
+<br>
+<</if>>
+<<link [[与罗宾告别|Robin Chocolate Upgrade Leave]]>><</link>>
+
+:: Robin Chocolate Reform Start
+<<npc Robin>><<location "home">><<effects>>
+<<if $phase is 1>>
+    "我的存款已经足够负担各种材料费用了，这次就让我自己来出钱吧。"罗宾说。
+<<else>>
+    你坚持要替罗宾支付各种材料费用，
+    <<if C.npc.Robin.dom gte 40>>
+	    罗宾一开始并不愿意，但最终没有拒绝。
+    <<else>>
+	    罗宾没有拒绝。
+    <</if>>
+<</if>>
+<br><br>
+你和罗宾一起去购物中心购置改造热巧克力摊所需的材料，买了微波炉以及崭新的招牌。
+<br><br>
+购买材料之后，你们一起将材料搬回孤儿院进行加工，许多孤儿凑过来好奇地看着你们。
+大家七嘴八舌地提供建议，一位擅长绘画的孤儿帮你们在新买的招牌上画上可爱的雪人，罗宾又在雪人肩上画了一只小鸟。<<gghope>> <<hope 3>>
+<br><br>
+<span class="gold">罗宾的热巧克力摊已完成升级。</span>
+<br><br>
+<<if Time.hour lte 16 and Time.hour gte 9>>
+	<<link [[一起回到摊位 (0:30)|Robin Chocolate Upgrade Back]]>><<pass 30>><</link>>
+<br>
+<</if>>
+<<link [[与罗宾告别|Robin Chocolate Upgrade Leave]]>><</link>>
+
+:: Robin Chocolate Upgrade Leave
+<<npc Robin>><<person1>>
+临别时，罗宾拥抱了你一下，微笑着说：" 感谢你今天为我所做的一切，再见 "。
+<br><br>
+你的内心升起了一股暖意。<<ltrauma>><<lstress>>
+<<stress -12>><<trauma -6>>
+<br><br>
+<<link [[继续|Orphanage]]>><<endevent>><</link>>
+
+
+:: Robin Chocolate Upgrade Back
+<<set $outside to 1>><<set $location to "park">><<effects>>
+<<npc Robin>><<person1>>
+<<set _robin to statusCheck("Robin")>>
+你与罗宾一同将新设备搬回公园，一路上，你们的脸上都带着笑意。<<ltrauma>><<lstress>><<lrtrauma>>
+<<stress -12>><<trauma -6>><<npcincr Robin trauma -2>>
+<br><br>
+"谢谢你帮我。"<<he>>说。
+<<if _robin.trauma gte 40>>
+	"只有我一个人的话我真不知道该怎么办。"
+<<else>>
+	"我一个人搬这些东西很难。"
+<</if>>
+<<He>>点燃了<<his>>的便携式火炉。
+<<balloonRobinTalk>>
+<br><br>
+<<robinChocolateOfferHelp>>
+
+/% "apple","pear","strawberry","peach","plum","wild_carrot","blackberry" 希望我之后能找出更简洁的写法%/
+:: Robin Chocolate Juicing apple
+<<set $fruitType to getLastWord($passage)>>
+<<chocolateJuicing $fruitType>>
+
+:: Robin Chocolate Juicing pear
+<<set $fruitType to getLastWord($passage)>>
+<<chocolateJuicing $fruitType>>
+
+:: Robin Chocolate Juicing strawberry
+<<set $fruitType to getLastWord($passage)>>
+<<chocolateJuicing $fruitType>>
+
+:: Robin Chocolate Juicing peach
+<<set $fruitType to getLastWord($passage)>>
+<<chocolateJuicing $fruitType>>
+
+:: Robin Chocolate Juicing plum
+<<set $fruitType to getLastWord($passage)>>
+<<chocolateJuicing $fruitType>>
+
+:: Robin Chocolate Juicing wild_carrot
+<<set $fruitType to getLastWord($passage)>>
+<<chocolateJuicing $fruitType>>
+
+:: Robin Chocolate Juicing blackberry
+<<set $fruitType to getLastWord($passage)>>
+<<chocolateJuicing $fruitType>>
+
+/% 复制粘贴大法好 %/
+:: Robin Chocolate Purchase Other
+<<npc Robin>><<person1>>
+<<set $money -= 200>>
+<<set _fruitType to getRandomValueFromArray($drinkUpgradedList)>>
+你向罗宾购买了热<<print $plants[_fruitType].plural>>汁。
+<br><br>
+
+"<<print $robin.timer.hurt gte 1 ? "大概可以，" : "好的！">>一杯热<<print $plants[_fruitType].plural>>汁，马上就来！"罗宾说着，转身去榨果汁。
+<br><br>
+
+你将£2递过柜台交给<<him>>，等到热<<print $plants[_fruitType].plural>>汁准备好后你接过了杯子。
+<br><br>
+
+<<if $robin.timer.hurt gte 1>>
+	<<set $robinmoney += 2>>
+	<<balloonRobinAngryPurchase>>
+
+<<elseif $robinpaid is 1 and $daily.robin.freeDrink isnot 1>>
+	<<set $daily.robin.freeDrink to 1>>
+	"我，我不能收你的钱……"<<He>>说着，把钱推回给了你，"你已经为我向贝利付款了。而且你知道的，反正我最后也会把这些钱给你的。"
+	<<set $money += 200>>
+
+<<elseif $robinpaid is 1>>
+	<<set $robinmoney += 2>>
+	"这……这次我不得不收下了。"<<He>>皱着眉头，低头看着钱，"我必须花钱购买可可粉和牛奶。即使我想，我也没办法一直请你喝。"
+
+<<else>>
+	<<set $robinmoney += 2>>
+	"谢谢您的购买！"<<He>>笑着说，把钱放在柜台下面的某个地方。
+
+<</if>>
+<br><br>
+
+你慢慢地端起杯子，一边啜饮热<<print $plants[_fruitType].plural>>汁，一边用它温暖你的双手。
+<br><br>
+
+"<<print either(
+"……你有没有在晴朗的夜晚里注视过夜空？那里有那么多的星星……那么多像我们这样的世界……但是，现在可能有点太冷了。",
+"……你认为贝利有可能某天会消失吗？一定会有某个有权有势的人憎恨着<<nnpc_him Bailey>>，对吗？",
+"有的时候要让摊位运转起来是很困难的。但最终是值得的。")>>"
+<br><br>
+
+<<if Time.hour gte 17>>
+	"外面越来越冷了，"罗宾说，"不知道你能不能帮我把东西搬回家呢？"
+	<<endevent>>
+	<br><br>
+	<<link [[接受 (0:30)|Orphanage]]>><<npcincr Robin love 1>><<pass 30>><</link>><<clotheson>><<glove>>
+	<br>
+	<<link [[拒绝|Park]]>><<clotheson>><</link>>
+	<br>
+
+<<else>>
+	<<endevent>>
+	/*TODO: <<endevent>> printed in the same passage, so wearProp is ineffectual. Consider expanding interaction in a second passage.*/
+	<<robinChocolateOfferHelp>>
+
+<</if>>

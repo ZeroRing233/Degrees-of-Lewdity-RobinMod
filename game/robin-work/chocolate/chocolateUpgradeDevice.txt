@@ -1,0 +1,72 @@
+<<if $chocolateUpgraded is 1>>
+    升级后的榨汁机能够榨出更多品种的饮料，你可以放入不同品种的水果进行尝试。
+    <br>
+    <<set $allFruitList to ["apple","pear","strawberry","peach","plum","wild_carrot","blackberry"]>>
+    <<set $untriedFruitList to []>>
+    <<if $triedFruitList is undefined>>
+        <<set $triedFruitList to []>>
+    <</if>>
+    <<for _i to 0; _i lt $allFruitList.length; _i++>>
+        <<if $plants[$allFruitList[_i]] isnot undefined and $plants[$allFruitList[_i]].amount gt 0 and $triedFruitList.indexOf($allFruitList[_i]) is -1>>
+            <<set $untriedFruitList.pushUnique($allFruitList[_i])>>
+        <</if>>
+    <</for>>
+
+    <<if $triedFruitList.length is $allFruitList.length>>
+        <span class="gold">各种各样的水果都已经尝试过榨汁了。</span>
+    <<elseif $untriedFruitList.length is 0>>
+        <span class="blue">你暂时没有可以尝试榨汁的水果。</span>
+    <</if>>
+
+    <<for _i to 0; _i lt $untriedFruitList.length; _i++>>
+        <<set _type to $untriedFruitList[_i]>>
+        <<set _name to $plants[_type].name>>
+        <<if _name is "wild_carrot">>
+            <<set _name to "carrot">>
+        <</if>>
+        <<icon `"tending/" + _name + ".png"`>> 
+        <<link [["尝试给"+$plants[_type].plural+"榨汁(0:15)"|"Robin Chocolate Juicing "+$plants[_type].name]]>><<pass 15>><</link>> 
+        <br>
+    <</for>>
+    <br><br>
+    <<if $lemonadeNewGoodsList is undefined>>
+        <<set $lemonadeNewGoodsList to []>>
+    <</if>>
+    <<set _goodsContent to "">>
+    <<switch $lemonadeNewGoodsList.length>>
+        <<case 0>>
+            <<set _goodsContent += "扩大后的摊位现在有大量的额外空间。">>
+        <<case 1>>
+            <<set _goodsContent += "扩大后的摊位还有许多额外空间，">>
+        <<case 2>>
+            <<set _goodsContent += "扩大后的摊位还有一些额外空间，">>
+        <<case 3>>
+            <<set _goodsContent += "扩大后的摊位还有一点额外空间，">>
+        <<case 4>>
+           <<set _goodsContent += "扩大后的摊位摆满了各种各样的商品，">>
+        <<default>>
+            <span class="blue">扩大后的摊位甚至产生了异次元空间，请联系mod作者反馈该问题。</span>
+    <</switch>>
+    <<for _i to 0; _i lt $lemonadeNewGoodsList.length; _i++>>
+        <<switch $lemonadeNewGoodsList[_i]>>
+            <<case "popcorn">>
+                <<set _goodsContent += "爆米花正散发着浓郁的香气">>
+            <<case "snack">>
+                <<set _goodsContent += "各式各样的小点心看起来格外诱人">>
+            <<case "flower">>
+                <<set _goodsContent += "琳琅满目的鲜花让人忍不住凑近欣赏">>
+            <<case "balloon">>
+                <<set _goodsContent += "可爱的气球让人感觉回到了童年">>
+            <<default>>
+                <span class="blue">奇怪的商品混入了摊位中，请联系mod作者反馈该问题。</span>
+        <</switch>>
+        <<if _i is $lemonadeNewGoodsList.length - 1>>
+            <<set _goodsContent += "。">>
+        <<else>>
+            <<set _goodsContent += "，">>
+        <</if>>
+    <</for>>
+    <<print _goodsContent>>
+    <br><br>
+<</if>>
+<<robinChocolateOfferHelp>>

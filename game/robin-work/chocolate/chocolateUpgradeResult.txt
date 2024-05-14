@@ -1,0 +1,16 @@
+<<if $chocolateUpgraded is 1>>
+    新招牌上的雪人仿佛正在向你招手。
+<</if>>
+<<if $drinkUpgradedList isnot undefined and $drinkUpgradedList.length gt 0>>
+    饮料单上新增了许多新品种，包括：
+    <<for _i to 0; _i lt $drinkUpgradedList.length; _i++>>
+        <<set _fruitType to $drinkUpgradedList[_i]>>
+        <<if _i is $drinkUpgradedList.length - 1>>
+            热<<print $plants[_fruitType].plural>>汁。
+        <<else>>
+            热<<print $plants[_fruitType].plural>>汁,
+        <</if>>
+    <</for>>
+    <br>
+<</if>>
+<<print $robin.timer.hurt
