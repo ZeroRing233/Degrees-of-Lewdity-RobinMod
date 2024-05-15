@@ -31,9 +31,11 @@
         "game/robin-work/danube-tutor/danubeTutorAfterWalkHomeTopless2.txt",
         "game/robin-work/danube-tutor/danubeTutorWalkHome.txt",
         "game/robin-work/locationReplace.txt",
-        "game/origin-replace/robinMoneyReplace.txt",
         "game/robin-work/RobinWorkTalk.txt",
-        "game/robin-trait/robinTrait.txt"
+        "game/origin-replace/robinMoneyReplace.txt",
+        "game/robin-trait/robinTrait.txt",
+        "game/robin-trait/robinRoomEntranceTalk.txt",
+        "game/robin-trait/storyCaptionEffects.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -195,6 +197,16 @@
                     "passage": "Traits",
                     "findString": "\t\t\t\t{\n\t\t\t\t\tname: \"罗宾的守护者\",",
                     "replaceFile": "game/robin-trait/robinTrait.txt"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "\t<<elseif _robin.trauma gte 40>>",
+                    "replaceFile": "game/robin-trait/robinRoomEntranceTalk.txt"
+                },
+                {
+                    "passage": "StoryCaption",
+                    "findString": "\t<<if $gamemode is \"soft\">>",
+                    "replaceFile": "game/robin-trait/storyCaptionEffects.txt"
                 }
             ]
         },
@@ -220,6 +232,18 @@
                         "to": "else if (V.danubeTutorIntro == 4 && Time.schoolDay && ((Time.hour === 15 && between(Time.minute, 6, 59)) || (Time.hour === 16 && between(Time.minute, 0, 20)))) \n { T.robin_location = \"danube\";} \n else if (Time.schoolDay && between(Time.hour, 8, 15))",
                         "fileName": "ingame.js",
                         "_comment1": "罗宾当前状态调整: 做家教成功后每天上学日3：06—4:20位置在多瑙河街"
+                    },
+                    {
+                        "from": "if (V.combat === 0 && V.ironmanmode === true)",
+                        "to": "if (V.robinPaySelfMessage) {sWikifier(`<span class=\"gold\">罗宾现在已经能够承担自己的债务，去罗宾的房间时会有惊喜。</span> <br>`); delete V.robinPaySelfMessage;} if (V.combat === 0 && V.ironmanmode === true)",
+                        "fileName": "effect.js",
+                        "_comment1": "当罗宾能够承担自己的债务时，展示提示信息表示你应该去找罗宾了。"
+                    },
+                    {
+                        "from": "if (V.robinromance === 1 && C.npc.Robin.dom >= 40)",
+                        "to": "if (V.robinPaySelfTalked) {statChange.stress(-25);} if (V.robinromance === 1 && C.npc.Robin.dom >= 40)",
+                        "fileName": "time.js",
+                        "_comment1": "同舟共济特质：每日压力额外减25，创伤前面减过了"
                     }
                 ]
             }

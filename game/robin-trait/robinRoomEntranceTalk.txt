@@ -1,0 +1,17 @@
+    <<elseif $robinCouldPaySelf and !$robinPaySelfTalked>>
+        你敲了敲门，罗宾很快就跑出来开了门，<<his>>的声音中充满着喜悦:" 我终于...终于能支付贝利的债务了，
+        <<if $robinpaid is 1>>
+            感谢你之前对我的保护，也感谢你一直在为我出谋划策。 "
+        <<else>>
+            我终于不用再担惊受怕了，感谢你一直在为我出谋划策。 "
+        <</if>>
+        <<gggdom>> <<ggglove>> <<npcincr Robin dom 10>> <<npcincr Robin love 10>> 
+        <br><br>
+        <<he>>紧紧地拥抱着你，眼角里有泪水划过，你也回以同样的拥抱:" 这没什么，从今往后，我们也将共同面对一切困难。 "
+        <br><br>
+        <span class="gold">罗宾现在与你同舟共济，<<he>>会更加自信，你也因此感到充满了力量。 </span>
+        <<set $robinpaid to 2>> /% 为防止原作更新这个属性，$robinpaid不直接作为特质依据 %/
+        <<set $robinPaySelfTalked to true>>
+        <br><br>
+
+    <<elseif _robin.trauma gte 40>>

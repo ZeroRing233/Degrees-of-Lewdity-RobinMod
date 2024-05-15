@@ -10,7 +10,12 @@
    	<<set $rentShouldPay to [100,300,500,700,1000,1500,2000][Math.clamp($ronbinRentStage - 1,0,6)]>>
     <<set $rentShouldPay -= 400>>
     <<if $robinpaid is 1>>
-         <<set $rentShouldPay to 0>>
+        <<set $rentShouldPay to 0>>
+        /% 罗宾欠PC的钱，拿到特质之后用来触发还钱剧情 %/
+        <<if $robinShouldPayBack is undefined>>
+            <<set $robinShouldPayBack to 0>>
+        <</if>>
+        <<set $robinShouldPayBack += $rentShouldPay + 400>>
     <</if>>
 
     <<set $weeklyMoneyFixedChange to 0>>
@@ -42,6 +47,9 @@
         <<set $robinCouldPayBoth to true>>
     <<elseif $weeklyMoneyFixedChange gte 1700>>
         <<set $robinCouldPaySelf to true>>
+        <<if !$robinPaySelfTalked>>
+            <<set $robinPaySelfMessage to 1>>
+        <</if>>
     <<else>>
         <<set $robinCouldPayBoth to false>>
         <<set $robinCouldPaySelf to false>>
