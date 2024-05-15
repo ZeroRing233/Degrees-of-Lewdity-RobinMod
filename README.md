@@ -6,9 +6,9 @@
 
 本mod基于最新的0.4.7.5版本进行自测，旧版本可能会有不兼容的问题。
 
-安装方式：下载release下test-version中的Degrees-of-Lewdity-RobinMod.zip，用平时玩游戏用的mod管理器加载完汉化mod后，再加载此mod，安装前记得保存自己的存档码，以防止出现bug无法恢复
+安装方式：下载release下0.0.1-temp中的robinMod.mod.zip，用平时玩游戏用的mod管理器加载完汉化mod后，再加载此mod，安装前记得保存自己的存档码，以防止出现bug无法恢复
 
-**请忽略release显示的上传时间，Degrees-of-Lewdity-RobinMod.zip是会随readme同步更新的！**
+**请忽略release显示的上传时间，robinMod.mod.zip是会随readme同步更新的！**
 
 **不正经的补充**
 
