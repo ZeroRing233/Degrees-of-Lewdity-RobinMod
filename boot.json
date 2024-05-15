@@ -32,7 +32,8 @@
         "game/robin-work/danube-tutor/danubeTutorWalkHome.txt",
         "game/robin-work/locationReplace.txt",
         "game/origin-replace/robinMoneyReplace.txt",
-        "game/robin-work/RobinWorkTalk.txt"
+        "game/robin-work/RobinWorkTalk.txt",
+        "game/robin-trait/robinTrait.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -50,7 +51,7 @@
                 },
                 {
                     "passage": "Danube Tutor",
-                    "findString": "<</if>>\n<br><br>",
+                    "findString": "<</if>>\n<br>",
                     "replaceFile": "game/robin-work/danube-tutor/danubeTutorIntro.txt"
                 },
                 {
@@ -184,6 +185,16 @@
                     "passage": "Robin Chocolate",
                     "findString": "<<print $robin.timer.hurt",
                     "replaceFile": "game/robin-work/chocolate/chocolateUpgradeResult.txt"
+                },
+                {
+                    "passage": "Traits",
+                    "findString": "$robinpaid gte 1",
+                    "replace": "$robinpaid gte 1 and !$robinPaySelfTalked and !$robinPayBothTalked"
+                },
+                {
+                    "passage": "Traits",
+                    "findString": "\t\t\t\t{\n\t\t\t\t\tname: \"罗宾的守护者\",",
+                    "replaceFile": "game/robin-trait/robinTrait.txt"
                 }
             ]
         },

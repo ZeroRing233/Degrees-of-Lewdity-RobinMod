@@ -1,0 +1,14 @@
+                {
+              	    name: "同舟共济—罗宾",
+					colour: "lblue",
+					has: $robinPaySelfTalked and !$robinPayBothTalked,
+					text: "你们有着同样的境遇，你们对抗着同样的命运，额外增加每天的创伤和压力恢复",
+                },
+				{
+              	    name: "被罗宾守护",
+					colour: "lblue",
+					has: $robinPayBothTalked,
+					text: "在猛烈的暴风雨中，你寻觅到了一处港湾，大幅增加每天的创伤和压力恢复",
+                },
+				{
+					name: "罗宾的守护者",				
