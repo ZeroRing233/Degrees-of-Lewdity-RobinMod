@@ -1,0 +1,9 @@
+<</if>>
+<br><br>
+<<if ($lemonadeUpgraded or $chocolateUpgraded) and !$lemonadeNewGoodsList.includes("flower") and $workTopicList isnot undefined and !$workTopicList.includes("sellFlower")>>
+    你盯着罗宾浇花的身影，心里突然浮现出了一个灵感，或许你们可以在摊位上卖花？
+    <br><br>
+    但你不想打破这美好的时光，<span class="gold">也许在罗宾的房间和<<he>>谈谈是个更好的选择。</span>
+    <br><br>
+    <<set $workTopicList.pushUnique("sellFlower")>>
+<</if>>

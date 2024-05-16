@@ -17,4 +17,46 @@
 <br><br>
 <<robinoptions>>
 
+:: Robin's Lemonade Goods Flower Intro
+<<set $outside to 0>><<set $location to "home">><<effects>>
+/% 复制了一哈农贸工厂 %/
+<<set _flowerCount to 0>>
+<<set _flowerList to []>>
+<<set _plant_keys to Object.keys($plants)>>
+<<set _plantItems to {}>>
+<<for _i to 0; _i lt _plant_keys.length; _i++>>
+	<<if setup.plants[_plant_keys[_i]].type is "flower">>
+		<<set _plantItems[_plant_keys[_i]] to clone($plants[_plant_keys[_i]])>>
+        <<set _flowerCount += $plants[_plant_keys[_i]].amount>>
+        <<set _flowerList.pushUnique($plants[_plant_keys[_i]].plural)>>
+	<</if>>
+<</for>>
+
+你向罗宾提出了要在<<his>>的摊位上卖自己种的花，并给<<him>>一半的分成，罗宾也认为这是一个好主意，
+<<he>>激动地问道:" 你现在手上有多少种花？我们可以先盘点一下有哪些是可以卖的。"
+<br><br>
+<<if _flowerCount lt 50 or _flowerList.length lt 2>>
+    <span class="blue">你手上的鲜花数量和种类不够。</span> 你数了数现有的鲜花，遗憾地摇了摇头。
+    <br><br>
+    但罗宾并没有在意，<<he>>说道:" 没关系，我们可以下次再谈这件事。"
+<<else>>
+    你向罗宾展示了自己手上的鲜花，包括：
+    <<for _i to 0; _i lt _flowerList.length; _i++>>
+        <<if _i is _flowerList.length - 1>>
+            <<print _flowerList[_i]>>。
+        <<else>>
+            <<print _flowerList[_i]>>,
+        <</if>>
+    <</for>>
+    <br><br>
+    罗宾感到十分惊喜:" 这些鲜花想必会为我的摊位带来不少色彩，我们现在就着手准备这件事吧。" <<glove>> <<npcincr Robin love 2>>
+    <br><br>
+    <span class="gold"> 罗宾的摊位上将开始售卖你拥有的花，每周随机消耗鲜花并增加<<he>>和你的存款。</span>
+    <<set $workTopicList to $workTopicList.filter(topic => topic!="sellFlower")>>
+    <<set $lemonadeNewGoodsList.pushUnique("flower")>>
+<</if>>
+<br><br>
+<<robinoptions>>
+
+
 

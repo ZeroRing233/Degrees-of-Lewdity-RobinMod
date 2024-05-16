@@ -1,0 +1,5 @@
+    <<set $money += ($robinmoney * 100)>>
+    <<if $robinShouldPayBack is undefined>>
+        <<set $robinShouldPayBack to 0>>
+    <</if>>
+    <<set $robinShouldPayBack -= $robinmoney>>

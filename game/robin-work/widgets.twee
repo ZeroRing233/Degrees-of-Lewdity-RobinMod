@@ -123,6 +123,38 @@
             <<set $weeklyMoneyFixedChange += 150>>
         <</if>>
     <</if>>
+    <<if $lemonadeNewGoodsList.includes("flower")>>
+        /% 给卖花单独写个部件 %/
+        <<sellFlower>>
+    <</if>>
+<</widget>>
+
+<<widget "sellFlower">>
+    <<set $soldFlowerList to []>>
+    <<set $soldFlowerMoney to 0>>
+    <<set _amount to 0>>
+    <<set _plant_keys to Object.keys($plants)>>
+    <<set _plantItems to {}>>
+
+    <<for _i to 0; _i lt _plant_keys.length; _i++>>
+	    <<if setup.plants[_plant_keys[_i]].type is "flower">>
+		    <<set _plantItems[_plant_keys[_i]] to clone($plants[_plant_keys[_i]])>>
+            <<if C.npc.Robin.dom gte 80>>
+                <<set _amount to random(101,150)>>
+            <<elseif C.npc.Robin.dom gte 40>>
+                <<set _amount to random(51,100)>>
+            <<else>>
+                <<set _amount to random(1,50)>>
+            <</if>>
+            <<set _amount to Math.min(_plantItems[_plant_keys[_i]].amount, _amount)>>
+            <<set _cost to Math.round(clone(setup.plants[_plant_keys[_i]].plant_cost))>>
+            <<set $soldFlowerList.pushUnique({"name": _plantItems[_plant_keys[_i]].plural,"amount": _amount})>>
+            <<set $soldFlowerMoney += _cost * _amount>>
+            <<set $plants[_plant_keys[_i]].amount -= _amount>>
+	    <</if>>
+    <</for>>
+    <<set $weeklyMoneyRandomChange += Math.round($soldFlowerMoney/200)>>
+    <<set $soldFlowerMoney -= Math.round($soldFlowerMoney/2)>>
 <</widget>>
 
 :: Widgets Lemonade Juicing [widget]

@@ -20,6 +20,7 @@
         "game/robin-work/lemonade/goods-list/PopcornIntro.txt",
         "game/robin-work/lemonade/goods-list/PopcornIntroRobinPay.txt",
         "game/robin-work/lemonade/goods-list/snackIntro.txt",
+        "game/robin-work/lemonade/goods-list/flowerIntro.txt",
         "game/robin-work/chocolate/chocolateUpgrade.txt",
         "game/robin-work/chocolate/chocolateUpgradeResult.txt",
         "game/robin-work/chocolate/chocolateUpgradeResultSnow.txt",
@@ -35,7 +36,8 @@
         "game/origin-replace/robinMoneyReplace.txt",
         "game/robin-trait/robinTrait.txt",
         "game/robin-trait/robinRoomEntranceTalk.txt",
-        "game/robin-trait/storyCaptionEffects.txt"
+        "game/robin-trait/storyCaptionEffects.txt",
+        "game/robin-trait/robinPayBackCount.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -207,6 +209,16 @@
                     "passage": "StoryCaption",
                     "findString": "\t<<if $gamemode is \"soft\">>",
                     "replaceFile": "game/robin-trait/storyCaptionEffects.txt"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "\t<<set $money += ($robinmoney * 100)>>",
+                    "replaceFile": "game/robin-trait/robinPayBackCount.txt"
+                },
+                {
+                    "passage": "Garden Robin Help",
+                    "findString": "<</if>>\n<br><br>",
+                    "replaceFile": "game/robin-work/lemonade/goods-list/flowerIntro.txt"
                 }
             ]
         },

@@ -8,8 +8,16 @@
         <<if $workTopicList is undefined>>
             <<set $workTopicList to []>>
         <</if>>
+        <<if $lemonadeNewGoodsList is undefined>>
+            <<set $lemonadeNewGoodsList to []>>
+        <</if>>
         <<if $workTopicList.includes("sellPopcorn")>>
             <<foodicon "popcorn">> <<link [[提议在摊位上售卖爆米花(2:00)|Robin's Lemonade Goods Popcorn Intro]]>><<pass 120>><</link>>
+            <br>
+        <</if>>
+        <<if $workTopicList.includes("sellFlower")>>
+            <<icon "tending/daisy.png">> <<link [[提议在摊位上售卖鲜花(0:15)|Robin's Lemonade Goods Flower Intro]]>><<pass 15>><</link>>
+            <br>
         <</if>>
         <br>
         <<robinbully>>
