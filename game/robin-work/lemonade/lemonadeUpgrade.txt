@@ -1,5 +1,9 @@
 <<lrtrauma>><br>
-<<if $money gt 200 and $drinkUpgradedList isnot undefined and $drinkUpgradedList.length gt 0>>
+<<if $money gte 100 and $weeklyHoneyCombGiven>>
+        <<foodicon "lemonade">><<link [[买蜂蜜柠檬水 (0:15)|Robin's Lemonade Purchase Honey]]>><<stress -6>><<trauma -1>><<pass 15>><</link>><<lstress>><<ltrauma>>
+	<br>
+<</if>>
+<<if $money gte 200 and $drinkUpgradedList isnot undefined and $drinkUpgradedList.length gt 0>>
         <<foodicon "strawberrylemonade">><<link [[购买其他饮料(0:15)|Robin's Lemonade Purchase Other]]>><<pass 15>><<stress -6>><<trauma -1>> <</link>> <<lstress>><<ltrauma>>
         <br>
 <</if>>

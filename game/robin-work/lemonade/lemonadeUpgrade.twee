@@ -275,3 +275,59 @@
 	<<lemonade_stand_options>>
 
 <</if>>
+
+/% 复制粘贴*2 %/
+:: Robin's Lemonade Purchase Honey
+<<location "beach">>
+<<npc Robin>><<person1>>
+<<set $money -= 100>>
+
+"<<print $robin.timer.hurt gte 1 ? "大概可以，" : "没问题！">>只要一分钟……"罗宾说着，把柠檬水倒进一个玻璃杯里，然后加了一小勺蜂蜜。
+<br><br>
+
+<<He>>摇晃了几下杯子，然后<<print $robin.timer.hurt gte 1 ? "面无表情地" : "微笑着">>将柠檬水递给你，你也把£1放在了柜台上。
+<br><br>
+
+<<if $robin.timer.hurt gte 1>>
+	<<set $robinmoney += 1>>
+	<<balloonRobinAngryPurchase>>
+
+<<elseif $robinpaid is 1 and $daily.robin.freeDrink isnot 1>>
+	<<set $daily.robin.freeDrink to 1>>
+	"我，我不能收你的钱……"<<He>>把钱还给了你，"你已经为我向贝利付款了。而且你知道的，反正我最后也会把这些钱给你的。"
+	<<set $money += 100>>
+
+<<elseif $robinpaid is 1>>
+	<<set $robinmoney += 1>>
+	"这……这次我不得不收下了。"<<He>>看钱的时候皱着眉，"我必须花钱购买柠檬水的原料。虽然我想一直请你喝，但我做不到的。"
+
+<<else>>
+	<<set $robinmoney += 1>>
+	"感谢您的购买！"<<He>>微笑着，把钱收到了柜台下面。
+
+<</if>>
+<br><br>
+
+你看着海潮翻滚，聆听着海浪声，几乎一口气喝完了柠檬水。蜂蜜均匀地混合在柠檬水里，使它更加甜蜜。<<ltiredness>><<tiredness -6>>
+<br><br>
+
+"<<print either(
+"……你有没有在晴朗的夜晚里注视过夜空？那里有那么多的星星……那么多像我们这样的世界……我多希望孤儿院里有个望远镜啊。",
+"有些时候我喜欢就这么看着那些海滩上的人。他们看上去是那么的快乐……",
+"总有一天我会下海去游泳的。如果我穿学校的泳衣，你觉得会有人认为我很奇怪吗？")>>"
+<br><br>
+
+<<if Time.hour gte 17>>
+	"我需要把我的小摊带回家了。"罗宾说道，"现在这个时间没什么人会买柠檬水的，能请你帮帮我吗？"
+	<<endevent>>
+	<br><br>
+	<<link [[同意 (0:30)|Orphanage]]>><<npcincr Robin love 1>><<pass 30>><</link>><<glove>>
+	<br>
+	<<link [[拒绝|Beach]]>><</link>>
+	<br>
+
+<<else>>
+	<<endevent>>
+	<<lemonade_stand_options>>
+
+<</if>>

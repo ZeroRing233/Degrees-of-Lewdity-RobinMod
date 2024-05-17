@@ -15,7 +15,7 @@
         <br><br>
 
     <<elseif $soldFlowerMoney isnot undefined and $soldFlowerMoney gt 0>>
-        你敲了敲门，罗宾很快就跑出来开了门，<<he>>开心地说：" 这是我上周帮你卖花赚到的钱，我已经把属于我的那部分留下了，我给我们卖出的花列了个清单。" <<gdom>> <<npcincr Robin dom 2>>
+        你敲了敲门，罗宾很快就跑出来开了门，<<he>>开心地说：" 这是我上周帮你卖花赚到的钱，我已经把属于自己的那部分留下了，我给我们卖出的花列了个清单。" <<gdom>> <<npcincr Robin dom 2>>
         <br><br>
         <<He>>说着，递给了你一份清单，上面写着：
         <span class="green">

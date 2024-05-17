@@ -25,7 +25,7 @@
 	<<npcincr Robin love 5>>
 	<<pass 120>>
 	<<set $chocolateUpgraded to 1>>
-	<<set $money-= 30000>>
+	<<set $money -= 30000>>
 	<</link>><<lldom>><<gglove>>
 	<br>
 <<else>>

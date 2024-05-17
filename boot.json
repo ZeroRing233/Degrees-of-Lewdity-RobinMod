@@ -219,6 +219,11 @@
                     "passage": "Garden Robin Help",
                     "findString": "<</if>>\n<br><br>",
                     "replaceFile": "game/robin-work/lemonade/goods-list/flowerIntro.txt"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<<if $money gte 100>>",
+                    "replace": "<<if $money gte 100 and !$weeklyHoneyCombGiven>>"
                 }
             ]
         },
