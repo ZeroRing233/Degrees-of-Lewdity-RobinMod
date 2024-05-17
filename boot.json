@@ -21,6 +21,9 @@
         "game/robin-work/lemonade/goods-list/PopcornIntroRobinPay.txt",
         "game/robin-work/lemonade/goods-list/snackIntro.txt",
         "game/robin-work/lemonade/goods-list/flowerIntro.txt",
+        "game/robin-work/lemonade/goods-list/balloonIntro.txt",
+        "game/robin-work/lemonade/goods-list/sellBalloonResult.txt",
+        "game/robin-work/lemonade/goods-list/sellBalloonResult2.txt",
         "game/robin-work/chocolate/chocolateUpgrade.txt",
         "game/robin-work/chocolate/chocolateUpgradeResult.txt",
         "game/robin-work/chocolate/chocolateUpgradeResultSnow.txt",
@@ -224,6 +227,21 @@
                     "passage": "Widgets Robin",
                     "findString": "<<if $money gte 100>>",
                     "replace": "<<if $money gte 100 and !$weeklyHoneyCombGiven>>"
+                },
+                {
+                    "passage": "Beach",
+                    "findString": "\t\t\t<<if $scienceproject is \"ongoing\" and $sciencephallusknown is 1 and $sciencephallus lt 10 and Time.dayState isnot \"night\" and $weather isnot \"rain\" and $weather isnot \"snow\" and $exposed lte 0>>",
+                    "replaceFile": "game/robin-work/lemonade/goods-list/balloonIntro.txt"
+                },
+                {
+                    "passage": "Balloon Consume",
+                    "findString": "\t<<link [[提议让摊主和罗宾合作|Balloon Partner]]>><<set $phase to \"help\">><<handheldon>><</link>><br>",
+                    "replaceFile": "game/robin-work/lemonade/goods-list/sellBalloonResult.txt"
+                },
+                {
+                    "passage": "Balloon Widgets",
+                    "findString": "\t\t\t<<socialiseicon>><<link [[说服摊主和罗宾合作|Balloon Convince]]>><<set $phase to \"persuade\">><</link>><<englishdifficulty 1 1000>>",
+                    "replaceFile": "game/robin-work/lemonade/goods-list/sellBalloonResult2.txt"
                 }
             ]
         },

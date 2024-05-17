@@ -19,5 +19,9 @@
             <<icon "tending/daisy.png">> <<link [[提议在摊位上售卖鲜花(0:15)|Robin's Lemonade Goods Flower Intro]]>><<pass 15>><</link>>
             <br>
         <</if>>
+        <<if $workTopicList.includes("sellBalloon") and $balloonStand.robin.status isnot "helped">>
+            <<gifticon "balloons">> <<link [[提议在摊位上售卖气球(0:15)|Robin's Lemonade Goods Balloon Intro]]>><<pass 15>><</link>>
+            <br>
+        <</if>>
         <br>
         <<robinbully>>

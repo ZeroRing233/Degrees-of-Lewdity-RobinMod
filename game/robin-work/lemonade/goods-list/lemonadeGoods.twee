@@ -58,5 +58,47 @@
 <br><br>
 <<robinoptions>>
 
+:: Robin's Lemonade Goods Balloon Intro
+<<set $outside to 0>><<set $location to "home">><<effects>>
+<<set _success to false>>
+你向罗宾提出了可以通过售卖气球来挽回被气球摊摊主抢走的生意。
+<br><br>
+<<if $balloonStand.robin.status is "sabotaged">>
+    <<if C.npc.Robin.dom gte 40>>
+        罗宾对此表示赞同：" 这是个好主意，毕竟是对方先开始卖饮料的，我确实也可以开始卖气球，而不是自己默默忍受这一切。"
+        <<set _success to true>>
+    <<elseif C.npc.Robin.dom gte 20 and $englishtrait gte 3>>
+        罗宾一开始犹豫不决，但你最终说服了<<him>>，<<he>>点了点头，赞同地说:" 是的，毕竟是对方先开始卖饮料的...我确实也可以开始卖气球，而不是自己默默忍受这一切。"
+        <<set _success to true>>
+    <<else>>
+        但罗宾似乎并没有想要反击对方的意思。<span class="blue">也许你可以之后再试着说服<<him>>？</span>
+    <</if>>
+<<else>>
+    <<if C.npc.Robin.dom gte 80>>
+        罗宾对此表示赞同：" 这是个好主意，我确实也可以开始卖气球，而不是被动地与对方分享海滩。"
+        <<set _success to true>>
+    <<elseif C.npc.Robin.dom gte 40 and $englishtrait gte 3>>
+        罗宾一开始犹豫不决，但你最终说服了<<him>>，<<he>>点了点头，赞同地说:" 是的，我确实也可以开始卖气球，而不是被动地与对方分享海滩。"
+        <<set _success to true>>
+    <<else>>
+        但罗宾似乎并没有想要打击对方的意思。<span class="blue">也许你可以之后再试着说服<<him>>？</span>
+    <</if>>
+<</if>>
+<<if _success>>
+    <br><br>
+    <span class="gold">罗宾的摊位上将开始售卖气球，每周存款增加。</span>
+    <<set $workTopicList to $workTopicList.filter(topic => topic!="sellBalloon")>>
+    <<set $lemonadeNewGoodsList.pushUnique("balloon")>>
+<</if>>
+<br><br>
+<<robinoptions>>
 
 
+:: Balloon Leave
+你只是对着摊主摇了摇头，表示你对此没什么想法，然后便转身离开了。
+<br><br>
+<<if $weather is "winter">>
+	<<link [[继续|Park]]>><<set $eventskip to 1>><<endevent>><</link>>
+<<else>>
+	<<link [[继续|Beach]]>><<set $eventskip to 1>><<endevent>><</link>>
+<</if>>

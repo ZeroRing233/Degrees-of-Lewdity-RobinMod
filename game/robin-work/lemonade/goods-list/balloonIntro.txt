@@ -1,0 +1,8 @@
+            <<if ($lemonadeUpgraded or $chocolateUpgraded) and $openinghours is 1 and $balloonStand.open is true and $balloonStand.robin.status isnot "unaffected" and $balloonStand.robin.status isnot "helped" and $workTopicList isnot undefined and !$workTopicList.includes("sellBalloon") and !$lemonadeNewGoodsList.includes("balloon") >>
+                你看着生意兴旺的气球摊，又想到了罗宾正在面临的困境，也许回家后你可以和罗宾谈一谈这个问题？
+                <br><br>
+                <span class="gold">如果你不打算让气球摊摊主提供帮助，罗宾的房间里将会开放新选项。</span>
+                <br><br>
+                <<set $workTopicList.pushUnique("sellBalloon")>>
+            <</if>>       
+			<<if $scienceproject is "ongoing" and $sciencephallusknown is 1 and $sciencephallus lt 10 and Time.dayState isnot "night" and $weather isnot "rain" and $weather isnot "snow" and $exposed lte 0>>
