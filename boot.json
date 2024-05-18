@@ -242,6 +242,16 @@
                     "passage": "Balloon Widgets",
                     "findString": "\t\t\t<<socialiseicon>><<link [[说服摊主和罗宾合作|Balloon Convince]]>><<set $phase to \"persuade\">><</link>><<englishdifficulty 1 1000>>",
                     "replaceFile": "game/robin-work/lemonade/goods-list/sellBalloonResult2.txt"
+                },
+                {
+                    "passage": "Bailey's Office",
+                    "findString": "<<if $robinpaid isnot 1 and $robindebtknown is 1>>",
+                    "replace": "<<if !$robinPaySelfTalked and $robinpaid isnot 1 and $robindebtknown is 1>>"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<<if $robinpaid isnot 1>>",
+                    "replace": "<<if !$robinPaySelfTalked and $robinpaid isnot 1>>"
                 }
             ]
         },
