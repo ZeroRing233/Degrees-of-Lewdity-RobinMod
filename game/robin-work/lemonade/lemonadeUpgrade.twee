@@ -159,29 +159,36 @@
 
 :: Robin's Lemonade Give Honey Comb
 <<location "beach">> <<npc Robin>>
-<<if $honeyCombGived isnot 1>>
-	<<set $honeyCombGived to 1>>
-	你将手上沉甸甸的蜂巢递给了罗宾，罗宾震惊了:" 这是...你是从哪里弄来的？森林深处？这太危险了！" <<glove>>
+<<if $honeyCombGiven isnot 1>>
+	<<set $honeyCombGiven to 1>>
+	当你把手中沉甸甸的蜂巢展示给罗宾看时，罗宾的眼睛睁大了。
 	<br><br>
-	你没有直接回答<<he>>的问题，只是鼓励罗宾说:" 听说加了蜂蜜的柠檬水非常好喝！赶快来试试看吧。"
+	"这是——你在森林里找到的？......采摘它们一定很危险。"<<He>>犹豫了一下，小心翼翼地接过蜂巢。
 	<br><br>
-	罗宾小心翼翼地从蜂巢中提取出蜂蜜，然后试着加入了第一杯柠檬水中。
+	你建议罗宾往柠檬水里加入野蜂巢里的蜂蜜，<<he>>照做了。
 	<br><br>
-	加了蜂蜜的柠檬水果然大受欢迎，每个品尝到蜂蜜柠檬水的顾客脸上都带着满足的表情。
+	加入了纯天然蜂蜜的柠檬水吸引了更多的顾客。罗宾给了你一个感激的微笑。
+	<br><br>
+	"你为我提供了这么珍贵的东西，我都不知道要怎样感谢你了。"<<He>>拥抱了你一下。
+	<<glove>> <<ltrauma>> <<lstress>>
+	<<npcincr Robin love 2>> <<stress -12>><<trauma -6>>
 	<br><br>
 	<span class = "gold">罗宾本周饮料收益翻倍。</span>
 <<else>>
-	你将手上沉甸甸的蜂巢递给了罗宾，罗宾感激地说:" 谢谢，但你真的不必为了我冒险。" <<glove>>
+	当你把手中沉甸甸的蜂巢展示给罗宾看时，罗宾露出了微笑。
+	<br><br>	
+	"真的很谢谢你，但你不必为了我冒险。"<<his>>的眼神有些担心，很快小心地接过蜂巢。
 	<br><br>
-	你摇了摇头，让罗宾不要担心，并用期待的眼神看着<<him>>。
+	罗宾熟练地从野蜂巢中提取出蜂蜜，并将其加入柠檬水中。
 	<br><br>
-	罗宾熟练地从蜂巢中提取出蜂蜜，将它们一一加入了现榨的柠檬水中。
+	加入了纯天然蜂蜜的柠檬水吸引了更多的顾客。罗宾给了你一个拥抱。
 	<br><br>
-	人们被甜蜜的蜂蜜柠檬水所吸引，在罗宾的摊位前排起了长队。
+	"这是如此得珍贵......但效果很好，再次谢谢你。"<<He>>吻了一下你的脸颊。
+	<<glove>> <<ltrauma>> <<lstress>>
+	<<npcincr Robin love 2>> <<stress -12>><<trauma -6>>
 	<br><br>
 	<span class = "gold">罗宾本周饮料收益翻倍。</span>
 <</if>>
-<<npcincr Robin love 2>>
 <<set $plants["wild_honeycomb"].amount -= 1>>
 <<set $weeklyHoneyCombGiven to true>>
 <br><br>
