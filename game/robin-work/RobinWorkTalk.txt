@@ -23,5 +23,9 @@
             <<gifticon "balloons">> <<link [[提议在摊位上售卖气球(0:15)|Robin's Lemonade Goods Balloon Intro]]>><<pass 15>><</link>>
             <br>
         <</if>>
+        <<if $workTopicList.includes("liveStream")>>
+            <<robinicon "controller">> <<link [[建议罗宾当游戏主播(0:15)|Live Stream Intro]]>><<pass 15>><</link>>
+            <br>
+        <</if>>
         <br>
         <<robinbully>>

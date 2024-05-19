@@ -1,5 +1,5 @@
 <<lrtrauma>><br>
-<<if $money gte 100 and $weeklyHoneyCombGiven>>
+<<if $money gte 200 and $weeklyHoneyCombGiven>>
         <<foodicon "lemonade">><<link [[买蜂蜜柠檬水 (0:15)|Robin's Lemonade Purchase Honey]]>><<stress -6>><<trauma -1>><<pass 15>><</link>><<lstress>><<ltrauma>>
 	<br>
 <</if>>

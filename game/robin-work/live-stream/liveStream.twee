@@ -1,0 +1,62 @@
+:: Live Stream Intro
+<<set $outside to 0>><<set $location to "home">><<effects>>
+你提出了罗宾可以考虑去当游戏主播，"把爱好当成工作是一件很棒的事，不是吗？"你说。
+<<if C.npc.Robin.dom lt 20 or C.npc.Robin.trauma gte 80>>
+    罗宾顿了顿，随后摇头说："可是...我对在观众面前直播不是很有信心，<span class="blue">也许我需要再做一些心理准备。"</span>
+    <br><br>
+    <<robinoptions>>
+<<else>>
+    罗宾的眼睛亮了起来，<<he>>说:"这是一个好主意，我可以试试看！我们首先需要准备器材。"
+    <br><br>
+    <<He>>站起身，开始在狭小的房间里四处张望，仿佛在寻找着什么。
+    <br><br>
+    "首先，我们需要一个高配置的电脑，这样才能流畅地运行游戏和直播软件。"罗宾说。
+    <br><br>
+    "没错，除了电脑，我们还需要一个好的麦克风，摄像头，以及稳定的网络。"你补充道。
+    <br><br>
+    "你说得对，我这就开始列个清单，看看还需要准备什么。"罗宾一边说着，一边拿出纸笔开始记录。
+    <br><br>
+    <<if $robinmoney gte 2000>>
+        在做完记录后，罗宾兴奋地说:"太棒了，我的存款能够负担得起直播设备的费用！我们立即开始行动吧。" <<gggdom>> <<npcincr dom 10>>
+        <br><br>
+        <<link [[与罗宾一起准备直播设备(3:00)|Live Stream Prepare Together]]>><<set $robinmoney -=200000>><</link>>
+    <<elseif $money gte 200000>>
+        "可是..."在做完记录后，罗宾为难地说："我的存款..."
+        <br><br>
+        <<link [[提出你可以替罗宾付钱(£2000)|Live Stream Pay]]>><<npcincr Robin love 5>><<npcincr Robin dom -5>><<set $money -=200000>><</link>> <<gglove>><<lldom>><br>
+        <<link [[鼓励罗宾自己攒钱|Live Stream Encourage]]>><<npcincr Robin love 2>><<npcincr Robin dom 2>><</link>> <<glove>><<gdom>>
+    <<else>>
+        "可是..."在做完记录后，罗宾为难地说："我的存款..."
+        <br><br>
+        <span class="blue">你的存款同样负担不起直播设备的费用。</span> <br>
+        <<link [[鼓励罗宾自己攒钱|Live Stream Encourage]]>><<npcincr Robin love 2>><<npcincr Robin dom 2>><</link>> <<glove>><<gdom>>
+    <</if>>
+<</if>>
+
+:: Live Stream Pay
+你安慰<<him>>说:"我可以替你出设备的钱。" 罗宾犹豫了一下，点了点头。
+<<link [[与罗宾一起准备直播设备(3:00)|Live Stream Prepare Together]]>><</link>>
+
+:: Live Stream Encourage
+你鼓励罗宾自己攒钱，罗宾被你的话打动了，<<he>>郑重地点了点头，说:"一旦我攒够了购买设备的钱，我就马上告诉你。"
+<<set $workTopicList to $workTopicList.filter(topic => topic!="liveStream")>>
+<<set $liveStreamAgreeMoney to true>>
+
+:: Live Stream Prepare Together
+<<if Time.hour lt 12 and (Time.schoolDay or Time.isWeekEnd())>>
+	<<effects>>
+	罗宾看起来跃跃欲试，但<<he>>看了看墙上的时钟，然后惋惜地说："抱歉，我需要尽快做好准备，等晚上我们再来一起准备直播设备。"
+    <<set $workTopicList to $workTopicList.filter(topic => topic!="liveStream")>>
+    /% 需要补充这两种情况（进入房间自动触发），加油%/
+    <<set $liveStreamAgreePrepare to true>>
+<<else>>
+    接下来的几个小时里，你们按照清单逐一准备所需的器材，从购买电脑、麦克风、摄像头，到布置直播间、测试网络环境，每一步都充满了期待和乐趣。
+    <<pass 180>>
+    <<glove>><<npcincr Robin love 2>>
+    <br><br>
+    <span class="gold">此后每天晚上八点到九点罗宾会在房间内进行直播，每周存款递增。</span>
+    <<set $workTopicList to $workTopicList.filter(topic => topic!="liveStream")>>
+    <<set $liveStream to 1>>
+<</if>>
+<br><br>
+<<robinoptions>>

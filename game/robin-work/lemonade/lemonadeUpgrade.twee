@@ -287,22 +287,22 @@
 :: Robin's Lemonade Purchase Honey
 <<location "beach">>
 <<npc Robin>><<person1>>
-<<set $money -= 100>>
+<<set $money -= 200>>
 
 "<<print $robin.timer.hurt gte 1 ? "大概可以，" : "没问题！">>只要一分钟……"罗宾说着，把柠檬水倒进一个玻璃杯里，然后加了一小勺蜂蜜。
 <br><br>
 
-<<He>>摇晃了几下杯子，然后<<print $robin.timer.hurt gte 1 ? "面无表情地" : "微笑着">>将柠檬水递给你，你也把£1放在了柜台上。
+<<He>>摇晃了几下杯子，然后<<print $robin.timer.hurt gte 1 ? "面无表情地" : "微笑着">>将柠檬水递给你，你也把£2放在了柜台上。
 <br><br>
 
 <<if $robin.timer.hurt gte 1>>
-	<<set $robinmoney += 1>>
+	<<set $robinmoney += 2>>
 	<<balloonRobinAngryPurchase>>
 
 <<elseif $robinpaid is 1 and $daily.robin.freeDrink isnot 1>>
 	<<set $daily.robin.freeDrink to 1>>
 	"我，我不能收你的钱……"<<He>>把钱还给了你，"你已经为我向贝利付款了。而且你知道的，反正我最后也会把这些钱给你的。"
-	<<set $money += 100>>
+	<<set $money += 200>>
 
 <<elseif $robinpaid is 1>>
 	<<set $robinmoney += 1>>
