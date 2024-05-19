@@ -24,8 +24,10 @@
 <<set _flowerList to []>>
 <<set _plant_keys to Object.keys($plants)>>
 <<set _plantItems to {}>>
+<<set _noSellFlower to ["poppy","strange_flower"]>>
+
 <<for _i to 0; _i lt _plant_keys.length; _i++>>
-	<<if setup.plants[_plant_keys[_i]].type is "flower">>
+	<<if setup.plants[_plant_keys[_i]].type is "flower" and !_noSellFlower.includes(_plant_keys[_i])>>
 		<<set _plantItems[_plant_keys[_i]] to clone($plants[_plant_keys[_i]])>>
         <<set _flowerCount += $plants[_plant_keys[_i]].amount>>
         <<set _flowerList.pushUnique($plants[_plant_keys[_i]].plural)>>
@@ -48,6 +50,8 @@
             <<print _flowerList[_i]>>,
         <</if>>
     <</for>>
+    <br>
+    <span class ="blue">一些特殊的花没有被展示出来，直觉告诉你最好让罗宾远离这些东西。</span>
     <br><br>
     罗宾感到十分惊喜:" 这些鲜花想必会为我的摊位带来不少色彩，我们现在就着手准备这件事吧。" <<glove>> <<npcincr Robin love 2>>
     <br><br>
@@ -63,27 +67,17 @@
 <<set _success to false>>
 你向罗宾提出了可以通过售卖气球来挽回被气球摊摊主抢走的生意。
 <br><br>
-<<if $balloonStand.robin.status is "sabotaged">>
-    <<if C.npc.Robin.dom gte 40>>
-        罗宾对此表示赞同：" 这是个好主意，毕竟是对方先开始卖饮料的，我确实也可以开始卖气球，而不是自己默默忍受这一切。"
-        <<set _success to true>>
-    <<elseif C.npc.Robin.dom gte 20 and $englishtrait gte 3>>
-        罗宾一开始犹豫不决，但你最终说服了<<him>>，<<he>>点了点头，赞同地说:" 是的，毕竟是对方先开始卖饮料的...我确实也可以开始卖气球，而不是自己默默忍受这一切。"
-        <<set _success to true>>
-    <<else>>
-        但罗宾似乎并没有想要反击对方的意思。<span class="blue">也许你可以之后再试着说服<<him>>？</span>
-    <</if>>
+
+<<if C.npc.Robin.dom gte 80>>
+    罗宾对此表示赞同：" 这是个好主意，我确实也可以开始卖气球，而不是被动地与对方分享海滩。"
+    <<set _success to true>>
+<<elseif C.npc.Robin.dom gte 40 and $englishtrait gte 3>>
+    罗宾一开始犹豫不决，但你最终说服了<<him>>，<<he>>点了点头，赞同地说:" 是的，我确实也可以开始卖气球，而不是被动地与对方分享海滩。"
+    <<set _success to true>>
 <<else>>
-    <<if C.npc.Robin.dom gte 80>>
-        罗宾对此表示赞同：" 这是个好主意，我确实也可以开始卖气球，而不是被动地与对方分享海滩。"
-        <<set _success to true>>
-    <<elseif C.npc.Robin.dom gte 40 and $englishtrait gte 3>>
-        罗宾一开始犹豫不决，但你最终说服了<<him>>，<<he>>点了点头，赞同地说:" 是的，我确实也可以开始卖气球，而不是被动地与对方分享海滩。"
-        <<set _success to true>>
-    <<else>>
-        但罗宾似乎并没有想要打击对方的意思。<span class="blue">也许你可以之后再试着说服<<him>>？</span>
-    <</if>>
+    但罗宾似乎并没有想要打击对方的意思。<span class="blue">也许你可以之后再试着说服<<him>>？</span>
 <</if>>
+
 <<if _success>>
     <br><br>
     <span class="gold">罗宾的摊位上将开始售卖气球，每周存款增加。</span>
