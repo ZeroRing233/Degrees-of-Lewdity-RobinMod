@@ -1,6 +1,6 @@
-    <<if $lemonadeNewGoodsList isnot undefined and !$lemonadeNewGoodsList.includes("balloon")>>
+    <<if $lemonadeNewGoodsList isnot undefined and !$lemonadeNewGoodsList.includes("balloon") and !$lemonadeNewGoodsList.includes("popcorn")>>
 	    <<link [[提议让摊主和罗宾合作|Balloon Partner]]>><<set $phase to "help">><<handheldon>><</link>><br>
     <<else>>
-        <span class="blue">你已经提议让罗宾售卖气球了，无法再提议让摊主和罗宾合作。</span> <br>
+        <span class="blue">你已经提议让罗宾售卖气球或爆米花了，无法再提议让摊主和罗宾合作。</span> <br>
         <<link [[直接离开|Balloon Leave]]>><</link>><br>
     <</if>>

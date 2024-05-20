@@ -1,5 +1,5 @@
     <<if $money gte 1000>>
-        <<if ($lemonadeUpgraded or $chocolateUpgraded) and !$lemonadeNewGoodsList.includes("popcorn") and $workTopicList isnot undefined and !$workTopicList.includes("sellPopcorn")>>
+        <<if ($lemonadeUpgraded or $chocolateUpgraded) and !$lemonadeNewGoodsList.includes("popcorn") and $workTopicList isnot undefined and !$workTopicList.includes("sellPopcorn") and $balloonStand.robin.status isnot "helped">>
             你闻着柜台前爆米花的香气，心中突然升起了一股念头。也许在罗宾的摊位上售卖爆米花会是一个好主意？
             <br><br>
             <span class="gold">你可以在回到罗宾的房间后与<<him>>沟通你的想法。</span>
