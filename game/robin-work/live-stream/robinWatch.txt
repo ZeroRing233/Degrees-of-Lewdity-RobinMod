@@ -1,9 +1,9 @@
-<<if $rng gte 81 and $robindebtknown and $liveStream isnot 1 and !$liveStreamAgreePrepare and!$liveStreamAgreeMoney and !$workTopicList.includes("liveStream")>>
+<<if $rng gte 81 and $robindebtknown and $liveStream isnot 1 and !$liveStreamAgreePrepare and !$workTopicList.includes("liveStream")>>
     你目不转睛地盯着罗宾，看着<<he>>用娴熟的技巧击败了一个又一个敌人，闯过了一个又一个难关，
-    <span class="gold>你忽然产生了一些灵感，也许罗宾可以去做游戏直播？</span>
-    <br><br>
+    <span class="gold">你忽然产生了一些灵感，也许罗宾可以去做游戏直播？</span>
     <<if $money lt 200000 and $robinmoney lt 2000>>
-        <span class="blue>你想到自己和罗宾微薄的存款，</span>又想到直播设备高昂的价格，只能暂时将这个念头放在心中了。
+        <br><br>
+        <span class="blue">你想到自己和罗宾微薄的存款，</span>又想到直播设备高昂的价格，只能暂时将这个念头放在心中了。
     <<else>>     
         <<set $workTopicList.pushUnique("liveStream")>>
     <</if>>

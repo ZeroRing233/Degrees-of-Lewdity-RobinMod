@@ -35,4 +35,10 @@
         <<set $soldFlowerMoney to 0>>
         <<set $soldFlowerList to []>>
 
+    <<elseif $liveStreamAgreePrepare and $robinmoney gte 2000 and Time.hour gte 12>>
+        你敲了敲门，罗宾飞奔了出来，<<he>>激动地说:"还记得你之前提到的直播的事吗？现在我已经攒够需要的钱了，我们赶紧开始吧。" <<gggdom>> <<npcincr Robin dom 10>>
+        <br><br>
+        <<link [[与罗宾一起准备直播设备(3:00)|Live Stream Prepare Together]]>><<set $phase to 1>><</link>>
+        <br><br>
+
     <<elseif _robin.trauma gte 40>>

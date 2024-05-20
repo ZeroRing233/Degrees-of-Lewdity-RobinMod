@@ -1,8 +1,13 @@
 :: Live Stream Intro
 <<set $outside to 0>><<set $location to "home">><<effects>>
 你提出了罗宾可以考虑去当游戏主播，"把爱好当成工作是一件很棒的事，不是吗？"你说。
+<br><br>
 <<if C.npc.Robin.dom lt 20 or C.npc.Robin.trauma gte 80>>
     罗宾顿了顿，随后摇头说："可是...我对在观众面前直播不是很有信心，<span class="blue">也许我需要再做一些心理准备。"</span>
+    <br><br>
+    <<robinoptions>>
+<<elseif Time.hour lt 12 and (Time.schoolDay or Time.isWeekEnd())>>
+    罗宾看起来跃跃欲试，但<<he>>看了看墙上的时钟，然后惋惜地说："抱歉，我需要尽快做好准备，等晚上回家后我们再来一起详细讨论这个问题吧。"
     <br><br>
     <<robinoptions>>
 <<else>>
@@ -17,15 +22,16 @@
     "你说得对，我这就开始列个清单，看看还需要准备什么。"罗宾一边说着，一边拿出纸笔开始记录。
     <br><br>
     <<if $robinmoney gte 2000>>
-        在做完记录后，罗宾兴奋地说:"太棒了，我的存款能够负担得起直播设备的费用！我们立即开始行动吧。" <<gggdom>> <<npcincr dom 10>>
+        在做完记录后，罗宾兴奋地说:"太棒了，我的存款能够负担得起直播设备的费用！我们立即开始行动吧。" <<gggdom>> <<npcincr Robin dom 10>>
         <br><br>
-        <<link [[与罗宾一起准备直播设备(3:00)|Live Stream Prepare Together]]>><<set $robinmoney -=200000>><</link>>
+        <<link [[与罗宾一起准备直播设备(3:00)|Live Stream Prepare Together]]>><<set $phase to 1>><</link>>
     <<elseif $money gte 200000>>
         "可是..."在做完记录后，罗宾为难地说："我的存款..."
         <br><br>
-        <<link [[提出你可以替罗宾付钱(£2000)|Live Stream Pay]]>><<npcincr Robin love 5>><<npcincr Robin dom -5>><<set $money -=200000>><</link>> <<gglove>><<lldom>><br>
+        <<link [[提出你可以替罗宾付钱(£2000)|Live Stream Pay]]>><<npcincr Robin love 5>><<npcincr Robin dom -5>><</link>> <<gglove>><<lldom>><br>
         <<link [[鼓励罗宾自己攒钱|Live Stream Encourage]]>><<npcincr Robin love 2>><<npcincr Robin dom 2>><</link>> <<glove>><<gdom>>
     <<else>>
+        /% 因为要金钱达标才会触发灵感, 又马上用掉应该是小概率事件, 但以防万一还是把这个差分加上了 %/
         "可是..."在做完记录后，罗宾为难地说："我的存款..."
         <br><br>
         <span class="blue">你的存款同样负担不起直播设备的费用。</span> <br>
@@ -34,29 +40,33 @@
 <</if>>
 
 :: Live Stream Pay
+<<set $outside to 0>><<set $location to "home">><<effects>>
 你安慰<<him>>说:"我可以替你出设备的钱。" 罗宾犹豫了一下，点了点头。
-<<link [[与罗宾一起准备直播设备(3:00)|Live Stream Prepare Together]]>><</link>>
+<br><br>
+<<link [[与罗宾一起准备直播设备(3:00)|Live Stream Prepare Together]]>><<set $phase to 2>><</link>>
 
 :: Live Stream Encourage
+<<set $outside to 0>><<set $location to "home">><<effects>>
 你鼓励罗宾自己攒钱，罗宾被你的话打动了，<<he>>郑重地点了点头，说:"一旦我攒够了购买设备的钱，我就马上告诉你。"
 <<set $workTopicList to $workTopicList.filter(topic => topic!="liveStream")>>
-<<set $liveStreamAgreeMoney to true>>
+<<set $liveStreamAgreePrepare to true>>
+<br><br>
+<<robinoptions>>
 
 :: Live Stream Prepare Together
-<<if Time.hour lt 12 and (Time.schoolDay or Time.isWeekEnd())>>
-	<<effects>>
-	罗宾看起来跃跃欲试，但<<he>>看了看墙上的时钟，然后惋惜地说："抱歉，我需要尽快做好准备，等晚上我们再来一起准备直播设备。"
-    <<set $workTopicList to $workTopicList.filter(topic => topic!="liveStream")>>
-    /% 需要补充这两种情况（进入房间自动触发），加油%/
-    <<set $liveStreamAgreePrepare to true>>
+<<set $outside to 0>><<set $location to "home">><<effects>>
+接下来的几个小时里，你们按照清单逐一准备所需的器材，从购买电脑、麦克风、摄像头，到布置直播间、测试网络环境，每一步都充满了期待和乐趣。
+<<pass 180>>
+<<glove>><<npcincr Robin love 2>>
+<br><br>
+<span class="gold">此后每天晚上八点到九点罗宾会在房间内进行直播，每周存款递增。</span>
+<<if $phase is 1>>
+    <<set $ronbinmoney -= 2000>>
 <<else>>
-    接下来的几个小时里，你们按照清单逐一准备所需的器材，从购买电脑、麦克风、摄像头，到布置直播间、测试网络环境，每一步都充满了期待和乐趣。
-    <<pass 180>>
-    <<glove>><<npcincr Robin love 2>>
-    <br><br>
-    <span class="gold">此后每天晚上八点到九点罗宾会在房间内进行直播，每周存款递增。</span>
-    <<set $workTopicList to $workTopicList.filter(topic => topic!="liveStream")>>
-    <<set $liveStream to 1>>
-<</if>>
+    <<set $money -= 200000>>
+ <</if>>
+<<set $workTopicList to $workTopicList.filter(topic => topic!="liveStream")>>
+<<set $liveStream to 1>>
+<<set $liveStreamAgreePrepare to false>>
 <br><br>
 <<robinoptions>>

@@ -255,11 +255,6 @@
                     "replace": "<<if !$robinPaySelfTalked and $robinpaid isnot 1>>"
                 },
                 {
-                    "passage": "Widgets Robin",
-                    "findString": "<<if $robinpaid isnot 1>>",
-                    "replace": "<<if !$robinPaySelfTalked and $robinpaid isnot 1>>"
-                },
-                {
                     "passage": "Robin Watch",
                     "findString": "<<if $rng gte 81>>",
                     "replaceFile": "game/robin-work/live-stream/robinWatch.txt"
