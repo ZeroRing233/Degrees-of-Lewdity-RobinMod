@@ -3,4 +3,11 @@
 	<br><br>
 	<<getouticon>><<link [[离开|Orphanage]]>><</link>>
 	<br>
+<<elseif _robin_location is "liveStream">>
+    你走到罗宾的房间门口，门上有张纸条："正在直播中，请不要进来(>_<)"
+	<br><br>
+	<<set $skulduggerydifficulty to 200>>
+	<<link [[偷瞄|Orphanage]]>><</link>><<skulduggerydifficulty>>
+	<br>
+	<<getouticon>><<link [[离开|Orphanage]]>><</link>>
 <<elseif _robin_location is "school">>

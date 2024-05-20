@@ -22,6 +22,8 @@
     <<set $weeklyMoneyRandomChange to 0>>
     /% 柠檬水摊相关检查 %/
     <<weeklyLemonadeCheck>>
+    /% 直播 %/
+    <<weeklyLiveStreamCheck>>
     /% 家教 %/
     <<if $danubeTutorIntro is 4>>
         <<set $weeklyMoneyFixedChange += 750>>
@@ -156,6 +158,22 @@
     <</for>>
     <<set $weeklyMoneyRandomChange += Math.round($soldFlowerMoney/200)>>
     <<set $soldFlowerMoney -= Math.round($soldFlowerMoney/2)>>
+<</widget>>
+
+<<widget "weeklyLiveStreamCheck">>
+    <<if $liveStream is 1>>
+        <<if $liveStreamStage is undefined>>
+            <<set $liveStreamStage to 0>>
+        <<else>>
+            <<set $liveStreamStage += 1>>
+        <</if>>
+        <<set $liveStreamFixedIncome to [100,300,500,700,1000,1500,2000][Math.clamp($liveStreamStage,0,6)]>>
+        <<set $liveStreamRandomIncome to Math.round($liveStreamFixedIncome*C.npc.Robin.dom/100)>>
+        <<set $liveStreamRandomIncome += random(0, Math.round($liveStreamFixedIncome/2))>>
+        <<set $weeklyMoneyFixedChange += $liveStreamFixedIncome>>
+        <<set $weeklyMoneyRandomChange += $liveStreamRandomIncome>>
+        <<set $weeklyLiveStreamTalked to false>>
+    <</if>>
 <</widget>>
 
 :: Widgets Lemonade Juicing [widget]

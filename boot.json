@@ -35,6 +35,7 @@
         "game/robin-work/danube-tutor/danubeTutorAfterWalkHomeTopless2.txt",
         "game/robin-work/danube-tutor/danubeTutorWalkHome.txt",
         "game/robin-work/live-stream/robinWatch.txt",
+        "game/robin-work/live-stream/robinOptions.txt",
         "game/robin-work/locationReplace.txt",
         "game/robin-work/RobinWorkTalk.txt",
         "game/origin-replace/robinMoneyReplace.txt",
@@ -258,6 +259,11 @@
                     "passage": "Robin Watch",
                     "findString": "<<if $rng gte 81>>",
                     "replaceFile": "game/robin-work/live-stream/robinWatch.txt"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "\t<<elseif Time.hour gte 21 or Time.hour lte 5>>",
+                    "replaceFile": "game/robin-work/live-stream/robinOptions.txt"
                 }
             ]
         },
@@ -280,9 +286,9 @@
                     },
                     {
                         "from": "else if (Time.schoolDay && between(Time.hour, 8, 15))",
-                        "to": "else if (V.danubeTutorIntro == 4 && Time.schoolDay && ((Time.hour === 15 && between(Time.minute, 6, 59)) || (Time.hour === 16 && between(Time.minute, 0, 20)))) \n { T.robin_location = \"danube\";} \n else if (Time.schoolDay && between(Time.hour, 8, 15))",
+                        "to": "else if (V.liveStream === 1 && Time.hour === 20){T.robin_location = \"liveStream\";} \n else if (V.danubeTutorIntro == 4 && Time.schoolDay && ((Time.hour === 15 && between(Time.minute, 6, 59)) || (Time.hour === 16 && between(Time.minute, 0, 20)))) \n { T.robin_location = \"danube\";} \n else if (Time.schoolDay && between(Time.hour, 8, 15))",
                         "fileName": "ingame.js",
-                        "_comment1": "罗宾当前状态调整: 做家教成功后每天上学日3：06—4:20位置在多瑙河街"
+                        "_comment1": "罗宾当前状态调整: 做家教成功后每天上学日3：06—4:20位置在多瑙河街; 开始直播后每天八点到九点进行直播"
                     },
                     {
                         "from": "if (V.combat === 0 && V.ironmanmode === true)",

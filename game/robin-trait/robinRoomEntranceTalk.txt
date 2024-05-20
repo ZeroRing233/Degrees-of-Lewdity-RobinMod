@@ -40,5 +40,25 @@
         <br><br>
         <<link [[与罗宾一起准备直播设备(3:00)|Live Stream Prepare Together]]>><<set $phase to 1>><</link>>
         <br><br>
+    
+    <<elseif $liveStreamStage isnot undefined and !$weeklyLiveStreamTalked>>
+        /% 差分一:100，300，差分二:500，700，差分三：1000,1500，差分四：2000 %/
+        <<if $liveStreamStage lte 1>>
+            <<set _content to "最近有一些人经常会来看我的直播，我相信之后会越来越多的。">>
+        <<elseif $liveStreamStage lte 3>>
+            <<set _content to "最近来看我直播的人越来越多了，这是一个好兆头。">>
+        <<elseif $liveStreamStage lte 5>>
+            <<set _content to "我的粉丝数正在飞速增长中，感觉真是不可思议。">>
+        <<else>>
+            <<set _content to "我已经是一个当红主播了，感谢你一直以来对我的帮助和支持。">>
+        <</if>>
+        <<if $liveStreamRandomIncome gte 1000>>
+            <<set _content += "我还收到了巨额打赏呢！">>
+        <</if>>
+        
+        你敲了敲门，罗宾很快就跑出来开了门, <<he>>兴奋地说:"<<print _content>>"<<gdom>>
+        <<npcincr Robin dom 2>>
+        <<set $weeklyLiveStreamTalked to true>>
+        <br><br>
 
     <<elseif _robin.trauma gte 40>>

@@ -1,0 +1,8 @@
+    <<elseif (Time.hour gte 20 or Time.hour lte 5) and $liveStream is 1>>
+        罗宾看着墙上的钟。
+        "我该去直播了，" <<He>>遗憾地说："很抱歉我不能继续和你待在一起了，这份工作对我很重要。"
+        <br><br>
+        你点点头，对此表示理解。
+        <br><br>
+        <<getouticon>><<link [[离开|Orphanage]]>><<set $fromRobinRoom to true>><<endevent>><</link>>
+    <<elseif Time.hour gte 21 or Time.hour lte 5>>
