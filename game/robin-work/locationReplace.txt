@@ -6,8 +6,12 @@
 <<elseif _robin_location is "liveStream">>
     你走到罗宾的房间门口，门上有张纸条："正在直播中，请不要进来(>_<)"
 	<br><br>
-	<<set $skulduggerydifficulty to 200>>
-	<<link [[偷瞄|Orphanage]]>><</link>><<skulduggerydifficulty>>
+	<<if !$daily.liveStreamSneak>> /%原理：daily开头的变量每天自动删一次 %/
+		<<set $skulduggerydifficulty to 200>>
+		<<link [[偷瞄(0:20)|Live Stream Sneak Look]]>><</link>><<skulduggerydifficulty>>
+	<<else>>
+		<span class="blue">你今天已经偷瞄过了。</span>
+	<</if>>
 	<br>
 	<<getouticon>><<link [[离开|Orphanage]]>><</link>>
 <<elseif _robin_location is "school">>
