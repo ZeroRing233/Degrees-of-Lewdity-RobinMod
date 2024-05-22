@@ -1,0 +1,66 @@
+:: photography Intro
+<<location "forest">><<effects>>
+你点了点头，然后一边吃着三明治，一边陪着罗宾欣赏森林里美妙的风景。
+ <br><br>
+你与罗宾静静地享受着这难得的静谧时光。<<ltrauma>><<lstress>><<stress -6>><<trauma -6>>
+ <br><br>
+之后，你们一起走回了孤儿院。
+<br><br>
+<<robinoptions>>
+
+:: photography Intro 2
+<<set $outside to 0>><<set $location to "home">><<effects>>
+你向罗宾提起了在野餐时提到的话题，罗宾点了点头，走到<<his>>的抽屉前翻找了一会，然后拿出了一台相机。
+<br><br>
+："这台相机我已经珍藏了多年，我想，现在到了它派上用场的时候了。" <<he>>看着你，继续说道："我们一起来合作吧，我来拍摄，你来当模特，拍摄的结果可以投稿到杂志上。"
+<br><br>
+你也认为这是一个好主意，于是爽快地答应了罗宾。
+<br><br>
+罗宾认真思考起了摄影的内容："我想想...拍摄用的服装不需要太正式，<span class="gold">但需要足够有新意。</span> 地点就暂时定在森林好了。
+我们可以<span class="gold">每周</span>拍摄一次，拍摄时间就定在<span class="gold">下午五点，有晚霞</span>的时候。"
+<br><br>
+你和罗宾一一确认了拍摄前需要准备的细节，最后，罗宾说道："等你准备好需要的服装了，随时可以在约定的时间找我。"
+<<set $workTopicList to $workTopicList.filter(topic => topic!="photography")>>
+<<set $photography to 1>>
+<br><br>
+<<robinoptions>>
+
+:: Photography Together
+<<set $outside to 0>><<set $location to "home">><<effects>>
+<<if $weather isnot "clear">>
+    罗宾看了看窗外，遗憾地说："今天没有晚霞，真是可惜。等<span class="gold">晴天</span>我们再来一起拍摄吧。"
+    <br><br>
+    <<robinoptions>>
+<<elseif $worn.upper.type.includes("costume") or $worn.lower.type.includes("costume")>>
+    罗宾与你开始了拍摄准备。
+    <br><br>
+    <<robinoptions>>
+<<else>>
+    罗宾看着你身上的衣服，摇了摇头，说:"或许你需要准备一些更特别的衣服？如果你没有的话，我可以为你准备一件。"
+    <br><br>
+    <<link [[接受(0:30)|Photography Buy Clothes]]>><</link>>
+<</if>>
+/%$worn.upper.type.includes("formal") or $worn.lower.type.includes("formal")>> costume %/
+
+:: Photography Buy Clothes
+<<set $outside to 0>><<set $location to "home">><<effects>>
+/% 当前服装店正在售卖的带化妆风格的上装列表 %/
+<<set $costumeUpperList = setup.clothes["upper"].filter(x => x.shop.includes("clothing") && x.type.includes("costume"))>>
+<<set $robinCouldAffordList to []>>
+<<for _i to 0; _i lt $costumeUpperList.length; _i++>>
+    <<set _cost to getClothingCost($costumeUpperList[_i], "upper")>>
+    <<if _cost lte $robinmoney*100>>
+        <<set $robinCouldAffordList.pushUnique($costumeUpperList[_i])>>
+    <</if>>
+<</for>>
+<<set _chosen to getRandomValueFromArray($robinCouldAffordList)>>
+罗宾为你挑选了一件<span class="green"><<print _chosen.cn_name_cap>></span>
+<<generalWear "upper" _chosen.index>>
+<<updateOwned "upper">>
+
+
+<br><br>
+<<robinoptions>>
+
+/%<<set _temp_choice to clone(setup.clothes[$clothingShopSlot][$clothes_choice])>>
+ getClothingCost(0, "upper") %/

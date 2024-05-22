@@ -1,0 +1,10 @@
+<<elseif $photography isnot 1 and !$workTopicList.includes("photography") and C.npc.Robin.dom gte 80>>
+    你和罗宾并肩坐下，准备享受美味的食物。
+    <br><br>
+    你发现罗宾正目不转睛地盯着你,:" 真美..."<<he>>喃喃地说，你不确定<<he>>指的是风景还是人。
+    <br><br>
+    罗宾似乎思考了一会，最后，<<he>>像是下定了决心一般，对你说:"<span class="gold">之后来我的房间一趟吧</span>，我有一件事想和你一起讨论。"
+    <br><br>
+    <<set $workTopicList.pushUnique("photography")>>
+    <<link [[继续|photography Intro]]>><</link>>
+<<elseif $weather is "overcast">>

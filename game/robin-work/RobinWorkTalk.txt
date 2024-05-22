@@ -1,3 +1,6 @@
+        <<if $photography is 1 and !$weeklyPhotography and Time.hour is 17>>
+            <<photographystudioicon>><<link [[与罗宾一起拍摄(1:00)|Photography Together]]>><</link>>
+        <</if>>
         <<if $danubeTutorIntro is 1>>
             <<link [[沟通多瑙河街的家教工作|Danube Tutor Talk]]>><</link>>
             <br>
@@ -26,6 +29,10 @@
         <<if $workTopicList.includes("liveStream")>>
             <<robinicon "controller">> <<link [[建议罗宾当游戏主播(0:15)|Live Stream Intro]]>><<pass 15>><</link>>
             <br>
+        <</if>>
+        <<if $workTopicList.includes("photography")>>
+            <<askicon>><<link [[与罗宾讨论野餐时提出的话题(0:15)|photography Intro 2]]>><<pass 15>><</link>>
+        <br>
         <</if>>
         <br>
         <<robinbully>>

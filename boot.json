@@ -36,6 +36,7 @@
         "game/robin-work/danube-tutor/danubeTutorWalkHome.txt",
         "game/robin-work/live-stream/robinWatch.txt",
         "game/robin-work/live-stream/robinOptions.txt",
+        "game/robin-work/photography/photographyIntro.txt",
         "game/robin-work/locationReplace.txt",
         "game/robin-work/RobinWorkTalk.txt",
         "game/origin-replace/robinMoneyReplace.txt",
@@ -264,6 +265,11 @@
                     "passage": "Widgets Robin",
                     "findString": "\t<<elseif Time.hour gte 21 or Time.hour lte 5>>",
                     "replaceFile": "game/robin-work/live-stream/robinOptions.txt"
+                },
+                {
+                    "passage": "Robin Forest",
+                    "findString": "<<elseif $weather is \"overcast\">>",
+                    "replaceFile": "game/robin-work/photography/photographyIntro.txt"
                 }
             ]
         },
