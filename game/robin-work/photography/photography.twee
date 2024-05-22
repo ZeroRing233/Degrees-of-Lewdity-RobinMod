@@ -38,10 +38,9 @@
 <<else>>
     罗宾看着你身上的衣服，摇了摇头，说:"或许你需要准备一些更特别的衣服？如果你没有的话，我可以为你准备一件。"
     <br><br>
-    <<link [[接受(0:30)|Photography Buy Clothes]]>><</link>>
+    <<link [[接受(0:30)|Photography Buy Clothes]]>><</link>><br>
     <<link [[谢绝|Photography Not Buy Clothes]]>><</link>>
 <</if>>
-/%$worn.upper.type.includes("formal") or $worn.lower.type.includes("formal")>> costume %/
 
 :: Photography Not Buy Clothes
 <<set $outside to 0>><<set $location to "home">><<effects>>
@@ -61,7 +60,16 @@
         <<set $robinCouldAffordList.pushUnique($costumeUpperList[_i])>>
     <</if>>
 <</for>>
-<<set _chosen to getRandomValueFromArray($robinCouldAffordList)>>
+/% 万一罗宾啥都买不起，女pc默认送女仆装，男pc默认送修士长袍 %/
+<<if $robinCouldAffordList.length is 0>>
+    <<if $player.gender_appearance is "f">>
+        <<set _chosen to $costumeUpperList[0]>>
+    <<else>>
+        <<set _chosen to $costumeUpperList[2]>>
+    <</if>>
+<<else>>
+    <<set _chosen to getRandomValueFromArray($robinCouldAffordList)>>
+<</if>>
 /% 为简化逻辑，下装就不判断付不付得起了，反正也不扣钱 %/
 <<if _chosen.outfitPrimary is undefined>>
     <<set _lowerList to []>>
@@ -73,15 +81,18 @@
     <</for>>
     <<set _chosen2 to getRandomValueFromArray(_lowerList)>>
 <</if>>
-罗宾为你挑选了一件<span class="green"><<print _chosen.cn_name_cap>></span>，
-<<if _chosen2 isnot undefined>>
-    和一件<span class="green"><<print _chosen2.cn_name_cap>></span>，
-<</if>>
 <<generalWear "upper" _chosen.index>>
 <<updateOwned "upper">>
 <<if _chosen2 isnot undefined>>
     <<generalWear "lower" _chosen2.index>>
     <<updateOwned "lower">>
 <</if>>
+你和罗宾一起去了购物中心，打算挑选合适拍摄的衣服。
 <br><br>
-<<robinoptions>>
+罗宾为你挑选了一件<span class="green"><<print _chosen.cn_name_cap>></span>，
+<<if _chosen2 isnot undefined>>
+    和一件<span class="green"><<print _chosen2.cn_name_cap>></span>，
+<</if>>
+你换上衣服后，<<he>>端详了一下你，微笑着说："真合适，这次拍摄一定会很成功的。"
+<br><br>
+<<link [[前往拍摄地点(0:60)|$passage]]>><</link>>
