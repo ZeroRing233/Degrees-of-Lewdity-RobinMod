@@ -28,27 +28,34 @@
 :: Photography Together
 <<set $outside to 0>><<set $location to "home">><<effects>>
 <<if ["rain","snow"].includes($weather)>>
-    罗宾看了看窗外，遗憾地说："今天没有晚霞，真是可惜。等<span class="gold">晴天</span>我们再来一起拍摄吧。"
+    罗宾看了看窗外，遗憾地说："今天天气不好，真是可惜。等<span class="gold">天放晴了</span>我们再来一起拍摄吧。"
     <br><br>
     <<robinoptions>>
 <<elseif $worn.upper.type.includes("costume") or $worn.lower.type.includes("costume")>>
-    罗宾与你开始了拍摄准备。
-    <br><br>
-    <<robinoptions>>
+    罗宾看了看窗外，
+    <<if $weather is "clear">>
+        惊喜地说："今天的<<print Time.hour is 7? "朝阳":"晚霞">>真美，我们一起去森林拍摄吧？效果一定会很不错的。"
+        <br><br>
+        <<link [[前往拍摄地点(0:60)|Photography Together Forest]]>><<pass 60>><</link>>
+    <<else>>
+        开心地说："今天天气不错，就是风有点大，我们一起去花圃拍摄吧。"
+        <br><br>
+        <<link [[前往拍摄地点(0:60)|Photography Together Garden]]>><<pass 60>><</link>>
+    <</if>>
 <<else>>
-    罗宾看着你身上的衣服，摇了摇头，说:"或许你需要准备一些更特别的衣服？如果你没有的话，我可以为你准备一件。"
+    罗宾看着你身上的衣服，摇了摇头，说:"或许你需要准备一些更特别的衣服？其实，我已经为你准备了一套，你要穿上试试吗？"
     <br><br>
-    <<link [[接受(0:30)|Photography Buy Clothes]]>><</link>><br>
-    <<link [[谢绝|Photography Not Buy Clothes]]>><</link>>
+    <<link [[接受(0:15)|Photography Change Clothes]]>><<pass 15>><</link>><br>
+    <<link [[谢绝|Photography Not Change Clothes]]>><</link>>
 <</if>>
 
-:: Photography Not Buy Clothes
+:: Photography Not Change Clothes
 <<set $outside to 0>><<set $location to "home">><<effects>>
 你摇了摇头，回绝了罗宾的好意，罗宾看起来有些失望。
 <br><br>
 <<robinoptions>>
 
-:: Photography Buy Clothes
+:: Photography Change Clothes
 <<set $outside to 0>><<set $location to "home">><<effects>>
 /% 当前服装店正在售卖的带化妆风格的上装列表 %/
 <<set $costumeUpperList = setup.clothes["upper"].filter(x => x.shop.includes("clothing") && x.type.includes("costume"))>>
@@ -87,12 +94,59 @@
     <<generalWear "lower" _chosen2.index>>
     <<updateOwned "lower">>
 <</if>>
-你和罗宾一起去了购物中心，打算挑选合适拍摄的衣服。
-<br><br>
-罗宾为你挑选了一件<span class="green"><<print _chosen.cn_name_cap>></span>，
+罗宾从衣柜里拿出了一件<span class="green"><<print _chosen.cn_name_cap>></span>，
 <<if _chosen2 isnot undefined>>
     和一件<span class="green"><<print _chosen2.cn_name_cap>></span>，
 <</if>>
 你换上衣服后，<<he>>端详了一下你，微笑着说："真合适，这次拍摄一定会很成功的。"
 <br><br>
-<<link [[前往拍摄地点(0:60)|$passage]]>><</link>>
+罗宾说完，又看了看窗外，
+<<if $weather is "clear">>
+    惊喜地说："今天的<<print Time.hour lte 8? "朝阳":"晚霞">>真美，我们一起去森林拍摄吧？效果一定会很不错的。"
+    <br><br>
+    <<link [[前往拍摄地点(0:60)|Photography Together Forest]]>><<pass 60>><</link>>
+<<else>>
+    开心地说："今天天气不错，就是风有点大，我们一起去花园拍摄吧。"
+    <br><br>
+    <<link [[前往拍摄地点(0:60)|Photography Together Garden]]>><<pass 60>><</link>>
+<</if>>
+
+:: Photography Together Forest
+<<location "forest">><<effects>>
+你和罗宾来到了你们一起野餐时常去的森林，	
+<<if Time.season is "winter">> 
+	一只鸟在附近的雪地上啾啾叫着，四处觅食。
+<<elseif Time.season is "autumn">>
+	一只花栗鼠在附近寻找着坚果。
+<<else>>
+	蜜蜂在附近的花朵间穿梭飞舞。
+<</if>>
+<br><br>
+罗宾拿起了相机，你配合着<<him>>摆出各种各样的姿势。
+在<<print Time.hour lte 9? "朝阳":"晚霞">>和森林中各种生灵的映衬下，相机里的画面美得仿佛一幅油画。
+<br><br>
+<<link [[继续|Photography Together Finish]]>><</link>>
+
+:: Photography Together Garden
+<<set $outside to 1>><<set $location to "home">><<effects>>
+你和罗宾来到了孤儿院后面的花园，<<print $alex_greenhouse gte 3? "温室":"花坛">>里种满了鲜花。
+<<if $mason_pond gte 5>>
+    一旁的泉水池中流水潺潺。
+<</if>>
+<br><br>
+罗宾拿起了相机，你配合着<<him>>摆出各种各样的姿势。
+在花园里的鲜花的映衬下，相机里的画面充满了生气。
+<br><br>
+<<link [[继续|Photography Together Finish]]>><</link>>
+
+:: Photography Together Finish
+<<set $outside to 0>><<set $location to "home">><<effects>>
+本周的拍摄终于完成了，你和罗宾手拉手走回了卧室。<<takeHandholdingVirginity "Robin" "romantic">>
+<br><br>
+回想起拍摄时点滴的细节，你们相视一笑。<<ltrauma>><<lstress>><<stress -6>><<trauma -6>>
+<br><br>
+："谢谢你帮我完成这次的摄影作品，等我拿到投稿报酬后，我马上就告诉你。"<<glove>><<npcincr Robin love 2>>
+<<set $weeklyPhotography to true>>
+<<famemodel 20>>
+<br><br>
+<<robinoptions>>

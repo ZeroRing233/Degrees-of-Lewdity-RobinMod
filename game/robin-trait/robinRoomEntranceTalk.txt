@@ -1,5 +1,5 @@
     <<elseif $robinCouldPaySelf and !$robinPaySelfTalked>>
-        你敲了敲门，罗宾很快就跑出来开了门，<<his>>的声音中充满着喜悦:" 我终于...终于能支付贝利的债务了，
+        你敲了敲门，罗宾很快就跑出来开了门，<<his>>的声音中充满着喜悦：" 我终于...终于能支付贝利的债务了，
         <<if $robinpaid is 1>>
             感谢你之前对我的保护，也感谢你一直在为我出谋划策。 "
 		    <<set $rentmoney /= 2>>
@@ -36,7 +36,7 @@
         <<set $soldFlowerList to []>>
 
     <<elseif $liveStreamAgreePrepare and $robinmoney gte 2000 and Time.hour gte 12>>
-        你敲了敲门，罗宾飞奔了出来，<<he>>激动地说:"还记得你之前提到的直播的事吗？现在我已经攒够需要的钱了，我们赶紧开始吧。" <<gggdom>> <<npcincr Robin dom 10>>
+        你敲了敲门，罗宾飞奔了出来，<<he>>激动地说："还记得你之前提到的直播的事吗？现在我已经攒够需要的钱了，我们赶紧开始吧。" <<gggdom>> <<npcincr Robin dom 10>>
         <br><br>
         <<link [[与罗宾一起准备直播设备(3:00)|Live Stream Prepare Together]]>><<set $phase to 1>><</link>>
         <br><br>
@@ -56,9 +56,34 @@
             <<set _content += "我还收到了巨额打赏呢！">>
         <</if>>
         
-        你敲了敲门，罗宾很快就跑出来开了门, <<he>>兴奋地说:"<<print _content>>"<<gdom>>
+        你敲了敲门，罗宾很快就跑出来开了门, <<he>>兴奋地说："<<print _content>>"<<gdom>>
         <<npcincr Robin dom 2>>
         <<set $weeklyLiveStreamTalked to true>>
+        <br><br>
+     
+    <<elseif $photography is 1 and !$weeklyPhotographyTalked and $photographyIncomePC isnot undefined>>
+        <<if $photographyIncomePC is 0>>
+            <<set _content1 to "这周我自己拍摄了花园里的风景，也同样收获了很多好评。">>
+            <<set _content2 to "杂志上是你们孤儿院后方的花园，在罗宾的拍摄下，普通的花圃也显得美丽而又生机勃勃。">>
+        <<elseif $photographyIncomePC is 550>>
+            <<set _content1 to "我们一起合作的摄影作品被刊登到了杂志上，你看！">>
+            <<set _content2 to "杂志上是你们上周一起拍摄的照片，底下写着编辑的评论和鼓励。">>
+        <<elseif $photographyIncomePC is 1100>>
+            <<set _content1 to "我们一起合作的摄影作品被设为了杂志封面，你看！">>
+            <<set _content2 to "杂志的封面上赫然印着你们上周一起拍摄的照片，看来你们的作品得到了编辑的高度肯定。">>
+        <</if>>
+        你敲了敲门，罗宾很快就跑出来开了门, <<he>>迫不及待地说："<<print _content1>>"<<gdom>>
+        <<npcincr Robin dom 2>>
+        <br><br>
+        说完，<<he>>递给你一本杂志，<<print _content2>>
+        <<if $photographyIncomePC gt 0>>
+            <br><br>
+            在你盯着杂志微笑时，罗宾打断了你："对了，我应该先把属于你的那份报酬交给你的，给，非常感谢！"
+            <br><br>
+            <span class="gold">你获得了£<<print $photographyIncomePC>>。</span>
+            <<set $money += $photographyIncomePC * 100>>
+        <</if>>
+        <<set $weeklyPhotographyTalked to true>>
         <br><br>
 
     <<elseif _robin.trauma gte 40>>

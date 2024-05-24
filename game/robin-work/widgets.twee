@@ -24,6 +24,8 @@
     <<weeklyLemonadeCheck>>
     /% 直播 %/
     <<weeklyLiveStreamCheck>>
+    /% 摄影 %/
+    <<weeklyPhotographyCheck>>
     /% 家教 %/
     <<if $danubeTutorIntro is 4>>
         <<set $weeklyMoneyFixedChange += 750>>
@@ -173,6 +175,28 @@
         <<set $weeklyMoneyFixedChange += $liveStreamFixedIncome>>
         <<set $weeklyMoneyRandomChange += $liveStreamRandomIncome>>
         <<set $weeklyLiveStreamTalked to false>>
+    <</if>>
+<</widget>>
+
+<<widget "weeklyPhotographyCheck">>
+    <<if $photography is 1>>
+        <<if $weeklyPhotography>>
+            /% 如果pc模特名声过硬或者颜值过硬 %/
+            <<if $fame.model gte 200 or $beauty gte ($beautymax / 7) * 3>>
+                <<set $photographyIncomePC to 1100>>
+                <<set $weeklyMoneyFixedChange += 550>>
+                <<set $weeklyMoneyRandomChange += 550>>
+            <<else>>
+                <<set $photographyIncomePC to 550>>
+                <<set $weeklyMoneyFixedChange += 550>>
+            <</if>>
+        /% PC没有参与本周的拍摄 %/
+        <<else>>
+            <<set $photographyIncomePC to 0>>
+            <<set $weeklyMoneyFixedChange += 550>>
+        <</if>>
+        <<set $weeklyPhotographyTalked to false>>
+        <<set $weeklyPhotography to false>>
     <</if>>
 <</widget>>
 
