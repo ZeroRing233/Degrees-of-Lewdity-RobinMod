@@ -12,3 +12,7 @@ function getRandomValueFromArray(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
 window.getRandomValueFromArray = getRandomValueFromArray;
+
+function robinWeeklyMessage() {
+
+}
