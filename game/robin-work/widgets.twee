@@ -49,6 +49,15 @@
 
     <<if $weeklyMoneyFixedChange gte 3700>>
         <<set $robinCouldPayBoth to true>>
+        /% 说明：定制消息不delete了，set to 0即可，防止重复提示 %/
+         <<if $robinPayBothMessage is undefined>>
+            <<set $robinPayBothMessage to 1>>
+        <</if>>
+        /% 预防一周直接存款直接上4000 %/
+        <<set $robinCouldPaySelf to true>>
+        <<if !$robinPaySelfTalked>>
+            <<set $robinPaySelfMessage to 1>>
+        <</if>>
     <<elseif $weeklyMoneyFixedChange gte 1700>>
         <<set $robinCouldPaySelf to true>>
         <<if !$robinPaySelfTalked>>

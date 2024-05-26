@@ -6,5 +6,13 @@
         "series": "",
         "filter": ["All", "General"],
         "softLockable": true
+    },
+    "Protected By Robin": {
+        "title": "被罗宾守护",
+        "desc": "别担心，我会永远在你身边。",
+        "difficulty": 3,
+        "series": "",
+        "filter": ["All", "General"],
+        "softLockable": true
     }
 }
