@@ -1,12 +1,38 @@
 :: Robin's Lemonade Upgrade
-<<npc Robin>><<location "beach">>
-贝利的债务问题涌上了你的心头，<span class="gold">一些灵感忽然在你的脑海里浮现。</span>
+<<npc Robin>><<person1>><<location "beach">><<effects>>
+<<if $speech_attitude is "meek">>
+	"你有没有想过升级一下你的饮料摊？也许我们可以去商场买一些新东西......"
+<<elseif $speech_attitude is "bratty">>
+	"你该去商场买些新东西了。我认为你的摊位需要升级。"
+<<else>>
+	"我有个建议，升级一下你的摊位怎么样？我们可以去商场买很多新东西。"
+<</if>>
+你建议道。
 <br><br>
-你向罗宾提出了要升级<<his>>的柠檬水摊，而罗宾也早有此想法，于是你们决定立刻行动。
+<<if C.npc.Robin.dom lt 40>>
+	罗宾睁大眼睛看着你，然后<<he>>露出微笑。“哦，我从没想过这一点。但那是个好主意！
+	<<if $robinmoney lt 600>>
+		嗯...但我不想花太多钱。我得为食材留下足够多的资金。“罗宾有些尴尬地低着头。
+	<<else>>
+		那我们一会儿就去商场，好吗？”罗宾看着你，脸上充满期待。
+	<</if>>
+<<else>>
+	罗宾看上去若有所思，然后点了点头。“我喜欢这个提议。你想要帮我吗？”<<He>>微笑着问。“但我不想麻烦你。
+	<<if $robinmoney lt 600>>
+		我不能花太多的钱，否则我就没法为食材付钱了。“你能看出罗宾表情里的犹豫。
+	<<else>>
+		我相信我能办得到。”罗宾对你眨了眨眼。
+	<</if>>
+<</if>>
 <br><br>
-
 <<if $robinmoney gte 600>>
-	<<link [[开始升级柠檬水摊(3:00)|Robin's Lemonade Upgrade Robin]]>>
+	<<if C.npc.Robin.dom lt 40>>
+		"也许这能吸引到更多的顾客来买柠檬水。"
+	<<else>>
+		"也许我们能吸引到更多的顾客来买柠檬水。"
+	<</if>>
+	<br><br>
+	<<link [[开始升级柠檬水摊(3:00)|Robin's Lemonade Upgrade Start]]>>
 	<<npcincr Robin dom 10>> 
 	<<npcincr Robin love 5>>
 	<<pass 180>>
@@ -17,7 +43,7 @@
 <<elseif $money gte 60000>>
 	<span class="blue">罗宾的存款还不够升级柠檬水摊。</span>
 	<br>
-	<<link [[提出用你的钱帮罗宾升级柠檬水摊(£600 3:00)|Robin's Lemonade Upgrade Self]]>>
+	<<link [[提出用你的钱帮罗宾升级柠檬水摊(£600 3:00)|Robin's Lemonade Upgrade Pay]]>>
 	<<npcincr Robin dom -5>> 
 	<<npcincr Robin love 5>>
 	<<pass 180>>
@@ -31,39 +57,51 @@
 <</if>>
 <<link [[之后再说|Robin's Lemonade]]>><<endevent>><</link>>
 
-:: Robin's Lemonade Upgrade Robin
-<<npc Robin>><<location "home">><<effects>>
-"我的存款已经足够负担各种材料费用了，这次就让我自己来出钱吧。"罗宾说。
-<br><br>
-你和罗宾一起去购物中心购置升级柠檬水摊所需的材料，买了比之前更大的小推车、更好的榨汁机以及崭新的招牌。
-<br><br>
-购买材料之后，你们一起将材料搬回孤儿院进行加工，许多孤儿凑过来好奇地看着你们。
-大家七嘴八舌地提供建议，一位擅长绘画的孤儿帮你们在新买的招牌上画上太阳，罗宾又补上了一只阳伞。<<gghope>> <<hope 3>>
-<br><br>
-<span class="gold">罗宾的柠檬水摊已完成升级。</span>
-<br><br>
-<<if Time.hour lte 16 and Time.hour gte 9>>
-	<<link [[一起回到摊位 (0:30)|Robin's Lemonade Upgrade Back]]>><<pass 30>><</link>>
-<br>
-<</if>>
-<<link [[与罗宾告别|Robin's Lemonade Upgrade Leave]]>><</link>>
 
-
-:: Robin's Lemonade Upgrade Self
+:: Robin's Lemonade Upgrade Pay
 <<npc Robin>><<person1>><<location "home">><<effects>>
-你坚持要替罗宾支付各种材料费用，
-<<if C.npc.Robin.dom gte 40>>
-	罗宾一开始并不愿意，但最终没有拒绝。
+<<if $speech_attitude is "meek">>
+	"也许我可以为你付钱......我想帮你，我、我可以吗？"
+<<elseif $speech_attitude is "bratty">>
+	"别担心，我能为你付钱。"
 <<else>>
-	罗宾没有拒绝。
+	"如果你愿意，我可以帮你付钱。"
+<</if>>
+你拍了拍胸脯。
+<br><br>
+罗宾惊讶地顿住了，"什么？不，那会花很多钱。"<<He>>摇了摇头，目光在榨汁机和柠檬水之间徘徊。
+<br><br>
+"这样做能吸引到更多顾客来买柠檬水，不是吗？而且我也很想尝尝新榨汁机榨出来的柠檬水。"
+<<if C.npc.Robin.dom lt 40>>
+	<<he>>垂下眼睛，
+<<else>>
+	罗宾皱起了眉头，
+<</if>>
+过了一会儿，<<he>>在踌躇中露出微笑，"我以后一定会把它们都还给你的，我保证。"
+<<set $lemonadeShouldPayBack to true>>
+<br><br>
+<<link [[继续|Robin's Lemonade Upgrade Start]]>><</link>>
+
+
+:: Robin's Lemonade Upgrade Start
+<<npc Robin>><<location "home">><<effects>>
+你们一起来到商业街，去购物中心购置升级柠檬水摊所需的材料。
+<br><br>
+罗宾购置了一台更好的榨汁机和一辆更大的推车，你和罗宾一起挑选了新的招牌。离开之前，罗宾还拿了一把大大的遮阳伞。
+<br><br>
+购买完后，你们把材料一起搬回了孤儿院。当你们在加工这些新材料时，许多孤儿凑过来好奇地旁观。
+<br><br>
+大家都在为新招牌提供主意。
+<<if C.npc.Robin.dom gte 40>>
+	罗宾在招牌上画了一个圆圆的太阳，和几只展翅飞翔的小鸟，你在旁边添加了一些盛开的鲜花。
+	<<glove>><<npcincr Robin love 2>>
+<<else>>
+	罗宾在招牌上画了一个圆圆的太阳。
 <</if>>
 <br><br>
-你和罗宾一起去购物中心购置升级柠檬水摊所需的材料，买了比之前更大的小推车、更好的榨汁机以及崭新的招牌。
+其他的孤儿在招牌上涂鸦自己最喜欢的水果。<<gghope>> <<hope 3>>
 <br><br>
-购买材料之后，你们一起将材料搬回孤儿院进行加工，许多孤儿凑过来好奇地看着你们。
-大家七嘴八舌地提供建议，一位擅长绘画的孤儿帮你们在新买的招牌上画上太阳，罗宾又补上了一只阳伞。<<gghope>> <<hope 3>>
-<br><br>
-<span class="gold">罗宾的柠檬水摊已完成升级。</span>
+<span class="gold">罗宾的柠檬水摊已完成升级，每周存款增加。</span>
 <br><br>
 <<if Time.hour lte 16 and Time.hour gte 9>>
 	<<link [[一起回到摊位 (0:30)|Robin's Lemonade Upgrade Back]]>><<pass 30>><</link>>
@@ -74,8 +112,7 @@
 
 :: Robin's Lemonade Upgrade Leave
 <<npc Robin>><<person1>>
-临别时，罗宾拥抱了你一下，微笑着说：" 感谢你今天为我所做的一切，再见 "。
-<br><br>
+当你离开时，罗宾给了你一个拥抱。<<He>>微笑着向你挥手："谢谢你今天为我做的一切，再见。”
 你的内心升起了一股暖意。<<ltrauma>><<lstress>>
 <<stress -12>><<trauma -6>>
 <br><br>
@@ -85,7 +122,7 @@
 :: Robin's Lemonade Upgrade Back
 <<location "beach">> <<npc Robin>>
 <<set _robin to statusCheck("Robin")>>
-你与罗宾一同将新设备搬到海滩上，一路上，你们的脸上都带着笑意。<<ltrauma>><<lstress>><<lrtrauma>>
+你与罗宾一起把新设备搬到海滩上。一路上，你们的脸上都带着笑意，罗宾兴奋地谈论着饮料摊的前景。<<ltrauma>><<lstress>><<lrtrauma>>
 <<stress -12>><<trauma -6>><<npcincr Robin trauma -2>>
 <br><br>
 <<if _robin.trauma gte 40>>
@@ -98,7 +135,7 @@
 <<lemonade_stand_options>>
 
 :: Robin's Lemonade Give Lemon
-<<location "beach">> <<npc Robin>>
+<<location "beach">><<set $outside to 0>><<effects>><<npc Robin>>
 <<set _amount to $plants["lemon"].amount>>
 <<set _cost to Math.round(clone(setup.plants["lemon"].plant_cost))>>
 <<set _result to Math.round(_amount*_cost*4/100)>>
@@ -122,7 +159,7 @@
 <<lemonade_stand_options>>
 
 :: Robin's Lemonade Give Blood Lemon
-<<location "beach">> <<npc Robin>>
+<<location "beach">><<set $outside to 0>><<effects>><<npc Robin>>
 <<set _amount to $plants["blood_lemon"].amount>>
 <<set _cost to Math.round(clone(setup.plants["blood_lemon"].plant_cost))>>
 <<set _result to Math.round(_amount*_cost*4/100)>>
@@ -158,7 +195,7 @@
 <<lemonade_stand_options>>
 
 :: Robin's Lemonade Give Honey Comb
-<<location "beach">> <<npc Robin>>
+<<location "beach">><<set $outside to 0>><<effects>><<npc Robin>>
 <<if $honeyCombGiven isnot 1>>
 	<<set $honeyCombGiven to 1>>
 	当你把手中沉甸甸的蜂巢展示给罗宾看时，罗宾的眼睛睁大了。
@@ -227,7 +264,7 @@
 
 /% 为了减少对原文本的改动，使用复制粘贴大法%/
 :: Robin's Lemonade Purchase Other
-<<location "beach">>
+<<location "beach">><<set $outside to 0>><<effects>>
 <<npc Robin>><<person1>>
 <<set $money -= 200>>
 <<set _fruitType to getRandomValueFromArray($drinkUpgradedList)>>
@@ -285,7 +322,7 @@
 
 /% 复制粘贴*2 %/
 :: Robin's Lemonade Purchase Honey
-<<location "beach">>
+<<location "beach">><<set $outside to 0>><<effects>>
 <<npc Robin>><<person1>>
 <<set $money -= 200>>
 

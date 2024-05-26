@@ -15,7 +15,8 @@
         "README.md",
         "game/robin-work/lemonade/lemonadeUpgradeResult.txt",
         "game/robin-work/lemonade/lemonadeUpgrade.txt",
-        "game/robin-work/lemonade/lemonadeUpgradeResultRain.txt",
+        "game/robin-work/lemonade/lemonadeUpgradeResultWeather.txt",
+        "game/robin-work/lemonade/lemonadeUpgradeResultWeather2.txt",
         "game/robin-work/lemonade/lemonadeUpgradeDevice.txt",
         "game/robin-work/lemonade/goods-list/PopcornIntro.txt",
         "game/robin-work/lemonade/goods-list/PopcornIntroRobinPay.txt",
@@ -119,17 +120,17 @@
                 {
                     "passage": "Robin's Lemonade Help",
                     "findString": "<<effects>>",
-                    "replaceFile": "game/robin-work/lemonade/lemonadeUpgradeResultRain.txt"
+                    "replaceFile": "game/robin-work/lemonade/lemonadeUpgradeResultWeather2.txt"
                 },
                 {
                     "passage": "Robin's Lemonade Purchase",
                     "findString": "<<effects>>",
-                    "replaceFile": "game/robin-work/lemonade/lemonadeUpgradeResultRain.txt"
+                    "replaceFile": "game/robin-work/lemonade/lemonadeUpgradeResultWeather2.txt"
                 },
                 {
                     "passage": "Robin's Lemonade",
                     "findString": "<<effects>>",
-                    "replaceFile": "game/robin-work/lemonade/lemonadeUpgradeResultRain.txt"
+                    "replaceFile": "game/robin-work/lemonade/lemonadeUpgradeResultWeather.txt"
                 },
                 {
                     "passage": "Robin's Lemonade",
