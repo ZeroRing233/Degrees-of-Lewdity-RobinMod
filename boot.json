@@ -13,6 +13,7 @@
     "imgFileList": [],
     "additionFile": [
         "README.md",
+        "game/feats/robinFeats.json",
         "game/robin-work/lemonade/lemonadeUpgradeResult.txt",
         "game/robin-work/lemonade/lemonadeUpgrade.txt",
         "game/robin-work/lemonade/lemonadeUpgradeResultWeather.txt",
@@ -311,6 +312,16 @@
                     }
                 ]
             }
+        },
+        {
+            "modName": "ModdedFeatsAddon",
+            "addonName": "ModdedFeatsAddon",
+            "modVersion": "^1.0.0",
+            "params": {
+                "feats": [
+                    "game/feats/robinFeats.json"
+                ]
+            }
         }
     ],
     "dependenceInfo": [{
@@ -319,6 +330,10 @@
         },
         {
             "modName": "ReplacePatcher",
+            "version": "^1.0.0"
+        },
+        {
+            "modName": "ModdedFeatsAddon",
             "version": "^1.0.0"
         }
     ]

@@ -13,6 +13,7 @@
         <span class="gold">罗宾现在与你同舟共济，<<he>>会更加自信，你也因此感到充满了力量。 </span>
         <<set $robinpaid to -1>> /% 为防止原作更新这个属性，$robinpaid不直接作为特质依据 %/
         <<set $robinPaySelfTalked to true>>
+        <<earnFeat "In the Same Boat">>
         <br><br>
 
     <<elseif $soldFlowerMoney isnot undefined and $soldFlowerMoney gt 0>>

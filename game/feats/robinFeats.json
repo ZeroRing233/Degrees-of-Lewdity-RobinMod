@@ -1,0 +1,10 @@
+{
+    "In the Same Boat": {
+        "title": "同舟共济",
+        "desc": "这一刻终于来了，从此你们是互相守护的战友。",
+        "difficulty": 2,
+        "series": "",
+        "filter": ["All", "General"],
+        "softLockable": true
+    }
+}
