@@ -24,7 +24,7 @@
     <br><br>
     <span class="gold">此刻，你感到无比的安心，在猛烈的暴风雨中，你找到了一处港湾。</span>
     <br><br>
-     <<link [[继续|Bedroom]]>><</link>>
+    <<link [[继续|Orphanage]]>><<endevent>><</link>>
 
 <<elseif $robinmoney*100 gte $rentmoney>>
     <<npc Robin>><<npc Bailey 2>><<person1>>
@@ -42,6 +42,7 @@
     <br><br>
     你感到温暖又安心。<<stress -24>><<trauma -12>><<llstress>><<lltrauma>>
     <br><br>
-    <<link [[继续|Bedroom]]>><</link>>
+    <<link [[继续|Orphanage]]>><<endevent>><</link>>
+    
 <<else>>
     <<effects>>

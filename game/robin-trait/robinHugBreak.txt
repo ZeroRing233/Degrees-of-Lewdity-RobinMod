@@ -1,0 +1,23 @@
+<<if C.npc.Robin.love gte 80 and $robinhugbreak gte 1 and $robinCouldPayBoth and !$robinPayBothTalked>>
+    你紧紧抓住罗宾，几乎把<<him>>推到床上，你呜咽着大声哭泣。
+	<br><br>
+	"怎、怎么了？"罗宾大叫出来，看样子是被你吓到了。
+	"哦，不，又出事了，是不是？"<<He>>拥抱你，尽自己最大的努力安慰着你，你对着<<his>>尽情倾诉了自己所遭遇的一切。
+	<br><br>
+    罗宾静静地听着你倾诉，最终，<<he>>像是下定了决心，用坚定的语气对你说道："如果你愿意的话，
+    我可以去找贝利承担你的房租。
+    <<if $robinShouldPayBack isnot undefined>>
+        就像你曾经保护过我那样，现在轮到我来保护你了。"
+    <<else>>
+        你曾经帮了我很多，我是不会对你的困难坐视不管的。"
+    <</if>>
+    <<gggdom>><<gglove>><<npcincr Robin love 5>><<npcincr Robin dom 20>>
+    <br><br>
+    你抬起头，惊讶地凝视着罗宾的眼睛，然后缓缓点头。
+    <br><br>
+    在得到你肯定的答复后，罗宾放开了你，说道："我现在就去和贝利谈谈，放心，一切都会过去的。" 说完<<he>>便离开了房间。
+    <br><br>
+    <<link [[继续(0:15)|Robin Talk With Bailey]]>><<pass 15>><</link>>
+
+<<elseif C.npc.Robin.love gte 80 and $robinhugbreak gte 1>>
+

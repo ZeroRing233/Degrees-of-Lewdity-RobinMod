@@ -1,0 +1,18 @@
+:: Robin Talk With Bailey
+/% <<effects>>破坏气氛，作者刻意没加 %/
+<<npc Robin>><<location "home">>
+<<robinPayAll>>
+<<earnFeat "Protected By Robin">>
+<<set $robinPayBothTalked to true>>   
+<<set C.npc.Robin.dom to 100>>
+你跟着罗宾一起走到孤儿院大厅，罗宾一人走进了贝利办公室，你站在门口，
+隐约能听到"做好心理准备"，"我会的"，"我绝不后悔"等对话。
+<br><br>
+过了一会儿，罗宾走了出来，对你抱以肯定的微笑："贝利同意了，之后你再也不用为房租而担惊受怕了。"
+<br><br>
+你紧紧拥抱住罗宾，而罗宾也回以同样热烈的拥抱，直到你平静了下来，<<He>>才起身离开："如果你需要，随时可以来找我，回见。"
+<<lllstress>><<llltrauma>><<stress -50>><<trauma -25>>
+<br><br>
+<span class="gold">此刻，你感到无比的安心，在猛烈的暴风雨中，你找到了一处港湾。</span>
+<br><br>
+<<link [[继续|Orphanage]]>><<endevent>><</link>>

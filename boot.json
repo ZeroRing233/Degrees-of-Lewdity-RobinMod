@@ -14,6 +14,7 @@
         "game/robin-work/photography/photography.twee",
         "game/robin-work/live-stream/liveStream.twee",
         "game/robin-work/widgets.twee",
+        "game/robin-trait/robinTrait.twee",
         "game/robin-trait/widgets.twee"
     ],
     "imgFileList": [],
@@ -53,7 +54,9 @@
         "game/robin-trait/robinPayBackCount.txt",
         "game/robin-trait/rentIntroProtect.txt",
         "game/robin-trait/journalUpdate.txt",
-        "game/robin-trait/npcincrUpdate.txt"
+        "game/robin-trait/npcincrUpdate.txt",
+        "game/robin-trait/robinHugBreak.txt",
+        "game/robin-trait/robinHugCry.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -295,6 +298,21 @@
                     "passage": "Widgets Named Npcs",
                     "findString": "<<set $NPCName[_i].dom += _val>>",
                     "replaceFile": "game/robin-trait/npcincrUpdate.txt"
+                },
+                {
+                    "passage": "Robin Hug Cry",
+                    "findString": "<<if _robinlove gte 80 and $robincrycount gte 2>>",
+                    "replaceFile": "game/robin-trait/robinHugCry.txt"
+                },
+                {
+                    "passage": "Robin Hug Cry",
+                    "findString": "<<robinhug>>",
+                    "replace": "<<robinhug>>\n<</if>>"
+                },
+                {
+                    "passage": "Robin Hug Break",
+                    "findString": "<<if C.npc.Robin.love gte 80 and $robinhugbreak gte 1>>",
+                    "replaceFile": "game/robin-trait/robinHugBreak.txt"
                 }
             ]
         },

@@ -1,0 +1,23 @@
+<<if  _robinlove gte 80 and $robincrycount gte 2 and $robinCouldPayBoth and !$robinPayBothTalked>>
+    <<set $robincrycount += 1>>
+	罗宾似乎已经意识到有什么不对劲，<<his>>用双臂抱住了你，
+	<<he>>没有问发生了什么事，只是用温柔的话语悄悄地安慰你，同时用手在你的背上摩擦。
+	在<<he>>试着安慰你后，你终于含着眼泪开了口，并开始宣泄最近发生在你身上的所有麻烦。
+    <br><br>
+    罗宾静静地听着你倾诉，最终，<<he>>像是下定了决心，用坚定的语气对你说道："如果你愿意的话，
+    我可以去找贝利承担你的房租。
+    <<if $robinShouldPayBack isnot undefined>>
+        就像你曾经保护过我那样，现在轮到我来保护你了。"
+    <<else>>
+        你曾经帮了我很多，我是不会对你的困难坐视不管的。"
+    <</if>>
+    <<gggdom>><<gglove>><<npcincr Robin love 5>><<npcincr Robin dom 20>>
+    <br><br>
+    你抬起头，惊讶地凝视着罗宾的眼睛，然后缓缓点头。
+    <br><br>
+    在得到你肯定的答复后，罗宾放开了你，说道："我现在就去和贝利谈谈，放心，一切都会过去的。" 说完<<he>>便离开了房间。
+    <br><br>
+    <<link [[继续(0:15)|Robin Talk With Bailey]]>><<pass 15>><</link>>
+
+<<else>>
+    <<if _robinlove gte 80 and $robincrycount gte 2>>
