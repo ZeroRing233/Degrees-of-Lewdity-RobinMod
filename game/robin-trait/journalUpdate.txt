@@ -1,0 +1,3 @@
+<<if $renttime gte 998>>
+    <li>你已无需支付贝利的房租。</li>
+<<elseif $renttime lte 0>>

@@ -4,6 +4,7 @@
     <<robinPayAll>>
     <<earnFeat "Protected By Robin">>
     <<set $robinPayBothTalked to true>>   
+    <<set C.npc.Robin.dom to 100>>
     正当你陷入绝望时，一个身影出现了——是罗宾，
     <<He>>挡在了你和贝利中间，坚定地说："从今以后，就由我来为<<pher>>承担债务，所以请您不要伤害<<pher>>，拜托了。"
     <br><br>

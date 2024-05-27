@@ -14,6 +14,9 @@
         <<set $robinpaid to -1>> /% 为防止原作更新这个属性，$robinpaid不直接作为特质依据 %/
         <<set $robinPaySelfTalked to true>>
         <<earnFeat "In the Same Boat">>
+        <<if C.npc.Robin.dom lte 50 and $robinPaySelfTalked>>
+            <<set C.npc.Robin.dom to 50>>
+        <</if>>
         <br><br>
 
     <<elseif $soldFlowerMoney isnot undefined and $soldFlowerMoney gt 0>>

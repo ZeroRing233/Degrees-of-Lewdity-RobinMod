@@ -1,4 +1,0 @@
-    <<if C.npc.Robin.dom lte 50 and $robinPaySelfTalked>>
-        <<set C.npc.Robin.dom to 50>>
-    <</if>>
-    <<if $gamemode is "soft">>

@@ -8,6 +8,10 @@
     <<set $robinInDebt to false>>
     /% 计算方式：当前阶段减少原游戏中已经减过的400 %/
    	<<set $rentShouldPay to [100,300,500,700,1000,1500,2000][Math.clamp($ronbinRentStage - 1,0,6)]>>
+    /% 罗宾替pc负债，为简化逻辑，直接按罗宾自己的债务算 %/
+    <<if $robinPayBothTalked>>
+        <<set $rentShouldPay *= 2>>
+    <</if>>
     <<set $rentShouldPay -= 400>>
     <<if $robinpaid is 1>>
         <<set $rentShouldPay to 0>>

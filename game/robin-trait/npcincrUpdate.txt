@@ -1,0 +1,11 @@
+<<if _nam is "Robin" and _val lt 0>>
+    <<set $NPCName[_i].dom += _val>>
+    <<if C.npc.Robin.dom lte 50 and $robinPaySelfTalked>>
+        <<set C.npc.Robin.dom to 50>>
+    <</if>>
+    <<if C.npc.Robin.dom lte 100 and $robinPayBothTalked>>
+        <<set C.npc.Robin.dom to 100>>
+    <</if>>
+<<else>>
+    <<set $NPCName[_i].dom += _val>>
+<</if>>

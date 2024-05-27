@@ -1,13 +1,18 @@
 {
-    "name": "Dom Robin",
-    "version": "1.0.1",
+    "name": "DomRobin",
+    "version": "0.0.2",
     "styleFileList": [],
-    "scriptFileList": ["game/javaScript/robinModUtil.js"],
+    "scriptFileList": [
+        "game/javaScript/robinModUtil.js",
+        "game/javaScript/robinTraitEffects.js"
+    ],
     "tweeFileList": [
         "game/robin-work/lemonade/lemonadeUpgrade.twee",
         "game/robin-work/lemonade/goods-list/lemonadeGoods.twee",
         "game/robin-work/chocolate/chocolateUpgrade.twee",
         "game/robin-work/danube-tutor/danubeTutor.twee",
+        "game/robin-work/photography/photography.twee",
+        "game/robin-work/live-stream/liveStream.twee",
         "game/robin-work/widgets.twee",
         "game/robin-trait/widgets.twee"
     ],
@@ -45,9 +50,10 @@
         "game/origin-replace/robinMoneyReplace.txt",
         "game/robin-trait/robinTrait.txt",
         "game/robin-trait/robinRoomEntranceTalk.txt",
-        "game/robin-trait/storyCaptionEffects.txt",
         "game/robin-trait/robinPayBackCount.txt",
-        "game/robin-trait/rentIntroProtect.txt"
+        "game/robin-trait/rentIntroProtect.txt",
+        "game/robin-trait/journalUpdate.txt",
+        "game/robin-trait/npcincrUpdate.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -216,11 +222,6 @@
                     "replaceFile": "game/robin-trait/robinRoomEntranceTalk.txt"
                 },
                 {
-                    "passage": "StoryCaption",
-                    "findString": "\t<<if $gamemode is \"soft\">>",
-                    "replaceFile": "game/robin-trait/storyCaptionEffects.txt"
-                },
-                {
                     "passage": "Widgets Robin",
                     "findString": "\t<<set $money += ($robinmoney * 100)>>",
                     "replaceFile": "game/robin-trait/robinPayBackCount.txt"
@@ -284,6 +285,16 @@
                     "passage": "Rent Intro",
                     "findString": "\t<br>\n<</if>>",
                     "replace": "\t<br>\n<</if>>\n<</if>>"
+                },
+                {
+                    "passage": "Widgets Journal",
+                    "findString": "<<if $renttime lte 0>>",
+                    "replaceFile": "game/robin-trait/journalUpdate.txt"
+                },
+                {
+                    "passage": "Widgets Named Npcs",
+                    "findString": "<<set $NPCName[_i].dom += _val>>",
+                    "replaceFile": "game/robin-trait/npcincrUpdate.txt"
                 }
             ]
         },
@@ -318,9 +329,27 @@
                     },
                     {
                         "from": "if (V.robinromance === 1 && C.npc.Robin.dom >= 40)",
-                        "to": "if (V.robinPaySelfTalked) {statChange.stress(-25);} if (V.robinromance === 1 && C.npc.Robin.dom >= 40)",
+                        "to": "dailyRobinTraitEffects(); \n if (V.robinromance === 1 && C.npc.Robin.dom >= 40)",
                         "fileName": "time.js",
-                        "_comment1": "两种特质对应的属性"
+                        "_comment1": "两种新特质对应的属性变化。"
+                    },
+                    {
+                        "from": "return statDisplay.statChange(\"罗宾的自信\", -1, \"lblue\");",
+                        "to": "return statDisplay.statChange(\"罗宾的自信\", -1, \"lblue\", needLowerDom);",
+                        "fileName": "text.js",
+                        "_comment1": "有特质直接不显示减属性。"
+                    },
+                    {
+                        "from": "return statDisplay.statChange(\"罗宾的自信\", -2, \"lblue\");",
+                        "to": "return statDisplay.statChange(\"罗宾的自信\", -2, \"lblue\", needLowerDom);",
+                        "fileName": "text.js",
+                        "_comment1": "有特质直接不显示减属性。"
+                    },
+                    {
+                        "from": "return statDisplay.statChange(\"罗宾的自信\", -3, \"lblue\");",
+                        "to": "return statDisplay.statChange(\"罗宾的自信\", -3, \"lblue\", needLowerDom);",
+                        "fileName": "text.js",
+                        "_comment1": "有特质直接不显示减属性。"
                     }
                 ]
             }
