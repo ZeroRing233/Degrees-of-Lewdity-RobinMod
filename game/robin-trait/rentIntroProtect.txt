@@ -1,12 +1,15 @@
 <<if $robinCouldPayBoth>>
     /% <<effects>>是作者故意去掉的，为了不破坏气氛 %/
     <<npc Robin>><<npc Bailey 2>><<person1>>
+    <<robinPayAll>>
+    <<earnFeat "Protected By Robin">>
+    <<set $robinPayBothTalked to true>>   
     正当你陷入绝望时，一个身影出现了——是罗宾，
     <<He>>挡在了你和贝利中间，坚定地说："从今以后，就由我来为<<pher>>承担债务，所以请您不要伤害<<pher>>，拜托了。"
     <br><br>
     贝利用锐利的目光默默地盯着<<him>>看了一会，最终点了点头，留下一句"你可要做好心理准备"，就直接离开了。
     <br><br>
-    贝利走后，你紧紧拥抱住，用颤抖的声音说着："我...谢谢..."，罗宾回抱着你，温柔地说:"你不用再说下去了，
+    贝利走后，你紧紧拥抱住罗宾，用颤抖的声音说着："我...谢谢..."，罗宾回抱着你，温柔地说："不用再说下去了，
     /% 表示pc之前承担过债务 %/
     <<if $robinShouldPayBack isnot undefined>>
         你曾经保护过我，现在轮到我来保护你了。"
@@ -16,14 +19,28 @@
     <<gggdom>><<gglove>><<npcincr Robin love 5>><<npcincr Robin dom 20>>
     <br><br>
     此刻，时间仿佛静止了，罗宾一直默默拥抱着你，直到你平静了下来，<<He>>才起身离开："如果你需要，随时可以来找我，回见。"
+    <<lllstress>><<llltrauma>><<stress -50>><<trauma -25>>
     <br><br>
     <span class="gold">此刻，你感到无比的安心，在猛烈的暴风雨中，你找到了一处港湾。</span>
     <br><br>
      <<link [[继续|Bedroom]]>><</link>>
-    <<earnFeat "Protected By Robin">>
-    <<set $robinPayBothTalked to true>>
-<<elseif $robinmoney*100 gte $rentmoney>>
-    <<npc Robin>><<npc Bailey 2>>
 
+<<elseif $robinmoney*100 gte $rentmoney>>
+    <<npc Robin>><<npc Bailey 2>><<person1>>
+    <<robinPayOnce>>
+    正当你陷入绝望时，一个身影出现了——是罗宾，
+    <<He>>挡在了你和贝利中间，坚定地说："这一次，就由我来替<<pher>>付钱吧，所以请您不要伤害<<pher>>，拜托了。"
+    <br><br>
+    贝利看了眼罗宾手中的现金，点了点头，接过钱仔细清点后塞进了口袋里，对着你扔下一句："这次算你走运，下周我要<<printmoney $rentmoney "pink">>。" 就直接离开了。
+    <br><br>
+    贝利走后，你感激地看着罗宾，罗宾回以微笑："
+    这没什么，毕竟<<print $robinShouldPayBack isnot undefined? "你也替我付过钱":"你也给了我很多建议">>。"
+    <<ggdom>><<glove>><<npcincr Robin love 2>><<npcincr Robin dom 5>>
+    <br><br>
+    <<He>>又安慰了你几句，才起身离开："如果你需要，随时可以来找我，回见。"
+    <br><br>
+    你感到温暖又安心。<<stress -24>><<trauma -12>><<llstress>><<lltrauma>>
+    <br><br>
+    <<link [[继续|Bedroom]]>><</link>>
 <<else>>
     <<effects>>

@@ -1,0 +1,22 @@
+:: Widgets Robin Pay [widget]
+<<widget "robinPayOnce">>
+    /% 除了扣罗宾的钱以外，效果照搬给贝利付钱代码，为简化逻辑，罗宾付钱不考虑孩子数量 %/
+    <<set $robinmoney -= Math.round($rentmoney/100)>>
+    <<set $baileyPaidStat += $rentmoney>> /% 当前版本只是统计数字 %/
+	<<set $rentmoney to [10000,30000,50000,70000,100000,150000,200000][Math.clamp($rentstage,1,6)]>> <!-- note: clamping to 1 is intentional -->
+	<<rentmod>>
+    <<set $baileydefeatedchain to 0>>/%打手数量，创伤线 %/
+	<<set $baileyRefusedToPay to 0>>/% 影响是否能看孩子 %/
+	<<set $baileypaychain to ($baileypaychain || 0) + 1>>/% 创伤线是否进剧情杀？%/
+	<<unset $bailey_encroach>> /% 控制农场来袭 %/
+	<<set $rentstage += 1>>
+<</widget>>
+
+<<widget "robinPayAll">>
+    /% 每周自动按照罗宾需要交的钱结算，不当场扣钱 %/
+    <<set $baileydefeatedchain to 0>>/%打手数量，创伤线 %/
+	<<set $baileyRefusedToPay to 0>>/% 影响是否能看孩子 %/
+	<<set $baileypaychain to ($baileypaychain || 0) + 1>>/% 创伤线是否进剧情杀？%/
+	<<unset $bailey_encroach>> /% 控制农场来袭 %/
+    <<set $renttime to 999>>/% 在js中需要设置为永不递减 %/
+<</widget>>

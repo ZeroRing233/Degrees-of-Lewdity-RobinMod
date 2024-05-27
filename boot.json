@@ -1,5 +1,5 @@
 {
-    "name": "robinMod",
+    "name": "Dom Robin",
     "version": "1.0.1",
     "styleFileList": [],
     "scriptFileList": ["game/javaScript/robinModUtil.js"],
@@ -8,7 +8,8 @@
         "game/robin-work/lemonade/goods-list/lemonadeGoods.twee",
         "game/robin-work/chocolate/chocolateUpgrade.twee",
         "game/robin-work/danube-tutor/danubeTutor.twee",
-        "game/robin-work/widgets.twee"
+        "game/robin-work/widgets.twee",
+        "game/robin-trait/widgets.twee"
     ],
     "imgFileList": [],
     "additionFile": [
@@ -45,7 +46,8 @@
         "game/robin-trait/robinTrait.txt",
         "game/robin-trait/robinRoomEntranceTalk.txt",
         "game/robin-trait/storyCaptionEffects.txt",
-        "game/robin-trait/robinPayBackCount.txt"
+        "game/robin-trait/robinPayBackCount.txt",
+        "game/robin-trait/rentIntroProtect.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -272,6 +274,16 @@
                     "passage": "Robin Forest",
                     "findString": "<<elseif $weather is \"overcast\">>",
                     "replaceFile": "game/robin-work/photography/photographyIntro.txt"
+                },
+                {
+                    "passage": "Rent Intro",
+                    "findString": "<<effects>>",
+                    "replaceFile": "game/robin-trait/rentIntroProtect.txt"
+                },
+                {
+                    "passage": "Rent Intro",
+                    "findString": "\t<br>\n<</if>>",
+                    "replace": "\t<br>\n<</if>>\n<</if>>"
                 }
             ]
         },
@@ -300,15 +312,15 @@
                     },
                     {
                         "from": "if (V.combat === 0 && V.ironmanmode === true)",
-                        "to": "if (V.robinPaySelfMessage) {sWikifier(`<span class=\"gold\">罗宾现在已经能够承担自己的债务，去罗宾的房间时会有惊喜。</span> <br>`); delete V.robinPaySelfMessage;} if (V.combat === 0 && V.ironmanmode === true)",
+                        "to": "if (V.robinPayBothMessage) {sWikifier(`<span class=\"gold\">罗宾现在已经能够承担你的债务，当你需要帮助时，会有惊喜等着你。</span> <br>`); V.robinPayBothMessage = 0;} \n if (V.robinPaySelfMessage) {sWikifier(`<span class=\"gold\">罗宾现在已经能够承担自己的债务，去罗宾的房间时会有惊喜。</span> <br>`); delete V.robinPaySelfMessage;}\nif (V.combat === 0 && V.ironmanmode === true)",
                         "fileName": "effect.js",
-                        "_comment1": "当罗宾能够承担自己的债务时，展示提示信息表示你应该去找罗宾了。"
+                        "_comment1": "当罗宾能够承担自己的债务时，展示提示信息表示你应该去找罗宾了。当罗宾可以承担两人债务时，同样展示提示信息。"
                     },
                     {
                         "from": "if (V.robinromance === 1 && C.npc.Robin.dom >= 40)",
                         "to": "if (V.robinPaySelfTalked) {statChange.stress(-25);} if (V.robinromance === 1 && C.npc.Robin.dom >= 40)",
                         "fileName": "time.js",
-                        "_comment1": "同舟共济特质：每日压力额外减25，创伤前面减过了"
+                        "_comment1": "两种特质对应的属性"
                     }
                 ]
             }
