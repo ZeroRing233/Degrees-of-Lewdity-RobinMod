@@ -16,3 +16,44 @@
 <span class="gold">此刻，你感到无比的安心，在猛烈的暴风雨中，你找到了一处港湾。</span>
 <br><br>
 <<link [[继续|Orphanage]]>><<endevent>><</link>>
+
+:: Home Event Robin Pay Others
+贝利从罗宾手里夺过钱，仔细清点了起来，然后满意地点了点头，转身离开了。
+<br><br>
+“谢谢你，”当贝利走出能听见的范围时，<<person2>><<person>>对罗宾说道，
+<<if $NPCList[1].traits.includes("bratty")>>
+    “我很难找到工作，到处都是混蛋。”<<He>>苦涩地笑了一下。“我不想知道贝利为我准备了什么。只希望它不会太糟糕。”
+<<elseif $NPCList[1].traits.includes("meek")>>
+    “我...我不知道怎么才能找到工作...”<<He>>的神情十分悲伤。“也不知道如果没有你的话，贝利会对我做些什么。”
+<<else>>
+    “我不知道怎么才能找到合适的工作。”<<He>>的神情十分无奈。“也不知道贝利为我准备了什么。但一定不会是什么好事。”
+<</if>>
+<br><br>
+"我不会让你白白付我钱的，"<<he>>继续说着。"我保证。"<<ghope>><<hope 1>>
+<br><br>
+罗宾又安慰了一会<<person>>，等人群散去之后，<<person3>><<he>>才回到了自己的房间。
+<br><br>
+<<link [[继续|Orphanage]]>><<endevent>><</link>>
+
+:: Home Event Pay Back Accept
+你走上前，对罗宾说："收下吧，这是你应得的回报。"
+<br><br>
+罗宾听了你的话，点了点头，接过了<<person>>递来的钱，<<he>>给了你们一个微笑，然后自我介绍道
+："我叫<span class="green"><<print $NPCList[0].name>></span>，很高兴认识你们。"
+<br><br>
+你们和<<print $NPCList[0].name>>一起兴奋地聊了一会天，直到听到了贝利的脚步声，才依依不舍地互相告别。
+<br><br>
+<<link [[继续|Orphanage]]>><<endevent>><</link>>
+
+:: Home Event Pay Back Refuse
+你走上前，对罗宾说："如果你不愿意收下，或许可以劝<<he>>将这笔钱用来帮助其他人？"
+<br><br>
+罗宾听了你的话，点了点头，对<<person>>说："很抱歉我不能收下你的心意，请用这笔钱帮助其他更有需要的人吧。"
+<br><br>
+<<He>>听完，给了你们一个微笑，郑重地说："我会的。" 然后又自我介绍道
+："我叫<span class="green"><<print $NPCList[0].name>></span>，很高兴认识你们。"
+<br><br>
+你们和<<print $NPCList[0].name>>一起兴奋地聊了一会天，直到听到了贝利的脚步声，才依依不舍地互相告别。
+<br><br>
+<<link [[继续|Orphanage]]>><<endevent>><</link>>
+

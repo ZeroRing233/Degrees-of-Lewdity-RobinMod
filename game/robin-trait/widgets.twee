@@ -20,3 +20,68 @@
 	<<unset $bailey_encroach>> /% 控制农场来袭 %/
     <<set $renttime to 999>>/% 在js中需要设置为永不递减 %/
 <</widget>>
+
+:: Widgets Home Events Robin [widget]
+<<widget "homeeventRobin1">>
+	<<set _randomRent to _args[0]>>
+	<<npc Bailey 1>><<generateyv2>><<npc Robin 3>><<person1>>
+	"你这周要还我 £<<print _randomRent>>，"你听到贝利的声音从前方传来，"付清它。"
+	<br><br>
+	<<switch random(1, 3)>>
+		<<case 1>>
+			<<Hes>>正在和一个双手抱胸的<<person2>><<person>>对话。"这钱可是我辛辛苦苦赚来的，可不会说给你就给你……放马过来吧！"<<he>>挑衅地说道。
+			<<set $NPCList[1].traits.push("bratty")>>
+		<<case 2>>
+			<<Hes>>正在和一个双手握拳的<<person2>><<person>>对话。"我没有钱"，<<he>>担忧地说道。
+			<<set $NPCList[1].traits.push("neutral")>>
+		<<case 3>>
+			<<Hes>>正在和一个低垂着头的<<person2>><<person>>对话。"可是...我...我没有钱"，<<he>>的声音颤抖着。
+			<<set $NPCList[1].traits.push("meek")>>
+	<</switch>>
+	<br><br>
+	<<set $NPCList[1].rentPaidAmount to _randomRent>>
+	<<set $NPCList[1].rentPaidDay to Time.days>>
+	<<set $robin_money -= _randomRent>>
+	<<if $robinPayOthersCount is undefined>>
+		<<set $robinPayOthersCount to 0>>
+	<</if>>
+	<<set $robinPayOthersCount += 1>>
+	<<set _npcSaveName to "orphan_rent_robin_">>
+	<<set _npcSaveName += $robinPayOthersCount>>
+ 	<<saveNPC 1 _npcSaveName>>
+	贝利拿出了一个黑色的面罩和一节绳子。“好吧，”<<person1>><<he>>说道，“别动。”其他的孤儿纷纷将视线移开。
+	<br><br>
+	就在这时，罗宾从人群中站了出来，对贝利说道："<<person2>><<he>>这周要交的钱由我来出吧，请放过<<him>>。"
+	<<npcincr Robin dom 5>><<ggdom>>
+	<br><br>
+	贝利用锐利的眼神看了一会罗宾，然后点头说："可以，反正对我来说都一样。"
+	<br><br>
+	<<link [[继续|Home Event Robin Pay Others]]>><</link>>
+<</widget>>
+
+<<widget "homeeventRobin2">>
+	<<set _npcSelected to _args[0]>>
+	<<loadNPC 0 _npcSelected>><<npc Robin 2>><<person2>>
+	<<set _amount to $NPCList[0].rentPaidAmount * 2>>
+	<<set _day to Time.days - $NPCList[0].rentPaidDay>>
+	你看到罗宾碰巧从房间中走出来。
+	<br><br>
+	<<if $NPCList[0].traits.includes("bratty")>>
+		“嘿！”一个声音在<<him>>身后大喊。
+	<<elseif $NPCList[0].traits.includes("meek")>>
+		“请...请等一下...”一个声音在<<him>>身后说道。
+	<<else>>
+		“请等一等。”一个声音在<<him>>身后说道。
+	<</if>>
+	是<<He>>从贝利那救出来的那个<<person1>><<person>>。
+	<br><br>
+	“<span class="gold"><<print _day>></span>天前你替我支付了房租，我说过我会还给你的，”<<He>>伸手从<<his>>的口袋里掏出一捆钞票，“<span class="gold">£<<print _amount>></span>。”
+	<<He>>微笑着伸出<<his>>的手，将钞票递给了罗宾。“请拿着吧。”
+	<<set $NPCList[0].payBacked to true>>
+	<<saveNPC 0 _npcSelected>>
+	<br><br>
+	“这...这太多了。”罗宾看着<<person>>手中的钱，显得有些犹豫。
+	<br><br>
+	<<link [[鼓励罗宾收下(0:15)|Home Event Pay Back Accept]]>><<set $robinmoney += _amount>><<pass 15>><</link>><br>
+	<<link [[鼓励罗宾拒绝(0:15)|Home Event Pay Back Refuse]]>><<hope 1>><<pass 15>><</link>><<ghope>>
+<</widget>>

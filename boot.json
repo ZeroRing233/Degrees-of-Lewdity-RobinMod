@@ -56,7 +56,8 @@
         "game/robin-trait/journalUpdate.txt",
         "game/robin-trait/npcincrUpdate.txt",
         "game/robin-trait/robinHugBreak.txt",
-        "game/robin-trait/robinHugCry.txt"
+        "game/robin-trait/robinHugCry.txt",
+        "game/robin-trait/homeEvents.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -313,6 +314,11 @@
                     "passage": "Robin Hug Break",
                     "findString": "<<if C.npc.Robin.love gte 80 and $robinhugbreak gte 1>>",
                     "replaceFile": "game/robin-trait/robinHugBreak.txt"
+                },
+                {
+                    "passage": "Widgets Home Events",
+                    "findRegex": "<<rng 7>>\n\\s+<<if \\$rng gte 7>>",
+                    "replaceFile": "game/robin-trait/homeEvents.txt"
                 }
             ]
         },

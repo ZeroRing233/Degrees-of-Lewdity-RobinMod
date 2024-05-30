@@ -1,0 +1,24 @@
+<<rng 9>>
+<<if $rng gte 9>>
+    /% 按照顺序，第一位没有还过钱的npc先来还钱 %/
+    <<set _perNpcList to Object.keys($per_npc)>>
+    <<for _i to 0; _i lt _perNpcList.length; _i++>>
+        <<if _perNpcList[_i].startsWith("orphan_rent_robin") and $per_npc[_perNpcList[_i]].payBacked is undefined and Time.days - 7 gte $per_npc[_perNpcList[_i]].rentPaidDay>>
+            <<set _npcSelected to _perNpcList[_i]>>
+            <<break>>
+        <</if>>
+    <</for>>
+    <<if _npcSelected isnot undefined and getRobinLocation() is "orphanage" >>
+		<<homeeventRobin2 _npcSelected>>
+	<<else>>
+		<<homeeventnorm>>
+	<</if>>
+
+<<elseif $rng gte 8>>
+    <<set _randomRent to getRandomValueFromArray([100,300,500,700,1000,1500,2000])>>
+    <<if $robinPaySelfTalked and getRobinLocation() is "orphanage" and $robinmoney gte _randomRent>>
+		<<homeeventRobin1 _randomRent>>
+	<<else>>
+		<<homeeventnorm>>
+	<</if>>
+<<elseif $rng gte 7>>
