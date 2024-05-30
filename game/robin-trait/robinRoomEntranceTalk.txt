@@ -90,4 +90,37 @@
         <<set $weeklyPhotographyTalked to true>>
         <br><br>
 
+    <<elseif $robinShouldPayBack isnot undefined and $robinShouldPayBack gt 0 and $robinPaySelfTalked and $robinmoney gte $robinShouldPayBack>>
+        你敲了敲门，<<robinOpen>>
+        <br><br>
+        随后，<<He>>在抽屉里翻找起来。在找完之后，<<he>>将仔细清点过的<span class="gold">£<<print $robinShouldPayBack>></span>递给了你。
+        <br><br>
+        看着你困惑的表情，罗宾解释说："之前你替我承担债务时，我一直都默默记着你替我付的每一笔钱，现在是时候把这些钱还给你了。" 说完，<<He>>把钱轻轻放在了你的手上。
+        <<ggdom>><<glove>><<npcincr Robin dom 5>><<npcincr Robin love 2>>
+        <br><br>
+        ："谢谢，我很感动。" 你点了点头，接过罗宾递来的钱，心中感慨万千。
+        <br><br>
+        罗宾温柔地抱住了你，继续说道："这是我作为<<if $robinromance is 1>><<nnpc_girlfriend "Robin">><<else>>朋友<</if>>应该做的，
+        感谢你一直以来对我的保护。"<<ltrauma>><<lstress>><<stress -12>><<trauma -6>>
+        <br><br>
+        你们相拥了好一会儿，才慢慢放开了对方。
+        <br><br>
+        <<set $robinmoney -= $robinShouldPayBack>>
+        <<set $money += $robinShouldPayBack * 100>>
+        <<set $robinShouldPayBack to 0>>
+    
+    <<elseif $robinconsole is 0 and $robinPaySelfTalked and $robinmoney gte 400>>
+        你敲了敲门，<<robinOpen>>
+        <br><br>
+        一进门，你惊讶地发现房间里有了新的变化——之前被罗宾卖掉的游戏机又回来了。
+        <br><br>
+        罗宾注意到了你的神情，<<he>>自豪地说："现在我已经能支付得起每周的房租了，交完房租后正好还有点余钱，我就把之前卖掉的游戏机买回来啦，你要不要一起玩？"
+        <<He>>拍了拍旁边的空位。
+        <<gdom>><<glove>><<npcincr Robin dom 2>><<npcincr Robin love 2>>
+        <br><br>
+        你由衷地为罗宾感到高兴。<<ltrauma>><<lstress>><<stress -12>><<trauma -6>>
+        <br><br>
+        <<set $robinconsole to 1>>
+        <<set $robinmoney -= 400>>
+
     <<elseif _robin.trauma gte 40>>
