@@ -59,7 +59,7 @@
 <<pass 180>>
 <<glove>><<npcincr Robin love 2>>
 <br><br>
-<span class="gold">此后每天晚上八点到九点罗宾会在房间内进行直播，每周存款递增。</span>
+<span class="gold">此后每天晚上七点到八点罗宾会在房间内进行直播，每周存款递增。</span>
 <<if $phase is 1>>
     <<set $ronbinmoney -= 2000>>
 <<else>>
