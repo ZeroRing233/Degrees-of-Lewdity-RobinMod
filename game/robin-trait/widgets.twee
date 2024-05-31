@@ -41,7 +41,7 @@
 	<br><br>
 	<<set $NPCList[1].rentPaidAmount to _randomRent>>
 	<<set $NPCList[1].rentPaidDay to Time.days>>
-	<<set $robin_money -= _randomRent>>
+	<<set $robinmoney -= _randomRent>>
 	<<if $robinPayOthersCount is undefined>>
 		<<set $robinPayOthersCount to 0>>
 	<</if>>
