@@ -1,0 +1,7 @@
+			<<if $robinPayBothNote>>
+                <<loveicon>><<link [[亲吻|Robin Romance Pay Both]]>><<set $robinroomentered to 1>><<set $robinromance to 1>><<handheldon 1>><</link>>
+            <<elseif $robinPaySelfNote>>
+                <<loveicon>><<link [[亲吻|Robin Romance Pay Self]]>><<set $robinroomentered to 1>><<set $robinromance to 1>><<handheldon 1>><</link>>
+            <<else>>
+                <<loveicon>><<link [[亲吻|Robin Romance]]>><<set $robinroomentered to 1>><<set $robinromance to 1>><<handheldon 1>><</link>>
+            <</if>>

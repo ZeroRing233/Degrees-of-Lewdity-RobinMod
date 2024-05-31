@@ -57,3 +57,99 @@
 <br><br>
 <<link [[继续|Orphanage]]>><<endevent>><</link>>
 
+:: Robin Note Pay Both
+<<set $outside to 0>><<set $location to "home">><<effects>>
+你读起纸条。
+<br><br>
+"<i>有一件事我一直都想告诉你，但当我每次靠近你的时候，都担心会让你感到为难。
+<br>这一路走来，我们共同经历了许多事情，希望我之前的举动能帮你减轻一些负担，能让你过得更加自由快乐。
+<br><br>
+当你跟我说话时，我能感觉到自己的心一直在怦怦直跳（就像是有蝴蝶在胸膛中乱撞）；当你依靠在我怀中时，我觉得自己的身体都快要被你融化掉了（我是指好的方面）。<br> 你愿意成为我的
+<<if ($player.gender isnot $player.gender_appearance and $player.gender isnot "h") or $backgroundTraits.includes("crossdresser")>>
+	<<girlfriend>>么？或者说，是做我的<<print ($player.gender_appearance is "m" ? "女朋友" : "男朋友")>>？(当然不论是哪一种我都会非常高兴。)
+<<else>>
+	<<girlfriend>>吗？
+<</if>>
+如果你不愿意也没关系的，就当作从没有读过这封信就好，否则我们之后的相处会有些尴尬 T_T
+<br><br>
+谢谢你一直陪伴着我，
+<br>罗宾 </i>"
+<br><br>
+<<link [[继续|Bedroom]]>><</link>>
+<br>
+
+:: Robin Note Pay Self
+<<set $outside to 0>><<set $location to "home">><<effects>>
+你读起纸条。
+<br><br>
+"<i>有一件事我一直都想告诉你，但当我每次靠近你的时候，都不知道如何开口。
+<br>这一路走来，我们共同经历了许多事情，如今我终于能支付得起自己的债务了，感谢你一直在帮助我成长。
+<br><br>
+当你跟我说话时，我能感觉到自己的心一直在怦怦直跳（就像是有蝴蝶在胸膛中乱撞）；当我们互相拥抱时，我觉得自己的身体都快要被你融化掉了（我是指好的方面）。<br> 你愿意成为我的
+<<if ($player.gender isnot $player.gender_appearance and $player.gender isnot "h") or $backgroundTraits.includes("crossdresser")>>
+	<<girlfriend>>么？或者说，是做我的<<print ($player.gender_appearance is "m" ? "女朋友" : "男朋友")>>？(当然不论是哪一种我都会非常高兴。)
+<<else>>
+	<<girlfriend>>吗？
+<</if>>
+如果你不愿意也没关系的，就当作从没有读过这封信就好，否则我们之后的相处会有些尴尬 T_T
+<br><br>
+谢谢你一直鼓励着我，
+<br>罗宾 </i>"
+<br><br>
+<<link [[继续|Bedroom]]>><</link>>
+<br>
+
+:: Robin Romance Pay Both
+<<set $outside to 0>><<set $location to "home">><<effects>>
+"我看到了你留下的纸条，"你说。<<He>>看上去十分期待。<br>
+"我很高兴你写了那些，你的文字真的非常甜蜜。" 你继续说道。
+<br><br>
+"这么说，你是接受了，对吗？"在得到你肯定的眼神后，<<he>>用双手轻轻地将你的脸颊调整到合适的角度，然后吻了上去。
+
+<<glove>><<npcincr Robin love 1>><<garousal>><<ltrauma>><<lstress>><<arousal 600 "mouth">><<trauma -6>><<stress -12>>
+<<takeKissVirginity "Robin" "loveInterest">>
+<br><br>
+
+<<He>>拾起你的双手放进自己的手心，紧紧扣住。<<takeHandholdingVirginity "Robin" "romantic">>你感到<<his>>的心跳加速。<br>
+就这样保持了好一会儿，<<he>>松开了你的嘴唇，但你又主动靠近了<<him>>，延续了这一吻。你看到<<His>>的脸颊已然被泪水打湿，而你的泪水也开始夺眶而出。
+<br><br>
+
+随后，你转了转脖子，让<<his>>的吻落在了你的脸颊上。<<He>>一直吻着你，直到<<he>>开始用鼻子蹭你的脖子时，你一边流泪一边笑了出来。
+"我爱你，"<<he>>轻轻说道。
+<br><br>
+<<if $loveInterest.primary is "None">>
+	<<set $loveInterest.primary to "Robin">>
+	<span class = "gold">罗宾现在是你的爱人了！这个想法让你心中感到温暖。</span>
+	<br><br>
+<<else>>
+	<span class = "gold">你现在可以将罗宾称作是你的爱人了！这个想法让你感到温暖。<br>你可以在"态度"菜单中改变你的爱人。</span>
+	<br><br>
+<</if>>
+<<robinoptions>>
+
+:: Robin Romance Pay Self
+<<set $outside to 0>><<set $location to "home">><<effects>>
+"我看到了你留下的纸条，"你说。<<He>>看上去有一点紧张。<br>
+"我很高兴你写了那些，你的文字真的非常甜蜜。" 你继续说道。
+<br><br>
+"这么说，你是接受了，对吗？"在你坚定地点了点头之后，<<he>>用双手轻轻地将你的脸颊调整到合适的角度，然后吻了上去。
+<<glove>><<npcincr Robin love 1>><<garousal>><<ltrauma>><<lstress>><<arousal 600 "mouth">><<trauma -6>><<stress -12>>
+<<takeKissVirginity "Robin" "loveInterest">>
+<br><br>
+
+你随即配合地拾起<<his>>的双手放进自己的手心，紧紧扣住。<<takeHandholdingVirginity "Robin" "romantic">>你感到<<his>>的心跳加速。<br>
+就这样保持了好一会儿，<<he>>松开了你的嘴唇，但你又主动靠近了<<him>>，延续了这一吻。你看到<<His>>的脸颊已然被泪水打湿，而你的泪水也开始夺眶而出。
+<br><br>
+随后，你转了转脖子，让<<his>>的吻落在了你的脸颊上。<<He>>一直吻着你，直到<<he>>开始用鼻子蹭你的脖子时，你一边流泪一边笑了出来。
+"我爱你，"<<he>>轻轻说道。
+<br><br>
+
+<<if $loveInterest.primary is "None">>
+	<<set $loveInterest.primary to "Robin">>
+	<span class = "gold">罗宾现在是你的爱人了！这个想法让你心中感到温暖。</span>
+	<br><br>
+<<else>>
+	<span class = "gold">你现在可以将罗宾称作是你的爱人了！这个想法让你感到温暖。<br>你可以在"态度"菜单中改变你的爱人。</span>
+	<br><br>
+<</if>>
+<<robinoptions>>

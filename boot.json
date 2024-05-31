@@ -57,7 +57,9 @@
         "game/robin-trait/npcincrUpdate.txt",
         "game/robin-trait/robinHugBreak.txt",
         "game/robin-trait/robinHugCry.txt",
-        "game/robin-trait/homeEvents.txt"
+        "game/robin-trait/homeEvents.txt",
+        "game/robin-trait/robinNote.txt",
+        "game/robin-trait/robinRomance.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -319,6 +321,16 @@
                     "passage": "Widgets Home Events",
                     "findRegex": "<<rng 7>>\n\\s+<<if \\$rng gte 7>>",
                     "replaceFile": "game/robin-trait/homeEvents.txt"
+                },
+                {
+                    "passage": "Bedroom",
+                    "findRegex": "<<if \\$robinpaid is 1 and.*>>",
+                    "replaceFile": "game/robin-trait/robinNote.txt"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findRegex": "\\s+<<loveicon>>.*<</link>>",
+                    "replaceFile": "game/robin-trait/robinRomance.txt"
                 }
             ]
         },
