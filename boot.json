@@ -15,7 +15,8 @@
         "game/robin-work/live-stream/liveStream.twee",
         "game/robin-work/widgets.twee",
         "game/robin-trait/robinTrait.twee",
-        "game/robin-trait/widgets.twee"
+        "game/robin-trait/widgets.twee",
+        "game/robin-daily/robinDate.twee"
     ],
     "imgFileList": [],
     "additionFile": [
@@ -59,7 +60,9 @@
         "game/robin-trait/robinHugCry.txt",
         "game/robin-trait/homeEvents.txt",
         "game/robin-trait/robinNote.txt",
-        "game/robin-trait/robinRomance.txt"
+        "game/robin-trait/robinRomance.txt",
+        "game/robin-daily/lemonadePurchase.txt",
+        "game/robin-daily/shoppingCenter.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -331,6 +334,26 @@
                     "passage": "Widgets Robin",
                     "findRegex": "\\s+<<loveicon>>.*<</link>>",
                     "replaceFile": "game/robin-trait/robinRomance.txt"
+                },
+                {
+                    "passage": "Robin's Lemonade Purchase",
+                    "findRegex": "\"<<print either\\(.*\n.*\n.*\n.*\\)>>\"",
+                    "replaceFile": "game/robin-daily/lemonadePurchase.txt"
+                },
+                {
+                    "passage": "Robin's Lemonade Purchase Other",
+                    "findRegex": "\"<<print either\\(.*\n.*\n.*\n.*\\)>>\"",
+                    "replaceFile": "game/robin-daily/lemonadePurchase.txt"
+                },
+                {
+                    "passage": "Robin's Lemonade Purchase Honey",
+                    "findRegex": "\"<<print either\\(.*\n.*\n.*\n.*\\)>>\"",
+                    "replaceFile": "game/robin-daily/lemonadePurchase.txt"
+                },
+                {
+                    "passage": "Shopping Centre",
+                    "findRegex": "\\s*<</if>>\n\\s*<<hairdressericon>>",
+                    "replaceFile": "game/robin-daily/shoppingCenter.txt"
                 }
             ]
         },

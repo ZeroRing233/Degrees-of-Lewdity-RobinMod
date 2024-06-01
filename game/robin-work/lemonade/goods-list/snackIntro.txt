@@ -1,3 +1,7 @@
+<<if $loftTelescopeKnown>>
+    其中一间房间里有一台天文望远镜，镜头正对着窗外的世界。
+    <br>
+<</if>>
 <<if ($lemonadeUpgraded or $chocolateUpgraded) and $loft_river is 1 and !$lemonadeNewGoodsList.includes("snack") and getRobinLocation() is "orphanage" and C.npc.Robin.dom gte 80>>
     <br>
     <<npc Robin>>

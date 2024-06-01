@@ -1,0 +1,63 @@
+:: Shop Telescope
+<<effects>>
+你走进了一家天文用品店，店内展示着各式各样的天文望远镜。说不定你可以买一款藏在阁楼？这也可以给罗宾一个惊喜。
+<br><br>
+一位店员看到你一直在注视着店内的望远镜，便径直向你走来，热情地进行推荐："这款望远镜的放大倍数很高，
+用它可以很清晰地观察到美丽的星空，它的价格也很适中，适合在日常中使用。"
+<br><br>
+你仔细端详着店员推荐的望远镜，最终点了点头，支付了所需的金额。
+店员迅速地帮你包装好了新买的望远镜，你决定赶紧回家安顿好这台仪器。
+<br><br>
+<<link [[继续|Shop Telescope Back Home]]>><</link>>
+
+:: Shop Telescope Back Home
+<<set $outside to 0>><<set $location to "home">><<effects>>
+<<npc Robin>><<person1>>
+你拿着望远镜回到了孤儿院，然后拉动绳子，在放下隐藏的楼梯后开始往上爬。
+<br><br>
+你在阁楼里挑选了一间合适的房间，然后小心翼翼地把新买的仪器放下。
+<br><br>
+<<if getRobinLocation() is "orphanage">>
+    <<set $loftTelescopeKnown to true>>
+    你听到有脚步声正在靠近阁楼，<span class="gold">是罗宾。</span>
+    <br><br>
+    <<He>>在看到你和你身旁的仪器时瞪大了双眼："这是...天文望远镜？是因为我之前说的话吗？"
+    <<gglove>><<npcincr Robin love 5>>
+    <br><br>
+    你点了点头，微笑着对罗宾说："我们现在就一起来试试效果吧。"
+    <br><br>
+    <<link [[与罗宾一起安装天文望远镜(0:20)|Telescope Prepare Together]]>><<pass 20>><</link>>
+    <br>
+<<else>>
+    罗宾现在不在，<span class="blue">等<<he>>回来后，</span>你可以给<<him>>一个惊喜。
+    <br><br>
+    <<link [[继续|Orphanage Loft]]>><<endevent>><</link>>
+    <br>
+<</if>>
+
+:: Loft Telescope Intro
+<<set $outside to 0>><<set $location to "home">><<effects>>
+ <<set $loftTelescopeKnown to true>>
+："跟我来，我有东西要给你看！" 你对罗宾说道。罗宾显得有些困惑，但还是跟着你走出了房间。
+<br><br>
+你拉着罗宾来到了阁楼上，然后走进了放置着望远镜的房间，
+<<He>>在看到房间里的景象时瞪大了双眼："这是...天文望远镜？是因为我之前说的话吗？"
+<<gglove>><<npcincr Robin love 5>>
+<br><br>
+你点了点头，微笑着对罗宾说："我们现在就一起来试试效果吧。"
+<br><br>
+<<link [[与罗宾一起安装天文望远镜(0:20)|Telescope Prepare Together]]>><<pass 20>><</link>>
+<br>
+
+:: Telescope Prepare Together
+<<set $outside to 0>><<set $location to "home">><<effects>>
+你和罗宾迫不及待地开始安装望远镜。你负责展开三脚架，而罗宾则仔细地将望远镜组装起来。经过一番努力，望远镜终于安装完毕。
+<br><br>
+你们走到窗前，罗宾将望远镜对准窗外的天空，调整焦距，捕捉到了清晰的图像。
+<br><br>
+在做完了准备工作之后，你们相视一笑，期待着之后用望远镜探索这颗星球之外的世界。<<lstress>><<ltrauma>> <<stress -12>><<trauma -6>>
+<br><br>
+你们又一起畅想了一会该如何使用刚组装好的望远镜，然后才依依不舍地互相告别。
+<br><br>
+<<link [[继续|Orphanage Loft]]>><<endevent>><</link>>
+<br>
