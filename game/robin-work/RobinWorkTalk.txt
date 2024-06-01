@@ -1,4 +1,4 @@
-        <<if $photography is 1 and !$weeklyPhotography and (Time.hour is 17 or Time.hour is 7)>>
+        <<if $photography is 1 and !$weeklyPhotography and (Time.hour is 18 or Time.hour is 7)>>
             <<photographystudioicon>><<link [[与罗宾一起拍摄(1:00)|Photography Together]]>><</link>>
             <br>
         <</if>>

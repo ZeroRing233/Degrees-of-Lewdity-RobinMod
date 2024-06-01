@@ -17,7 +17,7 @@
 你也认为这是一个好主意，于是爽快地答应了罗宾。
 <br><br>
 罗宾认真思考起了摄影的内容："我想想...拍摄用的服装不需要太正式，<span class="gold">但需要足够有新意。</span> 
-我们可以<span class="gold">每周</span>拍摄一次，拍摄时间就定在<span class="gold">早上七点或下午五点，天气晴朗</span>的时候。"
+我们可以<span class="gold">每周</span>拍摄一次，拍摄时间就定在<span class="gold">早上七点或傍晚六点，天气晴朗</span>的时候。"
 <br><br>
 你和罗宾一一确认了拍摄前需要准备的细节，最后，罗宾说道："等你准备好需要的服装了，随时可以在约定的时间找我。"
 <<set $workTopicList to $workTopicList.filter(topic => topic!="photography")>>
