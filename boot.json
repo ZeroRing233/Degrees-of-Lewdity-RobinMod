@@ -62,7 +62,8 @@
         "game/robin-trait/robinNote.txt",
         "game/robin-trait/robinRomance.txt",
         "game/robin-daily/lemonadePurchase.txt",
-        "game/robin-daily/shoppingCenter.txt"
+        "game/robin-daily/shoppingCenter.txt",
+        "game/robin-daily/robinWalk.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -354,6 +355,11 @@
                     "passage": "Shopping Centre",
                     "findRegex": "\\s*<</if>>\n\\s*<<hairdressericon>>",
                     "replaceFile": "game/robin-daily/shoppingCenter.txt"
+                },
+                {
+                    "passage": "Robin Walk",
+                    "findString": "<<if $halloween_robin is 1",
+                    "replaceFile": "game/robin-daily/robinWalk.txt"
                 }
             ]
         },

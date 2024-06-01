@@ -59,5 +59,33 @@
 <br><br>
 你们又一起畅想了一会该如何使用刚组装好的望远镜，然后才依依不舍地互相告别。
 <br><br>
+<span class="gold">每天晚上八点，天气晴朗时，你都可以邀请罗宾一起观星。</span>
+<br><br>
 <<link [[继续|Orphanage Loft]]>><<endevent>><</link>>
 <br>
+
+:: Robin Walk Star
+<<set $outside to 0>><<set $location to "home">><<effects>>
+<<if $stargazingCount is undefined>>
+    <<set $stargazingCount to 0>>
+<</if>>
+<<set $stargazingCount += 1>>
+："我们一起去看星星吧，正好今天是一个晴天。" 你提议道。
+<br><br>
+罗宾的眼睛亮了起来，<<He>>迅速地点了点头，拉着你一起爬上了阁楼，然后直奔望远镜所在的房间。
+<br><br>
+窗外，夜空如洗，繁星点点。罗宾轻轻调整望远镜的焦距，<<his>>的眼中闪烁着对未知世界的好奇与期待。
+<br><br>
+在罗宾认真地观测的同时，你也抬头望向了星空。
+<<switch Time.season>>
+    <<case "spring">>
+        大熊座的北斗七星指向东方，牧夫座的大角星等亮星点缀其间，构成了一幅绚丽多彩的星图。
+    <<case "summer">>
+        夏季大三角璀璨夺目，美丽的银河贯穿天际，牛郎星和织女星遥遥相望，令人想起了美好的传说。
+    <<case "autumn">>
+        秋季四边形高悬空中，仙后座和飞马座散发着耀眼的光芒，不知珀耳修斯和安德罗墨达是否在历史上有其原型？
+    <<case "winter">>
+        天空中最明亮的七颗星构成了猎户的轮廓，参宿四、参宿七等亮星熠熠生辉。
+<</switch>>
+<br><br>
+<<link [[继续|Orphanage Loft]]>><<endevent>><</link>>

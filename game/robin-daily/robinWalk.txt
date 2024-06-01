@@ -1,0 +1,5 @@
+<<if Time.hour is 20 and $loftTelescopeKnown and !["rain","snow"].includes($weather)>>
+	<<link [[一起观星 (0:30)|Robin Walk Star]]>><<pass 30>><</link>>
+	<br>
+<</if>>
+<<if $halloween_robin is 1
