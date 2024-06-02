@@ -1,5 +1,11 @@
-<<rng 9>>
-<<if $rng gte 9>>
+<<rng 10>>
+<<if $rng gte 10>>
+    <<if $loftTelescopeKnown>>
+        <<homeeventRobin3>>
+    <<else>>
+        <<homeeventnorm>>
+    <</if>>
+<<elseif $rng gte 9>>
     /% 按照顺序，第一位没有还过钱的npc先来还钱 %/
     <<set _perNpcList to Object.keys($per_npc)>>
     <<for _i to 0; _i lt _perNpcList.length; _i++>>
@@ -13,7 +19,6 @@
 	<<else>>
 		<<homeeventnorm>>
 	<</if>>
-
 <<elseif $rng gte 8>>
     <<set _randomRent to getRandomValueFromArray([100,300,500,700,1000,1500,2000])>>
     <<if $robinPaySelfTalked and getRobinLocation() is "orphanage" and $robinmoney gte _randomRent>>

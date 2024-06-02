@@ -62,6 +62,7 @@
         "game/robin-trait/robinNote.txt",
         "game/robin-trait/robinRomance.txt",
         "game/robin-daily/lemonadePurchase.txt",
+        "game/robin-daily/chocolatePurchase.txt",
         "game/robin-daily/shoppingCenter.txt",
         "game/robin-daily/robinWalk.txt"
     ],
@@ -350,6 +351,16 @@
                     "passage": "Robin's Lemonade Purchase Honey",
                     "findRegex": "\"<<print either\\(.*\n.*\n.*\n.*\\)>>\"",
                     "replaceFile": "game/robin-daily/lemonadePurchase.txt"
+                },
+                {
+                    "passage": "Robin Chocolate Purchase",
+                    "findRegex": "\"<<print either\\(.*\n.*\n.*\n.*\\)>>”",
+                    "replaceFile": "game/robin-daily/chocolatePurchase.txt"
+                },
+                {
+                    "passage": "Robin Chocolate Purchase Other",
+                    "findRegex": "\"<<print either\\(.*\n.*\n.*\n.*\\)>>\"",
+                    "replaceFile": "game/robin-daily/chocolatePurchase.txt"
                 },
                 {
                     "passage": "Shopping Centre",
