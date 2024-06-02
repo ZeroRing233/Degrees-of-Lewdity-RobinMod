@@ -18,7 +18,9 @@
         "game/robin-trait/widgets.twee",
         "game/robin-daily/robinDate.twee"
     ],
-    "imgFileList": [],
+    "imgFileList": [
+        "img/icon/stars.jpg"
+    ],
     "additionFile": [
         "README.md",
         "game/feats/robinFeats.json",
@@ -439,6 +441,12 @@
                     "game/feats/robinFeats.json"
                 ]
             }
+        },
+        {
+            "modName": "ModLoader DoL ImageLoaderHook",
+            "addonName": "ImageLoaderAddon",
+            "modVersion": "^2.3.0",
+            "params": []
         }
     ],
     "dependenceInfo": [{
@@ -452,6 +460,10 @@
         {
             "modName": "ModdedFeatsAddon",
             "version": "^1.0.0"
+        },
+        {
+            "modName": "ModLoader DoL ImageLoaderHook",
+            "version": "^2.3.0"
         }
     ]
 }

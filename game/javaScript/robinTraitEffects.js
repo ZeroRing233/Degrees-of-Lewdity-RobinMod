@@ -10,11 +10,14 @@ function dailyRobinTraitEffects() {
         // 不用交房租
         V.renttime = 999;
         V.robinpaid = -1;
+        V.robinfirstrentfight = 0;
     } else if (V.robinPaySelfTalked) {
         // 减压力上限的二十分之一
         statChange.stress(-500, 1);
         statChange.trauma(-25);
         V.robinpaid = -1;
+        // 取消创伤线进线
+        V.robinfirstrentfight = 0;
     }
 }
 
