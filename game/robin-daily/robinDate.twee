@@ -66,11 +66,12 @@
 
 :: Robin Walk Star
 <<set $outside to 0>><<set $location to "home">><<effects>>
+<<set $daily.watchingStar to true>>
 <<if $stargazingCount is undefined>>
     <<set $stargazingCount to 0>>
 <</if>>
 <<set $stargazingCount += 1>>
-："我们一起去看星星吧，正好今天是一个晴天。" 你提议道。
+："我们一起去看星星吧，正好今天是晴天。" 你提议道。
 <br><br>
 罗宾的眼睛亮了起来，<<He>>迅速地点了点头，拉着你一起爬上了阁楼，然后直奔望远镜所在的房间。
 <br><br>
@@ -85,7 +86,56 @@
     <<case "autumn">>
         秋季四边形高悬空中，仙后座和飞马座散发着耀眼的光芒，不知珀耳修斯和安德罗墨达是否在历史上有其原型？
     <<case "winter">>
-        天空中最明亮的七颗星构成了猎户的轮廓，参宿四、参宿七等亮星熠熠生辉。
+        天空中最明亮的几颗星构成了猎户的轮廓，参宿四、参宿七等亮星在其中熠熠生辉。
 <</switch>>
 <br><br>
-<<link [[继续|Orphanage Loft]]>><<endevent>><</link>>
+<<link [[继续|Robin Walk Star 2]]>><</link>>
+
+:: Robin Walk Star 2
+<<set $outside to 0>><<set $location to "home">><<effects>>
+罗宾静静地观测了一会，然后一边说着："看！这颗星星。" 一边将望远镜交给了你。
+<br><br>
+透过望远镜的镜头，你清晰地到了漆黑的夜空中那颗闪亮的明星，你的目光仿佛能触及到宇宙的边缘。<<ltrauma>><<lstress>><<trauma -6>><<stress -12>>
+<br><br>
+你继续观测，罗宾则在你身旁感慨着："
+<<print either(
+    "望远镜里的世界真是奇妙，星星变得更加明亮了，仿佛触手可及。",
+    "你注意到银河的轮廓了吗？那是一条由无数星星组成的河流，流淌在无尽的宇宙中，多么神秘啊。",
+    "这么多的星星，每一颗背后一定都有一个独特的故事，真希望我们能去一一探寻。"
+)>>"
+<br><br>
+你们就这样轮流观测着遥远的星辰，最终，你们的目光在星空下交汇，
+<<print $robinromance is 1 ? "你感到你的心在怦怦直跳。":"你能感受到罗宾也和你一样兴奋。">>
+<br><br>
+<<if $robinromance is 1>>
+    <<link [[亲吻|Robin Walk Star Kiss]]>><<npcincr Robin lust 1>><<npcincr Robin love 2>><</link>><<glove>><<glust>>
+    <br>
+<</if>>
+<<link [[聊天|Robin Walk Star Talk]]>><<npcincr Robin love 1>><<stress -6>><<trauma -3>><</link>><<glove>><<ltrauma>><<lstress>>
+<br>
+
+:: Robin Walk Star Kiss
+<<set $outside to 0>><<set $location to "home">><<effects>>
+在短暂的沉默后，你轻轻吻向了罗宾。<<His>>的眼里闪过一丝惊讶，但随即又迅速做出了回应。
+<br><br>
+罗宾一边用双手拥抱着你，一边激烈地回吻着，广袤的星空见证着你们的亲吻。
+<br><br>
+一吻结束，你们一边回味着这次浪漫的经历，一边走回了罗宾的房间。
+<br><br>
+<<robinoptions>>
+
+:: Robin Walk Star Talk
+<<set $outside to 0>><<set $location to "home">><<effects>>
+："<<print either(
+    "你知道吗？我们现在看到的星星，其实是在诉说着遥远的过去，这和光的传播速度有关...",
+    "你知道吗？据说在银河系的中心藏着一个神秘的黑洞，任何事物一旦接近其边界，都将被无情地吞噬...",
+    "你知道吗？关于银河，流传着无数迷人的传说与童话，比如说有个小男孩在银河列车上与挚友分享苹果..."
+)>>" 你说道。
+<br><br>
+罗宾瞪大了眼睛，好奇地听着你的讲述，还时不时向你提出自己的问题与思考。
+<br><br>
+在热烈的讨论之后，你们一边回味着这次有趣的经历，一边走回了罗宾的房间。
+<br><br>
+<<robinoptions>>
+
+
