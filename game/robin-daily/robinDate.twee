@@ -71,6 +71,7 @@
     <<set $stargazingCount to 0>>
 <</if>>
 <<set $stargazingCount += 1>>
+<<set $dateCount.Total++>><<set $dateCount.Robin++>>
 ："我们一起去看星星吧，正好今天是晴天。" 你提议道。
 <br><br>
 罗宾的眼睛亮了起来，<<He>>迅速地点了点头，拉着你一起爬上了阁楼，然后直奔望远镜所在的房间。
