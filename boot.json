@@ -18,11 +18,13 @@
         "game/robin-trait/widgets.twee",
         "game/robin-daily/robinDate.twee"
     ],
-    "imgFileList": [
-        "img/icon/stars.jpg"
+    "imgFileList": [],
+    "additionDir": [
+        "robinModImg"
     ],
     "additionFile": [
         "README.md",
+        "robinModImg/imgFileListFile.json",
         "game/feats/robinFeats.json",
         "game/robin-work/lemonade/lemonadeUpgradeResult.txt",
         "game/robin-work/lemonade/lemonadeUpgrade.txt",
@@ -443,10 +445,15 @@
             }
         },
         {
-            "modName": "ModLoader DoL ImageLoaderHook",
-            "addonName": "ImageLoaderAddon",
-            "modVersion": "^2.3.0",
-            "params": []
+            "modName": "BeautySelectorAddon",
+            "addonName": "BeautySelectorAddon",
+            "modVersion": "^2.0.0",
+            "params": {
+                "types": [{
+                    "type": "robinModImg",
+                    "imgFileListFile": "robinModImg/imgFileListFile.json"
+                }]
+            }
         }
     ],
     "dependenceInfo": [{
@@ -462,8 +469,8 @@
             "version": "^1.0.0"
         },
         {
-            "modName": "ModLoader DoL ImageLoaderHook",
-            "version": "^2.3.0"
+            "modName": "BeautySelectorAddon",
+            "version": "^2.0.0"
         }
     ]
 }
