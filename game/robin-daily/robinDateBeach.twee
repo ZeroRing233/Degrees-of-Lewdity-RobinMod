@@ -1,0 +1,10 @@
+:: Shop SwimSuit For Robin
+<<effects>>
+你走进了一家泳装店，想着罗宾在海滩说过的话，你决定给罗宾一个惊喜。
+<br><br>
+你为罗宾挑选了一款<<print C.npc.Robin.pronoun is "m"? "沙滩裤":"比基尼">>。
+<<set $robinSwimsuit to "normal">>
+<br><br>
+结账之后，你让服务员仔细地包装好你挑选的泳衣，并期待着罗宾在收到礼物后的反应。
+<br><br>
+<<link [[继续|Shopping Centre]]>><</link>>

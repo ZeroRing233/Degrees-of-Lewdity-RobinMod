@@ -8,4 +8,13 @@
 					<br><br>
 				<</if>>
 			<</if>>
+			<<if !$robinSwimsuit and $swimmingTalked>>
+				<<if $money gte 4000>>
+					<<gifticon "love">><<link [[为罗宾买新泳衣 (0:10)|Shop SwimSuit For Robin]]>><<pass 10>><<set $money -= 30000>><<set $loft_telescope to 1>><</link>>
+					<br>
+				<<else>>
+					<span class="blue">如果你有足够的钱，</span> 就可以在这里为罗宾买一件新泳衣。
+					<br><br>
+				<</if>>
+			<</if>>
 			<<hairdressericon>>
