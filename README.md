@@ -1,5 +1,8 @@
 # DomRobin扩展mod
 
+## 目录
+[基本介绍](#基本介绍) [不正经的补充](#不正经的补充) [致谢](#致谢) [目前进度](#目前进度) [未实现的功能构想](#未实现的功能构想) 
+
 ## 基本介绍
 
 开头预警：本mod是dol游戏的罗宾扩展mod，制作方向是成就一个独立的，高自信的，甚至可以保护pc的罗宾，mod目前只是半成品，只有部分功能的雏形，且十分简陋！所以readme也写得很随意...
@@ -27,7 +30,7 @@ mod现有文本和构想可下载"罗宾mod文本和构想整理.txt"直接查�
 
 - 感谢 Robin's GF （第二作者）对mod的具体设定的构想，文本创作以及观星约会图标创作，目前的构想是我们俩共同讨论出的结果。
 
-- 感谢 [脸木挤白/苯环](https://github.com/Nephthelana)在mod编写之初提供的代码修改！这是本mod得以起步的基础。
+- 感谢 [脸木挤白/苯环](https://github.com/Nephthelana) 在mod编写之初提供的代码修改！这是本mod得以起步的基础。
 
 - 感谢群友"蜜雪冰城分店"为观星创作的两种精美图标。（暂未实装）
 
@@ -35,13 +38,13 @@ mod现有文本和构想可下载"罗宾mod文本和构想整理.txt"直接查�
 
 - 感谢各位d级人员的试玩和bug反馈：（暂时列贴吧ID）无敌可爱乐园，kid1412870，空灵cream，该昵称未存在。
 
-- 感谢[Miyazawa](https://github.com/miyakoAki4828)对本模组开发的持续关注以及对游戏图片格式的说明
+- 感谢[Miyazawa](https://github.com/miyakoAki4828)对本模组的持续关注以及对游戏图片格式的说明。
 
 - 感谢 [脸木挤白/苯环](https://github.com/Nephthelana)，[隨風飄逸](https://github.com/chris81605)，[鲤鱼旗](https://github.com/koooooiCarp) 在模组开发群内的答疑和讨论。
 
 - 感谢[Lyoko-Jeremie](https://github.com/Lyoko-Jeremie)大神开发了Modloader以及所有内置模组、[Number_Sir](https://github.com/NumberSir)大佬开发了模组编写助手，以及两位老师在模组开发群里提供的教程和指导。
 
-- 感谢[Number_Sir](https://github.com/NumberSir),[闰人](https://github.com/omvjro), [丧心病](https://github.com/MissedHeart) 翻译了dol代码编写通用注意事项。
+- 感谢[Number_Sir](https://github.com/NumberSir)，[闰人](https://github.com/omvjro)，[丧心病](https://github.com/MissedHeart) 翻译了dol代码编写通用注意事项。
 
 - 感谢原游戏作者，贡献者，汉化组全体成员以及所有为游戏社区做过贡献的玩家们。（ps: 感觉开始从盘古开天辟地感谢起了...）
 
