@@ -39,5 +39,9 @@
             <<link [[告诉罗宾天文望远镜的事(0:20)|Loft Telescope Intro]]>><</link>>
         <br>
         <</if>>
+        <<if $swimmingTalked and !$robinSwimsuit>>
+            <<link [[提议一起去海边游泳(0:15)|Robin Beach Intro]]>><</link>>
+        <br>
+        <</if>>
         <br>
         <<robinbully>>

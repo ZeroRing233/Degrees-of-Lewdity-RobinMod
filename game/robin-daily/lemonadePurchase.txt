@@ -19,11 +19,11 @@
         "总有一天我会下海去游泳的。如果我穿学校的泳衣，你觉得会有人认为我很奇怪吗？"
         <<if !$swimmingTalked>>
             <br><br>
-            <span class="blue">购物中心里开放了新选项。</span>
+            <span class="blue">罗宾房间里开放了新选项。</span>
             <<set $swimmingTalked to true>>
         <</if>> 
     <<elseif !$swimmingCount>>
-        "现在我已经有新泳衣啦，等有空时我们一起下海去游泳吧。"
+        "等到了<span class="gold">假期</span>，我们就一起下海去游泳，一言为定！"
     <<else>>
         "上次和你一起游泳时真的很开心，大海蔚蓝而又辽阔，等有空时我们再一起下海去游泳吧。"
     <</if>>

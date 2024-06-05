@@ -1,10 +1,88 @@
-:: Shop SwimSuit For Robin
-<<effects>>
-你走进了一家泳装店，想着罗宾在海滩说过的话，你决定给罗宾一个惊喜。
+:: Robin Beach Intro
+<<set $outside to 0>><<set $location to "home">><<effects>>
+ <<set $robinSwimsuit to "school">>
+："你之前不是说过想要下海游泳吗？我们可以行动起来，如果你不想穿学校的泳衣的话，我们也可以准备新泳衣。"
+你提议道。
 <br><br>
-你为罗宾挑选了一款<<print C.npc.Robin.pronoun is "m"? "沙滩裤":"比基尼">>。
-<<set $robinSwimsuit to "normal">>
+<<if Time.schoolTerm>>
+    听了你的提议，罗宾的眼中闪过一丝期待，但随即遗憾地摇了摇头，: "我最近有很多事要忙，等<span class="gold">学校放假</span>的时候，我们再一起去海边游泳吧。"
+    <br><br>
+    你点点头表示赞同，然后兴奋地与罗宾讨论起了假期去海边游玩的种种计划。
+<<else>>
+    听了你的提议，罗宾的眼中闪过一丝期待，然后点头赞同道："现在正好是<span class="gold">假期</span>，除了周末要摆摊之外，
+    我都可以腾出时间。"
+    <br><br>
+    你兴奋地抱住了罗宾，然后与<<He>>讨论起了去海边游玩的种种计划。
+<</if>>
 <br><br>
-结账之后，你让服务员仔细地包装好你挑选的泳衣，并期待着罗宾在收到礼物后的反应。
+<span class="gold">在非周末的假期，每天下午四点前，天气晴朗时，你都可以邀请罗宾一起去海边游泳。</span>
 <br><br>
-<<link [[继续|Shopping Centre]]>><</link>>
+<<robinoptions>>
+
+:: Robin Walk Beach
+<<set $outside to 0>><<set $location to "home">><<effects>>
+："我们一起去海边游泳吧，正好今天天气不错。" 你提议道。
+<br><br>
+罗宾听了也兴奋了起来，<<He>>立即点头说道："我这就去做下准备。"
+<br><br>
+<<if $robinSwimsuit is "school">>
+    罗宾从衣柜里翻出了学校泳装，<<his>>的表情似乎有些为难。
+<<else>>
+    罗宾从衣柜里翻出了你为<<him>>挑选的<<print $robinSwimsuit>>，<<his>>的脸上露出了一丝不易察觉的微笑。
+<</if>>
+<br><br>
+<<if !hasSwimmingSuit()>>
+    <span class="blue">你没有泳衣，不能直接去海滩。</span>
+<<else>>
+    <<link [[直接去海滩(0:15)|Robin Walk Beach 2]]>><<pass 15>><</link>>
+<</if>>
+<br>
+<<link [[一起去购物中心挑选泳衣(0:30)|Robin Walk Beach Shopping]]>><<pass 30>><</link>>
+<br>
+
+:: Robin Walk Beach Shopping
+<<set $outside to 0>><<set $location to "shopping_centre">><<effects>>
+在你们做好了出发准备时，你又提议说:"我们先一起去购物中心挑选合适的泳装吧，好吗？"
+<br><br>
+罗宾欣然答应了："这是个好主意，我正准备换一套泳装呢。"
+<br><br>
+于是，你们来到了购物中心，径直走进了一家泳装店，罗宾好奇地在店内四处张望着。
+<br><br>
+你端详着架子上各式各样的泳衣，不禁想要给罗宾买一套新泳装。
+<br><br>
+<<if $money lt 2500>>
+    但你付不起这里的任何东西。
+    <br><br>
+<</if>>
+<<if C.npc.Robin.pronoun is "m">>
+	<<if $robinSwimsuit isnot "school" and $money gte 8000>>
+		<<link [[购买学校泳衣泳裤 (£80)|Robin Buy Swim]]>><<set $select to "school">><</link>><<gspurity>>
+		<br>
+	<</if>>
+	<<if $robinSwimsuit isnot "normal" and $money gte 3500>>
+		<<link [[购买沙滩裤 (£35)|Sydney Buy Swim]]>><<set $select to "normal">><</link>>
+		<br>
+	<</if>>
+	<<if $robinSwimsuit isnot "crossdress" and $money gte 2500>>
+		<<link [[购买学校穿的女款全套泳衣 (£25)|Sydney Buy Swim]]>><<set $select to "crossdress">><</link>><<llspurity>> <<note "悉尼也许需要一些说服才会穿它。" "italic">>
+		<br>
+	<</if>>
+<<else>>
+	<<if $robinSwimsuit isnot "school" and $money gte 2500>>
+		<<link [[购买学校穿的全套泳衣 (£25)|Sydney Buy Swim]]>><<set $select to "school">><</link>><<gspurity>>
+		<br>
+	<</if>>
+	<<if $robinSwimsuit isnot "normal" and $money gte 4000>>
+		<<link [[购买比基尼 (£40)|Sydney Buy Swim]]>><<set $select to "normal">><</link>>
+		<br>
+	<</if>>
+	<<if $robinSwimsuit isnot "crossdress" and $money gte 8000>>
+		<<link [[购买学校穿的男款泳衣泳裤 (£80)|Sydney Buy Swim]]>><<set $select to "crossdress">><</link>><<llspurity>> <<note "悉尼也许需要一些说服才会穿它。" "italic">>
+		<br>
+	<</if>>
+<</if>>
+<<link [[不买其他东西|$passgae]]>><<unset $select>><</link>>
+
+:: Robin Walk Beach 2
+
+

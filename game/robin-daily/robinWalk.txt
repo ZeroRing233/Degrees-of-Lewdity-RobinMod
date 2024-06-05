@@ -2,4 +2,8 @@
 	<img class="icon" src="img/icon/stars.jpg"><<link [[一起观星 (0:30)|Robin Walk Star]]>><<pass 30>><</link>>
 	<br>
 <</if>>
+<<if !Time.schoolTerm and !Time.isWeekEnd() and Time.hour lt 16 and $robinSwimsuit and !$daily.swimming and !["rain","snow"].includes($weather)>>
+	<<beachicon>><<link [[一起去海边游泳 (0:50+)|Robin Walk Beach]]>><</link>>
+	<br>
+<</if>>
 <<if $halloween_robin is 1
