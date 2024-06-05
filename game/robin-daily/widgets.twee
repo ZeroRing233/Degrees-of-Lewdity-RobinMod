@@ -1,0 +1,33 @@
+:: Widgets Robin Daily [widget]
+<<widget "robinSwimwear">><<silently>>
+	<<switch $robinSwimsuit>>
+		<<case "school">>
+			<<if $pronoun is "m">>
+				<<set _text_output to "学校泳裤和泳衫">>
+			<<else>>
+				<<set _text_output to "学校泳装">>
+			<</if>>
+		<<case "normal">>
+			<<if $pronoun is "m">>
+				<<set _text_output to "沙滩裤">>
+			<<else>>
+				<<set _text_output to "比基尼">>
+			<</if>>
+		<<case "crossdress">>
+			<<if $pronoun is "m">>
+				<<set _text_output to "女款学校泳装">>
+			<<else>>
+				<<set _text_output to "学校泳裤和泳衫">>
+			<</if>>
+	<</switch>>
+<</silently>><<print _text_output>><</widget>>
+
+<<widget "wearGivenClothes">>
+    <<set _chosen to _args[0]>>
+    <<generalWear "under_upper" _chosen[0].index>>
+    <<updateOwned "under_upper">>
+    <<if _chosen.length is 2>>
+        <<generalWear "under_lower" _chosen[1].index>>
+        <<updateOwned "under_lower">>
+    <</if>>
+<</widget>>

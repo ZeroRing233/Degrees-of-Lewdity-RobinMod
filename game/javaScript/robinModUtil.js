@@ -49,3 +49,26 @@ function hasSwimmingSuit() {
     return false;
 }
 window.hasSwimmingSuit = hasSwimmingSuit;
+
+// 随机挑选服装店内一款符合pc当前外表性别的泳衣, 不判断罗宾能否承担（反正不扣钱）
+function chooseOneSwimmingSuit() {
+    // let SwimUpperList = setup.clothes["upper"].filter(clothes => rightSwimmingSuitCondition(clothes));
+    let SwimUnderUpperList = setup.clothes["under_upper"].filter(clothes => rightSwimmingSuitCondition(clothes));
+    let chosen1 = getRandomValueFromArray(SwimUnderUpperList);
+    if (typeof chosen1.outfitPrimary != 'undefined') {
+        return [chosen1];
+    }
+    // let SwimLowerList = setup.clothes["lower"].filter(clothes => rightSwimmingSuitCondition(clothes) &&
+    //    typeof clothes.outfitSecondary === "undefined");
+    let SwimUnderLowerList = setup.clothes["under_lower"].filter(clothes => rightSwimmingSuitCondition(clothes) &&
+        typeof clothes.outfitSecondary === "undefined");
+    let chosen2 = getRandomValueFromArray(SwimUnderLowerList);
+    return [chosen1, chosen2];
+}
+window.chooseOneSwimmingSuit = chooseOneSwimmingSuit;
+
+function rightSwimmingSuitCondition(clothes) {
+    return clothes.shop.includes("clothing") && !clothes.shop.includes("adult") &&
+        clothes.type.includes("swim") &&
+        (clothes.gender === V.player.gender_appearance || clothes.gender === "n");
+}

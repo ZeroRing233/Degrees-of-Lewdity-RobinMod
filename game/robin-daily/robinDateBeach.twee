@@ -28,13 +28,13 @@
 <<if $robinSwimsuit is "school">>
     罗宾从衣柜里翻出了学校泳装，<<his>>的表情似乎有些为难。
 <<else>>
-    罗宾从衣柜里翻出了你为<<him>>挑选的<<print $robinSwimsuit>>，<<his>>的脸上露出了一丝不易察觉的微笑。
+    罗宾从衣柜里翻出了你为<<him>>挑选的<<robinSwimwear>>，<<his>>的脸上露出了一丝不易察觉的微笑。
 <</if>>
 <br><br>
 <<if !hasSwimmingSuit()>>
     <span class="blue">你没有泳衣，不能直接去海滩。</span>
 <<else>>
-    <<link [[直接去海滩(0:15)|Robin Walk Beach 2]]>><<pass 15>><</link>>
+    <<link [[直接去海滩(0:15)|Robin Beach]]>><<pass 15>><</link>>
 <</if>>
 <br>
 <<link [[一起去购物中心挑选泳衣(0:30)|Robin Walk Beach Shopping]]>><<pass 30>><</link>>
@@ -51,38 +51,164 @@
 你端详着架子上各式各样的泳衣，不禁想要给罗宾买一套新泳装。
 <br><br>
 <<if $money lt 2500>>
-    但你付不起这里的任何东西。
+    <span class="blue">但你付不起这里的任何东西。</span>
     <br><br>
 <</if>>
 <<if C.npc.Robin.pronoun is "m">>
 	<<if $robinSwimsuit isnot "school" and $money gte 8000>>
-		<<link [[购买学校泳衣泳裤 (£80)|Robin Buy Swim]]>><<set $select to "school">><</link>><<gspurity>>
+		<<link [[购买学校泳衣泳裤 (£80)|Robin Buy Swim]]>><<set $select to "school">><</link>>
 		<br>
 	<</if>>
 	<<if $robinSwimsuit isnot "normal" and $money gte 3500>>
-		<<link [[购买沙滩裤 (£35)|Sydney Buy Swim]]>><<set $select to "normal">><</link>>
+		<<link [[购买沙滩裤 (£35)|Robin Buy Swim]]>><<set $select to "normal">><</link>>
+		<br>
+	<</if>>
+    <<if $robinSwimsuit isnot "lewd" and $money gte 2500>>
+		<<link [[购买紧身泳裤 (£25)|Robin Buy Swim]]>><<set $select to "lewd">><</link>>
 		<br>
 	<</if>>
 	<<if $robinSwimsuit isnot "crossdress" and $money gte 2500>>
-		<<link [[购买学校穿的女款全套泳衣 (£25)|Sydney Buy Swim]]>><<set $select to "crossdress">><</link>><<llspurity>> <<note "悉尼也许需要一些说服才会穿它。" "italic">>
+		<<link [[购买学校穿的女款全套泳衣 (£25)|Robin Buy Swim]]>><<set $select to "crossdress">><</link>>
 		<br>
 	<</if>>
 <<else>>
 	<<if $robinSwimsuit isnot "school" and $money gte 2500>>
-		<<link [[购买学校穿的全套泳衣 (£25)|Sydney Buy Swim]]>><<set $select to "school">><</link>><<gspurity>>
+		<<link [[购买学校穿的全套泳衣 (£25)|Robin Buy Swim]]>><<set $select to "school">><</link>>
 		<br>
 	<</if>>
 	<<if $robinSwimsuit isnot "normal" and $money gte 4000>>
-		<<link [[购买比基尼 (£40)|Sydney Buy Swim]]>><<set $select to "normal">><</link>>
+		<<link [[购买比基尼 (£40)|Robin Buy Swim]]>><<set $select to "normal">><</link>>
+		<br>
+	<</if>>
+    <<if $robinSwimsuit isnot "lewd" and $money gte 4800>>
+		<<link [[购买暴露式比基尼 (£48)|Robin Buy Swim]]>><<set $select to "lewd">><</link>>
 		<br>
 	<</if>>
 	<<if $robinSwimsuit isnot "crossdress" and $money gte 8000>>
-		<<link [[购买学校穿的男款泳衣泳裤 (£80)|Sydney Buy Swim]]>><<set $select to "crossdress">><</link>><<llspurity>> <<note "悉尼也许需要一些说服才会穿它。" "italic">>
+		<<link [[购买学校穿的男款泳衣泳裤 (£80)|Robin Buy Swim]]>><<set $select to "crossdress">><</link>>
 		<br>
 	<</if>>
 <</if>>
-<<link [[不买其他东西|$passgae]]>><<unset $select>><</link>>
+<<link [[之后再说|Robin Shopping Swim]]>><<unset $select>><</link>>
 
-:: Robin Walk Beach 2
+:: Robin Buy Swim
+<<set $outside to 0>><<set $location to "shopping_centre">><<effects>>
+<<switch $select>>
+	<<case "school">>
+        你为罗宾挑选了适合学校的泳装。
+        罗宾看上去有点犹豫，但最终还是妥协了："也许穿着学校泳装去游泳，也能有不错的体验。"
+		<<set _accept to true>>
+    <<case "normal">>
+		你为罗宾挑选了<<if $pronoun is "m">>沙滩裤<<else>>普通比基尼<</if>>。
+        罗宾满意地点了点头："这套泳装看上去很适合在海边游泳时穿，谢谢你。"
+		<<set _accept to true>>
+    <<case "lewd">>
+        你为罗宾挑选了<<if $pronoun is "m">><<else>>暴露式比基尼<</if>>。
+        看着你选的泳衣，罗宾的脸唰的一下红了。
+        <<if C.npc.Robin.dom gte 80>>
+            <<He>>果断地拒绝了你："抱歉，我不能穿着这个游泳。"
+        <<else>>
+            <<He>>犹豫了一下，最终还是拒绝了你："抱...抱歉，但我不能穿着这个游泳。"
+        <</if>>
+    <<case "crossdress">>
+        你把<<if $pronoun is "m">>女款全套泳衣<<else>>男款泳衣泳裤<</if>>递给罗宾。
+        罗宾显得十分惊讶："这是，给我的？可是这是给<<if C.npc.Robin.pronoun is "m">>女孩子<<else>>男孩子<</if>>穿的吧？”
+        <br><br>
+        ："先穿穿看吧，说不定会很合适呢。"你鼓励罗宾道。罗宾犹豫了一阵子，最终还是点了点头。
+        <<set _accept to true>>
+		<<if C.npc.Robin.crossdress is undefined>>
+			<<set C.npc.Robin.crossdress to 1>>
+		<</if>>
+		<<if C.npc.Robin.cdstart is undefined>>
+			<<set C.npc.Robin.cdstart to "swimming">>
+		<</if>>
+<</switch>>
+<<if _accept>>
+	<<trauma -3>><<npcincr Robin love 1>><<ltrauma>><<glove>>
+	<<switch $select>>
+		<<case "school">>
+			<<if $pronoun is "m">>
+				<<set $money -= 8000>>
+			<<else>>
+				<<set $money -= 2500>>
+			<</if>>
+		<<case "normal">>
+			<<if $pronoun is "m">>
+				<<set $money -= 3500>>
+			<<else>>
+				<<set $money -= 4000>>
+			<</if>>
+		<<case "crossdress">>
+			<<if $pronoun is "m">>
+				<<set $money -= 4000>>
+			<<else>>
+				<<set $money -= 3500>>
+			<</if>>
+	<</switch>>
+	<<set $robinSwimsuit to $select>>
+<</if>>
+<br><br>
+<<if _accept>>
+	<<He>>接过了衣服，然后朝更衣室走去。
+	<br><br>
+	<<link [[等待 (0:05)|Robin Shopping Swim Wait]]>><<pass 5>><</link>>
+	<br>
+	/% <<if $promiscuity gte 35 and $robinromance is 1>>
+		<<link [[靠近罗宾|Robin Shopping Swim Enter]]>><<npcincr Robin lust 1>><</link>><<glust>><<promiscuous3>>
+		<br>
+	<</if>> %/
+<<else>>
+	<<link [[继续|Robin Shopping Swim]]>><<unset $select>><</link>>
+	<br>
+<</if>>
+
+:: Robin Shopping Swim Wait
+<<effects>>
+你等待着罗宾，几分钟过去了。<<he>>穿着<<his>>的新<<robinSwimwear>>出现了。
+<br><br>
+你打量着罗宾，赞赏地说："新泳装果然很合适你。"
+<br><br>
+罗宾红着脸点了点头，轻声说了句："谢谢。"
+<br><br>
+<<link [[继续|Robin Shopping Swim]]>><<unset $select>><</link>>
+
+:: Robin Shopping Swim
+<<effects>>
+就在你思考着要不要为自己也挑选一件新泳衣时，罗宾突然用期待的眼神看着你，
+对你说道："其实，我也为你挑选了一套泳衣，你愿意试试吗？"
+<br><br>
+<<set _chosen to chooseOneSwimmingSuit()>>
+说着，<<He>>递给了你一件<span class="green"><<print _chosen[0].cn_name_cap>></span>
+<<if _chosen.length is 2>>和一件<span class="green"><<print _chosen[1].cn_name_cap>></span><</if>>。
+<br><br>
+<<link [[接受|Robin Shopping Swim Accept]]>><<wearGivenClothes _chosen>><</link>><<glove>><<gdom>>
+<br>
+<<if !hasSwimmingSuit()>>
+    <span class="blue">你没有泳衣，不能拒绝罗宾。</span>
+<<else>>
+    <<link [[谢绝|Robin Shopping Swim Refuse]]>><</link>>
+<</if>>
+<br>
+
+:: Robin Shopping Swim Accept
+<<effects>>
+<<npcincr Robin love 1>><<npcincr Robin dom 1>>
+你换上了罗宾递给你的新泳衣。
+<br><br>
+："新泳装真的很适合你。"罗宾感慨着，你在心里暗暗地开心。<<ltrauma>><<lstress>><<stress -12>><<trauma -6>>
+<br><br>
+："现在是时候去游泳了。"你说道，罗宾点点头，你们一起向海星街走去。
+<br><br>
+<<link [[继续|Robin Beach]]>><</link>>
+
+:: Robin Shopping Swim Refuse
+<<effects>>
+你谢绝了罗宾的好意，罗宾看上了有点失望，但是没有勉强你。
+<br><br>
+："现在是时候去游泳了。"你说道，罗宾点点头，你们一起向海星街走去。
+<br><br>
+<<link [[继续|Robin Beach]]>><</link>>
+
+:: Robin Beach
 
 
