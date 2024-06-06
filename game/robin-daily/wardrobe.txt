@@ -1,0 +1,20 @@
+		<<case "Robin Beach Changing Room">>
+			<<set _earSlimeEnableSwimwear to true>>
+			<<if !getVisibleClothesList().some(item => item.type.includes("swim"))>>
+				<span class="blue">你需要穿上适合游泳的衣服。</span>
+			<<elseif $exposed lte 1>>
+				<<getouticon>><<link [[离开|Robin Beach Swimsuit]]>><<cleanupOnWardrobeExit>><</link>>
+			<<else>>
+				你不能这样就出去！
+			<</if>>
+		<<case "Robin Beach Changing Room Leave">>
+			<<set _earSlimeEnableSwimwear to true>>
+			<<if $earSlime.forcedCommando isnot undefined and !$worn.under_lower.type.includes("naked")>>
+				<span class="red">你耳朵里的史莱姆拒绝让你穿着<<underwearTypeText>>离开。</span>
+			<<elseif $exposed lte 1>>
+				<<getouticon>><<link [[离开|Robin Beach Leave]]>><<cleanupOnWardrobeExit>><</link>>
+			<<else>>
+				你不能这样就出去！
+			<</if>>
+		<<case "Sydney Beach Changing Room">>
+			

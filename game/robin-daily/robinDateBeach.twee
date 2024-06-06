@@ -21,6 +21,12 @@
 
 :: Robin Walk Beach
 <<set $outside to 0>><<set $location to "home">><<effects>>
+<<set $daily.swimming to true>>
+<<if $swimmingCount is undefined>>
+    <<set $swimmingCount to 0>>
+<</if>>
+<<set $swimmingCount += 1>>
+<<set $dateCount.Total++>><<set $dateCount.Robin++>>
 ："我们一起去海边游泳吧，正好今天天气不错。" 你提议道。
 <br><br>
 罗宾听了也兴奋了起来，<<He>>立即点头说道："我这就去做下准备。"
@@ -34,7 +40,7 @@
 <<if !hasSwimmingSuit()>>
     <span class="blue">你没有泳衣，不能直接去海滩。</span>
 <<else>>
-    <<link [[直接去海滩(0:15)|Robin Beach]]>><<pass 15>><</link>>
+    <<link [[直接去海滩(0:15)|Robin Beach Start]]>><<pass 15>><</link>>
 <</if>>
 <br>
 <<link [[一起去购物中心挑选泳衣(0:30)|Robin Walk Beach Shopping]]>><<pass 30>><</link>>
@@ -199,7 +205,7 @@
 <br><br>
 ："现在是时候去游泳了。"你说道，罗宾点点头，你们一起向海星街走去。
 <br><br>
-<<link [[继续|Robin Beach]]>><</link>>
+<<link [[继续|Robin Beach Start]]>><</link>>
 
 :: Robin Shopping Swim Refuse
 <<effects>>
@@ -207,8 +213,113 @@
 <br><br>
 ："现在是时候去游泳了。"你说道，罗宾点点头，你们一起向海星街走去。
 <br><br>
+<<link [[继续|Robin Beach Start]]>><</link>>
+
+:: Robin Beach Start
+<<location "promenade">><<effects>>
+你和罗宾一起来到了海滩。
+<<if $weather is "overcast">>
+		云层驱散了大多数原本打算前来的游客，但依旧有人在海岸上随着海潮漫步。
+<<else>>
+		海滩上满是游客。孩子们建起沙堡，在水中玩耍，他们的父母则晒着日光浴。远处有一群学生正在打排球。
+<</if>>
+<br><br>
+罗宾深吸了一口气，感受着海风带来的咸鲜气息，<<His>>的的眼里充满了对大海的激动和向往，你们俩朝更衣室走去。
+<br><br>
+<<link [[继续 (0:05)|Robin Beach Changing Room]]>><<pass 5>><</link>>
+<br>
+
+:: Robin Beach Changing Room [exitCheckBypass]
+<<location "changingroom">><<effects>>
+/%% 防多重衣柜 %/
+<<set $wardrobe_location to "wardrobe">>
+<<wardrobeSelection>>
+你在一个木制的小更衣室里，你可以听到隔壁房间里罗宾的声音。罗宾和你约定好了要一起下海游泳，所以你应该确保穿着合适的衣服。
+<br><br>
+<div id="wardrobewear"><<wardrobewear>></div>
+<div id="wardrobeExits"><<wardrobeExits>></div>
+<<wardrobe>>
+
+:: Robin Beach Swimsuit
+<<effects>><<set $outside to 1>>
+你从更衣室里走了出来，等待着罗宾穿好<<nnpc_he "Robin">>的衣物。
+<br><br>
+<<switch $robinSwimsuit>>
+	<<case "school" "crossdress">>
+		不久之后，罗宾穿着<<robinSwimwear>>走了出来。
+		："会不会有点奇怪？"<<He>>看上去有点担心，你连忙摇了摇头，鼓励道："不会，我觉得很好看。" <<npcincr Robin love 1>><<glove>>
+	<<case "normal">>
+		不久之后，罗宾穿着<<robinSwimwear>>走了出来。
+		："我这身衣服还合适吗？"<<He>>向你确认道，你点了点头："我觉得很好看。" <<npcincr Robin love 1>><<glove>>
+<</switch>>
+<br><br>
+你们俩牵着对方的手，一步步走向海边。<<takeHandholdingVirginity "Robin" "romantic">>
+<br><br>
 <<link [[继续|Robin Beach]]>><</link>>
 
 :: Robin Beach
+<<location "beach">><<effects>>
+你和罗宾正在海滩上。
+<<if Time.hour gte 17>>
+	当天空中开始出现晚霞的时候，罗宾满足地舒展了一下身体，说道："感谢你今天的陪伴，我想，我们是时候回去了。"
+	说完，<<He>>温柔地牵起你的手，拉着你一起回到了更衣间。
+	<br><br>
+	<<link [[继续|Robin Beach Changing Room Leave]]>><<pass 25>><</link>>
+<<else>>
+	<<if $weather is "clear">>
+		海滩上满是游客。孩子们建起沙堡，在水中玩耍，他们的父母则晒着日光浴。远处有一群学生正在打排球。
+	<<else>>
+		云层驱散了大多数原本打算前来的游客，但依旧有人在海岸上随着海潮漫步。
+	<</if>>
+	<br><br>
+	<<link [[去游泳 (0:20)|Robin Beach Swim]]>><<pass 20>><<set $phase to 0>><<pass 20>><<stress -6>><<tiredness 6>><<npcincr Robin love 1>><</link>><<gswimming>><<lstress>><<gtiredness>><<glove>>
+	<br>
+	<<link [[在海边玩耍 (0:20)|Robin Beach Play]]>><<pass 20>><<stress -6>><<trauma -3>><<npcincr Robin love 1>><</link>><<lstress>><<ltrauma>><<glove>>
+	<br>
+	<<link [[坐着聊天 (0:20)|Robin Beach Talk]]>><<pass 20>><<stress -6>><<trauma -3>><<npcincr Robin love 1>><</link>><<lstress>><<ltrauma>><<glove>>
+	<br>
+	<<link [[换上衣服并离开海滩|Robin Beach Changing Room Leave]]>><<pass 25>><</link>>
+	<br>
+<</if>>
 
+:: Robin Beach Swim
+<<location "seabeach">><<water>><<effects>>
+<<if $phase is 1>>
+	你和罗宾一起在海滩边游泳。<<physique 3>><<swimmingskilluse>>
+<<else>>
+	<<set $phase to 1>>
+	你和罗宾一起步入海潮。<<physique 3>><<swimmingskilluse>>
+<</if>>
+<br><br>
+<<if Time.hour gte 17>>
+	当天空中开始出现晚霞的时候，罗宾满足地舒展了一下身体，说道："感谢你今天的陪伴，我想，我们是时候回去了。"
+	之后，你们一起游向岸边，<<He>>温柔地牵起你的手，拉着你一起回到了更衣间。
+	<br><br>
+	<<link [[继续|Robin Beach Changing Room Leave]]>><<pass 25>><</link>>
+<<else>>
+	<<switch random(1,3)>>
+		<<case 1>>
+			<<if currentSkillValue('swimmingskill') lte 200>>
+				<<He>>看到你游得十分艰难，于是一直在你旁边鼓励并指导着你。
+			<<elseif currentSkillValue('swimmingskill') lte 800>>
+				<<He>>和你的泳技不相上下，你们一起游得很开心。
+			<<else>>
+				你精湛的泳技令<<him>>印象深刻，<<he>>向你请教着游泳技巧。
+			<</if>>
+		<<case 2>>
+			突然，有什么东西缠住了你的脚，罗宾赶紧游向你身边，帮助你挣脱，你们的身体因此紧紧贴在一起。<<npcincr Robin lust 1>><<glust>>
+		<<case 3>>
+			你们尝试了一下仰泳的姿势，发现边游泳边看着天空的感觉非常不错。
+	<</switch>>
+	<br><br>
+	<<swimicon>><<link [[和罗宾一起游泳 (0:20)|Robin Beach Swim]]>><<pass 20>><<stress -6>><<tiredness 6>><<npcincr Robin love 1>><</link>><<gswimming>><<lstress>><<gtiredness>><<glove>>
+	<br>
+	<<beachicon>><<link [[离开海面 (0:01)|Robin Beach]]>><<pass 1>><<endevent>><<npc "Robin">><<person1>><</link>>
+	<br>
+<</if>>
 
+:: Robin Beach Play
+
+:: Robin Beach Talk
+
+:: Robin Beach Changing Room Leave
