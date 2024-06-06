@@ -380,4 +380,64 @@
 <br><br>
 <<link [[继续|Robin Beach]]>><</link>>
 
-:: Robin Beach Changing Room Leave
+:: Robin Beach Changing Room Leave [exitCheckBypass]
+<<location "changingroom">><<effects>>
+/%% 防多重衣柜 %/
+<<set $wardrobe_location to "wardrobe">>
+<<wardrobeSelection>>
+你在一个木制的小更衣室里，你可以听到隔壁房间里罗宾的声音。
+<br><br>
+<div id="wardrobewear"><<wardrobewear>></div>
+<div id="wardrobeExits"><<wardrobeExits>></div>
+<<wardrobe>>
+
+:: Robin Beach Leave
+<<location "changingroom">><<effects>>
+<<if $robinromance>>
+	<<if C.npc.Robin.dom gte 80>>
+		你穿好衣服，正准备离开更衣室，罗宾却突然闯了进来。
+		<<He>>把你拉近身边，在你身上上下摸索着。
+		<br><br>
+		<<link [[接受|Robin Beach Sex]]>><<set $sexstart to 1>><</link>><br>
+		<<link [[拒绝|Robin Beach Sex Refuse]]>><</link>>
+	<<else>>
+		你穿好衣服，看到隔壁罗宾的房间正虚掩着。
+		<br><br>
+		<<link [[闯入|Robin Beach Sex]]>><<set $sexstart to 1>><</link>><br>
+		<<link [[放弃|Robin Beach End]]>><</link>>
+	<</if>>
+<<else>>
+	你穿好衣服，离开了更衣室。
+	<br><br>
+	<<link [[继续|Robin Beach End]]>><</link>>
+<</if>>
+
+:: Robin Beach Sex
+/% 毫无创意 %/
+<<location "changingroom">><<effects>>
+<<if $sexstart is 1>>
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<neutral 1>>
+	<<maninit>>
+	<<set $enemytrust += 500>>
+	<<set $enemyarousalmax to 600>>
+<</if>>
+<<set $enemyanger to 0>>
+<<effects>>
+<<effectsman>>
+<<man>>
+<<stateman>>
+<<actionsman>>
+<<if _combatend>>
+	<span id="next"><<link [[继续|Robin Beach Sex Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[继续|Robin Beach Sex]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Robin Beach Sex Finish
+
+:: Robin Beach Sex Refuse
+
+:: Robin Beach End
