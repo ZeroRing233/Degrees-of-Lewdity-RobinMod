@@ -394,17 +394,20 @@
 :: Robin Beach Leave
 <<location "changingroom">><<effects>>
 <<if $robinromance>>
-	<<if C.npc.Robin.dom gte 80>>
-		你穿好衣服，正准备离开更衣室，罗宾却突然闯了进来。
-		<<He>>把你拉近身边，在你身上上下摸索着。
+	<<if C.npc.Robin.dom gte 80 and C.npc.Robin.lust gte 20>>
+		你穿好衣服，正准备离开更衣室，罗宾却突然走了进来。
 		<br><br>
-		<<link [[接受|Robin Beach Sex]]>><<set $sexstart to 1>><</link>><br>
-		<<link [[拒绝|Robin Beach Sex Refuse]]>><</link>>
+		："对不起，我吓到你了吗？门没有锁，我只是在想...这里，说不定可以做一些私密的事情，今天和你一起真的很开心。"
+		<br><br>
+		 <<He>>慢慢走到你身边，用探寻的目光看着你。
+		<br><br>
+		<<link [[亲吻|Robin Beach Sex]]>><<set $sexstart to 1>><<set $phase to 1>><</link>><br>
+		<<link [[婉拒|Robin Beach Sex Refuse]]>><</link>>
 	<<else>>
-		你穿好衣服，看到隔壁罗宾的房间正虚掩着。
+		你穿好衣服，看到隔壁更衣室里罗宾的房门正虚掩着。也许你们可以在这样的私密空间里做一些特别的事？
 		<br><br>
-		<<link [[闯入|Robin Beach Sex]]>><<set $sexstart to 1>><</link>><br>
-		<<link [[放弃|Robin Beach End]]>><</link>>
+		<<link [[闯入|Robin Beach Changing Room Enter]]>><</link>><br>
+		<<link [[直接离开|Robin Beach End]]>><</link>>
 	<</if>>
 <<else>>
 	你穿好衣服，离开了更衣室。
@@ -412,10 +415,32 @@
 	<<link [[继续|Robin Beach End]]>><</link>>
 <</if>>
 
+:: Robin Beach Sex Refuse
+<<location "changingroom">><<effects>>
+你摇了摇头，婉拒了罗宾："这次不行，也许等下次吧。"
+<br><br>
+罗宾看上去有些失望，但也点头表示理解。你们一起离开了更衣室。
+<br><br>
+<<link [[继续|Robin Beach End]]>><</link>>
+
+:: Robin Beach Changing Room Enter
+<<location "changingroom">><<effects>>
+你走进罗宾的更衣室，罗宾惊讶地看着你。
+<br><br>
+："门没有锁，所以我就进来了。"你解释说："我想和你在这里做一些特别的事，你愿意吗？"
+<br><br>
+罗宾涨红了脸，点头表示默许。
+<br><br>
+<<link [[继续|Robin Beach Sex]]>><<set $sexstart to 1>><<set $phase to 2>><</link>>
+
 :: Robin Beach Sex
-/% 毫无创意 %/
 <<location "changingroom">><<effects>>
 <<if $sexstart is 1>>
+	<<if $phase is 1>>
+		你点点头，示意罗宾锁上更衣室的房门，然后轻轻吻上了<<his>>的双唇。
+	<<else>>
+		你锁上了更衣室的房门，然后轻轻吻上了罗宾的双唇。
+	<</if>>
 	<<set $sexstart to 0>>
 	<<consensual>>
 	<<set $consensual to 1>>
@@ -423,6 +448,7 @@
 	<<maninit>>
 	<<set $enemytrust += 500>>
 	<<set $enemyarousalmax to 600>>
+	<<npckiss>>
 <</if>>
 <<set $enemyanger to 0>>
 <<effects>>
@@ -437,7 +463,24 @@
 <</if>>
 
 :: Robin Beach Sex Finish
-
-:: Robin Beach Sex Refuse
+<<location "changingroom">><<effects>>
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>>
+	罗宾凝视着你的眼睛，“我爱你。”<<He>>再次吻了吻你。<<npcincr Robin lust -20>><<npcincr Robin love 2>><<lllust>><<glove>>
+<<elseif $enemyhealth lte 0>>
+	"哇噢！"罗宾对你的举动感到有点困惑，但<<He>>仍然保持着微笑。
+<<else>>
+	罗宾微笑着紧紧抓住了你："你没事吧？我们可以下次再尝试。"
+<</if>>
+<br><br>
+<<clotheson>>
+<<endcombat>>
+<<link [[继续|Robin Beach End]]>><</link>>
 
 :: Robin Beach End
+<<set $outside to 0>><<set $location to "home">><<effects>>
+你和罗宾一起并肩走回了家中，一路上，你们意犹未尽地讨论着这次在海边的见闻。<<ltrauma>><<lstress>><<stress -12>><<trauma -6>>
+<br><br>
+你们走到孤儿院大厅时，罗宾拥抱了你一下，兴奋地说："谢谢你今天带我去海滩！我玩得非常尽兴，回见。"
+<br><br>
+<<link [[继续|Orphanage]]>><<endevent>><</link>>

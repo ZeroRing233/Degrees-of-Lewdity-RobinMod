@@ -71,7 +71,8 @@
         "game/robin-daily/chocolatePurchase.txt",
         "game/robin-daily/shoppingCenter.txt",
         "game/robin-daily/robinWalk.txt",
-        "game/robin-daily/wardrobe.txt"
+        "game/robin-daily/wardrobe.txt",
+        "game/robin-daily/caughtCD.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -383,6 +384,11 @@
                     "passage": "Widgets Wardrobe",
                     "findRegex": "\\s*<<case \"Sydney Beach Changing Room\">>",
                     "replaceFile": "game/robin-daily/wardrobe.txt"
+                },
+                {
+                    "passage": "Robin Caught CD",
+                    "findRegex": "\\s*<<elseif _robin.cdstart is \"halloween\">>",
+                    "replaceFile": "game/robin-daily/caughtCD.txt"
                 }
             ]
         },

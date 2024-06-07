@@ -1,0 +1,3 @@
+    <<elseif _robin.cdstart is "swimming">>
+        "还记得上次我们一起去海边游泳时你送我的泳衣吗？"<<he>>说，"那真的是一次很不错的体验，从那以后，我就一直想再来一次变装。"
+    <<elseif _robin.cdstart is "halloween">>
