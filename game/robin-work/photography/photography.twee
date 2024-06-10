@@ -36,11 +36,11 @@
     <<if $weather is "clear">>
         惊喜地说："今天的<<print Time.hour is 7? "朝阳":"晚霞">>真美，我们一起去森林拍摄吧？效果一定会很不错的。"
         <br><br>
-        <<link [[前往拍摄地点(0:60)|Photography Together Forest]]>><<pass 60>><</link>>
+        <<link [[前往拍摄地点(1:00)|Photography Together Forest]]>><<pass 60>><</link>>
     <<else>>
         开心地说："今天天气不错，就是风有点大，我们一起去花圃拍摄吧。"
         <br><br>
-        <<link [[前往拍摄地点(0:60)|Photography Together Garden]]>><<pass 60>><</link>>
+        <<link [[前往拍摄地点(1:00)|Photography Together Garden]]>><<pass 60>><</link>>
     <</if>>
 <<else>>
     罗宾看着你身上的衣服，摇了摇头，说:"或许你需要准备一些更特别的衣服？其实，我已经为你准备了一套，你要穿上试试吗？"
@@ -104,11 +104,11 @@
 <<if $weather is "clear">>
     惊喜地说："今天的<<print Time.hour lte 8? "朝阳":"晚霞">>真美，我们一起去森林拍摄吧？效果一定会很不错的。"
     <br><br>
-    <<link [[前往拍摄地点(0:60)|Photography Together Forest]]>><<pass 60>><</link>>
+    <<link [[前往拍摄地点(1:00)|Photography Together Forest]]>><<pass 60>><</link>>
 <<else>>
     开心地说："今天天气不错，就是风有点大，我们一起去花园拍摄吧。"
     <br><br>
-    <<link [[前往拍摄地点(0:60)|Photography Together Garden]]>><<pass 60>><</link>>
+    <<link [[前往拍摄地点(1:00)|Photography Together Garden]]>><<pass 60>><</link>>
 <</if>>
 
 :: Photography Together Forest

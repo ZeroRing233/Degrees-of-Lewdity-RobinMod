@@ -23,5 +23,9 @@
        <<icon "tending/wild_honeycomb.png">> <<link [[给罗宾蜂巢(0:15)|Robin's Lemonade Give Honey Comb]]>><<pass 15>><</link>> <<glove>>
        <br>
 <</if>>
+<<if $lemonadeUpgraded and $robinromance and $promiscuity gte 55 and !$daily.robin.crawl>>
+        <<robinicon "lemonade">><<link [[爬到摊位下面|Robin's Lemonade Crawl]]>><<set $daily.robin.crawl to true>><</link>><<promiscuous4>>
+        <br>
+<</if>>
 
 

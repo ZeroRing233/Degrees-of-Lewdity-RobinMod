@@ -375,3 +375,94 @@
 	<<lemonade_stand_options>>
 
 <</if>>
+
+:: Robin's Lemonade Crawl
+<<npc Robin>><<person1>><<location "beach">><<set $outside to 0>><<effects>>
+你双膝跪地，爬进了罗宾的柠檬水摊下，改造后的柠檬水摊有足够大的空间，使你能隐藏在顾客们的视线之外。
+<br><br>
+罗宾刚想询问你发生了什么，你就已经迅速地<<if $pronoun is "m">>扒下<<his>>的裤子<<else>>撩起<<his>>的裙子<</if>>。然后抬起头，期待地看着罗宾。
+<<promiscuity4>>
+罗宾面露难色地看着熙熙攘攘的海滩，但最终还是允许了你的行为。
+<<if C.npc.Robin.dom gte 80>>
+	<<He>>点了点头，小声地说："可以是可以，但请不要发出任何声音。"
+<<else>>
+	<<He>>小声地说："请...请不要发出任何声音...拜托了。"
+<</if>>
+<br><br>
+你用眼神示意罗宾放心，然后开始了下一步行动。
+<br><br>
+<<link [[继续|Robin's Lemonade Crawl Oral]]>><<set $sexstart to 1>><</link>>
+
+:: Robin's Lemonade Crawl Oral
+<<location "beach">><<set $outside to 0>>
+<<if $sexstart is 1>>
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<neutral 1>>
+	<<maninit>><<npcoral>><<set $NPCList[0].mouth to "none">><<set $speechdisable to 1>>
+	<<set $NPCList[0].lefthand to "hair">><<set $NPCList[0].righthand to "none">><<set $head to "grappled">>
+	<<set $enemytrust += 100>>
+	<<set $enemyarousalmax to 600>>
+	<<set $timer to random(5,9)>>
+	<<set $robinOral to {guest:0}>>
+<</if>>
+<<set $enemyanger to 0>>
+<<effects>>
+<<effectsman>>
+<<man>>
+<<if $timer is 3>>
+	<<set $robinOral.guest to 1>>
+	突然，<span class="lewd">有脚步声接近了罗宾的柠檬水摊。</span> 罗宾显得有些紧张，但还是用眼神示意你继续。
+	<br><br>
+<<elseif $timer is 2>>
+	一位顾客向罗宾购买了一份柠檬水，罗宾勉强地点头说："当然可以，没问题。" 然后把柠檬汁倒进一个玻璃杯里。
+	<br><br>
+<<elseif $timer is 1>>
+	罗宾颤抖地将柠檬水递给了顾客，那顾客似乎关切地询问了<<He>>什么，罗宾连忙摇头："没什么，什么事都没有。"
+	<br><br>
+<<elseif $timer is 0>>
+	<<set $robinOral.guest to 0>>
+	<<set $timer to random(5,9)>>
+	随着顾客的脚步声渐行渐远，罗宾才松了一口气："还好没被发现，刚才真的好险。"
+	<<if C.npc.Robin.dom gte 80>>
+		<<He>>示意你继续。
+	<<else>>
+		<<He>>看起来有点担忧，但还是默许了你接下来的举动。
+	<</if>>
+	<br><br>
+<</if>>
+<<stateman>>
+<<actionsman>>
+<<if _combatend>>
+	<span id="next"><<link [[继续|Robin's Lemonade Crawl Oral Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[继续|Robin's Lemonade Crawl Oral]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Robin's Lemonade Crawl Oral Finish
+<<location "beach">><<set $outside to 0>><<effects>>
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation "short">>
+	<<if $robinOral.guest is 1>>
+		摊位前的顾客困惑地看着罗宾："你还好吗？" 罗宾连忙点头说："我没事，就是有点感冒了，谢谢关心。"
+		等顾客离开后，罗宾才长舒一口气："刚才...真的好罪恶，但是我也感觉很高兴，谢谢。"
+	<<else>>
+		罗宾长舒一口气："刚才...真的好罪恶，但是我也感觉很高兴，谢谢。"
+	<</if>>
+<<elseif $enemyhealth lte 0>>
+	<<if $robinOral.guest is 1>>
+		摊位前的顾客困惑地看着罗宾："你还好吗？" 罗宾连忙点头说："我没事，就是有点感冒了，谢谢关心。"
+		等顾客离开后，罗宾才长舒一口气："刚才...真的好罪恶。"<<He>>看起来对你的举动感到有点困惑，但仍然保持着微笑。
+	<<else>>
+		"哇噢！"罗宾对你的举动感到有点困惑，但<<He>>仍然保持着微笑。
+	<</if>>
+<<else>>
+	罗宾微笑着询问着你："你没事吧？我们可以下次再尝试。"
+<</if>>
+<br><br>
+<<clotheson>>
+<<endcombat>>
+<br><br>
+<<endevent>>
+<<lemonade_stand_options>>
