@@ -12,3 +12,8 @@
             <</if>>
             <br>
         <</if>>
+       <<if $chocolateUpgraded and $robinromance and $promiscuity gte 55 and !$daily.robin.crawl>>
+            <<robinicon "cocoa">><<link [[爬到摊位下面|Robin Chocolate Crawl]]>><<set $daily.robin.crawl to true>><</link>><<promiscuous4>>
+            <br>
+        <</if>>
+

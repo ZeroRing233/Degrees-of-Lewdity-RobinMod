@@ -42,7 +42,8 @@
         "game/robin-work/lemonade/goods-list/sellBalloonResult2.txt",
         "game/robin-work/chocolate/chocolateUpgrade.txt",
         "game/robin-work/chocolate/chocolateUpgradeResult.txt",
-        "game/robin-work/chocolate/chocolateUpgradeResultSnow.txt",
+        "game/robin-work/chocolate/chocolateUpgradeResultWeather.txt",
+        "game/robin-work/chocolate/chocolateUpgradeResultWeather2.txt",
         "game/robin-work/chocolate/chocolateUpgradeDevice.txt",
         "game/robin-work/danube-tutor/danubeTutorIntro.txt",
         "game/robin-work/danube-tutor/danubeTutorTalk.txt",
@@ -208,17 +209,17 @@
                 {
                     "passage": "Robin Chocolate Help",
                     "findString": "<<effects>>",
-                    "replaceFile": "game/robin-work/chocolate/chocolateUpgradeResultSnow.txt"
+                    "replaceFile": "game/robin-work/chocolate/chocolateUpgradeResultWeather2.txt"
                 },
                 {
                     "passage": "Robin Chocolate Purchase",
                     "findString": "<<effects>>",
-                    "replaceFile": "game/robin-work/chocolate/chocolateUpgradeResultSnow.txt"
+                    "replaceFile": "game/robin-work/chocolate/chocolateUpgradeResultWeather2.txt"
                 },
                 {
                     "passage": "Robin Chocolate",
                     "findString": "<<effects>>",
-                    "replaceFile": "game/robin-work/chocolate/chocolateUpgradeResultSnow.txt"
+                    "replaceFile": "game/robin-work/chocolate/chocolateUpgradeResultWeather.txt"
                 },
                 {
                     "passage": "Robin Chocolate",

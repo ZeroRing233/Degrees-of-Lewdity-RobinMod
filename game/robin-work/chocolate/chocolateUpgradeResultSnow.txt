@@ -1,6 +1,0 @@
-<<if $chocolateUpgraded is 1 and $weather is "snow">>
-    在改造后的热巧克力摊的庇护下，你不用再担心风雪交加，小小的热巧克力摊组成了一个温暖的避风港。
-    <br><br>
-<<else>>
-    <<effects>>
-<</if>>

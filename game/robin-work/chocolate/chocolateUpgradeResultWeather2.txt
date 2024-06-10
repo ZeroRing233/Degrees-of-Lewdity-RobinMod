@@ -1,0 +1,5 @@
+<<if $chocolateUpgraded is 1>>
+    <<set $outside to 0>><<effects>>
+<<else>>
+    <<effects>>
+<</if>>
