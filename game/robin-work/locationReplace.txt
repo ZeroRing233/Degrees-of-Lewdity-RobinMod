@@ -13,5 +13,12 @@
 		<span class="blue">你今天已经偷瞄过了。</span>
 	<</if>>
 	<br>
+	<<if !$daily.liveStreamSneakEnter>> 
+		<<set $skulduggerydifficulty to 400>>
+		<<link [[偷偷溜进去|Live Stream Sneak Enter]]>><</link>><<skulduggerydifficulty>>
+	<<else>>
+		<span class="blue">你今天已经溜进去过了。</span>
+	<</if>>
+	<br>
 	<<getouticon>><<link [[离开|Orphanage]]>><</link>>
 <<elseif _robin_location is "school">>

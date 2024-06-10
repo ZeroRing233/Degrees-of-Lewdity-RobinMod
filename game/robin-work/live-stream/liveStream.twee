@@ -181,3 +181,34 @@
 <</switch>>
 <br><br>
 <<getouticon>><<link [[离开|Orphanage]]>><<endevent>><</link>>
+
+:: Live Stream Sneak Enter
+<<set $outside to 0>><<set $location to "home">><<effects>>
+<<set $daily.liveStreamSneakEnter to true>>
+<<npc Robin>><<person1>>
+你试图偷偷溜进罗宾的房间。
+<br><br>
+<<skulduggerycheck>>
+<<if $skulduggerysuccess is 1>>
+	罗宾正在专心直播，并没有发现异常。你一步一步地偷偷靠近，直到来到罗宾身边，你隐藏在摄像头的死角处。
+    <br><br>
+	<<skulduggeryuse>>
+    <<link [[偷看（0:20)|Live Stream Sneak Look 1]]>><<set $daily.liveStreamSneak to true>><</link>><br>
+	<<if $robinromance and $promiscuity gte 55>>
+        <<link [[钻到桌子底下|Live Stream Crawl]]>><</link>><<promiscuous4>>
+    <<else>>
+        <span class="blue">你还不够淫乱，或者和罗宾还不是恋爱关系，不能做出进一步的举动。</span>
+    <</if>>
+    <br>
+     <<getouticon>><<link [[离开|Orphanage]]>><<endevent>><</link>>
+<<else>>
+	罗宾似乎发现了异样，<<he>>停顿了一下，你赶紧退了出去。
+    <br><br>
+    <<skulduggeryuse>>
+    <<getouticon>><<link [[离开|Orphanage]]>><<endevent>><</link>>
+<</if>>
+<br>
+
+:: Live Stream Crawl
+<<set $outside to 0>><<set $location to "home">><<effects>>
+你钻到了罗宾的桌子底下。
