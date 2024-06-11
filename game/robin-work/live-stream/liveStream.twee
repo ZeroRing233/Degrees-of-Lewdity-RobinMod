@@ -211,4 +211,69 @@
 
 :: Live Stream Crawl
 <<set $outside to 0>><<set $location to "home">><<effects>>
-你钻到了罗宾的桌子底下。
+你突然钻到了罗宾的桌子底下，然后迅速地<<if $pronoun is "m">>扒下<<his>>的裤子<<else>>撩起<<his>>的裙子<</if>>。
+<<promiscuity4>>
+罗宾蓦地一惊，低头捕捉到了你的动作，<<He>>瞬间满脸通红，但还是迅速冷静了下来，又重新抬起头，对着屏幕后的观众们微笑着说："没...没什么，我们继续把。"
+<br><br>
+<<He>>轻轻地点了点头，示意你可以做出下一步的举动。
+<br><br>
+<<link [[继续|Live Stream Crawl Oral]]>><<set $sexstart to 1>><</link>>
+
+:: Live Stream Crawl Oral
+<<set $outside to 0>><<set $location to "home">>
+<<if $sexstart is 1>>
+    /% 直播时脱衣服太出戏了 %/
+    <<set $NPCList[0].chest to "unclothed">>
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<neutral 1>>
+	<<maninit>><<npcoral>><<set $NPCList[0].mouth to "none">><<set $speechdisable to 1>>
+	<<set $NPCList[0].lefthand to "none">><<set $NPCList[0].righthand to "none">><<set $head to "grappled">>
+	<<set $enemytrust += 100>>
+	<<set $enemyarousalmax to 600>>
+<</if>>
+<<set $enemyanger to 0>>
+<<if $enemyarousal gte ($enemyarousalmax / 5) * 4>>
+	<<set _robinArousal to "high">>
+<<elseif $enemyarousal gte ($enemyarousalmax / 5) * 2>>
+	<<set _robinArousal to "medium">>
+<<else>>
+    <<set _robinArousal to "low">>
+<</if>>
+<<switch _robinArousal>>
+    <<case "low">>
+        罗宾平静地继续做着直播，只是声音听起来有点心不在焉。
+    <<case "medium">>
+        罗宾的声音开始微微颤抖，但<<He>>努力地掩饰着。
+    <<case "high">>
+        罗宾忍不住发出了一声微弱的呻吟，但仍在试图让观众们放心。
+<</switch>>
+<br><br>
+<<effects>>
+<<effectsman>>
+<<man>>
+<<stateman>>
+<<actionsman>>
+<<if _combatend>>
+	<span id="next"><<link [[继续|Live Stream Crawl Oral Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[继续|Live Stream Crawl Oral]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Live Stream Crawl Oral Finish
+<<set $outside to 0>><<set $location to "home">><<effects>>
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation "short">>
+	罗宾浑身颤抖着，勉强地对观众说了句"抱歉"，然后弯下腰，在你耳边小声说："谢谢，刚才我感觉很舒服，我爱你，但是..."
+    <<He>>顿了顿，然后说："我还想继续直播...所以...麻烦你..." 
+    <<npcincr Robin lust -20>><<npcincr Robin love 2>><<lllust>><<glove>>
+<<elseif $enemyhealth lte 0>>
+	罗宾浑身颤抖着，勉强地对观众说了句"抱歉"，然后弯下腰，在你耳边小声说："对不起...但我还想继续直播...所以...麻烦你.."
+<<else>>
+    罗宾对观众说了句"抱歉"，然后弯下腰，询问着你："你没事吧？我们可以下次再尝试。但现在我还想继续直播...所以...麻烦你.."
+<</if>>
+<br><br>
+你点点头，表示理解，然后身体微微前倾，迅速地溜出了罗宾的房间。
+<br><br>
+<<link [[继续|Orphanage]]>><<endevent>><</link>>

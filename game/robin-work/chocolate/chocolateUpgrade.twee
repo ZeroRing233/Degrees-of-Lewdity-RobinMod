@@ -260,11 +260,13 @@
 <<location "park">><<set $outside to 0>>
 <<if $sexstart is 1>>
 	<<set $sexstart to 0>>
+	/% 不准脱衣服 %/
+    <<set $NPCList[0].chest to "unclothed">>
 	<<consensual>>
 	<<set $consensual to 1>>
 	<<neutral 1>>
 	<<maninit>><<npcoral>><<set $NPCList[0].mouth to "none">><<set $speechdisable to 1>>
-	<<set $NPCList[0].lefthand to "hair">><<set $NPCList[0].righthand to "none">><<set $head to "grappled">>
+	<<set $NPCList[0].lefthand to "none">><<set $NPCList[0].righthand to "none">><<set $head to "grappled">>
 	<<set $enemytrust += 100>>
 	<<set $enemyarousalmax to 600>>
 	<<set $timer to random(5,9)>>
@@ -313,6 +315,7 @@
 	<<else>>
 		罗宾长舒一口气："刚才...真的好罪恶，但是我也感觉很高兴，谢谢。"
 	<</if>>
+	<<npcincr Robin lust -20>><<npcincr Robin love 2>><<lllust>><<glove>>
 <<elseif $enemyhealth lte 0>>
 	<<if $robinOral.guest is 1>>
 		摊位前的顾客困惑地看着罗宾："你还好吗？" 罗宾连忙点头说："我没事，就是有点感冒了，谢谢关心。"
