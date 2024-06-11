@@ -213,7 +213,7 @@
 <<set $outside to 0>><<set $location to "home">><<effects>>
 你突然钻到了罗宾的桌子底下，然后迅速地<<if $pronoun is "m">>扒下<<his>>的裤子<<else>>撩起<<his>>的裙子<</if>>。
 <<promiscuity4>>
-罗宾蓦地一惊，低头捕捉到了你的动作，<<He>>瞬间满脸通红，但还是迅速冷静了下来，又重新抬起头，对着屏幕后的观众们微笑着说："没...没什么，我们继续把。"
+罗宾蓦地一惊，低头捕捉到了你的动作，<<He>>瞬间满脸通红，但还是迅速冷静了下来，又重新抬起头，对着屏幕后的观众们微笑着说："没...没什么，我们继续吧。"
 <br><br>
 <<He>>轻轻地点了点头，示意你可以做出下一步的举动。
 <br><br>
@@ -232,22 +232,43 @@
 	<<set $NPCList[0].lefthand to "none">><<set $NPCList[0].righthand to "none">><<set $head to "grappled">>
 	<<set $enemytrust += 100>>
 	<<set $enemyarousalmax to 600>>
+    <<set $robinLowCount to 0>>
+    <<set $robinMediumCount to 0>>
+    <<set $robinHighCount to 0>>
 <</if>>
 <<set $enemyanger to 0>>
-<<if $enemyarousal gte ($enemyarousalmax / 5) * 4>>
+<<if $enemyarousal gte ($enemyarousalmax / 5) * 3>>
 	<<set _robinArousal to "high">>
-<<elseif $enemyarousal gte ($enemyarousalmax / 5) * 2>>
+<<elseif $enemyarousal gte ($enemyarousalmax / 5) * 1>>
 	<<set _robinArousal to "medium">>
 <<else>>
     <<set _robinArousal to "low">>
 <</if>>
 <<switch _robinArousal>>
     <<case "low">>
-        罗宾平静地继续做着直播，只是声音听起来有点心不在焉。
+        <<switch $robinLowCount>>
+            <<case 0>>
+                罗宾平静地继续做着直播，只是声音听起来有点心不在焉。
+            <<case 1>>
+                有人似乎察觉出了罗宾的异常，罗宾回应道："抱歉，我会更认真的。"
+        <</switch>>
+        <<set $robinLowCount += 1>>
     <<case "medium">>
-        罗宾的声音开始微微颤抖，但<<He>>努力地掩饰着。
+        <<switch $robinMediumCount>>
+            <<case 0>>
+                罗宾的声音开始微微颤抖，但<<He>>努力地掩饰着。
+            <<case 1>>
+                你听到罗宾正在读弹幕："主播怎么了？没什么，只是有点感冒了。"
+        <</switch>>
+        <<set $robinMediumCount += 1>>
     <<case "high">>
-        罗宾忍不住发出了一声微弱的呻吟，但仍在试图让观众们放心。
+        <<switch $robinHighCount>>
+            <<case 0>>
+                罗宾忍不住发出了一声微弱的呻吟，但仍在试图让观众们放心。
+            <<case 1>>
+                弹幕中似乎引起了轰动，罗宾正在拼命救场："我，我没事，真的只是有点不舒服，仅此而已。"
+        <</switch>>
+        <<set $robinHighCount += 1>>
 <</switch>>
 <br><br>
 <<effects>>
@@ -265,7 +286,7 @@
 <<set $outside to 0>><<set $location to "home">><<effects>>
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation "short">>
-	罗宾浑身颤抖着，勉强地对观众说了句"抱歉"，然后弯下腰，在你耳边小声说："谢谢，刚才我感觉很舒服，我爱你，但是..."
+	罗宾浑身颤抖着，勉强地对观众说了句"抱歉"，然后弯下腰，在你耳边小声说："谢谢，刚才虽然有点尴尬，但我还是感觉很高兴，我爱你，不过..."
     <<He>>顿了顿，然后说："我还想继续直播...所以...麻烦你..." 
     <<npcincr Robin lust -20>><<npcincr Robin love 2>><<lllust>><<glove>>
 <<elseif $enemyhealth lte 0>>
@@ -276,4 +297,6 @@
 <br><br>
 你点点头，表示理解，然后身体微微前倾，迅速地溜出了罗宾的房间。
 <br><br>
+<<clotheson>>
+<<endcombat>>
 <<link [[继续|Orphanage]]>><<endevent>><</link>>
