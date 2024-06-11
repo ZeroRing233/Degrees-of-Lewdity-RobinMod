@@ -1,0 +1,21 @@
+:: Climb Bed Robin
+<<npc Robin>><<person1>><<location "home">><<effects>>
+<<set $robinbed to "theirs">><<set $bedGuest to "Robin">>
+你悄悄地走进罗宾的房间，罗宾正在床上酣睡。
+<<if C.npc.Robin.trauma lt 20>>
+    <<His>>的睡颜宁静而平和。
+<<else>>
+    在睡梦中，<<His>>的眉头正微微颤抖着。
+<</if>>
+你走到罗宾身边，小心翼翼地爬上床，轻轻地搂住了<<him>>。
+<br><br>
+在感知到你的动静后，罗宾逐渐从梦境中苏醒，缓缓地睁开了眼睛。在发现是你时，<<his>>的眼中闪过一丝惊讶，但随即又平静了下来，<<he>>温柔地回抱住你，你感觉心跳加速。
+<br><br>
+<<set $wear_outfit to "none">>
+<<wearoutfit>>
+<<if $robinromance is 1 and C.npc.Robin.trauma lt 50>>
+	<<link [[更进一步|Robin Room Bed Sex]]>><<strip "strap-on">><<set $sexstart to 1>><</link>>
+	<br>
+<</if>>
+<<link [[睡觉|Robin Bed]]>><<endevent>><<trauma -6>><<stress -12>><<npcincr Robin trauma -3>><</link>><<ltrauma>><<lstress>><<lrtrauma>>
+<br>

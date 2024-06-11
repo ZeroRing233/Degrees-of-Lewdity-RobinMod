@@ -18,6 +18,7 @@
         "game/robin-trait/widgets.twee",
         "game/robin-daily/robinDate.twee",
         "game/robin-daily/robinDateBeach.twee",
+        "game/robin-daily/climbBed.twee",
         "game/robin-daily/widgets.twee"
     ],
     "imgFileList": [],
@@ -73,7 +74,8 @@
         "game/robin-daily/shoppingCenter.txt",
         "game/robin-daily/robinWalk.txt",
         "game/robin-daily/wardrobe.txt",
-        "game/robin-daily/caughtCD.txt"
+        "game/robin-daily/caughtCD.txt",
+        "game/robin-daily/roomEntrance.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -390,6 +392,11 @@
                     "passage": "Robin Caught CD",
                     "findRegex": "\\s*<<elseif _robin.cdstart is \"halloween\">>",
                     "replaceFile": "game/robin-daily/caughtCD.txt"
+                },
+                {
+                    "passage": "Robin's Room Entrance",
+                    "findString": "\t\t<<link [[关门|Robin Mischief Close]]>><</link>>\n\t<<else>>\n\t\t<br><br>",
+                    "replaceFile": "game/robin-daily/roomEntrance.txt"
                 }
             ]
         },

@@ -1,0 +1,7 @@
+		<<link [[关门|Robin Mischief Close]]>><</link>>
+	<<else>>
+		<br><br> 
+        <<if $robinromance is 1 and between(Time.hour, 21, 23) and $robin.timer.hurt is 0 and !$daily.robin.climbBed>>
+            <<link [[闯入|Climb Bed Robin]]>><<set $daily.robin.climbBed to true>><</link>>
+            <br>
+        <</if>>
