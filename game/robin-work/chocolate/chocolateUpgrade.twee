@@ -32,7 +32,6 @@
 	<span class="blue">罗宾的存款和你的金钱均不足以改造热巧克力摊。</span>
 	<br>
 <</if>>
-<br>
 <<link [[之后再说|Robin Chocolate]]>><<endevent>><</link>>
 
 

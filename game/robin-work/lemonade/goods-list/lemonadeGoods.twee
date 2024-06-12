@@ -91,7 +91,7 @@
 :: Balloon Leave
 你只是对着摊主摇了摇头，表示你对此没什么想法，然后便转身离开了。
 <br><br>
-<<if $weather is "winter">>
+<<if Time.season is "winter">>
 	<<link [[继续|Park]]>><<set $eventskip to 1>><<endevent>><</link>>
 <<else>>
 	<<link [[继续|Beach]]>><<set $eventskip to 1>><<endevent>><</link>>

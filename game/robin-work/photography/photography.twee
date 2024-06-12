@@ -27,13 +27,13 @@
 
 :: Photography Together
 <<set $outside to 0>><<set $location to "home">><<effects>>
-<<if ["rain","snow"].includes($weather)>>
+<<if Weather.precipitation isnot "none">>
     罗宾看了看窗外，遗憾地说："今天天气不好，真是可惜。等<span class="gold">天放晴了</span>我们再来一起拍摄吧。"
     <br><br>
     <<robinoptions>>
 <<elseif $worn.upper.type.includes("costume") or $worn.lower.type.includes("costume")>>
     罗宾看了看窗外，
-    <<if $weather is "clear">>
+    <<if !Weather.isOvercast>>
         惊喜地说："今天的<<print Time.hour is 7? "朝阳":"晚霞">>真美，我们一起去森林拍摄吧？效果一定会很不错的。"
         <br><br>
         <<link [[前往拍摄地点(1:00)|Photography Together Forest]]>><<pass 60>><</link>>
@@ -101,7 +101,7 @@
 你换上衣服后，<<he>>端详了一下你，微笑着说："真合适，这次拍摄一定会很成功的。"
 <br><br>
 罗宾说完，又看了看窗外，
-<<if $weather is "clear">>
+<<if !Weather.isOvercast>>
     惊喜地说："今天的<<print Time.hour lte 8? "朝阳":"晚霞">>真美，我们一起去森林拍摄吧？效果一定会很不错的。"
     <br><br>
     <<link [[前往拍摄地点(1:00)|Photography Together Forest]]>><<pass 60>><</link>>

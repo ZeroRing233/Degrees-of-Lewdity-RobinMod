@@ -260,7 +260,7 @@
                 },
                 {
                     "passage": "Beach",
-                    "findString": "\t\t\t<<if $scienceproject is \"ongoing\" and $sciencephallusknown is 1 and $sciencephallus lt 10 and Time.dayState isnot \"night\" and $weather isnot \"rain\" and $weather isnot \"snow\" and $exposed lte 0>>",
+                    "findRegex": "\\s*<<if \\$scienceproject is \"ongoing\" and .*>>",
                     "replaceFile": "game/robin-work/lemonade/goods-list/balloonIntro.txt"
                 },
                 {
@@ -295,7 +295,7 @@
                 },
                 {
                     "passage": "Robin Forest",
-                    "findString": "<<elseif $weather is \"overcast\">>",
+                    "findString": "<<elseif Weather.isOvercast>>",
                     "replaceFile": "game/robin-work/photography/photographyIntro.txt"
                 },
                 {
@@ -452,6 +452,12 @@
                         "to": "return statDisplay.statChange(\"罗宾的自信\", -3, \"lblue\", needLowerDom);",
                         "fileName": "text.js",
                         "_comment1": "有特质直接不显示减属性。"
+                    },
+                    {
+                        "from": "if (V.robinmoney > 4000) V.robinmoney = 4000;",
+                        "to": "",
+                        "fileName": "time.js",
+                        "_comment1": "就和罗宾过不去是吧，删了删了"
                     }
                 ]
             }

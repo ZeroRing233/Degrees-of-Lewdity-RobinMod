@@ -5,4 +5,4 @@
                 <br><br>
                 <<set $workTopicList.pushUnique("sellBalloon")>>
             <</if>>       
-			<<if $scienceproject is "ongoing" and $sciencephallusknown is 1 and $sciencephallus lt 10 and Time.dayState isnot "night" and $weather isnot "rain" and $weather isnot "snow" and $exposed lte 0>>
+			<<if $scienceproject is "ongoing" and $sciencephallusknown is 1 and $sciencephallus lt 10 and Time.dayState isnot "night" and Weather.precipitation is "none" and $exposed lte 0>>

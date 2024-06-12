@@ -1,7 +1,11 @@
 <<if $lemonadeUpgraded is 1>>
     <<set $outside to 0>><<effects>>
-    <<if $weather is "rain">>
+    /% 作者偷懒，不想研究新版下雨下雪的条件了，不要吐槽 %/
+    <<if Weather.precipitation is "rain">>
         在遮阳伞的庇护下，你不用再担心风吹雨打。小小的柠檬水摊形成了一个温暖的避风港。
+        <br><br>
+    <<elseif Weather.precipitation is "snow">>
+        在遮阳伞的庇护下，你不用再担心风雪交加。小小的柠檬水摊形成了一个温暖的避风港。
         <br><br>
     <<else>>
         在遮阳伞的庇护下，你不用再担心风吹日晒。小小的柠檬水摊带来了一片凉爽的背阴处。
