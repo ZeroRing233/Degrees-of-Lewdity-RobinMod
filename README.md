@@ -9,7 +9,7 @@
 
 mod现有文本和构想可下载"罗宾mod文本和构想整理.txt"直接查看（此文档每次提交同步更新，剧透预警），现有代码可直接在"game"文件夹下查看，在[百度贴吧](https://tieba.baidu.com/p/9001189698?pid=150209870173&cid=0#150209870173) 中也会更新制作过程。（贴吧账号：零环零理想）
 
-本mod基于0.5.0.版本进行自测，更老的版本可能会有不兼容的问题，如果您目前的游戏版本为0.4.7.5，请下载release下0.0.2-alpha中的domRobin.mod.zip（0.0.2-alpha版本的具体内容为[目前进度](#目前进度) 中的1-14）
+本mod基于0.5.0.5版本进行自测，更老的版本可能会有不兼容的问题，如果您目前的游戏版本为0.4.7.5，请下载release下0.0.2-alpha中的domRobin.mod.zip（0.0.2-alpha版本的具体内容为[目前进度](#目前进度) 中的1-14）
 
 安装方式：下载release下0.0.3-temp中的domRobin.mod.zip，用平时玩游戏用的mod管理器加载完汉化mod后，再加载此mod，安装前记得保存自己的存档码，以防止出现bug无法恢复。
 
@@ -40,7 +40,7 @@ bug反馈群群号：964015275
 
 - 感谢 [脸木挤白/苯环](https://github.com/Nephthelana)，[隨風飄逸](https://github.com/chris81605)，[鲤鱼旗](https://github.com/koooooiCarp) 在模组开发群内的答疑和讨论。
 
-- 感谢[Lyoko-Jeremie](https://github.com/Lyoko-Jeremie)大神开发了Modloader以及所有预置模组、[Number_Sir](https://github.com/NumberSir)大佬开发了模组编写助手，以及两位老师在模组开发群里提供的教程和指导。
+- 感谢[Lyoko-Jeremie](https://github.com/Lyoko-Jeremie)大神开发了Modloader以及所有预置模组、[Number_Sir](https://github.com/NumberSir)大佬开发了模组编写助手，以及两位魔法师在模组开发群里提供的教程和指导。
 
 - 感谢[Number_Sir](https://github.com/NumberSir)，[闰人](https://github.com/omvjro)，[丧心病](https://github.com/MissedHeart) 翻译了dol代码编写通用注意事项。
 
