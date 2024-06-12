@@ -61,7 +61,7 @@
 <br><br>
 <span class="gold">此后每天晚上七点到八点罗宾会在房间内进行直播，每周存款递增。</span>
 <<if $phase is 1>>
-    <<set $ronbinmoney -= 2000>>
+    <<set $robinmoney -= 2000>>
 <<else>>
     <<set $money -= 200000>>
  <</if>>
