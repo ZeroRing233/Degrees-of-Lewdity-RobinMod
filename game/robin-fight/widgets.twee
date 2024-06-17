@@ -3,3 +3,41 @@
 	<<set $_text_output to ["周日","周一","周二","周三","周四","周五","周六"][$rentday_fight-1]>>
 	<<print $_text_output>>
 <</widget>>
+
+<<widget "rentdueFight">>
+    <<set $_robinInRoom to _args[0]>>
+    <<npc Bailey>><<person1>><<npc Robin 6>>
+    <<set $NPCList[0].health to 800>>
+    <<set $NPCList[0].healthmax to 800>>
+    <<generateRole 1 0 "打手">><<generateRole 2 0 "打手">><<generateRole 3 0 "打手">><<generateRole 4 0 "打手">>
+    “是时候付钱了。”<<he>>说道。
+    <br><br>
+    <<if $_robinInRoom>>
+		罗宾挡在你身前，怒视着贝利。
+	<<else>>
+        听到动静后，罗宾从房间内冲了出来，挡在了你身前，怒视着贝利。
+	<</if>>
+    <br><br>
+    贝利冷笑了一声，语气中充满了嘲讽："别以为我不知道你们在背地里谋划什么，我对此早有准备，我会让你们明白反抗的代价的。"
+    <br><br>
+    <<He>>话音刚落，一群打手从阴影中突然现身，<<person2>><<person>>和<<person3>><<person>>走在前列，而<<person3>><<person>>和<<person4>><<person>>紧随其后。
+    <br><br>
+    罗宾紧紧握住你的手，你能感觉到这双手正在微微颤抖，你们十指相扣，透过指尖传递着彼此的力量。
+    <br><br>
+    <span class="blue">本次战斗贝利血量翻倍。</span>
+    <br><br>
+    <<link [[继续|Robin Fight]]>><<set $fightstart to 1>><</link>>
+<</widget>>
+
+<<widget "robinDefiance">>
+    /% 默认动作，双手击打，踢，挑衅, 默认罗宾英语A*，所以_args[0]会是15 %/
+    <<set _defiance to (_args[0] *（1 + C.npc.Robin.dom/100))>>
+    <<set $enemyanger += 5 * _defiance>>
+    <<set $enemytrust -= 4 * 4>>
+    <<set _thedamage to (2 * _defiance * (12000 / 4000))>>
+  	<<set $NPCList[_args[1]].health -= _thedamage>>
+	<<if $NPCList[_args[1]].health lte 0>>
+			<<defeatnpc _args[1]>>
+	<</if>> 
+	/% <<set $enemyhealth -= _thedamage>> %/
+<</widget>>

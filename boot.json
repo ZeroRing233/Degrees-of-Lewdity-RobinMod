@@ -77,7 +77,8 @@
         "game/robin-daily/robinWalk.txt",
         "game/robin-daily/wardrobe.txt",
         "game/robin-daily/caughtCD.txt",
-        "game/robin-daily/roomEntrance.txt"
+        "game/robin-daily/roomEntrance.txt",
+        "game/robin-fight/orphanage.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -399,6 +400,11 @@
                     "passage": "Robin's Room Entrance",
                     "findString": "\t\t<<link [[关门|Robin Mischief Close]]>><</link>>\n\t<<else>>\n\t\t<br><br>",
                     "replaceFile": "game/robin-daily/roomEntrance.txt"
+                },
+                {
+                    "passage": "Orphanage",
+                    "findString": "<<elseif $renttime lte 0>>",
+                    "replaceFile": "game/robin-fight/orphanage.txt"
                 }
             ]
         },

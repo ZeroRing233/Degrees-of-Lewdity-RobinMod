@@ -394,7 +394,7 @@
 :: Robin Beach Leave
 <<location "changingroom">><<effects>>
 <<if $robinromance>>
-	<<if C.npc.Robin.dom gte 80 and C.npc.Robin.lust gte 20>>
+	<<if C.npc.Robin.dom gte 80 and C.npc.Robin.lust gte 70>>
 		你穿好衣服，正准备离开更衣室，罗宾却突然走了进来。
 		<br><br>
 		："对不起，我吓到你了吗？门没有锁，我只是在想...这里，说不定可以做一些私密的事情，今天和你一起真的很开心。"

@@ -60,3 +60,36 @@
 <</if>>
 <br><br>
 <<robinoptions>>
+
+:: Robin Fight
+<<if $fightstart is 1>>
+	<<set $fightstart to 0>>
+    <<set $enemyno to 5>>
+	<<neutral 1>>
+	<<maninit>>
+	<<set $enemyanger += 200>>
+	<<npcidlegenitals>>
+	<<set $phase to 1>>
+<</if>>
+/% todo：智能作战策略，每次都打血量最少的敌人 %/
+罗宾用双手击打，踢向<<person2>><<person>>，同时吼道："我不会再让你对我们为所欲为了。"
+<<robinDefiance 15 1>>
+<<effects>>
+<<effectsman>>
+<<man>>
+<<if $phase is 1>>
+	<<set $phase to 2>>
+	孤儿们被噪音所吸引，前来观看战斗。
+	<br><br>
+<</if>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend or ($pain gte 100 and $willpowerpain is 0)>>
+	<span id="next"><<link [[继续|Robin Fight Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[继续|Robin Fight]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Robin Fight Finish
