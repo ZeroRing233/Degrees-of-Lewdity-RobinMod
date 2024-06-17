@@ -1,0 +1,5 @@
+:: Rent Fight Widgets [widget]
+<<widget "rentday_fight">>
+	<<set $_text_output to ["周日","周一","周二","周三","周四","周五","周六"][$rentday_fight-1]>>
+	<<print $_text_output>>
+<</widget>>

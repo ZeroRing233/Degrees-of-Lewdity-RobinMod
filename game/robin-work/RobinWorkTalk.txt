@@ -40,7 +40,11 @@
         <br>
         <</if>>
         <<if $swimmingTalked and !$robinSwimsuit>>
-            <<link [[提议一起去海边游泳(0:15)|Robin Beach Intro]]>><</link>>
+            <<link [[提议一起去海边游泳(0:15)|Robin Beach Intro]]>><<pass 15>><</link>>
+        <br>
+        <</if>>
+        <<if $robinPaySelfTalked and !$robinFightTalked and !$weekly.robinFightConvince>>
+            <<link [[说服罗宾一起反抗贝利(0:15)|Robin Fight Intro]]>><<pass 15>><<set $weekly.robinFightConvince to true>><</link>>
         <br>
         <</if>>
         <br>

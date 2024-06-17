@@ -1,3 +1,9 @@
-<<if $renttime gte 998>>
+<<if $renttime_fight isnot undefined and $rentday_fight isnot undefined>>
+    <<if $renttime_fight lte 0>>
+        <li>你和罗宾约定了一起对抗贝利。</li>
+    <<else>>
+        <li>你和罗宾约定了在<span class="gold"><<rentday_fight>> </span>一起对抗贝利。</li>
+	<</if>>
+<<elseif $renttime gte 998>>
     <li>你已无需支付贝利的房租。</li>
 <<elseif $renttime lte 0>>

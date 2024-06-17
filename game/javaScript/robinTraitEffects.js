@@ -19,6 +19,9 @@ function dailyRobinTraitEffects() {
         // 取消创伤线进线
         V.robinfirstrentfight = 0;
     }
+    if (V.robinFightTalked) {
+        V.renttime_fight -= 1;
+    }
 }
 
 function needLowerDom() {

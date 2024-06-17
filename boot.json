@@ -19,7 +19,9 @@
         "game/robin-daily/robinDate.twee",
         "game/robin-daily/robinDateBeach.twee",
         "game/robin-daily/climbBed.twee",
-        "game/robin-daily/widgets.twee"
+        "game/robin-daily/widgets.twee",
+        "game/robin-fight/robinFight.twee",
+        "game/robin-fight/widgets.twee"
     ],
     "imgFileList": [],
     "additionDir": [

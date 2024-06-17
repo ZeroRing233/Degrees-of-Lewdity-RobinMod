@@ -1,0 +1,62 @@
+:: Robin Fight Intro
+<<set $outside to 0>><<set $location to "home">><<effects>>
+/% $phase是给战斗失败后继续反抗预留的 %/
+<<if !$robinFightConvinceCount>>
+    <<set $robinFightConvinceCount to 1>>
+    ："其实...我有一件严肃的事情要和你商量。" 你看着罗宾，语气十分坚定。
+    <br><br>
+    罗宾感受到了一丝不寻常的氛围，<<He>>也同样盯着你，等待你继续说下去。
+    <br><br>
+    你接着说道："我们不要再支付贝利的房租了，好吗？一味地顺从只是在纵容<<nnpc_him Bailey>>的贪婪而已。
+    我们可以一起反抗，一起战斗，我相信我们可以做到的。"
+    <br><br>
+    罗宾面露难色，回应道："但是...贝利也许也有自己的难处..."<br>
+    你坚持着你的想法："但<<nnpc_his Bailey>>的要求始终是不合理的，大多数人都无力支付订下的租金。"
+    <br><br>
+    <<link [[继续|Robin Fight Intro 2]]>><<set $phase to 1>><</link>>
+<<else>>
+    <<set $robinFightConvinceCount += 1>>
+    ："抱歉，我们可能又得讨论一些严肃的话题了。" 你说道。
+    <br><br>
+    罗宾仿佛已经意识到了你想要谈论的事情，<<He>>盯着你，等待你继续说下去。
+    <br><br>
+    你顿了顿，接着问道："关于一起反抗贝利的事，你考虑得怎么样了？是否有了新的想法？" 
+    <br><br>
+    <<link [[继续|Robin Fight Intro 2]]>><<set $phase to 1>><</link>>
+<</if>>
+
+:: Robin Fight Intro 2
+<<set $outside to 0>><<set $location to "home">><<effects>>
+<<if $phase is 1>>
+    <<if C.npc.Robin.dom lt 91>>
+        罗宾认真地思考了一会你的提议，但最终还是摇了摇头，声音带着一丝歉意："抱歉，我觉得我还没做好心理准备。"
+        <br><br>
+        你微微点头表示理解，然后对罗宾说："这没什么，<span class="gold">等你做好准备时</span>，我们可以再来讨论这个话题。"
+        <br><br>
+        罗宾似乎松了一口气，房间里的紧张气氛也随之逐渐消散，恢复了之前的宁静。
+        <br><br>
+        <span class="blue">下周你可以再次尝试说服罗宾。</span>
+    <<elseif !$robinCouldPayBoth>>
+        罗宾认真地思考了一会你的提议，但最终还是摇了摇头，坚决地拒绝了你："你有想过反抗失败的后果是什么吗？我不能让你处于危险之中。"
+        <br><br>
+        你明白自己目前还无法说服罗宾，于是点了点头，试图带过这个话题。
+        <br><br>
+        <<He>>看出了你并不甘心，于是继续说道："<span class="gold">等我有足够的能力保护你和我自己的时候</span>，我们再一起反抗贝利吧。"
+        <br><br>
+        你们最终就这个问题达成了共识，房间里的紧张气氛也随之逐渐消散，恢复了之前的宁静。
+        <br><br>
+        <span class="blue">下周你可以再次尝试说服罗宾。</span>
+    <<else>>
+        罗宾认真地思考了一会你的提议，最终坚定地点了点头。
+        <br><br>
+        <<He>>赞同道："你说得有道理，我们不应该容忍不合理的事。<span class="gold">下周</span>我们就可以一起战斗，共同对抗贝利。"
+        <br><br>
+        你们对这一决定感到既不安又兴奋，两人又一起探讨了一会作战时的细节，才渐渐平静了下来。
+        <br><br>
+        <span class="gold">你与罗宾的约定已加入了日志。</span>
+        <<set $robinFightTalked to true>>
+        <<set $renttime_fight to 7>><<set $rentday_fight to Time.weekDay>>
+    <</if>>
+<</if>>
+<br><br>
+<<robinoptions>>
