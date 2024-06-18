@@ -78,7 +78,8 @@
         "game/robin-daily/wardrobe.txt",
         "game/robin-daily/caughtCD.txt",
         "game/robin-daily/roomEntrance.txt",
-        "game/robin-fight/orphanage.txt"
+        "game/robin-fight/orphanage.txt",
+        "game/robin-fight/manCombat.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -405,6 +406,11 @@
                     "passage": "Orphanage",
                     "findString": "<<elseif $renttime lte 0>>",
                     "replaceFile": "game/robin-fight/orphanage.txt"
+                },
+                {
+                    "passage": "Widgets NPCs",
+                    "findRegex": "\\s*<<man-combat _mancombatcontrol>>",
+                    "replaceFile": "game/robin-fight/manCombat.txt"
                 }
             ]
         },

@@ -94,3 +94,12 @@
 <</if>>
 
 :: Robin Fight Finish
+<<effects>>
+<<if $enemyhealth lte 0>>
+    你赢得了战斗的胜利。
+<<else>>
+    你失败了。
+<</if>>
+<<clotheson>>
+<<endcombat>>
+<<link [[继续|Bedroom]]>><</link>>

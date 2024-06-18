@@ -1,0 +1,9 @@
+					<<if !_robinTargetList.includes(_mancombatcontrol)>>
+                        <<man-combat _mancombatcontrol>>
+                    <<else>>
+                        <<if _mancombatcontrol is 0 and $timer % 2 is 0>>
+                            <<man-combat _mancombatcontrol>>
+                        <<else>>
+                            <<print _mancombatcontrol>>正在对付罗宾。（内容待加）
+                        <</if>>
+                    <</if>>
