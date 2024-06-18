@@ -29,15 +29,60 @@
     <<link [[继续|Robin Fight]]>><<set $fightstart to 1>><</link>>
 <</widget>>
 
+
+/% 分配罗宾受到的攻击，暂时订的规则为：
+1. pc有行动力的情况下，打手数量三或四时，随机两名打手打罗宾; 打手数量一或二时，随机一名打手打罗宾；打手数量为零时，贝利轮流打pc和罗宾。
+2. pc无行动力的情况下，所有人都来攻击罗宾，反之亦然。%/
+<<widget "pickRobinViolance">>
+  <<set _robinTargetList to []>>
+  /% 计算打手数量，0是贝利所以从1开始 %/
+  <<for _i to 1; _i lt $enemynomax; _i++>>
+		<<if $NPCList[_i].stance isnot "defeated">>
+        <<set _robinTargetList.push(_i)>>
+		<</if>>
+	<</for>>
+  <<if _robinTargetList.length gte 3>>
+    <<set _robinTargetList to _robinTargetList.slice(0,2)>>
+    <<print $NPCList[_robinTargetList[0]].fullDescription>>和<<print $NPCList[_robinTargetList[1]].fullDescription>>包围住了罗宾。
+  <<elseif _robinTargetList.length gte 1>>
+    <<set _robinTargetList to _robinTargetList.slice(0,1)>> 
+    <<print $NPCList[_robinTargetList[0]].fullDescription>>正在对付罗宾。
+  <<else>>
+    /% 无论贝利攻击谁，罗宾都应该攻击贝利 %/
+    <<set _robinTargetList.push(0)>>
+    <<if $timer % 2 is 0>>
+      贝利转向了罗宾。
+    <<else>>
+      贝利转向了你。
+    <</if>>
+  <</if>>
+<</widget>>
+
+/% 默认动作，双手击打，踢，挑衅, 默认罗宾英语A*，所以_args[0]会是15 %/
 <<widget "robinDefiance">>
-    /% 默认动作，双手击打，踢，挑衅, 默认罗宾英语A*，所以_args[0]会是15 %/
-    <<set _defiance to (_args[0] *（1 + C.npc.Robin.dom/100))>>
-    <<set $enemyanger += 5 * _defiance>>
-    <<set $enemytrust -= 4 * 4>>
-    <<set _thedamage to (2 * _defiance * (12000 / 4000))>>
-  	<<set $NPCList[_args[1]].health -= _thedamage>>
+  <<set _robinDefiance to (_args[0] * (1 + (C.npc.Robin.dom/100)))>>
+  <<set $enemyanger += 5 * _robinDefiance>>
+  <<set $enemytrust -= 4 * 4>>
+  <<set _robinDamage to (2 * _robinDefiance * (12000 / 4000))>>
+  <<set $NPCList[_args[1]].health -= _robinDamage>>
 	<<if $NPCList[_args[1]].health lte 0>>
-			<<defeatnpc _args[1]>>
+    /% 减去溢出的伤害点数 %/
+    <<set _robinDamage += $NPCList[_args[1]].health>>
+    /% 偷懒直接用原来的，罗宾打败敌人pc减创伤不也很正常 %/
+    <<defeatnpc _args[1]>>
 	<</if>> 
-	/% <<set $enemyhealth -= _thedamage>> %/
+	<<set $enemyhealth -= _robinDamage>> 
+<</widget>>
+
+/% 智能作战策略，每次都打血量最少的袭击者 %/
+<<widget "robinPickTarget">>
+  <<set _minHealth to $NPCList[_robinTargetList[0]].health>>
+  <<set _robinTarget to _robinTargetList[0]>>
+  <<for _i to 0; _i lt _robinTargetList.length; _i++>>
+		<<if $NPCList[_robinTargetList[_i]].stance isnot "defeated" and $NPCList[_robinTargetList[_i]].health lt _minHealth>>
+        <<set _minHealth to $NPCList[_robinTargetList[_i]].health>>
+        <<set _robinTarget to _robinTargetList[_i]>>
+		<</if>>
+	<</for>>
+  <<set _robinTargetName to _robinTarget is 0? "贝利" : $NPCList[_robinTarget].fullDescription>>
 <</widget>>
