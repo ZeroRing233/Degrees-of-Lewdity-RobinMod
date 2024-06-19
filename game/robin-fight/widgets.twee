@@ -23,11 +23,11 @@
     <br><br>
     贝利冷笑了一声，语气中充满了嘲讽："别以为我不知道你们在背地里谋划什么，我对此早有准备，我会让你们明白反抗的代价的。"
     <br><br>
-    <<He>>话音刚落，一群打手从阴影中突然现身，<<person2>><<person>>和<<person3>><<person>>走在前列，而<<person3>><<person>>和<<person4>><<person>>紧随其后。
+    <<He>>话音刚落，一群打手从阴影中突然现身，<<person2>><<person>>和<<person3>><<person>>走在前列，而<<person4>><<person>>和<<person5>><<person>>紧随其后。
     <br><br>
     罗宾紧紧握住你的手，你能感觉到这双手正在微微颤抖，你们十指相扣，透过指尖传递着彼此的力量。
     <br><br>
-    <span class="blue">本次战斗贝利血量翻倍。</span>
+    <span class="blue">本次战斗贝利血量翻倍，且只能以袭击的方式获得胜利。</span>
     <br><br>
     <<link [[继续|Robin Fight]]>><<set $fightstart to 1>><</link>>
 <</widget>>
@@ -102,7 +102,7 @@
     <<grtrauma true>><<set C.npc.Robin.trauma += 1>>
   <<else>>
     罗宾浑身颤抖，用尽全身力气攻向<<print _robinTargetName>>。
-    <<ggrtrauma true>><<npcincr Robin trauma += 2>>
+    <<ggrtrauma true>><<set C.npc.Robin.trauma += 2>>
   <</if>>
   <br>
 <</widget>>
@@ -110,11 +110,11 @@
 <<widget "robinSpeech">>
 	  <<switch random(1,3)>>
       <<case 1>>
-        <<set _text_output to '<<nnpc_He Robin>>同时坚定地说道："'>>
+        <<set _text_output to '<<nnpc_He Robin>>坚定地说道："'>>
 			<<case 2>>
-				<<set _text_output to '<<nnpc_He Robin>>同时怒吼着："'>>
+				<<set _text_output to '<<nnpc_He Robin>>怒吼着："'>>
       <<case 3>>
-        <<set _text_output to '<<nnpc_He Robin>>同时愤怒地说： "'>>
+        <<set _text_output to '<<nnpc_He Robin>>愤怒地说： "'>>
 		<</switch>>
     <<switch $timer % 7>>
       <<case 0>>
@@ -137,4 +137,52 @@
           <<set _text_output += '你们会为自己的贪婪付出代价。"'>>
     <</switch>>
     <<print _text_output>>
+<</widget>>
+
+<<widget "man-combat-robin">>
+  <<set _n to _args[0]>>
+  <<personselect _n>>
+  <<switch _n>>
+		<<case 0>>
+			<<manspeech _n>>
+			<<if $NPCList[0].intro isnot -1>>
+				<<set $NPCList[0].intro to 1>>
+			<</if>>
+		<<case 1 2 3 4 5>>
+			<<manspeech _n>><<if $NPCList[_n].intro isnot -1>><<set $NPCList[_n].intro to 1>><</if>>
+	<</switch>>
+  <<rng>>
+	<<if $rng gte 81>>
+		<<He>>打向罗宾的鼻子。
+  <<elseif $rng gte 61>>
+		<<He>>从后面打罗宾的颈部。
+  <<elseif $rng gte 41>>
+		<<He>>击打罗宾的面部。
+  <<elseif $rng gte 21>>
+		<<He>>打向罗宾的下巴。
+	<<else>>
+		<<He>>用手插击罗宾的咽喉。
+  <</if>>
+  <<rng>>
+  <<if $rng gte 81>>
+		<<He>>划向罗宾的脸。
+  <<elseif $rng gte 61>>
+		<<He>>抓向罗宾的后颈部。
+  <<elseif $rng gte 41>>
+		<<He>>用指甲抓挠着罗宾的脸。
+	<<elseif $rng gte 21>>
+		<<He>>挠向罗宾的下巴。
+  <<else>>
+		<<He>>用指甲抓挠着罗宾的脖颈。
+	<</if>>
+  <<robinViolence 40>>
+<</widget>>
+
+/% 默认罗宾科学 A*, 效果为疼痛值 * 0.6，基础血量200，是pc疼痛上限的两倍%/
+<<widget "robinViolence">>
+  <<set _violence = _args[0] * 3 / 5 * 2>>
+  <<set $enemyanger -= 5>>
+  <<set $enemyarousal += 1>>
+  <<set $NPCList[5].health -= _violence>>
+  <<print "罗宾当前的血量" + $NPCList[5].health>>
 <</widget>>

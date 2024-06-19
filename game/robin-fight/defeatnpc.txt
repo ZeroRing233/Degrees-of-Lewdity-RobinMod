@@ -2,4 +2,5 @@
 <<if $passage is "Robin Fight">>
     /% 因变量名冲突，无法使用npcincr %/
     <<llrtrauma true>><<set C.npc.Robin.trauma -= 2>>
+    <<set $NPCList[5].health += 30>>
 <</if>>

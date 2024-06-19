@@ -72,6 +72,7 @@
 	<<set $phase to 1>>
     <<set $timer to 70>> /% $timer的作用只是计算贝利这回合打谁，70是为了取余 %/
 <</if>>
+<<set $enemyarousal to 0>>
 <<pickRobinViolance>>
 <<robinPickTarget>>
 /% 罗宾用双手击打，踢向<<print _robinTargetName>>，同时吼道："我不会再让你对我们为所欲为了。"%/
