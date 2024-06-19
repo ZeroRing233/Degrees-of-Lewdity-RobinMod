@@ -79,7 +79,8 @@
         "game/robin-daily/caughtCD.txt",
         "game/robin-daily/roomEntrance.txt",
         "game/robin-fight/orphanage.txt",
-        "game/robin-fight/manCombat.txt"
+        "game/robin-fight/manCombat.txt",
+        "game/robin-fight/defeatnpc.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -411,6 +412,11 @@
                     "passage": "Widgets NPCs",
                     "findRegex": "\\s*<<man-combat _mancombatcontrol>>",
                     "replaceFile": "game/robin-fight/manCombat.txt"
+                },
+                {
+                    "passage": "Widgets NPC Damage",
+                    "findString": "<<lltrauma>><<trauma -18>>",
+                    "replaceFile": "game/robin-fight/defeatnpc.txt"
                 }
             ]
         },

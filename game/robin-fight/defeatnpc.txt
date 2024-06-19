@@ -1,0 +1,5 @@
+<<lltrauma>><<trauma -18>>
+<<if $passage is "Robin Fight">>
+    /% 因变量名冲突，无法使用npcincr %/
+    <<llrtrauma true>><<set C.npc.Robin.trauma -= 2>>
+<</if>>

@@ -9,14 +9,17 @@
     <<npc Bailey>><<person1>><<npc Robin 6>>
     <<set $NPCList[0].health to 800>>
     <<set $NPCList[0].healthmax to 800>>
+    <<set _robinHealth to 200 * (1 + C.npc.Robin.dom / 100)>>
+    <<set $NPCList[5].health to _robinHealth>>
+    <<set $NPCList[5].healthmax to _robinHealth>>
     <<generateRole 1 0 "打手">><<generateRole 2 0 "打手">><<generateRole 3 0 "打手">><<generateRole 4 0 "打手">>
     “是时候付钱了。”<<he>>说道。
     <br><br>
     <<if $_robinInRoom>>
-		罗宾挡在你身前，怒视着贝利。
-	<<else>>
-        听到动静后，罗宾从房间内冲了出来，挡在了你身前，怒视着贝利。
-	<</if>>
+		  罗宾挡在你身前，怒视着贝利。
+	  <<else>>
+      听到动静后，罗宾从房间内冲了出来，挡在了你身前，怒视着贝利。
+	  <</if>>
     <br><br>
     贝利冷笑了一声，语气中充满了嘲讽："别以为我不知道你们在背地里谋划什么，我对此早有准备，我会让你们明白反抗的代价的。"
     <br><br>
@@ -58,8 +61,24 @@
   <</if>>
 <</widget>>
 
+
+/% 智能作战策略，每次都打血量最少的袭击者 %/
+<<widget "robinPickTarget">>
+  <<set _minHealth to $NPCList[_robinTargetList[0]].health>>
+  <<set _robinTarget to _robinTargetList[0]>>
+  <<for _i to 0; _i lt _robinTargetList.length; _i++>>
+		<<if $NPCList[_robinTargetList[_i]].stance isnot "defeated" and $NPCList[_robinTargetList[_i]].health lt _minHealth>>
+        <<set _minHealth to $NPCList[_robinTargetList[_i]].health>>
+        <<set _robinTarget to _robinTargetList[_i]>>
+		<</if>>
+	<</for>>
+  <<set _robinTargetName to _robinTarget is 0? "贝利" : $NPCList[_robinTarget].fullDescription>>
+<</widget>>
+
 /% 默认动作，双手击打，踢，挑衅, 默认罗宾英语A*，所以_args[0]会是15 %/
 <<widget "robinDefiance">>
+  <<robinAction>>
+  <<robinSpeech>>
   <<set _robinDefiance to (_args[0] * (1 + (C.npc.Robin.dom/100)))>>
   <<set $enemyanger += 5 * _robinDefiance>>
   <<set $enemytrust -= 4 * 4>>
@@ -74,15 +93,48 @@
 	<<set $enemyhealth -= _robinDamage>> 
 <</widget>>
 
-/% 智能作战策略，每次都打血量最少的袭击者 %/
-<<widget "robinPickTarget">>
-  <<set _minHealth to $NPCList[_robinTargetList[0]].health>>
-  <<set _robinTarget to _robinTargetList[0]>>
-  <<for _i to 0; _i lt _robinTargetList.length; _i++>>
-		<<if $NPCList[_robinTargetList[_i]].stance isnot "defeated" and $NPCList[_robinTargetList[_i]].health lt _minHealth>>
-        <<set _minHealth to $NPCList[_robinTargetList[_i]].health>>
-        <<set _robinTarget to _robinTargetList[_i]>>
-		<</if>>
-	<</for>>
-  <<set _robinTargetName to _robinTarget is 0? "贝利" : $NPCList[_robinTarget].fullDescription>>
+/% 满血，半血，残血 %/
+<<widget "robinAction">>
+  <<if $NPCList[5].health gte $NPCList[5].healthmax / 2>>
+    罗宾用双手击打着<<print _robinTargetName>>，并且用脚踹击着进攻。
+  <<elseif $NPCList[5].health gte $NPCList[5].healthmax / 5>>
+    罗宾顶着疼痛，用双手击打着<<print _robinTargetName>>，并且用脚踹击着进攻。
+    <<grtrauma true>><<set C.npc.Robin.trauma += 1>>
+  <<else>>
+    罗宾浑身颤抖，用尽全身力气攻向<<print _robinTargetName>>。
+    <<ggrtrauma true>><<npcincr Robin trauma += 2>>
+  <</if>>
+  <br>
+<</widget>>
+
+<<widget "robinSpeech">>
+	  <<switch random(1,3)>>
+      <<case 1>>
+        <<set _text_output to '<<nnpc_He Robin>>同时坚定地说道："'>>
+			<<case 2>>
+				<<set _text_output to '<<nnpc_He Robin>>同时怒吼着："'>>
+      <<case 3>>
+        <<set _text_output to '<<nnpc_He Robin>>同时愤怒地说： "'>>
+		<</switch>>
+    <<switch $timer % 7>>
+      <<case 0>>
+        <<set _text_output += '我不会再让你们为所欲为了。"'>>
+      <<case 1>>
+        <<if $robinromance is 1>>
+          <<set _text_output += '我不会让你们伤害我的恋人的。"'>>
+        <<else>>
+          <<set _text_output += '我不会让你们伤害我的朋友的。"'>>
+        <</if>>
+      <<case 2>>
+          <<set _text_output += '我们绝不会坐以待毙。"'>>
+      <<case 3>>
+          <<set _text_output += '我们绝不会放弃。"'>>
+      <<case 4>>
+          <<set _text_output += '我们一定会胜利的。"'>>
+      <<case 5>>
+          <<set _text_output += '为什么一定要做这些恶事呢？"'>>
+      <<case 6>>
+          <<set _text_output += '你们会为自己的贪婪付出代价。"'>>
+    <</switch>>
+    <<print _text_output>>
 <</widget>>
