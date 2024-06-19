@@ -202,5 +202,5 @@
   <<set $enemyanger -= 5>>
   <<set $enemyarousal += 1>>
   <<set $NPCList[5].health -= _violence>>
-  <<print "罗宾当前的血量" + $NPCList[5].health>>
+  /% <<print "罗宾当前的血量" + $NPCList[5].health>> %/
 <</widget>>

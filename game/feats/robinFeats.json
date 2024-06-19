@@ -14,5 +14,13 @@
         "series": "",
         "filter": ["All", "General"],
         "softLockable": true
+    },
+    "Combined Operations": {
+        "title": "联合作战",
+        "desc": "与罗宾一起对抗贝利。",
+        "difficulty": 1,
+        "series": "",
+        "filter": ["All", "General"],
+        "softLockable": true
     }
 }

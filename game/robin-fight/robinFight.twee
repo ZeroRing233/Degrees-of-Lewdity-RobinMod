@@ -99,10 +99,37 @@
 :: Robin Fight Finish
 <<effects>>
 <<if $enemyhealth lte 0>>
-    你赢得了战斗的胜利。
+    <<earnFeat "Combined Operations">>
+    贝利后退了几步，护着瘀伤，对你和罗宾的攻击性感到惊讶。
+	<<person1>><<He>>注意到大厅周围的人群。“你们会为此付出代价的。记好了。”在撂下狠话后，<<He>>冲了出去。
+    打手们也跟着<<him>>一起溜走了。
+	<br><br>
+    你和罗宾相视一笑，然后紧紧抱住了对方，你们沉浸在胜利的喜悦中。<<ltrauma>><<lstress>><<trauma -6>><<stress -12>> 
+    <<llrtrauma true>><<set C.npc.Robin.trauma -= 5>>
+	<br><br>
+    <<if $robinPayBothTalked>>
+        ："真没想到我们能成功反抗贝利，我想，从现在起，我可以不用再承担你的债务了吧。我们现在可是战友关系啦！" 罗宾微笑着对你说，你微微点头。
+    <<else>>
+        ："真没想到我们能成功反抗贝利，我想，只要我们两个在一起，就没有克服不了的困难。" 罗宾微笑着对你说，你微微点头。
+    <</if>>
+	<<if C.npc.Robin.lust gte 60>>
+	    <<person6>><<He>>在你的嘴唇上轻轻一啄，然后才转身离开。
+	<<else>>
+		<<person6>><<He>>在你的脸颊上轻轻一啄，然后才转身离开。
+	<</if>>
+	<br><br>
+	贝利的离开让旁观的孤儿们如释重负，他们震惊于罗宾英勇的表现，同时也为你们击败暴君而欢呼。但<<person1>><<He>>一定会回来的，就像坏蛋总是会再次现身，你在内心暗暗想道。
+	<<ggreb>><<gghope>><<reb 3>><<hope 3>>
+	<br><br>
+    <<if $robinPayBothTalked>>
+        <<set $robinPayBothTalked to false>>
+        <span class="blue">你的特质栏发生了变化。</span>
+        <br><br>
+    <</if>>
+    <<clotheson>>
+    <<endcombat>>
+    <<link [[继续|Bedroom]]>><</link>>
 <<else>>
     你失败了。
 <</if>>
-<<clotheson>>
-<<endcombat>>
-<<link [[继续|Bedroom]]>><</link>>
+
