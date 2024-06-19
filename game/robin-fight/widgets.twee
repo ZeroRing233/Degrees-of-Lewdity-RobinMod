@@ -38,25 +38,42 @@
 2. pc无行动力的情况下，所有人都来攻击罗宾，反之亦然。%/
 <<widget "pickRobinViolance">>
   <<set _robinTargetList to []>>
-  /% 计算打手数量，0是贝利所以从1开始 %/
-  <<for _i to 1; _i lt $enemynomax; _i++>>
-		<<if $NPCList[_i].stance isnot "defeated">>
-        <<set _robinTargetList.push(_i)>>
-		<</if>>
-	<</for>>
-  <<if _robinTargetList.length gte 3>>
-    <<set _robinTargetList to _robinTargetList.slice(0,2)>>
-    <<print $NPCList[_robinTargetList[0]].fullDescription>>和<<print $NPCList[_robinTargetList[1]].fullDescription>>包围住了罗宾。
-  <<elseif _robinTargetList.length gte 1>>
-    <<set _robinTargetList to _robinTargetList.slice(0,1)>> 
-    <<print $NPCList[_robinTargetList[0]].fullDescription>>正在对付罗宾。
-  <<else>>
-    /% 无论贝利攻击谁，罗宾都应该攻击贝利 %/
-    <<set _robinTargetList.push(0)>>
-    <<if $timer % 2 is 0>>
-      贝利转向了罗宾。
+  /% 如果pc失去行动力，则所有的打手目标都是罗宾 %/
+  <<if $pain gte 100 and $willpowerpain is 0>>
+    <<for _i to 0; _i lt $enemynomax; _i++>>
+      <<if $NPCList[_i].stance isnot "defeated">>
+          <<set _robinTargetList.push(_i)>>
+      <</if>>
+    <</for>>
+    <span class="red">你躺在地上，动弹不得。</span>
+    <<if _robinTargetList.length gte 2>>
+      敌人们包围住了罗宾。
     <<else>>
-      贝利转向了你。
+      <<print $NPCList[_robinTargetList[0]].fullDescription>>正在对付罗宾。
+    <</if>>
+  <<elseif $NPCList[5].health lte 0>>
+      <span class="red">罗宾躺在地上，动弹不得。</span>
+  /% 计算常规情况下的打手数量，0是贝利所以从1开始 %/
+  <<else>>
+    <<for _i to 1; _i lt $enemynomax; _i++>>
+      <<if $NPCList[_i].stance isnot "defeated">>
+          <<set _robinTargetList.push(_i)>>
+      <</if>>
+    <</for>>
+    <<if _robinTargetList.length gte 3>>
+      <<set _robinTargetList to _robinTargetList.slice(0,2)>>
+      <<print $NPCList[_robinTargetList[0]].fullDescription>>和<<print $NPCList[_robinTargetList[1]].fullDescription>>包围住了罗宾。
+    <<elseif _robinTargetList.length gte 1>>
+      <<set _robinTargetList to _robinTargetList.slice(0,1)>> 
+      <<print $NPCList[_robinTargetList[0]].fullDescription>>正在对付罗宾。
+    <<else>>
+      /% 无论贝利攻击谁，罗宾都应该攻击贝利 %/
+      <<set _robinTargetList.push(0)>>
+      <<if $timer % 2 is 0>>
+        贝利转向了罗宾。
+      <<else>>
+        贝利转向了你。
+      <</if>>
     <</if>>
   <</if>>
 <</widget>>
@@ -142,6 +159,7 @@
 <<widget "man-combat-robin">>
   <<set _n to _args[0]>>
   <<personselect _n>>
+  /% 有点奇怪，但姑且复制了 %/
   <<switch _n>>
 		<<case 0>>
 			<<manspeech _n>>

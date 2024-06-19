@@ -74,9 +74,10 @@
 <</if>>
 <<set $enemyarousal to 0>>
 <<pickRobinViolance>>
-<<robinPickTarget>>
-/% 罗宾用双手击打，踢向<<print _robinTargetName>>，同时吼道："我不会再让你对我们为所欲为了。"%/
-<<robinDefiance 15 _robinTarget>>
+<<if _robinTargetList.length isnot 0>>
+    <<robinPickTarget>>
+    <<robinDefiance 15 _robinTarget>>
+<</if>>
 <br><br>
 <<effects>>
 <<effectsman>>
@@ -89,7 +90,7 @@
 <<stateman>>
 <br><br>
 <<actionsman>>
-<<if _combatend or ($pain gte 100 and $willpowerpain is 0)>>
+<<if _combatend or ($pain gte 100 and $willpowerpain is 0 and $NPCList[5].health lte 0)>>
 	<span id="next"><<link [[继续|Robin Fight Finish]]>><</link>></span><<nexttext>>
 <<else>>
 	<span id="next"><<link [[继续|Robin Fight]]>><</link>></span><<nexttext>>
