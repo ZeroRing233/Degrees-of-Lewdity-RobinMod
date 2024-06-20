@@ -1,0 +1,52 @@
+备注：主要用于快速体验/重新体验剧情：
+1. 柠檬水摊相关：
+（1）重置升级，不重置现有商品和饮料：[[重置柠檬水摊升级|$passage][$lemonadeUpgraded=0]]
+（2）重置升级，也重置现有商品的饮料：<<link [[重置柠檬水摊和热巧克力摊一切相关升级|$passage]]>> <<unset $lemonadeUpgraded>> <<unset $chocolateUpgraded>><<unset $lemonadeNewGoodsList>> <<unset $untriedFruitList>> <<unset $triedFruitList>> <<unset $drinkUpgradedList>> <</link>>
+（3）只重置商品：<<link[[清空摊位上已售卖物品|$passage]]>> <<set $lemonadeNewGoodsList to []>> <</link>>
+（4）触发卖花，需要先升级：<<link[[让罗宾帮忙浇花|Garden Robin Help]]>> <<npc Robin>><<person1>> <</link>>
+（5）触发卖爆米花，需要先升级：<<link [[去买爆米花|Robin Cinema Popcorn]]>> <<npc Robin>> <</link>>
+（6）触发卖小点心，就加了前置条件，罗宾在孤儿院时手动去阁楼就行：
+<<link [[罗宾自信80，厨房解锁|$passage]]>>
+    <<set $loft_river to 1>>
+    <<if C.npc.Robin.dom lt 80>>
+         <<set C.npc.Robin.dom to 80>>
+    <</if>>
+<</link>>
+(7) 触发卖气球（就改了个日期，其他的自己操作吧，我懒）：
+<<link [[酷暑来临|$passage]]>><<set Time.setDate(new DateTime(Time.year, 6, 1, 10,0))>><</link>>
+（8）只重置饮料和榨汁机：
+<<link[[清空摊位上已售卖饮料和已榨汁水果|$passage]]>> 
+    <<unset $untriedFruitList>> <<unset $triedFruitList>> <<unset $drinkUpgradedList>>
+<</link>>
+(9)添加日志中的水果品种：
+<<link [[添加日志中的的水果品种|$passage]]>> 
+    <<tending_pick apple 6 18>>
+    <<tending_pick pear 6 18>>
+    <<tending_pick strawberry 5 25>>
+    <<tending_pick peach 5 25>>
+    <<tending_pick plum 5 25>>
+    <<tending_pick wild_carrot 20 50>>
+    <<tending_pick blackberry 5 25>>
+<</link>>
+（10）捡柠檬/血柠檬/野蜂巢：
+<<link [[捡柠檬/血柠檬/野蜂巢|$passage]]>> 
+    <<tending_pick blood_lemon 6 18>>
+    <<tending_pick lemon 6 18>> 
+    <<tending_pick wild_honeycomb 1 1>>
+<</link>>
+（11）添加日志中的鲜花品种：
+<<link[[一键捡所有发发|$passage]]>>
+    <<set _plant_keys to Object.keys($plants)>>
+    <<for _i to 0; _i lt _plant_keys.length; _i++>>
+    <<if setup.plants[_plant_keys[_i]].type is "flower">>
+        <<tending_pick _plant_keys[_i] 100 150>>
+    <</if>>
+   <</for>>
+<</link>>
+（12）爬到摊位底下选项条件（如果还没成为恋人别点，会跳表白剧情）：
+<<link [[爬到摊位底下选项条件|$passage]]>> 
+    <<if $promiscuity lt 55>>
+        <<set $promiscuity to 55>>
+    <</if>>
+    <<set $robinromance to 1>>
+<</link>>
