@@ -19,8 +19,10 @@ function dailyRobinTraitEffects() {
         // 取消创伤线进线
         V.robinfirstrentfight = 0;
     }
-    if (V.robinFightTalked) {
+    // 目前反抗线打输后，renttime_fight会是999
+    if (V.robinFightTalked && V.renttime_fight != 999) {
         V.renttime_fight -= 1;
+        V.renttime = 999;
     }
 }
 

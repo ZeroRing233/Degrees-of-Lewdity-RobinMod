@@ -94,29 +94,12 @@
 
 /% 罗宾的防狼喷雾，默认好心人送的，一周一瓶 %/
 <<widget "robinSpray">>
-  罗宾手持防狼喷雾，对着<<group>>一阵猛喷。他们惊叫呜咽，不由地捂住了脸。
   <<set _baseDmage to 200>>
-	<<if _baseDamage>>
-		<<set _totalDamage to 0>>
-		<<set _npctodefeat to []>>
-		<<for _npctodamage to 0; _npctodamage lt $enemynomax; _npctodamage++>>
-			<<if $NPCList[_npctodamage].active is "active" and $NPCList[_npctodamage].stance isnot "defeated" and (!$fightTargets or $fightTargets.includes(_npctodamage))>>
-				<<set _enemydivide to $fightTargets ? $enemyno-$fightTargets.length : $enemyno>> /* Divide damage by all current active enemies. */
-				<<set _thedamage to _baseDamage/_enemydivide>>
-				<<set $NPCList[_npctodamage].health -= _thedamage>>
-				<<set _totalDamage += _thedamage>>
-				<<if $enemyno gte 2 and $NPCList[_npctodamage].health lte 0>>
-					<<set _npctodefeat.push(_npctodamage)>>
-				<</if>>
-			<</if>>
-		<</for>>
-		<<for $_defeatcontroller to 0; $_defeatcontroller lt _npctodefeat.length; $_defeatcontroller++>>
-			<<if $enemyno gte 2>>
-			  <<defeatnpc _npctodefeat[$_defeatcontroller]>>
-			<</if>>
-		<</for>>
-		<<set $enemyhealth -= _totalDamage>>
-	<</if>>
+  <<for _npctodamage to 0; _npctodamage lt $enemynomax; _npctodamage++>>
+	    /% 未知bug，暂时写死 %/
+			<<set $NPCList[_npctodamage].health -= 40>>
+	<</for>>
+  <<set $enemyhealth -= 200>>
 <</widget>>
 
 /% 默认动作，双手击打，踢，挑衅, 默认罗宾英语A*，所以_args[0]会是15 %/
@@ -229,5 +212,5 @@
   <<set $enemyanger -= 5>>
   <<set $enemyarousal += 1>>
   <<set $NPCList[5].health -= _violence>>
-  <<print "罗宾当前的血量" + $NPCList[5].health>>
+  /% <<print "罗宾当前的血量" + $NPCList[5].health>> %/
 <</widget>>

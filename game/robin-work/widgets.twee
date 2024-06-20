@@ -21,7 +21,10 @@
         <</if>>
         <<set $robinShouldPayBack += $rentShouldPay + 400>>
     <</if>>
-
+    /% 反抗线，rentShouldPay同样要归零 %/
+    <<if $robinFightTalked and $renttime_fight isnot 999>>
+        <<set $rentShouldPay to 0>>
+    <</if>>
     <<set $weeklyMoneyFixedChange to 0>>
     <<set $weeklyMoneyRandomChange to 0>>
     /% 柠檬水摊相关检查 %/

@@ -54,8 +54,15 @@
         你们对这一决定感到既不安又兴奋，两人又一起探讨了一会作战时的细节，才渐渐平静了下来。
         <br><br>
         <span class="gold">你与罗宾的约定已加入了日志。</span>
+        /% 进入反抗线，为简化逻辑，反抗线也省略不交租相关内容 %/
         <<set $robinFightTalked to true>>
-        <<set $renttime_fight to 7>><<set $rentday_fight to Time.weekDay>>
+        <<robinPayAll>> 
+        <<if $renttime lte 7>>
+            <<set $renttime_fight to $renttime>><<set $rentday_fight to $rentday>>
+        <<else>>
+            <<set $renttime_fight to 7>><<set $rentday_fight to Time.weekDay>>
+        <</if>>
+        <<set $renttime to 999>>
     <</if>>
 <</if>>
 <br><br>
@@ -76,7 +83,8 @@
 <<pickRobinViolance>>
 <<if _robinTargetList.length isnot 0>>
     <<robinPickTarget>>
-    <<if $timer is 99>>
+    <<if $phase is 1>>
+        罗宾手持防狼喷雾，对着<<group>>一阵猛喷。他们惊叫呜咽，不由地捂住了脸。
         <<robinSpray>>
         <<robinSpeech>>
         <<robinDefiance 5 _robinTarget>>
@@ -134,10 +142,40 @@
         <span class="blue">你的特质栏发生了变化。</span>
         <br><br>
     <</if>>
+    <<set $renttime_fight to 7>><<set $rentday_fight to Time.weekDay>>
+    <<set $robinFightChain to $robinFightChain or 0>>
+    <<set $robinFightChain += 1>>
     <<clotheson>>
     <<endcombat>>
     <<link [[继续|Bedroom]]>><</link>>
 <<else>>
-    你失败了。
+    你和罗宾倒在地上，因为受伤而动弹不得，旁观的孤儿们担忧地看着你们，但谁也不敢上前。
+    <<llreb>><<reb -3>>
+	<br><br>
+    面对步步逼近的贝利，罗宾恳求道："求你了...请不要伤害<<phim>>，我...我有钱，我可以交出两人份的租金！" 
+    说着，<<person6>><<He>>用颤抖的手从口袋里摸出一叠厚厚的现金。
+    <br><br>
+    贝利死死地盯着罗宾，沉默了片刻，然后叹了一口气，说："一开始就乖乖交钱不就没事了吗？" 
+    说完，<<person1>><<he>>一把夺过罗宾手中的现金，转身离开了。
+    <br><br>
+    你似乎看到了贝利的脸上闪过了片刻的柔和，但你不确定自己是不是看错了。
+    <br><br>
+    等贝利走远后，罗宾转向了你，认真地说："今后还是由我来替你付钱吧？我实在不想让今天的事情再次发生了。"
+    <br><br>
+    想到刚才可能面临的后果，你心有余悸，于是点头答应了罗宾。
+    在得到你的答复后，罗宾轻轻地拥抱了你，然后一拐一瘸地起身离开了。
+    <br><br>
+    <<if !$robinPayBothTalked>>
+        <<robinPayAll>>
+        <<earnFeat "Protected By Robin">>
+        <<set $robinPayBothTalked to true>>   
+        <<set C.npc.Robin.dom to 100>>
+        <span class="blue">你的特质栏发生了变化。</span>
+        <br><br>
+    <</if>>
+    <<set $renttime_fight to 999>><<unset $rentday_fight>>
+    <<clotheson>>
+    <<endcombat>>
+    <<link [[继续|Bedroom]]>><</link>>
 <</if>>
 
