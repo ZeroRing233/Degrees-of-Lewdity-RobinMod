@@ -150,34 +150,20 @@
 <br><br>
 <<robinChocolateOfferHelp>>
 
-/% "apple","pear","strawberry","peach","plum","wild_carrot","blackberry" 希望我之后能找出更简洁的写法%/
-:: Robin Chocolate Juicing apple
-<<set $fruitType to getLastWord($passage)>>
-<<chocolateJuicing $fruitType>>
-
-:: Robin Chocolate Juicing pear
-<<set $fruitType to getLastWord($passage)>>
-<<chocolateJuicing $fruitType>>
-
-:: Robin Chocolate Juicing strawberry
-<<set $fruitType to getLastWord($passage)>>
-<<chocolateJuicing $fruitType>>
-
-:: Robin Chocolate Juicing peach
-<<set $fruitType to getLastWord($passage)>>
-<<chocolateJuicing $fruitType>>
-
-:: Robin Chocolate Juicing plum
-<<set $fruitType to getLastWord($passage)>>
-<<chocolateJuicing $fruitType>>
-
-:: Robin Chocolate Juicing wild_carrot
-<<set $fruitType to getLastWord($passage)>>
-<<chocolateJuicing $fruitType>>
-
-:: Robin Chocolate Juicing blackberry
-<<set $fruitType to getLastWord($passage)>>
-<<chocolateJuicing $fruitType>>
+:: Robin Chocolate Juicing
+ <<location "park">><<set $outside to 0>><<effects>><<npc Robin>>
+  	<<if $plants[$fruitType] is undefined>>
+	    <span class="blue"> 砰！榨汁机爆炸了！请联系mod作者修复该问题。</span>
+    <</if>>
+    你尝试了将<<print $plants[$fruitType].plural>>削皮后放入榨汁机中，不一会儿，一杯<<print $plants[$fruitType].plural>>汁就新鲜出炉了。
+    <br><br>
+    你和罗宾分享了新榨出来的<<print $plants[$fruitType].plural>>汁，罗宾惊喜地说:" 新饮料的味道真好，我考虑把它加入饮料单中，
+    <span class="gold">下周</span>你说不定就能在饮料单上看到它了。" <<glove>> <<npcincr Robin love 1>>
+    <<set $triedFruitList.pushUnique($fruitType)>>
+    <<set $plants[$fruitType].amount -= 1>>
+  	<br><br>
+    <<endevent>>
+    <<robinChocolateOfferHelp>>
 
 /% 复制粘贴大法好 %/
 :: Robin Chocolate Purchase Other

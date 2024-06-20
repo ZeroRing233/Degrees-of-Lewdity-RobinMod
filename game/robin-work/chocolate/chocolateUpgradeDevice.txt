@@ -18,14 +18,18 @@
         <span class="blue">你暂时没有可以尝试榨汁的水果。</span>
     <</if>>
 
-    <<for _i to 0; _i lt $untriedFruitList.length; _i++>>
+     <<for _i to 0; _i lt $untriedFruitList.length; _i++>>
         <<set _type to $untriedFruitList[_i]>>
         <<set _name to $plants[_type].name>>
         <<if _name is "wild_carrot">>
             <<set _name to "carrot">>
         <</if>>
-        <<icon `"tending/" + _name + ".png"`>> 
-        <<link [["尝试给"+$plants[_type].plural+"榨汁(0:15)"|"Robin Chocolate Juicing "+$plants[_type].name]]>><<pass 15>><</link>> 
+        <<icon `"tending/" + _name + ".png"`>>
+        <<capture _type>> 
+            <<link [["尝试给"+$plants[_type].plural+"榨汁(0:15)"|Robin Chocolate Juicing]]>>
+                <<pass 15>><<set $fruitType to _type>>
+            <</link>> 
+        <</capture>>
         <br>
     <</for>>
     <br><br>
