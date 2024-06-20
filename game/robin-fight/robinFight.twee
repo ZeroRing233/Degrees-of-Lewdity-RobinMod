@@ -70,13 +70,21 @@
 	<<set $enemyanger += 200>>
 	<<npcidlegenitals>>
 	<<set $phase to 1>>
-    <<set $timer to 70>> /% $timer的作用只是计算贝利这回合打谁，70是为了取余 %/
+    <<set $timer to 99>> /% $timer的作用只是计算贝利这回合打谁%/
 <</if>>
 <<set $enemyarousal to 0>>
 <<pickRobinViolance>>
 <<if _robinTargetList.length isnot 0>>
     <<robinPickTarget>>
-    <<robinDefiance 15 _robinTarget>>
+    <<if $timer is 99>>
+        <<robinSpray>>
+        <<robinSpeech>>
+        <<robinDefiance 5 _robinTarget>>
+    <<else>>
+        <<robinAction>>
+        <<robinSpeech>>
+        <<robinDefiance 15 _robinTarget>>
+    <</if>>
 <</if>>
 <br><br>
 <<effects>>
@@ -108,7 +116,7 @@
     <<llrtrauma true>><<set C.npc.Robin.trauma -= 5>>
 	<br><br>
     <<if $robinPayBothTalked>>
-        ："真没想到我们能成功反抗贝利，我想，从现在起，我可以不用再承担你的债务了吧。我们现在可是战友关系啦！" 罗宾微笑着对你说，你微微点头。
+        ："真没想到我们能成功反抗贝利，我想，从现在起，我可以不用再承担你的债务了吧。我们现在已经是战友关系啦！" 罗宾微笑着对你说，你微微点头。
     <<else>>
         ："真没想到我们能成功反抗贝利，我想，只要我们两个在一起，就没有克服不了的困难。" 罗宾微笑着对你说，你微微点头。
     <</if>>
