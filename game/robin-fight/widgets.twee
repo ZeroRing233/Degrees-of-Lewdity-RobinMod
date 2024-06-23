@@ -32,6 +32,28 @@
     <<link [[继续|Robin Fight]]>><<set $fightstart to 1>><</link>>
 <</widget>>
 
+<<widget "rentdueFightTogether">>
+    <<npc Bailey>><<npc Robin 6>>
+    <<set $NPCList[0].health to 800>>
+    <<set $NPCList[0].healthmax to 800>>
+    <<set _robinHealth to 200 * (1 + C.npc.Robin.dom / 100)>>
+    <<set $NPCList[5].health to _robinHealth>>
+    <<set $NPCList[5].healthmax to _robinHealth>>
+    <<generateRole 1 0 "打手">><<generateRole 2 0 "打手">><<generateRole 3 0 "打手">><<generateRole 4 0 "打手">>
+    ：“我想，这次你们也不会乖乖付钱的，对吗？”<<person1>><<he>>冷冷地说。没等你做出回应，贝利又继续说道："我早就说过，我会让你们明白反抗的代价的。"
+    <br><br>
+    <<He>>话音刚落，就有两名打手从暗处突然现身。<<person4>><<person>>向你抓来，虽然你堪堪躲过了<<his>>的攫取，但<<person5>><<person>>趁机抓住了你的手臂。
+		<<person4>><<person>>抓住你的另一只手臂，就这样，二人将你控制了起来。
+    <br><br>
+    你奋力挣扎，试图挣脱束缚。这时，又有两名打手押着罗宾走了出来，罗宾一直怒视着身边的<<person2>><<person>>和<<person3>><<person>>，当<<person6>><<he>>看见你时，<<his>>的眼神变得柔和而又坚定，似乎在鼓励你不要放弃。
+    <br><br>
+    你深吸了一口气，试图振作起来，以摆脱眼前的困境。
+    <br><br>
+    <span class="blue">本次战斗贝利血量翻倍。</span>
+    <br><br>
+    <<link [[继续|Robin Fight Together Finish]]>><<set $fightstart to 1>><</link>>
+<</widget>>
+
 
 /% 分配罗宾受到的攻击，暂时订的规则为：
 1. pc有行动力的情况下，打手数量三或四时，随机两名打手打罗宾; 打手数量一或二时，随机一名打手打罗宾；打手数量为零时，贝利轮流打pc和罗宾。
@@ -214,3 +236,4 @@
   <<set $NPCList[5].health -= _violence>>
   /% <<print "罗宾当前的血量" + $NPCList[5].health>> %/
 <</widget>>
+

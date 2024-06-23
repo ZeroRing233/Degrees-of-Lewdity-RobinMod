@@ -72,3 +72,23 @@ function rightSwimmingSuitCondition(clothes) {
         clothes.type.includes("swim") &&
         (clothes.gender === V.player.gender_appearance || clothes.gender === "n");
 }
+
+// 条件：反抗线打赢三次，罗宾与pc各至少帮助过一名孤儿，孤儿院的氛围"革命性"。
+function meetFightTogetherCondition() {
+    return V.renttime_fight <= 0 && V.robinFightChain >= 3 &&
+        V.orphan_hope >= 40 && V.orphan_reb >= 40 &&
+        V.orphan_rent === "paid" && findOrphanRentRobin().length >= 1;
+}
+window.meetFightTogetherCondition = meetFightTogetherCondition;
+
+function findOrphanRentRobin() {
+    let result = [];
+    let perNpcList = Object.keys(V.per_npc);
+    for (let i = 0; i < perNpcList.length; i++) {
+        if (perNpcList[i].startsWith("orphan_rent_robin") && V.per_npc[perNpcList[i]].payBacked) {
+            result.push(perNpcList[i]);
+        }
+    }
+    return result;
+}
+window.findOrphanRentRobin = findOrphanRentRobin;

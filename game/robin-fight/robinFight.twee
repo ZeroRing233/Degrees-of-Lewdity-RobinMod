@@ -179,3 +179,23 @@
     <<link [[继续|Bedroom]]>><</link>>
 <</if>>
 
+:: Robin Fight Together
+
+:: Robin Fight Together Finish
+<<endevent>>
+<<loadNPC 0 orphan_rent>><<loadNPC 1 orphan_rent_robin_1>>
+ 你和罗宾倒在地上，因为受伤而动弹不得，旁观的孤儿们担忧地看着你们，但一时没有人敢上前。
+ <br><br>
+ 正当你们陷入了绝望之时，一位<<person1>><<person>>从人群中冲了出来，<<he>>用防狼喷雾对准了贝利，
+ 同时<<person2>><<person>>用喷雾对准了打手们，打手们在出其不意的攻击下落荒而逃。
+ <br><br>
+ <<person1>><<person>>扶起了你，你注意到<<he>>是你曾经帮助过的那名孤儿，而围在(在）罗宾身边的则是<<person5>><<he>>曾经
+ 帮助过的孤儿们，你还记得他们的名字——XX,XX和XXX。
+ <br><br>
+ 贝利在短暂的愣神后又恢复了冷酷的模样，但你们并不畏惧，因为旁观的孤儿们被你们的举动所感染，纷纷站在了你身后。
+ <br><br>
+ 贝利叹了口气，妥协了："那如你们所愿，但别以为一切会顺利。"
+ <br><br>
+ <span class="gold">贝利暂时不会来收取房租了，你的特质栏发生了变化（贝利的反抗者）。</span>
+
+<<link [[继续|Bedroom]]>><</link>>

@@ -1,3 +1,9 @@
+<<elseif meetFightTogetherCondition()>>
+    <<set $bus to "home">>
+	一只手从后面搭住你的肩膀，<span class="red">是贝利。</span>
+	<br><br>
+    <<endevent>>
+    <<rentdueFightTogether 0>>
 <<elseif $renttime_fight lte 0>>
     <<set $bus to "home">>
 	一只手从后面搭住你的肩膀，<span class="red">是贝利。</span>
