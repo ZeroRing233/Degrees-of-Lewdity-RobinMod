@@ -1,0 +1,59 @@
+<<if $orgasmcurrent is 0 and not playerChastity()>>
+	<<set _mouthful to 0>>
+	<br>
+	罗宾看起来
+	<<if C.npc.Robin.dom lte 11>>
+		很担心。"但是……"<<he>>的脸很红，"那个……没什么。"
+	<<elseif C.npc.Robin.dom lte 26>>
+		很担心。"但是……"<<he>>低声说，"你没有高潮，我希望你也能舒服……"
+		<br>
+		你点点头。
+	<<elseif C.npc.Robin.dom lte 41>>
+		<<if $player.penisExist>>
+			<<set $penisuse to 0>><<set $penisstate to 0>>
+		<</if>>
+		意犹未尽。"但是你还没有高潮，"<<he>>小声说，<<His>>的手在你的<<genitals>>上徘徊。
+		<<arousal 2500 "genitals">>
+		<<if $arousal gte $arousalmax>>
+			<<orgasm>>罗宾看起来很高兴。
+		<<else>>
+			几分钟后，<<he>>停了下来。"对不起，我……我其实不太清楚我在做什么。"
+			<br>
+			"很舒服。"你告诉<<him>>，"真的，相信我。"
+			<br>
+		<</if>>
+	<<else>>
+		<<set _mouthful to 1>>
+		<<if $player.penisExist>>
+			<<set $penisuse to "othermouth">><<set $penisstate to "othermouth">>
+		<</if>>
+		意犹未尽。“现在，”<<he>>笑了，“<<print either("该让你尖叫了","是让你尖叫的时候了","轮到你了","你该高潮了","我会让你高潮的","我会让你出来的")>>。”
+		<br>
+		罗宾消失在被子之下。片刻之后，你感觉到<<his>>的舌头正在舔你的<<genitals>>。
+		<br>
+		<<arousal 4000 "genitals">>
+		<<if $arousal gte $arousalmax>>
+			<<orgasm>>
+		<<else>>
+			<br>
+			就这样过了一会儿后，罗宾爬了出来。"我不会放弃的，"<<he>>喘着粗气。<<He>>边咬着你的耳朵，边继续说道，"绝对不会。"
+			<br>
+			罗宾又消失在被子里，继续努力舔舐了起来。
+			<<if $player.penisExist>>
+				<<set $NPCList[0].mouth to "penis">>
+				<<takeNPCVirginity "Robin" "oral">>
+			<</if>>
+			<<set $arousal to 10000>>
+			<<if $arousal gte $arousalmax>>
+				<<orgasm>>
+			<</if>>
+		<</if>>
+	<</if>>
+	<<He>>再次吻了你。“我爱你。”
+	<br>
+	<<His>>闭上了眼睛，平稳地进入了梦乡。
+<<else>>
+	<<His>>闭上了眼睛，平稳地进入了梦乡。
+<</if>>
+<br><br>
+<<clotheson>>
