@@ -1,7 +1,7 @@
 			<</if>>
             <<if $loft_telescope isnot 1 and $telescopeTalked>>
 				<<if $money gte 30000 and $loft_known is 1>>
-					<<gifticon "christmas">><<link [[购买天文望远镜 (0:40 £300)|Shop Telescope]]>><<pass 40>><<set $money -= 30000>><<set $loft_telescope to 1>><</link>>
+					<<birdicon "telescope">><<link [[购买天文望远镜 (0:40 £300)|Shop Telescope]]>><<pass 40>><<set $money -= 30000>><<set $loft_telescope to 1>><</link>>
 					<br>
 				<<else>>
 					<span class="blue">如果你有足够的钱和秘密空间，</span> 就可以在这里购买一台天文望远镜。

@@ -88,7 +88,12 @@
 
 <<widget "homeeventRobin3">>
 	<<generateyv1>><<generateyv2>>
-	<span class="teal">一对<<fullGroup>>从你身边经过，他们正兴奋地讨论着透过阁楼望远镜看到的景象，讨论着宇宙中那些超脱于你们的生活之外的世界。</span><<gghope>><<hope 3>>
+	<<switch random(1,2)>>
+		<<case 1>>
+			<span class="teal">一对<<fullGroup>>从你身边经过，他们正兴奋地讨论着透过阁楼望远镜看到的景象，讨论着宇宙中那些超脱于你们的生活之外的世界。</span><<gghope>><<hope 3>>
+		<<case 2>>
+			<span class="teal">一对<<fullGroup>>从你身边经过，他们正偷偷地谈论着如何使用阁楼里的望远镜来为今晚的盗窃活动做准备。</span><<greb>><<reb 1>>
+	<</switch>>
 	<br><br>
 	<<link [[继续|Orphanage]]>><<endevent>><</link>>
 	<br>
