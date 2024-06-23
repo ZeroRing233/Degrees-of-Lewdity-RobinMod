@@ -4,23 +4,20 @@
         "desc": "这一刻终于来了，从此你们是互相守护的战友。",
         "difficulty": 2,
         "series": "",
-        "filter": ["All", "General"],
-        "softLockable": true
+        "filter": ["All", "Social"]
     },
     "Protected By Robin": {
         "title": "被罗宾守护",
         "desc": "别担心，我会永远在你身边。",
         "difficulty": 3,
         "series": "",
-        "filter": ["All", "General"],
-        "softLockable": true
+        "filter": ["All", "Social"]
     },
     "Combined Operations": {
         "title": "联合作战",
         "desc": "与罗宾一起对抗贝利。",
         "difficulty": 1,
         "series": "",
-        "filter": ["All", "General"],
-        "softLockable": true
+        "filter": ["All", "Social"]
     }
 }
