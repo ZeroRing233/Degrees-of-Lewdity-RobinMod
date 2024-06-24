@@ -420,6 +420,21 @@
                     "replaceFile": "game/robin-fight/defeatnpc.txt"
                 },
                 {
+                    "passage": "Widgets NPC Damage",
+                    "findString": "<<if $NPCList[_args[0]].health lte 0>>",
+                    "replace": "<<if $NPCList[_args[0]].health lte 0 and $passage isnot \"Robin Fight Together\">>"
+                },
+                {
+                    "passage": "Widgets NPC Damage",
+                    "findString": "<<if $enemyno gte 2>>",
+                    "replace": "<<if $enemyno gte 2 and $passage isnot \"Robin Fight Together\">>"
+                },
+                {
+                    "passage": "Widgets Effects Hands",
+                    "findString": "<<if $enemyno gte 2>>",
+                    "replace": "<<if $enemyno gte 2 and $passage isnot \"Robin Fight Together\">>"
+                },
+                {
                     "passage": "Bed Robin Sex Finish",
                     "findRegex": "<<His>>.*\\n\\s*<br><br>",
                     "replaceFile": "game/origin-replace/bedFinish.txt"

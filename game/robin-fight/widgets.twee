@@ -51,7 +51,7 @@
     <br><br>
     <span class="blue">本次战斗贝利血量翻倍。</span>
     <br><br>
-    <<link [[继续|Robin Fight Together Finish]]>><<set $fightstart to 1>><</link>>
+    <<link [[继续|Robin Fight Together]]>><<set $fightstart to 1>><<set $robinRentEvent to 1>><</link>>
 <</widget>>
 
 
@@ -99,7 +99,6 @@
     <</if>>
   <</if>>
 <</widget>>
-
 
 /% 智能作战策略，每次都打血量最少的袭击者 %/
 <<widget "robinPickTarget">>
@@ -228,6 +227,50 @@
   <<robinViolence 40>>
 <</widget>>
 
+<<widget "man-combat-robin-grappled">>
+  <<set _n to _args[0]>>
+  <<personselect _n>>
+  /% 有点奇怪，但姑且复制了 %/
+  <<switch _n>>
+		<<case 0>>
+			<<manspeech _n>>
+			<<if $NPCList[0].intro isnot -1>>
+				<<set $NPCList[0].intro to 1>>
+			<</if>>
+		<<case 1 2 3 4 5>>
+			<<manspeech _n>><<if $NPCList[_n].intro isnot -1>><<set $NPCList[_n].intro to 1>><</if>>
+	<</switch>>
+  <<He>>抓住了罗宾的手臂。
+  <<if _n % 2 == 1>>
+    <<rng>>
+	  <<if $rng gte 81>>
+		  <<He>>打向罗宾的鼻子。
+    <<elseif $rng gte 61>>
+		  <<He>>从后面打罗宾的颈部。
+    <<elseif $rng gte 41>>
+		  <<He>>击打罗宾的面部。
+   <<elseif $rng gte 21>>
+		  <<He>>打向罗宾的下巴。
+	  <<else>>
+		  <<He>>用手插击罗宾的咽喉。
+    <</if>>
+  <<else>>
+    <<rng>>
+    <<if $rng gte 81>>
+		  <<He>>划向罗宾的脸。
+    <<elseif $rng gte 61>>
+		  <<He>>抓向罗宾的后颈部。
+    <<elseif $rng gte 41>>
+		  <<He>>用指甲抓挠着罗宾的脸。
+	  <<elseif $rng gte 21>>
+		  <<He>>挠向罗宾的下巴。
+    <<else>>
+		  <<He>>用指甲抓挠着罗宾的脖颈。
+	  <</if>>
+  <</if>>
+  <<robinViolence 26>>
+<</widget>>
+
 /% 默认罗宾科学 A*, 效果为疼痛值 * 0.6，基础血量200，是pc疼痛上限的两倍%/
 <<widget "robinViolence">>
   <<set _violence = _args[0] * 3 / 5 * 2>>
@@ -237,3 +280,12 @@
   /% <<print "罗宾当前的血量" + $NPCList[5].health>> %/
 <</widget>>
 
+/% 敌方锁血 %/
+<<widget "lockEnemyhealth">>
+  <<set $enemyhealth to $enemyhealthmax>>
+  <<for _i to 0; _i lt $enemynomax; _i++>>
+    <<set $NPCList[_i].stance to undefined>>
+    <<set $NPCList[_i].active to "active">>
+    <<set $NPCList[_i].health to $NPCList[_i].healthmax>>
+  <</for>>
+<</widget>>

@@ -1,7 +1,9 @@
 					<<if _robinTargetList is undefined or !_robinTargetList.includes(_mancombatcontrol)>>
                         <<man-combat _mancombatcontrol>>
                     <<else>>
-                        <<if _mancombatcontrol is 0 and $timer % 2 is 0 and !($pain gte 100 and $willpowerpain is 0)>>
+                        <<if $passage is "Robin Fight Together">>
+                            <<man-combat-robin-grappled _mancombatcontrol>>
+                        <<elseif _mancombatcontrol is 0 and $timer % 2 is 0 and !($pain gte 100 and $willpowerpain is 0)>>
                             <<man-combat _mancombatcontrol>>
                         <<else>>
                             <<man-combat-robin _mancombatcontrol>>
