@@ -13,4 +13,11 @@
 					textColour: "green"
                 },
 				{
+					name: "贝利的反抗者",
+					colour: "def",
+					has: $robinFightTogether,
+					text: "终于，你们第一次在真正意义上战胜了暴君，大幅增加每天的创伤和压力恢复",
+					textColour: "green"
+				},
+				{
 					name: "罗宾的守护者",				

@@ -260,7 +260,8 @@
 <<link [[继续|Robin Fight Together Finish 2]]>><</link>>
 
 :: Robin Fight Together Finish 2
-<<effects>><<earnFeat "United As One">>
+<<effects>><<earnFeat "United As One">><<set $robinFightTogether to true>>
+<<robinPayAll>><<set $renttime_fight to 999>><<unset $rentday_fight>>
 即使是贝利，面对眼前的景象也短暂地愣神了一会。但<<person1>><<He>>很快就恢复了之前冷酷的模样，用警告的语气对你们说："你们几个，知不知道这样做会有什么后果——"
 <br><br>
 贝利说着，却又顿住了，因为旁观的孤儿们被你们的举动所感染，纷纷站在了你们身后，摆出了战斗的架势。
@@ -278,6 +279,6 @@
 在短暂的沉默后，人群中爆发出了一阵欢呼，终于，你们第一次在真正意义上战胜了暴君。
 <<gggreb>><<ggghope>><<reb 5>><<hope 5>>
 <br><br>
-<span class="gold">贝利暂时不会来收取房租了，你的特质栏发生了变化。</span>
+<span class="gold">贝利暂时不会来收取你和罗宾的房租了，你的特质栏发生了变化。</span>
 <br><br>
 <<link [[继续|Bedroom]]>><<endevent>><</link>>

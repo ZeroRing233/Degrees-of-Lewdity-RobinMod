@@ -1,5 +1,5 @@
 function dailyRobinTraitEffects() {
-    if (V.robinPayBothTalked) {
+    if (V.robinPayBothTalked || V.robinFightTogether) {
         // 减压力上限的五分之一
         statChange.stress(-2000, 1);
         // 创伤的计算：V.trauma += Math.trunc((amount * 3) + ((amount * 1.5) * (V.control / V.controlmax)));
@@ -19,12 +19,19 @@ function dailyRobinTraitEffects() {
         // 取消创伤线进线
         V.robinfirstrentfight = 0;
     }
-    // 目前反抗线打输后，renttime_fight会是999
+    // 目前反抗线打输或结束后，renttime_fight会是999
     if (V.robinFightTalked && V.renttime_fight != 999) {
         V.renttime_fight -= 1;
         V.renttime = 999;
     }
+    // 每天自动回满孤儿院希望/叛逆
+    if (V.robinFightTogether) {
+        V.orphan_reb = 50;
+        V.orphan_hope = 50;
+        V.renttime_fight = 999;
+    }
 }
+window.dailyRobinTraitEffects = dailyRobinTraitEffects;
 
 function needLowerDom() {
     if (V.robinPayBothTalked) {
