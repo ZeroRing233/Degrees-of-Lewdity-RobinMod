@@ -222,20 +222,62 @@
 <</if>>
 
 :: Robin Fight Together Finish
-<<unset $robinRentEvent>><<endevent>>
-<<loadNPC 0 orphan_rent>><<loadNPC 1 orphan_rent_robin_1>>
- 你和罗宾倒在地上，因为受伤而动弹不得，旁观的孤儿们担忧地看着你们，但一时没有人敢上前。
- <br><br>
- 正当你们陷入了绝望之时，一位<<person1>><<person>>从人群中冲了出来，<<he>>用防狼喷雾对准了贝利，
- 同时<<person2>><<person>>用喷雾对准了打手们，打手们在出其不意的攻击下落荒而逃。
- <br><br>
- <<person1>><<person>>扶起了你，你注意到<<he>>是你曾经帮助过的那名孤儿，而围在(在）罗宾身边的则是<<person5>><<he>>曾经
- 帮助过的孤儿们，你还记得他们的名字——XX,XX和XXX。
- <br><br>
- 贝利在短暂的愣神后又恢复了冷酷的模样，但你们并不畏惧，因为旁观的孤儿们被你们的举动所感染，纷纷站在了你身后。
- <br><br>
- 贝利叹了口气，妥协了："那如你们所愿，但别以为一切会顺利。"
- <br><br>
- <span class="gold">贝利暂时不会来收取房租了，你的特质栏发生了变化（贝利的反抗者）。</span>
+<<effects>><<unset $robinRentEvent>><<endcombat>>
+<<npc Bailey>><<npc Robin 2>>
+<<loadNPC 2 orphan_rent>>
+<<set _orphanRentRobin to findOrphanRentRobin()>>
+<<if _orphanRentRobin.length > 3>>
+    <<set _orphanRentRobin to _orphanRentRobin.slice(0,3)>>
+<</if>>
+<<for _i to 0; _i lt _orphanRentRobin.length; _i++>>
+    <<set _n to _i + 3>>
+    <<set _NpcName to "orphan_rent_robin_" + (_i + 1)>>
+    <<loadNPC _n _NpcName>>
+<</for>>
+<<switch _orphanRentRobin.length>>
+    <<case 1>>
+        <<set _person_output_text to "一位<<person4>><<person>>">>
+        <<set _name_output_text to "$NPCList[3].name">>
+    <<case 2>>
+        <<set _person_output_text to "一对<<person4>><<person>>和<<person5>><<person>>">>
+        <<set _name_output_text to "$NPCList[3].name和$NPCList[4].name">>
+    <<case 3>>
+        <<set _person_output_text to "一对<<person4>><<person>>和<<person5>><<person>>，以及一位<<person6>><<person>>">>
+        <<set _name_output_text to "$NPCList[3].name，$NPCList[4].name和$NPCList[5].name">>
+<</switch>>
+你和罗宾倒在地上，因为受伤而动弹不得，旁观的孤儿们担忧地看着你们，但一时没有人敢上前。
+<br><br>
+正当你们陷入了绝望之时，一位<<person3>><<person>>突然从人群中冲了出来，<<he>>用防狼喷雾对准了贝利，贝利因这出其不意的攻击后退了几步。
+<br><br>
+与此同时，<<print _person_output_text>>用喷雾对准了打手们，打手们在猛烈的喷雾攻势下落荒而逃。
+<br><br>
+<<person3>><<person>>扶起了你，你注意到<<he>>正是你曾经从贝利手下救出的那名孤儿，<<He>>微笑着对你说："还记得吗？你曾经救过我，现在轮到我来回报你了。"
+<<trauma -6>><<stress -12>><<ltrauma>><<lstress>>
+<br><br>
+<<person>>接着说："我叫<span class="green"><<print $NPCList[2].name>></span>，而那边的则是——"
+你顺着<<He>>所指的方向看去，<<print _orphanRentRobin.length gt 1 ? "几个" : "一个">>熟悉的身影正蹲在罗宾的身边，那是罗宾曾经帮助过的孤儿——<span class="green"><<print _name_output_text>></span>。
+<br><br>
+<<link [[继续|Robin Fight Together Finish 2]]>><</link>>
 
-<<link [[继续|Bedroom]]>><</link>>
+:: Robin Fight Together Finish 2
+<<effects>><<earnFeat "United As One">>
+即使是贝利，面对眼前的景象也短暂地愣神了一会。但<<person1>><<He>>很快就恢复了之前冷酷的模样，用警告的语气对你们说："你们几个，知不知道这样做会有什么后果——"
+<br><br>
+贝利说着，却又顿住了，因为旁观的孤儿们被你们的举动所感染，纷纷站在了你们身后，摆出了战斗的架势。
+<br><br>
+你一拐一瘸地走到罗宾身边，紧紧握住<<person2>><<he>>仍在颤抖的双手，然后抬起头，用坚定的目光直视着贝利。
+<<llrtrauma true>><<set C.npc.Robin.trauma -= 5>>
+<<ggdom>><<set C.npc.Robin.dom += 5>>
+<br><br>
+<span class="green"><<print $NPCList[2].name>></span>率先开口，质问贝利："现在，你还觉得我们是任人割宰的羔羊吗？"
+你们纷纷应和着<<print $NPCList[2].name>>，要求贝利停止贪婪又永无止境的收租行为。
+<br><br>
+贝利脸上的表情似乎有些松动，<<person1>><<he>>叹了口气，妥协了："那之后就如你们所愿，但别以为一切都会顺利。"
+说完，<<he>>便转身离开了。
+<br><br>
+在短暂的沉默后，人群中爆发出了一阵欢呼，终于，你们第一次在真正意义上战胜了暴君。
+<<gggreb>><<ggghope>><<reb 5>><<hope 5>>
+<br><br>
+<span class="gold">贝利暂时不会来收取房租了，你的特质栏发生了变化。</span>
+<br><br>
+<<link [[继续|Bedroom]]>><<endevent>><</link>>

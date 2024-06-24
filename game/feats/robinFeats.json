@@ -19,5 +19,12 @@
         "difficulty": 1,
         "series": "",
         "filter": ["All", "Social"]
+    },
+    "United As One": {
+        "title": "万众一心",
+        "desc": "与所有孤儿共同反抗贝利。",
+        "difficulty": 3,
+        "series": "",
+        "filter": ["All", "Social"]
     }
 }
