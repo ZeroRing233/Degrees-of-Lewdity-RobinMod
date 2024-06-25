@@ -1,0 +1,5 @@
+							<<if !$robinFightTalked and C.npc.Robin.dom lte 91>>
+                                <<foodicon "eat">><<link [[和罗宾一起吃 (0:20)|Canteen Robin Whitney]]>><<stress -6>><<trauma -2>><<pass 20>><<set $daily.school.lunchEaten to 1>><<npcincr Robin love 1>><</link>><<ltrauma>><<lstress>>
+                            <<else>>
+                                <<foodicon "eat">><<link [[和罗宾一起吃 (0:20)|Canteen Robin Whitney Fight Together Start]]>><<stress -6>><<trauma -2>><<pass 20>><<set $daily.school.lunchEaten to 1>><<npcincr Robin love 1>><</link>><<ltrauma>><<lstress>>
+                            <</if>>

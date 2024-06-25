@@ -61,6 +61,7 @@
         "game/robin-work/RobinWorkTalk.txt",
         "game/origin-replace/robinMoneyReplace.txt",
         "game/origin-replace/bedFinish.txt",
+        "game/origin-replace/canteenWhitney.txt",
         "game/robin-trait/robinTrait.txt",
         "game/robin-trait/robinRoomEntranceTalk.txt",
         "game/robin-trait/robinPayBackCount.txt",
@@ -438,6 +439,16 @@
                     "passage": "Bed Robin Sex Finish",
                     "findRegex": "<<His>>.*\\n\\s*<br><br>",
                     "replaceFile": "game/origin-replace/bedFinish.txt"
+                },
+                {
+                    "passage": "Bed Robin Sex Finish",
+                    "findRegex": "<<His>>.*\\n\\s*<br><br>",
+                    "replaceFile": "game/origin-replace/bedFinish.txt"
+                },
+                {
+                    "passage": "Canteen",
+                    "findRegex": ".*Canteen Robin Whitney.*",
+                    "replaceFile": "game/origin-replace/canteenWhitney.txt"
                 }
             ]
         },

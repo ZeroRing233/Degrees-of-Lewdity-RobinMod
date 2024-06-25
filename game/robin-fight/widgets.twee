@@ -100,6 +100,42 @@
   <</if>>
 <</widget>>
 
+/% 2V4，人数为3或4时，前两人打罗宾，人数为1或2,1人打罗宾 %/
+<<widget "pickRobinViolance_Whitney">>
+  <<set _robinTargetList to []>>
+  /% 如果pc失去行动力，则所有的敌人目标都是罗宾 %/
+  <<if $pain gte 100 and $willpowerpain is 0>>
+    <<for _i to 0; _i lt $enemynomax; _i++>>
+      <<if $NPCList[_i].stance isnot "defeated">>
+          <<set _robinTargetList.push(_i)>>
+      <</if>>
+    <</for>>
+    <span class="red">你躺在地上，动弹不得。</span>
+    <<if _robinTargetList.length gte 2>>
+      敌人们包围住了罗宾。
+    <<else>>
+      <<print $NPCList[_robinTargetList[0]].fullDescription>>正在对付罗宾。
+    <</if>>
+  <<elseif $NPCList[5].health lte 0>>
+      <span class="red">罗宾躺在地上，动弹不得。</span>
+  <<else>>
+    <<for _i to 0; _i lt $enemynomax; _i++>>
+      <<if $NPCList[_i].stance isnot "defeated">>
+          <<set _robinTargetList.push(_i)>>
+      <</if>>
+    <</for>>
+    <<if _robinTargetList.length gte 3>>
+      <<set _robinTargetList to _robinTargetList.slice(0,2)>>
+      <<print $NPCList[_robinTargetList[0]].fullDescription>>和<<print $NPCList[_robinTargetList[1]].fullDescription>>包围住了罗宾。
+    <<elseif _robinTargetList.length gte 1>>
+      <<set _robinTargetList to _robinTargetList.slice(0,1)>> 
+      <<print $NPCList[_robinTargetList[0]].fullDescription>>正在对付罗宾。
+    <<else>>
+      <span class="blue">似乎有外星人正在对付罗宾，请向模组作者反馈该问题。</span>
+    <</if>>
+  <</if>>
+<</widget>>
+
 /% 智能作战策略，每次都打血量最少的袭击者 %/
 <<widget "robinPickTarget">>
   <<set _minHealth to $NPCList[_robinTargetList[0]].health>>
@@ -182,6 +218,41 @@
           <<set _text_output += '为什么一定要做这些恶事呢？"'>>
       <<case 6>>
           <<set _text_output += '你们会为自己的贪婪付出代价。"'>>
+    <</switch>>
+    <<print _text_output>>
+    <<set $robinSpeechCycle to ($robinSpeechCycle + 1) % 7>> 
+<</widget>>
+
+/% 就共用SpeechCycle吧，反正都是随机的 %/
+<<widget "robinSpeech_Whitney">>
+	  <<switch random(1,3)>>
+      <<case 1>>
+        <<set _text_output to '<<nnpc_He Robin>>坚定地说道："'>>
+			<<case 2>>
+				<<set _text_output to '<<nnpc_He Robin>>怒吼着："'>>
+      <<case 3>>
+        <<set _text_output to '<<nnpc_He Robin>>愤怒地说： "'>>
+		<</switch>>
+    <<set $robinSpeechCycle to $robinSpeechCycle or 0>>
+    <<switch $robinSpeechCycle>>
+      <<case 0>>
+        <<set _text_output += '我不会再让你们为所欲为了。"'>>
+      <<case 1>>
+        <<if $robinromance is 1>>
+          <<set _text_output += '我不会让你们伤害我的恋人的。"'>>
+        <<else>>
+          <<set _text_output += '我不会让你们伤害我的朋友的。"'>>
+        <</if>>
+      <<case 2>>
+          <<set _text_output += '你们不过是在掩饰自己的懦弱。"'>>
+      <<case 3>>
+          <<set _text_output += '我们绝不会一味屈从。"'>>
+      <<case 4>>
+          <<set _text_output += '我们一定会胜利的。"'>>
+      <<case 5>>
+          <<set _text_output += '是你在逼我们使用暴力。"'>>
+      <<case 6>>
+          <<set _text_output += '为什么一定要做这些恶事呢？"'>>
     <</switch>>
     <<print _text_output>>
     <<set $robinSpeechCycle to ($robinSpeechCycle + 1) % 7>> 

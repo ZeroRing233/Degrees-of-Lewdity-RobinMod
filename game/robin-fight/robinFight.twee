@@ -284,3 +284,58 @@
 <span class="gold">贝利暂时不会来收取你和罗宾的房租了，你的特质栏发生了变化。</span>
 <br><br>
 <<link [[继续|Bedroom]]>><<endevent>><</link>>
+
+
+:: Canteen Robin Whitney Fight Together Start
+<<set $outside to 0>><<set $location to "school">><<schooleffects>><<effects>>
+<<npc Whitney>><<generatey2>><<generatey3>><<generatey4>><<npc Robin 6>>
+<<set _robinHealth to 200 * (1 + C.npc.Robin.dom / 100)>>
+<<set $NPCList[5].health to _robinHealth>>
+<<set $NPCList[5].healthmax to _robinHealth>>
+<<set $NPCList[0].fullDescription to "惠特尼">>
+你坐在罗宾对面，边吃边聊天。
+你快吃完饭的时候，惠特尼和<<person1>><<his>>的朋友们走了过来。
+"哟，失败者，借你的<<girlfriend>>帮我做点口部服务。"<<him>>对罗宾露出挑衅的笑容，同时把一只手搭在你的肩膀上。
+<br><br>
+罗宾见状，迅速地站了起来，一拳揍向了惠特尼，并对<<him>>吼道："你再说一遍试试看。"
+惠特尼被罗宾突然的反抗震惊了，过了半晌才反应过来，<<He>>也挥拳对罗宾进行了回击。
+<br><br>
+你也站了起来，试图支援罗宾，但惠特尼的朋友们也加入了战斗，<<person3>><<person>>和<<person4>><<person>>包围住了你，
+而<<person2>><<person>>则和惠特尼一起包围住了罗宾。
+<br><br>
+<<link [[继续|Canteen Robin Whitney Fight Together]]>><<set $fightstart to 1>><</link>>
+
+:: Canteen Robin Whitney Fight Together
+<<if $fightstart is 1>>
+	<<set $fightstart to 0>>
+    <<set $enemyno to 4>>
+	<<neutral 1>>
+	<<maninit>>
+    <<set $enemytrust -= 100>>
+	<<set $enemyanger += 200>>
+	<<npcidlegenitals>>
+<</if>>
+
+<<set $enemyarousal to 0>>
+<<pickRobinViolance_Whitney>>
+<<if _robinTargetList.length isnot 0>>
+    <<robinPickTarget>>
+    <<set _robinTargetName to _robinTarget is 0? "惠特尼" : $NPCList[_robinTarget].fullDescription>>
+    <<robinAction>>
+    <<robinSpeech_Whitney>>
+    <<robinDefiance 15 _robinTarget>>
+<</if>>
+<<effects>><<set $timer to 1>>/% 防止timer不为1时导致的混乱 %/
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend or ($pain gte 100 and $willpowerpain is 0 and $NPCList[5].health lte 0)
+	<span id="next"><<link [[继续|Canteen Robin Whitney Fight Together Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[继续|Canteen Robin Whitney Fight Together]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Canteen Robin Whitney Fight Together Finish
