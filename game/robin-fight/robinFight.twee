@@ -224,7 +224,7 @@
 :: Robin Fight Together Finish
 <<effects>><<unset $robinRentEvent>><<endcombat>>
 <<npc Bailey>><<npc Robin 2>>
-<<loadNPC 2 orphan_rent>>
+<<loadNPC 2 orphan_rent>><<set $NPCList[2].fightTogether to true>><<saveNPC 2 orphan_rent>>
 <<set _orphanRentRobin to findOrphanRentRobin()>>
 <<if _orphanRentRobin.length > 3>>
     <<set _orphanRentRobin to _orphanRentRobin.slice(0,3)>>
@@ -233,6 +233,8 @@
     <<set _n to _i + 3>>
     <<set _NpcName to "orphan_rent_robin_" + (_i + 1)>>
     <<loadNPC _n _NpcName>>
+    <<set $NPCList[_n].fightTogether to true>>
+    <<saveNPC _n _NpcName>>
 <</for>>
 <<switch _orphanRentRobin.length>>
     <<case 1>>

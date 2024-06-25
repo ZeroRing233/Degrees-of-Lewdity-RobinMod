@@ -25,6 +25,9 @@
     <<if $robinFightTalked and $renttime_fight isnot 999>>
         <<set $rentShouldPay to 0>>
     <</if>>
+    <<if $robinFightTogether>>
+        <<set $rentShouldPay to 0>>
+    <</if>>
     <<set $weeklyMoneyFixedChange to 0>>
     <<set $weeklyMoneyRandomChange to 0>>
     /% 柠檬水摊相关检查 %/
