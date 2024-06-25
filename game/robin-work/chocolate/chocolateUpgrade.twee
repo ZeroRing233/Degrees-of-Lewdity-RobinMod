@@ -38,11 +38,38 @@
 
 :: Robin Chocolate Upgrade
 <<npc Robin>><<person1>><<location "park">>
-贝利的债务问题涌上了你的心头，<span class="gold">一些灵感忽然在你的脑海里浮现。</span>
+<<if $speech_attitude is "meek">>
+	"你有没有想过升级一下你的饮料摊？也许我们可以去商场买一些新东西......"
+<<elseif $speech_attitude is "bratty">>
+	"你该去商场买些新东西了。我认为你的摊位需要升级。"
+<<else>>
+	"我有个建议，升级一下你的摊位怎么样？我们可以去商场买很多新东西。"
+<</if>>
+你建议道。
 <br><br>
-你向罗宾提出了要升级<<his>>的热巧克力摊，而罗宾也早有此想法，于是你们决定立刻行动。
+<<if C.npc.Robin.dom lt 40>>
+	罗宾睁大眼睛看着你，然后<<he>>露出微笑。“哦，我从没想过这一点。但那是个好主意！
+	<<if $robinmoney lt 600>>
+		嗯...但我不想花太多钱。我得为食材留下足够多的资金。“罗宾有些尴尬地低着头。
+	<<else>>
+		那我们一会儿就去商场，好吗？”罗宾看着你，脸上充满期待。
+	<</if>>
+<<else>>
+	罗宾看上去若有所思，然后点了点头。“我喜欢这个提议。你想要帮我吗？”<<He>>微笑着问。“但我不想麻烦你。
+	<<if $robinmoney lt 600>>
+		我不能花太多的钱，否则我就没法为食材付钱了。“你能看出罗宾表情里的犹豫。
+	<<else>>
+		我相信我能办得到。”罗宾对你眨了眨眼。
+	<</if>>
+<</if>>
 <br><br>
 <<if $robinmoney gte 600>>
+	<<if C.npc.Robin.dom lt 40>>
+		"也许这能吸引到更多的顾客来买热巧克力。"
+	<<else>>
+		"也许我们能吸引到更多的顾客来买热巧克力。"
+	<</if>>
+	<br><br>
 	<<link [[开始升级热巧克力摊(3:00)|Robin Chocolate Upgrade Start]]>>
     <<set $phase to 1>>
 	<<npcincr Robin dom 10>> 
@@ -157,7 +184,7 @@
     <</if>>
     你尝试了将<<print $plants[$fruitType].plural>>削皮后放入榨汁机中，不一会儿，一杯<<print $plants[$fruitType].plural>>汁就新鲜出炉了。
     <br><br>
-    你和罗宾分享了新榨出来的<<print $plants[$fruitType].plural>>汁，罗宾惊喜地说:" 新饮料的味道真好，我考虑把它加入饮料单中，
+	你将新榨出来的<<print $plants[$fruitType].plural>>汁加热后与罗宾分享，罗宾惊喜地说:" 新饮料的味道真好，我考虑把它加入饮料单中，
     <span class="gold">下周</span>你说不定就能在饮料单上看到它了。" <<glove>> <<npcincr Robin love 1>>
     <<set $triedFruitList.pushUnique($fruitType)>>
     <<set $plants[$fruitType].amount -= 1>>

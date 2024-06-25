@@ -50,3 +50,5 @@
     <</if>>
     <<set $robinromance to 1>>
 <</link>>
+（13）重置热巧克力摊升级，不重置现有商品和饮料：[[重置热巧克力摊升级|$passage][$chocolateUpgraded=0]]
+（14）修改日期为冬天：<<link [[寒冬将至|$passage]]>><<set Time.setDate(new DateTime(Time.year, 12, 4, 8,30))>><</link>>
