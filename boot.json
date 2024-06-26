@@ -62,6 +62,8 @@
         "game/origin-replace/robinMoneyReplace.txt",
         "game/origin-replace/bedFinish.txt",
         "game/origin-replace/canteenWhitney.txt",
+        "game/origin-replace/schoolWhitney.txt",
+        "game/origin-replace/schoolWhitney2.txt",
         "game/robin-trait/robinTrait.txt",
         "game/robin-trait/robinRoomEntranceTalk.txt",
         "game/robin-trait/robinPayBackCount.txt",
@@ -441,14 +443,19 @@
                     "replaceFile": "game/origin-replace/bedFinish.txt"
                 },
                 {
-                    "passage": "Bed Robin Sex Finish",
-                    "findRegex": "<<His>>.*\\n\\s*<br><br>",
-                    "replaceFile": "game/origin-replace/bedFinish.txt"
-                },
-                {
                     "passage": "Canteen",
                     "findRegex": ".*Canteen Robin Whitney.*",
                     "replaceFile": "game/origin-replace/canteenWhitney.txt"
+                },
+                {
+                    "passage": "Widgets School Events",
+                    "findRegex": "\\s*<<if C.npc.Robin.trauma lte 30>>",
+                    "replaceFile": "game/origin-replace/schoolWhitney.txt"
+                },
+                {
+                    "passage": "Widgets School Events",
+                    "findRegex": ".*Bully Pantsing Robin.*\n.*\n.*",
+                    "replaceFile": "game/origin-replace/schoolWhitney2.txt"
                 }
             ]
         },

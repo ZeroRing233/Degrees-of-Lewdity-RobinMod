@@ -1,0 +1,7 @@
+		<<if  _robinDef>>
+			<<link [[继续|Hallways]]>><<endevent>><<set $eventskip to 1>><</link>>
+		<<else>>
+			<<link [[安慰 (0:05)|Bully Pantsing Robin]]>><<npcincr "Robin" trauma -2>><<pass 5>><</link>><<llrtrauma>>
+			<br>
+			<<link [[无视|Hallways]]>><<endevent>><<set $eventskip to 1>><<stress 6>><</link>><<gstress>>
+		<</if>>
