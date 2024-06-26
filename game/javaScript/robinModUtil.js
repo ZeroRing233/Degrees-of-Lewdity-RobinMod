@@ -92,3 +92,33 @@ function findOrphanRentRobin() {
     return result;
 }
 window.findOrphanRentRobin = findOrphanRentRobin;
+
+// 罗宾还钱数量(承担债务时的金钱除外，是单独剧情)
+function getPayBackAmount() {
+    if (!V.robinPaySelfTalked) {
+        return 0;
+    }
+    let payBackText = "还帮助我";
+    let total = 0;
+    if (V.lemonadeShouldPayBack) {
+        payBackText += "升级了柠檬水摊，"
+        total += 600;
+    }
+    if (V.liveStreamShouldPayBack) {
+        payBackText += "购买了直播设备，"
+        total += 2000;
+    }
+    if (V.chocolateUpgradeShouldPayBack) {
+        payBackText += "升级了巧克力摊，"
+        total += 600;
+    }
+    if (V.chocolateReformShouldPayBack) {
+        payBackText += "改造了巧克力摊，"
+        total += 300;
+    }
+    payBackText = payBackText.replace(/\，$/, '。');
+    T.payBackText = payBackText;
+    T.PayBackAmount = total;
+    return total;
+}
+window.getPayBackAmount = getPayBackAmount;

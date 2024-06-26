@@ -41,7 +41,8 @@
 
 :: Live Stream Pay
 <<set $outside to 0>><<set $location to "home">><<effects>>
-你安慰<<him>>说:"我可以替你出设备的钱。" 罗宾犹豫了一下，点了点头。
+你安慰<<him>>说:"我可以替你出设备的钱。" 罗宾犹豫了一下，点了点头，并微笑着向你保证："我以后一定会把设备的钱还给你的。"
+<<set $liveStreamShouldPayBack to true>>
 <br><br>
 <<link [[与罗宾一起准备直播设备(3:00)|Live Stream Prepare Together]]>><<set $phase to 2>><</link>>
 

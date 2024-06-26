@@ -34,8 +34,6 @@
 <</if>>
 <<link [[之后再说|Robin Chocolate]]>><<endevent>><</link>>
 
-
-
 :: Robin Chocolate Upgrade
 <<npc Robin>><<person1>><<location "park">>
 <<if $speech_attitude is "meek">>
@@ -104,10 +102,12 @@
 <<else>>
     你坚持要替罗宾支付各种材料费用，
     <<if C.npc.Robin.dom gte 40>>
-	    罗宾一开始并不愿意，但最终没有拒绝。
+		罗宾皱起了眉头，
     <<else>>
-	    罗宾没有拒绝。
+	    <<he>>垂下眼睛，
     <</if>>
+	过了一会儿，<<he>>在踌躇中露出微笑，"我以后一定会把它们都还给你的，我保证。"
+	<<set $chocolateUpgradeShouldPayBack to true>>
 <</if>>
 <br><br>
 你和罗宾一起去购物中心购置升级热巧克力摊所需的材料，买了比之前更大的小推车、更好的榨汁机、加热设备以及崭新的招牌。
@@ -130,10 +130,12 @@
 <<else>>
     你坚持要替罗宾支付各种材料费用，
     <<if C.npc.Robin.dom gte 40>>
-	    罗宾一开始并不愿意，但最终没有拒绝。
+		罗宾皱起了眉头，
     <<else>>
-	    罗宾没有拒绝。
+	    <<he>>垂下眼睛，
     <</if>>
+	过了一会儿，<<he>>在踌躇中露出微笑，"我以后一定会把它们都还给你的，我保证。"
+	<<set $chocolateReformShouldPayBack to true>>
 <</if>>
 <br><br>
 你和罗宾一起去购物中心购置改造热巧克力摊所需的材料，买了更好的加热设备以及崭新的招牌。
@@ -151,8 +153,7 @@
 
 :: Robin Chocolate Upgrade Leave
 <<npc Robin>><<person1>>
-临别时，罗宾拥抱了你一下，微笑着说：" 感谢你今天为我所做的一切，再见 "。
-<br><br>
+当你离开时，罗宾给了你一个拥抱。<<He>>微笑着向你挥手："谢谢你今天为我做的一切，再见。”
 你的内心升起了一股暖意。<<ltrauma>><<lstress>>
 <<stress -12>><<trauma -6>>
 <br><br>
@@ -163,7 +164,7 @@
 <<set $outside to 1>><<set $location to "park">><<effects>>
 <<npc Robin>><<person1>>
 <<set _robin to statusCheck("Robin")>>
-你与罗宾一同将新设备搬回公园，一路上，你们的脸上都带着笑意。<<ltrauma>><<lstress>><<lrtrauma>>
+你与罗宾一同将新设备搬回公园，一路上，你们的脸上都带着笑意，罗宾兴奋地谈论着巧克力摊的前景。<<ltrauma>><<lstress>><<lrtrauma>>
 <<stress -12>><<trauma -6>><<npcincr Robin trauma -2>>
 <br><br>
 "谢谢你帮我。"<<he>>说。

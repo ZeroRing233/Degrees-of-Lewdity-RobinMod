@@ -112,6 +112,25 @@
         <<set $money += $robinShouldPayBack * 100>>
         <<set $robinShouldPayBack to 0>>
     
+    <<elseif getPayBackAmount() gt 0 and $robinmoney gte _PayBackAmount>>  
+        你敲了敲门，<<robinOpen>>
+        <br><br>
+        随后，<<He>>在抽屉里翻找起来。在找完之后，<<he>>将仔细清点过的<span class="gold">£<<print _PayBackAmount>></span>递给了你。
+        <br><br>
+        看着你困惑的表情，罗宾解释说："之前你一直在帮助我出谋划策，<<print _payBackText>>现在我终于有机会把这些钱还给你了。" 
+        说完，<<He>>把钱轻轻放在了你的手上。
+        <<ggdom>><<glove>><<npcincr Robin dom 5>><<npcincr Robin love 2>>
+        <br><br>
+        你点了点头，接过罗宾递来的钱，心中不由地感到温暖。<<ltrauma>><<lstress>><<stress -12>><<trauma -6>>
+        <br><br>
+        <<set $robinmoney -= _PayBackAmount>>
+        <<set $money += _PayBackAmount * 100>>
+        /% 偷懒，直接全设为false，如果有未触发会在剧情中重新被设为true。%/
+        <<set $lemonadeShouldPayBack to false>>
+        <<set $liveStreamShouldPayBack to false>>
+        <<set $chocolateReformShouldPayBack to false>>
+        <<set $chocolateUpgradeShouldPayBack to false>>
+
     <<elseif $robinconsole is 0 and $robinPaySelfTalked and $robinmoney gte 400>>
         你敲了敲门，<<robinOpen>>
         <br><br>
