@@ -293,6 +293,7 @@
 <<set $NPCList[5].health to _robinHealth>>
 <<set $NPCList[5].healthmax to _robinHealth>>
 <<set $NPCList[0].fullDescription to "惠特尼">>
+<<set $npc to ["Whitney"]>>
 你坐在罗宾对面，边吃边聊天。
 你快吃完饭的时候，惠特尼和<<person1>><<his>>的朋友们走了过来。
 "哟，失败者，借你的<<girlfriend>>帮我做点口部服务。"<<him>>对罗宾露出挑衅的笑容，同时把一只手搭在你的肩膀上。
@@ -302,6 +303,8 @@
 <br><br>
 你也站了起来，试图支援罗宾，但惠特尼的朋友们也加入了战斗，<<person3>><<person>>和<<person4>><<person>>包围住了你，
 而<<person2>><<person>>则和惠特尼一起包围住了罗宾。
+<br><br>
+<span class="blue">本场战斗只能以袭击的方式获得胜利。</span>
 <br><br>
 <<link [[继续|Canteen Robin Whitney Fight Together]]>><<set $fightstart to 1>><</link>>
 
@@ -332,10 +335,37 @@
 <br><br>
 <<actionsman>>
 
-<<if _combatend or ($pain gte 100 and $willpowerpain is 0 and $NPCList[5].health lte 0)
+<<if _combatend or ($pain gte 100 and $willpowerpain is 0 and $NPCList[5].health lte 0)>>
 	<span id="next"><<link [[继续|Canteen Robin Whitney Fight Together Finish]]>><</link>></span><<nexttext>>
 <<else>>
 	<span id="next"><<link [[继续|Canteen Robin Whitney Fight Together]]>><</link>></span><<nexttext>>
 <</if>>
 
 :: Canteen Robin Whitney Fight Together Finish
+<<effects>>
+<<if $enemyhealth lte 0>>
+    <<set _success to true>>
+    惠特尼在你和罗宾的攻势下踉跄后退，然后摔倒在地。"两个小混蛋。"<<person1>><<he>>冷笑着，试着挽回面子。
+	<<His>>的朋友们跟着<<He>>一起溜出了食堂。
+	<br><br>
+    罗宾快速走向了你，"你还好吗？"<<person6>><<his>>的声音中充满着关切。
+    你点了点头，然后抱住了罗宾，你们都为刚才的胜利感到欣喜。
+    <<ltrauma>><<lstress>><<trauma -6>><<stress -12>> 
+    <<lrtrauma true>><<set C.npc.Robin.trauma -= 2>>
+    <<gdom>><<set C.npc.Robin.dom += 2>>
+    <br><br>
+    罗宾感慨地说："惠特尼为什么总是...不过我并不后悔刚才对<<person1>><<him>>使用暴力，毕竟<<he>>想伤害我最重要的人。"
+    说着，<<person6>><<he>>在你的<<print C.npc.Robin.lust gte 60? "嘴唇":"脸颊">>上轻轻一啄，然后问道：“你想一起去上课吗？”
+<<else>>
+    <<set _success to false>>
+    你和罗宾倒在地上，伤得太重无法继续战斗。惠特尼狠狠地踢了你一脚。"下次给我记得，"<<person1>><<he>>说，"放尊重点。"
+	<<His>>的朋友们跟着<<him>>一起走出了食堂。
+    <br><br>
+    罗宾一拐一瘸地走向了你，"你还好吗？"<<person6>><<his>>的声音颤抖着。
+    你点了点头，检查了罗宾的伤势，然后投入了<<his>>的怀抱。<<He>>沉默了几分钟，直到你们分开彼此。“你想一起去上课吗？”<<he>>问。
+<</if>>
+<<endcombat>><<npc Robin>>
+<br><br>
+<<historyicon>><<link [[和罗宾一起去上历史课 (0:01)|History Classroom]]>><<set $justEntered to true>><<set $withRobin to "yes">><<pass 1>><</link>><br>
+<<schoolicon "library">><<link [[说你打算去图书馆|Canteen Stay]]>><<set $robinexit to _success? "library" : "whitney concern">><<set $phase2 to "library">><</link>><br>
+<<foodicon "eat">><<link [[待在食堂|Canteen Stay]]>><<set $robinexit to _success? "leave" : "whitney concern">><<set $phase2 to "canteen">><</link>>
