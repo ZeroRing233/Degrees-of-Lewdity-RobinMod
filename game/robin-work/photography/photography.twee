@@ -45,7 +45,7 @@
 <<else>>
     罗宾看着你身上的衣服，摇了摇头，说:"或许你需要准备一些更特别的衣服？其实，我已经为你准备了一套，你要穿上试试吗？"
     <br><br>
-    <<link [[接受(0:15)|Photography Change Clothes]]>><<pass 15>><</link>><br>
+    <<link [[接受|Photography Change Clothes]]>><</link>><br>
     <<link [[谢绝|Photography Not Change Clothes]]>><</link>>
 <</if>>
 
