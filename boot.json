@@ -56,6 +56,10 @@
         "game/robin-work/danube-tutor/danubeTutorWalkHome.txt",
         "game/robin-work/live-stream/robinWatch.txt",
         "game/robin-work/live-stream/robinOptions.txt",
+        "game/robin-work/live-stream/cinemaChange1.txt",
+        "game/robin-work/live-stream/cinemaChange2.txt",
+        "game/robin-work/live-stream/cinemaChange3.txt",
+        "game/robin-work/live-stream/cinemaChange4.txt",
         "game/robin-work/photography/photographyIntro.txt",
         "game/robin-work/locationReplace.txt",
         "game/robin-work/RobinWorkTalk.txt",
@@ -456,6 +460,26 @@
                     "passage": "Widgets School Events",
                     "findRegex": ".*Bully Pantsing Robin.*\n.*\n.*",
                     "replaceFile": "game/origin-replace/schoolWhitney2.txt"
+                },
+                {
+                    "passage": "Robin Cinema Romance",
+                    "findRegex": "<<else>>(.|\n)*?<br><br>",
+                    "replaceFile": "game/robin-work/live-stream/cinemaChange1.txt"
+                },
+                {
+                    "passage": "Robin Cinema Romance",
+                    "findRegex": "<<set \\$dateCount.Robin\\++>>(.|\n)*?<br><br>",
+                    "replaceFile": "game/robin-work/live-stream/cinemaChange2.txt"
+                },
+                {
+                    "passage": "Robin Cinema Superhero",
+                    "findRegex": "<<wearProp \"popcorn\">><</if>>(.|\n)*?<br><br>",
+                    "replaceFile": "game/robin-work/live-stream/cinemaChange3.txt"
+                },
+                {
+                    "passage": "Robin Cinema Horror",
+                    "findRegex": "<<wearProp \"popcorn\">><</if>>(.|\n)*?<<He>>",
+                    "replaceFile": "game/robin-work/live-stream/cinemaChange4.txt"
                 }
             ]
         },

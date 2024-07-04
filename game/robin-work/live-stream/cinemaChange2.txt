@@ -1,0 +1,5 @@
+<<set $dateCount.Robin++>>
+
+	你们进入了放映厅，罗宾选择了靠后的座位。"希望这是部好电影，"<<he>>期待地说。你们没有等太久。
+	<br><br>
+    <<cinemaLiveStream>>

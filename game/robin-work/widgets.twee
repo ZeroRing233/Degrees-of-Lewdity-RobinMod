@@ -218,3 +218,23 @@
         <<set $weeklyPhotography to false>>
     <</if>>
 <</widget>>
+
+/% 点击观看电影时间自动过一个半小时，目前版本最早晚上六点一起出门，有一定可能回家时不到八点，所以加上Excuse判断%/
+<<widget "cinemaLiveStream">>
+    <<if [19,20].includes(Time.hour) and $liveStream>>
+        <<if $robinromance>>
+            在电影开场前，你看到罗宾对你举起手中的爆米花桶拍照。“至少得告诉粉丝们我今晚在做什么。”<<He>>笑着解释。
+            <br><br>
+            你看到<<his>>的社交平台更新了动态。“我很抱歉取消了今晚的直播。但是谁能拒绝和<<print C.npc.Robin.dom gte 40 ? "珍爱" : "深爱">>的人一起看电影呢？”
+            <<He>>配上了刚刚拍的照片。你和爆米花看起来都很香甜。
+        <<else>>
+            在电影开场前，你看到罗宾举起手中的爆米花桶，对着尚且灰蒙蒙的荧幕拍照。“至少得告诉粉丝们我今晚在做什么。”<<He>>笑着解释。
+            <br><br>
+            你看到<<his>>的社交平台更新了动态。“我很抱歉取消了今晚的直播。但是谁能拒绝一场新上线的电影呢？”
+            <<He>>配上了刚刚拍的照片。爆米花看起来很香甜。
+        <</if>>
+        <<ltrauma>><<lstress>><<trauma -6>><<stress -12>> 
+        <<set $daily.liveStreamExcuse to true>>
+        <br><br>
+    <</if>>
+<</widget>>

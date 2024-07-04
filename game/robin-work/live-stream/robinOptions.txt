@@ -1,4 +1,4 @@
-    <<elseif Time.hour is 19 and $liveStream is 1>>
+    <<elseif Time.hour is 19 and $liveStream is 1 and !$daily.liveStreamExcuse>>
         罗宾看着墙上的钟。
         "我该去直播了，" <<He>>遗憾地说："很抱歉我不能继续和你待在一起了，这份工作对我很重要。"
         <br><br>

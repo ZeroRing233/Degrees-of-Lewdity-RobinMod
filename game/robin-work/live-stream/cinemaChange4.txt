@@ -1,0 +1,5 @@
+<<wearProp "popcorn">><</if>>
+
+你买了票，进入放映厅。罗宾犹豫着跟了上来。
+<<cinemaLiveStream>>
+<<He>>
