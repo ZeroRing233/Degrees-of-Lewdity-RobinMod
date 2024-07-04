@@ -1,6 +1,6 @@
 		<<if $robinFightTalked or C.npc.Robin.dom gte 91>>
 				<<set _robinDef to true>>
-				罗宾愣了一下，但很快有反应了过来，<<He>>迅速整理好衣服，然后直接给了惠特尼一拳。
+				罗宾愣了一下，但很快又反应了过来，<<He>>迅速整理好衣服，然后直接给了惠特尼一拳。
 				<br><br>
 				惠特尼和<<nnpc_his "Whitney">>的朋友们被罗宾的反击惊呆了，罗宾对着惠特尼说了声"抱歉"，然后扬长而去。
 				<br><br>
