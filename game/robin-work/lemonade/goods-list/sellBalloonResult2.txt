@@ -1,4 +1,4 @@
-            <<if $lemonadeNewGoodsList isnot undefined and !$lemonadeNewGoodsList.includes("balloon") and !$lemonadeNewGoodsList.includes("popcorn")>>
+            <<if $lemonadeNewGoodsList is undefined or (!$lemonadeNewGoodsList.includes("balloon") and !$lemonadeNewGoodsList.includes("popcorn"))>>
                 <<socialiseicon>><<link [[说服摊主和罗宾合作|Balloon Convince]]>><<set $phase to "persuade">><</link>><<englishdifficulty 1 1000>>
             <<else>> 
                 <span class="blue">你已提议罗宾售卖气球或爆米花了，无法再说服摊主和罗宾合作。
