@@ -122,3 +122,32 @@ function getPayBackAmount() {
     return total;
 }
 window.getPayBackAmount = getPayBackAmount;
+
+//const insulationModifier = Math.exp((-(warmth ?? getTotalWarmth()) * settings.insulationMultiplier) / settings.insulationCap);
+function modifyBodyTemparture() {
+    if (Weather.bodyTemperature < 38 && Weather.bodyTemperature > 36) {
+        return "noEffects";
+    }
+    if (Time.season === "winter" && Weather.bodyTemperature <= 36) {
+        Weather.tempSettings.baseInsulation = 1;
+        V.BodyTempartureDuration = 30;
+        return "warmer";
+    }
+    if (Time.season !== "winter" && Weather.bodyTemperature >= 38) {
+        Weather.tempSettings.baseInsulation = -1;
+        V.BodyTempartureDuration = 30;
+        return "colder";
+    }
+    return "noEffects";
+}
+window.modifyBodyTemparture = modifyBodyTemparture;
+
+function bodyTempratureMinuteChange() {
+    alert("我被执行了！")
+    if (typeof V.BodyTempartureDuration === "number" && V.BodyTempartureDuration > 0) {
+        V.BodyTempartureDuration--;
+    } else {
+        Weather.tempSettings.baseInsulation = 0;
+        V.BodyTempartureDuration = 0;
+    }
+}
