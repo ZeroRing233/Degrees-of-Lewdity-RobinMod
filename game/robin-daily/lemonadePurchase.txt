@@ -28,3 +28,4 @@
         "上次和你一起游泳时真的很开心，大海蔚蓝而又辽阔，等有空时我们再一起下海去游泳吧。"
     <</if>>
 <</switch>>
+<<modifyBodyTempartureLemonade>>

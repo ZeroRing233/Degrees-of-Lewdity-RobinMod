@@ -546,20 +546,6 @@
             }
         },
         {
-            "modName": "DoLTimeWrapperAddon",
-            "addonName": "DoLTimeWrapperAddon",
-            "modVersion": "^1.0.0",
-            "params": {
-                "hooks": [{
-                    "level": "TimeObject",
-                    "key": "minutePassed",
-                    "pos": "after",
-                    "type": "call",
-                    "js": "bodyTempratureMinuteChange();"
-                }]
-            }
-        },
-        {
             "modName": "ModdedFeatsAddon",
             "addonName": "ModdedFeatsAddon",
             "modVersion": "^1.0.0",
@@ -596,10 +582,6 @@
         {
             "modName": "BeautySelectorAddon",
             "version": "^2.0.0"
-        },
-        {
-            "modName": "DoLTimeWrapperAddon",
-            "version": "^1.0.0"
         }
     ]
 }

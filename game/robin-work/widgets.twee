@@ -238,3 +238,15 @@
         <br><br>
     <</if>>
 <</widget>>
+
+<<widget "modifyBodyTempartureLemonade">>
+    <<set _result to modifyBodyTempartureLemonade()>>
+    <<switch _result>>
+        <<case "warmer">>
+            <br><br>
+            <span class="gold">温暖的饮料你感觉没那么寒冷了。</span>
+        <<case "colder">>
+            <br><br>
+            <span class="gold">清凉的饮料使你感觉没那么炎热了。</span>
+    <</switch>>
+<</widget>>

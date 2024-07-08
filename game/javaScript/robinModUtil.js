@@ -124,30 +124,19 @@ function getPayBackAmount() {
 window.getPayBackAmount = getPayBackAmount;
 
 //const insulationModifier = Math.exp((-(warmth ?? getTotalWarmth()) * settings.insulationMultiplier) / settings.insulationCap);
-function modifyBodyTemparture() {
-    if (Weather.bodyTemperature < 38 && Weather.bodyTemperature > 36) {
+//lowerThresholdStart:36 upperThresholdStart:38
+function modifyBodyTempartureLemonade() {
+    if (V.player.bodyTemperature < 38 && V.player.bodyTemperature >= 36) {
         return "noEffects";
     }
-    if (Time.season === "winter" && Weather.bodyTemperature <= 36) {
-        Weather.tempSettings.baseInsulation = 1;
-        V.BodyTempartureDuration = 30;
+    if (Time.season === "winter" && V.player.bodyTemperature < 36) {
+        V.player.bodyTemperature += 1;
         return "warmer";
     }
-    if (Time.season !== "winter" && Weather.bodyTemperature >= 38) {
-        Weather.tempSettings.baseInsulation = -1;
-        V.BodyTempartureDuration = 30;
+    if (Time.season !== "winter" && V.player.bodyTemperature >= 38) {
+        V.player.bodyTemperature -= 1;
         return "colder";
     }
     return "noEffects";
 }
-window.modifyBodyTemparture = modifyBodyTemparture;
-
-function bodyTempratureMinuteChange() {
-    alert("我被执行了！")
-    if (typeof V.BodyTempartureDuration === "number" && V.BodyTempartureDuration > 0) {
-        V.BodyTempartureDuration--;
-    } else {
-        Weather.tempSettings.baseInsulation = 0;
-        V.BodyTempartureDuration = 0;
-    }
-}
+window.modifyBodyTempartureLemonade = modifyBodyTempartureLemonade;
