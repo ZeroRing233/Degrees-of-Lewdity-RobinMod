@@ -4,7 +4,8 @@
     "styleFileList": [],
     "scriptFileList": [
         "game/javaScript/robinModUtil.js",
-        "game/javaScript/robinTraitEffects.js"
+        "game/javaScript/robinTraitEffects.js",
+        "game/javaScript/terraiaUtil.js"
     ],
     "tweeFileList": [
         "game/robin-work/lemonade/lemonadeUpgrade.twee",
