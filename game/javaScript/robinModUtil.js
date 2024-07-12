@@ -140,3 +140,9 @@ function modifyBodyTempartureLemonade() {
     return "noEffects";
 }
 window.modifyBodyTempartureLemonade = modifyBodyTempartureLemonade;
+
+// 传说中的加载图片方法，暂未使用
+async function getImgData() {
+    const imageData = await window.modSC2DataManager.getHtmlTagSrcHook().requestImageBySrc('图片路径');
+    return imageData;
+}

@@ -1,0 +1,192 @@
+<<widget "homeeventrebhi">>
+	/% 使用rng的目的是方便测试, hook random什么的，臣妾做不到 %/
+	<<rng 9>>
+	<<switch $rng>>
+		<<case 1>>
+			<<npc Bailey>><<person1>>你看到贝利在各个房间之间来回走动，手里拿着被没收的零食。
+			<<lhope>><<hope -1>>
+			<br><br>
+
+			<<link [[继续|Orphanage]]>><<endevent>><</link>>
+			<br>
+		<<case 2>>
+			<<npc Bailey>><<person1>>几个孤儿在贝利的监督下清理着墙上的涂鸦。
+			<<lreb>><<reb -1>>
+			<br><br>
+
+			<<link [[继续|Orphanage]]>><<endevent>><</link>>
+			<br>
+		<<case 3>>
+			你发现一个信封粘在你卧室的门上，上面写有你的名字。你拆开一看，里面有着<span class="gold">£100</span>和一张便条。便条上面写着：
+
+			<<switch random(1, 10)>>
+				<<case 1>>
+					"你能做到的！"
+				<<case 2>>
+					"你就是我们的希望！"
+				<<case 3>>
+					<<if $skulduggery gte 200>>
+						"你是我的榜样。人们本来就该看好他们的东西。"
+					<<else>>
+						"不用担心我从哪儿弄到的。"
+					<</if>>
+				<<case 4>>
+					<<if $fame.prostitution gte 100>>
+						"你是我的榜样，如果有谁渴望得到我的身体，那他们就得付钱了。"
+					<<else>>
+						"别担心，我还有钱。"
+					<</if>>
+				<<case 5>>
+					"我们永远在你身边。"
+				<<case 6>>
+					"去他妈的贝利。"
+				<<case 7>>
+					"你一定要坚强。"
+				<<case 8>>
+					<<if $fame.good gte 100>>
+						"我希望有一天我能像你一样关心他人。"
+					<<else>>
+						"我乐于分享。"
+					<</if>>
+				<<case 9>>
+					"别放弃。"
+				<<case 10>>
+					"继续加油。"
+			<</switch>>
+			<br><br>
+
+			<<set $money += 10000>>
+			<<link [[继续|Orphanage]]>><</link>>
+			<br>
+		<<case 4>>
+			<<generateyv1>><<person1>>一个<<person>>撞到了你。“对不起，”<<he>>俯身看着什么东西，“这是你掉的吧。”
+
+			<<if $spray gte $spraymax or random(1, 100) gte 71>>
+				<<He>>将一个信封交给了你——里面似乎还装了什么东西。你打开查看，里面是
+				<<if $museumAntiques.antiques.antiquesilverbrooch isnot "found" and $museumAntiques.antiques.antiquesilverbrooch isnot "talk" and $museumAntiques.antiques.antiquesilverbrooch isnot "museum">>
+					一枚看起来有些年头的银饰针，或许博物馆馆长会对它感兴趣。
+					<<set $antiquemoney += 50>><<museumAntiqueStatus "antiquesilverbrooch" "found">>
+				<<else>>
+					<<switch random(1, 3)>>
+						<<case 1>>
+							一枚看起来有些年头的银饰针，或许博物馆馆长会对它感兴趣。
+							<<set $antiquemoney += 50>><<museumAntiqueStatus "antiquesilverbrooch" "found">>
+						<<case 2>>
+							一对银耳环。它们可能是赃物，但你也许能找到买家。
+							<<set $blackmoney += 30>>
+						<<case 3>>
+							一块手表。它可能是赃物，但你也许能找到买家。
+							<<set $blackmoney += 40>>
+					<</switch>>
+				<</if>>
+				<br><br>
+			<<else>>
+				<<spray 1>>
+				<<He>>递给你一个鼓鼓囊囊的信封，里面是装填防狼喷雾的填充罐。
+				<<gspray>>
+				<br><br>
+
+			<</if>>
+			<<endevent>>
+			<<link [[继续|Orphanage]]>><</link>>
+			<br>
+		<<case 5>>
+			一群孤儿正在玩飞镖，而飞镖的靶子是一张贝利的照片。
+			<br><br>
+
+				<<if currentSkillValue("handskill") lte 999>>
+					<<link [[参与其中 (0:30)|Home Darts]]>><<pass 30>><<handskill 5>><<stress -3>><</link>><<ghandskill>><<lstress>>
+				<<else>>
+					<<link [[参与其中 (0:30)|Home Darts]]>><<pass 30>><<control 10>><<stress -3>><</link>><<gcontrol>><<lstress>>
+				<</if>>
+				<br>
+
+				<<link [[无视|Orphanage]]>><</link>>
+				<br>
+		<<case 6>>
+			你正穿过孤儿院。
+			<br><br>
+
+			一个<<generatey1>><<person1>><<person>>从你身边呼啸而过，狂笑着把海报扔得到处都是。你捡了一张。海报上是一些反贝利宣言，包括对<<nnpc_him "Bailey">>的诅咒，以及关于<<nnpc_his "Bailey">>罪行的肮脏细节。<<reb 1>><<greb>>
+			<br><br>
+
+			海报从你手中被夺走，你被扔到墙上。<<gpain>><<violence 6>>
+			<br><br>
+
+			你抬头，发现是贝利。<<nnpc_He "Bailey">>没有搭理你，而是向<<personsimple>>追赶过去。
+			<br><br>
+
+			<<link [[继续|Orphanage]]>><<endevent>><</link>>
+		<<case 7>>
+			<<generatey1>>
+			<<rng 5>>
+			<<switch $rng>>
+				<<case 1 2>>
+					<<set _poster to "画着贝利。<<nnpc_his 'Bailey'>>的脸上被画了个大大的“X”，虽然没配任何文字，但表达的意思不言而喻。">>
+					<<set _poster_pic to "Bailey">>
+				<<case 3>>
+					<<set _poster to "画着一座被巨大“✕”号覆盖的孤儿院。下面用粗体字写着“结束暴政”。">>
+					<<set _poster_pic to "x">>
+				<<case 4>>
+					<<set _poster to "画着一个手持标语的<<person1>><<person>>，标语上写着“聆听我们的声音！”">>
+					<<set _poster_pic to "voice">>
+				<<case 5>>
+					<<set _poster to "写着三个被加粗过的单词“无畏，坚韧，不屈”。">>
+					<<set _poster_pic to "Fearless">>
+			<</switch>>
+			你正穿过孤儿院。
+			<br><br>
+
+			你停留了一会儿，随意地看向布告板，你看到了一张有趣的海报。上面<<print _poster>>
+			<br><br>
+
+			当你经过海报时，一股暖意在你心中涌动。<<greb>><<reb 1>>
+			<br><br>
+			<<switch _poster_pic>>
+				<<case "Bailey">>
+					<img src="img/poster/Bailey.jpg" class="poster">
+				<<case "x">>
+					<img src="img/poster/X.jpg" class="poster">
+				<<case "voice">>
+					<img src="img/poster/listenToOurVoice.jpg" class="poster">
+				<<case "Fearless">>
+					<img src="img/poster/Fearless.jpg" class="poster">
+			<</switch>>
+			<br><br>
+			<<link [[继续|Orphanage]]>><<endevent>><</link>>
+		<<case 8>>
+			你正穿过孤儿院。
+			<br><br>
+
+			你听到一声巨大的声响，吓得差点差点蹦出去。你越是寻找着靠近源头，这噪音越让你心跳加速。<<gstress>><<stress 6>>
+			<br><br>
+
+			最后，你发现一个<<generatey1>><<person1>><<person>>站在拼在一起的两张桌子上，弹着电吉他，摆弄着扬声器。孤儿们对<<his>>的表演感到好奇，纷纷走近这简陋的“舞台”。
+			<br><br>
+
+			<<link [[靠近|Home Orphan Music Stormy Choice]]>><<set $phase to 1>><</link>>
+			<br>
+			<<link [[无视|Home Orphan Music Stormy Choice]]>><<set $phase to 2>><</link>>
+		<<case 9>>
+			<<set _instrument to either("长笛","小提琴","电子琴","吉他","竖笛")>>
+			当你穿过孤儿院的时候，你听到了一个熟悉的声音。是贝利。
+			<br><br>
+
+			"给我。"贝利突然出现，<<generatey1>><<person1>><<person>>紧紧握住<<his>>的_instrument。
+			<br><br>
+
+			"这是我的_instrument，"那个<<personsimple>>抗议道，"你不能就这样拿走！"
+			<br><br>
+
+			贝利的表情冷酷起来。<<nnpc_He "Bailey">>向前迈了一步，弯腰直视着<<personsimple>>的脸。"请你再说一遍。"<<gstress>><<stress 6>>
+			<br><br>
+
+			<<person1>><<person>>愁眉苦脸地将_instrument递给了贝利。贝利从<<his>>手上一把扯了出来。
+			<br><br>
+
+			"多谢。" <<nnpc_He "Bailey">>提着_instrument离开了，<<personsimple>>盯着<<nnpc_his "Bailey">>的背影喃喃自语，阴森森地嘀咕自己以后会怎样报复回去。<<lhope>><<greb>><<hope -1>><<reb 1>>
+			<br><br>
+
+			<<link [[继续|Orphanage]]>><<endevent>><</link>>
+	<</switch>>
+<</widget>>

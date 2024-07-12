@@ -1,7 +1,7 @@
 {
     "name": "DomRobin",
     "version": "0.0.3",
-    "styleFileList": [],
+    "styleFileList": ["game/css/domRobin.css"],
     "scriptFileList": [
         "game/javaScript/robinModUtil.js",
         "game/javaScript/robinTraitEffects.js",
@@ -89,7 +89,8 @@
         "game/robin-daily/roomEntrance.txt",
         "game/robin-fight/orphanage.txt",
         "game/robin-fight/manCombat.txt",
-        "game/robin-fight/defeatnpc.txt"
+        "game/robin-fight/defeatnpc.txt",
+        "game/origin-replace/homeeventrebhi.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -481,6 +482,11 @@
                     "passage": "Robin Cinema Horror",
                     "findRegex": "<<wearProp \"popcorn\">><</if>>(.|\n)*?<<He>>",
                     "replaceFile": "game/robin-work/live-stream/cinemaChange4.txt"
+                },
+                {
+                    "passage": "Widgets Home Events",
+                    "findRegex": "<<widget \"homeeventrebhi\">>(.|\n)*?<</widget>>",
+                    "replaceFile": "game/origin-replace/homeeventrebhi.txt"
                 }
             ]
         },
