@@ -126,10 +126,10 @@
 					<<set _poster_pic to "Bailey">>
 				<<case 3>>
 					<<set _poster to "画着一座被巨大“✕”号覆盖的孤儿院。下面用粗体字写着“结束暴政”。">>
-					<<set _poster_pic to "x">>
+					<<set _poster_pic to "X">>
 				<<case 4>>
 					<<set _poster to "画着一个手持标语的<<person1>><<person>>，标语上写着“聆听我们的声音！”">>
-					<<set _poster_pic to "voice">>
+					<<set _poster_pic to "listenToOurVoice">>
 				<<case 5>>
 					<<set _poster to "写着三个被加粗过的单词“无畏，坚韧，不屈”。">>
 					<<set _poster_pic to "Fearless">>
@@ -142,16 +142,7 @@
 
 			当你经过海报时，一股暖意在你心中涌动。<<greb>><<reb 1>>
 			<br><br>
-			<<switch _poster_pic>>
-				<<case "Bailey">>
-					<img src="img/poster/Bailey.jpg" class="poster">
-				<<case "x">>
-					<img src="img/poster/X.jpg" class="poster">
-				<<case "voice">>
-					<img src="img/poster/listenToOurVoice.jpg" class="poster">
-				<<case "Fearless">>
-					<img src="img/poster/Fearless.jpg" class="poster">
-			<</switch>>
+			<img @src="'img/poster/reb/'+ _poster_pic +'.jpg'" class="poster">
 			<br><br>
 			<<link [[继续|Orphanage]]>><<endevent>><</link>>
 		<<case 8>>

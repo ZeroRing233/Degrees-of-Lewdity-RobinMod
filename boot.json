@@ -90,7 +90,8 @@
         "game/robin-fight/orphanage.txt",
         "game/robin-fight/manCombat.txt",
         "game/robin-fight/defeatnpc.txt",
-        "game/origin-replace/homeeventrebhi.txt"
+        "game/origin-replace/homeeventrebhi.txt",
+        "game/origin-replace/homeeventhopehi.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -487,6 +488,11 @@
                     "passage": "Widgets Home Events",
                     "findRegex": "<<widget \"homeeventrebhi\">>(.|\n)*?<</widget>>",
                     "replaceFile": "game/origin-replace/homeeventrebhi.txt"
+                },
+                {
+                    "passage": "Widgets Home Events",
+                    "findRegex": "<<widget \"homeeventhopehi\">>(.|\n)*?<</widget>>",
+                    "replaceFile": "game/origin-replace/homeeventhopehi.txt"
                 }
             ]
         },
