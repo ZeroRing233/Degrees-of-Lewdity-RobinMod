@@ -1,0 +1,8 @@
+:: Watching star test
+你和罗宾一起走在街道上，你们思考着接下来应该去哪。
+<<set $nextPassage to "Danube">>
+<<set $nextPassageCheck to "Danube">>
+/% 这是魔法，这绝对是魔法 %/
+<<link [[孤儿院大厅|Orphanage]]>><<endevent>><</link>>
+<br>
+<<link [[多瑙河街|Danube]]>><<endevent>><</link>>
