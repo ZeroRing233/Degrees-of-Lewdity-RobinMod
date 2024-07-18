@@ -1,5 +1,5 @@
 function hasTerrariaInfo() {
-    const TerrariaInfo = window.modUtils.getMod('Terraria Expand Mod v0.1.3');
+    const TerrariaInfo = window.modUtils.getMod('Terraria Expand Mod v0.1.4');
     if (TerrariaInfo) {
         return true;
     }
@@ -9,23 +9,10 @@ window.hasTerrariaInfo = hasTerrariaInfo;
 
 // 待和作者讨论
 function hasEatableFish() {
-
+    // 三文鱼，鲈鱼，金枪鱼，红鲷鱼，鳟鱼, 装甲洞穴鱼, 镜面鱼，偏口鱼, 蜂蜜鱼，双鳍鳕鱼，斑驳油鱼，霓虹脂鲤，雀鲷
+    let eatable_fish_list = ['Salmon', 'Bass', 'Tuna', "Red_Snapper", "Trout",
+            "Armored_Cavefish", "Specular_Fish", "Flounder", "Honeyfin", "Double_Cod", "Variegated_Lardfish", "Neon_Tetra", "Damselfish"
+        ]
+        // 岩石龙虾，绿波泥鳅
+    let eatable_seafood_list = ["Rock_Lobster", "Greenwave_Loach"]
 }
-
-// const modAName = window.modUtils.getNowRunningModName();
-// 使用Mod A的名字获取Mod A的信息（也就是自己的信息）
-const modAInfo = window.modUtils.getMod("DomRobin");
-// 创建并保存一个对象到 `ModInfo::modRef` 来暴露Mod自己的接口。  ( `modRef` 默认情况下是 undefined )
-// modAInfo.modRef 可以是一个对象，可以在这里添加Mod A主动暴露给其他Mod来与Mod A进行交互的功能
-// 例如提供一个切换Mod A中状态的函数，或者读取Mod A中数据的接口
-modAInfo.modRef = {
-    // 一个函数
-    funcA: () => {
-        console.log('modA funcA');
-    },
-    // 一个对象
-    objA: {
-        a: 1,
-        b: 2,
-    }
-};
