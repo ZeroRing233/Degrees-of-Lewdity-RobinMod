@@ -1,31 +1,38 @@
-<<switch random(1,3)>>
-<<case 1>>
-    <<if !$loftTelescopeKnown>>
-        "……你有没有在晴朗的夜晚里注视过夜空？那里有那么多的星星……那么多像我们这样的世界……我多希望孤儿院里有个望远镜啊。"
-        <<if !$telescopeTalked>>
-            <br><br>
-            <span class="blue">购物中心里开放了新选项。</span>
-            <<set $telescopeTalked to true>>
+<<if !$robinDrunkTalked and !Weather.isOvercast and $robinromance>>
+    罗宾看向那群在海滩上开派对的人，他们正在一瓶接一瓶地喝着啤酒。“你有喝过酒吗？真好奇它是个什么味道，或许总有一天我会去尝尝。”
+    <br><br>
+    <span class="gold">也许可以去咖啡馆给罗宾买一瓶酒尝尝看。</span>
+    <<set $robinDrunkTalked to true>>
+<<else>>
+    <<switch random(1,3)>>
+    <<case 1>>
+        <<if !$loftTelescopeKnown>>
+            "……你有没有在晴朗的夜晚里注视过夜空？那里有那么多的星星……那么多像我们这样的世界……我多希望孤儿院里有个望远镜啊。"
+            <<if !$telescopeTalked>>
+                <br><br>
+                <span class="blue">购物中心里开放了新选项。</span>
+                <<set $telescopeTalked to true>>
+            <</if>>
+        <<elseif !$stargazingCount>>
+            "真想不到，我们居然真的在孤儿院阁楼有一个望远镜了！等有空时我们一起去看星星吧。"
+        <<else>>
+            "上次和你一起观星的体验真的很棒，星空真美，等有空时我们再一起去看星星吧。"
         <</if>>
-    <<elseif !$stargazingCount>>
-        "真想不到，我们居然真的在孤儿院阁楼有一个望远镜了！等有空时我们一起去看星星吧。"
-    <<else>>
-        "上次和你一起观星的体验真的很棒，星空真美，等有空时我们再一起去看星星吧。"
-    <</if>>
-<<case 2>>
-    "有些时候我喜欢就这么看着那些海滩上的人。他们看上去是那么的快乐……"
-<<case 3>>
-    <<if !$robinSwimsuit>>
-        "总有一天我会下海去游泳的。如果我穿学校的泳衣，你觉得会有人认为我很奇怪吗？"
-        <<if !$swimmingTalked>>
-            <br><br>
-            <span class="blue">罗宾房间里开放了新选项。</span>
-            <<set $swimmingTalked to true>>
-        <</if>> 
-    <<elseif !$swimmingCount>>
-        "等到了<span class="gold">假期</span>，我们就一起下海去游泳，一言为定！"
-    <<else>>
-        "上次和你一起游泳时真的很开心，大海蔚蓝而又辽阔，等有空时我们再一起下海去游泳吧。"
-    <</if>>
-<</switch>>
+    <<case 2>>
+        "有些时候我喜欢就这么看着那些海滩上的人。他们看上去是那么的快乐……"
+    <<case 3>>
+        <<if !$robinSwimsuit>>
+            "总有一天我会下海去游泳的。如果我穿学校的泳衣，你觉得会有人认为我很奇怪吗？"
+            <<if !$swimmingTalked>>
+                <br><br>
+                <span class="blue">罗宾房间里开放了新选项。</span>
+                <<set $swimmingTalked to true>>
+            <</if>> 
+        <<elseif !$swimmingCount>>
+            "等到了<span class="gold">假期</span>，我们就一起下海去游泳，一言为定！"
+        <<else>>
+            "上次和你一起游泳时真的很开心，大海蔚蓝而又辽阔，等有空时我们再一起下海去游泳吧。"
+        <</if>>
+    <</switch>>
+<</if>>
 <<modifyBodyTempartureLemonade>>

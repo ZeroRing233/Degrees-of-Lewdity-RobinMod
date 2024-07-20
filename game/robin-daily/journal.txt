@@ -1,0 +1,5 @@
+ 
+<<if $wine gt 0>>
+    <li><<foodicon "beerbottle">><span class="green">$wine</span> <<print getWineType()>>，你可以在晚上睡前和罗宾分享。</li>
+<</if>>
+<<if $popcorn gt 0>>

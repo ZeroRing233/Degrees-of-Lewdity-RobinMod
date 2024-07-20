@@ -140,3 +140,19 @@ function modifyBodyTempartureLemonade() {
     return "noEffects";
 }
 window.modifyBodyTempartureLemonade = modifyBodyTempartureLemonade;
+
+function getWineType() {
+    if (Time.season === "winter") {
+        return "冬酿麦酒";
+    }
+    if (Time.season === "spring") {
+        return "水果麦芽酒";
+    }
+    if (Time.season === "summer") {
+        return "鲜啤酒";
+    }
+    if (Time.season === "autumn") {
+        return "秋艾酒";
+    }
+}
+window.getWineType = getWineType;

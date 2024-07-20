@@ -20,6 +20,7 @@
         "game/robin-daily/robinDate.twee",
         "game/robin-daily/robinDateBeach.twee",
         "game/robin-daily/climbBed.twee",
+        "game/robin-daily/giveWine.twee",
         "game/robin-daily/widgets.twee",
         "game/robin-fight/robinFight.twee",
         "game/robin-fight/widgets.twee"
@@ -87,6 +88,10 @@
         "game/robin-daily/wardrobe.txt",
         "game/robin-daily/caughtCD.txt",
         "game/robin-daily/roomEntrance.txt",
+        "game/robin-daily/oceanBreeze.txt",
+        "game/robin-daily/journal.txt",
+        "game/robin-daily/robinRoomBedIntro.txt",
+        "game/robin-daily/robinSpeech.txt",
         "game/robin-fight/orphanage.txt",
         "game/robin-fight/manCombat.txt",
         "game/robin-fight/defeatnpc.txt"
@@ -481,6 +486,26 @@
                     "passage": "Robin Cinema Horror",
                     "findRegex": "<<wearProp \"popcorn\">><</if>>(.|\n)*?<<He>>",
                     "replaceFile": "game/robin-work/live-stream/cinemaChange4.txt"
+                },
+                {
+                    "passage": "Ocean Breeze",
+                    "findString": "<<if $money gte 300>>",
+                    "replaceFile": "game/robin-daily/oceanBreeze.txt"
+                },
+                {
+                    "passage": "Widgets Journal",
+                    "findString": "<<if $popcorn gt 0>>",
+                    "replaceFile": "game/robin-daily/journal.txt"
+                },
+                {
+                    "passage": "Robin Room Bed Intro",
+                    "findString": "<<listsleepoutfits \"Robin Bed\">>",
+                    "replaceFile": "game/robin-daily/robinRoomBedIntro.txt"
+                },
+                {
+                    "passage": "Widgets Speech",
+                    "findString": "<<if $robinmist>>",
+                    "replaceFile": "game/robin-daily/robinSpeech.txt"
                 }
             ]
         },

@@ -15,4 +15,11 @@ function hasEatableFish() {
         ]
         // 岩石龙虾，绿波泥鳅
     let eatable_seafood_list = ["Rock_Lobster", "Greenwave_Loach"]
+    for (fish of eatable_fish_list) {
+        if (typeof V[fish] === 'number' && V[fish] >= 1) {
+            return true;
+        }
+    }
+    return false;
 }
+window.hasEatableFish = hasEatableFish;

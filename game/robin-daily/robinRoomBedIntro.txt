@@ -1,0 +1,6 @@
+<<if $wine gte 1>>
+    <<set _wineType to getWineType()>>
+    <<foodicon "beerbottle">><<link [[给罗宾_wineType|Robin Room Give Wine]]>><</link>>
+    <br>
+<</if>>
+<<listsleepoutfits "Robin Bed">>

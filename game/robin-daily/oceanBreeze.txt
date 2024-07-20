@@ -1,0 +1,7 @@
+    <<if $robinDrunkTalked and $money gte 700 and !$wine>>
+        <<set $wine to $wine or 0>>
+        <<set _wineType to getWineType()>>
+        <<foodicon "beerbottle">><<link [[为罗宾购买_wineType (0:02 £7)|Ocean Breeze]]>><<set $money -= 700>> <<set $wine +=1>> <<pass 2>><</link>>
+        <br>
+    <</if>>
+<<if $money gte 300>>

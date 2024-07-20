@@ -1,0 +1,82 @@
+:: Robin Room Give Wine
+<<effects>>
+<<set _wineType to getWineType()>>
+<<if !$hasGivenWine>>
+    <<set $hasGivenWine to true>>
+    你坐在床上，拿出一瓶<<print _wineType>>递给罗宾。<<He>>看上去很惊讶，“现在这个年纪就喝酒是不是不太好啊。”<<He>>说道，声音中带着一点紧张。
+    <br><br>
+    “没关系，你早就成年了，”你微笑着安慰<<him>>。“偶尔喝点酒没有关系的。”
+    <br><br>
+    <<his>>的表情舒缓了一点，“那我就，先尝尝？”<<he>>犹豫着拿起酒瓶，为自己倒了一杯。<<He>>试探着舔了一小口，“唔，好辣。”又是一小口，“不过有很浓郁的麦子香味呢。就像是正躺在麦浪里一样。”<<He>>缓缓闭上眼睛，“味道真的很好。”
+<<else>>
+    你坐在床上，拿出一瓶<<print _wineType>>递给罗宾。
+    “哦， 你又买了一瓶。 ”<<He>>微笑着接过酒瓶，给自己倒了一杯， 轻抿了一口。 “味道还是一如既往的好。”<<He>>开始享用这杯酒。
+<</if>>
+<br><br>
+<<if C.npc.Robin.lust lt 70>>
+    不久，罗宾的酒就见底了。<<His>>的脸变得通红，腿也在发软，整个人倒在床上，瘫在你怀里。<<He>>看起来 喝醉了。<<He>>不停地重复你的名字，偶尔会发出可爱的短促笑声。
+    <<garousal>><<lstress>><<ltrauma>><<gcontrol>>
+    <<arousal 500>><<stress -24>><<trauma 12>><<control 5>>
+    <br><br>
+    <<link [[哄罗宾睡觉|Robin Room Give Wine Sleep Low]]>><</link>>
+    <br>
+    <<if hasSexStat("promiscuity", 5)>>
+        <<link [[“趁虚而入”|Robin Room Give Wine Sex Low]]>><</link>><<promiscuous5>>
+    <<else>>
+        <span class="blue">你还不够淫乱，无法做出进一步的举动。</span>
+    <</if>>
+<<else>>
+<</if>>
+
+:: Robin Room Give Wine Sleep Low
+<<effects>>
+你温柔地抚摸罗宾的头。”现在该睡觉了哦。”听到你的话，<<He>>乖乖地钻进被窝里，闭上了眼睛。
+<br><br>
+<<link [[一起睡觉|Robin Bed]]>><<endevent>><</link>><br>
+<<getouticon>><<link [[离开|Orphanage]]>><<endevent>><</link>>
+
+:: Robin Room Give Wine Sex Low
+<<effects>><<promiscuity5>>
+你转了个身，温柔地把<<him>>压在床上。罗宾似乎有点惊讶，但并不抗拒你。你朝着<<him>>吻了下去。
+<br><br>
+<<link [[继续|Robin Room Give Wine Sex]]>><<set $sexstart to 1>><</link>>
+
+:: Robin Room Give Wine Sex
+<<if $sexstart is 1>>
+    <<set $robinGiveWine to true>>
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<neutral 1>>
+	<<maninit>>
+    <<npc_submissive>>
+    <<npcexpose>>
+	<<set $enemytrust += 500>>
+	<<set $enemyarousalmax to 600>>
+<</if>>
+<<set $enemyanger to 0>>
+<<if $enemyarousal gte ($enemyarousalmax / 5) * 3>>
+	<<set _robinArousal to "high">>
+<<else>>
+    <<set _robinArousal to "low">>
+<</if>>
+<<effects>>
+<<effectsman>>
+<<man>>
+<<stateman>>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[继续|Robin Room Give Wine Sex Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[继续|Robin Room Give Wine Sex]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Robin Room Give Wine Sex Finish
+<<effects>>
+“呜啊。”<<He>>大声叫了出来。在高潮时，<<he>>紧紧地抱住你，你也用双臂轻轻搂着<<him>>。 
+“最爱你了， 嘿嘿。”<<He>>最后轻声说到，随后就一头栽进了床上，很快就进入了梦乡。
+<br><br>
+<<clotheson>>
+<<endcombat>>
+<<link [[继续|Robin Bed]]>><<endevent>><</link>>
