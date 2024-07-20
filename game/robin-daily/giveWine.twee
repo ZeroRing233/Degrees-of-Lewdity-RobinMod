@@ -20,12 +20,23 @@
     <br><br>
     <<link [[哄罗宾睡觉|Robin Room Give Wine Sleep Low]]>><</link>>
     <br>
-    <<if hasSexStat("promiscuity", 5)>>
+    <<if $promiscuity gte 75>>
         <<link [[“趁虚而入”|Robin Room Give Wine Sex Low]]>><</link>><<promiscuous5>>
     <<else>>
         <span class="blue">你还不够淫乱，无法做出进一步的举动。</span>
     <</if>>
 <<else>>
+    不久，罗宾手里的酒杯就见了底。<<He>>脸上泛起红晕，腿也开始发软。突然，<<He>>朝你扑了过来，把你压在了床上。<<He>>用充满了欲望的眼神看着你，随后对着你的嘴唇吻了过来。
+    <<garousal>><<glust>><<lstress>>
+    <<arousal 500>><<npcincr Robin lust 5>><<stress -24>>
+    <br><br>
+    <<link [[顺其自然|Robin Room Give Wine Sex]]>><<set $npc_submissive to false>><<set $sexstart to 1>><</link>><br>
+    <<link [[哄罗宾睡觉|Robin Room Give Wine Sleep High]]>><<npcincr Robin lust -5>><</link>><<llust>><br>
+    <<if $promiscuity gte 75>>
+        <<link [[尝试反压|Robin Room Give Wine Reverse]]>><</link>><<promiscuous5>><<physiquedifficulty 2000 18000>>
+    <<else>>
+        <span class="blue">你还不够淫乱，无法做出进一步的举动。</span>
+    <</if>>
 <</if>>
 
 :: Robin Room Give Wine Sleep Low
@@ -35,11 +46,30 @@
 <<link [[一起睡觉|Robin Bed]]>><<endevent>><</link>><br>
 <<getouticon>><<link [[离开|Orphanage]]>><<endevent>><</link>>
 
+:: Robin Room Give Wine Sleep High
+<<effects>>
+你尝试安抚罗宾。你温柔地抚摸<<His>>的头发，”今天先睡觉吧。”<<He>>看上去不太开心，但还是乖乖照做了。
+<br><br>
+<<link [[一起睡觉|Robin Bed]]>><<endevent>><</link>><br>
+<<getouticon>><<link [[离开|Orphanage]]>><<endevent>><</link>>
+
 :: Robin Room Give Wine Sex Low
 <<effects>><<promiscuity5>>
 你转了个身，温柔地把<<him>>压在床上。罗宾似乎有点惊讶，但并不抗拒你。你朝着<<him>>吻了下去。
 <br><br>
-<<link [[继续|Robin Room Give Wine Sex]]>><<set $sexstart to 1>><</link>>
+<<link [[继续|Robin Room Give Wine Sex]]>><<set $sexstart to 1>><<set $npc_submissive to true>><</link>>
+
+:: Robin Room Give Wine Reverse
+<<effects>><<promiscuity5>>
+<<if $physiqueSuccess>>
+    你推了两下罗宾，翻了个身，把<<him>>压在身下。<<He>>眼神中闪过一丝慌乱，但很快就平定下来了。<<He>>对你露出一个充满情欲的微笑，随后闭上眼睛，任你摆布。
+    <br><br>
+    <<link [[继续|Robin Room Give Wine Sex]]>><<set $sexstart to 1>><<set $npc_submissive to true>><</link>>
+<<else>>
+    你尝试着推了两下罗宾，<<He>>纹丝不动，仍然把你压在身下，<<He>>朝你吻了过来。
+    <br><br>
+    <<link [[继续|Robin Room Give Wine Sex]]>><<set $sexstart to 1>><<set $npc_submissive to false>><</link>>
+<</if>>
 
 :: Robin Room Give Wine Sex
 <<if $sexstart is 1>>
@@ -49,7 +79,9 @@
 	<<set $consensual to 1>>
 	<<neutral 1>>
 	<<maninit>>
-    <<npc_submissive>>
+    <<if $npc_submissive>>
+        <<npc_submissive>>
+    <</if>>
     <<npcexpose>>
 	<<set $enemytrust += 500>>
 	<<set $enemyarousalmax to 600>>
@@ -76,7 +108,10 @@
 <<effects>>
 “呜啊。”<<He>>大声叫了出来。在高潮时，<<he>>紧紧地抱住你，你也用双臂轻轻搂着<<him>>。 
 “最爱你了， 嘿嘿。”<<He>>最后轻声说到，随后就一头栽进了床上，很快就进入了梦乡。
+<<lllust>><<glove>><<npcincr Robin lust -20>><<npcincr Robin love 2>>
 <br><br>
 <<clotheson>>
 <<endcombat>>
+<<unset $npc_submissive>>
+<<unset $robinGiveWine>>
 <<link [[继续|Robin Bed]]>><<endevent>><</link>>

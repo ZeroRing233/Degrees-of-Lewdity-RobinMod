@@ -494,8 +494,9 @@
                 },
                 {
                     "passage": "Widgets Journal",
-                    "findString": "<<if $popcorn gt 0>>",
-                    "replaceFile": "game/robin-daily/journal.txt"
+                    "findRegex": "<<if \\$popcorn .*>>",
+                    "replaceFile": "game/robin-daily/journal.txt",
+                    "comments": "为了兼容5.0和5.1的日志，出此下策"
                 },
                 {
                     "passage": "Robin Room Bed Intro",
