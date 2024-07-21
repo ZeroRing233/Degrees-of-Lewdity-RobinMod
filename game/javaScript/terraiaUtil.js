@@ -13,9 +13,7 @@ function getEatableFishList() {
         "Armored_Cavefish", "Specular_Fish", "Flounder", "Honeyfin", "Double_Cod", "Variegated_Lardfish", "Neon_Tetra", "Damselfish"
     ]
     let eatable_fish_list = [];
-    // 岩石龙虾，绿波泥鳅
-    //let all_eatable_seafood_list = ["Rock_Lobster", "Greenwave_Loach"]
-    for (let fish of eatable_fish_list) {
+    for (let fish of all_eatable_fish_list) {
         if (typeof V[fish] === 'number' && V[fish] >= 1) {
             eatable_fish_list.pushUnique(fish);
         }
@@ -23,3 +21,21 @@ function getEatableFishList() {
     return eatable_fish_list;
 }
 window.getEatableFishList = getEatableFishList;
+
+// 岩石龙虾，绿波泥鳅
+//let all_eatable_seafood_list = ["Rock_Lobster", "Greenwave_Loach"]
+function hasLobster() {
+    if (typeof V["Rock_Lobster"] === 'number' && V["Rock_Lobster"] >= 1) {
+        return true;
+    }
+    return false;
+}
+window.hasLobster = hasLobster;
+
+function hasLoach() {
+    if (typeof V["Greenwave_Loach"] === 'number' && V["Greenwave_Loach"] >= 1) {
+        return true;
+    }
+    return false;
+}
+window.hasLoach = hasLoach;
