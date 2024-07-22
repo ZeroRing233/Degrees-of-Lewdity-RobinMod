@@ -1,0 +1,26 @@
+/% 调试用 %/
+<<run addEatAbleFish()>>
+<<set _eatableFishList to getEatableFishList()>>
+<<if _eatableFishList.length gt 0>>
+	<br>
+	<details class="journal">
+        <summary class="journal">（dom罗宾and泰拉瑞亚）可食用渔获列表，你可以在海滩上向罗宾展示这些收获。</summary>
+        <div class="itemInventory">
+			<<for _t to 0; _t lt _eatableFishList.length; _t++>>
+				<<set _item to setup.eatableFish[_eatableFishList[_t]]>>
+                <<set _itemName to _item.cn_name>>
+                <<set _formatter = new Intl.NumberFormat('en-gb', { roundingMode: 'trunc', notation: 'compact' })>>
+				<<set _amount = _formatter.format(_item.amount)>>
+                <<set _tooltip to `<span class="green">${_item.amount}</span> ${_itemName}`>>
+                <div class="item" @tooltip="_tooltip">
+					<<icon `_item.icon`>>
+					<hr>
+					<<= _amount>>
+				</div>	
+			<</for>>
+		</div>
+    </details>
+<</if>>
+
+
+<<if $museumintro is 1 or $plants_known.length gte 0>>

@@ -94,7 +94,8 @@
         "game/robin-daily/robinSpeech.txt",
         "game/robin-fight/orphanage.txt",
         "game/robin-fight/manCombat.txt",
-        "game/robin-fight/defeatnpc.txt"
+        "game/robin-fight/defeatnpc.txt",
+        "game/robin-terraia/journal.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -507,6 +508,12 @@
                     "passage": "Widgets Speech",
                     "findString": "<<if $robinmist>>",
                     "replaceFile": "game/robin-daily/robinSpeech.txt"
+                },
+                {
+                    "passage": "Widgets Journal",
+                    "findRegex": "<<if .*\\$plants_known.length.*",
+                    "replaceFile": "game/robin-terraia/journal.txt",
+                    "comments": "为了兼容5.0和5.1的日志，出此下策"
                 }
             ]
         },
