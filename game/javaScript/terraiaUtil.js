@@ -140,12 +140,17 @@ function addEatAbleFish() {
 window.addEatAbleFish = addEatAbleFish;
 
 function getEatableFishList() {
+    // 获取前先更新一波
+    for (let fish in setup.eatableFish) {
+        setup.eatableFish[fish].amount = V[fish] || 0;
+    }
     let all_eatable_fish_list = Object.keys(setup.eatableFish);
     return all_eatable_fish_list.filter(fish => {
         return setup.eatableFish[fish].amount > 0;
     });
 }
 window.getEatableFishList = getEatableFishList;
+
 
 // function getEatableFishList() {
 //     // 三文鱼，鲈鱼，金枪鱼，红鲷鱼，鳟鱼, 装甲洞穴鱼, 镜面鱼，偏口鱼, 蜂蜜鱼，双鳍鳕鱼，斑驳油鱼，霓虹脂鲤，雀鲷

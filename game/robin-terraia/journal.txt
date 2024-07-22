@@ -1,5 +1,5 @@
 /% 调试用 %/
-<<run addEatAbleFish()>>
+/% <<run addEatAbleFish()>> %/
 <<set _eatableFishList to getEatableFishList()>>
 <<if _eatableFishList.length gt 0>>
 	<br>
