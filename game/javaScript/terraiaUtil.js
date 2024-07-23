@@ -1,3 +1,4 @@
+// 三文鱼，鲈鱼，金枪鱼，红鲷鱼，鳟鱼, 装甲洞穴鱼, 镜面鱼，偏口鱼, 蜂蜜鱼，双鳍鳕鱼，斑驳油鱼，霓虹脂鲤，雀鲷, 岩石龙虾，绿波泥鳅
 setup.eatableFish = {
     "Salmon": {
         name: "Salmon",
@@ -187,44 +188,26 @@ function clearEatableFish() {
 }
 window.clearEatableFish = clearEatableFish;
 
-// function pickOneFish() {
-//     let all_eatable_fish_list = getEatableFishList();
-//     return all_eatable_fish_list.random();
-// }
-// window.pickOneFish = pickOneFish;
+function getLobsterPrice() {
+    setup.eatableFish["Rock_Lobster"].amount = V["Rock_Lobster"]
+    return setup.eatableFish["Rock_Lobster"].amount * setup.eatableFish["Rock_Lobster"].price;
+}
+window.getLobsterPrice = getLobsterPrice;
 
+function clearLobster() {
+    setup.eatableFish["Rock_Lobster"].amount = 0;
+    V["Rock_Lobster"] = 0;
+}
+window.clearLobster = clearLobster;
 
-// function getEatableFishList() {
-//     // 三文鱼，鲈鱼，金枪鱼，红鲷鱼，鳟鱼, 装甲洞穴鱼, 镜面鱼，偏口鱼, 蜂蜜鱼，双鳍鳕鱼，斑驳油鱼，霓虹脂鲤，雀鲷
-//     let all_eatable_fish_list = Object.keys(setup.eatableFish)
+function getLoachPrice() {
+    setup.eatableFish["Greenwave_Loach"].amount = V["Greenwave_Loach"]
+    return setup.eatableFish["Greenwave_Loach"].amount * setup.eatableFish["Greenwave_Loach"].price;
+}
+window.getLoachPrice = getLoachPrice;
 
-//     ['Salmon', 'Bass', 'Tuna', "Red_Snapper", "Trout",
-//         "Armored_Cavefish", "Specular_Fish", "Flounder", "Honeyfin", "Double_Cod", "Variegated_Lardfish", "Neon_Tetra", "Damselfish"
-//     ]
-//     let eatable_fish_list = [];
-//     for (let fish of all_eatable_fish_list) {
-//         if (typeof V[fish] === 'number' && V[fish] >= 1) {
-//             eatable_fish_list.pushUnique(fish);
-//         }
-//     }
-//     return eatable_fish_list;
-// }
-// window.getEatableFishList = getEatableFishList;
-
-// 岩石龙虾，绿波泥鳅
-//let all_eatable_seafood_list = ["Rock_Lobster", "Greenwave_Loach"]
-// function hasLobster() {
-//     if (typeof V["Rock_Lobster"] === 'number' && V["Rock_Lobster"] >= 1) {
-//         return true;
-//     }
-//     return false;
-// }
-// window.hasLobster = hasLobster;
-
-// function hasLoach() {
-//     if (typeof V["Greenwave_Loach"] === 'number' && V["Greenwave_Loach"] >= 1) {
-//         return true;
-//     }
-//     return false;
-// }
-// window.hasLoach = hasLoach;
+function clearLoach() {
+    setup.eatableFish["Greenwave_Loach"].amount = 0;
+    V["Greenwave_Loach"] = 0;
+}
+window.clearLoach = clearLoach;

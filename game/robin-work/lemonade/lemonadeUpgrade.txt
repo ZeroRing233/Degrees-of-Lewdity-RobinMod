@@ -34,12 +34,12 @@
         <</link>><<glove>>
         <br>
 <</if>>
-<<if _lobster.amount gt 0>>
-        <<icon `_lobster.icon`>><<link [[给罗宾岩石龙虾|Robin's Lemonade Give Lobster]]>><<set $amount to _lobster.amount>><</link>>
+<<if _lobster.amount gt 0 and $hasGivenFish>>
+        <<icon `_lobster.icon`>><<link [[给罗宾岩石龙虾|Robin's Lemonade Give Lobster]]>><<set $amount to _lobster.amount>><</link>> <<glove>>
         <br>
 <</if>>
-<<if _Loach.amount gt 0>>
-        <<icon `_Loach.icon`>><<link [[给罗宾绿波泥鳅|Robin's Lemonade Give Loach]]>><<set $amount to _Loach.amount>><</link>>
+<<if _Loach.amount gt 0 and $hasGivenFish>>
+        <<icon `_Loach.icon`>><<link [[给罗宾绿波泥鳅|Robin's Lemonade Give Loach]]>><<set $amount to _Loach.amount>><</link>> <<glove>>
         <br>
 <</if>>
 <<if $lemonadeUpgraded and $robinromance and $promiscuity gte 55 and !$daily.robin.crawl>>

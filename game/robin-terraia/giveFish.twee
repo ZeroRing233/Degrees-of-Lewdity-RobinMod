@@ -132,13 +132,82 @@
 你们一起搭好了烤架，罗宾用特制的香料和柠檬汁腌制了你送来的鱼类，而你则不停翻动烤鱼控制着火候。
 <br><br>
 你和罗宾一起享用着美味的柠檬烤鱼，鲜美的鱼肉混合着海风与海浪的声音，使你的疲劳一扫而空。
-<<ltrauma>><<lstress>><<ltiredness>> <<tiredness -6>><<trauma -12>><<stress -24>>
+<<ltrauma>><<lstress>><<ltiredness>><<tiredness -6>><<trauma -12>><<stress -24>>
 <br><br>
 <<endevent>>
 <<lemonade_stand_options>>
 
 :: Robin's Lemonade Give Fish Not Eat No Sell
+<<effects>>
 你摇了摇头，罗宾遗憾地说："那好吧，我们可以下次再说。"
 <br><br>
 <<endevent>>
 <<lemonade_stand_options>>
+
+:: Robin's Lemonade Give Lobster
+<<location "beach">><<set $outside to 0>><<effects>><<npc Robin>>
+<<if !$hasGivenLobster>>
+    <<set V["Rock_Lobster"] -= 1>><<set $hasGivenLobster to true>>
+    你将你所拥有的<<print $amount>>条岩石龙虾递给了罗宾，罗宾惊喜地说："你又钓到了新品种？看上去我们有烤龙虾可以售卖了。我们自己先尝尝看吧！"
+    <br><br>
+    说着，你们一起搭好了烤架，罗宾将你送来的龙虾分成了两种口味，一部分虾肉依旧用柠檬汁进行腌制，另一部分只是简单撒了点盐，以凸显出虾肉本身的鲜嫩。
+    <br><br>
+    两种口味的龙虾都别有风味，你们两人津津有味地享用了一顿龙虾大餐。<<ltrauma>><<lstress>><<trauma -12>><<stress -24>>
+    <<set _lobsterPrice to getLobsterPrice()>>
+    <<if _lobsterPrice gt 0>>
+        <br><br>
+        之后，罗宾将剩下的龙虾加入了菜单中，海滩上的游客纷纷被新加入的烤龙虾所吸引，每个人都对虾肉的味道赞不绝口。
+        <br><br>
+        <<set _evenPrice to Math.round(_lobsterPrice /2)>>
+        <<set $robinmoney += _evenPrice>>
+        <<set $money +=  _evenPrice * 100>>
+        <<run clearLobster()>>
+        你们平分了卖烤龙虾的收益，<span class="gold">罗宾的存款增加了£<<print _evenPrice>>，你获得了£<<print _evenPrice>>。</span>
+    <</if>>
+    <br><br>
+    <<endevent>>
+    <<lemonade_stand_options>> 
+<<else>>
+    你将你所拥有的<<print $amount>>条岩石龙虾递给了罗宾，罗宾惊喜地说："又有岩石龙虾可以卖了？我很怀念上次烤龙虾的味道。"
+    <br><br>
+    说着，你们一起搭好了烤架，罗宾像之前一样将虾肉分为了原味和柠檬味。
+    <br><br>
+    <<if $amount gte 2>>
+        等龙虾烤熟了以后，罗宾期待地问你："这次你想尝试什么口味？"
+        <br><br>
+        <<link [[吃柠檬烤龙虾（0:15)|Robin's Lemonade Give Lobster Eat]]>><<pass 15>><<set $type to "柠檬烤龙虾">><</link>><br>
+        <<link [[吃原味烤龙虾（0:15)|Robin's Lemonade Give Lobster Eat]]>><<pass 15>><<set $type to "原味烤龙虾">><</link>><br>
+        <<link [[不吃|Robin's Lemonade Give Lobster Not Eat]]>><</link>>
+    <<else>>
+        <<link [[继续（0:30)|Robin's Lemonade Give Lobster Sell]]>><</link>>
+    <</if>>
+<</if>>
+
+:: Robin's Lemonade Give Lobster Eat
+<<effects>><<set V["Rock_Lobster"] -= 1>>
+你和罗宾一起享用着美味的<<print $type>>，鲜嫩的龙虾肉混合着海风与海浪的声音，使你的疲劳一扫而空。
+<<ltrauma>><<lstress>><<ltiredness>><<tiredness -6>><<trauma -12>><<stress -24>>
+<br><br>
+<<link [[继续（0:30)|Robin's Lemonade Give Lobster Sell]]>><</link>>
+
+:: Robin's Lemonade Give Lobster Not Eat
+<<effects>>
+你摇了摇头表示你暂时不想吃烤龙虾，罗宾遗憾地说："那好吧，我们可以下次再说。"
+<br><br>
+<<link [[继续（0:30)|Robin's Lemonade Give Lobster Sell]]>><</link>>
+
+:: Robin's Lemonade Give Lobster Sell
+<<effects>>
+海滩上的游客再次被美味的烤龙虾所吸引，纷纷聚集到你们的摊位前，每一个品尝到烤龙虾的人都露出了满足的表情。
+<<set _lobsterPrice to getLobsterPrice()>>
+<<set _evenPrice to Math.round(_lobsterPrice /2)>>
+<<set $robinmoney += _evenPrice>>
+<<set $money +=  _evenPrice * 100>>
+<<run clearLobster()>>
+你们平分了卖烤龙虾的收益，<span class="gold">罗宾的存款增加了£<<print _evenPrice>>，你获得了£<<print _evenPrice>>。</span>
+<br><br>
+<<endevent>>
+<<lemonade_stand_options>>
+
+:: Robin's Lemonade Give Loach
+
