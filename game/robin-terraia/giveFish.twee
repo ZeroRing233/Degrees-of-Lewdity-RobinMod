@@ -1,10 +1,9 @@
-
 :: Robin's Lemonade Give Fish
 <<location "beach">><<set $outside to 0>><<effects>><<npc Robin>>
 <<set _fishText to "">><<set $totalAmount to 0>>
 <<for _i to 0; _i lt $fishList.length; _i++>>
     <<set _fish to setup.eatableFish[$fishList[_i]]>>
-    <<set _fishText += _fish.amount + "条" + _fish.cn_name + "，">>
+    <<set _fishText += "<span class='green'>" + _fish.amount + "</span>条" + "<span class='green'>" + _fish.cn_name + "</span>，">>
     <<set $totalAmount += _fish.amount>>
 <</for>>
 <<set _fishText to _fishText.replace(/\，$/, '')>>
@@ -39,8 +38,22 @@
     <br><br>
     <<link [[一起烤鱼(0:30)|Robin's Lemonade Give Fish First Time]]>><<pass 30>><</link>>
 <<else>>
-   
-
+   <<if $totalAmount gte 10>>
+        ："这些是...你又钓到了这么多鱼？" 罗宾的声音中充满了惊喜："我们又可以大赚一笔了。感谢你为我带来了这些新鲜的鱼类！"
+        <br><br>
+        说着，你们一起搭好了烤架，罗宾用特制的香料和柠檬汁腌制了你送来的鱼类，而你则不停翻动烤鱼控制着火候。
+        当第一条烤鱼的外皮被烤至金黄时，罗宾提议道："真香啊，我们要不要自己先吃一条？"
+        <br><br>
+        <<link [[一起吃烤鱼（0:15)|Robin's Lemonade Give Fish Eat]]>><<pass 15>><</link>><br>
+        <<link [[不吃|Robin's Lemonade Give Fish Not Eat]]>><</link>>
+    <<else>>
+        罗宾看上去眼前一亮，但随即摇了摇头："感谢你为我带来了这些，<span class="blue">但现在的数量恐怕不够卖..."</span>
+        <br><br>
+        你点头表示理解。罗宾看出了你有些失望，于是提议道："我们可以自己先吃一条烤鱼，怎么样？"
+        <br><br>
+        <<link [[一起吃烤鱼（0:15)|Robin's Lemonade Give Fish Eat No Sell]]>><<pass 15>><</link>><br>
+        <<link [[不吃|Robin's Lemonade Give Fish Not Eat No Sell]]>><</link>>
+    <</if>>
 <</if>>
 
 :: Robin's Lemonade Give Fish First Time
@@ -79,6 +92,53 @@
     <<run clearEatableFish()>>
     之后，你们平分了卖烤鱼的收益，<span class="gold">罗宾的存款增加了£<<print _evenPrice>>，你获得了£<<print _evenPrice>>。</span>
 <</if>>
+<br><br>
+<<endevent>>
+<<lemonade_stand_options>>
+
+:: Robin's Lemonade Give Fish Eat
+<<effects>><<set V[$randomFish.name] -= 1>>
+回想起烤鱼的香气，你迅速地响应了罗宾的提议。
+你们一起搭好了烤架，罗宾用特制的香料和柠檬汁腌制了你送来的鱼类，而你则不停翻动烤鱼控制着火候。
+<br><br>
+你和罗宾一起享用着美味的柠檬烤鱼，鲜美的鱼肉混合着海风与海浪的声音，使你的疲劳一扫而空。
+<<ltrauma>><<lstress>><<ltiredness>> <<tiredness -6>><<trauma -12>><<stress -24>>
+<br><br>
+<<link [[继续(0:30)|Robin's Lemonade Give Fish Sell]]>><<pass 30>><</link>>
+
+:: Robin's Lemonade Give Fish Not Eat
+<<effects>>
+你摇了摇头，罗宾遗憾地说："那好吧，我们可以下次再说。"
+<br><br>
+<<link [[继续(0:30)|Robin's Lemonade Give Fish Sell]]>><<pass 30>><</link>>
+
+:: Robin's Lemonade Give Fish Sell
+<<effects>>
+海滩上的游客再次被烤鱼的香气所吸引，在你们的摊位前排起了长队，每一个买到烤鱼的人脸上都洋溢着幸福的笑容。
+<br><br>
+<<set _fishPrice to getEatableFishPrice()>>
+<<set _evenPrice to Math.round(_fishPrice/2)>>
+<<set $robinmoney += _evenPrice>>
+<<set $money +=  _evenPrice * 100>>
+<<run clearEatableFish()>>
+最后，你们平分了卖烤鱼的收益，<span class="gold">罗宾的存款增加了£<<print _evenPrice>>，你获得了£<<print _evenPrice>>。</span>
+<br><br>
+<<endevent>>
+<<lemonade_stand_options>>
+
+:: Robin's Lemonade Give Fish Eat No Sell
+<<effects>><<set V[$randomFish.name] -= 1>>
+回想起烤鱼的香气，你迅速地响应了罗宾的提议。
+你们一起搭好了烤架，罗宾用特制的香料和柠檬汁腌制了你送来的鱼类，而你则不停翻动烤鱼控制着火候。
+<br><br>
+你和罗宾一起享用着美味的柠檬烤鱼，鲜美的鱼肉混合着海风与海浪的声音，使你的疲劳一扫而空。
+<<ltrauma>><<lstress>><<ltiredness>> <<tiredness -6>><<trauma -12>><<stress -24>>
+<br><br>
+<<endevent>>
+<<lemonade_stand_options>>
+
+:: Robin's Lemonade Give Fish Not Eat No Sell
+你摇了摇头，罗宾遗憾地说："那好吧，我们可以下次再说。"
 <br><br>
 <<endevent>>
 <<lemonade_stand_options>>
