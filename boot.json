@@ -23,7 +23,8 @@
         "game/robin-daily/giveWine.twee",
         "game/robin-daily/widgets.twee",
         "game/robin-fight/robinFight.twee",
-        "game/robin-fight/widgets.twee"
+        "game/robin-fight/widgets.twee",
+        "game/robin-terraia/giveFish.twee"
     ],
     "imgFileList": [],
     "additionDir": [

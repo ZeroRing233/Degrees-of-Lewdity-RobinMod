@@ -1,0 +1,84 @@
+
+:: Robin's Lemonade Give Fish
+<<location "beach">><<set $outside to 0>><<effects>><<npc Robin>>
+<<set _fishText to "">><<set $totalAmount to 0>>
+<<for _i to 0; _i lt $fishList.length; _i++>>
+    <<set _fish to setup.eatableFish[$fishList[_i]]>>
+    <<set _fishText += _fish.amount + "条" + _fish.cn_name + "，">>
+    <<set $totalAmount += _fish.amount>>
+<</for>>
+<<set _fishText to _fishText.replace(/\，$/, '')>>
+
+你将你所拥有的<<print _fishText>>递给了罗宾，
+<<if !$hasGivenFish>>
+    <<set $hasGivenFish to true>>
+    <<set _amountText to "">>
+    <<if $totalAmount gte 10>>
+        <<set _amountText to "这么多的鱼...">>
+    <<elseif $totalAmount gte 2>>
+        <<set _amountText to "这些鱼...">>
+    <<else>>
+        <<set _amountText to "这条鱼...">>
+    <</if>>
+    罗宾惊讶地瞪大了眼睛："<<print  _amountText>>你是从哪里弄来的？"
+    <br><br>
+    <<if $speech_attitude is "meek">>
+	    "是...是我自己钓上来的，你觉得怎么样？也许我们可以试着做烤鱼？" 你提议道，语气中带着一丝兴奋。
+    <<elseif $speech_attitude is "bratty">>
+	    "是我自己钓上来的，是不是很厉害？我们一起来做烤鱼吧！" 你得意地提议道。
+    <<else>>
+	    "是我自己钓上来的，你觉得怎么样？我们要不要试着做烤鱼？" 你兴奋地提议道。
+    <</if>>
+    <br><br>
+    罗宾点头同意了："这是个好主意，现在正好也没有别的客人，我们现在就试试吧！" 
+    <<if $fishList.length gte 2>>
+        <<He>>说着，挑选了一条<<print $randomFish.cn_name>>仔细地清洗着，你则在一旁准备篝火。
+    <<else>>
+        <<He>>说着，拿起了你递来的<<print $randomFish.cn_name>>仔细地清洗着，你则在一旁准备篝火。
+    <</if>>
+    <br><br>
+    <<link [[一起烤鱼(0:30)|Robin's Lemonade Give Fish First Time]]>><<pass 30>><</link>>
+<<else>>
+   
+
+<</if>>
+
+:: Robin's Lemonade Give Fish First Time
+<<effects>><<set V[$randomFish.name] -= 1>>
+当一切准备就绪后，你们小心地将<<print $randomFish.cn_name>>放在烤架上，一边轮流翻动着烤鱼，一边期待着成品。
+周围海风轻拂，带着一丝丝咸香与凉爽。<<ltrauma>><<lstress>><<trauma -12>><<stress -24>>
+<br><br>
+随着时间的推移，鱼肉渐渐散发出诱人的香气，你和罗宾各自拿起了一小块鱼肉，细细品尝着。
+<br><br>
+鱼肉的味道似乎没有想象中诱人，罗宾也看上去若有所思，过了一会后，<<He>>似乎想起了什么，
+对你说了句："稍等。" 然后迅速从摊位上拿了一颗柠檬，挤了几滴柠檬汁在烤鱼上。
+<br><br>
+加了柠檬的烤鱼，味道清新中带着一丝酸甜，柠檬的香气完美融入鱼肉的每一寸肌理，使其更加鲜美且鲜嫩多汁。
+<br><br>
+："真好吃。" 你不由感慨道，罗宾点了点头，补充说："之后在烤之前我们可以用柠檬腌制一下，会更加好吃。"
+<br><br>
+<<link [[继续|Robin's Lemonade Give Fish First Time 2]]>><</link>>
+
+:: Robin's Lemonade Give Fish First Time 2
+<<effects>><<generatey2>>
+就在你们沉浸在美食中时，鱼肉的香气将海滩上的游客纷纷吸引到了你们周围。
+<br><br>
+罗宾将剩下的烤鱼切成小块，分给了周围的人，人们对烤鱼的美味赞不绝口，一个<<person2>><<person>>提议说："之后柠檬水摊可以卖烤鱼吗？"
+<br><br>
+罗宾看向了你，你点了点头："当然可以，我还能钓到更多的鱼。" 
+在得到你的承诺后，罗宾爽快地答应了<<person>>："多谢提议，敬请期待我们之后的菜单。"
+<<set _fishPrice to getEatableFishPrice()>>
+<<if  _fishPrice gt 0>>
+    <br><br>
+    ："我们不是还有其他鱼吗？现在就烤来卖吧。" 你和罗宾商量着，决定立刻行动，你们一条接一条地烤了剩下的鱼类，
+    这些柠檬烤鱼大受欢迎，很快就被一抢而空。
+    <br><br>
+    <<set _evenPrice to Math.round(_fishPrice/2)>>
+    <<set $robinmoney += _evenPrice>>
+    <<set $money +=  _evenPrice * 100>>
+    <<run clearEatableFish()>>
+    之后，你们平分了卖烤鱼的收益，<span class="gold">罗宾的存款增加了£<<print _evenPrice>>，你获得了£<<print _evenPrice>>。</span>
+<</if>>
+<br><br>
+<<endevent>>
+<<lemonade_stand_options>>

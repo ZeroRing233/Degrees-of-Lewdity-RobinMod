@@ -134,12 +134,15 @@ window.hasTerrariaInfo = hasTerrariaInfo;
 // 添加所有可食用的鱼类，调试用
 function addEatAbleFish() {
     for (let fish in setup.eatableFish) {
-        setup.eatableFish[fish].amount += 1;
+        V[fish] = V[fish] || 0;
+        V[fish] += 1;
+        setup.eatableFish[fish].amount = V[fish]
     }
 }
 window.addEatAbleFish = addEatAbleFish;
 
-function getEatableFishList() {
+// 日志展示用
+function getAllEatableFishList() {
     // 获取前先更新一波
     for (let fish in setup.eatableFish) {
         setup.eatableFish[fish].amount = V[fish] || 0;
@@ -149,7 +152,46 @@ function getEatableFishList() {
         return setup.eatableFish[fish].amount > 0;
     });
 }
-window.getEatableFishList = getEatableFishList;
+window.getAllEatableFishList = getAllEatableFishList;
+
+function getEatableFishList_fishOnly() {
+    // 获取前先更新一波
+    for (let fish in setup.eatableFish) {
+        setup.eatableFish[fish].amount = V[fish] || 0;
+    }
+    let all_eatable_fish_list = Object.keys(setup.eatableFish);
+    return all_eatable_fish_list.filter(fish => {
+        return setup.eatableFish[fish].amount > 0 && setup.eatableFish[fish].type === 'fish';
+    });
+}
+window.getEatableFishList_fishOnly = getEatableFishList_fishOnly;
+
+//获取当前卖烤鱼的总价值，因为可能吃了一条所以要重新遍历
+function getEatableFishPrice() {
+    let price = 0;
+    let all_eatable_fish_list = getEatableFishList_fishOnly();
+    all_eatable_fish_list.forEach(fish => {
+        price += setup.eatableFish[fish].amount * setup.eatableFish[fish].price;
+    });
+    return price;
+}
+window.getEatableFishPrice = getEatableFishPrice;
+
+// 每次卖完烤鱼后调用
+function clearEatableFish() {
+    let all_eatable_fish_list = getEatableFishList_fishOnly();
+    all_eatable_fish_list.forEach(fish => {
+        setup.eatableFish[fish].amount = 0;
+        V[fish] = 0;
+    });
+}
+window.clearEatableFish = clearEatableFish;
+
+// function pickOneFish() {
+//     let all_eatable_fish_list = getEatableFishList();
+//     return all_eatable_fish_list.random();
+// }
+// window.pickOneFish = pickOneFish;
 
 
 // function getEatableFishList() {
@@ -171,18 +213,18 @@ window.getEatableFishList = getEatableFishList;
 
 // 岩石龙虾，绿波泥鳅
 //let all_eatable_seafood_list = ["Rock_Lobster", "Greenwave_Loach"]
-function hasLobster() {
-    if (typeof V["Rock_Lobster"] === 'number' && V["Rock_Lobster"] >= 1) {
-        return true;
-    }
-    return false;
-}
-window.hasLobster = hasLobster;
+// function hasLobster() {
+//     if (typeof V["Rock_Lobster"] === 'number' && V["Rock_Lobster"] >= 1) {
+//         return true;
+//     }
+//     return false;
+// }
+// window.hasLobster = hasLobster;
 
-function hasLoach() {
-    if (typeof V["Greenwave_Loach"] === 'number' && V["Greenwave_Loach"] >= 1) {
-        return true;
-    }
-    return false;
-}
-window.hasLoach = hasLoach;
+// function hasLoach() {
+//     if (typeof V["Greenwave_Loach"] === 'number' && V["Greenwave_Loach"] >= 1) {
+//         return true;
+//     }
+//     return false;
+// }
+// window.hasLoach = hasLoach;

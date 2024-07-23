@@ -1,6 +1,6 @@
 /% 调试用 %/
 /% <<run addEatAbleFish()>> %/
-<<set _eatableFishList to getEatableFishList()>>
+<<set _eatableFishList to getAllEatableFishList()>>
 <<if _eatableFishList.length gt 0>>
 	<br>
 	<details class="journal">
