@@ -58,7 +58,7 @@
 
 :: Robin's Lemonade Give Fish First Time
 <<effects>><<set V[$randomFish.name] -= 1>>
-当一切准备就绪后，你们小心地将<<print $randomFish.cn_name>>放在烤架上，一边轮流翻动着烤鱼，一边期待着成品。
+当一切准备就绪后，你们小心地将<span class="green"><<print $randomFish.cn_name>></span>放在烤架上，一边轮流翻动着烤鱼，一边期待着成品。
 周围海风轻拂，带着一丝丝咸香与凉爽。<<ltrauma>><<lstress>><<trauma -12>><<stress -24>>
 <br><br>
 随着时间的推移，鱼肉渐渐散发出诱人的香气，你和罗宾各自拿起了一小块鱼肉，细细品尝着。
