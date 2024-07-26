@@ -106,7 +106,7 @@
 <<stateman>>
 <br><br>
 <<actionsman>>
-<<if _combatend or ($pain gte 100 and $willpowerpain is 0 and $NPCList[5].health lte 0)>>
+<<if $enemyhealth lte 0 or ($pain gte 100 and $willpowerpain is 0 and $NPCList[5].health lte 0)>>
 	<span id="next"><<link [[继续|Robin Fight Finish]]>><</link>></span><<nexttext>>
 <<else>>
 	<span id="next"><<link [[继续|Robin Fight]]>><</link>></span><<nexttext>>

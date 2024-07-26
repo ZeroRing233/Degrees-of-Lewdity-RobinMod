@@ -170,7 +170,9 @@
     /% 减去溢出的伤害点数 %/
     <<set _robinDamage += $NPCList[_args[1]].health>>
     /% 偷懒直接用原来的，罗宾打败敌人pc减创伤不也很正常 %/
-    <<defeatnpc _args[1]>>
+    <<if $enemyno gte 2>>
+      <<defeatnpc _args[1]>>
+    <</if>>
 	<</if>> 
 	<<set $enemyhealth -= _robinDamage>> 
 <</widget>>
