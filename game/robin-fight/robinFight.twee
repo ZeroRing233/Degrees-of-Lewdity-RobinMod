@@ -182,6 +182,7 @@
 
 :: Robin Fight Together
 <<if $fightstart is 1>>
+    <<set $timer to 100>>
 	<<set $fightstart to 0>>
     <<set $enemyno to 5>>
 	<<neutral 1>>
@@ -204,8 +205,24 @@
 <<elseif $NPCList[5].health gt 0>>
     罗宾浑身颤抖，但仍然奋力挣扎着，<<robinSpeech>>
 <<else>>
+    /% 控制一下，加五点创伤差不多得了 %/
+    <<if $timer gt 5>>
+        <<set $timer to 5>>
+    <</if>>
     <span class="red">罗宾伤得太重了，无法再继续挣扎。</span>
     <<grtrauma true>><<set C.npc.Robin.trauma += 1>>
+<</if>>
+
+/% pc也别一直挨打了 %/
+<<if $pain gte 100 and $willpowerpain is 0 and $timer gt 5>>
+    <<set $timer to 5>>
+<</if>>
+
+/% 强制结束战斗 %/
+<<if $timer is 0>>
+    <<set $pain to 100>>
+    <<set $willpowerpain to 0>>
+    <<set $NPCList[5].health to 0>>
 <</if>>
 
 <br><br>
