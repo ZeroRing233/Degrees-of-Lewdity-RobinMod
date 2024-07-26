@@ -24,7 +24,9 @@
         "game/robin-daily/widgets.twee",
         "game/robin-fight/robinFight.twee",
         "game/robin-fight/widgets.twee",
-        "game/robin-terraia/giveFish.twee"
+        "game/robin-terraia/giveFish.twee",
+        "game/origin-replace/widgets.twee",
+        "game/origin-replace/balloonRobin.twee"
     ],
     "imgFileList": [],
     "additionDir": [
@@ -71,6 +73,7 @@
         "game/origin-replace/canteenWhitney.txt",
         "game/origin-replace/schoolWhitney.txt",
         "game/origin-replace/schoolWhitney2.txt",
+        "game/origin-replace/balloonRobinIntro.txt",
         "game/robin-trait/robinTrait.txt",
         "game/robin-trait/robinRoomEntranceTalk.txt",
         "game/robin-trait/robinPayBackCount.txt",
@@ -522,6 +525,21 @@
                     "findString": "<<if $robinfirstrentfight is 1>>",
                     "replace": "<<if $robinfirstrentfight is 1 or $robinFightTalked>>",
                     "all": true
+                },
+                {
+                    "passage": "Beach",
+                    "findString": "<<balloonRobinIntro>>",
+                    "replaceFile": "game/origin-replace/balloonRobinIntro.txt"
+                },
+                {
+                    "passage": "Balloon Decline",
+                    "findString": "<<balloonRobinIntro>>",
+                    "replaceFile": "game/origin-replace/balloonRobinIntro.txt"
+                },
+                {
+                    "passage": "Park",
+                    "findString": "<<balloonRobinIntro>>",
+                    "replaceFile": "game/origin-replace/balloonRobinIntro.txt"
                 }
             ]
         },

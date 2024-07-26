@@ -1,0 +1,5 @@
+<<if $lemonadeNewGoodsList isnot undefined and $lemonadeNewGoodsList.includes("popcorn")>>
+    <<balloonRobinIntroProcorn>>
+<<else>>
+    <<balloonRobinIntro>>
+<</if>>

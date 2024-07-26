@@ -1,0 +1,15 @@
+:: Widgets Origin Replace [widget]
+<<widget "balloonRobinIntroProcorn">>
+    <<loadNPC 0 "stall_owner">><<npc Robin 2>><<person2>>
+	<<set _lemonade to Time.season is "winter" ? "热巧克力" : "柠檬水">>
+
+	你看到罗宾站在<<his>>的_lemonade摊位后面。当<<he>>注意到你时，<<he>>离开摊位并且
+	<<if C.npc.Robin.trauma gte 40>>
+		走向你。“嘿，”<<he>>嘟囔着。“你有……<<print Time.season is "winter" ? "听说海滩上的那个摊位了吗" : "看到那边的摊位了吗">>？卖气球和爆米花的那个。本来要吸引顾客就已经够难的了。我担心我的顾客会被分走。<<person1>><<He>>也在卖爆米花！”
+	<<else>>
+		向你靠了过来。“嘿，很高兴在这里见到你！我希望你稍后能来我的摊位。”罗宾咬着<<his>>的嘴唇。“你看到那个在<<print Time.season is "winter" ? "海滩上" : "这里">>开设的其他摊位了吗？我担心我的顾客会被分走。<<person1>><<He>>也在卖爆米花！”
+	<</if>>
+	<br><br>
+	<<link [[安抚罗宾|Balloon Robin Response Popcorn]]>><<set $phase to 0>><</link>><br>
+	<<link [[一言不发|Balloon Robin Response Popcorn]]>><<set $phase to 1>><</link>>
+<</widget>>

@@ -1,0 +1,48 @@
+:: Balloon Robin Response Popcorn
+<<if $phase is 0>>
+	<<set _lemonade to Time.season is "winter" ? "热巧克力" : "柠檬水">>
+    <<set _text to "">>
+    <<if $drinkUpgradedList isnot undefined and $drinkUpgradedList.length gt 0>>
+        <<set _text += "各种新饮料，">>
+    <</if>>
+    <<if $lemonadeNewGoodsList.includes("snack")>>
+        <<set _text += "小点心，">>
+    <</if>>
+    <<if $lemonadeNewGoodsList.includes("flower")>>
+        <<set _text += "鲜花，">>
+    <</if>>
+    <<if _text is "">>
+        <<set _text += "可以解渴的" +  _lemonade>>
+    <<else>>
+        <<set _text += "和可以解渴的" +  _lemonade>>
+    <</if>>
+	你告诉罗宾<<He>>可以放宽心。“你卖的东西更多，不是吗？”你说。“更何况，我觉得我们的爆米花味道更好。”
+    “我很高兴你这么觉得！”罗宾说。<<He>>看了一眼<<print Time.season is "winter" ? "海滩的方向" : "那个摊位">>，
+    又看了看自己的，小声笑了笑。"他们在卖 咸味的爆米花，是吗？但是我卖的爆米花口味更多。而且，我还有<span class="green"><<print _text>></span>！” <<He>>说，听起来很是期待。
+    <br><br>
+    你赞同地点了点头。
+    <br><br>
+	你们俩简短地聊了一会儿天。最后，罗宾说<<he>>需要回到<<his>>的摊位上。
+	<br>
+	<<if C.npc.Robin.trauma gte 40>>
+		<<He>>缓步走开，<<his>>的目光紧盯着地面。
+	<<else>>
+		<<He>>微笑着向你挥手道别。
+	<</if>>
+<<else>>
+	你不回话。沉默尴尬地在你们之间蔓延。罗宾有些坐立难安。
+	<br><br>
+	“是的，”好半晌，<<person2>><<he>>才说道。“我想也许我应该要担点心。”
+	<<if C.npc.Robin.trauma gte 40>>
+		<<He>>叹了口气，没精打采地望着摊位。“好吧，我应该回去继续工作了。”<<He>>蹒跚而去，<<his>>的目光始终盯着地面。
+	<<else>>
+		<<He>>叹了口气，有那么一瞬间看起来神色沮丧，但马上又恢复到<<his>>平常无忧无虑的样子。“那么，你能做些什么呢？我会继续努力工作的。”<<He>>微笑着挥手道别。
+	<</if>>
+<</if>>
+<<set $balloonStand.robin.status to "help needed">>
+<br><br>
+<<switch $location>>
+    /% 这里原版公园也是返回海滩，也许需要说一下 %/
+	<<case "park">><<link [[继续|Park]]>><<set $eventskip to 1>><<endevent>><</link>>
+	<<default>><<link [[继续|Beach]]>><<set $eventskip to 1>><<endevent>><</link>>
+<</switch>>
