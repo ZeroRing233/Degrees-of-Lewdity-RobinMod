@@ -156,3 +156,20 @@ function getWineType() {
     }
 }
 window.getWineType = getWineType;
+
+
+function meetOrphangePayBackCondition() {
+    if (!["orphanage", "bath", "sleep", "liveStream"].includes(getRobinLocation())) {
+        return false;
+    }
+    for (let key in V.per_npc) {
+        let npc = V.per_npc[key];
+        if (key.startsWith("orphan_rent_robin") && !npc.payBacked &&
+            npc.willPayBack && (Time.days - npc.rentPaidDay) >= npc.couldPayBackDay) {
+            T.npcSelected = key;
+            return true;
+        }
+    }
+    return false;
+}
+window.meetOrphangePayBackCondition = meetOrphangePayBackCondition;
