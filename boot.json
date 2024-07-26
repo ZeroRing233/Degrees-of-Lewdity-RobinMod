@@ -516,6 +516,12 @@
                     "findRegex": "<<if .*\\$plants_known.length.*",
                     "replaceFile": "game/robin-terraia/journal.txt",
                     "comments": "为了兼容5.0和5.1的日志，出此下策"
+                },
+                {
+                    "passage": "Robin Study Concentrate",
+                    "findString": "<<if $robinfirstrentfight is 1>>",
+                    "replace": "<<if $robinfirstrentfight is 1 or $robinFightTalked>>",
+                    "all": true
                 }
             ]
         },
