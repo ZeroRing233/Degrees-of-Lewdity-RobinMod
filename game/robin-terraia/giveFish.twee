@@ -86,6 +86,7 @@
     ："我们不是还有其他鱼吗？现在就烤来卖吧。" 你和罗宾商量着，决定立刻行动，你们一条接一条地烤了剩下的鱼类，
     这些柠檬烤鱼大受欢迎，很快就被一抢而空。
     <br><br>
+    <<famebusiness 5>>
     <<set _evenPrice to Math.round(_fishPrice/2)>>
     <<set $robinmoney += _evenPrice>>
     <<set $money +=  _evenPrice * 100>>
@@ -115,6 +116,7 @@
 <<effects>>
 海滩上的游客再次被烤鱼的香气所吸引，在你们的摊位前排起了长队，每一个买到烤鱼的人脸上都洋溢着幸福的笑容。
 <br><br>
+<<famebusiness 5>>
 <<set _fishPrice to getEatableFishPrice()>>
 <<set _evenPrice to Math.round(_fishPrice/2)>>
 <<set $robinmoney += _evenPrice>>
@@ -157,6 +159,7 @@
         <br><br>
         之后，罗宾将剩下的龙虾加入了菜单中，海滩上的游客纷纷被新加入的烤龙虾所吸引，每个人都对虾肉的味道赞不绝口。
         <br><br>
+        <<famebusiness 5>>
         <<set _evenPrice to Math.round(_lobsterPrice /2)>>
         <<set $robinmoney += _evenPrice>>
         <<set $money +=  _evenPrice * 100>>
@@ -199,6 +202,7 @@
 <<effects>>
 海滩上的游客再次被美味的烤龙虾所吸引，纷纷聚集到你们的摊位前，每一个品尝到烤龙虾的人都露出了满足的表情。
 <br><br>
+<<famebusiness 5>>
 <<set _lobsterPrice to getLobsterPrice()>>
 <<set _evenPrice to Math.round(_lobsterPrice /2)>>
 <<set $robinmoney += _evenPrice>>
@@ -225,6 +229,7 @@
         <br><br>
         海滩上的游客对新加入的品种感到十分好奇，纷纷前来尝试，其中一些人表示自己很喜欢烤泥鳅嫩滑的口感。
         <br><br>
+        <<famebusiness 5>>
         <<set _evenPrice to Math.round(_loachPrice /2)>>
         <<set $robinmoney += _evenPrice>>
         <<set $money +=  _evenPrice * 100>>
@@ -268,6 +273,7 @@
 <<effects>>
 海滩上的游客再次被美味又新奇的烤泥鳅所吸引，纷纷聚集到你们的摊位前。
 <br><br>
+<<famebusiness 5>>
 <<set _loachPrice to getLoachPrice()>>
 <<set _evenPrice to Math.round(_loachPrice /2)>>
 <<set $robinmoney += _evenPrice>>
