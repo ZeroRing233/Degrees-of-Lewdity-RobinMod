@@ -1,0 +1,63 @@
+:: Eden Robin Together Escape
+
+<<if $molestationstart is 1>>
+	<<npc Eden 1>>
+	<<npc Robin 2>>
+	<<set $molestationstart to 0>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<set $enemyno to 1>>
+	<<set $enemynomax to 1>>
+	<<maninit>>
+	<<stalk_init>>
+	<<stalk_run>>
+	<<set $combatgoal to "confront">>
+	<<set $NPCList[0].bold to 10000>>
+	你和罗宾紧紧握着彼此的手，<span class="pink">你们正在被追赶。</span>
+<</if>>
+<<effects>>
+<<effectsman>><<man>>
+<br><br>
+
+<<print either(
+	"罗宾加快了脚步。",
+	"你看着罗宾的背影，心里不由得感到安心。",
+	"罗宾更加用力地握着你的手。",
+	"不远处传来了伊甸的怒吼。",
+	"你能感觉到伊甸仍然在你们身后。"
+)>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if $stalk_end>>
+	<span id="next"><<link [[Next|Eden Robin Together Escape End]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[Next|Eden Robin Together Escape]]>><</link>></span><<nexttext>>
+<</if>>
+
+/% 参考文本Robin Forest Crash Escape 2 %/
+:: Eden Robin Together Escape End
+<<effects>>
+<<set $outside to 0>><<set $location to "home">><<effects>>
+<<person1>>
+终于，你们成功摆脱了伊甸的追捕。
+你们继续不停地跑着，直到回到孤儿院。罗宾紧紧地抱住了你。<<His>>的拥抱让人感到安慰。<<trauma -6>><<ltrauma>>
+<<npcincr Robin love 1>><<npcincr Robin dom 1>><<glove "Robin">><<gdom "Robin">>
+<br><br>
+"真是太可怕了，"<<he>>说，"你还好吗？"
+<br><br>
+"我很好"，你说，"我们安全了。"
+<br><br>
+过了一会儿，罗宾松开了你。
+<br><br>
+"<<nnpc_he "Eden">>是谁？"<<he>>问。"<<nnpc_he "Eden">>看起来像是认识你。"
+<br><br>
+你犹豫了一下，不知道该如何解释。罗宾等着你的回答。当<<he>>发现你不愿或无法回答时，<<He>>再次抱了抱你，对你说道："没关系，我们可以等你愿意的时候，再来谈这件事。"
+<br><br>
+随后，<<he>>走向床边，然后像往常一样<<= $robinconsole is 1 ? "拿起了<<his>>的游戏机" : "坐了下来">>。
+<br><br>
+<<endevent>>
+
+<<npc Robin>><<person1>>
+<<robinoptions>>

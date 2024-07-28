@@ -74,6 +74,7 @@
         "game/origin-replace/schoolWhitney.txt",
         "game/origin-replace/schoolWhitney2.txt",
         "game/origin-replace/balloonRobinIntro.txt",
+        "game/origin-replace/robinForestEden.txt",
         "game/robin-trait/robinTrait.txt",
         "game/robin-trait/robinRoomEntranceTalk.txt",
         "game/robin-trait/robinPayBackCount.txt",
@@ -540,6 +541,12 @@
                     "passage": "Park",
                     "findString": "<<balloonRobinIntro>>",
                     "replaceFile": "game/origin-replace/balloonRobinIntro.txt"
+                },
+                {
+                    "passage": "Robin Forest Crash Taken",
+                    "findRegex": "<<if C.npc.Robin.dom gte 60>>(.|\n)*?<</link>>",
+                    "replaceFile": "game/origin-replace/robinForestEden.txt",
+                    "comment": "修改伊甸修罗场"
                 }
             ]
         },

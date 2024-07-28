@@ -1,0 +1,17 @@
+<<if C.npc.Robin.dom gte 91 or $robinFightTalked>>
+    罗宾向伊甸的背部扔了一块石头，<span class="green">石头准确地击中了伊甸</span>，伊甸踉跄了一下，你从<<person2>><<his>>的肩膀上滑落了下来。
+    <br><br>
+    罗宾抓住了这个空隙，迅速地冲到了你面前，解开了你身上的束缚，然后扶起了你。
+    <br><br>
+    在伊甸回过神来之前，罗宾拉着你一起向着城镇的方向跑去。
+    <br><br>
+    <<link [[继续|Eden Robin Together Escape]]>><<endevent>><<set $molestationstart to 1>><</link>>
+<<elseif C.npc.Robin.dom gte 60>>
+	罗宾向伊甸的背部扔了一块石头。<span class="red">伊甸头都没回。罗宾帮不了你。</span><<trauma 12>><<npcincr Robin dom -5>><<npcincr Robin trauma 5>><<ggtrauma>><<lldom>><<ggrtrauma>>
+    <br><br>
+    <<link [[继续|Eden Robin Caged Caught]]>><<endevent>><</link>>
+<<else>>
+	罗宾和你视线相交，然后移开了。<span class="red"><<person1>><<He>>紧盯着地面。<<person1>><<He>>不会帮你。</span><<stress 6>><<trauma 18>><<npcincr Robin dom -10>><<npcincr Robin trauma 10>><<gstress>><<gggtrauma>><<llldom>><<gggrtrauma>>
+    <br><br>
+    <<link [[继续|Eden Robin Caged Caught]]>><<endevent>><</link>>
+<</if>>
