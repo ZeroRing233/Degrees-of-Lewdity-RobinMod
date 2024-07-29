@@ -39,7 +39,6 @@
 /% 参考文本Robin Forest Crash Escape 2 %/
 :: Eden Robin Together Escape End
 <<effects>>
-<<set $outside to 0>><<set $location to "home">><<effects>>
 /% 带回是不可能带回的，只能再逃一次这样子 %/
 <<if $stalk_end is "confront">>
 	伊甸拽住了你的胳膊，用力到让人发疼。<<person1>><<He>>看起来似乎十分生气。
