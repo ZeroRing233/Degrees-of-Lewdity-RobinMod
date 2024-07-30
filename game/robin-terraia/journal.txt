@@ -5,7 +5,7 @@
 	<br>
 	<details class="journal">
         <summary class="journal">（dom罗宾and泰拉瑞亚）可食用渔获列表，你可以在海滩上向罗宾展示这些收获。</summary>
-        <div class="itemInventory">
+        <div class="itemTerra">
 			<<for _t to 0; _t lt _eatableFishList.length; _t++>>
 				<<set _item to setup.eatableFish[_eatableFishList[_t]]>>
                 <<set _itemName to _item.cn_name>>

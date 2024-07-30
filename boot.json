@@ -1,11 +1,12 @@
 {
     "name": "DomRobin",
-    "version": "0.0.3",
+    "version": "0.0.4-temp",
     "styleFileList": [],
     "scriptFileList": [
         "game/javaScript/robinModUtil.js",
         "game/javaScript/robinTraitEffects.js",
-        "game/javaScript/terraiaUtil.js"
+        "game/javaScript/terraiaUtil.js",
+        "game/javaScript/orphanagePoster.js"
     ],
     "tweeFileList": [
         "game/robin-work/lemonade/lemonadeUpgrade.twee",
@@ -26,7 +27,8 @@
         "game/robin-fight/widgets.twee",
         "game/robin-terraia/giveFish.twee",
         "game/origin-replace/widgets.twee",
-        "game/origin-replace/balloonRobin.twee"
+        "game/origin-replace/balloonRobin.twee",
+        "game/orphanage-poster/optionsOverlay.txt"
     ],
     "imgFileList": [],
     "additionDir": [
@@ -100,7 +102,8 @@
         "game/robin-fight/orphanage.txt",
         "game/robin-fight/manCombat.txt",
         "game/robin-fight/defeatnpc.txt",
-        "game/robin-terraia/journal.txt"
+        "game/robin-terraia/journal.txt",
+        "game/orphanage-poster/optionsOverlay.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -547,6 +550,12 @@
                     "findRegex": "<<if C.npc.Robin.dom gte 60>>(.|\n)*?<</link>>",
                     "replaceFile": "game/origin-replace/robinForestEden.txt",
                     "comment": "修改伊甸修罗场"
+                },
+                {
+                    "passage": "Options Overlay",
+                    "findRegex": "\\s*<<if \\$passage isnot \"Start\">>",
+                    "replaceFile": "game/orphanage-poster/optionsOverlay.txt",
+                    "comments": "在选项-通用里添加海报设置"
                 }
             ]
         },

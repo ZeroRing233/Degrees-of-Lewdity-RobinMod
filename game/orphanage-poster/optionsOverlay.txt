@@ -1,0 +1,43 @@
+	<hr>
+	<div class="settingsGrid">
+		<div class="settingsHeader options">孤儿院大厅海报设置（罗宾mod）</div>
+        <div class="settingsToggleItem">
+			<span class="gold">是否展示孤儿院大厅海报：</span>
+			<mouse class="tooltip linkBlue">(?)<span>如果选择"是"，孤儿院高希望/高叛逆海报事件中将会出现cg</span></mouse>
+			<br>
+			<!-- 单选按钮，就手动实现把我不管了 -->
+    		<input type="radio" id="showPoster" name="showPoster" value="showPoster" onclick="showPostClicked()">
+    		<label for="showPoster">是</label>
+			<br>
+    		<input type="radio" id="notShowPoster" name="showPoster" value="notShowPoster" onclick="showPostClicked()">
+    		<label for="notShowPoster">否</label>
+			/%<label><<radiobutton "$options.showPoster" true autocheck class="showPoster" onclick="test()">>是</label>
+			<br>
+			<label><<radiobutton "$options.showPoster" false autocheck class="showPoster" onclick="test()">>否</label>%/
+		</div> 
+		<div class="settingsToggleItem orphanagePosterSetting">
+			<span class="gold">请选择孤儿院大厅海报风格：</span>
+			<br>
+			<label><<radiobutton "$options.posterStyle" "pixel" autocheck>>像素风（推荐）</label>
+			<mouse class="tooltip linkBlue">(?)<span>像素风的孤儿院大厅海报</span></mouse>
+			<br>
+			<label><<radiobutton "$options.posterStyle" "pixel-en" autocheck>>像素风（英文）</label>
+			<mouse class="tooltip linkBlue">(?)<span>像素风的孤儿院大厅海报，文本内容为英文</span></mouse>
+			<br>
+			<label><<radiobutton "$options.posterStyle" "non-pixel" autocheck>>非像素风</label>
+			<mouse class="tooltip linkBlue">(?)<span>精细化的孤儿院大厅海报</span></mouse>
+		</div>
+		<div class="settingsToggleItem orphanagePosterSetting">
+			<span class="gold">请选择孤儿院大厅海报宽度：</span>
+			<br>
+			<label><<radiobutton "$options.posterWidth" "poster-60" autocheck>>60%（推荐）</label>
+			<mouse class="tooltip linkBlue">(?)<span>海报宽度占当前文字展示宽度的60%</span></mouse>
+			<br>
+			<label><<radiobutton "$options.posterWidth" "poster-80" autocheck>>80%</label>
+			<mouse class="tooltip linkBlue">(?)<span>海报宽度占当前文字展示宽度的80%</span></mouse>
+			<br>
+			<label><<radiobutton "$options.posterWidth" "poster-100" autocheck>>100%</label>
+			<mouse class="tooltip linkBlue">(?)<span>海报宽度占当前文字展示宽度的100%</span></mouse>
+		</div>
+	</div>
+    <<if $passage isnot "Start">>
