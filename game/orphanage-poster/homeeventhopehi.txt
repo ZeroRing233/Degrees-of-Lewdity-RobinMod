@@ -41,8 +41,8 @@
                 <br><br>
                 <<set _poster_pic to ["sunrise","together","flower","alone","thumbs","seed","mountain","heart"].random()>>
 			<</if>>
-
-            <img @src="'img/poster/'+$options.posterStyle+'/hope/'+ _poster_pic +'.jpg'" @style="$options.showPoster? '' : 'display:none;'"
-            @class=$options.posterWidth> 
-            <br><br>
+            <<if $options.showPoster>>
+                <img @src="'img/poster/'+$options.posterStyle+'/hope/'+ _poster_pic +'.jpg'" @class=$options.posterWidth> 
+                <br><br>
+            <</if>>
 			<<link [[继续|Orphanage]]>><<endevent>><</link>>

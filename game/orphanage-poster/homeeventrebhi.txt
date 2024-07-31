@@ -26,6 +26,8 @@
 
 			当你经过海报时，一股暖意在你心中涌动。<<greb>><<reb 1>>
 			<br><br>
-			<img @src="'img/poster/'+$options.posterStyle+'/reb/'+ _poster_pic +'.jpg'" @class=$options.posterWidth>
-			<br><br>
+			<<if $options.showPoster>>
+				<img @src="'img/poster/'+$options.posterStyle+'/reb/'+ _poster_pic +'.jpg'" @class=$options.posterWidth>
+				<br><br>
+			<</if>>
 			<<link [[继续|Orphanage]]>><<endevent>><</link>>
