@@ -5,17 +5,26 @@
 			<span class="gold">是否展示孤儿院大厅海报：</span>
 			<mouse class="tooltip linkBlue">(?)<span>如果选择"是"，孤儿院高希望/高叛逆海报事件中将会出现cg</span></mouse>
 			<br>
-			<!-- 单选按钮，就手动实现把我不管了 -->
-    		<input type="radio" id="showPoster" name="showPoster" value="showPoster" onclick="showPostClicked()">
-    		<label for="showPoster">是</label>
-			<br>
-    		<input type="radio" id="notShowPoster" name="showPoster" value="notShowPoster" onclick="showPostClicked()">
-    		<label for="notShowPoster">否</label>
+			<!-- 单选按钮，就手动实现把我不管了，可能方式有点离奇 -->
+			<<if $options.showPoster>>
+				<input type="radio" id="showPoster" name="showPoster" value="showPoster" onclick="showPostClicked()" checked>
+				<label for="showPoster">是</label>
+				<br>
+				<input type="radio" id="notShowPoster" name="showPoster" value="notShowPoster" onclick="showPostClicked()">
+				<label for="notShowPoster">否</label>
+			<<else>>
+				<input type="radio" id="showPoster" name="showPoster" value="showPoster" onclick="showPostClicked()">
+				<label for="showPoster">是</label>
+				<br>
+				<input type="radio" id="notShowPoster" name="showPoster" value="notShowPoster" onclick="showPostClicked()" checked>
+				<label for="notShowPoster">否</label>
+			<</if>>
 			/%<label><<radiobutton "$options.showPoster" true autocheck class="showPoster" onclick="test()">>是</label>
 			<br>
 			<label><<radiobutton "$options.showPoster" false autocheck class="showPoster" onclick="test()">>否</label>%/
 		</div> 
-		<div class="settingsToggleItem orphanagePosterSetting">
+
+		<div class="settingsToggleItem orphanagePosterSetting"  @style="$options.showPoster? '' : 'display:none;'">
 			<span class="gold">请选择孤儿院大厅海报风格：</span>
 			<br>
 			<label><<radiobutton "$options.posterStyle" "pixel" autocheck>>像素风（推荐）</label>
@@ -27,7 +36,7 @@
 			<label><<radiobutton "$options.posterStyle" "non-pixel" autocheck>>非像素风</label>
 			<mouse class="tooltip linkBlue">(?)<span>精细化的孤儿院大厅海报</span></mouse>
 		</div>
-		<div class="settingsToggleItem orphanagePosterSetting">
+		<div class="settingsToggleItem orphanagePosterSetting" @style="$options.showPoster? '' : 'display:none;'">
 			<span class="gold">请选择孤儿院大厅海报宽度：</span>
 			<br>
 			<label><<radiobutton "$options.posterWidth" "poster-60" autocheck>>60%（推荐）</label>
@@ -39,5 +48,6 @@
 			<label><<radiobutton "$options.posterWidth" "poster-100" autocheck>>100%</label>
 			<mouse class="tooltip linkBlue">(?)<span>海报宽度占当前文字展示宽度的100%</span></mouse>
 		</div>
+		
 	</div>
     <<if $passage isnot "Start">>
