@@ -1,0 +1,48 @@
+        <<case 5>>
+            /% 此处对原作概率有一定的修改，主要是原作无指向性的海报概率也太高了 %/
+            <<switch random(1,9)>>
+                <<case 1>>
+                    <<set _poster to "一张日出的景象，下面潦草地写着“每一天都是你闪耀的新机会”。">>
+                    <<set _poster_pic to "sunrise">>
+                <<case 2>>
+                    <<set _poster to "两个手牵手的火柴人，下面潦草地写着“只要我们在一起，什么事都能办到”。">>
+                    <<set _poster_pic to "together">> 
+                <<case 3>>
+                    <<set _poster to "一朵从路边缝隙里生长出来的花。下面潦草地写着“每一天都是你闪耀的新机会”。">>
+                    <<set _poster_pic to "flower">>
+                <<case 4>>
+                    <<set _poster to "一只伸出的手，旁边写着“无论如何，你都不是孤单一人。”">>
+                    <<set _poster_pic to "alone">>
+                <<case 5>>
+                    <<set _poster to "一个竖起的黄色大拇指。">>
+                    <<set _poster_pic to "thumbs">>
+                <<case 6>>
+                    <<set _poster to "一颗破土而生的种子。下面潦草地写着“合抱之木，生于毫末”。">>
+                    <<set _poster_pic to "seed">>
+                <<case 7>>
+                    <<set _poster to "一位正在登山的探险家。下面潦草地写着“天空才是我们的极限”。">>
+                    <<set _poster_pic to "mountain">>
+                <<case 8>>
+                    <<set _poster to "一颗七彩之心。用蜡笔写着“我不认识你，但我爱你”。">>
+                    <<set _poster_pic to "heart">>
+                <<case 9>>
+                    <<set _poster_pic to "random">>
+            <</switch>>
+            <<if _poster_pic isnot "random">>
+                你正穿过孤儿院。
+			    <br><br>
+			    你停了下来，发现了一张画得很差、颜色也乱七八糟的海报被随意地钉在布告板上。上面是<<print _poster>>
+				<br><br>
+				当你经过海报时，一种模糊的感觉从心中升起。<<ghope>><<hope 1>><<lstress>><<stress -6>>
+				<br><br>
+			<<else>>
+				你在大厅里看见一张用以鼓舞人心的手绘海报。一定是其中某个孤儿将它挂起来的。不知怎么的，它让你感觉好多了。
+				<<ghope>><<hope 1>><<lstress>><<stress -6>>
+                <br><br>
+                <<set _poster_pic to ["sunrise","together","flower","alone","thumbs","seed","mountain","heart"].random()>>
+			<</if>>
+
+            <img @src="'img/poster/'+$options.posterStyle+'/hope/'+ _poster_pic +'.jpg'" @style="$options.showPoster? '' : 'display:none;'"
+            @class=$options.posterWidth> 
+            <br><br>
+			<<link [[继续|Orphanage]]>><<endevent>><</link>>

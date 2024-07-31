@@ -1,0 +1,31 @@
+		<<case 7>>
+			<<generatey1>>
+			<<switch random(1,5)>>
+				<<case 1 2>>
+					<<set _poster to "画着贝利。<<nnpc_his 'Bailey'>>的脸上被画了个大大的“X”，虽然没配任何文字，但表达的意思不言而喻。">>
+					<<if C.npc.Bailey.pronoun is "f">>
+						<<set _poster_pic to "Bailey-f">>
+					<<else>>
+						<<set _poster_pic to "Bailey-m">>
+					<</if>>
+				<<case 3>>
+					<<set _poster to "画着一座被巨大“✕”号覆盖的孤儿院。下面用粗体字写着“结束暴政”。">>
+					<<set _poster_pic to "X">>
+				<<case 4>>
+					<<set _poster to "画着一个手持标语的<<person1>><<person>>，标语上写着“聆听我们的声音！”">>
+					<<set _poster_pic to "listenToOurVoice">>
+				<<case 5>>
+					<<set _poster to "写着三个被加粗过的单词“无畏，坚韧，不屈”。">>
+					<<set _poster_pic to "Fearless">>
+			<</switch>>
+			你正穿过孤儿院。
+			<br><br>
+
+			你停留了一会儿，随意地看向布告板，你看到了一张有趣的海报。上面<<print _poster>>
+			<br><br>
+
+			当你经过海报时，一股暖意在你心中涌动。<<greb>><<reb 1>>
+			<br><br>
+			<img @src="'img/poster/'+$options.posterStyle+'/reb/'+ _poster_pic +'.jpg'" @class=$options.posterWidth>
+			<br><br>
+			<<link [[继续|Orphanage]]>><<endevent>><</link>>

@@ -19,9 +19,6 @@
 				<input type="radio" id="notShowPoster" name="showPoster" value="notShowPoster" onclick="showPostClicked()" checked>
 				<label for="notShowPoster">否</label>
 			<</if>>
-			/%<label><<radiobutton "$options.showPoster" true autocheck class="showPoster" onclick="test()">>是</label>
-			<br>
-			<label><<radiobutton "$options.showPoster" false autocheck class="showPoster" onclick="test()">>否</label>%/
 		</div> 
 
 		<div class="settingsToggleItem orphanagePosterSetting"  @style="$options.showPoster? '' : 'display:none;'">
