@@ -618,8 +618,80 @@
                 {
                     "passage": "Widgets Robin",
                     "findString": "<<handheldon 1>><</link>><<glove>><<ltrauma>><<lstress>>",
-                    "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><handheldon 1>><</link>><<glove>><<ltrauma>><<lstress>><<if $exposed gte 1>><<glust>><</if>>",
-                    "comments": "看罗宾玩游戏，加欲望"
+                    "replace": "<<handheldon 1>><<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<glove>><<ltrauma>><<lstress>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "看罗宾玩游戏，加欲望（为了和一起玩区分，调整剧情）"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<<handheldon 1>><</link>><<glove>><<lrtrauma>><<ldom>><<gstress>>",
+                    "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><<handheldon 1>><</link>><<glove>><<lrtrauma>><<ldom>><<gstress>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "交谈，加欲望"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<<handheldon 1>><</link>><<glove>><<ltrauma>>",
+                    "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><<handheldon 1>><</link>><<glove>><<ltrauma>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "一起玩游戏，加欲望"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<<handheldon 1>><</link>><<ltrauma>><<lstress>><<glove>>",
+                    "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><<handheldon 1>><</link>><<ltrauma>><<lstress>><<glove>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "拥抱，加欲望"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<</link>><<cat>><<gdom>><<glove>><<ltrauma>><<lstress>>",
+                    "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<cat>><<gdom>><<glove>><<ltrauma>><<lstress>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "猫化，加欲望"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<</link>><<cow>><<gdom>><<glove>><<ltrauma>><<lstress>>",
+                    "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<cow>><<gdom>><<glove>><<ltrauma>><<lstress>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "牛化，加欲望"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<</link>><<harpy>><<gdom>><<glove>><<ltrauma>><<lstress>>",
+                    "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<harpy>><<ldom>><<glove>><<ltrauma>><<lstress>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "哈比1，加欲望"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<</link>><<harpy>><<ldom>><<glove>><<ltrauma>><<lstress>>",
+                    "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<harpy>><<ldom>><<glove>><<ltrauma>><<lstress>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "哈比2，加欲望"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<</link>><<wolfgirl>><<gdom>><<glove>><<ltrauma>><<lstress>>",
+                    "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<wolfgirl>><<gdom>><<glove>><<ltrauma>><<lstress>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "狼化，加欲望"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<</link>><<fox>><<gdom>><<glove>><<ltrauma>><<lstress>>",
+                    "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<fox>><<gdom>><<glove>><<ltrauma>><<lstress>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "狐化，加欲望"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<</link>><<promiscuous1>><<glove>>",
+                    "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<promiscuous1>><<glove>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "调情，加欲望"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<</link>><<lstress>><<glove>>",
+                    "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<lstress>><<glove>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "提供奶昔"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<</link>><<lstress>><<gglove>>",
+                    "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<lstress>><<gglove>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "分享奶昔"
                 }
             ]
         },
