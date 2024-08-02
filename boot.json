@@ -794,6 +794,10 @@
         {
             "modName": "BeautySelectorAddon",
             "version": "^2.0.0"
+        },
+        {
+            "modName": "GameVersion",
+            "version": ">=0.5.1.0"
         }
     ]
 }
