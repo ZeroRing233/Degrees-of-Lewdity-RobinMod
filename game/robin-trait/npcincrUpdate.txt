@@ -3,7 +3,7 @@
     <<if C.npc.Robin.dom lte 50 and $robinPaySelfTalked>>
         <<set C.npc.Robin.dom to 50>>
     <</if>>
-    <<if C.npc.Robin.dom lte 100 and $robinPayBothTalked>>
+    <<if C.npc.Robin.dom lte 100 and ($robinPayBothTalked or $$robinFightTogether)>>
         <<set C.npc.Robin.dom to 100>>
     <</if>>
 <<else>>

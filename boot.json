@@ -596,6 +596,30 @@
                     "findRegex": "\\s*<<case 7>>\n\\s*<<generatey1>>(.|\n)*?<</link>>",
                     "replaceFile": "game/orphanage-poster/homeeventrebhi.txt",
                     "comments": "修改高叛逆海报的具体内容"
+                },
+                {
+                    "passage": "Options Overlay",
+                    "findString": "<<widget \"optionsgeneral\">>",
+                    "replace": "<<widget \"optionsgeneral\">><<setupOptions>>",
+                    "comments": "修改海报设置后重新渲染页面（疑似为原版bug)"
+                },
+                {
+                    "passage": "Robin Bed Dominant",
+                    "findString": "<<npcincr Robin love -1>>",
+                    "replace": " ",
+                    "comments": "爬个床而已，何必减好感呢"
+                },
+                {
+                    "passage": "Robin Bed Dominant",
+                    "findString": "<<llove>>",
+                    "replace": " ",
+                    "comments": "爬个床而已，何必减好感呢"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<<handheldon 1>><</link>><<glove>><<ltrauma>><<lstress>>",
+                    "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><handheldon 1>><</link>><<glove>><<ltrauma>><<lstress>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "看罗宾玩游戏，加欲望"
                 }
             ]
         },
