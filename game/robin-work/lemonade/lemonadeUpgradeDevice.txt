@@ -1,7 +1,7 @@
 <<if $lemonadeUpgraded is 1>>
     升级后的榨汁机能够榨出更多品种的饮料，你可以放入不同品种的水果进行尝试。
     <br>
-    <<set $allFruitList to ["apple","pear","strawberry","peach","plum","wild_carrot","blackberry"]>>
+    <<set $allFruitList to ["apple","pear","strawberry","peach","plum","wild_carrot","blackberry","orange"]>>
     <<set $untriedFruitList to []>>
     <<if $triedFruitList is undefined>>
         <<set $triedFruitList to []>>
