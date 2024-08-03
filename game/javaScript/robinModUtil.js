@@ -181,6 +181,11 @@ function initLemonadeShop() {
             clothes.shop.pushUnique("lemonade");
         }
     });
+    setup.clothes.head.forEach(clothes => {
+        if (goodsList.includes(clothes.name)) {
+            clothes.shop.pushUnique("lemonade");
+        }
+    });
     setup.clothes.all.forEach(clothes => {
         if (goodsList.includes(clothes.name)) {
             clothes.shop.pushUnique("lemonade");
