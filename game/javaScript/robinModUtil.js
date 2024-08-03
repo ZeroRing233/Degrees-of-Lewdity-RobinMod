@@ -173,3 +173,18 @@ function meetOrphangePayBackCondition() {
     return false;
 }
 window.meetOrphangePayBackCondition = meetOrphangePayBackCondition;
+
+function initLemonadeShop() {
+    let goodsList = ['balloon', 'heart balloon', 'flower crown'];
+    setup.clothes.handheld.forEach(clothes => {
+        if (goodsList.includes(clothes.name)) {
+            clothes.shop.pushUnique("lemonade");
+        }
+    });
+    setup.clothes.all.forEach(clothes => {
+        if (goodsList.includes(clothes.name)) {
+            clothes.shop.pushUnique("lemonade");
+        }
+    });
+}
+window.initLemonadeShop = initLemonadeShop;

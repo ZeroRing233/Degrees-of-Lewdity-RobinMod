@@ -7,6 +7,10 @@
         <<foodicon "strawberrylemonade">><<link [[购买其他饮料(0:15)|Robin's Lemonade Purchase Other]]>><<pass 15>><<stress -6>><<trauma -1>> <</link>> <<lstress>><<ltrauma>>
         <br>
 <</if>>
+<<if $lemonadeNewGoodsList isnot undefined and $lemonadeNewGoodsList.length gt 0>>
+        <<robinicon "lemonade">><<link [[查看其他商品|Robin's Lemonade Show Other Goods]]>><</link>>
+        <br>
+<</if>>
 <<if $robindebtknown is 1 and $lemonadeUpgraded isnot 1>>
         <<robinicon "lemonade">><<link [[建议升级柠檬水摊|Robin's Lemonade Upgrade]]>><</link>>
         <br>

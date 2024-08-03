@@ -96,3 +96,9 @@
 <<else>>
 	<<link [[继续|Beach]]>><<set $eventskip to 1>><<endevent>><</link>>
 <</if>>
+
+:: Robin's Lemonade Show Other Goods
+
+<div id="clothingShop-div" class="main-shop-div">
+	<<lemonadeShop-main>>
+</div>
