@@ -1,0 +1,6 @@
+<<if !$flowerCrownTalked and $lemonadeNewGoodsList isnot undefined and $lemonadeNewGoodsList.includes("flower")>>
+    <span class="gold">罗宾的摊位发生了变化。</span>
+    <br><br>
+    <<set $flowerCrownOwned to true>>
+<</if>>
+<<link [[继续|Garden Flowers]]>><<endevent>><</link>>

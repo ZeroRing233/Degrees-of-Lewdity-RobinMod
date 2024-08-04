@@ -3,6 +3,12 @@
     <<location "beach">><<set $outside to 0>><<effects>>
     <<npc Robin>><<person1>>
     你的目光扫过柠檬水摊上的其他商品。
+    <<if $flowerCrownOwned and !$flowerCrownTalked>>
+        <br><br>
+        你注意到角落里有几顶熟悉的花冠，正当你盯着花冠陷入回忆时，
+        罗宾凑近了你："你发现了啊，上次收到了你编的花冠之后，我回家又用你给我的花编了一些花冠，<span class="gold">这些花冠只会送给特别的人哦。</span>"
+        <<set $flowerCrownTalked to true>>
+    <</if>>
     <br><br>
     <<if $tryOn.autoReset isnot false>><<tryOnReset>><</if>><<unset $tempDisable>>
     <<set $shopName = "lemonade">>
@@ -17,15 +23,23 @@
         <<warmth_description>>
     </div>
     <<run initLemonadeShop()>>
-    <<gifticon "balloons">><<link "查看气球">><<replace "#clothingShop-div">><<AllShop>><</replace>><<set $phase to 0>><</link>>
+    <<if $flowerCrownTalked and $lemonadeNewGoodsList.includes("balloon")>>
+        <<icon "clothes/flower_crown.png">><<link "查看花冠和气球">><<replace "#clothingShop-div">><<AllShop>><</replace>><<set $phase to 0>><</link>>
+        <br>
+    <<elseif $flowerCrownTalked>>
+        <<icon "clothes/flower_crown.png">><<link "查看花冠">><<replace "#clothingShop-div">><<AllShop>><</replace>><<set $phase to 0>><</link>>
+        <br>
+    <<elseif $lemonadeNewGoodsList.includes("balloon")>>
+        <<gifticon "balloons">><<link "查看气球">><<replace "#clothingShop-div">><<AllShop>><</replace>><<set $phase to 0>><</link>>
+        <br>
+    <</if>>
     <<run linkifyDivs('.button-back-to-shop')>>
-    <br>
     <<foodicon "popcorn">><<link [[买爆米花 (0:15 £3)|Balloon Purchase]]>><<run recoverLemonadeShop()>><</link>>
     <br>
     <<foodicon "pancakes">><<link [[买小点心 (0:15 £3)|Balloon Purchase]]>><<run recoverLemonadeShop()>><</link>>
     <br>
     <<icon "tending/daisy.png">> <<link [[查看鲜花 (0:05)|Balloon Purchase]]>><<run recoverLemonadeShop()>><</link>>
-     <br>
+    <br>
     <<robinicon "lemonade">><<link [[返回|Robin's Lemonade]]>><<run recoverLemonadeShop()>><<endevent>><</link>>
 <</widget>>
 

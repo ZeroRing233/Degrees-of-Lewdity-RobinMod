@@ -175,7 +175,14 @@ function meetOrphangePayBackCondition() {
 window.meetOrphangePayBackCondition = meetOrphangePayBackCondition;
 
 function initLemonadeShop() {
-    let goodsList = ['balloon', 'heart balloon', 'flower crown'];
+    let goodsList = [];
+    if (V.flowerCrownTalked) {
+        goodsList.pushUnique("flower crown");
+    }
+    if (V.lemonadeNewGoodsList.includes("balloon")) {
+        goodsList.pushUnique("heart balloon");
+        goodsList.pushUnique("balloon");
+    }
     setup.clothes.handheld.forEach(clothes => {
         if (goodsList.includes(clothes.name)) {
             clothes.shop.pushUnique("lemonade");

@@ -28,8 +28,7 @@
         "game/robin-fight/widgets.twee",
         "game/robin-terraia/giveFish.twee",
         "game/origin-replace/widgets.twee",
-        "game/origin-replace/balloonRobin.twee",
-        "game/orphanage-poster/optionsOverlay.txt"
+        "game/origin-replace/balloonRobin.twee"
     ],
     "imgFileList": [],
     "additionDir": [
@@ -51,6 +50,7 @@
         "game/robin-work/lemonade/goods-list/balloonIntro.txt",
         "game/robin-work/lemonade/goods-list/sellBalloonResult.txt",
         "game/robin-work/lemonade/goods-list/sellBalloonResult2.txt",
+        "game/robin-work/lemonade/goods-list/robinCrown.txt",
         "game/robin-work/chocolate/chocolateUpgrade.txt",
         "game/robin-work/chocolate/chocolateUpgradeResult.txt",
         "game/robin-work/chocolate/chocolateUpgradeResultWeather.txt",
@@ -699,6 +699,12 @@
                     "findString": "<<unset $clothes_choice>><<updateclotheslist>>",
                     "replace": "<<unset $clothes_choice>><<if _shopLocation is \"lemonade\">><<updateclotheslist \"lemonade\" \"all\">><<else>><<updateclotheslist>><</if>>",
                     "comments": "点击返回时应当查看所有商品"
+                },
+                {
+                    "passage": "Garden Robin Crown",
+                    "findString": "<<link [[继续|Garden Flowers]]>><<endevent>><</link>>",
+                    "replaceFile": "game/robin-work/lemonade/goods-list/robinCrown.txt",
+                    "comments": "还是加个提示吧"
                 }
             ]
         },
