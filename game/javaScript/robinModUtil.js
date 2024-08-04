@@ -233,3 +233,18 @@ function recoverLemonadeShop() {
     });
 }
 window.recoverLemonadeShop = recoverLemonadeShop;
+
+// 获取当前身上拥有的鲜花
+function getCurrentFlowerList() {
+    let currentFlowerList = "";
+    let noSellFlower = ["poppy", "strange_flower"];
+    for (let plant in V.plants) {
+        if (setup.plants[plant].type === "flower" &&
+            !noSellFlower.includes(plant) && V.plants[plant].amount > 0) {
+            currentFlowerList += (setup.plants[plant].plural + "，");
+        }
+    }
+    currentFlowerList = currentFlowerList.replace(/\，$/, '');
+    T.currentFlowerList = currentFlowerList;
+}
+window.getCurrentFlowerList = getCurrentFlowerList;

@@ -98,7 +98,19 @@
 <</if>>
 
 :: Robin's Lemonade Show Other Goods
-
 <div id="clothingShop-div" class="main-shop-div">
 	<<lemonadeShop-main>>
 </div>
+
+:: Robin's Lemonade Show Flower
+<<effects>>
+<<run getCurrentFlowerList()>>
+你静静地欣赏着罗宾摊位上的<span class="green"><<print _currentFlowerList>></span>等鲜花，罗宾微笑着说："谢谢你给了我那么多鲜花，
+这些花儿<<print either("大受欢迎","为我的摊位增色不少","吸引了不少顾客")>>，真的帮了我很多！"
+<br><br>
+："哪里，我还要感谢你帮我摆摊卖花呢！" 你连忙回应道，罗宾随即摇了摇头："<<print $robinromance is 1 ? "恋人":"朋友">>之间，本来就应该互帮互助，不是吗？"
+<br><br>
+你闻着<<print either("清新","浓郁","怡人")>>的花香，心里感到一阵轻松。<<lstress>><<ltrauma>><<stress -6>><<trauma -3>>
+<br><br>
+<<endevent>>
+<<lemonade_stand_options>>

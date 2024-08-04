@@ -38,7 +38,10 @@
     <br>
     <<foodicon "pancakes">><<link [[买小点心 (0:15 £3)|Balloon Purchase]]>><<run recoverLemonadeShop()>><</link>>
     <br>
-    <<icon "tending/daisy.png">> <<link [[查看鲜花 (0:05)|Balloon Purchase]]>><<run recoverLemonadeShop()>><</link>>
+    <<run getCurrentFlowerList()>>
+    <<if $lemonadeNewGoodsList.includes("flower") and _currentFlowerList is not "">>
+        <<icon "tending/daisy.png">> <<link [[查看鲜花 (0:05)|Robin's Lemonade Show Flower]]>><<run recoverLemonadeShop()>><</link>>
+    <</if>>
     <br>
     <<robinicon "lemonade">><<link [[返回|Robin's Lemonade]]>><<run recoverLemonadeShop()>><<endevent>><</link>>
 <</widget>>
