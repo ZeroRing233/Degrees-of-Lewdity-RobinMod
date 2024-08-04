@@ -180,6 +180,12 @@ function initLemonadeShop() {
         if (goodsList.includes(clothes.name)) {
             clothes.shop.pushUnique("lemonade");
         }
+        if (clothes.name === 'balloon') {
+            clothes.cost = 200; //pc价
+        }
+        if (clothes.name === 'heart balloon') {
+            clothes.cost = 300; //pc价
+        }
     });
     setup.clothes.head.forEach(clothes => {
         if (goodsList.includes(clothes.name)) {
@@ -193,3 +199,30 @@ function initLemonadeShop() {
     });
 }
 window.initLemonadeShop = initLemonadeShop;
+
+// 总之，不要吐槽
+function recoverLemonadeShop() {
+    let goodsList = ['balloon', 'heart balloon', 'flower crown'];
+    setup.clothes.handheld.forEach(clothes => {
+        if (goodsList.includes(clothes.name)) {
+            clothes.shop.delete("lemonade");
+        }
+        if (clothes.name === 'balloon') {
+            clothes.cost = 500; //原价
+        }
+        if (clothes.name === 'heart balloon') {
+            clothes.cost = 500; //原价
+        }
+    });
+    setup.clothes.head.forEach(clothes => {
+        if (goodsList.includes(clothes.name)) {
+            clothes.shop.delete("lemonade");
+        }
+    });
+    setup.clothes.all.forEach(clothes => {
+        if (goodsList.includes(clothes.name)) {
+            clothes.shop.delete("lemonade");
+        }
+    });
+}
+window.recoverLemonadeShop = recoverLemonadeShop;

@@ -17,17 +17,16 @@
         <<warmth_description>>
     </div>
     <<run initLemonadeShop()>>
-    <<gifticon "balloons">><<link "购买气球">><<replace "#clothingShop-div">><<AllShop>><</replace>><<set $phase to 0>><</link>>
+    <<gifticon "balloons">><<link "查看气球">><<replace "#clothingShop-div">><<AllShop>><</replace>><<set $phase to 0>><</link>>
     <<run linkifyDivs('.button-back-to-shop')>>
     <br>
-    <<foodicon "popcorn">><<link [[买爆米花 (0:02 £3)|Balloon Purchase]]>><<set $money -= 600>><<set $phase to "popcorn">><<pass 2>><</link>>
+    <<foodicon "popcorn">><<link [[买爆米花 (0:15 £3)|Balloon Purchase]]>><<run recoverLemonadeShop()>><</link>>
     <br>
-    <<foodicon "pancakes">><<link [[买小点心 (0:02 £3)|Balloon Purchase]]>><<set $money -= 600>><<set $phase to "popcorn">><<pass 2>><</link>>
+    <<foodicon "pancakes">><<link [[买小点心 (0:15 £3)|Balloon Purchase]]>><<run recoverLemonadeShop()>><</link>>
     <br>
-    <<icon "tending/daisy.png">> <<link [[查看鲜花 (0:02)|Balloon Purchase]]>><<set $money -= 600>><<set $phase to "popcorn">><<pass 2>><</link>>
+    <<icon "tending/daisy.png">> <<link [[查看鲜花 (0:05)|Balloon Purchase]]>><<run recoverLemonadeShop()>><</link>>
      <br>
-    <<robinicon "lemonade">><<link [[返回|Robin's Lemonade]]>><<set $money -= 600>><<set $phase to "popcorn">><<pass 2>><</link>>
-
+    <<robinicon "lemonade">><<link [[返回|Robin's Lemonade]]>><<run recoverLemonadeShop()>><<endevent>><</link>>
 <</widget>>
 
 
