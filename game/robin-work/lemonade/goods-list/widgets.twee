@@ -34,15 +34,19 @@
         <br>
     <</if>>
     <<run linkifyDivs('.button-back-to-shop')>>
-    <<foodicon "popcorn">><<link [[买爆米花 (0:15 £3)|Balloon Purchase]]>><<run recoverLemonadeShop()>><</link>>
-    <br>
-    <<foodicon "pancakes">><<link [[买小点心 (0:15 £3)|Balloon Purchase]]>><<run recoverLemonadeShop()>><</link>>
-    <br>
+    <<if $lemonadeNewGoodsList.includes("popcorn")>>
+        <<foodicon "popcorn">><<link [[买爆米花 (0:15 £3)|Robin's Lemonade Buy Popcorn]]>><<run recoverLemonadeShop()>><</link>>
+        <br>
+    <</if>>
+    <<if $lemonadeNewGoodsList.includes("snack")>>
+        <<foodicon "pancakes">><<link [[买小点心 (0:15 £3)|Robin's Lemonade Buy Snack]]>><<run recoverLemonadeShop()>><</link>>
+         <br>
+    <</if>>
     <<run getCurrentFlowerList()>>
     <<if $lemonadeNewGoodsList.includes("flower") and _currentFlowerList is not "">>
         <<icon "tending/daisy.png">> <<link [[查看鲜花 (0:05)|Robin's Lemonade Show Flower]]>><<run recoverLemonadeShop()>><</link>>
+        <br>
     <</if>>
-    <br>
     <<robinicon "lemonade">><<link [[返回|Robin's Lemonade]]>><<run recoverLemonadeShop()>><<endevent>><</link>>
 <</widget>>
 

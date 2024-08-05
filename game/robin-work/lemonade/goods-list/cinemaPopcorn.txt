@@ -1,0 +1,30 @@
+<<switch $phase>>
+	<<case 1>>
+        <<if $hasBoughtPopcorn>>
+            <<set _popcornIntro to "”我们一起来吃爆米花吧，我自己做的！”罗宾在你买票的时候问，“电影就适合配上爆米花。”">>
+        <<else>>
+            <<set _popcornIntro to "“我们能吃爆米花吗？”罗宾在你买票的时候问，“电影就适合配上爆米花。”">>
+        <</if>>
+		<<set _theatreLink to "Romance">>
+	<<case 2>>
+        <<if $hasBoughtPopcorn>>
+            <<set _popcornIntro to "罗宾的脸色煞白。“恐怖电影？”<<he>>问道，“我不擅长恐怖类型的东西。至少吃点我自制的爆米花吧？可能边看边吃就没那么吓人了。”">>
+        <<else>>
+            <<set _popcornIntro to "罗宾的脸色煞白。“恐怖电影？”<<he>>问道，“我不擅长恐怖类型的东西。至少买点爆米花吧？可能边看边吃就没那么吓人了。”">>
+        <</if>>
+		<<set _theatreLink to "Horror">>
+	<<default>>
+        <<if $hasBoughtPopcorn>>
+            <<set _popcornIntro to "“我早就想看这个了，”罗宾在你买票时说道。<<He>>来回踮起<<his>>的脚后跟。“我们一起来吃我自制的爆米花吧！”">>
+        <<else>>
+            <<set _popcornIntro to "“我早就想看这个了，”罗宾在你买票时说道。<<He>>来回踮起<<his>>的脚后跟。“我们能吃爆米花吗？”">>
+        <</if>>
+		<<set _theatreLink to "Superhero">>
+<</switch>>
+_popcornIntro
+<br><br>
+<<if $hasBoughtPopcorn>>
+    “当然，”你说着，接过了罗宾递来的爆米花，温热的爆米花袋正散发着诱人的香气。
+    <br><br>
+    <<socialiseicon "cinema">><<link [[进入放映厅|"Robin Cinema " + _theatreLink]]>><<set $phase2 to "popcorn">><</link>>
+<<elseif $popcorn gte 1>>

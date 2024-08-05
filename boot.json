@@ -51,6 +51,7 @@
         "game/robin-work/lemonade/goods-list/sellBalloonResult.txt",
         "game/robin-work/lemonade/goods-list/sellBalloonResult2.txt",
         "game/robin-work/lemonade/goods-list/robinCrown.txt",
+        "game/robin-work/lemonade/goods-list/cinemaPopcorn.txt",
         "game/robin-work/chocolate/chocolateUpgrade.txt",
         "game/robin-work/chocolate/chocolateUpgradeResult.txt",
         "game/robin-work/chocolate/chocolateUpgradeResultWeather.txt",
@@ -705,6 +706,12 @@
                     "findString": "<<link [[继续|Garden Flowers]]>><<endevent>><</link>>",
                     "replaceFile": "game/robin-work/lemonade/goods-list/robinCrown.txt",
                     "comments": "还是加个提示吧"
+                },
+                {
+                    "passage": "Robin Cinema Popcorn",
+                    "findRegex": "<<switch \\$phase>>(.|\n)*?<<if \\$popcorn is 1>>",
+                    "replaceFile": "game/robin-work/lemonade/goods-list/cinemaPopcorn.txt",
+                    "comments": "罗宾自制爆米花"
                 }
             ]
         },
