@@ -112,12 +112,18 @@
 :: Robin's Lemonade Show Flower
 <<effects>>
 <<run getCurrentFlowerList()>>
-你静静地欣赏着罗宾摊位上的<span class="green"><<print _currentFlowerList>></span>等鲜花，罗宾微笑着说："谢谢你给了我那么多鲜花，
-这些花儿<<print either("大受欢迎","为我的摊位增色不少","吸引了不少顾客")>>，真的帮了我很多！"
+你静静地欣赏着罗宾摊位上的<span class="green"><<print _currentFlowerList>></span>等鲜花。罗宾伸出手抚去其中一朵花瓣上的水珠，欣喜地笑着。"还是要谢谢你给我的花。这些花朵<<print either("相当受欢迎","为我的摊位增色不少","吸引来了比蜜蜂更多的客人！")>>
 <br><br>
-："哪里，我还要感谢你帮我摆摊卖花呢！" 你连忙回应道，罗宾随即摇了摇头："<<print $robinromance is 1 ? "恋人":"朋友">>之间，本来就应该互帮互助，不是吗？"
+“我想，我才更应该感谢你帮我摆摊卖花，” 你轻笑着摇摇头。“不然它们会枯萎得很遗憾。”
 <br><br>
-你闻着<<print either("清新","浓郁","怡人")>>的花香，心里感到一阵轻松。<<lstress>><<ltrauma>><<stress -6>><<trauma -3>>
+罗宾耸耸肩，对你调皮地眨了眨眼睛。
+<<if $robinromance is 1>>
+    “这是我们独有的心有灵犀！”
+<<else>>
+    “这是我们特有的配合方式！”
+<</if>>
+<br><br>
+<<print either("清新","浓郁","怡人")>>的花香萦绕在你的四周。你 <<print either("做了个深呼吸","深吸了一口")>>，感到香气 <<print either("在你的胸腔中涤荡","抚慰了你的心灵")>>。<<lstress>><<ltrauma>><<stress -6>><<trauma -3>>
 <br><br>
  <<if $bus is "park">>
     <<endevent>>
@@ -126,21 +132,21 @@
     <<endevent>>
     <<lemonade_stand_options>>
 <</if>>
-
 
 :: Robin's Lemonade Buy Popcorn
 <<effects>>
-罗宾为你舀了一些刚爆好的爆米花。当<<he>>递给你时，袋子还是温热的。
+<<wearProp "popcorn">>
+罗宾为你舀了一些刚爆好的爆米花。当<<he>>递给你时，袋子还在散发热量。
 <br><br>
-："赶紧趁热吃吧，我特意挑了你最喜欢的口味呢。" 罗宾得意地说。
+"趁热尝尝看！我挑了你最喜欢的口味。" 罗宾得意地点了点头，对你投以期待的眼神。
 <br><br>
-你塞了一把爆米花进嘴里，爆米花咸香的味道让你回忆起了和罗宾一起在电影院度过的美好时光。<<lstress>><<ltrauma>><<stress -12>><<trauma -6>>
+你往嘴里塞了一把爆米花，咸香的味道让你记起了和罗宾一起在电影院度过的美好时光。<<lstress>><<ltrauma>><<stress -12>><<trauma -6>>
 <<if !$hasBoughtPopcorn>>
     <<set $hasBoughtPopcorn to true>>
     <br><br>
-    ："你的爆米花非常好吃，比我们在电影院买的还要好吃！" 你由衷地夸赞道。
+    “这简直太棒了！比我们在电影院买到的那种还要好吃。”你由衷地夸赞道。
     <br><br>
-    罗宾害羞地笑了笑："那<span class="gold">下次</span>去电影院时，我会带上自制的爆米花和你一起分享。"
+    罗宾害羞地笑了起来。“那<span class="gold">下次</span>去看电影时，我们就分享自制的爆米花好了。”
 <</if>>
 <br><br>
  <<if $bus is "park">>
@@ -150,15 +156,16 @@
     <<endevent>>
     <<lemonade_stand_options>>
 <</if>>
+
 
 :: Robin's Lemonade Buy Snack
 <<effects>>
 <<set _snack to ["松饼","司康","巧克力曲奇","草莓挞","戚风蛋糕"].random()>>
 罗宾向你递来了一款<span class="green"><<print _snack>></span>。
 <br><br>
-你两眼放光，三下五除二地消灭了眼前的美食，香甜的<span class="green"><<print _snack>></span>令你的心情好了不少。<<lstress>><<ltrauma>><<stress -12>><<trauma -6>>
+你眼前一亮，三下五除二地消灭了眼前的美食，香甜的<span class="green"><<print _snack>></span>令你的心情好了不少。<<lstress>><<ltrauma>><<stress -12>><<trauma -6>>
 <br><br>
-<<print either('"怎么样，是不是很好吃？"','"我的厨艺还不错吧。"','"下次我们可以一起做更多的点心。"')>>罗宾看着你享受的神情，兴奋地说道。
+“<<print either('怎么样，是不是很好吃？','我的手艺还不错吧？','下次我们可以一起做更多的点心。')>>”罗宾仔细擦去你嘴角的碎屑，看起来对你享受的神情相当自豪。
 <br><br>
  <<if $bus is "park">>
     <<endevent>>

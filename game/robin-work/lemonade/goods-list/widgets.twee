@@ -3,8 +3,9 @@
     你的目光扫过<<print $bus is "park" ? "热巧克力摊" : "柠檬水摊">>上的其他商品。
     <<if $flowerCrownOwned and !$flowerCrownTalked>>
         <br><br>
-        你注意到角落里有几顶熟悉的花冠，正当你盯着花冠陷入回忆时，
-        罗宾凑近了你："你发现了啊，上次收到了你编的花冠之后，我回家又用你给我的花编了一些花冠，<span class="gold">这些花冠只会送给特别的人哦。</span>"
+        你注意到角落里还放着几顶花冠，<span class="purple">它们勾起了你的某些回忆。</span>
+        <br><br>
+        罗宾在你发呆时走了过来。<<He>>顺着你的目光看去，脸上露出会意的笑容。“那是用你给我的花编制成的，”<<He>>停顿了一下，对你眨眨眼睛。<span class="gold">“只送给最特别的人。”</span>
         <<set $flowerCrownTalked to true>>
     <</if>>
     <br><br>
