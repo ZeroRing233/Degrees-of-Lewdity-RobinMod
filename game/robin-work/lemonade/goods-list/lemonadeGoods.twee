@@ -135,3 +135,13 @@
 
 :: Robin's Lemonade Buy Snack
 <<effects>>
+<<set _snack to ["热腾腾的松饼","司康","巧克力曲奇","草莓挞","戚风蛋糕"].random()>>
+罗宾向你递来了一款<span class="green"><<print _snack>></span>。
+<br><br>
+你两眼放光，三下五除二地消灭了眼前的美食，香甜的<span class="green"><<print _snack>></span>令你的心情好了不少。<<lstress>><<ltrauma>><<stress -12>><<trauma -6>>
+<br><br>
+<<print either('"怎么样，是不是很好吃？"','"我的厨艺还不错吧。"','"下次我们可以一起做更多的点心。"')>>罗宾看着你享受的神情，兴奋地说道。
+<br><br>
+<<endevent>>
+<<lemonade_stand_options>>
+
