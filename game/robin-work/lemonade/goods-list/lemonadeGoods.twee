@@ -98,6 +98,13 @@
 <</if>>
 
 :: Robin's Lemonade Show Other Goods
+<<npc Robin>><<person1>><<location "beach">><<set $outside to 0>><<effects>>
+<div id="clothingShop-div" class="main-shop-div">
+	<<lemonadeShop-main>>
+</div>
+
+:: Robin Chocolate Show Other Goods
+<<npc Robin>><<person1>><<location "park">><<set $outside to 0>><<effects>>
 <div id="clothingShop-div" class="main-shop-div">
 	<<lemonadeShop-main>>
 </div>
@@ -112,8 +119,14 @@
 <br><br>
 你闻着<<print either("清新","浓郁","怡人")>>的花香，心里感到一阵轻松。<<lstress>><<ltrauma>><<stress -6>><<trauma -3>>
 <br><br>
-<<endevent>>
-<<lemonade_stand_options>>
+ <<if $bus is "park">>
+    <<endevent>>
+    <<robinChocolateOfferHelp>>
+<<else>>
+    <<endevent>>
+    <<lemonade_stand_options>>
+<</if>>
+
 
 :: Robin's Lemonade Buy Popcorn
 <<effects>>
@@ -130,18 +143,27 @@
     罗宾害羞地笑了笑："那<span class="gold">下次</span>去电影院时，我会带上自制的爆米花和你一起分享。"
 <</if>>
 <br><br>
-<<endevent>>
-<<lemonade_stand_options>>
+ <<if $bus is "park">>
+    <<endevent>>
+    <<robinChocolateOfferHelp>>
+<<else>>
+    <<endevent>>
+    <<lemonade_stand_options>>
+<</if>>
 
 :: Robin's Lemonade Buy Snack
 <<effects>>
-<<set _snack to ["热腾腾的松饼","司康","巧克力曲奇","草莓挞","戚风蛋糕"].random()>>
+<<set _snack to ["松饼","司康","巧克力曲奇","草莓挞","戚风蛋糕"].random()>>
 罗宾向你递来了一款<span class="green"><<print _snack>></span>。
 <br><br>
 你两眼放光，三下五除二地消灭了眼前的美食，香甜的<span class="green"><<print _snack>></span>令你的心情好了不少。<<lstress>><<ltrauma>><<stress -12>><<trauma -6>>
 <br><br>
 <<print either('"怎么样，是不是很好吃？"','"我的厨艺还不错吧。"','"下次我们可以一起做更多的点心。"')>>罗宾看着你享受的神情，兴奋地说道。
 <br><br>
-<<endevent>>
-<<lemonade_stand_options>>
-
+ <<if $bus is "park">>
+    <<endevent>>
+    <<robinChocolateOfferHelp>>
+<<else>>
+    <<endevent>>
+    <<lemonade_stand_options>>
+<</if>>

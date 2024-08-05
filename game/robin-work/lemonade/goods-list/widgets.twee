@@ -1,8 +1,6 @@
 :: Widgets Lemonade New Good List [widget]
 <<widget "lemonadeShop-main">>
-    <<location "beach">><<set $outside to 0>><<effects>>
-    <<npc Robin>><<person1>>
-    你的目光扫过柠檬水摊上的其他商品。
+    你的目光扫过<<print $bus is "park" ? "热巧克力摊" : "柠檬水摊">>上的其他商品。
     <<if $flowerCrownOwned and !$flowerCrownTalked>>
         <br><br>
         你注意到角落里有几顶熟悉的花冠，正当你盯着花冠陷入回忆时，
@@ -47,7 +45,10 @@
         <<icon "tending/daisy.png">> <<link [[查看鲜花 (0:05)|Robin's Lemonade Show Flower]]>><<run recoverLemonadeShop()>><</link>>
         <br>
     <</if>>
-    <<robinicon "lemonade">><<link [[返回|Robin's Lemonade]]>><<run recoverLemonadeShop()>><<endevent>><</link>>
+    <<if $bus is "park">>
+        <<robinicon "cocoa">><<link [[返回|Robin Chocolate]]>><<run recoverLemonadeShop()>><<endevent>><</link>>
+    <<else>>
+        <<robinicon "lemonade">><<link [[返回|Robin's Lemonade]]>><<run recoverLemonadeShop()>><<endevent>><</link>>
+    <</if>>
 <</widget>>
-
 
