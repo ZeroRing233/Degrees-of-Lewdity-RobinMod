@@ -1,0 +1,7 @@
+:: Widgets Robin Room Note [widget]
+<<widget "robin-room-note">>
+    <<if robinRoomNoteCondition()>>
+        <img @src="'img/robin-note/'+ _robin_location +'.jpg'" @class=$options.robinNoteWidth>
+        <br><br>
+    <</if>>
+<</widget>>

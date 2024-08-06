@@ -16,8 +16,15 @@ function showRobinNoteClicked() {
         V.options.showRobinNote = true;
         $('.robinNoteSetting').show();
     } else {
-        V.options.showPoster = false;
+        V.options.showRobinNote = false;
         $('.robinNoteSetting').hide();
     }
 }
 window.showRobinNoteClicked = showRobinNoteClicked;
+
+function robinRoomNoteCondition() {
+    let noteList = ['school', 'sleep', 'beach', 'park']
+    return V.robinmissing === 0 && V.christmas_robin_lewd !== 1 &&
+        noteList.includes(T.robin_location) && V.options.showRobinNote
+}
+window.robinRoomNoteCondition = robinRoomNoteCondition;

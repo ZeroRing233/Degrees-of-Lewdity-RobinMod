@@ -28,7 +28,8 @@
         "game/robin-fight/widgets.twee",
         "game/robin-terraia/giveFish.twee",
         "game/origin-replace/widgets.twee",
-        "game/origin-replace/balloonRobin.twee"
+        "game/origin-replace/balloonRobin.twee",
+        "game/orphanage-poster/widgets.twee"
     ],
     "imgFileList": [],
     "additionDir": [
@@ -712,6 +713,13 @@
                     "findRegex": "<<switch \\$phase>>(.|\n)*?<<if \\$popcorn is 1>>",
                     "replaceFile": "game/robin-work/lemonade/goods-list/cinemaPopcorn.txt",
                     "comments": "罗宾自制爆米花"
+                },
+                {
+                    "passage": "Robin's Room Entrance",
+                    "findString": "<<getouticon>><<link [[离开|Orphanage]]>><</link>>",
+                    "replace": "<<robin-room-note>><<getouticon>><<link [[离开|Orphanage]]>><</link>>",
+                    "all": true,
+                    "comments": "为罗宾房间门口的便条添加图片"
                 }
             ]
         },
