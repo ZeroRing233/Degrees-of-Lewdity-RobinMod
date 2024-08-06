@@ -8,4 +8,8 @@
 <<if $options.posterWidth is undefined>>
     <<set $options.posterWidth to "poster-60">>
 <</if>>
+<!-- 修复某个笔误 -->
+<<if $robinMoney isnot undefined>>
+    <<unset $robinMoney>>
+<</if>>
 <!-- 5.0.3 -->

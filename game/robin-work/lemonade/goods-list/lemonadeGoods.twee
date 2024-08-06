@@ -12,7 +12,7 @@
 <br><br>
 <span class="gold"> 罗宾的摊位上将开始售卖爆米花，每周存款增加。</span>
 <<set $workTopicList to $workTopicList.filter(topic => topic!="sellPopcorn")>>
-<<set $robinMoney -= $robinMoney gte 100? 100: $robinMoney>>
+<<set $robinmoney -= $robinmoney gte 100? 100: $robinmoney>>
 <<set $lemonadeNewGoodsList.pushUnique("popcorn")>>
 <br><br>
 <<robinoptions>>
@@ -160,6 +160,7 @@
 
 :: Robin's Lemonade Buy Snack
 <<effects>>
+<<wearProp "pancake">>
 <<set _snack to ["松饼","司康","巧克力曲奇","草莓挞","戚风蛋糕"].random()>>
 罗宾向你递来了一款<span class="green"><<print _snack>></span>。
 <br><br>

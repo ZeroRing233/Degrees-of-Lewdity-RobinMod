@@ -33,17 +33,17 @@
         <br>
     <</if>>
     <<run linkifyDivs('.button-back-to-shop')>>
-    <<if $lemonadeNewGoodsList.includes("popcorn")>>
-        <<foodicon "popcorn">><<link [[买爆米花 (0:15 £3)|Robin's Lemonade Buy Popcorn]]>><<run recoverLemonadeShop()>><</link>>
+    <<if $lemonadeNewGoodsList.includes("popcorn") and $money gte 300>>
+        <<foodicon "popcorn">><<link [[买爆米花 (0:15 £3)|Robin's Lemonade Buy Popcorn]]>><<run recoverLemonadeShop()>><<pass 15>><<set $money -= 300>><</link>>
         <br>
     <</if>>
-    <<if $lemonadeNewGoodsList.includes("snack")>>
-        <<foodicon "pancakes">><<link [[买小点心 (0:15 £3)|Robin's Lemonade Buy Snack]]>><<run recoverLemonadeShop()>><</link>>
+    <<if $lemonadeNewGoodsList.includes("snack") and $money gte 300>>
+        <<foodicon "pancakes">><<link [[买小点心 (0:15 £3)|Robin's Lemonade Buy Snack]]>><<run recoverLemonadeShop()>><<pass 15>><<set $money -= 300>><</link>>
          <br>
     <</if>>
     <<run getCurrentFlowerList()>>
     <<if $lemonadeNewGoodsList.includes("flower") and _currentFlowerList is not "">>
-        <<icon "tending/daisy.png">> <<link [[查看鲜花 (0:05)|Robin's Lemonade Show Flower]]>><<run recoverLemonadeShop()>><</link>>
+        <<icon "tending/daisy.png">> <<link [[查看鲜花 (0:05)|Robin's Lemonade Show Flower]]>><<run recoverLemonadeShop()>><<pass 5>><</link>>
         <br>
     <</if>>
     <<if $bus is "park">>
