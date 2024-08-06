@@ -9,3 +9,12 @@
 <<if $options.posterWidth is undefined>>
     <<set $options.posterWidth to "poster-60">>
 <</if>>
+<<if $options.showRobinNote is undefined>>
+    <<set $options.showRobinNote to true>>
+<</if>>
+<<if $options.robinNoteWidth is undefined>>
+    <<set $options.robinNoteWidth to "poster-60">>
+<</if>>
+<<if $options.showRobinModHint is undefined>>
+    <<set $options.showRobinModHint to true>>
+<</if>>
