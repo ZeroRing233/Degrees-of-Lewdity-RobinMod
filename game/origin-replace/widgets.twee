@@ -19,7 +19,18 @@
 <</widget>>
 
 <<widget "robinModHint">>
-	<<robinModHintContent>>
+	<<if !_robinModHintFilter>>
+		<<set _robinModHintFilter to "">>
+	<</if>>
+	<span class="searchButtons">
+		<<textbox "_robinModHintTextbox" _robinModHintFilter>>
+		<<button 搜索>>
+			<<run robinModSearchButtonClicked()>>
+		<</button>>
+	</span>
+	<div id="robinModHintContent">
+		<<robinModHintContent>>
+	</div>
 <</widget>>
 
 <<widget "titleRobinModHint">>
