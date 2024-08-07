@@ -1,0 +1,2 @@
+<<robinModHintMobile>>
+<<if $options.sidebarStats isnot "disabled">>

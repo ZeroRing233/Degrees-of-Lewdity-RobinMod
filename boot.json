@@ -1,7 +1,10 @@
 {
     "name": "DomRobin",
     "version": "0.0.4-temp",
-    "styleFileList": ["game/orphanage-poster/poster.css"],
+    "styleFileList": [
+        "game/orphanage-poster/poster.css",
+        "game/origin-replace/button.css"
+    ],
     "scriptFileList": [
         "game/javaScript/robinModUtil.js",
         "game/javaScript/robinTraitEffects.js",
@@ -80,6 +83,8 @@
         "game/origin-replace/schoolWhitney2.txt",
         "game/origin-replace/balloonRobinIntro.txt",
         "game/origin-replace/robinForestEden.txt",
+        "game/origin-replace/StoryCaption.txt",
+        "game/origin-replace/overlayReplace.txt",
         "game/robin-trait/robinTrait.txt",
         "game/robin-trait/robinRoomEntranceTalk.txt",
         "game/robin-trait/robinPayBackCount.txt",
@@ -720,6 +725,18 @@
                     "replace": "<<robin-room-note>><<getouticon>><<link [[离开|Orphanage]]>><</link>>",
                     "all": true,
                     "comments": "为罗宾房间门口的便条添加图片"
+                },
+                {
+                    "passage": "StoryCaption",
+                    "findString": "<<if $options.sidebarStats isnot \"disabled\">>",
+                    "replaceFile": "game/origin-replace/StoryCaption.txt",
+                    "comments": "添加模组介绍"
+                },
+                {
+                    "passage": "overlayReplace",
+                    "findString": "<<switch _key>>",
+                    "replaceFile": "game/origin-replace/overlayReplace.txt",
+                    "comments": "添加模组介绍"
                 }
             ]
         },

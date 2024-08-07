@@ -28,3 +28,9 @@ function robinRoomNoteCondition() {
         noteList.includes(T.robin_location) && V.options.showRobinNote
 }
 window.robinRoomNoteCondition = robinRoomNoteCondition;
+
+// 别问我为什么写在这
+function robinModHintClicked() {
+    $.wiki("<<overlayReplace \"robinModHint\">>");
+}
+window.robinModHintClicked = robinModHintClicked;
