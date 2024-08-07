@@ -19,7 +19,7 @@
 	<<set $baileypaychain to ($baileypaychain || 0) + 1>>/% 创伤线是否进剧情杀？%/
 	<<unset $bailey_encroach>> /% 控制农场来袭 %/
     <<set $renttime to 999>>/% 在js中需要设置为永不递减 %/
-<</widget>>
+<</widget>> 
 
 :: Widgets Home Events Robin [widget]
 <<widget "homeeventRobin1">>

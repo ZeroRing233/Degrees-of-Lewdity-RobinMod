@@ -1,6 +1,6 @@
 {
     "name": "DomRobin",
-    "version": "0.0.4-temp",
+    "version": "0.0.4-alpha",
     "styleFileList": [
         "game/orphanage-poster/poster.css",
         "game/origin-replace/button.css"

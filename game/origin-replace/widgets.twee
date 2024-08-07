@@ -97,66 +97,70 @@ details">详细内容介绍</a>中查看具体触发条件）</p>
 <h3 id="004">0.04-alpha</h3>
 <p>（注意0.04-alpha适配游戏版本为0.5.1.x及以上版本）</p>
 <ol>
-    <li>
-        <p>增加了晚上和罗宾看电影时的直播请假剧情，根据是否处于恋爱关系有细微差分。（构想提出：tuyu丶涂鱼🐟，文本创作：温黎DAWN）</p>
-    </li>
-    <li>
-        <p>当pc体温不正常时（小于36或大于等于38），买柠檬水/热巧克力/其他饮料可以升温/降温，在海边约会结束后罗宾会主动提供对应的饮料。</p>
-    </li>
-    <li>
-        <p>恋爱关系下，晴天在柠檬水摊买饮料会触发「买酒」相关对话，触发对话后可在海风咖啡馆买酒，并在晚上睡前与罗宾分享，可以触发特殊遭遇战。（构想和文本创作：tuyu丶涂鱼🐟）</p>
-    </li>
-    <li>
-        <p>（泰拉瑞亚联动）可以在海滩和罗宾一起卖烤鱼（一共十三种鱼类可售卖）/岩石龙虾/绿波泥鳅，可在日志中查看当前拥有的可食用渔获列表，<strong>联动剧情需安装</strong><a href="https://github.com/Nephthelana/DOL-Terra-Expanding-Modd" target="_blank">泰拉瑞亚模组</a> V1.4以上版本。</p>
-    </li>
-    <li>
-        <p>对反抗线的细节改动：</p>
-    </li>
+<li>
+<p>增加了晚上和罗宾看电影时的直播请假剧情，根据是否处于恋爱关系有细微差分。（构想提出：tuyu丶涂鱼🐟，文本创作：温黎DAWN）</p>
+</li>
+<li>
+<p>当pc体温不正常时（小于36或大于等于38），买柠檬水/热巧克力/其他饮料可以升温/降温，在海边约会结束后罗宾会主动提供对应的饮料。</p>
+</li>
+<li>
+<p>恋爱关系下，晴天在柠檬水摊买饮料会触发「买酒」相关对话，触发对话后可在海风咖啡馆买酒，并在晚上睡前与罗宾分享，可以触发特殊遭遇战。（构想和文本创作：tuyu丶涂鱼🐟）</p>
+</li>
+<li>
+<p>（泰拉瑞亚联动）可以在海滩和罗宾一起卖烤鱼（一共十三种鱼类可售卖）/岩石龙虾/绿波泥鳅，可在日志中查看当前拥有的可食用渔获列表，<strong>联动剧情需安装</strong><a href="https://github.com/Nephthelana/DOL-Terra-Expanding-Modd" target="_blank">泰拉瑞亚模组</a> V1.4/V.1.5 及以上版本。</p>
+</li>
+<li>
+<p>对反抗线的细节改动：</p>
+</li>
 </ol>
 <ul>
-    <li>
-        <p>修改进线条件：pc必须有「反抗」特质才能说服罗宾一起反抗贝利。（合理化剧情）</p>
-    </li>
-    <li>
-        <p>反抗线遭遇战只剩最后一人时，罗宾击退对方不会再显示击退文本（与游戏内常规遭遇战保持一致）。</p>
-    </li>
-    <li>
-        <p>反抗线进入剧情杀后，如pc或罗宾一人倒下，在一定回合后会强制结束战斗。（避免一方过于抗揍给另一方带来大量创伤）</p>
-    </li>
-    <li>
-        <p>孤儿回馈触发方式修改：罗宾帮助一位孤儿后，有一半概率会在7到35天后收到回馈，到达指定回馈时间后必定触发剧情。（合理化剧情 + 拯救非洲玩家）</p>
-    </li>
-    <li>
-        <p>与罗宾一起学习时如果能触发创伤线进线有关的对话，进入反抗线后同样能触发。（合理化剧情，都是并肩作战）</p>
-    </li>
+<li>
+<p>修改进线条件：pc必须有「反抗」特质才能说服罗宾一起反抗贝利。（合理化剧情）</p>
+</li>
+<li>
+<p>反抗线遭遇战只剩最后一人时，罗宾击退对方不会再显示击退文本（与游戏内常规遭遇战保持一致）。</p>
+</li>
+<li>
+<p>反抗线进入剧情杀后，如pc或罗宾一人倒下，在一定回合后会强制结束战斗。（避免一方过于抗揍给另一方带来大量创伤）</p>
+</li>
+<li>
+<p>孤儿回馈触发方式修改：罗宾帮助一位孤儿后，有一半概率会在7到35天后收到回馈，到达指定回馈时间后必定触发剧情。（合理化剧情 + 拯救非洲玩家）</p>
+</li>
+<li>
+<p>与罗宾一起学习时如果能触发创伤线进线有关的对话，进入反抗线后同样能触发。（合理化剧情，都是并肩作战）</p>
+</li>
 </ul>
 <ol start="6">
-    <li>如果罗宾在气球摊摊主出场前已经售卖了爆米花，相关对话会发生改变。（构想：黎暝，文本：温黎DAWN）</li>
-    <li>与罗宾在森林约会时，如果触发了伊甸抢人剧情且pc服从/战斗失败，高自信（91以上）罗宾会带着pc逃跑，触发双人追逐战。</li>
-    <li>为高希望/高叛逆时的孤儿院大厅海报添加cg，可在通用-设置里选择是否开启海报/海报风格/大小，修改设置后会即时生效。（cg作者：贴吧用户_Gy3a33a）</li>
+<li>如果罗宾在气球摊摊主出场前已经售卖了爆米花，相关对话会发生改变。（构想：黎暝，文本：温黎DAWN）</li>
+<li>与罗宾在森林约会时，如果触发了伊甸抢人剧情且pc服从/战斗失败，高自信（91以上）罗宾会带着pc逃跑，触发双人追逐战。</li>
+<li>为高希望/高叛逆时的孤儿院大厅海报添加cg，可在通用-设置里选择是否开启海报/海报风格/大小/是否开启便条/便条大小，修改设置后会即时生效。（cg作者：贴吧用户_Gy3a33a）</li>
 </ol>
 <ul>
-    <li>海报内容可以查看<a href="https://github.com/ZeroRing233/DOL-Orphanage-Poster-Mod" target="_blank">海报mod</a>中的介绍，<strong>注意两个mod不能同时安装，罗宾mod中已经包含了海报mod的内容。</strong></li>
+<li>海报内容可以查看<a href="https://github.com/ZeroRing233/DOL-Orphanage-Poster-Mod" target="_blank">海报mod</a>中的介绍，<strong>注意两个mod不能同时安装，罗宾mod中已经包含了海报mod的内容。</strong></li>
 </ul>
 <ol start="9">
-    <li>
-        <p>数值变化修改：罗宾爬床拒绝后不再会减好感，在罗宾房间脱衣服后常规互动会增加lust(常规互动包括：交谈/拥抱/看罗宾玩游戏/一起玩游戏/调情/提供奶昔/分享奶昔/各种转化互动）</p>
-    </li>
-    <li>
-        <p>榨汁机添加了新水果-橘子（可在多瑙河街获取）</p>
-    </li>
-    <li>
-        <p>柠檬水摊/热巧克力摊改造——拥有更多商品时新增选项「购买其他商品」，其中：</p>
-    </li>
+<li>
+<p>数值变化修改：罗宾爬床拒绝后不再会减好感，在罗宾房间脱衣服后常规互动会增加lust(常规互动包括：交谈/拥抱/看罗宾玩游戏/一起玩游戏/调情/提供奶昔/分享奶昔/各种转化互动）</p>
+</li>
+<li>
+<p>榨汁机添加了新水果-橘子（可在多瑙河街获取）</p>
+</li>
+<li>
+<p>柠檬水摊/热巧克力摊改造——拥有更多商品时新增选项「购买其他商品」，其中：</p>
+</li>
 </ol>
 <ul>
-    <li>已经开始卖花后，若再次触发花冠事件，罗宾的摊位上将会免费赠送花冠，可点击「查看花冠」零元购买。</li>
-    <li>如果商品中含有气球，则可点击「查看气球」/「查看气球和花冠」购买气球，价格为气球摊的一半。</li>
-    <li>如果商品中含有爆米花，第一次「购买爆米花」后再去电影院，罗宾会带上自制的爆米花。</li>
-    <li>如果商品中含有鲜花且日志中带有鲜花，可点击「查看鲜花」查看正在卖的鲜花种类。</li>
-    <li>如果商品中含有小点心，可点击「购买小点心」吃一块小点心。<br> （文本润色：温黎DAWN）
-    </li>
+<li>已经开始卖花后，若再次触发花冠事件，罗宾的摊位上将会免费赠送花冠，可点击「查看花冠」零元购买。</li>
+<li>如果商品中含有气球，则可点击「查看气球」/「查看气球和花冠」购买气球，价格为气球摊的一半。</li>
+<li>如果商品中含有爆米花，第一次「购买爆米花」后再去电影院，罗宾会带上自制的爆米花。</li>
+<li>如果商品中含有鲜花且日志中带有鲜花，可点击「查看鲜花」查看正在卖的鲜花种类。</li>
+<li>如果商品中含有小点心，可点击「购买小点心」吃一块小点心。<br>
+（文本润色：温黎DAWN）</li>
 </ul>
+<ol start="12">
+<li>侧边栏新增蓝色心形按钮，点击后展示模组介绍，可通过目录跳转/搜索框搜索指定内容。</li>
+</ol>
+
 <h2 id="details">详细内容介绍</h2>
 <h3 id="lemonageUpgrade">1.柠檬水摊升级</h3>
 <h4>简介</h4>
@@ -268,37 +272,50 @@ details">详细内容介绍</a>中查看具体触发条件）</p>
 </ul>
 <h2 id="thanks">致谢</h2>
 <ul>
-    <li>
-        <p>感谢 Robin’s GF 对mod的具体设定的构想，文本创作以及观星约会图标创作，目前的构想是我们俩共同讨论出的结果。</p>
-    </li>
-    <li>
-        <p>感谢 <a href="https://github.com/Nephthelana" target="_blank">脸木挤白/苯环</a> 在mod编写之初提供的代码修改！这是本mod得以起步的基础。</p>
-    </li>
-    <li>
-        <p>感谢群友&quot;蜜雪冰城分店&quot;为观星创作的两种精美图标。（暂未实装）</p>
-    </li>
-    <li>
-        <p>感谢贴吧吧友&quot;电珠皮神&quot;在mod编写前提供的部分文本。</p>
-    </li>
-    <li>
-        <p>感谢各位d级人员的试玩和bug反馈：（暂时列贴吧ID）无敌可爱乐园，kid1412870，空灵cream，该昵称未存在。</p>
-    </li>
-    <li>
-        <p>感谢<a href="https://github.com/miyakoAki4828" target="_blank">Miyazawa</a>对本模组的持续关注以及对游戏图片格式的说明。</p>
-    </li>
-    <li>
-        <p>感谢 <a href="https://github.com/Nephthelana" target="_blank">脸木挤白/苯环</a>，<a href="https://github.com/chris81605" target="_blank">隨風飄逸</a>，<a href="https://github.com/koooooiCarp" target="_blank">鲤鱼旗</a> 在模组开发群内的答疑和讨论。</p>
-    </li>
-    <li>
-        <p>感谢<a href="https://github.com/Lyoko-Jeremie" target="_blank">Lyoko-Jeremie</a>大神开发了Modloader以及所有预置模组、<a href="https://github.com/NumberSir" target="_blank">Number_Sir</a>大佬开发了模组编写助手，以及两位魔法师在模组开发群里提供的教程和指导。</p>
-    </li>
-    <li>
-        <p>感谢<a href="https://github.com/NumberSir" target="_blank">Number_Sir</a>，<a href="https://github.com/omvjro" target="_blank">闰人</a>，<a href="https://github.com/MissedHeart" target="_blank">丧心病</a> 翻译了dol代码编写通用注意事项。</p>
-    </li>
-    <li>
-        <p>感谢原游戏作者，贡献者，汉化组全体成员以及所有为游戏社区做过贡献的玩家们。（ps: 感觉开始从盘古开天辟地感谢起了…）</p>
-    </li>
+<li>
+<p>感谢 Robin’s GF 对mod的具体设定的构想，文本创作以及观星约会图标创作，目前的构想是我们俩共同讨论出的结果。</p>
+</li>
+<li>
+<p>感谢群友 温黎DAWN，tuyu丶涂鱼🐟 为模组进行的文本创作（两位的具体贡献可见<a href="#changelog">更新日志</a>）</p>
+</li>
+<li>
+<p>感谢 贴吧用户_Gy3a33a 创作的孤儿院大厅海报和便条。</p>
+</li>
+<li>
+<p>感谢 <a href="https://github.com/Nephthelana" target="_blank">脸木挤白/苯环</a> 在mod编写之初提供的代码修改！这是本mod得以起步的基础。</p>
+</li>
+<li>
+<p>感谢 <a href="https://github.com/Nephthelana" target="_blank">脸木挤白/苯环</a> 为模组间联动所进行的代码更改和建议！</p>
+</li>
+<li>
+<p>感谢 <a href="https://github.com/Lyoko-Jeremie" target="_blank">杰神</a> 对Modloader进行的改进（虽然不只是为了本模组，划掉）</p>
+</li>
+<li>
+<p>感谢群友&quot;蜜雪冰城分店&quot;为观星创作的两种精美图标。（暂未实装）</p>
+</li>
+<li>
+<p>感谢贴吧吧友&quot;电珠皮神&quot;在mod编写前提供的部分文本。</p>
+</li>
+<li>
+<p>感谢各位d级人员的试玩和bug反馈：（暂时列贴吧ID）无敌可爱乐园，kid1412870，空灵cream，该昵称未存在。（PS：此处只列出0.03-alpha发布前的d级人员，否则就太多了理不清）</p>
+</li>
+<li>
+<p>感谢<a href="https://github.com/miyakoAki4828" target="_blank">Miyazawa</a>对本模组的持续关注以及对游戏图片格式的说明。</p>
+</li>
+<li>
+<p>感谢 <a href="https://github.com/Nephthelana" target="_blank">脸木挤白/苯环</a>，<a href="https://github.com/chris81605" target="_blank">隨風飄逸</a>，<a href="https://github.com/koooooiCarp" target="_blank">鲤鱼旗</a> 在模组开发群内的答疑和讨论。</p>
+</li>
+<li>
+<p>感谢<a href="https://github.com/Lyoko-Jeremie" target="_blank">Lyoko-Jeremie</a>大神开发了Modloader以及所有预置模组、<a href="https://github.com/NumberSir" target="_blank">Number_Sir</a>大佬开发了模组编写助手，以及两位魔法师在模组开发群里提供的教程和指导。</p>
+</li>
+<li>
+<p>感谢<a href="https://github.com/NumberSir" target="_blank">Number_Sir</a>，<a href="https://github.com/omvjro" target="_blank">闰人</a>，<a href="https://github.com/MissedHeart" target="_blank">丧心病</a> 翻译了dol代码编写通用注意事项。</p>
+</li>
+<li>
+<p>感谢原游戏作者，贡献者，汉化组全体成员以及所有为游戏社区做过贡献的玩家们。（ps: 感觉开始从盘古开天辟地感谢起了…）</p>
+</li>
 </ul>
+
 <h2 id="JustPancake">未实现的功能构想</h2>
 <p>（纯粹是在画饼）</p>
 <h3>荒原观星</h3>
