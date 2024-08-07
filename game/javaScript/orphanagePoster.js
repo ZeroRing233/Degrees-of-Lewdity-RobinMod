@@ -67,7 +67,7 @@ window.robinModSearchButtonClicked = robinModSearchButtonClicked;
 // 清空文本高亮
 function robinModClearButtonClicked() {
     if (document.getElementById("noSearchResult")) {
-        $("#noSearchResult").hide();
+        $("#noSearchResult").remove();
     }
     let prehtml = document.getElementById("robinModHintContent").innerHTML;
     let newHtml = prehtml.replace(/(<\/?span.*?>)/gi, '');

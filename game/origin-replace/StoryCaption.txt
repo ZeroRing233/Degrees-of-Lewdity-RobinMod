@@ -1,2 +1,4 @@
-<<robinModHintMobile>>
+<<if $options.showRobinModHint>>
+    <<robinModHintMobile>>
+<</if>>
 <<if $options.sidebarStats isnot "disabled">>

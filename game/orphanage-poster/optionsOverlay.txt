@@ -76,5 +76,6 @@
 			<label><<radiobutton "$options.robinNoteWidth" "poster-100" autocheck>>100%</label>
 			<mouse class="tooltip linkBlue">(?)<span>便条宽度占当前文字展示宽度的100%</span></mouse>
 		</div>
+		<div class="settingsToggleItem"><span class="gold">是否展示模组介绍按钮：</span><mouse class="tooltip linkBlue">(?)<span>选择后，隐藏侧边栏时会显示蓝爱心。</span></mouse><br><label><<radiobutton "$options.showRobinModHint" true autocheck>>是</label><br><label><<radiobutton "$options.showRobinModHint" false autocheck>>否</label></div>
 	</div>
     <<if $passage isnot "Start">>
