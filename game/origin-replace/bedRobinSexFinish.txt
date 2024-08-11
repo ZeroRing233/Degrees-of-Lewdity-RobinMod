@@ -1,0 +1,3 @@
+<<if $daily.askMore or $promiscuity lt 55>>
+    <<His>>闭上了眼睛，平稳地进入了梦乡。
+<</if>>

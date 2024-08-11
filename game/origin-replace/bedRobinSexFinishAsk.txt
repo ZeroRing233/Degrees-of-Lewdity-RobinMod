@@ -1,0 +1,20 @@
+<<if !$daily.askMore and $promiscuity gte 55>>
+    <<switch $passage>>
+        <<case "Bed Robin Sex Finish">>
+            <<set $next to "Bed Robin Sex">>
+        <<case "Robin Mischief Sex Finish">>
+            <<set $next to "Robin Mischief Sex">>
+        <<case "Robin Room Bed Sex Finish">>
+            <<set $next to "Robin Room Bed Sex">>
+    <</switch>>
+    <<link [[说你还想要|Bed Ask More]]>><</link>><<promiscuous4>>
+    <br>
+<</if>>
+<<switch $passage>>
+    <<case "Bed Robin Sex Finish">>
+        <<link [[继续|Bed]]>><<clotheson>><</link>>
+    <<case "Robin Mischief Sex Finish">>
+        <<link [[继续|Orphanage]]>><</link>>
+    <<case "Robin Room Bed Sex Finish">>
+        <<link [[继续|Robin Bed]]>><<endevent>><</link>>
+<</switch>>

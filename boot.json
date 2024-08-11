@@ -32,6 +32,7 @@
         "game/robin-terraia/giveFish.twee",
         "game/origin-replace/widgets.twee",
         "game/origin-replace/balloonRobin.twee",
+        "game/origin-replace/bedAskMore.twee",
         "game/orphanage-poster/widgets.twee"
     ],
     "imgFileList": [],
@@ -85,6 +86,8 @@
         "game/origin-replace/robinForestEden.txt",
         "game/origin-replace/StoryCaption.txt",
         "game/origin-replace/overlayReplace.txt",
+        "game/origin-replace/bedRobinSexFinish.txt",
+        "game/origin-replace/bedRobinSexFinishAsk.txt",
         "game/robin-trait/robinTrait.txt",
         "game/robin-trait/robinRoomEntranceTalk.txt",
         "game/robin-trait/robinPayBackCount.txt",
@@ -737,6 +740,41 @@
                     "findString": "<<switch _key>>",
                     "replaceFile": "game/origin-replace/overlayReplace.txt",
                     "comments": "添加模组介绍"
+                },
+                {
+                    "passage": "Bed Robin Sex Finish",
+                    "findString": "<<His>>闭上了眼睛，平稳地进入了梦乡。",
+                    "replaceFile": "game/origin-replace/bedRobinSexFinish.txt",
+                    "all": true,
+                    "comments": "破一次例，直接查找中文文本"
+                },
+                {
+                    "passage": "Bed Robin Sex Finish",
+                    "findString": "<<link [[继续|Bed]]>><<clotheson>><</link>>",
+                    "replaceFile": "game/origin-replace/bedRobinSexFinishAsk.txt"
+                },
+                {
+                    "passage": "Robin Room Bed Sex Finish",
+                    "findString": "<<His>>闭上了眼睛，平稳地进入了梦乡。",
+                    "replaceFile": "game/origin-replace/bedRobinSexFinish.txt",
+                    "all": true,
+                    "comments": "破一次例，直接查找中文文本"
+                },
+                {
+                    "passage": "Robin Room Bed Sex Finish",
+                    "findString": "<<link [[继续|Robin Bed]]>><<endevent>><</link>>",
+                    "replaceFile": "game/origin-replace/bedRobinSexFinishAsk.txt"
+                },
+                {
+                    "passage": "Robin Mischief Sex Finish",
+                    "findString": "<<His>>闭上了眼睛，平稳地进入了梦乡。",
+                    "replaceFile": "game/origin-replace/bedRobinSexFinish.txt",
+                    "comments": "破一次例，直接查找中文文本"
+                },
+                {
+                    "passage": "Robin Mischief Sex Finish",
+                    "findString": "<<link [[继续|Orphanage]]>><</link>>",
+                    "replaceFile": "game/origin-replace/bedRobinSexFinishAsk.txt"
                 }
             ]
         },
