@@ -41,6 +41,8 @@
 ![需要安装的文件](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/blob/master/assets/download.png)
 </details>
 
+PS：如果您想体验模组当前的最新版本，可以尝试下载[0.05-temp](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.05-temp)，注意此版本随时会被作者原地替换。
+
 ## 反馈与讨论方式
 bug反馈群群号：964015275
 
