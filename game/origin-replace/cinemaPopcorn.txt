@@ -1,0 +1,7 @@
+<<if $lemonadeNewGoodsList isnot undefined and $lemonadeNewGoodsList.includes("popcorn") and !$hasBoughtPopcorn>>
+    <<set $hasBoughtPopcorn to true>>
+    何必再去光顾那里呢，<span class="gold">下次</span>去看电影时，我会带上我自制的爆米花和你一起分享，
+    <<if C.npc.Robin.dom gte 50>>肯定比其他人做得好吃多了！<<else>>或许会比其他人做得更好吃。<</if>>"罗宾微笑着提议道。
+    <br><br>
+    “好啊好啊！”你满脸期待地回应了<<him>>。
+<<elseif $balloonStand.robin.status is "helped">>

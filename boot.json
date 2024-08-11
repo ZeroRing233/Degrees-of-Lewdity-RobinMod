@@ -88,6 +88,7 @@
         "game/origin-replace/overlayReplace.txt",
         "game/origin-replace/bedRobinSexFinish.txt",
         "game/origin-replace/bedRobinSexFinishAsk.txt",
+        "game/origin-replace/cinemaPopcorn.txt",
         "game/robin-trait/robinTrait.txt",
         "game/robin-trait/robinRoomEntranceTalk.txt",
         "game/robin-trait/robinPayBackCount.txt",
@@ -775,6 +776,11 @@
                     "passage": "Robin Mischief Sex Finish",
                     "findString": "<<link [[继续|Orphanage]]>><</link>>",
                     "replaceFile": "game/origin-replace/bedRobinSexFinishAsk.txt"
+                },
+                {
+                    "passage": "Robin Cinema Popcorn",
+                    "findString": "<<if $balloonStand.robin.status is \"helped\">>",
+                    "replaceFile": "game/origin-replace/cinemaPopcorn.txt"
                 }
             ]
         },
