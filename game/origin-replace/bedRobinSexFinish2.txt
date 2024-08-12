@@ -1,0 +1,3 @@
+<<if $daily.askMore or $promiscuity lt 55>>
+    <<clotheson>>
+<</if>>

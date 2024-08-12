@@ -14,7 +14,7 @@
     <<case "Bed Robin Sex Finish">>
         <<link [[继续|Bed]]>><<clotheson>><</link>>
     <<case "Robin Mischief Sex Finish">>
-        <<link [[继续|Orphanage]]>><</link>>
+        <<link [[继续|Orphanage]]>><<clotheson>><</link>>
     <<case "Robin Room Bed Sex Finish">>
-        <<link [[继续|Robin Bed]]>><<endevent>><</link>>
+        <<link [[继续|Robin Bed]]>><<clotheson>><<endevent>><</link>>
 <</switch>>
