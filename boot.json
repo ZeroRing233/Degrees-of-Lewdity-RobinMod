@@ -1,6 +1,9 @@
 {
     "name": "DomRobin",
     "version": "0.0.5-temp",
+    "scriptFileList_inject_early": [
+        "game/javaScript/robinModInject_early.js"
+    ],
     "styleFileList": [
         "game/orphanage-poster/poster.css",
         "game/origin-replace/button.css"
