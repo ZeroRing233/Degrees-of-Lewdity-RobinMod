@@ -1,7 +1,14 @@
 :: Robin Room Leave
 <<effects>>
-你站起身提出你要去做点其他事了，罗宾微笑着点了点头。
-<br><br>
-在离开前，你轻轻地关上了罗宾的房门。
+<<set _condition to getRobinLeaveRoomCondition()>>
+/% 先写通用情况 %/
+<<if _condition is "hasClothes">>
+    你站起身与罗宾告别,
+<<else>>
+    你站起身与罗宾告别，罗宾微笑着点了点头。
+    <br><br>
+    在离开前，你轻轻地关上了罗宾的房门。
+<</if>>
+
 <br><br>
 <<link [[继续|Orphanage]]>><<endevent>><</link>>

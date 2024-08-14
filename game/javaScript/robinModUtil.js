@@ -248,3 +248,20 @@ function getCurrentFlowerList() {
     T.currentFlowerList = currentFlowerList;
 }
 window.getCurrentFlowerList = getCurrentFlowerList;
+
+// 获取离开罗宾房间时pc的衣物状况
+function getRobinLeaveRoomCondition() {
+    $.wiki('<<storeon "Robin\'s Room" "check">>');
+    if (T.store_check && T.store_check === 1) {
+        return "hasClothes";
+    }
+    $.wiki('<<storeon "Robin\'s Room Photography" "check">>');
+    if (T.store_check && T.store_check === 1) {
+        return "hasPhotographyClothes";
+    }
+    if (V.exposed >= 1) {
+        return "needClothes";
+    }
+    return "normal";
+}
+window.getRobinLeaveRoomCondition = getRobinLeaveRoomCondition;
