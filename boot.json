@@ -803,12 +803,6 @@
                     "replaceFile": "game/origin-replace/cinemaPopcorn.txt"
                 },
                 {
-                    "passage": "Widgets Robin",
-                    "findString": "<<set $fromRobinRoom to true>>",
-                    "all": true,
-                    "replace": "<<set $fromRobinRoom to true>><<set $store_check to _store_check>>"
-                },
-                {
                     "passage": "Orphanage",
                     "findString": "<<set _robinAtOrphanage to [\"orphanage\",\"bath\",\"sleep\"].includes(_robin_location)>>",
                     "replaceFile": "game/origin-replace/orphanageBegin.txt"

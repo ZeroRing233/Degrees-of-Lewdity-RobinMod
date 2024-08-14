@@ -1,11 +1,9 @@
 (() => {
-    // 自执行函数，会在[Story/storyInit()]后执行
-    // 由于此时引擎已经抓取所有模板数据，故无法在此处使用modUtils.updatePassageData更新passage
     const modUtils = window.modUtils;
     const logger = modUtils.getLogger();
-    logger.log('[robinMod_inject_early] 开始执行');
     const modSC2DataManager = window.modSC2DataManager;
-    //return Promise.resolve("robinModPreload.js，获取返回值");
+    logger.log('[robinMod_inject_early] 开始执行');
+
     modSC2DataManager.getAddonPluginManager().registerAddonPlugin(
         'DomRobin', //  mod名称
         'DomRobin1', // 插件名称，必须唯一，一个mod可以挂多个插件，可以使用mod名称
@@ -37,12 +35,35 @@
                         let contentReplaced = content.replace(regex, function(match) {
                             count++;
                             console.log("当前match是：" + match);
-                            if (count < 2 || count == 12) {
+                            if (count <= 2 || count === 12) {
+                                // 被过滤的情况：异装一、异装二、海滩
                                 console.log("当前match不做处理");
                                 return match;
+                            } else if (count == 3) {
+                                // 有创伤时拒绝一起上学
+                                let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"schoolRefuseTramua\">>");
+                                console.log("当前match替换后是" + replaceString);
+                                return replaceString;
+                            } else if (count == 4) {
+                                // 无创伤时拒绝一起上学，感觉也可以写点分支
+                                let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"schoolRefuse\">>");
+                                console.log("当前match替换后是" + replaceString);
+                                return replaceString;
+                            } else if (count == 6) {
+                                // 有创伤时拒绝留宿，无创伤时不做特殊处理
+                                let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"sleepRefuseTramua\">>");
+                                console.log("当前match替换后是" + replaceString);
+                                return replaceString;
+                            } else if (count == 8) {
+                                // 拒绝陪罗宾写作业
+                                let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"studyRefuse\">>");
+                                console.log("当前match替换后是" + replaceString);
+                                return replaceString;
                             } else {
-                                console.log("需要替换当前match");
-                                return "REPLACED";
+                                // 剩余情况为：直播赶人，搭摊子，万圣节，无创伤不留宿，平时
+                                let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"normal\">>");
+                                console.log("当前match替换后是" + replaceString);
+                                return replaceString;
                             }
                         });
                         console.log("replace的结果是：" + contentReplaced)
