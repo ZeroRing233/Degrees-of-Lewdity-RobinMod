@@ -25,40 +25,42 @@
             afterPatchModToGame: async() => {
                 // 所有 mod 数据覆盖到游戏后
                 // 可选钩子
-                console.log('domRobin_inject_early', '  ', '所有 mod 数据覆盖到游戏后');
+                console.log('[robinMod_inject_early]', '  ', '所有 mod 数据覆盖到游戏后');
 
                 const passage1 = modUtils.getPassageData('Widgets Robin');
                 if (passage1) {
-                    // 成功获得passage数据
-                    logger.log('[robinMod_inject_early] 获取passage信息成功', [passage1.name]);
-                    // passage 的文本内容
+                    logger.log(`[robinMod_inject_early] 获取passage信息成功: [${passage1.name}]`);
                     let regex = new RegExp("<<getouticon>>.*", 'g');
-
                     let content = passage1.content;
-                    let resultList = content.match(regex);
-                    if (resultList.length === 12) {
-                        content = content.replace(new RegExp(regex), "只是验证一下替换效果");
-                    } else {
-                        logger.warn('[robinMod_inject_early] 匹配结果数量异常', [passage1.name]);
-                    }
-                    // 将单个passage数据写回到SC2引擎的游戏数据中
-                    modUtils.updatePassageData(
-                        passage1.name,
-                        content,
-                        passage1.tags,
-                        passage1.id,
-                    );
-                    // pp.content = pp.content.replace(new RegExp(p.findRegex), replaceString);
+                    if (content.match(regex).length === 12) {
+                        let count = 0;
+                        let contentReplaced = content.replace(regex, function(match) {
+                            count++;
+                            console.log("当前match是：" + match);
+                            if (count < 2 || count == 12) {
+                                console.log("当前match不做处理");
+                                return match;
+                            } else {
+                                console.log("需要替换当前match");
+                                return "REPLACED";
+                            }
+                        });
+                        console.log("replace的结果是：" + contentReplaced)
+                            // 将单个passage数据写回到SC2引擎的游戏数据中
+                        modUtils.updatePassageData(
+                            passage1.name,
+                            contentReplaced,
+                            passage1.tags,
+                            passage1.id,
+                        );
 
+                    } else {
+                        logger.warn(`[robinMod_inject_early] 匹配passage异常: [${passage1.name}]`);
+                    }
                 } else {
-                    logger.warn('[robinMod_inject_early] 获取passage信息失败');
+                    logger.warn(`[robinMod_inject_early] 获取passage信息失败： [${passage1.name}]`);
                 }
-            },
-            afterPreload: async() => {
-                // 所有 Preload 脚本执行后
-                // 可选钩子
-                console.log('domRobin_inject_early', '  ', '所有 Preload 脚本执行后');
-            },
+            }
         },
     );
 })();
