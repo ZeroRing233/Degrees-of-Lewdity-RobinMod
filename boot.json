@@ -36,6 +36,7 @@
         "game/origin-replace/widgets.twee",
         "game/origin-replace/balloonRobin.twee",
         "game/origin-replace/bedAskMore.twee",
+        "game/origin-replace/robinRoomLeave.twee",
         "game/orphanage-poster/widgets.twee"
     ],
     "imgFileList": [],
@@ -93,7 +94,8 @@
         "game/origin-replace/bedRobinSexFinish2.txt",
         "game/origin-replace/bedRobinSexFinishAsk.txt",
         "game/origin-replace/cinemaPopcorn.txt",
-        "game/origin-replace/orphanageBegin.txt",
+        "game/origin-replace/photographyClothesCheck.txt",
+        "game/origin-replace/photographyClothesCheck2.txt",
         "game/robin-trait/robinTrait.txt",
         "game/robin-trait/robinRoomEntranceTalk.txt",
         "game/robin-trait/robinPayBackCount.txt",
@@ -805,7 +807,17 @@
                 {
                     "passage": "Orphanage",
                     "findString": "<<set _robinAtOrphanage to [\"orphanage\",\"bath\",\"sleep\"].includes(_robin_location)>>",
-                    "replaceFile": "game/origin-replace/orphanageBegin.txt"
+                    "replace": "<<set _robinAtOrphanage to [\"orphanage\",\"bath\",\"sleep\",\"liveStream\"].includes(_robin_location)>>"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<<set _robin to statusCheck(\"Robin\")>>",
+                    "replaceFile": "game/origin-replace/photographyClothesCheck.txt"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<<if Time.schoolDay and (Time.hour is 8 or Time.hour is 7)>>",
+                    "replaceFile": "game/origin-replace/photographyClothesCheck2.txt"
                 }
             ]
         },

@@ -1,0 +1,7 @@
+:: Robin Room Leave
+<<effects>>
+你站起身提出你要去做点其他事了，罗宾微笑着点了点头。
+<br><br>
+在离开前，你轻轻地关上了罗宾的房门。
+<br><br>
+<<link [[继续|Orphanage]]>><<endevent>><</link>>

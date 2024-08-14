@@ -1,7 +1,0 @@
-<<set _robinAtOrphanage to ["orphanage","bath","sleep","liveStream"].includes(_robin_location)>>
-<<if $store_check is 1 and $fromRobinRoom>>
-    <<unset $store_check>>
-    <<storeon "Robin's Room">><<exposure>>
-    在离开罗宾的房间之前，你迅速地穿回了自己的衣服。
-    <br><br>
-<</if>>

@@ -88,6 +88,9 @@
     <</for>>
     <<set _chosen2 to getRandomValueFromArray(_lowerList)>>
 <</if>>
+/% 新增改动：摄影时保存之前的服装 %/
+<<generalUndress "Robin's Room Photography" "upper">>
+<<generalUndress "Robin's Room Photography" "lower">>
 <<generalWear "upper" _chosen.index>>
 <<updateOwned "upper">>
 <<if _chosen2 isnot undefined>>
