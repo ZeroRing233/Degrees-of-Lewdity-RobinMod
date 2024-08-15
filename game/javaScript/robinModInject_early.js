@@ -39,24 +39,29 @@
                                 // 被过滤的情况：异装一、异装二、海滩
                                 console.log("当前match不做处理");
                                 return match;
-                            } else if (count == 3) {
+                            } else if (count === 3) {
                                 // 有创伤时拒绝一起上学
                                 let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"schoolRefuseTramua\">>");
                                 console.log("当前match替换后是" + replaceString);
                                 return replaceString;
-                            } else if (count == 4) {
-                                // 无创伤时拒绝一起上学，感觉也可以写点分支
+                            } else if (count === 4) {
+                                // 无创伤时拒绝一起上学
                                 let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"schoolRefuse\">>");
                                 console.log("当前match替换后是" + replaceString);
                                 return replaceString;
-                            } else if (count == 6) {
+                            } else if (count === 6) {
                                 // 有创伤时拒绝留宿，无创伤时不做特殊处理
                                 let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"sleepRefuseTramua\">>");
                                 console.log("当前match替换后是" + replaceString);
                                 return replaceString;
-                            } else if (count == 8) {
+                            } else if (count === 8) {
                                 // 拒绝陪罗宾写作业
                                 let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"studyRefuse\">>");
+                                console.log("当前match替换后是" + replaceString);
+                                return replaceString;
+                            } else if (count === 9) {
+                                // 不一起搭摊子
+                                let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"lemonade\">>");
                                 console.log("当前match替换后是" + replaceString);
                                 return replaceString;
                             } else {

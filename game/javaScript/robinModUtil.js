@@ -265,3 +265,11 @@ function getRobinLeaveRoomCondition() {
     return "normal";
 }
 window.getRobinLeaveRoomCondition = getRobinLeaveRoomCondition;
+
+// 获取罗宾房间内是否有内衣，注意摄影时只会脱上下装，所以不用判断
+function getUnderUpperOrUnderLower() {
+    let under_upper = V.store["under_upper"].find(item => item.location === "Robin's Room");
+    let under_lower = V.store["under_lower"].find(item => item.location === "Robin's Room");
+    return under_upper || under_lower;
+}
+window.getUnderUpperOrUnderLower = getUnderUpperOrUnderLower;
