@@ -353,5 +353,66 @@ details">详细内容介绍</a>中查看具体触发条件）</p>
 </ol>
 <</widget>>
 
-<<widget "justTest">>
+:: Robin Room Leave Widgets[widget]
+<<widget "robinRoomLeaveSpecial">>
+    <<switch $condition>>
+        <<case "Robin's Room" "Robin's Room Photography">>
+            <<if $exposed gte 1>>
+                罗宾一脸震惊地看着你："你...打算就这样出去吗？"
+                <br><br>
+                <<if $speech_attitude is "meek">>
+                    你不确定地说："是...是的，我觉得应该没什么问题。"
+                <<elseif $speech_attitude is "bratty">>
+                    你毫不在意地说："是啊，应该没什么问题吧？"
+                <<else>>
+                    你肯定地说："是的，我觉得应该没什么问题。"
+                <</if>>
+                <br><br>
+                罗宾摇了摇头，严肃地拿起了你留在床上的衣物："你这样出去不安全，穿上它们吧，拜托了。"
+                <br><br>
+                <<link [[穿上|Robin Room Leave Wear Original]]>><</link>><br>
+                <<link [[拒绝|Robin Room Leave Refuse Original]]>><</link>>
+            <<else>>
+                罗宾微笑着提醒你："别忘了你的衣服。" 说着，<<He>>指了指床上被你落下的衣物。
+                <br><br>
+                <<link [[穿上|Robin Room Leave Wear Original Not Exposed]]>><</link>><br>
+                <<link [[放回衣柜|Robin Room Leave Return Wardrobe]]>><</link>><br>
+                <<link [[提出放在罗宾房间|Robin Room Leave Keep Clothes]]>><</link>>
+            <</if>>
+        <<case "needClothes">>
+            <<set _chosen to peekNormalClothes()>>
+            罗宾一脸震惊地看着你："你...打算就这样出去吗？"
+            <br><br>
+            <<if $speech_attitude is "meek">>
+                你不确定地说："是...是的，我觉得应该没什么问题。"
+            <<elseif $speech_attitude is "bratty">>
+                你毫不在意地说："是啊，应该没什么问题吧？"
+            <<else>>
+                你肯定地说："是的，我觉得应该没什么问题。"
+            <</if>>
+            <br><br>
+            罗宾摇了摇头，对你说了句"稍等"，然后从衣柜里拿出了一件<span class="green"><<print _chosen[0].cn_name_cap>></span><<if _chosen.length is 2>>和一件<span class="green"><<print _chosen[1].cn_name_cap>></span>，
+            <<he>>严肃地将衣服递给你："你这样出去不安全，穿上它吧，拜托了。"
+            <br><br>
+            <<link [[穿上|Robin Room Leave Wear New]]>><<wearNewClothes _chosen>><</link>><br>
+            <<link [[拒绝|Robin Room Leave Refuse New]]>><<set $chosen to _chosen>><</link>>
+    <</switch>>
+<</widget>>
+
+<<widget "robinRoomLeaveEnd">>
+    <<unset $phase>>
+    <<unset $condition>>
+    <<unset $dayStateText>>
+    <<unset $closeText>>
+    <<unset $clothesOriginal>>
+<</widget>>
+
+<<widget "wearNewClothes">>
+    <<set $_chosen to _args[0]>>
+    <<generalWear "upper" $_chosen[0].index>>
+    <<updateOwned "upper">>
+    <<if $_chosen.length is 2>>
+        <<generalWear "lower" $_chosen[1].index>>
+        <<updateOwned "lower">>
+    <</if>>
 <</widget>>

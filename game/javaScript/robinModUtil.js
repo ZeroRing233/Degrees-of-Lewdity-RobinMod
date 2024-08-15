@@ -253,11 +253,11 @@ window.getCurrentFlowerList = getCurrentFlowerList;
 function getRobinLeaveRoomCondition() {
     $.wiki('<<storeon "Robin\'s Room" "check">>');
     if (T.store_check && T.store_check === 1) {
-        return "hasClothes";
+        return "Robin\'s Room";
     }
     $.wiki('<<storeon "Robin\'s Room Photography" "check">>');
     if (T.store_check && T.store_check === 1) {
-        return "hasPhotographyClothes";
+        return "Robin\'s Room Photography";
     }
     if (V.exposed >= 1) {
         return "needClothes";
@@ -273,3 +273,30 @@ function getUnderUpperOrUnderLower() {
     return under_upper || under_lower;
 }
 window.getUnderUpperOrUnderLower = getUnderUpperOrUnderLower;
+
+function getUpperOrLower() {
+    let condition = getRobinLeaveRoomCondition();
+    let upper = V.store["upper"].find(item => item.location === condition);
+    let lower = V.store["lower"].find(item => item.location === condition);
+    return upper || lower;
+}
+window.getUpperOrLower = getUpperOrLower;
+
+// 罗宾送pc的日常服装
+function peekNormalClothes() {
+    let normalClothesUpperList = setup.clothes["upper"].filter(clothes => rightNormalClothesCondition(clothes));
+    let chosen1 = normalClothesUpperList.random();
+    if (typeof chosen1.outfitPrimary != 'undefined') {
+        return [chosen1];
+    }
+    let normalClothesLowerList = setup.clothes["upper"].filter(clothes => rightNormalClothesCondition(clothes) &&
+        typeof clothes.outfitSecondary === "undefined");
+    let chosen2 = normalClothesLowerList.random();
+    return [chosen1, chosen2];
+}
+window.peekNormalClothes = peekNormalClothes;
+
+function rightNormalClothesCondition(clothes) {
+    return !clothes.shop.includes("adult") && clothes.type.includes("normal") &&
+        (clothes.gender === V.player.gender_appearance || clothes.gender === "n");
+}

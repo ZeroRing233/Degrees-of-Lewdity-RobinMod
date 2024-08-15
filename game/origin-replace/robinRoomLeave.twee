@@ -1,14 +1,164 @@
 :: Robin Room Leave
 <<effects>>
-<<set _condition to getRobinLeaveRoomCondition()>>
-/% 先写通用情况 %/
-<<if _condition is "hasClothes">>
-    你站起身与罗宾告别,
+<<set $condition to getRobinLeaveRoomCondition()>>
+<<if ["night","dusk"].includes(Time.dayState)>>
+    <<set $dayStateText to "夜晚">>
 <<else>>
-    你站起身与罗宾告别，罗宾微笑着点了点头。
+    <<set $dayStateText to "一天">>
+<</if>>
+<<if ["lemonade","schoolRefuseTramua","schoolRefuse"].includes($phase)>>
+    <<set $closeText to "虚掩">>
+<<else>>
+    <<set $closeText to "关上">>
+<</if>>
+<<set $clothesOriginal to getUpperOrLower()>>
+<<switch $phase>>
+    <<case "normal" "lemonade">>
+        你站起身与罗宾告别，
+        <<if $condition is "normal">>
+            罗宾点了点头，微笑着拥抱了一下你："愿你度过愉快的<<print $dayStateText>>，回头见！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
+            <br><br>
+            在离开前，你轻轻地<<print $closeText>>了罗宾的房门。
+            <br><br>
+            <<link [[继续|Orphanage]]>><<endevent>><<robinRoomLeaveEnd>><</link>>
+        <<else>>
+            <<robinRoomLeaveSpecial>>
+        <</if>>
+<</switch>>
+
+:: Robin Room Leave Wear Original
+<<effects>>
+<<storeon $condition>><<exposure>>
+<<if $exposed lte 0>>
+    你穿上了罗宾递来的<span class="green"><<print $clothesOriginal.cn_name_cap>></span>等衣物，<<He>>欣慰地点了点头，微笑着拥抱了一下你："愿你度过愉快的<<print $dayStateText>>，回头见！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
     <br><br>
-    在离开前，你轻轻地关上了罗宾的房门。
+<<else>>
+    <<set _chosen to peekNormalClothes()>><<wearNewClothes _chosen>>
+    你穿上了罗宾递来的<span class="green"><<print $clothesOriginal.cn_name_cap>></span>等衣物，罗宾端详了一下你，但并不满意，
+    <<He>>皱着眉头说："不行，你这样穿还是不够...要不我来送你一件衣服吧？"
+    说着，<<He>>从衣柜里拿出了一件<span class="green"><<print _chosen[0].cn_name_cap>></span><<if _chosen.length is 2>>和一件<span class="green"><<print _chosen[1].cn_name_cap>></span><</if>>。
+    <br><br>
+    你换上衣服后，<<he>>欣慰地点了点头："这样好多了。" 随后，<<He>>微笑着拥抱了一下你："愿你度过愉快的<<print $dayStateText>>，回头见！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
+    <br><br>
+<</if>>
+在离开前，你轻轻地<<print $closeText>>了罗宾的房门。
+<br><br>
+<<link [[继续|Orphanage]]>><<endevent>><<robinRoomLeaveEnd>><</link>>
+
+:: Robin Room Leave Refuse Original
+<<effects>>
+ <<if $speech_attitude is "bratty">>
+    "不，我并不想穿上衣服，我觉得这样更舒服。"你坚定地说。
+<<else>>
+    "不...不行，我觉得这样更舒服。"你试图回绝罗宾。
+ <</if>>
+<br><Br>
+<<if C.npc.Robin.dom gte (100 - ($submissive/20))>>
+    <<storeon $condition>><<exposure>>
+    罗宾叹了口气，<span class="gold">但并没有妥协，</span>
+    <<He>>将衣物塞到你手上，用不容置疑的语气说道："穿上它，我不能看着我<<if $robinromance is 1>>重要的恋人<<else>>最好的朋友<</if>>陷入危险之中。"
+    <br><br>
+    你默默地看着罗宾，<<his>>眼神中的某种东西打动了你，于是你不再抗拒，穿上了罗宾递来的<span class="green"><<print $clothesOriginal.cn_name_cap>></span>等衣物。
+    <br><br>
+    <<if $exposed lte 0>>
+        罗宾欣慰地点了点头，微笑着拥抱了一下你："愿你度过愉快的<<print $dayStateText>>，回头见！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
+    <<else>>
+        <<set _chosen to peekNormalClothes()>><<wearNewClothes _chosen>>
+        罗宾端详了一下你，但并不满意，<<He>>皱着眉头说："不行，你这样穿还是不够...要不我来送你一件衣服吧？"说着，<<He>>从衣柜里拿出了一件<span class="green"><<print _chosen[0].cn_name_cap>></span><<if _chosen.length is 2>>和一件<span class="green"><<print _chosen[1].cn_name_cap>></span><</if>>。
+        <br><br>
+        你换上衣服后，<<he>>欣慰地点了点头："这样好多了。" 随后，<<He>>微笑着拥抱了一下你："愿你度过愉快的<<print $dayStateText>>，回头见！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
+    <</if>>
+<<else>>
+    罗宾叹了口气，<span class="blue">但最终妥协了，</span><<he>>关切地看着你说："答应我，千万要保护好自己，好吗？"
+    <br><br>
+    "<<if $speech_attitude is "bratty">>当然。<<else>>我会的。<</if>>"你向罗宾保证道，然后在<<he>>担忧的目光中转身离开了。
+<</if>>
+<br><br>
+在离开前，你轻轻地<<print $closeText>>了罗宾的房门。
+<br><br>
+<<link [[继续|Orphanage]]>><<endevent>><<robinRoomLeaveEnd>><</link>>
+
+:: Robin Room Leave Wear Original Not Exposed
+<<effects>>
+<<storeon $condition>>
+"多谢提醒。"你说着，穿上了你留在床上的<span class="green"><<print $clothesOriginal.cn_name_cap>></span>等衣物。
+<br><br>
+罗宾点了点头，微笑着拥抱了一下你："愿你度过愉快的<<print $dayStateText>>，回头见！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
+<br><br>
+在离开前，你轻轻地<<print $closeText>>了罗宾的房门。
+<br><br>
+<<link [[继续|Orphanage]]>><<endevent>><<robinRoomLeaveEnd>><</link>>
+
+      
+:: Robin Room Leave Return Wardrobe
+<<effects>>
+<<storeon $condition "return">>
+"多谢提醒。"你说着，拿起了你留在床上的<span class="green"><<print $clothesOriginal.cn_name_cap>></span>等衣物。
+<br><br>
+罗宾点了点头，微笑着拥抱了一下你："愿你度过愉快的<<print $dayStateText>>，回头见！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
+<br><br>
+在离开前，你轻轻地<<print $closeText>>了罗宾的房门，然后回到房间，将手上的衣物放回了衣柜中。
+<br><br>
+<<link [[继续|Bedroom]]>><<endevent>><<robinRoomLeaveEnd>><</link>>
+
+:: Robin Room Leave Keep Clothes
+<<effects>>
+<<set _underClothes to getUnderUpperOrUnderLower()>>
+"这些衣服就先留在你的房间里，可以吗？"你提议道。
+<br><br>
+<<if _underClothes is undefined>>
+    罗宾点了点头："可以，不过你要记得把它们拿回去。"
+<<elseif C.npc.Robin.love gte 80 or C.npc.Robin.dom lt 50>>
+    罗宾看上去有点为难，但还是接受了："可以是可以，不过你要记得把它们拿回去。"
+<<else>>
+    <<set _refuse to true>>
+    罗宾看上去有点为难："这...好像有点不太合适。" 
+    <br><br>
+    "那好吧。"你没有再勉强罗宾。
+    <br><br>
+    <<link [[穿上|Robin Room Leave Wear Original Not Exposed]]>><</link>><br>
+    <<link [[放回衣柜|Robin Room Leave Return Wardrobe]]>><</link>><br>
+<</if>>
+<<if !_refuse>>
+    随后，<<He>>微笑着拥抱了一下你："愿你度过愉快的<<print $dayStateText>>，回头见！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
+    <br><br>
+    在离开前，你轻轻地<<print $closeText>>了罗宾的房门。
+    <br><br>
+    <<link [[继续|Orphanage]]>><<endevent>><<robinRoomLeaveEnd>><</link>>
 <</if>>
 
+:: Robin Room Leave Wear New
+/% 罗宾新送的衣服并不会有穿上后还露着的问题 %/
+<<effects>>
+你穿上了罗宾递来的衣物，<<He>>欣慰地点了点头，微笑着拥抱了一下你:"愿你度过愉快的<<print $dayStateText>>，回头见！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
 <br><br>
-<<link [[继续|Orphanage]]>><<endevent>><</link>>
+在离开前，你轻轻地<<print $closeText>>了罗宾的房门。
+<br><br>
+<<link [[继续|Orphanage]]>><<endevent>><<robinRoomLeaveEnd>><</link>>
+
+:: Robin Room Leave Refuse New
+<<effects>>
+ <<if $speech_attitude is "bratty">>
+    "不，我并不想穿上衣服，我觉得这样更舒服。"你坚定地说。
+<<else>>
+    "不...不行，我觉得这样更舒服。"你试图回绝罗宾。
+ <</if>>
+<br><br>
+<<if C.npc.Robin.dom gte (100 - ($submissive/20))>>
+    <<wearNewClothes $chosen>>
+    罗宾叹了口气，<span class="gold">但并没有妥协，</span>
+    <<He>>将衣物塞到你手上，用不容置疑的语气说道："穿上它，我不能看着我<<if $robinromance is 1>>重要的恋人<<else>>最好的朋友<</if>>陷入危险之中。"
+    <br><br>
+    你默默地看着罗宾，<<his>>眼神中的某种东西打动了你，于是你不再抗拒，穿上了罗宾递来的衣物。
+    <br><br>
+    罗宾欣慰地点了点头，微笑着拥抱了一下你："愿你度过愉快的<<print $dayStateText>>，回头见！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
+<<else>>
+    罗宾叹了口气，<span class="blue>但最终妥协了，</span><<he>>关切地看着你说："答应我，千万要保护好自己，好吗？"
+    <br><br>
+    "<<if $speech_attitude is "bratty">>当然。<<else>>我会的。<</if>>"你向罗宾保证道，然后在<<he>>担忧的目光中转身离开了。
+<</if>>
+<br><br>
+<<unset $chosen>>
+在离开前，你轻轻地<<print $closeText>>了罗宾的房门。
+<br><br>
+<<link [[继续|Orphanage]]>><<endevent>><<robinRoomLeaveEnd>><</link>>
