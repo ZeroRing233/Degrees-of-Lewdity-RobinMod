@@ -96,6 +96,7 @@
         "game/origin-replace/cinemaPopcorn.txt",
         "game/origin-replace/photographyClothesCheck.txt",
         "game/origin-replace/photographyClothesCheck2.txt",
+        "game/origin-replace/robinRoomWake.txt",
         "game/robin-trait/robinTrait.txt",
         "game/robin-trait/robinRoomEntranceTalk.txt",
         "game/robin-trait/robinPayBackCount.txt",
@@ -818,6 +819,19 @@
                     "passage": "Widgets Robin",
                     "findString": "<<if Time.schoolDay and (Time.hour is 8 or Time.hour is 7)>>",
                     "replaceFile": "game/origin-replace/photographyClothesCheck2.txt"
+                },
+                {
+                    "passage": "Robin's Room Entrance",
+                    "findString": "<<link[[离开|Orphanage]]>><<endevent>><</link>>",
+                    "all": true,
+                    "replace": "<<link[[离开|Robin Room Leave]]>><<set $phase to \"studyRefuse\">><</link>>",
+                    "comments": "只可能是写作业，其他情况没<<endevent>>"
+                },
+                {
+                    "passage": "Robin Room Wake",
+                    "findRegex": "<<getouticon>>.*",
+                    "all": true,
+                    "replaceFile": "game/origin-replace/robinRoomWake.txt"
                 }
             ]
         },

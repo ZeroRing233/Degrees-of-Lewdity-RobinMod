@@ -1,0 +1,9 @@
+<<set _condition to getRobinLeaveRoomCondition()>>
+<<set _clothesOriginal to getUpperOrLower()>>
+<<if ["Robin's Room","Robin's Room Photography"].includes(_condition)>>
+	你的<span class="green"><<print _clothesOriginal.cn_name_cap>></span>等衣物还在罗宾床上。
+	<br><br>
+	<<getouticon>><<link [[换上衣服并离开|Orphanage]]>><<endevent>><<storeon "bed">><<storeon $condition>><</link>>
+	<br>
+<</if>>
+<<getouticon>><<link [[离开|Orphanage]]>><<endevent>><<storeon "bed">><</link>>
