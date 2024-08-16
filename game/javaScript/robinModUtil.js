@@ -251,13 +251,11 @@ window.getCurrentFlowerList = getCurrentFlowerList;
 
 // 获取离开罗宾房间时pc的衣物状况
 function getRobinLeaveRoomCondition() {
-    $.wiki('<<storeon "Robin\'s Room" "check">>');
-    if (T.store_check && T.store_check === 1) {
-        return "Robin\'s Room";
+    if (V.store.upper.find(item => item.location == "Robin's Room") && V.store.lower.find(item => item.location === "Robin's Room")) {
+        return "Robin's Room";
     }
-    $.wiki('<<storeon "Robin\'s Room Photography" "check">>');
-    if (T.store_check && T.store_check === 1) {
-        return "Robin\'s Room Photography";
+    if (V.store.upper.find(item => item.location == "Robin's Room Photography") && V.store.lower.find(item => item.location === "Robin's Room Photography")) {
+        return "Robin's Room Photography";
     }
     if (V.exposed >= 1) {
         return "needClothes";
@@ -289,7 +287,7 @@ function peekNormalClothes() {
     if (typeof chosen1.outfitPrimary != 'undefined') {
         return [chosen1];
     }
-    let normalClothesLowerList = setup.clothes["upper"].filter(clothes => rightNormalClothesCondition(clothes) &&
+    let normalClothesLowerList = setup.clothes["lower"].filter(clothes => rightNormalClothesCondition(clothes) &&
         typeof clothes.outfitSecondary === "undefined");
     let chosen2 = normalClothesLowerList.random();
     return [chosen1, chosen2];

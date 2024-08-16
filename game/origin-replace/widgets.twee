@@ -391,7 +391,7 @@ details">详细内容介绍</a>中查看具体触发条件）</p>
                 你肯定地说："是的，我觉得应该没什么问题。"
             <</if>>
             <br><br>
-            罗宾摇了摇头，对你说了句"稍等"，然后从衣柜里拿出了一件<span class="green"><<print _chosen[0].cn_name_cap>></span><<if _chosen.length is 2>>和一件<span class="green"><<print _chosen[1].cn_name_cap>></span>，
+            罗宾摇了摇头，对你说了句"稍等"，然后从衣柜里拿出了一件<span class="green"><<print _chosen[0].cn_name_cap>></span><<if _chosen.length is 2>>和一件<span class="green"><<print _chosen[1].cn_name_cap>></span><</if>>，
             <<he>>严肃地将衣服递给你："你这样出去不安全，穿上它吧，拜托了。"
             <br><br>
             <<link [[穿上|Robin Room Leave Wear New]]>><<wearNewClothes _chosen>><</link>><br>
@@ -399,11 +399,25 @@ details">详细内容介绍</a>中查看具体触发条件）</p>
     <</switch>>
 <</widget>>
 
+<<widget "robinRoomLeaveSpecialTramua">>
+    在你离开前，<<he>>叫住了你："等等...至少穿上衣服再走吧。" <<He>>说着，
+    <<if $condition is "needClothes">>
+        <<set _chosen to peekNormalClothes()>>
+        从衣柜里拿出了一件<span class="green"><<print _chosen[0].cn_name_cap>></span><<if _chosen.length is 2>>和一件<span class="green"><<print _chosen[1].cn_name_cap>></span><</if>>。
+    <<else>>
+        指了指你落在床上的衣物。
+    <</if>>
+    <br><br>
+    <<link [[穿上|Robin Room Leave Wear Tramua]]>><<set $chosen to _chosen>><</link>><br>
+    <<link [[拒绝|Robin Room Leave Refuse Tramua]]>><<set $chosen to _chosen>><</link>>
+<</widget>>
+
 <<widget "robinRoomLeaveEnd">>
     <<unset $phase>>
     <<unset $condition>>
     <<unset $dayStateText>>
     <<unset $closeText>>
+    <<unset $remindText>>
     <<unset $clothesOriginal>>
 <</widget>>
 
