@@ -839,6 +839,25 @@
                     "replaceFile": "game/origin-replace/robinRoomWake.txt",
                     "all": true,
                     "comments": "findRegex+all有误，故出此下策"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<<if _anyItemsInRoom>>",
+                    "replace": "<<if $exposed gte 1 and (_anyItemsInRoom or $anyPhotograhyItemsInRoom)>>",
+                    "comments": "搭摊子，我放弃治疗了，不要吐槽"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<<if $exposed lte 0 or _anyItemsInRoom>>",
+                    "replace": "<<if $exposed lte 0 or _anyItemsInRoom or $anyPhotograhyItemsInRoom>>",
+                    "comments": "搭摊子，我放弃治疗了，不要吐槽"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<<if $exposed gte 1 and _anyItemsInRoom>><<storeon \"Robin's Room\">><</if>>",
+                    "all": true,
+                    "replace": "<<if $exposed gte 1 and _anyItemsInRoom>><<storeon \"Robin's Room\">><<elseif $exposed gte 1 and $anyPhotograhyItemsInRoom>><<storeon \"Robin's Room Photography\">><</if>>",
+                    "comments": "搭摊子，我放弃治疗了，不要吐槽"
                 }
             ]
         },
