@@ -3,7 +3,7 @@
     const logger = modUtils.getLogger();
     const modSC2DataManager = window.modSC2DataManager;
     logger.log('[robinMod_inject_early] 开始执行');
-    // todo 给穿上衣服选项也写一个function
+    // 从罗宾房间离开，场景修改
     function changeRobinRoomLeave() {
         const passage1 = modUtils.getPassageData('Widgets Robin');
         if (passage1) {
@@ -61,10 +61,28 @@
                 );
 
             } else {
-                logger.warn(`[robinMod_inject_early] 匹配passage异常: [${passage1.name}]`);
+                logger.warn(`[robinMod_inject_early] <<getouticon>>.* 匹配passage异常: [${passage1.name}]`);
             }
         } else {
-            logger.warn(`[robinMod_inject_early] 获取passage信息失败： [${passage1.name}]`);
+            logger.warn(`[robinMod_inject_early] 获取passage信息失败`);
+        }
+    }
+
+    // 和罗宾一起出门做某事，场景修改
+    function changeRobinRoomWalkTogether() {
+        const passage1 = modUtils.getPassageData('Widgets Robin');
+        if (passage1) {
+            logger.log(`[robinMod_inject_early] 第二次获取passage信息成功: [${passage1.name}]`);
+            let content = passage1.content;
+            let findString = "<<if $exposed lte 0>>";
+            console.log('content是' + passage1.content);
+            if (content.match(findString).length === 9) {
+
+            } else {
+                logger.warn(`[robinMod_inject_early] 第二次匹配passage信息异常: [${passage1.name}]`);
+            }
+        } else {
+            logger.warn(`[robinMod_inject_early] 第二次获取passage信息失败`);
         }
     }
 
@@ -89,6 +107,7 @@
                 // 可选钩子
                 console.log('[robinMod_inject_early]', '  ', '所有 mod 数据覆盖到游戏后');
                 changeRobinRoomLeave();
+                changeRobinRoomWalkTogether();
             }
         },
     );
