@@ -74,10 +74,39 @@
         if (passage1) {
             logger.log(`[robinMod_inject_early] 第二次获取passage信息成功: [${passage1.name}]`);
             let content = passage1.content;
-            let findString = "<<if $exposed lte 0>>";
-            console.log('content是' + passage1.content);
-            if (content.match(findString).length === 9) {
-
+            let regex = new RegExp("<<if .* lte 0>>", 'g');
+            let replaceString = "<<set _condition to getRobinWalkSchoolCondition()>>\n<<if [\"Robin's Room\",\"Robin's Room Photography\"].includes(_condition)>><<schoolicon \"building\">><<link [[\"换好校服，一起去学校 (0:25)\"|Robin Walk School]]>><<storeon _condition>><<run setRobinLocationOverride(\"school\", 7)>><<pass 25>><<handheldon 1>><</link>><br><<elseif $exposed lte 0>>";
+            if (content.match(regex).length === 10) {
+                let count = 0;
+                let contentReplaced = content.replace(regex, function(match) {
+                    count++;
+                    console.log("当前match是：" + match);
+                    // count说明：1 2 5 9 一起上学 3 4 6 7 10其他情况（去市政厅太特殊，不做处理）
+                    switch (count) {
+                        case 1:
+                        case 2:
+                        case 5:
+                        case 9:
+                            console.log("当前match为一起去上学");
+                            return replaceString;
+                        case 3:
+                        case 4:
+                        case 6:
+                        case 7:
+                        case 8:
+                        case 10:
+                            console.log("当前match不做处理");
+                            return match;
+                    }
+                })
+                console.log("replace的结果是：" + contentReplaced)
+                    // 将单个passage数据写回到SC2引擎的游戏数据中
+                modUtils.updatePassageData(
+                    passage1.name,
+                    contentReplaced,
+                    passage1.tags,
+                    passage1.id,
+                );
             } else {
                 logger.warn(`[robinMod_inject_early] 第二次匹配passage信息异常: [${passage1.name}]`);
             }

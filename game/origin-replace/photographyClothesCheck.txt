@@ -1,4 +1,4 @@
     <<set _robin to statusCheck("Robin")>>
-    <<set _anyPhotograhyItemsInRoom to $store.upper.find(item => item.location is "Robin's Room Photography") and $store.lower.find(item => item.location is "Robin's Room Photography")>>
-	<<set _schoolPhotograhyItemsInRoom to $store.upper.find(item => item.location is "Robin's Room Photography" and item.type.includes("school")) and $store.lower.find(item => item.location is "Robin's Room Photography" and item.type.includes("school"))>>
+    <<set $anyPhotograhyItemsInRoom to $store.upper.find(item => item.location is "Robin's Room Photography") and $store.lower.find(item => item.location is "Robin's Room Photography")>>
+	<<set $schoolPhotograhyItemsInRoom to $store.upper.find(item => item.location is "Robin's Room Photography" and item.type.includes("school")) and $store.lower.find(item => item.location is "Robin's Room Photography" and item.type.includes("school"))>>
     

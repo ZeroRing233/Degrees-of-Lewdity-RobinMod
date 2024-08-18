@@ -264,6 +264,18 @@ function getRobinLeaveRoomCondition() {
 }
 window.getRobinLeaveRoomCondition = getRobinLeaveRoomCondition;
 
+// 一起上学时PC的衣物状况
+function getRobinWalkSchoolCondition() {
+    if (V.store.upper.find(item => item.location == "Robin's Room" && item.type.includes("school")) && V.store.lower.find(item => item.location === "Robin's Room" && item.type.includes("school"))) {
+        return "Robin's Room";
+    }
+    if (V.store.upper.find(item => item.location == "Robin's Room Photography" && item.type.includes("school")) && V.store.lower.find(item => item.location === "Robin's Room Photography" && item.type.includes("school"))) {
+        return "Robin's Room Photography";
+    }
+    return "none";
+}
+window.getRobinWalkSchoolCondition = getRobinWalkSchoolCondition;
+
 // 获取罗宾房间内是否有内衣，注意摄影时只会脱上下装，所以不用判断
 function getUnderUpperOrUnderLower() {
     let under_upper = V.store["under_upper"].find(item => item.location === "Robin's Room");

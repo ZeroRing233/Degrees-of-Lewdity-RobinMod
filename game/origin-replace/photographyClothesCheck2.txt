@@ -1,5 +1,5 @@
-<<if _anyPhotograhyItemsInRoom isnot undefined>>
-	你摄影时换下的<span class="green"><<print _anyPhotograhyItemsInRoom.cn_name_cap>></span>等衣物正在罗宾床上。
+<<if $anyPhotograhyItemsInRoom isnot undefined>>
+	你摄影时换下的<span class="green"><<print $anyPhotograhyItemsInRoom.cn_name_cap>></span>等衣物正在罗宾床上。
 	<br>
 	<<dressasyouwereicon>><<link [[穿上摄影时换下的衣服|Robin Room Naked Put]]>><<handheldon 1>><<storeon "Robin's Room Photography">><</link>>
 	<br><br>
