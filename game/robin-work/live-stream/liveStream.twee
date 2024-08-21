@@ -212,11 +212,101 @@
 
 :: Live Stream Crawl
 <<set $outside to 0>><<set $location to "home">><<effects>>
-你突然钻到了罗宾的桌子底下，然后迅速地<<if $pronoun is "m">>扒下<<his>>的裤子<<else>>撩起<<his>>的裙子<</if>>。
-<<promiscuity4>>
-罗宾蓦地一惊，低头捕捉到了你的动作，<<He>>瞬间满脸通红，但还是迅速冷静了下来，又重新抬起头，对着屏幕后的观众们微笑着说："没...没什么，我们继续吧。"
+<<if $fox gte 6 or $wolfgirl gte 6>>
+    <<set _petType to "小狗">>
+    <<set _petSound to "小狗的汪汪叫">>
+<<elseif $harpy gte 6>>
+    <<set _petType to "小鸟">>
+    <<set _petSound to "小鸟的叫声">>
+<<else>>
+    <<set _petType to "小猫">>
+    <<set _petSound to "猫咪的喵叫">>
+<</if>>
+<<set _underColor to ["黑色", "蓝色", "棕色", "绿色", "粉色", "紫色", "红色", "橙色", "水蓝色", "白色", "黄色"].random()>>
+/% 内裤用初始的就行了 %/
+<<if C.npc.Robin.gender is 'f'>>
+    <<set _underType to "普通内裤">>
+<<else>>
+    <<set _underType to "紧身内裤">>
+<</if>>
+你爬到了罗宾的电脑桌下，在碰到<<his>>的腿时惊动了<<him>>。<<promiscuity4>>
+“哦！”罗宾迅速往下看了一眼，发现是你之后笑了，抬起头向弹幕解释着。“不，没什么。只是一只<<print _petType>>经过我的脚边…”
 <br><br>
-<<He>>轻轻地点了点头，示意你可以做出下一步的举动。
+受<<his>>的启发，趁<<he>>再次看向你时，你把双手曲在胸前，搭在<<his>>的膝盖上，无声地对<<he>>模仿<<print _petSound>>。罗宾的笑容看起来更怜爱了些。
+<br><br>
+“…一只可爱的<<print _petType>>。”罗宾对镜头眨了眨眼，强调道。
+<br><br>
+这个角度正好能看到<<his>><<print _underColor>>的<<print _underType>>。或许是察觉到了你的视线，<<he>>很快将双腿合拢。<<He>>在弹幕聊得火热时偷看你。
+<br><br>
+你<<handtext>>抚摸着<<his>>的大腿内侧，屏幕映在罗宾脸上的光很快变红，<<his>>的声音 明显地随着你的动作波动。“我平时的水平比这要高，”罗宾颤抖着解释：“是我桌下的<<print _petType>>太调皮了。”
+<br><br>
+你听着<<he>>胡诌的借口，决定做出进一步的举动。
+<br><br>
+<<link [[掰开罗宾的腿|Live Stream Crawl Legs]]>><</link>><br>
+<<link [[舔罗宾的脚|Live Stream Crawl Feet]]>><</link>>
+
+:: Live Stream Crawl Legs
+<<effects>>
+你试着掰开<<his>>的腿，但<<he>>似乎有点尴尬，并不想顺从你淫乱的行为。
+<br><br>
+罗宾借着喝水时离开直播屏幕的间隙，无奈地瞪了你一眼， “我还在直播呢。”<<He>>低声说：“如果你想的话......请忍耐-下，或许今天晚上我们可以......”说着，<<his>>的脸上微微泛红。
+<br><br>
+虽然你认为这个建议很诱人，但是你已经按耐不住自己了。
+<br><br>
+<<link [[继续用力掰开腿|Live Stream Crawl Legs 2]]>><</link>><br>
+<<link [[脱下内裤|Live Stream Crawl Pre Oral]]>><</link>>
+
+:: Live Stream Crawl Legs 2
+<<effects>>
+你决定继续用力掰开<<his>>的腿，随着你的突然发力，罗宾的腿被分开，你现在可以直接看到<<his>>的内裤。
+<br><br>
+你看到罗宾的脸肉眼可见的红了起来，但<<He>>还在试图回应着弹幕：“脸为什么这么红? ....是的，屋内有点热，看起来空调需要更换了。”为了增加说服力，罗宾还用手做风扇扇了几下。
+<br><br>
+你继续慢慢地慢慢把<<his>>的腿往上推，期间罗宾一直红着脸盯着屏幕，没有与你目光接触，你吻上罗宾的大腿内侧，感受着<<his>>身体的微颤。
+<br><br>
+<<link [[脱下内裤|Live Stream Crawl Pre Oral]]>><</link>>
+
+:: Live Stream Crawl Feet
+<<effects>>
+<<if $fox gte 6 or $wolfgirl gte 6>>
+    <<set _petType to "小狗">>
+<<elseif $harpy gte 6>>
+    <<set _petType to "小鸟">>
+<<else>>
+    <<set _petType to "喵咪">>
+<</if>>
+你伸出舌头，轻轻触碰<<his>>的脚，你感受到<<he>>往后缩的意图，于是你伸出双手控制住<<his>>的脚。
+<br><br>
+“啊！”罗宾似乎对这样的行为没有防备，你从<<his>>的眼神中看到了惊讶和紧张。“<<print _petType>>咬了我一下。”<<He>>对观众解释道。
+<br><br>
+你知道罗宾直播前有洗澡的习惯，你闻到了干爽的肥皂气息。你向上移动嘴巴，张嘴含住罗宾的脚趾，<<his>>的脚颤抖了两下，你能感受到<<his>>的脚趾在你口腔中僵硬地蜷缩着。
+<br><br>
+罗宾借着喝水时离开屏幕的间隙，弯腰低声说：“我还在直播呢，如果你想的话……或许今天晚上我们可以……”你看出<<he>>有些手足无措。
+<br><br>
+虽然这个建议听起来很诱人，但你已经无法忍受了。
+<br><br>
+<<link [[向上舔|Live Stream Crawl Feet 2]]>><</link>><br>
+<<link [[脱下内裤|Live Stream Crawl Pre Oral]]>><</link>>
+
+:: Live Stream Crawl Feet 2
+<<effects>>
+你把嘴唇贴向<<his>>的脚踝，用舌头抚摸了<<him>>。罗宾似乎想抽回<<his>>的腿，但你抓住了<<him>>。
+<br><br>
+你的嘴唇缓慢的向上移动，你仔细舔过罗宾的每一寸肌肤，让你想起在咖啡店吃的奶油蛋糕，你也是这样舔盘子的。
+<br><br>
+你的嘴唇已经移到了膝盖的位置。
+<br><br>
+罗宾似乎才发现你的意图。你的大胆超乎<<his>>的预料，你的舌头感受到<<his>>的躯体的颤抖，你很轻松地分开了<<his>>的双腿。
+<br><br>
+你直接地看见了<<his>>的内裤，隔着内裤你也能很明显发现<<he>>起了反应。
+<br><br>
+<<link [[脱下内裤|Live Stream Crawl Pre Oral]]>><</link>>
+
+:: Live Stream Crawl Pre Oral
+<<effects>>
+你将手伸到<<his>>的后腰，缓缓褪下<<his>>的内裤。罗宾察觉到了你的意图，表情变幻，似乎想说什么，但最终妥协了，你看到了<<he>>已经分泌了液体的下体，小声轻笑了一声。罗宾的脸又红了起来，<<he>>对着弹幕喃喃地说：“等我有了钱……一定要换个空调。”
+<br><br>
+你故意将脸缓慢地移向<<his>>的私处，或许是过于被动的处境，你察觉到罗宾比平常更加敏感。
 <br><br>
 <<link [[继续|Live Stream Crawl Oral]]>><<set $sexstart to 1>><</link>>
 
@@ -233,15 +323,13 @@
 	<<set $NPCList[0].lefthand to "none">><<set $NPCList[0].righthand to "none">><<set $head to "grappled">>
 	<<set $enemytrust += 100>>
 	<<set $enemyarousalmax to 600>>
+    <<set $enemyarousal to ($enemyarousalmax / 5) * 1>>
     <<set $robinLowCount to 0>>
-    <<set $robinMediumCount to 0>>
     <<set $robinHighCount to 0>>
 <</if>>
 <<set $enemyanger to 0>>
 <<if $enemyarousal gte ($enemyarousalmax / 5) * 3>>
 	<<set _robinArousal to "high">>
-<<elseif $enemyarousal gte ($enemyarousalmax / 5) * 1>>
-	<<set _robinArousal to "medium">>
 <<else>>
     <<set _robinArousal to "low">>
 <</if>>
@@ -249,25 +337,31 @@
     <<case "low">>
         <<switch $robinLowCount>>
             <<case 0>>
-                罗宾平静地继续做着直播，只是声音听起来有点心不在焉。
+                罗宾继续流畅地讲解着手上的游戏，但偶尔的停顿和眼神的游离透露出<<his>>的一丝心不在焉。
+                观众们大多沉浸在直播内容中，并未察觉到<<his>>的微妙变化。
             <<case 1>>
-                有人似乎察觉出了罗宾的异常，罗宾回应道："抱歉，我会更认真的。"
+                你听到罗宾正在读弹幕：“主播怎么了？感觉你好像有点不在状态。” 
+                罗宾连忙微笑着回应道：“抱歉，我会更认真的。” <<He>>试图继续将注意力放在直播内容上。
+            <<case 2>>
+                罗宾的声音开始不自觉地微微颤抖，但<<he>>仍然努力掩饰着。
+                观众们或许能感受到一丝不同，但大多数人还是沉浸在直播的内容中。
+            <<case 3>>
+                越来越多的观众察觉到了罗宾的异常，罗宾又继续读起了弹幕：“主播怎么了？没什么，只是有点感冒了，
+                可能声音有点变化，但请大家放心，我会坚持下去的。”<<his>>的笑容中带着一丝勉强。
+            <<default>>
+                你不再关心罗宾与观众之间的互动，只是专注于挑逗着眼前的爱人。
         <</switch>>
         <<set $robinLowCount += 1>>
-    <<case "medium">>
-        <<switch $robinMediumCount>>
-            <<case 0>>
-                罗宾的声音开始微微颤抖，但<<He>>努力地掩饰着。
-            <<case 1>>
-                你听到罗宾正在读弹幕："主播怎么了？没什么，只是有点感冒了。"
-        <</switch>>
-        <<set $robinMediumCount += 1>>
     <<case "high">>
         <<switch $robinHighCount>>
             <<case 0>>
-                罗宾忍不住发出了一声微弱的呻吟，但仍在试图让观众们放心。
+                在你不断地挑逗下，罗宾终于忍不住发出了一声微弱的呻吟。
+                然而，<<He>>立刻意识到自己的失态，连忙调整呼吸，用更加坚定的语气继续直播，试图让观众们相信<<He>>真的没事。
             <<case 1>>
-                弹幕中似乎引起了轰动，罗宾正在拼命救场："我，我没事，真的只是有点不舒服，仅此而已。"
+                罗宾的表现似乎在弹幕中引起了轰动，<<He>>深吸了一口气，拼命地试图救场
+                ：“我，我没事，真的只是有点不舒服，但我会坚持完成今天的直播。谢谢大家的关心。"
+            <<default>>
+                你能感受到罗宾的身体颤抖得越来越厉害，这让你无暇关注罗宾与观众之间的互动。
         <</switch>>
         <<set $robinHighCount += 1>>
 <</switch>>
@@ -287,7 +381,7 @@
 <<set $outside to 0>><<set $location to "home">><<effects>>
 <<if $enemyarousal gte $enemyarousalmax>>
 	<<ejaculation "short">>
-	罗宾浑身颤抖着，勉强地对观众说了句"抱歉"，然后弯下腰，在你耳边小声说："谢谢，刚才虽然有点尴尬，但我还是感觉很高兴，我爱你，不过..."
+	罗宾浑身颤抖着，勉强地对观众说了句"抱歉"，然后弯下腰，在你耳边小声说："谢谢，刚才虽然有点尴尬，但我还是感觉很高兴，我爱你，而且也不讨厌这样，不过..."
     <<He>>顿了顿，然后说："我还想继续直播...所以...麻烦你..." 
     <<npcincr Robin lust -20>><<npcincr Robin love 2>><<lllust>><<glove>>
 <<elseif $enemyhealth lte 0>>

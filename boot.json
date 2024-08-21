@@ -831,14 +831,14 @@
                     "passage": "Robin Room Wake",
                     "findString": "<<getouticon>><<link [[离开|Orphanage]]>><<endevent>><<storeon \"bed\">><</link>>",
                     "replace": "<<getouticon>><<link [[离开|Orphanage]]>><<endevent>><</link>>",
-                    "comments": "findRegex+all有误，故出此下策"
+                    "comments": "写的时候findRegex+all有误，故出此下策"
                 },
                 {
                     "passage": "Robin Room Wake",
                     "findString": "<<getouticon>><<link [[离开|Orphanage]]>><<endevent>><</link>>",
                     "replaceFile": "game/origin-replace/robinRoomWake.txt",
                     "all": true,
-                    "comments": "findRegex+all有误，故出此下策"
+                    "comments": "写的时候findRegex+all有误，故出此下策"
                 },
                 {
                     "passage": "Widgets Robin",
