@@ -1,0 +1,8 @@
+<<set _upperOrLower to getUnderUpperOrUnderLower()>>
+<<if _upperOrLower isnot undefined>>
+    <<his>>的身旁似乎还放着你遗留在<<he>>房间里的<span class="green"><<print _upperOrLower.cn_name_cap>></span>。
+    <<arousal 1000>><<ggarousal>>
+<<else>>
+    <<arousal 600>><<garousal>>
+<</if>>
+

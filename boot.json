@@ -97,6 +97,7 @@
         "game/origin-replace/photographyClothesCheck.txt",
         "game/origin-replace/photographyClothesCheck2.txt",
         "game/origin-replace/robinRoomWake.txt",
+        "game/origin-replace/robinMischief.txt",
         "game/robin-trait/robinTrait.txt",
         "game/robin-trait/robinRoomEntranceTalk.txt",
         "game/robin-trait/robinPayBackCount.txt",
@@ -858,6 +859,11 @@
                     "all": true,
                     "replace": "<<if $exposed gte 1 and _anyItemsInRoom>><<storeon \"Robin's Room\">><<elseif $exposed gte 1 and $anyPhotograhyItemsInRoom>><<storeon \"Robin's Room Photography\">><</if>>",
                     "comments": "搭摊子，我放弃治疗了，不要吐槽"
+                },
+                {
+                    "passage": "Robin Mischief",
+                    "findString": "<<arousal 600>><<garousal>>",
+                    "replaceFile": "game/origin-replace/robinMischief.txt"
                 }
             ]
         },
