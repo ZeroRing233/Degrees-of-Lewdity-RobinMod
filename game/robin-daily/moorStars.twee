@@ -1,1 +1,138 @@
 :: Lake Shore Robin
+<<set $outside to 1>><<set $location to "lake">><<effects>><<lakeeffects>>
+<<npc Robin>><<person1>>
+/% 节选自原版的环境描写 %/
+你们在<<= Weather.isFrozen("lake") ? "冰封的湖" : "湖">>畔。
+<<if Time.isWeekEnd()>>
+    你可以看到湖对岸营地的篝火散发着微弱的光芒。
+<<else>>
+    黑暗的湖水在下方微微波动。
+<</if>>
+<<if Weather.isFrozen("lake")>>
+	冰面显得非常寂静。
+<<else>>
+	水面显得非常平静。
+<</if>>
+<br><br>
+/% 原版选项 %/
+<<set $nextPassage to "Lake Waterfall Robin">>
+<<if Weather.isFrozen("lake")>>
+    <<if $nextPassageCheck is "Lake Shallows Ice">>
+        <span class="nextLink"><<lakeicon>><<link [[走|Lake Shallows Ice]]>><<pass 2>><</link>></span>
+    <<else>>
+        <<lakeicon>><<link [[走到冰上 (0:02)|Lake Shallows Ice]]>><<pass 2>><</link>>
+    <</if>>
+    <br>
+<<else>>
+    <<if $nextPassageCheck is "Lake Shallows">>
+        <span class="nextLink"><<swimicon>><<link [[游泳|Lake Shallows]]>><<pass 2>><</link>></span>
+    <<else>>
+        <<swimicon>><<link [[游泳 (0:02)|Lake Shallows]]>><<pass 2>><</link>>
+    <</if>>
+    <br>
+<</if>>
+<<if $town_projects.diving gte 4>>
+    <<if $exposed gte 2>>
+        以这个样子走进考古工作站可不是个好主意。
+    <<else>>
+        <<lakeicon "field office">><<link [[考古工作站 (0:02)|Lake Office]]>><<pass 2>><</link>>
+    <</if>>
+    <br>
+<</if>>
+<<if !Weather.isFrozen("lake") and !Time.isBloodMoon()>>
+    <<if $exposed gte 2>>
+        <<if hasSexStat("exhibitionism", 5) and $laketeenspresent is 1>>
+            <<walkicon>><<link [[散步 (1:00)|Lake Stroll]]>><<pass 60>><<stress -6>><<arousal 1000>><<rng>><<set $phase to 2>><</link>><<exhibitionist5>><<garousal>><<lstress>>
+            <br>
+        <<elseif hasSexStat("exhibitionism", 4) and $laketeenspresent isnot 1>>
+            <<walkicon>><<link [[散步 (1:00)|Lake Stroll]]>><<pass 60>><<stress -6>><<arousal 1000>><<rng>><<set $phase to 3>><</link>><<exhibitionist4>><<garousal>><<lstress>>
+            <br>
+        <</if>>
+    <<else>>
+        <<walkicon>><<link [[散步 (1:00)|Lake Stroll]]>><<pass 60>><<stress -6>><<set $phase to 1>><</link>><<lstress>>
+        <br>
+    <</if>>
+<</if>>
+<<if $debug is 1>>
+    <<ind>><<link [[向北到篝火坑 (0:10)|Lake Firepit]]>><<pass 10>><</link>>
+    <br>
+<</if>>
+<<if $earSlime.forcedCommando isnot undefined and $worn.under_lower.name isnot "naked">>
+<<elseif $town_projects.road gte 4>>
+    <<busicon>><<link [[向北到公交站|Lake Bus]]>><</link>>
+    <br>
+<</if>>
+<<if $nextPassageCheck is "Lake Waterfall">>
+    <span class="nextLink"><<lakeicon "waterfall">><<link [[南下去瀑布 (0:10)|Lake Waterfall Robin]]>><<pass 10>><</link>></span>
+<<else>>
+    <<lakeicon "waterfall">><<link [[南下去瀑布 (0:10)|Lake Waterfall Robin]]>><<pass 10>><</link>>
+<</if>>
+<br>
+<<foresticon>><<link [[森林 (0:10)|Forest]]>><<pass 10>><</link>>
+
+:: Lake Waterfall Robin
+<<if $nextPassageIntended isnot $passage>>
+    <<set $nextPassageIntended to $passage>>
+    罗宾阻止了你："我们应该往<span class="gold">瀑布</span>的方向前进，前方的旅途还很长呢，没时间在这里逗留了。"
+    <br><br>
+    "好...好的，抱歉。" 你点点头，随即加快步伐，紧跟上了罗宾的脚步。
+    <br><br>
+    <<lakeicon "waterfall">><<link [[南下去瀑布 (0:10)|Lake Waterfall Robin]]>><<pass 10>><</link>>
+<<else>>
+    <<set $outside to 1>><<set $location to "lake">><<effects>><<lakeeffects>>
+    <<set $forest to 40>><<set $bus to "lakewaterfall">>
+    你们在瀑布处。
+    <<if Weather.isFrozen("lake")>>
+        通过冰面的缝隙它向湖中注入水流。
+    <<elseif Time.dayState is "night">>
+        在月光下水幕形成了一道银帘。
+    <<else>>
+        水从岩石上的池塘流下。水雾缭绕，沁人心脾。
+    <</if>>
+    <<if Weather.precipitation is "snow">>
+	    雪<<= Weather.isFrozen("lake") ? "落在冰面上" : "融入冰冷的湖水中">>。
+    <<elseif Weather.isFrozen("lake")>>
+        冰面<<= Weather.precipitation is "rain" ? "被寒冷的雨水击打着" : "显得非常寂静">>。
+    <<else>>
+        <<= Weather.precipitation is "rain" ? "落下的雨珠让水面泛起涟漪，水面仿佛有了生命一般" : "水面很平静">>。
+    <</if>>
+    <br><br>
+    <<if $worn.feet.type.includes("heels")>>
+        （这里需要写一段罗宾帮忙换鞋子的剧情，总之，待补充）
+    <</if>>
+    <<set $nextPassage to "Forest Brook Robin">>
+	<<if $mason_count gte 2 and !Weather.isFrozen("lake")>>
+		<<lakeicon "pond">><<link [[梅森的池塘 (0:05)|Mason Pond]]>><<pass 5>><</link>>
+		<br>
+	<</if>>
+	<<if $nextPassageCheck is "Lake Shore">>
+		<<lakeicon>><span class="nextLink"><<link [[湖边|Lake Shore]]>><<pass 10>><</link>></span>
+	<<else>>
+		<<lakeicon>><<link [[北上到岸边 (0:10)|Lake Shore]]>><<pass 10>><</link>>
+	<</if>>
+	<br>
+	<<lakeicon "fishing">><<link [[南至钓鱼岩 (0:10)|Lake Fishing Rock]]>><<pass 10>><</link>>
+	<br>
+	<<if $brookIntro gte 1>>
+		<<if $worn.feet.type.includes("heels")>>
+			<span class="red">你不可能穿着高跟鞋越过小溪。</span>
+		<<else>>
+			<<foresticon "river">><<link [[向前往小溪 (0:10)|Forest Brook]]>><<pass 10>><<tiredness 4>><</link>><<gtiredness>>
+		<</if>>
+		<br>
+	<</if>>
+	<br>
+	<<foresticon>><<link [[森林 (0:10)|Forest]]>><<pass 10>><</link>>
+<</if>>
+
+:: Forest Brook Robin
+<<if $nextPassageIntended isnot $passage>>
+    <<set $nextPassageIntended to $passage>>
+    罗宾阻止了你："我们应该往<span class="gold">小溪</span>的方向前进，前方的旅途还很长呢，没时间在这里逗留了。"
+    <br><br>
+    "好...好的，抱歉。" 你点点头，随即加快步伐，紧跟上了罗宾的脚步。
+    <br><br>
+    <<foresticon "river">><<link [[向前往小溪 (0:10)|Forest Brook]]>><<pass 10>><<tiredness 4>><</link>><<gtiredness>>
+<<else>>
+    
+<</if>>
