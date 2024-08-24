@@ -122,9 +122,9 @@ setup.eatableFish = {
     }
 }
 
-// 读取泰拉瑞亚的模组信息，也许并用不到
+// 读取泰拉瑞亚的模组信息，现在能用到了
 function hasTerrariaInfo() {
-    const TerrariaInfo = window.modUtils.getMod('Terraria Expand Mod v0.1.4');
+    const TerrariaInfo = window.modUtils.getMod('Terraria Expand Mod');
     if (TerrariaInfo) {
         return true;
     }
@@ -211,3 +211,33 @@ function clearLoach() {
     V["Greenwave_Loach"] = 0;
 }
 window.clearLoach = clearLoach;
+
+function meetFlyConditon() {
+    return hasTerrariaInfo() && V.Snake_Charmers_Flute &&
+        (V.harpy >= 6 || V.angel >= 6 || V.demon >= 6 || V.fallenangel >= 2 ||
+            V.terra_accessories_slots.includes("Fledgling_Wings") || V.terra_accessories_slots.includes("Fin_Wings"));
+}
+window.meetFlyConditon = meetFlyConditon;
+
+function getWingType() {
+    if (V.terra_accessories_slots.includes("Fledgling_Wings")) {
+        T.WingType = "雏翼";
+        T.WingDesc = "真厉害，就像小鸟一样...";
+    } else if (V.terra_accessories_slots.includes("Fin_Wings")) {
+        T.WingType = "鳍翼";
+        T.WingDesc = "真厉害，就像海中的游鱼一样...";
+    } else if (V.angel >= 6) {
+        T.WingType = "天使翅膀";
+        T.WingDesc = "真美，好神圣的光芒...";
+    } else if (V.fallenange >= 2) {
+        T.WingType = "堕天使翅膀";
+        T.WingDesc = "真美，好独特的光芒...";
+    } else if (V.demon >= 6) {
+        T.WingType = "恶魔翅膀";
+        T.WingDesc = "真酷，好有力量感的形状...";
+    } else {
+        T.WingType = "哈比翅膀";
+        T.WingDesc = "真酷，就像雄鹰一样...";
+    }
+}
+window.getWingType = getWingType;

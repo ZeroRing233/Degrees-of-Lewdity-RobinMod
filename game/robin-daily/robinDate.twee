@@ -91,7 +91,11 @@
         天空中最明亮的几颗星构成了猎户的轮廓，参宿四、参宿七等亮星在其中熠熠生辉。
 <</switch>>
 <br><br>
-<<link [[继续|Robin Walk Star 2]]>><</link>>
+<<if $stargazingCount gte 3 and !$MoorStars and !Time.isBloodMoon()>>
+     <<link [[继续|Robin Walk Star MoorStars Intro]]>><</link>>
+<<else>>
+    <<link [[继续|Robin Walk Star 2]]>><</link>>
+<</if>>
 
 :: Robin Walk Star 2
 <<set $outside to 0>><<set $location to "home">><<effects>>
@@ -140,4 +144,99 @@
 <br><br>
 <<robinoptions>>
 
+:: Robin Walk Star MoorStars Intro
+<<effects>>
+就在你沉浸在肉眼所能看到的星空中时，罗宾突然略显遗憾地说："据说在荒原里，能看到更多更亮的星星，相比之下，城镇的光污染还是太严重了..."
+<br><br>
+你听着罗宾无奈的语气，内心也深感赞同。
+<br><br>
+<<link [[提出一起去荒原观星|Robin Walk Star MoorStars Suggest]]>><</link>><br>
+<<link [[安慰罗宾|Robin Walk Star MoorStars Comfort]]>><</link>>
 
+:: Robin Walk Star MoorStars Suggest
+<<effects>>
+"既然荒原是最适合看星星的地方，那我们就一起去荒原观星吧，怎么样？"你提议道。
+<br><br>
+<<if $bogTeam.robinPresent and C.npc.Robin.dom gte 91>>
+    <<set _agree to true>>
+    罗宾听了你的话，若有所思地沉默了一会，<span class="gold">最终点了点头</span>："那我们现在就出发，好吗？我知道怎么从沼泽去荒原，我们可以先坐公交车去森林湖。"
+    <br><br>
+    你惊讶于罗宾的魄力，迅速地做出了响应："好主意！我现在就做下准备，今晚就去荒原。"
+    <br><br>
+    在达成共识后，你们小心翼翼地将望远镜折叠好放入背包中，然后收拾好了各自的行李，<span class="blue">你看到罗宾偷偷地将一瓶喷雾放入了自己的背包中。</span>
+    <br><br>
+    <<link [[坐公交车去森林湖（0:10）|Robin Walk Star MoorStars Bus]]>><<pass 10>><</link>>
+    <<if meetFlyConditon()>>
+        <br>
+        <<link [[带罗宾飞去森林湖（0:10）|Robin Walk Star MoorStars Fly]]>><<pass 10>><</link>><<terraHint>>
+    <</if>>
+<<elseif $bogTeam.robinPresent and C.npc.Robin.dom lt 91>>
+    罗宾听了你的话，若有所思地沉默了一会，<span class="blue">但还是摇了摇头</span>："不行，荒原是很危险的，我没有把握能在那种环境下保护好你"。
+<<elseif !$bogTeam.robinPresent and C.npc.Robin.dom gte 91>>
+    罗宾听了你的话，若有所思地沉默了一会，<span class="blue">但还是摇了摇头</span>："不行，我一点也不了解荒原，直接去那里可能会让我们两个都陷入危险之中。"
+<<else>>
+    罗宾听了你的话，<span class="blue">果断地摇了摇头</span>："不行，我一点也不了解荒原，也不想去那么可怕的地方，这会让我们两个都陷入危险之中的。"
+<</if>>
+<<if !_agree>>
+    <br><br>
+    你感到有些失落，但还是理解了罗宾的顾虑，转而安慰<<he>>说："那就下次再说吧，其实我们现在能看到的星空已经足够美丽了，不是吗？"
+    <br><br>
+    "是啊，我们应该更加珍惜眼前的景色。"罗宾说着，又露出了开朗的笑容，<<he>>再次认真地拿起了望远镜。
+    <br><br>
+    <<link [[继续|Robin Walk Star 2]]>><</link>>
+<</if>>
+
+:: Robin Walk Star MoorStars Comfort
+<<effects>>
+"虽然荒原可能是最适合看星星的地方，但我们现在能看到的星空已经足够美丽了，不是吗？" 你试图安慰罗宾。
+<br><br>
+"是啊，我们应该更加珍惜眼前的景色。"罗宾说着，又露出了开朗的笑容，<<He>>再次认真地拿起了望远镜。
+<br><br>
+<<link [[继续|Robin Walk Star 2]]>><</link>>
+
+:: Robin Walk Star MoorStars Bus
+<<location "town">><<effects>>
+你和罗宾按计划到公交站买了张去森林湖的票，天色已晚，你们找了两个并排的座位坐下。
+<br><br>
+你能从罗宾的眼神中看出<<he>>对这次冒险的紧张和期待，而你自己也怀着同样的心情。
+<br><br>
+不一会儿，公交车就顺利到达了目的地。
+<br><br>
+<<link [[继续|Lake Shore Robin]]>><<endevent>><</link>>
+
+:: Robin Walk Star MoorStars Fly
+<<location "town">><<effects>>
+正当罗宾准备和你一起去公交站时，你拦住了<<him>>："等一等，我有东西要给你看。"
+<br><br>
+说着，你从虚空袋中拿出了<span class="gold">耍蛇者长笛</span>，罗宾的眼神中充满了疑惑："这...这是什么?你是从哪里..."
+<br><br>
+你神秘地笑了笑，然后示意罗宾看向手中的耍蛇者长笛，就在<<he>>愣神的时候，你已经召唤出了一条长蛇，沿着它爬到了阁楼外的高空中。
+<br><br>
+演示完毕后，你又回到了罗宾身边，兴奋地对<<him>>发出了邀请："怎么样？用这个长笛配合着我的翅膀，我就能载着你一起飞到森林湖，
+当然，<span class="blue">只限从这里到森林湖这一小段距离</span>，再多我就飞不动了。"
+<br><br>
+罗宾依旧没有缓过神来，<<He>>语无伦次地说："飞...你是说...你的翅膀不是装饰？还有这根长笛..这条蛇...我现在是在做梦吗？"
+<br><br>
+"当前不是啦，好了，我们快点出发吧。" 你拉着罗宾的手，带着<<He>>一起爬到了高处，罗宾看上去依旧以为自己处于梦境中。
+<br><br>
+<<link [[飞往森林湖|Robin Walk Star MoorStars Fly 2]]>><</link>>
+
+:: Robin Walk Star MoorStars Fly 2
+<<effects>>
+<<run getWingType()>>
+你展开背后的<span class="gold"><<print _WingType>></span>，转身看向罗宾，<<He>>似乎找回了一点真实感，对着你的翅膀喃喃地说："
+<<print _WingDesc>>"
+<br><br>
+"准备好了吗？我们要启程了！"你微笑着说，同时轻轻拍了拍翅膀。罗宾犹豫地点了点头，对你伸出手，你紧紧地抱住了<<him>>。
+<br><br>
+随后，你纵身一跃，带着罗宾一起扑向了星海之中，罗宾先是发出了一声惊呼，随后，惊呼声又转为了欢笑声，看来<<he>>已经渐渐适应了飞翔的感觉。
+<br><br>
+"真是太神奇了，我从未想过有一天我能在空中翱翔。"罗宾感慨着："从这个角度看，下面的城镇里也有点点的亮光，就和我们之前看到的星空一样。"
+<br><br>
+你们渐渐飞过了城镇，地上的星光开始被黑压压的树木所取代，当你在树林中看到一大片宁静的湖水时，你知道，你们的目的地到了。
+<br><br>
+你向下飞去，在到达地面时轻轻地放下了怀中的<<if $robinromance is 1>>恋人<<else>>朋友<</if>>，对方似乎还意犹未尽："已经到了吗？我还想再飞一会..."
+<br><br>
+你提醒罗宾接下来你们还要面对艰难的旅程，<<he>>回过神来，坚定地说:"我明白，让我们一起开始冒险吧。"
+<br><br>
+<<link [[继续|Lake Shore Robin]]>><<endevent>><</link>>
