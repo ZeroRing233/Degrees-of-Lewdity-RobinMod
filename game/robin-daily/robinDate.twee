@@ -224,6 +224,7 @@
 :: Robin Walk Star MoorStars Fly 2
 <<effects>>
 <<run getWingType()>>
+<<set $robinWingKnown to true>><<set $knownWingType to _WingType>><<set $robinWingKnownLocation to "Robin Walk Star">>
 你展开背后的<span class="gold"><<print _WingType>></span>，转身看向罗宾，<<He>>似乎找回了一点真实感，对着你的翅膀喃喃地说："
 <<print _WingDesc>>"
 <br><br>

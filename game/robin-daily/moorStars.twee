@@ -1,6 +1,7 @@
 :: Lake Shore Robin
 <<set $outside to 1>><<set $location to "lake">><<effects>><<lakeeffects>>
 <<npc Robin>><<person1>>
+<<set $moorStars to true>> /% 荒原观星暂时设定为不能重复触发 %/
 /% 节选自原版的环境描写 %/
 你们在<<= Weather.isFrozen("lake") ? "冰封的湖" : "湖">>畔。
 <<if Time.isWeekEnd()>>
@@ -73,7 +74,7 @@
 :: Lake Waterfall Robin
 <<if $nextPassageIntended isnot $passage>>
     <<set $nextPassageIntended to $passage>>
-    罗宾阻止了你："我们应该往<span class="gold">瀑布</span>的方向前进，前方的旅途还很长呢，没时间在这里逗留了。"
+    罗宾阻止了你："我们应该往<span class="gold">瀑布</span>的方向前进，前方的路还很长呢，在这里逗留可能会遇到危险。"
     <br><br>
     "好...好的，抱歉。" 你点点头，随即加快步伐，紧跟上了罗宾的脚步。
     <br><br>
@@ -128,11 +129,186 @@
 :: Forest Brook Robin
 <<if $nextPassageIntended isnot $passage>>
     <<set $nextPassageIntended to $passage>>
-    罗宾阻止了你："我们应该往<span class="gold">小溪</span>的方向前进，前方的旅途还很长呢，没时间在这里逗留了。"
+    罗宾阻止了你："我们应该往<span class="gold">小溪</span>的方向前进，前方的路还很长呢，在这里逗留可能会遇到危险。"
     <br><br>
     "好...好的，抱歉。" 你点点头，随即加快步伐，紧跟上了罗宾的脚步。
     <br><br>
-    <<foresticon "river">><<link [[向前往小溪 (0:10)|Forest Brook]]>><<pass 10>><<tiredness 4>><</link>><<gtiredness>>
+    <<foresticon "river">><<link [[向前往小溪 (0:10)|Forest Brook Robin]]>><<pass 10>><<tiredness 4>><</link>><<gtiredness>>
 <<else>>
-    
+    <<location "forest">><<effects>>
+    <<set $nextPassage to "Bog Intro Robin">>
+    你们小心地沿着从湖延伸而出的小溪行走。溪岸被茂密的叶子遮挡，你不得不摇摇晃晃地沿着陡峭的溪岸行走。
+    <br><br>
+
+    一部分的地势陡然下降，一块有着较大高低落差的岩石下方通向下游。继续前进将无法回头。
+    <br><br>
+
+    <<lakeicon "waterfall">><<link [[朝湖泊逆流而行 (0:30)|Lake Waterfall]]>><<pass 30>><<tiredness 6>><</link>><<gtiredness>>
+    <br>
+  
+    <<if $bogProgress gte 1>>
+        <<foresticon "bog">><<link [[朝沼泽顺流而行 (0:20)|Bog Intro Robin]]>><<set $foresthunt to 0>><<pass 20>><<tiredness 6>><<set $forest to 0>><</link>><<note "单行道" "red">><<gtiredness>>
+    <<else>>
+        <<askicon>><<link [[探索下游 (0:20)|Bog Intro Robin]]>><<set $foresthunt to 0>><<pass 20>><<tiredness 6>><<set $forest to 0>><</link>><<note "单行道" "red">><<gtiredness>>
+    <</if>>
+    <br><br>
+    <<foresticon>><<link [[森林 (0:10)|Forest]]>><<pass 10>><<set $forest to 80>><</link>>
 <</if>>
+
+:: Bog Intro Robin
+<<if $nextPassageIntended isnot $passage>>
+    <<set $nextPassageIntended to $passage>>
+    罗宾阻止了你："我们应该往<span class="gold">沼泽</span>的方向前进，前方的路还很长呢，在这里逗留可能会遇到危险。"
+    <br><br>
+    "好...好的，抱歉。" 你点点头，随即加快步伐，紧跟上了罗宾的脚步。
+    <br><br>
+    <<foresticon "bog">><<link [[朝沼泽顺流而行 (0:20)|Bog Intro Robin]]>><<set $foresthunt to 0>><<pass 20>><<tiredness 6>><<set $forest to 0>><</link>><<note "单行道" "red">><<gtiredness>>
+<<else>>
+    <<set $location to "bog">><<set $outside to 1>><<effects>>
+    你们沿着小溪顺流而下，来到沼泽边缘。
+    <br><br>
+    <<if $harpy gte 6 or $angel gte 6 or $demon gte 6 or $fallenangel gte 2 or meetFlyConditon()>>
+	<<link [[滑下去 (0:01)|Bog Intro Glide Robin]]>><<pass 1>><</link>><<flight_text>>
+	<br>
+    <</if>>
+    <<link [[爬下去 (0:05)|Bog Intro Climb Robin]]>><<pass 5>><</link>><<athleticsdifficulty 200 800>>
+    <br>
+    <<link [[跳进水里 (0:01)|Bog Intro Jump Robin]]>><<pass 1>><</link>>
+<</if>>
+
+:: Bog Intro Glide Robin
+<<effects>>
+<<if $robinWingKnown>>
+    你看向罗宾，暗示性地拍了拍翅膀，<<he>>心领神会："我们要再飞一次吗...？好，好的。"
+    <br><br>
+    "这次只是滑翔，"你说道，"抓紧我，要上了。"
+    <br><br>
+    你抱着罗宾一跃而起，落下数英尺后，静止的空气托住了你的翅膀。你稳稳地落在了木走道上，然后放下了怀中的罗宾。
+    <br><br>
+    "真不可思议，我好像都已经适应了飞翔的感觉。"罗宾看上去十分兴奋。
+    <br><br>
+    "那等这次冒险结束后，我们再找个机会一起飞一次吧。" 你一边回应着罗宾，一边和<<he>>一起向前走着。
+<<else>>
+    <<run getWingType()>>
+    <<set $robinWingKnown to true>><<set $knownWingType to _WingType>><<set $robinWingKnownLocation to "Bog Intro">>
+    你看向罗宾，展开了你背后的<span class="gold"><<print _WingType>></span>，然后对<<he>>提议道："我们一起飞下去吧，怎么样？"
+    <br><br>
+    罗宾看上去十分疑惑："飞...你是说...你的翅膀不是装饰？难道我因为太兴奋而出现幻觉了吗？"
+    <br><br>
+    "你没有出现幻觉，好了，我们快点行动吧。" 你说着，将罗宾拉向了你，然后在<<he>>反应过来之前，就抱着<<him>>一跃而起。
+    <br><br>
+    你们落下数英尺后，静止的空气托住了你的翅膀。你稳稳地落在了木走道上，然后放下了怀中的罗宾。
+    <br><br>
+    "真不可思议，我刚才是在飞翔吗？"罗宾看上去仍然不敢相信刚才发生的事，但已经平静了下来。
+    <br><br>
+    "只是一次滑翔而已，等这次冒险结束后，我们再找个机会一起飞一次吧。" 你一边回应着罗宾，一边和<<he>>一起向前走着。
+<</if>>
+<br><br>
+<<link [[继续|Bog Robin]]>><<set $bogdepth to 4>><<set $bogdepthTemp to 4>><<set $bogwater to 0>><</link>>
+
+:: Bog Intro Climb Robin
+<<effects>>
+你们爬过悬崖边缘，在岩壁上找到了支持点。
+<<if $athleticsSuccess>>
+	<<unset $athleticsSuccess>>
+    在向下攀爬的过程中，你和罗宾一直互相扶持着对方，你们花了些时间，慢慢向下直到<span class="green">踏到木走道上。</span>
+	<br><br>
+	<<if $worn.lower.name isnot "naked">>
+		你拍了拍$worn.lower.cn_name_cap，抖落尘土。
+	<<elseif $worn.upper.name isnot "naked">>
+		你拍了拍$worn.upper.cn_name_cap，抖落尘土。
+	<<else>>
+		你拍了拍手上的灰。
+	<</if>>
+	<br><br>
+    罗宾也拍了拍自己的衣服，<<his>>的脸上洋溢着攀爬成功的喜悦。
+    <br><br>
+    <<link [[继续|Bog Robin]]>><<set $bogdepth to 4>><<set $bogdepthTemp to 4>><<set $bogwater to 0>><</link>>  
+<<else>>
+    在向下攀爬的过程中，你和罗宾一直互相扶持着对方，但<span class="red">你一不小心半路脱手了</span>。
+    罗宾试图拉住你，但未能成功，你们一起摔了下去，掉进了泥潭。<<pain 4>><<stress 12>><<trauma 6>><<gpain>><<gstress>><<gtrauma>>
+    <br><br>
+	<<water>>
+    <<if Time.season is "winter">>
+		冰冷的泥潭让你喘不过气来。你几乎要本能地背过气去，但罗宾一直用力将你向上推，你们努力在陷落于此前浮上了水面。
+	<<else>>
+		水浑浊不堪。你们浮出水面，身上沾满了杂草。
+	<</if>>
+    <br><br>
+    罗宾尴尬地笑了笑："不管怎么说，我们得救了，不是吗？" 罗宾的安慰让你感觉好受了一些。<<lstress>><<ltrauma>><<stress -12>><<trauma -6>>
+    <br><br>
+    <<link [[继续|Bog Robin]]>><<set $bogdepth to 4>><<set $bogdepthTemp to 4>><<set $bogwater to 1>><</link>>
+<</if>>
+
+:: Bog Intro Jump Robin
+<<effects>>
+在罗宾反应过来之前，你深吸了一口气，然后一跃而起，跳过悬崖，避开人行道，跌入浑浊的水中。
+<br><br>
+罗宾试图拉住你，但未能成功，<<he>>犹豫了一下，然后跟着你一起跳了下去。
+<br><br>
+<<water>>
+<<if Time.season is "winter">>
+	冰冷的泥潭让你喘不过气来。你几乎要本能地背过气去，但罗宾一直用力将你向上推，你们努力在陷落于此前浮上了水面。
+<<else>>
+	水浑浊不堪。你们浮出水面，身上沾满了杂草。
+<</if>>
+<br><br>
+罗宾尴尬地笑了笑："其实...我觉得我们可以想办法爬下去...但不管怎么说，我们成功到达了目的地，不是吗？" 罗宾的安慰让你感觉好受了一些。<<lstress>><<ltrauma>><<stress -12>><<trauma -6>>
+<br><br>
+<<link [[继续|Bog Robin]]>><<set $bogdepth to 4>><<set $bogwater to 1>><</link>>
+
+/% 	<<eventbog>> %/
+:: Bog Robin
+<<set $location to "bog">><<set $outside to 1>><<effects>>
+/% 如果向后退 %/
+<<if $bogDepthTemp lt $bogdepth>>
+    <<set $bogdepth -= 1>>
+    <<set $bogDepthTemp to $bogdepth>>
+    罗宾阻止了你："<span class="blue">现在已经无法回头了</span>，我们继续前进吧，很快就能到荒原了。"
+    <br><br>
+    "我明白，我们继续往前走吧。" 你点点头，随即加快步伐，紧跟上了罗宾的脚步。
+    <br><br>
+    <<if $bogdepth gte 2>>
+        <<mooricon>><<link [[向荒原东行 (0:10)|Bog Robin]]>><<set $bogdepth -= 1>><<pass 10>><</link>>
+        <br>
+    <<elseif $bogdepth lte 1>>
+        <<mooricon>><<link [[向荒原东行 (0:05)|Moor Robin]]>><<set $bogdepth to 0>><<set $bogwater to 0>><<set $moor to 85>><<set $eventskip to 1>><<pass 5>><</link>>
+    <</if>>
+<<else>>
+    <<set $bogDepthTemp to $bogdepth>>
+    你们身处森林与荒原间的沼泽中。
+    <<if $bogwater gte 1>>
+        <<water>><<set _bogmod to 1.5>>
+        水浅浅的，可以站在里面。
+    <<else>>
+        <<set _bogmod to 1>>
+        你站在木走道上，不至于陷入泥潭。
+    <</if>>
+    停滞的水反射的些许月光正好为你们照亮。东边能远远望见一座石塔。
+    <<if $bogdepth is 4>>
+        岩壁挡住了回森林的路。<span class="red">没有向上的路了。</span>
+    <<elseif $bogdepth is 1>>
+        林木稀疏，从这里可以看到荒原。
+    <</if>>
+    <br><br>
+    <<if $bogwater gte 1>>
+        <<link [[拖着身子回到走道上|Bog Robin]]>><<set $bogwater to 0>><<set $eventskip to 1>><</link>>
+        <br>
+    <<else>>
+        沿着走道前进
+        <br>
+        <<if $bogdepth lte 3>>
+            <<foresticon>><<link [[向森林西行 (0:10)|Bog Robin]]>><<set $bogdepth += 1>><<pass 10>><</link>>
+            <br>
+        <</if>>
+        <<if $bogdepth gte 2>>
+            <<mooricon>><<link [[向荒原东行 (0:10)|Bog Robin]]>><<set $bogdepth -= 1>><<pass 10>><</link>>
+            <br>
+        <<elseif $bogdepth lte 1>>
+            <<mooricon>><<link [[向荒原东行 (0:05)|Moor Robin]]>><<set $bogdepth to 0>><<set $bogwater to 0>><<set $moor to 85>><<set $eventskip to 1>><<pass 5>><</link>>
+        <</if>>
+    <</if>>
+<</if>>
+
+:: Moor Robin
+恭喜你到达了荒原！
