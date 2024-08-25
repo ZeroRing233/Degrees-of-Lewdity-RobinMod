@@ -310,3 +310,11 @@ function rightNormalClothesCondition(clothes) {
     return !clothes.shop.includes("adult") && clothes.type.includes("normal") &&
         (clothes.gender === V.player.gender_appearance || clothes.gender === "n");
 }
+
+// 选择一双防滑鞋
+function chooseRugged() {
+    let RuggedFeetList = setup.clothes["feet"].filter(clothes => clothes.type.includes("rugged"));
+    let chosen = RuggedFeetList.random();
+    return chosen;
+}
+window.chooseRugged = chooseRugged;

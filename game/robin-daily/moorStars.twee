@@ -2,6 +2,8 @@
 <<set $outside to 1>><<set $location to "lake">><<effects>><<lakeeffects>>
 <<npc Robin>><<person1>>
 <<set $moorStars to true>> /% 荒原观星暂时设定为不能重复触发 %/
+<<weatherControl>><<timeControl>>
+<<set $nextPassage to "Lake Waterfall Robin">>
 /% 节选自原版的环境描写 %/
 你们在<<= Weather.isFrozen("lake") ? "冰封的湖" : "湖">>畔。
 <<if Time.isWeekEnd()>>
@@ -16,7 +18,6 @@
 <</if>>
 <br><br>
 /% 原版选项 %/
-<<set $nextPassage to "Lake Waterfall Robin">>
 <<if Weather.isFrozen("lake")>>
     <<if $nextPassageCheck is "Lake Shallows Ice">>
         <span class="nextLink"><<lakeicon>><<link [[走|Lake Shallows Ice]]>><<pass 2>><</link>></span>
@@ -72,6 +73,7 @@
 <<foresticon>><<link [[森林 (0:10)|Forest]]>><<pass 10>><</link>>
 
 :: Lake Waterfall Robin
+<<weatherControl>><<timeControl>>
 <<if $nextPassageIntended isnot $passage>>
     <<set $nextPassageIntended to $passage>>
     罗宾阻止了你："我们应该往<span class="gold">瀑布</span>的方向前进，前方的路还很长呢，在这里逗留可能会遇到危险。"
@@ -79,7 +81,9 @@
     "好...好的，抱歉。" 你点点头，随即加快步伐，紧跟上了罗宾的脚步。
     <br><br>
     <<lakeicon "waterfall">><<link [[南下去瀑布 (0:10)|Lake Waterfall Robin]]>><<pass 10>><</link>>
-<<else>>
+<<elseif !$hasFight>>
+    /% 重新生成一下npc %/ 
+    <<endevent>><<beastNEWinit 1 boar>><<npc Robin 2>>
     <<set $outside to 1>><<set $location to "lake">><<effects>><<lakeeffects>>
     <<set $forest to 40>><<set $bus to "lakewaterfall">>
     你们在瀑布处。
@@ -98,10 +102,38 @@
         <<= Weather.precipitation is "rain" ? "落下的雨珠让水面泛起涟漪，水面仿佛有了生命一般" : "水面很平静">>。
     <</if>>
     <br><br>
-    <<if $worn.feet.type.includes("heels")>>
-        （这里需要写一段罗宾帮忙换鞋子的剧情，总之，待补充）
-    <</if>>
+    你们看到一只<<beasttype>>正在一棵树的底部翻找垃圾。<<bHe>>发现了你们。
+    <br><br>
+    <<link [[保持不动|Lake Boar Stand Robin]]>><</link>><br>
+	<<link [[跑|Lake Boar Run Robin]]>><</link>>
+<<else>>
+    <<set $outside to 1>><<set $location to "lake">><<effects>><<lakeeffects>>
+    <<set $forest to 40>><<set $bus to "lakewaterfall">>
     <<set $nextPassage to "Forest Brook Robin">>
+    你们在瀑布处。
+    <<if Weather.isFrozen("lake")>>
+        通过冰面的缝隙它向湖中注入水流。
+    <<elseif Time.dayState is "night">>
+        在月光下水幕形成了一道银帘。
+    <<else>>
+        水从岩石上的池塘流下。水雾缭绕，沁人心脾。
+    <</if>>
+    <<if Weather.precipitation is "snow">>
+	    雪<<= Weather.isFrozen("lake") ? "落在冰面上" : "融入冰冷的湖水中">>。
+    <<elseif Weather.isFrozen("lake")>>
+        冰面<<= Weather.precipitation is "rain" ? "被寒冷的雨水击打着" : "显得非常寂静">>。
+    <<else>>
+        <<= Weather.precipitation is "rain" ? "落下的雨珠让水面泛起涟漪，水面仿佛有了生命一般" : "水面很平静">>。
+    <</if>>
+    <br><br>
+    <<if !$worn.feet.type.includes("rugged")>>
+        <<set _chosen to chooseRugged()>><<wearGivenRugged _chosen>>
+        在你们准备继续前进之前，罗宾看了看你脚上的鞋子，摇了摇头："这样不行...在溪水旁行走是非常容易滑倒的，你需要穿一双<span class="green">防滑</span>的鞋子，
+        不过你也不用担心，"<<He>>转而又笑了笑，"我对此早有准备。" 说着，<<He>>从背包中拿出了一双<span class="green"><<print _chosen.cn_name_cap>></span>。
+        <br><br>
+        你穿上了罗宾递来的<span class="green"><<print _chosen.cn_name_cap>></span>，鞋子非常合脚，你感觉心里踏实了许多。
+        <br><br>
+    <</if>>
 	<<if $mason_count gte 2 and !Weather.isFrozen("lake")>>
 		<<lakeicon "pond">><<link [[梅森的池塘 (0:05)|Mason Pond]]>><<pass 5>><</link>>
 		<br>
@@ -126,7 +158,50 @@
 	<<foresticon>><<link [[森林 (0:10)|Forest]]>><<pass 10>><</link>>
 <</if>>
 
+:: Lake Boar Stand Robin
+<<set $outside to 1>><<effects>><<lakeeffects>>
+你们站在原地。<<beasttype>>没有考虑太久就向你们冲过来。
+<br><br>
+<<bHe>>用第一次冲刺将你们撞倒在地，然后开始准备第二次袭击。
+<br><br>
+<span class="blue">本场战斗只能以袭击的方式获得胜利。</span>
+<br><br>
+<<link [[继续|Lake Boar Fight Robin]]>><<set $fightstart to 1>><</link>>
+
+:: Lake Boar Fight Robin
+<<if $fightstart is 1>>
+	<<set $fightstart to 0>>
+    <<set $enemyno to 1>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<beastCombatInit>>
+    <<npcidlegenitals>>
+	<<set $NPCList[0].stance to "top">>
+<</if>>
+
+<<set $enemyarousal to 0>>
+<<effects>>
+<<effectsman>>
+<<beast $enemyno>>
+<br><br>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[继续|Lake Boar Fight Robin Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[继续|Lake Boar Fight Robin]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Lake Boar Fight Robin Finish
+
+:: Lake Boar Run Robin
+
 :: Forest Brook Robin
+<<weatherControl>><<timeControl>>
 <<if $nextPassageIntended isnot $passage>>
     <<set $nextPassageIntended to $passage>>
     罗宾阻止了你："我们应该往<span class="gold">小溪</span>的方向前进，前方的路还很长呢，在这里逗留可能会遇到危险。"
@@ -156,6 +231,7 @@
 <</if>>
 
 :: Bog Intro Robin
+<<weatherControl>><<timeControl>>
 <<if $nextPassageIntended isnot $passage>>
     <<set $nextPassageIntended to $passage>>
     罗宾阻止了你："我们应该往<span class="gold">沼泽</span>的方向前进，前方的路还很长呢，在这里逗留可能会遇到危险。"
@@ -177,7 +253,7 @@
 <</if>>
 
 :: Bog Intro Glide Robin
-<<effects>>
+<<effects>><<weatherControl>><<timeControl>>
 <<if $robinWingKnown>>
     你看向罗宾，暗示性地拍了拍翅膀，<<he>>心领神会："我们要再飞一次吗...？好，好的。"
     <br><br>
@@ -207,7 +283,7 @@
 <<link [[继续|Bog Robin]]>><<set $bogdepth to 4>><<set $bogdepthTemp to 4>><<set $bogwater to 0>><</link>>
 
 :: Bog Intro Climb Robin
-<<effects>>
+<<effects>><<weatherControl>><<timeControl>>
 你们爬过悬崖边缘，在岩壁上找到了支持点。
 <<if $athleticsSuccess>>
 	<<unset $athleticsSuccess>>
@@ -241,7 +317,7 @@
 <</if>>
 
 :: Bog Intro Jump Robin
-<<effects>>
+<<effects>><<weatherControl>><<timeControl>>
 在罗宾反应过来之前，你深吸了一口气，然后一跃而起，跳过悬崖，避开人行道，跌入浑浊的水中。
 <br><br>
 罗宾试图拉住你，但未能成功，<<he>>犹豫了一下，然后跟着你一起跳了下去。
@@ -259,6 +335,7 @@
 
 /% 	<<eventbog>> %/
 :: Bog Robin
+<<weatherControl>><<timeControl>>
 <<set $location to "bog">><<set $outside to 1>><<effects>>
 /% 如果向后退 %/
 <<if $bogDepthTemp lt $bogdepth>>
@@ -311,4 +388,5 @@
 <</if>>
 
 :: Moor Robin
+<<weatherControl>><<timeControl>>
 恭喜你到达了荒原！

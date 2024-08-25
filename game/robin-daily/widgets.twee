@@ -31,3 +31,39 @@
         <<updateOwned "under_lower">>
     <</if>>
 <</widget>>
+
+/% 天气之子，荒原观星专属 %/
+<<widget "weatherControl">>
+	<<set Weather.set("clear", true, 12 * 60)>>
+<</widget>>
+
+/% 时空倒流 %/
+<<widget "timeControl">>
+	<<if !["dusk","night"].includes(Time.dayState)>>
+		<<set Time.setTime(5, 0)>>
+	<</if>>
+<</widget>>
+
+<<widget "wearGivenRugged">>
+	<<set _chosen to _args[0]>>
+	<<generalWear "feet" _chosen.index>>
+	<<updateOwned "feet">>
+<</widget>>
+
+/% 分配罗宾受到的攻击，尽量通用 %/
+<<widget "pickRobinViolance_common">>
+	<<set _robinTargetList to []>>
+  	/% 如果pc失去行动力，则所有敌人 %/
+  <<if $pain gte 100 and $willpowerpain is 0>>
+    <<for _i to 0; _i lt $enemynomax; _i++>>
+      <<if $NPCList[_i].stance isnot "defeated">>
+          <<set _robinTargetList.push(_i)>>
+      <</if>>
+    <</for>>
+    <span class="red">你躺在地上，动弹不得。</span>
+    <<if _robinTargetList.length gte 2>>
+      敌人们包围住了罗宾。
+    <<else>>
+      <<print $NPCList[_robinTargetList[0]].fullDescription>>正在对付罗宾。
+    <</if>>
+<</widget>>
