@@ -865,6 +865,12 @@
                     "passage": "Robin Mischief",
                     "findString": "<<arousal 600>><<garousal>>",
                     "replaceFile": "game/origin-replace/robinMischief.txt"
+                },
+                {
+                    "passage": "Widgets Actions Generation",
+                    "findString": "<<if $NPCList[0].type isnot \"human\" and $NPCList[0].type isnot \"plant\">>",
+                    "replace": "<<if $NPCList[0].type isnot \"human\" and $NPCList[0].type isnot \"plant\" and $fightCondition isnot \"moorStars\">>",
+                    "comments": "这星星看的，太不容易了"
                 }
             ]
         },

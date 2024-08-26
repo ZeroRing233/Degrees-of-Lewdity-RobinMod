@@ -83,7 +83,8 @@
     <<lakeicon "waterfall">><<link [[南下去瀑布 (0:10)|Lake Waterfall Robin]]>><<pass 10>><</link>>
 <<elseif !$hasFight>>
     /% 重新生成一下npc %/ 
-    <<endevent>><<beastNEWinit 1 boar>><<npc Robin 2>>
+    <<endevent>><<generateBEAST 1 boar f "vagina" "beast">><<generateBEAST 2 boar m "penis" "beast">>
+    <<npc Robin 6>>
     <<set $outside to 1>><<set $location to "lake">><<effects>><<lakeeffects>>
     <<set $forest to 40>><<set $bus to "lakewaterfall">>
     你们在瀑布处。
@@ -102,7 +103,7 @@
         <<= Weather.precipitation is "rain" ? "落下的雨珠让水面泛起涟漪，水面仿佛有了生命一般" : "水面很平静">>。
     <</if>>
     <br><br>
-    你们看到一只<<beasttype>>正在一棵树的底部翻找垃圾。<<bHe>>发现了你们。
+    你们看到一对野猪正在一棵树的底部翻找垃圾。它们发现了你们。
     <br><br>
     <<link [[保持不动|Lake Boar Stand Robin]]>><</link>><br>
 	<<link [[跑|Lake Boar Run Robin]]>><</link>>
@@ -171,20 +172,27 @@
 :: Lake Boar Fight Robin
 <<if $fightstart is 1>>
 	<<set $fightstart to 0>>
-    <<set $enemyno to 1>>
+    <<set $enemyno to 2>>
 	<<controlloss>>
 	<<violence 1>>
 	<<neutral 1>>
-	<<molested>>
 	<<beastCombatInit>>
+    <<moorStarsBeastInit>>
     <<npcidlegenitals>>
+    <<set $enemyanger += 200>>
 	<<set $NPCList[0].stance to "top">>
+    <<set $fightCondition to "moorStars">>
 <</if>>
 
 <<set $enemyarousal to 0>>
 <<effects>>
 <<effectsman>>
-<<beast $enemyno>>
+<<pickPCViolance_common>>
+/% <<for _i to 0; _i lt _pcTargetList; _i++>>
+    <<beast _pcTargetList[_i]>>
+<</for>> %/
+<<beast 1>>
+<<beast 2>>
 <br><br>
 <<stateman>>
 <br><br>
@@ -193,10 +201,11 @@
 <<if _combatend>>
 	<span id="next"><<link [[继续|Lake Boar Fight Robin Finish]]>><</link>></span><<nexttext>>
 <<else>>
-	<span id="next"><<link [[继续|Lake Boar Fight Robin]>><</link>></span><<nexttext>>
+	<span id="next"><<link [[继续|Lake Boar Fight Robin]]>><</link>></span><<nexttext>>
 <</if>>
 
 :: Lake Boar Fight Robin Finish
+需要写点什么
 
 :: Lake Boar Run Robin
 

@@ -50,10 +50,34 @@
 	<<updateOwned "feet">>
 <</widget>>
 
-/% 分配罗宾受到的攻击，尽量通用 %/
+/% 一些必要的数值调整 %/
+<<widget "moorStarsBeastInit">>
+	<<set $enemyhealth to 0>>
+	<<for _i to 0; _i lt $enemyno; _i++>>
+		<<if $NPCList[_i].health isnot undefined>>
+			<<set $enemyhealth += $NPCList[_i].health>>
+		<</if>>
+	<</for>>
+	<<set $enemyarousalmax to 500 * $enemyno>>
+	<<set $enemyangermax to 200>>
+	<<set $enemyhealthmax to $enemyhealth>>
+<</widget>>
+
+<<widget "pickPCViolance_common">>
+	/% 姑且先全放进去，之后再调整细节 %/
+	<<set _pcTargetList to []>>
+	<<for _i to 0; _i lt $enemynomax; _i++>>
+      <<if $NPCList[_i].stance isnot "defeated">>
+          <<set _pcTargetList.push(_i)>>
+      <</if>>
+    <</for>>
+<</widget>>
+
+/% 分配罗宾受到的攻击，尽量通用版（其实和贝利版比起来只有细微改变），敌人上限为5人，罗宾固定是最后一个npc %/
+/% 4,5-2人包围罗宾，2,3-1人对付罗宾，1-轮流对付pc和罗宾 %/
 <<widget "pickRobinViolance_common">>
-	<<set _robinTargetList to []>>
-  	/% 如果pc失去行动力，则所有敌人 %/
+  <<set _robinTargetList to []>>
+  /% 如果pc失去行动力，则所有的敌人目标都是罗宾 %/
   <<if $pain gte 100 and $willpowerpain is 0>>
     <<for _i to 0; _i lt $enemynomax; _i++>>
       <<if $NPCList[_i].stance isnot "defeated">>
@@ -66,4 +90,146 @@
     <<else>>
       <<print $NPCList[_robinTargetList[0]].fullDescription>>正在对付罗宾。
     <</if>>
+  <<elseif $NPCList[5].health lte 0>>
+      <span class="red">罗宾躺在地上，动弹不得。</span>
+  <<else>>
+    <<for _i to 0; _i lt $enemynomax; _i++>>
+      <<if $NPCList[_i].stance isnot "defeated">>
+          <<set _robinTargetList.push(_i)>>
+      <</if>>
+    <</for>>
+    <<if _robinTargetList.length gte 4>>
+      <<set _robinTargetList to _robinTargetList.slice(0,2)>>
+      <<print $NPCList[_robinTargetList[0]].fullDescription>>和<<print $NPCList[_robinTargetList[1]].fullDescription>>包围住了罗宾。
+    <<elseif _robinTargetList.length gte 2>>
+      <<set _robinTargetList to _robinTargetList.slice(0,1)>> 
+      <<print $NPCList[_robinTargetList[0]].fullDescription>>正在对付罗宾。
+    <<elseif _robinTargetList.length is 1>>
+		<<set _robinTargetList.push(0)>>
+		<<if $timer % 2 is 0>>
+			<<print $NPCList[_robinTargetList[0]].fullDescription>>转向了罗宾。
+		<<else>>
+			<<print $NPCList[_robinTargetList[0]].fullDescription>>转向了你。
+		<</if>>
+	<<else>>
+    	<span class="blue">似乎有外星生物正在对付罗宾，请向模组作者反馈该问题。</span>
+    <</if>>
+  <</if>>
+<</widget>>
+
+/% 智能作战策略，每次都打血量最少的袭击者 %/
+<<widget "robinPickTarget_common">>
+  <<set _minHealth to $NPCList[_robinTargetList[0]].health>>
+  <<set _robinTarget to _robinTargetList[0]>>
+  <<for _i to 0; _i lt _robinTargetList.length; _i++>>
+		<<if $NPCList[_robinTargetList[_i]].stance isnot "defeated" and $NPCList[_robinTargetList[_i]].health lt _minHealth>>
+        <<set _minHealth to $NPCList[_robinTargetList[_i]].health>>
+        <<set _robinTarget to _robinTargetList[_i]>>
+		<</if>>
+	<</for>>
+  <<set _robinTargetName to $NPCList[_robinTarget].fullDescription>>
+<</widget>>
+
+/% 罗宾的防狼喷雾 ，只在最后关头使用 %/
+<<widget "robinSpray_common">>
+  <<set _baseDmage to 200>>
+  <<for _npctodamage to 0; _npctodamage lt $enemynomax; _npctodamage++>>
+	    /% 未知bug，暂时写死 %/
+		<<set $NPCList[_npctodamage].health -= 40>>
+	<</for>>
+  <<set $enemyhealth -= 200>>
+<</widget>>
+
+/% 完全无改动，但为了和专属战斗区分开来还是复制一遍 %/
+<<widget "robinDefiance_common">>
+  <<set _robinDefiance to (_args[0] * (1 + (C.npc.Robin.dom/100)))>>
+  <<set $enemyanger += 5 * _robinDefiance>>
+  <<set $enemytrust -= 4 * 4>>
+  <<set _robinDamage to (2 * _robinDefiance * (12000 / 4000))>>
+  <<set $NPCList[_args[1]].health -= _robinDamage>>
+	<<if $NPCList[_args[1]].health lte 0>>
+		/% 减去溢出的伤害点数 %/
+		<<set _robinDamage += $NPCList[_args[1]].health>>
+		/% 偷懒直接用原来的，罗宾打败敌人pc减创伤不也很正常 %/
+		<<if $enemyno gte 2>>
+			<<defeatnpc _args[1]>>
+		<</if>>
+	<</if>> 
+	<<set $enemyhealth -= _robinDamage>> 
+<</widget>>
+
+/% 同样，完全无改动 %/
+<<widget "robinAction_common">>
+  <<if $NPCList[5].health gte $NPCList[5].healthmax / 2>>
+    罗宾用双手击打着<<print _robinTargetName>>，并且用脚踹击着进攻。
+  <<elseif $NPCList[5].health gte $NPCList[5].healthmax / 5>>
+    罗宾顶着疼痛，用双手击打着<<print _robinTargetName>>，并且用脚踹击着进攻。
+    <<grtrauma true>><<set C.npc.Robin.trauma += 1>>
+  <<else>>
+    罗宾浑身颤抖，用尽全身力气攻向<<print _robinTargetName>>。
+    <<ggrtrauma true>><<set C.npc.Robin.trauma += 2>>
+  <</if>>
+  <br>
+<</widget>>
+
+<<widget "robinSpeech_beast">>
+	<<switch random(1,3)>>
+      <<case 1>>
+        <<set _text_output to '<<nnpc_He Robin>>坚定地说道："'>>
+		<<case 2>>
+			<<set _text_output to '<<nnpc_He Robin>>怒吼着："'>>
+    	<<case 3>>
+        	<<set _text_output to '<<nnpc_He Robin>>愤怒地说： "'>>
+		<</switch>>
+    <<set $robinSpeechCycle to $robinSpeechCycle or 0>>
+    <<switch $robinSpeechCycle>>
+      <<case 0>>
+        <<set _text_output += '离<<pher>>远点，你这愚蠢的<<beasttype>>。"'>>
+      <<case 1>>
+        <<if $robinromance is 1>>
+          <<set _text_output += '我不会让你们伤害我的恋人的。"'>>
+        <<else>>
+          <<set _text_output += '我不会让你们伤害我的朋友的。"'>>
+        <</if>>
+    	<<case 2>>
+        	<<set _text_output += '我们绝不会坐以待毙。"'>>
+		<<case 3>>
+			<<set _text_output += '为什么要袭击我们呢？"'>>
+		<<case 4>>
+			<<set _text_output += '为什么不爱惜自己的生命呢？"'>>
+    <</switch>>
+    <<print _text_output>>
+    <<set $robinSpeechCycle to ($robinSpeechCycle + 1) % 5>> 
+<</widget>>
+
+/% 咱们简单点，自己定一个规则，不要搞那么复杂 %/
+<<widget "beast_robin">>
+	<<set _n to _args[0]>>
+	<<personselect _n>>
+	<<print $NPCList[_n].fullDescription>>跳到罗宾身上，把罗宾压倒在地。<<robinViolence 20>>
+	<<rng>>
+	<<if $rng gte 81>>
+		<<bHe>>咬住罗宾的脸。
+		<<robinViolence 10>>
+  	<<elseif $rng gte 61>>
+		<<bHe>>咬住罗宾的脖子。
+  	<<elseif $rng gte 41>>
+	  	<<bHe>>用<<beast_teeth_text>>咬住罗宾的脖子。
+		<<robinViolence 15>>
+  	<<elseif $rng gte 21>>
+		<<bHe>>咬住罗宾的腰。
+		<<robinViolence 20>>
+	<<else>>
+		<<bHe>>用<<beast_teeth_text>>捉住罗宾的头发。
+		<<robinViolence 5>>
+  <</if>>
+<</widget>>
+
+/% 无区别，姑且复制一下 %/
+<<widget "robinViolence_common">>
+  <<set _violence = _args[0] * 3 / 5 * 2>>
+  <<set $enemyanger -= 5>>
+  <<set $enemyarousal += 1>>
+  <<set $NPCList[5].health -= _violence>>
+  <<print "罗宾当前的血量" + $NPCList[5].health>>
 <</widget>>
