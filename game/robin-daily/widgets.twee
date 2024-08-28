@@ -64,13 +64,17 @@
 <</widget>>
 
 <<widget "pickPCViolance_common">>
-	/% 姑且先全放进去，之后再调整细节 %/
 	<<set _pcTargetList to []>>
 	<<for _i to 0; _i lt $enemynomax; _i++>>
-      <<if $NPCList[_i].stance isnot "defeated">>
+      <<if $NPCList[_i].stance isnot "defeated" and !_robinTargetList.includes(_i)>>
           <<set _pcTargetList.push(_i)>>
       <</if>>
     <</for>>
+	<<if _pcTargetList.length is 0 and _robinTargetList.length is 1>>
+		<<if $timer % 2 is 1>>
+			<<set _pcTargetList.push(_robinTargetList[0])>>
+		<</if>>
+	<</if>>
 <</widget>>
 
 /% 分配罗宾受到的攻击，尽量通用版（其实和贝利版比起来只有细微改变），敌人上限为5人，罗宾固定是最后一个npc %/
@@ -105,7 +109,6 @@
       <<set _robinTargetList to _robinTargetList.slice(0,1)>> 
       <<print $NPCList[_robinTargetList[0]].fullDescription>>正在对付罗宾。
     <<elseif _robinTargetList.length is 1>>
-		<<set _robinTargetList.push(0)>>
 		<<if $timer % 2 is 0>>
 			<<print $NPCList[_robinTargetList[0]].fullDescription>>转向了罗宾。
 		<<else>>
@@ -184,7 +187,7 @@
     <<set $robinSpeechCycle to $robinSpeechCycle or 0>>
     <<switch $robinSpeechCycle>>
       <<case 0>>
-        <<set _text_output += '离<<pher>>远点，你这愚蠢的<<beasttype>>。"'>>
+        <<set _text_output += '离<<pher>>远点，你这<<beasttype>>。"'>>
       <<case 1>>
         <<if $robinromance is 1>>
           <<set _text_output += '我不会让你们伤害我的恋人的。"'>>
@@ -206,22 +209,23 @@
 <<widget "beast_robin">>
 	<<set _n to _args[0]>>
 	<<personselect _n>>
-	<<print $NPCList[_n].fullDescription>>跳到罗宾身上，把罗宾压倒在地。<<robinViolence 20>>
+	<<print $NPCList[_n].fullDescription>>跳到罗宾身上，把罗宾压倒在地。<<robinViolence_common 20>>
 	<<rng>>
 	<<if $rng gte 81>>
 		<<bHe>>咬住罗宾的脸。
-		<<robinViolence 10>>
+		<<robinViolence_common 10>>
   	<<elseif $rng gte 61>>
 		<<bHe>>咬住罗宾的脖子。
+		<<robinViolence_common 15>>
   	<<elseif $rng gte 41>>
 	  	<<bHe>>用<<beast_teeth_text>>咬住罗宾的脖子。
-		<<robinViolence 15>>
+		<<robinViolence_common 15>>
   	<<elseif $rng gte 21>>
 		<<bHe>>咬住罗宾的腰。
-		<<robinViolence 20>>
+		<<robinViolence_common 20>>
 	<<else>>
 		<<bHe>>用<<beast_teeth_text>>捉住罗宾的头发。
-		<<robinViolence 5>>
+		<<robinViolence_common 5>>
   <</if>>
 <</widget>>
 

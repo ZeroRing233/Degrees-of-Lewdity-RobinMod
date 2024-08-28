@@ -84,6 +84,8 @@
 <<elseif !$hasFight>>
     /% 重新生成一下npc %/ 
     <<endevent>><<generateBEAST 1 boar f "vagina" "beast">><<generateBEAST 2 boar m "penis" "beast">>
+    <<set $NPCList[0].type to $NPCList[0].fullDescription>> 
+    <<set $NPCList[1].type to $NPCList[1].fullDescription>> 
     <<npc Robin 6>>
     <<set $outside to 1>><<set $location to "lake">><<effects>><<lakeeffects>>
     <<set $forest to 40>><<set $bus to "lakewaterfall">>
@@ -111,6 +113,7 @@
     <<set $outside to 1>><<set $location to "lake">><<effects>><<lakeeffects>>
     <<set $forest to 40>><<set $bus to "lakewaterfall">>
     <<set $nextPassage to "Forest Brook Robin">>
+    <<pass 10>>
     你们在瀑布处。
     <<if Weather.isFrozen("lake")>>
         通过冰面的缝隙它向湖中注入水流。
@@ -180,19 +183,48 @@
     <<moorStarsBeastInit>>
     <<npcidlegenitals>>
     <<set $enemyanger += 200>>
+    <<set $timer to 99>>
 	<<set $NPCList[0].stance to "top">>
     <<set $fightCondition to "moorStars">>
 <</if>>
 
 <<set $enemyarousal to 0>>
-<<effects>>
-<<effectsman>>
+<<pickRobinViolance_common>>
+<<if _robinTargetList.length isnot 0>>
+    <<robinPickTarget_common>>
+    <<robinAction_common>>
+    <<robinSpeech_beast>>
+    <<robinDefiance_common 15 _robinTarget>>
+<</if>>
 <<pickPCViolance_common>>
-/% <<for _i to 0; _i lt _pcTargetList; _i++>>
-    <<beast _pcTargetList[_i]>>
-<</for>> %/
-<<beast 1>>
-<<beast 2>>
+<br><br>
+
+
+<<effects>>
+
+/% 放弃治疗，强行改描述 %/
+<<set $NPCList[0].type to "多毛的野猪">> 
+<<set $NPCList[1].type to "多毛的野猪">> 
+<<effectsman>>
+<<set $NPCList[0].type to $NPCList[0].fullDescription>> 
+<<set $NPCList[1].type to $NPCList[1].fullDescription>> 
+
+<<for _i to 0; _i lt _pcTargetList.length; _i++>>
+    <<if $NPCList[_pcTargetList[_i]].stance isnot "defeated">>
+        <br>
+        <<beast _pcTargetList[_i]>>
+    <</if>>
+<</for>> 
+<<for _i to 0; _i lt _robinTargetList.length; _i++>>
+    <<if $timer % 2 is 0 and _robinTargetList.length is 1>>
+        <<break>>
+    <</if>>
+    <<if $NPCList[_robinTargetList[_i]].stance isnot "defeated">>
+        <br>
+        <<beast_robin _robinTargetList[_i]>>
+    <</if>>
+<</for>> 
+
 <br><br>
 <<stateman>>
 <br><br>
@@ -205,7 +237,12 @@
 <</if>>
 
 :: Lake Boar Fight Robin Finish
-需要写点什么
+（调试）回到原点，重新开始
+<<endcombat>>
+<<clotheson>>
+<<unset $fightCondition>>
+<br><br>
+<<link [[继续|Lake Shore Robin]]>><</link>></span>
 
 :: Lake Boar Run Robin
 

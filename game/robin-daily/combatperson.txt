@@ -1,0 +1,3 @@
+<<if $fightCondition is "moorStars">>
+    <<set _text_output to $NPCList[$index].fullDescription>>
+<<elseif $npc_named is 1 and $description isnot "pale figure">>

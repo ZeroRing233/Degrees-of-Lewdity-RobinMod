@@ -1,5 +1,5 @@
 <<lltrauma>><<trauma -18>>
-<<if $passage is "Robin Fight" or $passage is "Canteen Robin Whitney Fight Together">>
+<<if $passage is "Robin Fight" or $passage is "Canteen Robin Whitney Fight Together" or $fightCondition is "moorStars">>
     /% 因变量名冲突，无法使用npcincr %/
     <<llrtrauma true>><<set C.npc.Robin.trauma -= 2>>
     <<set $NPCList[5].health += 30>>

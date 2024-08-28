@@ -121,6 +121,7 @@
         "game/robin-daily/journal.txt",
         "game/robin-daily/robinRoomBedIntro.txt",
         "game/robin-daily/robinSpeech.txt",
+        "game/robin-daily/combatperson.txt",
         "game/robin-fight/orphanage.txt",
         "game/robin-fight/manCombat.txt",
         "game/robin-fight/defeatnpc.txt",
@@ -871,6 +872,18 @@
                     "findString": "<<if $NPCList[0].type isnot \"human\" and $NPCList[0].type isnot \"plant\">>",
                     "replace": "<<if $NPCList[0].type isnot \"human\" and $NPCList[0].type isnot \"plant\" and $fightCondition isnot \"moorStars\">>",
                     "comments": "这星星看的，太不容易了"
+                },
+                {
+                    "passage": "Widgets Text",
+                    "findString": "<<if $npc_named is 1 and $description isnot \"pale figure\">>",
+                    "replaceFile": "game/robin-daily/combatperson.txt",
+                    "comments": "观星不易第二弹"
+                },
+                {
+                    "passage": "Widgets Combat Beast",
+                    "findString": "<<set _n to $active_enemy>>",
+                    "replace": "<<set _n to $active_enemy>><<if $fightCondition is \"moorStars\">><<set _n to _args[0]>><</if>>",
+                    "comments": "观星不易第三弹"
                 }
             ]
         },
