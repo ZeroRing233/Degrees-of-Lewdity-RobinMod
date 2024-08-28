@@ -164,9 +164,9 @@
 
 :: Lake Boar Stand Robin
 <<set $outside to 1>><<effects>><<lakeeffects>>
-你们站在原地。<<beasttype>>没有考虑太久就向你们冲过来。
+你们站在原地。多毛的母野猪和多毛的公野猪没有考虑太久就向你们冲过来。
 <br><br>
-<<bHe>>用第一次冲刺将你们撞倒在地，然后开始准备第二次袭击。
+它们用第一次冲刺将你们撞倒在地，然后开始准备第二次袭击。
 <br><br>
 <span class="blue">本场战斗只能以袭击的方式获得胜利。</span>
 <br><br>
@@ -199,7 +199,6 @@
 <<pickPCViolance_common>>
 <br><br>
 
-
 <<effects>>
 
 /% 放弃治疗，强行改描述 %/
@@ -216,7 +215,8 @@
     <</if>>
 <</for>> 
 <<for _i to 0; _i lt _robinTargetList.length; _i++>>
-    <<if $timer % 2 is 0 and _robinTargetList.length is 1>>
+    /% 只剩一只且在进攻pc %/
+    <<if _pcTargetList.includes(_robinTargetList[_i])>>
         <<break>>
     <</if>>
     <<if $NPCList[_robinTargetList[_i]].stance isnot "defeated">>
@@ -230,19 +230,22 @@
 <br><br>
 <<actionsman>>
 
-<<if _combatend>>
+<<if $enemyhealth lte 0>>
 	<span id="next"><<link [[继续|Lake Boar Fight Robin Finish]]>><</link>></span><<nexttext>>
 <<else>>
 	<span id="next"><<link [[继续|Lake Boar Fight Robin]]>><</link>></span><<nexttext>>
 <</if>>
 
 :: Lake Boar Fight Robin Finish
-（调试）回到原点，重新开始
-<<endcombat>>
-<<clotheson>>
+<<effects>>
+<<if $enemyhealth lte 0>>
+    你和罗宾
+    <<endcombat>>
+    <<clotheson>>
+<</if>>
 <<unset $fightCondition>>
 <br><br>
-<<link [[继续|Lake Shore Robin]]>><</link>></span>
+<<link [[（调试选项）回到原点，重新开始|Lake Shore Robin]]>><</link>>
 
 :: Lake Boar Run Robin
 
