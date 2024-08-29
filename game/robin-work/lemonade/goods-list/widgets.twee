@@ -46,7 +46,7 @@
         <<icon "tending/daisy.png">> <<link [[查看鲜花 (0:05)|Robin's Lemonade Show Flower]]>><<run recoverLemonadeShop()>><<pass 5>><</link>>
         <br>
     <</if>>
-    <<if $bus is "park">>
+    <<if Time.season is "winter">>
         <<robinicon "cocoa">><<link [[返回|Robin Chocolate]]>><<run recoverLemonadeShop()>><<endevent>><</link>>
     <<else>>
         <<robinicon "lemonade">><<link [[返回|Robin's Lemonade]]>><<run recoverLemonadeShop()>><<endevent>><</link>>
