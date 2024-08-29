@@ -125,7 +125,7 @@
 <br><br>
 <<print either("清新","浓郁","怡人")>>的花香萦绕在你的四周。你 <<print either("做了个深呼吸","深吸了一口")>>，感到香气 <<print either("在你的胸腔中涤荡","抚慰了你的心灵")>>。<<lstress>><<ltrauma>><<stress -6>><<trauma -3>>
 <br><br>
- <<if $bus is "park">>
+ <<if Time.season is "winter">>
     <<endevent>>
     <<robinChocolateOfferHelp>>
 <<else>>
@@ -149,7 +149,7 @@
     罗宾害羞地笑了起来。“那<span class="gold">下次</span>去看电影时，我们就分享自制的爆米花好了。”
 <</if>>
 <br><br>
- <<if $bus is "park">>
+ <<if Time.season is "winter">>
     <<endevent>>
     <<robinChocolateOfferHelp>>
 <<else>>
@@ -168,7 +168,7 @@
 <br><br>
 “<<print either('怎么样，是不是很好吃？','我的手艺还不错吧？','下次我们可以一起做更多的点心。')>>”罗宾仔细擦去你嘴角的碎屑，看起来对你享受的神情相当自豪。
 <br><br>
- <<if $bus is "park">>
+ <<if Time.season is "winter">>
     <<endevent>>
     <<robinChocolateOfferHelp>>
 <<else>>
