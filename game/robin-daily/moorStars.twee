@@ -194,7 +194,8 @@
     <<robinPickTarget_common>>
     <<robinAction_common>>
     <<robinSpeech_beast>>
-    <<robinDefiance_common 15 _robinTarget>>
+    /% 稍微降低下罗宾的攻击力，提高下打输的可能性 %/
+    <<robinDefiance_common 10 _robinTarget>>
 <</if>>
 <<pickPCViolance_common>>
 <br><br>
