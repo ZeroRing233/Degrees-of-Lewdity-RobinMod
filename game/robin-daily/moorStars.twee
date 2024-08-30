@@ -154,7 +154,7 @@
 		<<if $worn.feet.type.includes("heels")>>
 			<span class="red">你不可能穿着高跟鞋越过小溪。</span>
 		<<else>>
-			<<foresticon "river">><<link [[向前往小溪 (0:10)|Forest Brook]]>><<pass 10>><<tiredness 4>><</link>><<gtiredness>>
+			<<foresticon "river">><<link [[向前往小溪 (0:10)|Forest Brook Robin]]>><<pass 10>><<tiredness 4>><</link>><<gtiredness>>
 		<</if>>
 		<br>
 	<</if>>
@@ -231,26 +231,65 @@
 <br><br>
 <<actionsman>>
 
-<<if $enemyhealth lte 0>>
+<<if $enemyhealth lte 0 or ($pain gte 100 and $willpowerpain is 0 and $NPCList[5].health lte 0)>>
 	<span id="next"><<link [[继续|Lake Boar Fight Robin Finish]]>><</link>></span><<nexttext>>
 <<else>>
 	<span id="next"><<link [[继续|Lake Boar Fight Robin]]>><</link>></span><<nexttext>>
 <</if>>
 
 :: Lake Boar Fight Robin Finish
-<<effects>>
+<<effects>><<unset $fightCondition>>
 <<if $enemyhealth lte 0>>
     多毛的母野猪和多毛的公野猪尖叫着逃进树林。
     <br><br>
     罗宾扶起了你，关切地询问道："你没事吧？"你点点头，表示你可以继续前进。
     <br><br>
     罗宾看上去似乎松了一口气，你们互相搀扶着回到了瀑布处。
-    <<endcombat>>
-    <<clotheson>>
+    <br><br>
+    <<endcombat>><<set $LakeWaterfallFight to true>>
+    <<link [[继续|Lake Waterfall Robin]]>><<clotheson>><</link>>
+<<else>>
+    /% 沿用原版的格威岚救援剧情 %/
+    <<npc Gwylan 3>><<person3>><<set $gwylanRescueRobin to true>>
+    <<set _gwylanKnown to ($forest_shop_intro is 1 or $gwylan_rescue is 1)>>
+    <<beasttype 0>>咆哮着，却被一个飞来的?gwylanItem击中了脸。它大叫着，惊恐地环顾四周。
+	<br><br>
+	"嘿！"<<if _gwylanKnown>>格威岚<<else>>一个<<nnpc_gendery "Gwylan">><</if>>从树林那边大喊。
+    "咻！"<<nnpc_He "Gwylan">>抛出一个?gwylanItem，击中侧面的<<beasttype 1>>。它夹着尾巴落荒而逃。
+    <<set _theboy to (_gwylanKnown ? "格威岚" : "" + _text_output)>>
+    <br><br>
+	<<set $pronoun to C.npc.Gwylan.pronoun>>
+    "我发誓他们一天比一天更凶猛，"_theboy嘟囔道。
+	<<He>>踏出树林，朝你们走过来。"你们还好吗？还好我当时在那里。"
+	<<if !_gwylanKnown>>
+		<br><br>
+		<<He>>有着雀斑和灰褐色的头发，看起来和你差不多大。"我年纪可比看起来要大，"<<he>>仿佛会读心术一般开口，"我叫格威岚。很高兴见到你们。"
+		<br><br>
+		"我在森林的边缘有一家商店，"<<he>>说道。"你不会错过的。我卖——"<<he>>停顿了一下。"我的祖<<print ($pronoun is "m" ? "父" : "母")>>卖——"又停顿了一下。"我在那儿卖小摆设。你在普通商店里找不到的东西。连我都不知道我有什么存货！"<<He>>听起来很骄傲。
+	<<elseif $gwylan_aborted gte 1>>
+		<<gwylanRescueApology>>
+	<</if>>
+	<br><br>
+	<<if $gwylan_eden_coop gte 1 and $gwylan_aborted is 0>>
+		<<He>>环顾四周，好像在等待什么。“奇怪，”<<he>>自言自语。“我以为<<nnpc_title "Eden">>会在这里。一定很忙吧。”
+		<br><br>
+	<</if>>
+	<<if $gwylan_rescue isnot 1>>
+		<<set $gwylan_rescue to 1>>
+		<<He>>准备走开，突然又转过身来。"顺便说一下，"<<he>>说道。"我之所以能救你们，是因为你们离我的店很近。<span class="gold">如果你们走超过了湖头，我就听不到你们了。</span>请记住这点。"
+		<br><br>
+	<</if>>
+	<<He>>收拾好<<his>>的物品，然后朝<<his>>商店的方向走去。<<set $gwylan_aborted to 0>>
+	<br><br>
+    罗宾惊讶地说：" 真是一个奇妙的<<print $pronoun is "f" ? "女孩" : "男孩">>，多亏了<<him>>我们才能得救，之后我们一定要好好感谢<<him>>"，
+    <<person6>><<he>>顿了顿，然后又关切地询问你："你没事吧？还可以继续前进吗？"
+    <br><br>
+    在得到了你肯定的答复后，你们一起回到了瀑布处。
+    <br><br>
+	<<endcombat>><<set $LakeWaterfallFight to true>>
+    <<link [[继续|Lake Waterfall Robin]]>><<clotheson>><</link>>
 <</if>>
-<<unset $fightCondition>>
-<br><br>
-<<link [[（调试选项）回到原点，重新开始|Lake Shore Robin]]>><</link>>
+/% <<link [[（调试选项）回到原点，重新开始|Lake Shore Robin]]>><</link>> %/
 
 :: Lake Boar Run Robin
 <<set $outside to 1>><<set $location to "forest">><<effects>><<lakeeffects>>
@@ -452,7 +491,7 @@
 <br><br>
 <<link [[继续|Bog Robin]]>><<set $bogdepth to 4>><<set $bogwater to 1>><</link>>
 
-/% 	<<eventbog>> %/
+
 :: Bog Robin
 <<weatherControl>><<timeControl>>
 <<set $location to "bog">><<set $outside to 1>><<effects>>
@@ -470,6 +509,16 @@
     <<elseif $bogdepth lte 1>>
         <<mooricon>><<link [[向荒原东行 (0:05)|Moor Robin]]>><<set $bogdepth to 0>><<set $bogwater to 0>><<set $moor to 85>><<set $eventskip to 1>><<pass 5>><</link>>
     <</if>>
+/% 第一次到达深度二，触发战斗 %/
+<<elseif $bogdepth is 2 and !$bogFight>>
+    <<endevent>><<generateLizard 5>><<npc Robin 6>>
+    突然，水面开始翻涌，当你们注意到时，一群黑影突然从水中跃出，来不及躲闪的你们被溅了一身的水！
+    <br><br>
+    <span class="green">5</span>只满脸都是鳞片的蜥蜴出现在了你们的眼前，它们猛的向你们扑来并试图你们你拉入水底。
+    <br><br>
+    <span class="blue">本场战斗只能以袭击的方式获得胜利。</span>
+    <br><br>
+    <<link [[继续|Lake Boar Fight Robin]]>><<set $fightstart to 1>><</link>>
 <<else>>
     <<set $bogDepthTemp to $bogdepth>>
     你们身处森林与荒原间的沼泽中。

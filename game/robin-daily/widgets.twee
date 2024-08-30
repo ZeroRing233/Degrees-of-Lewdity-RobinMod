@@ -236,3 +236,16 @@
   <<set $enemyarousal += 1>>
   <<set $NPCList[5].health -= _violence>>
 <</widget>>
+
+<<widget "generateLizard">>
+	<<set _n to _args[0]>>
+	<<for _i to 0; _i lt $enemynomax; _i++>>
+		<<if _i % 2 is 0>>
+			<<set _gender to "f">>
+			<<set _genitals to "vagina">>
+		<<else>>
+			<<set _gender to "m">>
+			<<set _genitals to "penis">>
+		<</if>>
+	<</for>>
+<</widget>>
