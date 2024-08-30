@@ -478,6 +478,8 @@
 <<link [[继续|Robin Beach End]]>><</link>>
 
 :: Robin Beach End
+/% 重新生成一下npc %/
+<<endevent>><<npc Robin>><<person1>>
 <<set $outside to 0>><<set $location to "home">><<effects>>
 <<if $passout isnot undefined>>
 	<<run delete V.passout>>
