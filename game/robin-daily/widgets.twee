@@ -187,7 +187,7 @@
     <<set $robinSpeechCycle to $robinSpeechCycle or 0>>
     <<switch $robinSpeechCycle>>
       <<case 0>>
-        <<set _text_output += '离<<pher>>远点，你这<<beasttype>>。"'>>
+        <<set _text_output += '离<<pher>>远点，你这愚蠢的野兽。"'>>
       <<case 1>>
         <<if $robinromance is 1>>
           <<set _text_output += '我不会让你们伤害我的恋人的。"'>>
@@ -238,14 +238,20 @@
 <</widget>>
 
 <<widget "generateLizard">>
-	<<set _n to _args[0]>>
-	<<for _i to 0; _i lt $enemynomax; _i++>>
-		<<if _i % 2 is 0>>
+	/% 原因：generateBEAST里也用了_n和_i %/
+	<<set _n1 to _args[0]>>
+	<<for _i1 to 0; _i1 lt _n1; _i1++>>
+		<<set _j to _i1+1>>
+		<<set _cn to numToChinese(_j)>>
+		<<if _i1 % 2 is 0>>
 			<<set _gender to "f">>
 			<<set _genitals to "vagina">>
 		<<else>>
 			<<set _gender to "m">>
 			<<set _genitals to "penis">>
 		<</if>>
+		<<generateBEAST _j "lizard" _gender _genitals "beast">>
+		<<set $NPCList[_n].fullDescription to "第" + _cn + "只鳞状的蜥蜴">>
+		<<set $NPCList[_n].type to $NPCList[_n].fullDescription>>
 	<</for>>
 <</widget>>

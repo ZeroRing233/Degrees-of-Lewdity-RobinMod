@@ -3,6 +3,7 @@
 <<npc Robin>><<person1>>
 <<set $moorStars to true>> /% 荒原观星暂时设定为不能重复触发 %/
 <<weatherControl>><<timeControl>>
+<<set $robinRemindCount to 0>>
 <<set $nextPassage to "Lake Waterfall Robin">>
 /% 节选自原版的环境描写 %/
 你们在<<= Weather.isFrozen("lake") ? "冰封的湖" : "湖">>畔。
@@ -76,11 +77,13 @@
 <<weatherControl>><<timeControl>>
 <<if $nextPassageIntended isnot $passage>>
     <<set $nextPassageIntended to $passage>>
+    <<set $robinRemindCount += 1>>
     罗宾阻止了你："我们应该往<span class="gold">瀑布</span>的方向前进，前方的路还很长呢，在这里逗留可能会遇到危险。"
     <br><br>
     "好...好的，抱歉。" 你点点头，随即加快步伐，紧跟上了罗宾的脚步。
+    <<set
     <br><br>
-    <<lakeicon "waterfall">><<link [[南下去瀑布 (0:10)|Lake Waterfall Robin]]>><<pass 10>><</link>>
+    <<lakeicon "waterfall">><<link [[南下去瀑布 (0:10)|Lake Waterfall Robin]]>><</link>>
 <<elseif !$LakeWaterfallFight>>
     /% 重新生成一下npc %/ 
     <<endevent>><<generateBEAST 1 boar f "vagina" "beast">><<generateBEAST 2 boar m "penis" "beast">>
@@ -362,13 +365,14 @@
 <<weatherControl>><<timeControl>>
 <<if $nextPassageIntended isnot $passage>>
     <<set $nextPassageIntended to $passage>>
+    <<set $robinRemindCount += 1>>
     罗宾阻止了你："我们应该往<span class="gold">小溪</span>的方向前进，前方的路还很长呢，在这里逗留可能会遇到危险。"
     <br><br>
     "好...好的，抱歉。" 你点点头，随即加快步伐，紧跟上了罗宾的脚步。
     <br><br>
-    <<foresticon "river">><<link [[向前往小溪 (0:10)|Forest Brook Robin]]>><<pass 10>><<tiredness 4>><</link>><<gtiredness>>
+    <<foresticon "river">><<link [[向前往小溪 (0:10)|Forest Brook Robin]]>><<tiredness 4>><</link>><<gtiredness>>
 <<else>>
-    <<location "forest">><<effects>>
+    <<location "forest">><<effects>><<pass 10>>
     <<set $nextPassage to "Bog Intro Robin">>
     你们小心地沿着从湖延伸而出的小溪行走。溪岸被茂密的叶子遮挡，你不得不摇摇晃晃地沿着陡峭的溪岸行走。
     <br><br>
@@ -392,13 +396,14 @@
 <<weatherControl>><<timeControl>>
 <<if $nextPassageIntended isnot $passage>>
     <<set $nextPassageIntended to $passage>>
+    <<set $robinRemindCount += 1>>
     罗宾阻止了你："我们应该往<span class="gold">沼泽</span>的方向前进，前方的路还很长呢，在这里逗留可能会遇到危险。"
     <br><br>
     "好...好的，抱歉。" 你点点头，随即加快步伐，紧跟上了罗宾的脚步。
     <br><br>
-    <<foresticon "bog">><<link [[朝沼泽顺流而行 (0:20)|Bog Intro Robin]]>><<set $foresthunt to 0>><<pass 20>><<tiredness 6>><<set $forest to 0>><</link>><<note "单行道" "red">><<gtiredness>>
+    <<foresticon "bog">><<link [[朝沼泽顺流而行 (0:20)|Bog Intro Robin]]>><<set $foresthunt to 0>><<tiredness 6>><<set $forest to 0>><</link>><<note "单行道" "red">><<gtiredness>>
 <<else>>
-    <<set $location to "bog">><<set $outside to 1>><<effects>>
+    <<set $location to "bog">><<set $outside to 1>><<effects>><<pass 20>>
     你们沿着小溪顺流而下，来到沼泽边缘。
     <br><br>
     <<if $harpy gte 6 or $angel gte 6 or $demon gte 6 or $fallenangel gte 2 or meetFlyConditon()>>
@@ -499,6 +504,7 @@
 <<if $bogDepthTemp lt $bogdepth>>
     <<set $bogdepth -= 1>>
     <<set $bogDepthTemp to $bogdepth>>
+    <<set $robinRemindCount += 1>>
     罗宾阻止了你："<span class="blue">现在已经无法回头了</span>，我们继续前进吧，很快就能到荒原了。"
     <br><br>
     "我明白，我们继续往前走吧。" 你点点头，随即加快步伐，紧跟上了罗宾的脚步。
@@ -511,14 +517,22 @@
     <</if>>
 /% 第一次到达深度二，触发战斗 %/
 <<elseif $bogdepth is 2 and !$bogFight>>
-    <<endevent>><<generateLizard 5>><<npc Robin 6>>
+    <<switch $robinRemindCount>>
+        <<case 0>>
+            <<set _n to 3>>
+        <<case 1 2>>
+            <<set _n to 4>>
+        <<default>>
+            <<set _n to 5>>
+    <</switch>>
+    <<endevent>><<generateLizard _n>><<npc Robin 6>>
     突然，水面开始翻涌，当你们注意到时，一群黑影突然从水中跃出，来不及躲闪的你们被溅了一身的水！
     <br><br>
-    <span class="green">5</span>只满脸都是鳞片的蜥蜴出现在了你们的眼前，它们猛的向你们扑来并试图你们你拉入水底。
+    <span class="green"><<print _n>></span>只满脸都是鳞片的蜥蜴出现在了你们的眼前，它们猛的向你们扑来并试图把你们拉入水底。
     <br><br>
     <span class="blue">本场战斗只能以袭击的方式获得胜利。</span>
     <br><br>
-    <<link [[继续|Lake Boar Fight Robin]]>><<set $fightstart to 1>><</link>>
+    <<link [[继续|Bog Lizard Fight Robin]]>><<set $fightstart to 1>><<set $enemyno to _n>><</link>>
 <<else>>
     <<set $bogDepthTemp to $bogdepth>>
     你们身处森林与荒原间的沼泽中。
@@ -543,7 +557,7 @@
         沿着走道前进
         <br>
         <<if $bogdepth lte 3>>
-            <<foresticon>><<link [[向森林西行 (0:10)|Bog Robin]]>><<set $bogdepth += 1>><<pass 10>><</link>>
+            <<foresticon>><<link [[向森林西行 (0:10)|Bog Robin]]>><<set $bogdepth += 1>><</link>>
             <br>
         <</if>>
         <<if $bogdepth gte 2>>
@@ -554,6 +568,75 @@
         <</if>>
     <</if>>
 <</if>>
+
+:: Bog Lizard Fight Robin
+<<if $fightstart is 1>>
+	<<set $fightstart to 0>>
+    <<set $water to 1>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<beastCombatInit>>
+    <<moorStarsBeastInit>>
+    <<npcidlegenitals>>
+    <<set $enemyanger += 200>>
+    <<set $timer to 99>>
+    <<set $fightCondition to "moorStars">>
+<</if>>
+
+<<set $enemyarousal to 0>>
+<<pickRobinViolance_common>>
+<<if _robinTargetList.length isnot 0>>
+    <<robinPickTarget_common>>
+    <<robinAction_common>>
+    <<robinSpeech_beast>>
+    /% 稍微降低下罗宾的攻击力，提高下打输的可能性 %/
+    <<robinDefiance_common 10 _robinTarget>>
+<</if>>
+<<pickPCViolance_common>>
+<br><br>
+
+<<effects>>
+
+/% 放弃治疗，强行改描述 %/
+<<for _i to 0; _i lt $enemynomax; _i++>>
+    <<set $NPCList[_i].type to "鳞状的蜥蜴">>
+<</for>> 
+<<effectsman>>
+<<for _i to 0; _i lt $enemynomax; _i++>>
+    <<set $NPCList[_i].type to $NPCList[_i].fullDescription>>
+<</for>> 
+
+<<for _i to 0; _i lt _pcTargetList.length; _i++>>
+    <<if $NPCList[_pcTargetList[_i]].stance isnot "defeated">>
+        <br>
+        <<beast _pcTargetList[_i]>>
+    <</if>>
+<</for>> 
+<<for _i to 0; _i lt _robinTargetList.length; _i++>>
+    /% 只剩一只且在进攻pc %/
+    <<if _pcTargetList.includes(_robinTargetList[_i])>>
+        <<break>>
+    <</if>>
+    <<if $NPCList[_robinTargetList[_i]].stance isnot "defeated">>
+        <br>
+        <<beast_robin _robinTargetList[_i]>>
+    <</if>>
+<</for>> 
+
+<br><br>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if $enemyhealth lte 0 or ($pain gte 100 and $willpowerpain is 0 and $NPCList[5].health lte 0)>>
+	<span id="next"><<link [[继续|Bog Lizard Fight Robin Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[继续|Bog Lizard Fight Robin]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Bog Lizard Fight Robin Finish
+战斗结束
 
 :: Moor Robin
 <<weatherControl>><<timeControl>>

@@ -318,3 +318,8 @@ function chooseRugged() {
     return chosen;
 }
 window.chooseRugged = chooseRugged;
+
+function numToChinese(n) {
+    return ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九'][n];
+}
+window.numToChinese = numToChinese;
