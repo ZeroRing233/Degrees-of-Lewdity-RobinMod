@@ -636,7 +636,36 @@
 <</if>>
 
 :: Bog Lizard Fight Robin Finish
-战斗结束
+<<effects>><<unset $fightCondition>>
+<<if $enemyhealth lte 0>>
+   	蜥蜴们悲愤地长啸着，再次潜入停滞的水中。
+    <br><br>
+    你努力振作起精神，向罗宾走去，<<person6>><<He>>看上去也已经从刚才的战斗中恢复了过来。
+    <br><br>
+    "还差一点就到目的地了，加油。"罗宾鼓励着你，你重重地点头回应。
+    <br><br>
+    你们互相搀扶着，继续朝着荒原的方向前进。
+    <br><br>
+    <<endcombat>><<npc Robin>><<person1>><<set $bogFight to true>>
+    <<link [[继续|Bog Robin]]>><<clotheson>><</link>>
+<<else>>
+    <<endcombat>><<generate1>>
+    你和罗宾倒在地上，蜥蜴们把你们包围了起来，你们在绝望中大声呼救。
+    <br><br>
+    "这就来！"一个声音喊道。片刻之后，一支箭射中了离你们最近的蜥蜴，然后是两支，三支...蜥蜴们察觉到情况不对，纷纷长啸着潜入水中。
+    <br><br>
+    再确认周围已经安全之后，一个<<person1>><<person>>大步朝你们走来："嘿！你们两个是在冒险吗？夜晚的沼泽是很危险的，可不是你们这些年轻人来玩的地方！"
+    <br><br>
+    "对不起...我们是太鲁莽了一点。"罗宾低着头说，然后又抬起头感谢了对方:"多谢你出手相救，从现在开始我们会更加小心的。"
+    <br><br>
+    <<person>>没有再追问你们，<<he>>点点头，和你们挥手告别。
+    <br><br>
+    你们互相搀扶着，继续朝着荒原的方向前进。
+    <br><br>
+    <<endevent>><<npc Robin>><<person1>><<set $bogFight to true>>
+    <<link [[继续|Bog Robin]]>><<clotheson>><</link>>
+<</if>>
+
 
 :: Moor Robin
 <<weatherControl>><<timeControl>>
