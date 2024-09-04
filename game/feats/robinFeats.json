@@ -26,5 +26,13 @@
         "difficulty": 3,
         "series": "",
         "filter": ["All", "Social"]
+    },
+    "Counting Stars": {
+        "title": "Counting Stars",
+        "desc": "让我们一起数星星吧。",
+        "difficulty": 1,
+        "series": "",
+        "filter": ["All", "Discoveries"],
+        "hint": "提示：与罗宾一起去荒原观星。"
     }
 }

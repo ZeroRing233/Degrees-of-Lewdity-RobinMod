@@ -765,6 +765,113 @@
     <<link [[继续|Moor Robin]]>><<clotheson>><<endevent>><</link>>
 <</if>>
   
-
 :: Moor Robin
-恭喜你到达了荒原！
+<<set $location to "moor">><<set $outside to 1>><<effects>>
+<<npc Robin>><<person1>><<set $moor to 85>>
+你们正身处荒原中。不知从哪里涌出的水在灌木丛和岩石之间流淌着，地面也是崎岖不平，险象环生。远离人造灯火，星空清晰可见。
+<br><br>
+<<if !$moorTelescope>>
+    你们的望远镜还在背包中。<br>
+    <<birdicon "telescope">><<link [[装好天文望远镜(0:15)|Moor Robin Telescope]]>><<pass 10>><</link>>
+    <br><br>
+<<else>>
+    
+
+<</if>>
+
+/% 原版选项，原封不动地搬了过来 %/
+<<if $moor gte 100>>
+    <<birdicon "tower">><<link [[进入高塔 (0:10)|Castle]]>><<pass 10>><</link>>
+    <br><br>
+<</if>>
+<<if $moor gte 80 and $moor lte 90 and $bogProgress gte 1>>
+    <<foresticon "bog">><<link [[进入沼泽 (0:15)|Bog]]>><<set $moor_hunt to 0>><<pass 15>><<set $bogdepth to 1>><<set $bogwater to 0>><</link>>
+    <br><br>
+<</if>>
+<<if $moor gte 51>>
+    <<if $pubtask is "moor" and $pubtask2 isnot 1>>
+        <<if $pubtasksetting is "lurkers" and $bestialitydisable is "f" and $lurkerdisable is "f">>
+            <<crimeicon "black box">><<link [[寻找兰德里的黑匣子|Moor Box Lurkers]]>><</link>>
+            <br><br>
+        <<elseif $pubtasksetting is "person">>
+            <<crimeicon "black box">><<link [[寻找兰德里的黑匣子|Moor Box]]>><</link>>
+            <br><br>
+        <<elseif random(1, 2) is 2 and $bestialitydisable is "f" and $lurkerdisable is "f">>
+            <<crimeicon "black box">><<link [[寻找兰德里的黑匣子|Moor Box Lurkers]]>><</link>>
+            <br><br>
+        <<else>>
+            <<crimeicon "black box">><<link [[寻找兰德里的黑匣子|Moor Box]]>><</link>>
+            <br><br>
+        <</if>>
+    <</if>>
+<</if>>
+<<if $moor is 10>>
+    <<mooricon "remy">><<link [[接近庄园|Estate Approach]]>><</link>><br><br><<if $fishingrod and $fishing_place_moor_unlock>>钓鱼<br><span id="fishingrod_held_icon"><<fishingrod_held_icon>></span><<link [[在雷米庄园门口钓鱼|Fishing Bitten]]>><<set $fishing_place to "moor">><<fishing_cast_time>><</link>><br><br><</if>>
+<</if>>
+<<if $moor is undefined>>
+    <<set $moor to 0>>
+<</if>>
+<<if $harpy gte 6 and $birdFly gte 1>>
+    <<flight_time_check 4>>
+    <br>
+<</if>>
+<<if $moor lt 100>>
+    深入荒原
+    <br>
+    <<if $harpy gte 6 and $birdFly gte 1>>
+        <<glideicon>><<link [[飞翔 (<<print getTimeString(_hoursPassed, _minutesPassed)>>)|Moor]]>><<set $fatigueMod to _fatigueMod>><<set $flightTime to _flightTime>><<bird_pass _flightTime>><<set $moor += 5>><<set $forestmod to 1>><<set $moormove to "fly">><</link>><<flight_text>><<gtiredness>>
+        <br>
+    <</if>>
+    <<if $worn.feet.type.includes("heels") and !$possessed>>
+        <<heelsicon "hobble">><<link [[穿着高跟鞋蹒跚而行 (0:30)|Moor]]>><<bird_pass 30>><<set $moor += 5>><<set $forestmod to 3>><<set $moormove to "hobble">><<if $moor_hunt gte 1>><<set $moor_hunt += 2>><</if>><</link>><<gharass>>
+    <<else>>
+        <<if !$worn.feet.type.includes("shackle")>>
+            <<runicon>><<link [[快速前进 (0:05)|Moor]]>><<bird_pass 5>><<set $moor += 5>><<set $forestmod to 3>><<set $moormove to "quick">><<if $moor_hunt gte 1>><<set $moor_hunt += 0.5>><</if>><</link>><<gharass>>
+            <br>
+        <</if>>
+        <<walkicon>><<link [[正常前进 (0:10)|Moor]]>><<bird_pass 10>><<set $moor += 5>><<set $forestmod to 1>><<set $moormove to "normal">><<if $moor_hunt gte 1>><<set $moor_hunt += 1>><</if>><</link>>
+        <br>
+        <<sneakicon>><<link [[警惕着前进 (0:30)|Moor]]>><<bird_pass 30>><<set $moor += 5>><<set $moormove to "careful">><<set $forestmod to 0.5>><<if $moor_hunt gte 1>><<set $moor_hunt += 2>><</if>><</link>><<lharass>>
+    <</if>>
+    <br><br>
+<</if>>
+    在附近搜索<<gtreasure>>
+    <br>
+    <<if $harpy gte 6 and $birdFly gte 1>>
+        <<glideicon>><<link [[飞翔 (<<print getTimeString(_hoursPassed, _minutesPassed)>>)|Moor]]>><<set $fatigueMod to _fatigueMod>><<set $flightTime to _flightTimeSearch>><<bird_pass _flightTimeSearch>><<set $forestmod to 0.5>><<set $moormove to "fly_search">><</link>><<flight_text>><<gtiredness>><<lharass>>
+        <br>
+    <</if>>
+    <<if !$worn.feet.type.includes("shackle")>>
+        <<runicon>><<link [[快速搜索 (0:05)|Moor]]>><<bird_pass 5>><<set $forestmod to 3>><<set $moormove to "quick_search">><<if $moor_hunt gte 1>><<set $moor_hunt += 0.5>><</if>><</link>><<gharass>>
+        <br>
+    <</if>>
+    <<walkicon>><<link [[常规搜索 (0:10)|Moor]]>><<bird_pass 10>><<set $forestmod to 1>><<set $moormove to "normal_search">><<if $moor_hunt gte 1>><<set $moor_hunt += 1>><</if>><</link>>
+    <br>
+    <<sneakicon>><<link [[小心搜索 (0:30)|Moor]]>><<bird_pass 30>><<set $forestmod to 0.5>><<set $moormove to "careful_search">><<if $moor_hunt gte 1>><<set $moor_hunt += 2>><</if>><</link>><<lharass>>
+    <br><br>
+<<if $moor gt 0>>
+    朝着海岸前进
+    <br>
+    <<if $harpy gte 6 and $birdFly gte 1>>
+        <<glideicon>><<link [[飞翔 (<<print getTimeString(_hoursPassed, _minutesPassed)>>)|Moor]]>><<set $fatigueMod to _fatigueMod>><<set $flightTime to _flightTime>><<bird_pass _flightTime>><<set $moor -= 5>><<set $forestmod to 1>><<set $moormove to "fly">><</link>><<flight_text>><<gtiredness>>
+        <br>
+    <</if>>
+    <<if $worn.feet.type.includes("heels") and !$possessed>>
+        <<heelsicon "hobble">><<link [[穿着高跟鞋蹒跚而行 (0:30)|Moor]]>><<bird_pass 30>><<set $moor -= 5>><<set $forestmod to 3>><<set $moormove to "hobble">><<if $moor_hunt gte 1>><<set $moor_hunt += 2>><</if>><</link>><<gharass>>
+    <<else>>
+        <<if !$worn.feet.type.includes("shackle")>>
+            <<runicon>><<link [[快速前进 (0:05)|Moor]]>><<bird_pass 5>><<set $moor -= 5>><<set $forestmod to 3>><<set $moormove to "quick">><<if $moor_hunt gte 1>><<set $moor_hunt += 0.5>><</if>><</link>><<gharass>>
+            <br>
+        <</if>>
+        <<walkicon>><<link [[正常前进 (0:10)|Moor]]>><<bird_pass 10>><<set $moor -= 5>><<set $forestmod to 1>><<set $moormove to "normal">><<if $moor_hunt gte 1>><<set $moor_hunt += 1>><</if>><</link>>
+        <br>
+        <<sneakicon>><<link [[警惕着前进 (0:30)|Moor]]>><<bird_pass 30>><<set $moor -= 5>><<set $forestmod to 0.5>><<set $moormove to "careful">><<if $moor_hunt gte 1>><<set $moor_hunt += 2>><</if>><</link>><<lharass>>
+    <</if>>
+    <br><br>
+<<else>>
+    <<farmicon>><<link [[进入农田 (0:05)|Farmland]]>><<bird_pass 5>><<set $moor to 0>><<unset $moor_hunt>><<set $forestmod to 1>><</link>>
+    <br>
+<</if>>
+
+:: Moor Robin Telescope
+<<effects>>
