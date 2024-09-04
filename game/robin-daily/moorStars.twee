@@ -179,6 +179,7 @@
 <<if $fightstart is 1>>
 	<<set $fightstart to 0>>
     <<set $enemyno to 2>>
+    <<adjustRobinHealth>>
 	<<controlloss>>
 	<<violence 1>>
 	<<neutral 1>>
@@ -564,7 +565,7 @@
             <<mooricon>><<link [[向荒原东行 (0:10)|Bog Robin]]>><<set $bogdepth -= 1>><<pass 10>><</link>>
             <br>
         <<elseif $bogdepth lte 1>>
-            <<mooricon>><<link [[向荒原东行 (0:05)|Moor Robin]]>><<set $bogdepth to 0>><<set $bogwater to 0>><<set $moor to 85>><<set $eventskip to 1>><<pass 5>><</link>>
+            <<mooricon>><<link [[向荒原东行 (0:05)|Moor Intro Robin]]>><<set $bogdepth to 0>><<set $bogwater to 0>><<set $moor to 85>><<set $eventskip to 1>><<pass 5>><</link>>
         <</if>>
     <</if>>
 <</if>>
@@ -573,6 +574,7 @@
 <<if $fightstart is 1>>
 	<<set $fightstart to 0>>
     <<set $water to 1>>
+    <<adjustRobinHealth>>
 	<<controlloss>>
 	<<violence 1>>
 	<<neutral 1>>
@@ -667,6 +669,73 @@
 <</if>>
 
 
-:: Moor Robin
+:: Moor Intro Robin
 <<weatherControl>><<timeControl>>
-恭喜你到达了荒原！
+ <<switch $robinRemindCount>>
+    <<case 0>>
+        <<set _n to 3>>
+    <<case 1 2>>
+        <<set _n to 4>>
+    <<default>>
+        <<set _n to 5>>
+ <</switch>>
+<<endevent>><<generatePerson _n>><<npc Robin 6>><<set $enemyno to _n>>
+ <<set $location to "moor">><<set $outside to 1>><<effects>>
+你们来到了荒原与沼泽的交界处，一群猎人装扮的人正围在篝火旁商量着什么，一共有<span class="green"><<print _n>></span>人。
+<br><br>
+你和罗宾警惕地看着他们，这时，一位<<person1>><<person>>率先发现了你们，<<He>>站起来，脸上浮现出邪恶的笑容。
+<br><br>
+"看我们交到了什么好运？两只待宰的羔羊，大家一起上吧，在这荒原深处没人会发现的。"
+<br><br>
+<<He>>话音刚落，敌人们就已经包围住了你和罗宾，你们无路可逃，只能应战。
+<br><br>
+<span class="blue">本场战斗只能以袭击的方式获得胜利。</span>
+<br><br>
+<<link [[继续|Moor Intro Robin Fight]]>><<set $fightstart to 1>><</link>>
+
+:: Moor Intro Robin Fight
+<<if $fightstart is 1>>
+    <<set $fightstart to 0>>
+    <<adjustRobinHealth>>
+	<<neutral 1>>
+	<<maninit>>
+    <<npcidlegenitals>>
+    <<set $enemyanger += 200>>
+    <<set $timer to 99>>
+    <<set $phase to 1>>
+    <<set $fightCondition to "moorStars">>
+    <<set $npc to []>> /% 防止挑衅时误伤罗宾 %/
+<</if>>
+<<set $enemyarousal to 0>>
+<<pickRobinViolance_common>>
+
+<<if _robinTargetList.length isnot 0>>
+    <<robinPickTarget_common>>
+    <<if $phase is 1>>
+        罗宾手持防狼喷雾，对着<<group>>一阵猛喷。他们惊叫呜咽，不由地捂住了脸。
+        <<set $phase to 0>>
+        <<robinSpray_common>>
+        <<robinSpeech_common>>
+        <<robinDefiance_common 5 _robinTarget>>
+    <<else>>
+        <<robinAction_common>>
+        <<robinSpeech_common>>
+        <<robinDefiance_common 15 _robinTarget>>
+    <</if>>
+<</if>>
+<<pickPCViolance_common>>
+<br><br>
+<<effects>>
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+<<if $enemyhealth lte 0 or ($pain gte 100 and $willpowerpain is 0 and $NPCList[5].health lte 0)>>
+	<span id="next"><<link [[继续|Moor Intro Robin Fight Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[继续|Moor Intro Robin Fight]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Moor Intro Robin Fight Finish
+<<effects>>
