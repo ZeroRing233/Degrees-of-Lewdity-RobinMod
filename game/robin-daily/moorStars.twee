@@ -771,6 +771,7 @@
 你们正身处荒原中。不知从哪里涌出的水在灌木丛和岩石之间流淌着，地面也是崎岖不平，险象环生。远离人造灯火，星空清晰可见。
 <br><br>
 <<if !$moorTelescope>>
+    <<set $nextPassage to "Moor Robin Telescope">>
     你们的望远镜还在背包中。<br>
     <<birdicon "telescope">><<link [[装好天文望远镜(0:15)|Moor Robin Telescope]]>><<pass 10>><</link>>
     <br><br>
@@ -874,4 +875,8 @@
 <</if>>
 
 :: Moor Robin Telescope
-<<effects>>
+<<effects>><<set $moorTelescope to true>>
+<<if $nextPassageIntended isnot $passage>>
+
+<<else>>
+<</if>>
