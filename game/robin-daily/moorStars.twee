@@ -774,12 +774,15 @@
     <<set $nextPassage to "Moor Robin Telescope">>
     你们的望远镜还在背包中。<br>
     <<birdicon "telescope">><<link [[装好天文望远镜(0:15)|Moor Robin Telescope]]>><<pass 10>><</link>>
-    <br><br>
+<<elseif !$moorStarsWatched>>
+    <<set $nextPassage to "Moor Robin Stars">>
+    望远镜已经装好了，随时可以使用。<br>
+    <img class="icon" src="img/icon/stars2.jpg"><<link [[看星星 (0:30)|Moor Robin Stars]]>><<pass 30>><</link>>
 <<else>>
-    
-
+    <<set $nextPassage to "Moor Robin Return">>
+    望远镜已经被重新装回了背包中。
 <</if>>
-
+<br><br>
 /% 原版选项，原封不动地搬了过来 %/
 <<if $moor gte 100>>
     <<birdicon "tower">><<link [[进入高塔 (0:10)|Castle]]>><<pass 10>><</link>>
@@ -875,8 +878,155 @@
 <</if>>
 
 :: Moor Robin Telescope
-<<effects>><<set $moorTelescope to true>>
+<<effects>>
 <<if $nextPassageIntended isnot $passage>>
-
+    <<set $nextPassageIntended to $passage>>
+    罗宾阻止了你："夜晚的荒原是很危险的，现在可不是到处探索的时候，我们赶紧找一处合适的位置，开始搭望远镜吧。"
+    <br><br>
+    <<birdicon "telescope">><<link [[装好天文望远镜(0:15)|Moor Robin Telescope]]>><</link>>
 <<else>>
+    /% 拦截时link中的内容不生效，所以写在这 %/
+    <<pass 15>><<set $moorTelescope to true>>
+    你们找了一处视野开阔且相对隐蔽的空地，从背包中拿出了被仔细折叠过的望远镜，小心翼翼地搭好了它。
+    <br><br>
+    随着望远镜被缓缓竖起，纯色的镜筒在星空下闪烁着微光，比在阁楼时更加引人注目。
+    <br><br>
+    "好了，我们赶紧开始观星吧。" 罗宾一边调整着焦距，一边用兴奋的语气提议道。
+    <br><br>
+    <<link [[继续|Moor Robin]]>><<endevent>><</link>>
 <</if>>
+
+:: Moor Robin Stars
+<<effects>>
+<<if $nextPassageIntended isnot $passage>>
+    <<set $nextPassageIntended to $passage>>
+    罗宾阻止了你："夜晚的荒原是很危险的，现在可不是到处探索的时候，既然望远镜已经搭好了，我们赶紧开始看星星吧。"
+    <br><br>
+    <img class="icon" src="img/icon/stars2.jpg"><<link [[看星星 (0:30)|Moor Robin Stars]]>><</link>>
+<<else>>
+    /% 拦截时link中的内容不生效，所以写在这 %/
+    <<pass 30>><<set $moorStarsWatched to true>><<earnFeat "Counting Stars">>
+    你和罗宾站在望远镜旁，四周一片寂静，只有远处偶尔传来风的低语。
+    <br><br>
+    罗宾率先开始了观测，<<he>>时不时地发出一声惊呼："真好啊，我从来都没有看到过这么多的星星，能来荒原真的太棒了。"
+    <br><br>
+    你看着天空中璀璨夺目又一望无际的星河，心中深有同感。
+    <br><br>
+    "你看，这颗星星，还有那颗，还有...还有...它们是不是在动？像不像你之前提到过的银河列车？"
+    <br><br>
+    你顺着<<he>>手指的方向看去，天空中果然有一排星星在缓缓向前移动着，由星辰组成的列车在你们眼前行驶了一会，然后又消失不见了。
+    <br><br>
+    "真神奇..." 你不由感慨，你们继续探寻着眼前这片壮丽的星空。
+    <br><br>
+    <<link [[继续|Moor Robin Stars 2]]>><</link>>
+<</if>>
+
+:: Moor Robin Stars 2
+<<effects>>
+突然，天划过一道耀眼的光芒，一颗流星划破寂静的夜空，留下一道绚烂的尾迹，转瞬即逝却又让人难以忘怀。
+<br><br>
+"真遗憾...我还没来得及许愿呢。" 罗宾的语气中确实带着一些失落。
+<br><br>
+你好奇地问<<him>>："你想要许什么样的愿望呢？"
+<br><br>
+"那当然是——和我最重要的人永远在一起啦。" 罗宾坦然地直视着你，<<his>>的眼睛似乎比头顶的星空更加明亮。<<lstress>><<ltrauma>><<stress -12>><<trauma -6>>
+<br><br>
+你脸颊泛红，用坚定地语气回复<<he>>说："没...没关系的，即使没有流星，你的愿望也会实现的，我保证。"
+<br><br>
+你们沉默地对视了一会，感受着彼此细微的心跳。
+<br><br>
+<<if $robinromance is 1>>
+    <<link [[亲吻|Moor Robin Stars Kiss]]>><<npcincr Robin lust 1>><<npcincr Robin love 2>><</link>><<glove>><<glust>>
+    <br>
+<</if>>
+<<link [[聊天|Moor Robin Stars Talk]]>><<npcincr Robin love 1>><<stress -6>><<trauma -3>><</link>><<glove>><<ltrauma>><<lstress>>
+
+:: Moor Robin Stars Kiss
+<<effects>>
+你温柔而小心翼翼地捧起眼前恋人的脸庞，轻轻地将双唇贴向罗宾的唇瓣，<<he>>热烈而深情地回应着你的吻。
+<br><br>
+在满天繁星的见证下，你们沉浸于这个绵长的吻中，时间仿佛静止。荒原上的微风轻轻拂过，带着一丝凉意，但此刻，你们只能感受到彼此的温暖。
+<br><br>
+世界仿佛只剩下你们两人，所有的喧嚣与纷扰都被隔绝在外，只留下了两颗幸福的灵魂正在互相接近。
+<br><br>
+很长一段时间过后，你们才不舍地分开了对方，罗宾用陶醉的目光看着你，低声说："真美...我好像在你的眼睛里也看到了一片星空。"
+<br><br>
+你注视着<<his>>的双眸，同样压低了声音说："我...我也是。"
+<br><br>
+你们渐渐平静了下来，继续看着眼前的星空，但不知为何，星辰在你眼中不再像刚才那样耀眼了。时间在无声中悄然流逝。
+<br><br>
+<<link [[继续|Moor Robin Stars End]]>><</link>>
+
+:: Moor Robin Stars Talk
+<<effects>>
+最终，你打破了这份沉默，继续抬头望向了星空，说道："你知道吗？其实，我们现在看到的星星，都是遥远的历史片段。
+比如，那颗最亮的星，它的光芒穿越数年时光才抵达我们眼中；而那些更加遥远的星系，它们的光或许已在宇宙中漂泊了数十亿年之久，才最终与我们相遇。"
+<br><br>
+罗宾被你的话深深吸引住了："真是神奇，我很喜欢探索我们生活的这个世界的历史，每次上历史课都感到格外有趣。
+不过，宇宙的历史似乎还要更加有趣，也更加漫长，真希望有一天，我们能亲自到星空中去看一看。"
+<br><br>
+"等等看吧，说不定会有那一天呢。"你微笑着回应<<him>>。
+<br><br>
+你们继续专注地看着星空，时间在无声中悄然流逝。
+<br><br>
+<<link [[继续|Moor Robin Stars End]]>><</link>>
+
+:: Moor Robin Stars End
+<<effects>><<npc "Great Hawk" 2>>
+突然，一个巨大的阴影掠过你们头顶，提醒着你们是时候结束这次旅程了。
+<br><br>
+罗宾警惕地看着天空中的阴影，紧紧地把你护在<<his>>的身后，你注意到<<his>>的手正在微微颤抖着。
+<br><br>
+<<if $syndromebird isnot 1>>
+    那阴影在你们头顶徘徊了一阵，但没有停下，而是径直向着远处的高塔飞去。
+    <br><br>
+    罗宾长长地松了一口气，你们迅速把望远镜折叠好放入背包中，准备踏上回程。
+<<else>>
+    你握住罗宾的手，告诉<<him>>不必害怕："没事的，这是我的朋友。" 你说。
+    <br><br>
+    那阴影缓缓飞到你们身前，你对着<<person2>><<bhim>>摇了摇头："抱歉，我今天不能和你一起回去。"
+    <br><br>
+    巨鹰看上去有点失落，但还是点了点头，重新向着远处的高塔飞去。
+    <br><br>
+    罗宾看上去刚刚缓过神来："真不可思议...你是怎么..."<<person1>><<He>>看了看你欲言又止的表情，没有再追问下去，
+    而是拉起你的手说道："不管这么多了，时候不早了，我们快点回家吧。"
+    <br><br>
+    你们迅速把望远镜折叠好放入背包中，准备踏上回程。
+<</if>>
+<br><br>
+<<link [[继续|Moor Robin]]>><<endevent>><</link>>
+
+:: Moor Robin Return
+<<effects>><<generate2>><<generate3>>
+<<saveNPC 1 "moorStarsKindMan">><<saveNPC 2 "moorStarsDriver">>
+正当你们准备好再次面对艰难的旅程时，你们听到了一辆车从后面驶来的隆隆声。车子越来越近，直到沉重的轮子轰隆隆地驶来。
+<br><br>
+它在你们身边慢下来，一个<<person2>><<person>>探出身子，叫住了你们："<<pcRobinName>>，
+这么晚还在荒原深处游荡可是很危险的，快上车吧，我们来载你们一程。"
+<br><br>
+你和罗宾对视了一眼，然后犹豫地爬上了后排座位，车辆随即加速行驶。一个<<person3>><<person>>坐在驾驶座上。"你们要去哪里？"<<he>>问道。
+<br><br>
+"我们住在小镇上，不过如果你们不方便的话，把我们送出荒原就可以了。"你回复道。
+<br><br>
+<<person2>><<person>>微笑着回头对你们说:"可也巧了，我们正好也要去小镇，对吧？" 说着，<<he>>看了一眼<<his>>的同伴。
+<br><br>
+<<person3>><<person>>无奈地点了点头，载着你们一路向小镇驶去。
+<br><br>
+<<link [[继续|Moor Robin Return 2]]>><<pass 30>><</link>>
+
+:: Moor Robin Return 2
+<<location "home">><<effects>>
+车辆最终在孤儿院门口停了下来，在得知你们就住在这里时，<<person2>><<person>>神色动了动，但什么也没有说。
+<br><br>
+在你们感激地和两人道别后，他们的车慢慢开走了。
+<br><br>
+罗宾拉着你走进了孤儿院大厅，<<person1>><<he>>发出了一声满足的叹息，然后激动地说道："我从未经历过这么惊心动魄的冒险...
+那些野兽，那些人，还有那么多帮助过我们的人...当然，还有那无比美丽的星空，还有，还有..."
+<br><br>
+<<He>>花了好一会儿才平静了下来，你提醒<<him>>："现在已经很晚了，快点去休息吧，我们可以之后再慢慢回忆今晚的事。"
+<br><br>
+罗宾后知后觉地看了看墙上的钟，然后不好意思地笑了笑："是...是啊，你也早点休息，晚安。"
+<br><br>
+在回到自己的房间前，罗宾像往常一样拥抱了一下你。<<lstress>><<ltrauma>><<stress -12>><<trauma -6>>
+<br><br>
+<<link [[继续|Orphanage]]>><<endevent>><</link>>

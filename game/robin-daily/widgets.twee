@@ -324,3 +324,14 @@
         <<man-combat-robin _mancombatcontrol>>
     <</if>>
 <</widget>>
+
+<<widget "pcRobinName">>
+	<<if $player.gender_appearance is "f" and C.npc.Robin.pronoun is "f">>
+		<<set _text_output to "姑娘们">>
+	<<elseif $player.gender_appearance is "m" and C.npc.Robin.pronoun is "m">>
+		<<set _text_output to "小伙子们">>
+	<<else>>
+		<<set _text_output to "姑娘小伙们">>
+	<</if>>
+	<<print _text_output>>
+<</widget>>
