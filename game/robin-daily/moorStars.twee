@@ -81,7 +81,6 @@
     罗宾阻止了你："我们应该往<span class="gold">瀑布</span>的方向前进，前方的路还很长呢，在这里逗留可能会遇到危险。"
     <br><br>
     "好...好的，抱歉。" 你点点头，随即加快步伐，紧跟上了罗宾的脚步。
-    <<set
     <br><br>
     <<lakeicon "waterfall">><<link [[南下去瀑布 (0:10)|Lake Waterfall Robin]]>><</link>>
 <<elseif !$LakeWaterfallFight>>
@@ -518,22 +517,22 @@
     <</if>>
 /% 第一次到达深度二，触发战斗 %/
 <<elseif $bogdepth is 2 and !$bogFight>>
-    <<switch $robinRemindCount>>
-        <<case 0>>
-            <<set _n to 3>>
-        <<case 1 2>>
-            <<set _n to 4>>
-        <<default>>
-            <<set _n to 5>>
-    <</switch>>
-    <<endevent>><<generateLizard _n>><<npc Robin 6>>
+    <<endevent>>
+    <<if $robinRemindCount is 0>>
+        <<set _num to 3>>
+    <<elseif $robinRemindCount lt 3>>
+        <<set _num to 4>>
+    <<else>>
+        <<set _num to 5>>
+    <</if>>
+    <<generateLizard _num>><<npc Robin 6>>
     突然，水面开始翻涌，当你们注意到时，一群黑影突然从水中跃出，来不及躲闪的你们被溅了一身的水！
     <br><br>
-    <span class="green"><<print _n>></span>只满脸都是鳞片的蜥蜴出现在了你们的眼前，它们猛的向你们扑来并试图把你们拉入水底。
+    <span class="green"><<print _num>></span>只满脸都是鳞片的蜥蜴出现在了你们的眼前，它们猛的向你们扑来并试图把你们拉入水底。
     <br><br>
     <span class="blue">本场战斗只能以袭击的方式获得胜利。</span>
     <br><br>
-    <<link [[继续|Bog Lizard Fight Robin]]>><<set $fightstart to 1>><<set $enemyno to _n>><</link>>
+    <<link [[继续|Bog Lizard Fight Robin]]>><<set $fightstart to 1>><<set $enemyno to _num>><</link>>
 <<else>>
     <<set $bogDepthTemp to $bogdepth>>
     你们身处森林与荒原间的沼泽中。
@@ -671,17 +670,16 @@
 
 :: Moor Intro Robin
 <<weatherControl>><<timeControl>>
- <<switch $robinRemindCount>>
-    <<case 0>>
-        <<set _n to 3>>
-    <<case 1 2>>
-        <<set _n to 4>>
-    <<default>>
-        <<set _n to 5>>
- <</switch>>
-<<endevent>><<generatePerson _n>><<npc Robin 6>><<set $enemyno to _n>>
+<<if $robinRemindCount is 0>>
+    <<set _num to 3>>
+<<elseif $robinRemindCount lt 3>>
+    <<set _num to 4>>
+<<else>>
+    <<set _num to 5>>
+<</if>>
+<<endevent>><<generatePerson _num>><<npc Robin 6>><<set $enemyno to _num>>
  <<set $location to "moor">><<set $outside to 1>><<effects>>
-你们来到了荒原与沼泽的交界处，一群猎人装扮的人正围在篝火旁商量着什么，一共有<span class="green"><<print _n>></span>人。
+你们来到了荒原与沼泽的交界处，一群猎人装扮的人正围在篝火旁商量着什么，一共有<span class="green"><<print _num>></span>人。
 <br><br>
 你和罗宾警惕地看着他们，这时，一位<<person1>><<person>>率先发现了你们，<<He>>站起来，脸上浮现出邪恶的笑容。
 <br><br>
@@ -768,6 +766,7 @@
 :: Moor Robin
 <<set $location to "moor">><<set $outside to 1>><<effects>>
 <<npc Robin>><<person1>><<set $moor to 85>>
+<<weatherControl>><<timeControl>>
 你们正身处荒原中。不知从哪里涌出的水在灌木丛和岩石之间流淌着，地面也是崎岖不平，险象环生。远离人造灯火，星空清晰可见。
 <br><br>
 <<if !$moorTelescope>>

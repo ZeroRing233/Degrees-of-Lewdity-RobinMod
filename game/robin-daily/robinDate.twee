@@ -157,6 +157,9 @@
 <<effects>>
 "既然荒原是最适合看星星的地方，那我们就一起去荒原观星吧，怎么样？"你提议道。
 <br><br>
+<<if $bogTeam is undefined>>
+    <<set $bogTeam to {}>>
+<</if>>
 <<if $bogTeam.robinPresent and C.npc.Robin.dom gte 91>>
     <<set _agree to true>>
     罗宾听了你的话，若有所思地沉默了一会，<span class="gold">最终点了点头</span>："那我们现在就出发，好吗？我知道怎么从沼泽去荒原，我们可以先坐公交车去森林湖。"
