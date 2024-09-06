@@ -494,7 +494,7 @@
 <br><br>
 罗宾尴尬地笑了笑："其实...我觉得我们可以想办法爬下去...但不管怎么说，我们成功到达了目的地，不是吗？" 罗宾的安慰让你感觉好受了一些。<<lstress>><<ltrauma>><<stress -12>><<trauma -6>>
 <br><br>
-<<link [[继续|Bog Robin]]>><<set $bogdepth to 4>><<set $bogwater to 1>><</link>>
+<<link [[继续|Bog Robin]]>><<set $bogdepth to 4>><<set $bogDepthTemp to 4>><<set $bogwater to 1>><</link>>
 
 
 :: Bog Robin
@@ -513,7 +513,7 @@
         <<mooricon>><<link [[向荒原东行 (0:10)|Bog Robin]]>><<set $bogdepth -= 1>><<pass 10>><</link>>
         <br>
     <<elseif $bogdepth lte 1>>
-        <<mooricon>><<link [[向荒原东行 (0:05)|Moor Robin]]>><<set $bogdepth to 0>><<set $bogwater to 0>><<set $moor to 85>><<set $eventskip to 1>><<pass 5>><</link>>
+        <<mooricon>><<link [[向荒原东行 (0:05)|Moor Intro Robin]]>><<set $bogdepth to 0>><<set $bogwater to 0>><<set $moor to 85>><<set $eventskip to 1>><<pass 5>><</link>>
     <</if>>
 /% 第一次到达深度二，触发战斗 %/
 <<elseif $bogdepth is 2 and !$bogFight>>
