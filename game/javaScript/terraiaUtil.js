@@ -220,10 +220,10 @@ function meetFlyConditon() {
 window.meetFlyConditon = meetFlyConditon;
 
 function getWingType() {
-    if (V.terra_accessories_slots.includes("Fledgling_Wings")) {
+    if (hasTerrariaInfo() && V.terra_accessories_slots.includes("Fledgling_Wings")) {
         T.WingType = "雏翼";
         T.WingDesc = "真厉害，就像小鸟一样...";
-    } else if (V.terra_accessories_slots.includes("Fin_Wings")) {
+    } else if (hasTerrariaInfo() && V.terra_accessories_slots.includes("Fin_Wings")) {
         T.WingType = "鳍翼";
         T.WingDesc = "真厉害，就像海中的游鱼一样...";
     } else if (V.angel >= 6) {

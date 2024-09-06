@@ -443,7 +443,7 @@
     "只是一次滑翔而已，等这次冒险结束后，我们再找个机会一起飞一次吧。" 你一边回应着罗宾，一边和<<he>>一起向前走着。
 <</if>>
 <br><br>
-<<link [[继续|Bog Robin]]>><<set $bogdepth to 4>><<set $bogdepthTemp to 4>><<set $bogwater to 0>><</link>>
+<<link [[继续|Bog Robin]]>><<set $bogdepth to 4>><<set $bogDepthTemp to 4>><<set $bogwater to 0>><</link>>
 
 :: Bog Intro Climb Robin
 <<effects>><<weatherControl>><<timeControl>>
@@ -974,7 +974,7 @@
 <<effects>><<npc "Great Hawk" 2>>
 突然，一个巨大的阴影掠过你们头顶，提醒着你们是时候结束这次旅程了。
 <br><br>
-罗宾警惕地看着天空中的阴影，紧紧地把你护在<<his>>的身后，你注意到<<his>>的手正在微微颤抖着。
+罗宾警惕地看着天空中的阴影，紧紧地把你护在<<person1>><<his>>的身后，你注意到<<his>>的手正在微微颤抖着。
 <br><br>
 <<if $syndromebird isnot 1>>
     那阴影在你们头顶徘徊了一阵，但没有停下，而是径直向着远处的高塔飞去。
