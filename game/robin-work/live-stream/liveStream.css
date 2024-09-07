@@ -1,18 +1,15 @@
-div.robin-mod-streaming {
-    border: 1px solid lightgray;
-    border-radius: 10px;
-    background-color: lightgray;
-    padding: 0px;
-}
-
 div.streaming {
     display: grid;
     grid-template-columns: auto 33%;
     grid-column-gap: 1.001em;
 }
 
+#streamAside {
+    border: 1px solid lightgray;
+}
+
 .streamscreen {
-    border: 1px solid #1b1b1b;
+    border: 1px solid lightgray;
     border-radius: 10px;
     background-color: #111;
     padding-top: 0.75em;

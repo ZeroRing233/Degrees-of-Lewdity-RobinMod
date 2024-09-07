@@ -254,7 +254,7 @@
 
 :: Widgets Live Stream [widget]
 <<widget "streamchat">>
-    <aside>
+    <aside id="streamAside">
         <div id="streamstats">
             <b>观众：</b>
             <<= $stream.viewers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")>><br>
