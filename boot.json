@@ -6,13 +6,15 @@
     ],
     "styleFileList": [
         "game/orphanage-poster/poster.css",
-        "game/origin-replace/button.css"
+        "game/origin-replace/button.css",
+        "game/robin-work/live-stream/liveStream.css"
     ],
     "scriptFileList": [
         "game/javaScript/robinModUtil.js",
         "game/javaScript/robinTraitEffects.js",
         "game/javaScript/terraiaUtil.js",
-        "game/javaScript/orphanagePoster.js"
+        "game/javaScript/orphanagePoster.js",
+        "game/javaScript/liveStream.js"
     ],
     "tweeFileList": [
         "game/robin-work/lemonade/lemonadeUpgrade.twee",
@@ -884,6 +886,12 @@
                     "findString": "<<set _n to $active_enemy>>",
                     "replace": "<<set _n to $active_enemy>><<if $fightCondition is \"moorStars\">><<set _n to _args[0]>><</if>>",
                     "comments": "观星不易第三弹"
+                },
+                {
+                    "passage": "PassageFooter",
+                    "findString": "<div id=\"passage-footer\">",
+                    "replace": "<div id=\"passage-footer\">",
+                    "comments": "测试用，之后记得修改"
                 }
             ]
         },

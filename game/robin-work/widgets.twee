@@ -252,3 +252,65 @@
 <</widget>>
 
 
+:: Widgets Live Stream [widget]
+<<widget "streamchat">>
+    <aside>
+        <div id="streamstats">
+            <b>观众：</b>
+            <<= $stream.viewers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")>><br>
+            <div class="streamchatheader">直播弹幕</div>
+        </div>
+        <div id="streamchat">
+            <div class="streamchatbody">
+                <<for _chat range $stream.chat>>
+                    <<set _user to _chat.user>>
+                    <<set _color to 'color: ' + setup.rbg_from_string(_user)>>
+                    <span class="streamchatmsg"><span class="streamchatname" @style="_color"><<= _user>></span>：<<= _chat.text>></span>
+                    <div class="streamchatsep"> </div>
+                    <<if _chat.tip>>
+                        <span class="streamchatmsg"><span class="streamchatname" @style="_color"><<= _user>></span>
+                        <b>
+                        <<if _chat.offer>>
+                            悬赏了
+                        <<else>>
+                            打赏了
+                        <</if>>
+                        <<if $stream.subtype is "x">>
+                            <<highlight cash>><<= _chat.tip * 10>>直播币<</highlight>>。
+                        <<else>>
+                            <<highlight cash>>$<<= _chat.tip>><</highlight>>。
+                        <</if>>
+                        </b></span>
+                        <div class="streamchatsep"> </div>
+                    <</if>>
+                <</for>>
+            </div>
+        </div>
+    </aside>
+    <<timed 0.25s>>
+        <<script>>
+            let chatdiv = document.getElementById('streamchat');
+            chatdiv.scrollTop = chatdiv.scrollHeight;
+        <</script>>
+    <</timed>>
+    <<set $stream.chattedthispassage to []>>
+<</widget>>
+
+<<widget "startstream">>
+    <<set $stream to {}>>
+    <<set $stream.viewers to 0>>
+    <<set $stream.viewers_highmark to 0>>
+    <<set $stream.chatters to {}>>
+    <<set $stream.chat to []>>
+    <<set $stream.type to _args[0]>>
+    <<set $stream.subtype to _args[1]>>
+    <<set $stream.rounds to 0>>
+    <<set $stream.events to []>>
+    <<set $stream.donations to 0>>
+    <<set $stream.interest to 500>>
+    <<set $stream.interest_lowmark to 500>>
+    <<set $stream.interest_highmark to 500>>
+    <<set $stream.quality to 100>>
+    <<set $stream.stealth to 1000>>
+    <<set $stream.prevstealth to $stream.stealth>>
+<</widget>>
