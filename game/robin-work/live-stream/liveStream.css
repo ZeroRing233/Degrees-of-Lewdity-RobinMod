@@ -1,7 +1,14 @@
+div.robin-mod-streaming {
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    background-color: lightgray;
+    padding: 0px;
+}
+
 div.streaming {
     display: grid;
     grid-template-columns: auto 33%;
-    grid-column-gap: 1.25em;
+    grid-column-gap: 1.001em;
 }
 
 .streamscreen {

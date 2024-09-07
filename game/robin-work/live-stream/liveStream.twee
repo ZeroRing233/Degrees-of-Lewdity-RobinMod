@@ -399,12 +399,14 @@
 :: Live Stream Together
 <<set $outside to 0>><<set $location to "home">><<effects>>
 <<startstream "CollegeCams" "x">>
-<div class="streaming">
-    <<streamscreen>>
-        你和罗宾所操作的角色身处一个巨大的迷宫中，一眼望不到出口。
-        <br><br>
-        <<link [[向左走|Orphanage]]>><<endevent>><</link>><br>
-        <<link [[向右走|Orphanage]]>><<endevent>><</link>>
-    <</streamscreen>>
-    <<streamchat>>
+<div class="robin-mod-streaming">
+    <div class="streaming">
+        <<streamscreen>>
+            你和罗宾所操作的角色身处一个巨大的迷宫中，一眼望不到出口。
+            <br><br>
+            <<link [[向左走|Orphanage]]>><<endevent>><</link>><br>
+            <<link [[向右走|Orphanage]]>><<endevent>><</link>>
+        <</streamscreen>>
+        <<streamchat>>
+    </div>
 </div>
