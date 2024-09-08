@@ -312,13 +312,6 @@
 
 <<widget "addstreamchat">>
     /%<<addstreamchatter>>%/
-    /% 先置顶三条我自己的 %/
-    <<set  _chatter to setup.users["ZeroRing233"]>>
-    <<for _i to 0; _i lt  _chatter.specialSpeech.length;_i++>>
-        <<set  _msg to _chatter.specialSpeech[_i]>>
-        <<set _data to {user: _chatter.username, text: _msg}>>
-        <<run $stream.chat.push(_data)>>
-    <</for>>
     /% 人数太少了，之后做成随机挑几个出来 %/
     <<set  _chatterList to Object.keys(setup.users)>>
     <<for _i to 1; _i lt _chatterList.length;_i++>>

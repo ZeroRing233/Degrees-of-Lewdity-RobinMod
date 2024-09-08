@@ -404,8 +404,32 @@
     <<streamscreen>>
         你和罗宾所操作的角色身处一个巨大的迷宫中，一眼望不到出口。
         <br><br>
-        <<link [[向左走|Orphanage]]>><<endevent>><</link>><br>
-        <<link [[向右走|Orphanage]]>><<endevent>><</link>>
+        <<link [[向左走|Live Stream Together Left]]>><<endevent>><</link>><br>
+        <<link [[向右走|Live Stream Together Right]]>><<endevent>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Left
+<<addstreamchat>>
+ <div class="streaming">
+    <<streamscreen>>
+        你和罗宾决定向左走，观众们大失所望。
+        <br><br>
+        <<link [[向左走|Live Stream Together Left]]>><<endevent>><</link>><br>
+        <<link [[向右走|Live Stream Together Right]]>><<endevent>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Right
+<<addstreamchat>>
+ <div class="streaming">
+    <<streamscreen>>
+        你和罗宾决定向右走，观众们看起来很期待。
+        <br><br>
+        <<link [[向左走|Live Stream Together Left]]>><<endevent>><</link>><br>
+        <<link [[向右走|Live Stream Together Right]]>><<endevent>><</link>>
     <</streamscreen>>
     <<streamchat>>
 </div>
