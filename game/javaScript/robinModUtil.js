@@ -323,3 +323,10 @@ function numToChinese(n) {
     return ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九'][n];
 }
 window.numToChinese = numToChinese;
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+window.getRandomInt = getRandomInt;

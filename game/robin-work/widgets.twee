@@ -298,19 +298,38 @@
 
 <<widget "startstream">>
     <<set $stream to {}>>
-    <<set $stream.viewers to 0>>
-    <<set $stream.viewers_highmark to 0>>
+    <<set $stream.viewers to getRandomInt(300,500)>>
     <<set $stream.chatters to {}>>
     <<set $stream.chat to []>>
-    <<set $stream.type to _args[0]>>
-    <<set $stream.subtype to _args[1]>>
-    <<set $stream.rounds to 0>>
-    <<set $stream.events to []>>
-    <<set $stream.donations to 0>>
-    <<set $stream.interest to 500>>
-    <<set $stream.interest_lowmark to 500>>
-    <<set $stream.interest_highmark to 500>>
-    <<set $stream.quality to 100>>
-    <<set $stream.stealth to 1000>>
-    <<set $stream.prevstealth to $stream.stealth>>
 <</widget>>
+
+<<widget "addstreamchatter">>
+    <<set _name to random_username(Object.keys($stream.chatters))>>
+    <<set _attitude to _args[0] || setup.users[_name].attitude || setup.randomrelfreq(["supportive", 20, "troll", 10, "unfunny", 10])>>
+    <<set $stream.chatters[_name] to {attitude: _attitude}>>
+<</widget>>
+
+
+<<widget "addstreamchat">>
+    /%<<addstreamchatter>>%/
+    /% 先置顶三条我自己的 %/
+    <<set  _chatter to setup.users["ZeroRing233"]>>
+    <<for _i to 0; _i lt  _chatter.specialSpeech.length;_i++>>
+        <<set  _msg to _chatter.specialSpeech[_i]>>
+        <<set _data to {user: _chatter.username, text: _msg}>>
+        <<run $stream.chat.push(_data)>>
+    <</for>>
+    /% 人数太少了，之后做成随机挑几个出来 %/
+    <<set  _chatterList to Object.keys(setup.users)>>
+    <<for _i to 1; _i lt _chatterList.length;_i++>>
+        <<set _chatter to setup.users[_chatterList[_i]]>>
+        <<if _chatter.specialSpeech.length gt 0>>
+            <<set  _msg to _chatter.specialSpeech[1]>>
+        <<else>>
+            <<set  _msg to setup.random_msg.supportive_list.random()>>
+        <</if>>
+        <<set _data to {user: _chatter.username, text: _msg}>>
+        <<run $stream.chat.push(_data)>>
+    <</for>>
+<</widget>>
+

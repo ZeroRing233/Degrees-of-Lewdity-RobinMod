@@ -398,8 +398,8 @@
 
 :: Live Stream Together
 <<set $outside to 0>><<set $location to "home">><<effects>>
-<<startstream "CollegeCams" "x">>
-
+<<startstream>>
+<<addstreamchat>>
 <div class="streaming">
     <<streamscreen>>
         你和罗宾所操作的角色身处一个巨大的迷宫中，一眼望不到出口。
