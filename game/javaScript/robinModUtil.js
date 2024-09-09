@@ -330,3 +330,25 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 window.getRandomInt = getRandomInt;
+
+function getRandomElements(arr, count) {
+    // 克隆原数组，以免修改原数组
+    const array = [...arr];
+    const result = [];
+    let index;
+
+    // 如果数组长度小于需要挑出的数量，直接返回整个数组
+    if (array.length <= count) {
+        return array;
+    }
+
+    // 循环count次，每次从剩余元素中随机挑选一个
+    while (result.length < count) {
+        index = Math.floor(Math.random() * array.length);
+        result.push(array[index]);
+        array.splice(index, 1); // 将已挑选的元素从原数组中移除
+    }
+
+    return result;
+}
+window.getRandomElements = getRandomElements;

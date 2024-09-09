@@ -312,14 +312,16 @@
 
 <<widget "addstreamchat">>
     /%<<addstreamchatter>>%/
-    /% 人数太少了，之后做成随机挑几个出来 %/
+    /% 10不应当为固定数量，之后调整一下%/
     <<set  _chatterList to Object.keys(setup.users)>>
+    <<set  _chatterList to getRandomElements(_chatterList,10)>>
     <<for _i to 1; _i lt _chatterList.length;_i++>>
         <<set _chatter to setup.users[_chatterList[_i]]>>
         <<if _chatter.specialSpeech.length gt 0>>
-            <<set  _msg to _chatter.specialSpeech[1]>>
+            <<set  _msg to _chatter.specialSpeech.random()>>
         <<else>>
-            <<set  _msg to setup.random_msg.supportive_list.random()>>
+            <<set _attitude to _chatter.attitude.random()>>
+            <<set  _msg to setup.random_msg[_attitude+"_list"].random()>>
         <</if>>
         <<set _data to {user: _chatter.username, text: _msg}>>
         <<run $stream.chat.push(_data)>>
