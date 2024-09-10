@@ -233,12 +233,43 @@ window.random_username = function(taken = []) {
     return name;
 }
 
-function forbideClicked(chat) {
-    console.log("点击禁言成功！chat数据是" + JSON.stringify(chat))
+function forbideClicked() {
+    // 假设你有一个元素数组
+    $(function() {
+        let elements = document.querySelectorAll('.liveStreamForbide');
+        console.log("元素数组长度是" + elements.length)
+            // 循环通过元素数组，绑定点击事件
+        elements.forEach(function(element, index) {
+            element.onclick = (function(fixedIndex) {
+                return function() {
+                    // 在这里处理点击事件，使用固定参数
+                    console.log("点击禁言成功！当前index是" + fixedIndex)
+                };
+            })(index); // 调用立即执行函数并传递当前的index作为固定参数
+        });
+    });
 }
 window.forbideClicked = forbideClicked;
 
-function deleteClicked(chat) {
-    console.log("点击删除成功！chat数据是" + JSON.stringify(chat))
+function deleteClicked() {
+    // 假设你有一个元素数组
+    $(function() {
+        let elements = document.querySelectorAll('.liveStreamDelete');
+        console.log("元素数组长度是" + elements.length)
+            // 循环通过元素数组，绑定点击事件
+        elements.forEach(function(element, index) {
+            element.onclick = (function(fixedIndex) {
+                return function() {
+                    // 在这里处理点击事件，使用固定参数
+                    console.log("点击删除成功！当前index是" + fixedIndex)
+                };
+            })(index); // 调用立即执行函数并传递当前的index作为固定参数
+        });
+    });
 }
 window.deleteClicked = deleteClicked;
+
+function onForbideClicked(chat) {
+    console.log("点击成功,chat是" + chat);
+}
+window.onForbideClicked = onForbideClicked;

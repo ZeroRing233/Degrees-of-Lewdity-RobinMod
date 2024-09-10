@@ -268,12 +268,12 @@
                     <<set _color to 'color: ' + setup.rbg_from_string(_user)>>
                     <span class="streamchatmsg"><span class="streamchatname" @style="_color"><<= _user>></span>
                     <<if _chat.attitude is "negative">>
-                            <i class="liveStreamForbide" onclick="forbideClicked(T.id)"></i>
+                        <i class="liveStreamForbide"></i>
                     <</if>>
                     ：<<= _chat.text>>
                     <<if _chat.attitude is "negative">>
                         <<capture _chat>>
-                            <i class="liveStreamDelete" onclick="deleteClicked(T.chat)"></i><<lstress>><<ltrauma>>
+                            <i class="liveStreamDelete"></i><<lstress>><<ltrauma>>
                         <</capture>>
                     <</if>>
                     </span>
@@ -304,7 +304,8 @@
             chatdiv.scrollTop = chatdiv.scrollHeight;
         <</script>>
     <</timed>>
-    <<set $stream.chattedthispassage to []>>
+    <<run forbideClicked()>>
+    <<run deleteClicked()>>
 <</widget>>
 
 <<widget "startstream">>
