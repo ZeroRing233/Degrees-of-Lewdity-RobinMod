@@ -144,6 +144,12 @@ setup.users = {
         username: "Penuma",
         attitude: ["supportive"],
         specialSpeech: []
+    },
+    "headteacher": {
+        id: "headteacher",
+        username: "清正廉洁好校长",
+        attitude: ["negative"],
+        specialSpeech: ["你们是？明天来我办公室一趟"]
     }
 }
 
@@ -226,3 +232,13 @@ window.random_username = function(taken = []) {
         name = Object.keys(setup.users).random();
     return name;
 }
+
+function forbideClicked(chat) {
+    console.log("点击禁言成功！chat数据是" + JSON.stringify(chat))
+}
+window.forbideClicked = forbideClicked;
+
+function deleteClicked(chat) {
+    console.log("点击删除成功！chat数据是" + JSON.stringify(chat))
+}
+window.deleteClicked = deleteClicked;

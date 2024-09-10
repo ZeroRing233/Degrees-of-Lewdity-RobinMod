@@ -264,8 +264,19 @@
             <div class="streamchatbody">
                 <<for _chat range $stream.chat>>
                     <<set _user to _chat.user>>
+                    <<set _id to _chat.id>>
                     <<set _color to 'color: ' + setup.rbg_from_string(_user)>>
-                    <span class="streamchatmsg"><span class="streamchatname" @style="_color"><<= _user>></span>：<<= _chat.text>></span>
+                    <span class="streamchatmsg"><span class="streamchatname" @style="_color"><<= _user>></span>
+                    <<if _chat.attitude is "negative">>
+                            <i class="liveStreamForbide" onclick="forbideClicked(T.id)"></i>
+                    <</if>>
+                    ：<<= _chat.text>>
+                    <<if _chat.attitude is "negative">>
+                        <<capture _chat>>
+                            <i class="liveStreamDelete" onclick="deleteClicked(T.chat)"></i><<lstress>><<ltrauma>>
+                        <</capture>>
+                    <</if>>
+                    </span>
                     <div class="streamchatsep"> </div>
                     <<if _chat.tip>>
                         <span class="streamchatmsg"><span class="streamchatname" @style="_color"><<= _user>></span>
@@ -299,31 +310,25 @@
 <<widget "startstream">>
     <<set $stream to {}>>
     <<set $stream.viewers to getRandomInt(300,500)>>
-    <<set $stream.chatters to {}>>
+    /% <<set $stream.chatters to {}>> %/
     <<set $stream.chat to []>>
 <</widget>>
-
-<<widget "addstreamchatter">>
-    <<set _name to random_username(Object.keys($stream.chatters))>>
-    <<set _attitude to _args[0] || setup.users[_name].attitude || setup.randomrelfreq(["supportive", 20, "troll", 10, "unfunny", 10])>>
-    <<set $stream.chatters[_name] to {attitude: _attitude}>>
-<</widget>>
-
 
 <<widget "addstreamchat">>
     /%<<addstreamchatter>>%/
     /% 10不应当为固定数量，之后调整一下%/
     <<set  _chatterList to Object.keys(setup.users)>>
     <<set  _chatterList to getRandomElements(_chatterList,10)>>
+    <<set _chatterList.push("headteacher")>>
     <<for _i to 1; _i lt _chatterList.length;_i++>>
         <<set _chatter to setup.users[_chatterList[_i]]>>
+        <<set _attitude to _chatter.attitude.random()>>
         <<if _chatter.specialSpeech.length gt 0>>
             <<set  _msg to _chatter.specialSpeech.random()>>
         <<else>>
-            <<set _attitude to _chatter.attitude.random()>>
             <<set  _msg to setup.random_msg[_attitude+"_list"].random()>>
         <</if>>
-        <<set _data to {user: _chatter.username, text: _msg}>>
+        <<set _data to {id:_chatter.id, user: _chatter.username, text: _msg, attitude: _attitude }>>
         <<run $stream.chat.push(_data)>>
     <</for>>
 <</widget>>
