@@ -243,13 +243,30 @@ function forbideClicked() {
             element.onclick = (function(fixedIndex) {
                 return function() {
                     // 在这里处理点击事件，使用固定参数
-                    console.log("点击禁言成功！当前index是" + fixedIndex)
+                    onForbideClicked(element);
                 };
             })(index); // 调用立即执行函数并传递当前的index作为固定参数
         });
     });
 }
 window.forbideClicked = forbideClicked;
+
+function onForbideClicked(element) {
+    let chatIndex = element.parentNode.previousElementSibling.innerText;
+    chatIndex = parseInt(chatIndex);
+    console.log("点击禁言，当前chatIndex是" + chatIndex);
+    let chatter = V.stream.chat[chatIndex];
+    let msg = "用户「" + chatter.user + "」已被管理员禁言";
+    let data = { "user": "系统消息", "id": "sysInfo", "text": msg, "attitude": "neutral" };
+    V.stream.chat.push(data);
+    let index = V.stream.chat.length - 1
+    let innerHTML = '<span class="streamchatIndex">' + index + '</span><span class="streamchatmsg"><span class="streamchatname" style="color: rgb(226, 191, 171)">系统消息：</span>' + msg + '</span><div class="streamchatsep">&nbsp;</div>'
+    let parentElement = element.parentNode.parentNode;
+    // console.log("修改前的innerHTML是" + parentElement.innerHTML)
+    parentElement.innerHTML = parentElement.innerHTML + innerHTML;
+    forbideClicked();
+    deleteClicked();
+}
 
 // 没有人比我更懂怎么写狮山，轻点吐槽啊，轻点
 function deleteClicked() {
