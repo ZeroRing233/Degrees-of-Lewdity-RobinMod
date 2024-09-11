@@ -311,14 +311,56 @@
     <<set $stream.viewers to getRandomInt(300,500)>>
     /% <<set $stream.chatters to {}>> %/
     <<set $stream.chat to []>>
+    /% 之后记得搬到设置里哈，黑名单和粉丝不该在这里初始化 %/
+    <<if $blacklist is undefined>>
+        <<set $blacklist to []>>
+    <</if>>
+    <<if $fanslist is undefined>>
+        <<set $fanslist to []>>
+    <</if>>
+    /% 当前界面被删除/禁言的条数 %/
+    <<set $deletedChats to []>>
+    <<set $forbiddenChats to []>>
+<</widget>>
+
+<<widget "streameffects">>
+    <<if $deletedChats.length gt 0>>
+        <<if $deletedChats.length is 1>>
+            你删除了一条不友好的弹幕
+        <<elseif $deletedChats.length lt 5>>
+            你删除了几条不友好的弹幕
+        <<else>>
+            你删除了大量不友好的弹幕
+        <</if>>
+        <<if $forbiddenChats.length gt 0>>
+            <<if $forbiddenChats.length is 1>>
+                ，同时禁言了一位用户
+            <<elseif $forbiddenChats.length lt 5>>
+                ，同时禁言了几位用户
+            <<else>>
+                ，同时禁言了一群用户
+            <</if>>
+        <</if>>
+    <<else>>
+        <<if $forbiddenChats.length gt 0>>
+            <<if $forbiddenChats.length is 1>>
+                你禁言了一位不友好的用户
+            <<elseif $forbiddenChats.length lt 5>>
+                你禁言了几位不友好的用户
+            <<else>>
+                你禁言了一群不友好的用户
+            <</if>>
+        <</if>>
+    <</if>>
+    ，这让你感觉心情舒畅了许多。
 <</widget>>
 
 <<widget "addstreamchat">>
     /%<<addstreamchatter>>%/
     /% 10不应当为固定数量，之后调整一下%/
-    <<set  _chatterList to Object.keys(setup.users)>>
+    <<set  _chatterList to getAllPossibleUser()>>
     <<set  _chatterList to getRandomElements(_chatterList,10)>>
-    <<set _chatterList.push("headteacher")>>
+    /% <<set _chatterList.push("headteacher")>> %/ 
     <<for _i to 1; _i lt _chatterList.length;_i++>>
         <<set _chatter to setup.users[_chatterList[_i]]>>
         <<set _attitude to _chatter.attitude.random()>>
