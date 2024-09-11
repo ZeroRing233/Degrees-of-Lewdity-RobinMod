@@ -251,6 +251,7 @@ function forbideClicked() {
 }
 window.forbideClicked = forbideClicked;
 
+// 没有人比我更懂怎么写狮山，轻点吐槽啊，轻点
 function deleteClicked() {
     // 假设你有一个元素数组
     $(function() {
@@ -261,7 +262,8 @@ function deleteClicked() {
             element.onclick = (function(fixedIndex) {
                 return function() {
                     // 在这里处理点击事件，使用固定参数
-                    console.log("点击删除成功！当前index是" + fixedIndex)
+                    //console.log("点击删除成功！当前index是" + fixedIndex)
+                    onDeleteClicked(element);
                 };
             })(index); // 调用立即执行函数并传递当前的index作为固定参数
         });
@@ -269,7 +271,13 @@ function deleteClicked() {
 }
 window.deleteClicked = deleteClicked;
 
-function onForbideClicked(chat) {
-    console.log("点击成功,chat是" + chat);
+function onDeleteClicked(element) {
+    // let elements = document.querySelectorAll('.liveStreamDelete');
+    // let element = elements[fixedIndex];
+    let chatIndex = element.parentNode.previousElementSibling.innerText;
+    chatIndex = parseInt(chatIndex);
+    console.log("点击删除，当前chatIndex是" + chatIndex);
+    V.stream.chat.deleteAt(chatIndex);
+    element.parentNode.nextElementSibling.remove();
+    element.parentNode.remove();
 }
-window.onForbideClicked = onForbideClicked;

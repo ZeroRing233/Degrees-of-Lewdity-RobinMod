@@ -67,6 +67,11 @@ span.streamchatmsg {
     line-height: 1.2em;
 }
 
+span.streamchatIndex {
+    display: none;
+    /* 定位删除的道具 */
+}
+
 .liveStreamForbide {
     content: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2UwMWExYSIgc3Ryb2tlLXdpZHRoPSIxLjUiPjxwYXRoIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZD0ibTE4LjUgNS41bC0xMyAxMyIvPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9nPjwvc3ZnPg==');
     /* 替换为你的图片URL */

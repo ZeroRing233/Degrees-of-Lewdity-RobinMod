@@ -262,19 +262,17 @@
         </div>
         <div id="streamchat">
             <div class="streamchatbody">
-                <<for _chat range $stream.chat>>
+                <<for _index, _chat range $stream.chat>>
                     <<set _user to _chat.user>>
-                    <<set _id to _chat.id>>
                     <<set _color to 'color: ' + setup.rbg_from_string(_user)>>
+                    <span class="streamchatIndex"><<= _index>></span>
                     <span class="streamchatmsg"><span class="streamchatname" @style="_color"><<= _user>></span>
                     <<if _chat.attitude is "negative">>
                         <i class="liveStreamForbide"></i>
                     <</if>>
                     ：<<= _chat.text>>
                     <<if _chat.attitude is "negative">>
-                        <<capture _chat>>
-                            <i class="liveStreamDelete"></i><<lstress>><<ltrauma>>
-                        <</capture>>
+                        <i class="liveStreamDelete"></i>
                     <</if>>
                     </span>
                     <div class="streamchatsep"> </div>
