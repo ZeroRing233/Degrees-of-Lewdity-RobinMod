@@ -91,7 +91,7 @@
         天空中最明亮的几颗星构成了猎户的轮廓，参宿四、参宿七等亮星在其中熠熠生辉。
 <</switch>>
 <br><br>
-<<if $stargazingCount gte 3 and !$MoorStars and !Time.isBloodMoon()>>
+<<if $stargazingCount gte 3 and !$moorStars and !Time.isBloodMoon()>>
      <<link [[继续|Robin Walk Star MoorStars Intro]]>><</link>>
 <<else>>
     <<link [[继续|Robin Walk Star 2]]>><</link>>

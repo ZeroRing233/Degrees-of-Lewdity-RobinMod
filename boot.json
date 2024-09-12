@@ -886,12 +886,6 @@
                     "findString": "<<set _n to $active_enemy>>",
                     "replace": "<<set _n to $active_enemy>><<if $fightCondition is \"moorStars\">><<set _n to _args[0]>><</if>>",
                     "comments": "观星不易第三弹"
-                },
-                {
-                    "passage": "PassageFooter",
-                    "findString": "<div id=\"passage-footer\">",
-                    "replace": "<div id=\"passage-footer\">",
-                    "comments": "测试用，之后记得修改"
                 }
             ]
         },
