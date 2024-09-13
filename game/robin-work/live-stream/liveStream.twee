@@ -416,8 +416,8 @@
     <<streamscreen>>
         你和罗宾决定向左走，观众们大失所望。
         <br><br>
-        <<link [[向左走|Live Stream Together Left]]>><<endevent>><</link>><br>
-        <<link [[向右走|Live Stream Together Right]]>><<endevent>><</link>>
+        <<link [[向左走(0:15)|Live Stream Together Left]]>><<addstreamchat 15>><</link>><br>
+        <<link [[向右走(0:15)|Live Stream Together Right]]>><<addstreamchat 15>><</link>>
     <</streamscreen>>
     <<streamchat>>
 </div>
@@ -429,8 +429,8 @@
     <<streamscreen>>
         你和罗宾决定向右走，观众们看起来很期待。
         <br><br>
-        <<link [[向左走|Live Stream Together Left]]>><<endevent>><</link>><br>
-        <<link [[向右走|Live Stream Together Right]]>><<endevent>><</link>>
+        <<link [[向左走(0:15)|Live Stream Together Left]]>><<addstreamchat 15>><</link>><br>
+        <<link [[向右走(0:15)|Live Stream Together Right]]>><<addstreamchat 15>><</link>>
     <</streamscreen>>
     <<streamchat>>
 </div>
