@@ -256,6 +256,10 @@ function onForbideClicked(element) {
     chatIndex = parseInt(chatIndex);
     console.log("点击禁言，当前chatIndex是" + chatIndex);
     let chatter = V.stream.chat[chatIndex];
+    if (V.blacklist.includes(chatter.id)) {
+        console.log("当前用户「" + chatter.user + "」已被禁言，重复点击无效");
+        return;
+    }
     let msg = "用户「" + chatter.user + "」已被管理员禁言";
     let data = { "user": "系统消息", "id": "sysInfo", "text": msg, "attitude": "neutral" };
     V.blacklist.pushUnique(chatter.id);
