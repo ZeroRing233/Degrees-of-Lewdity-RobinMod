@@ -412,7 +412,7 @@
 
 
 :: Live Stream Together Left
-<<addstreamchat>>
+<<effects>><<streameffects>><<addstreamchat>>
  <div class="streaming">
     <<streamscreen>>
         你和罗宾决定向左走，观众们大失所望。
@@ -425,7 +425,7 @@
 
 
 :: Live Stream Together Right
-<<addstreamchat>>
+<<effects>><<streameffects>><<addstreamchat>>
  <div class="streaming">
     <<streamscreen>>
         你和罗宾决定向右走，观众们看起来很期待。

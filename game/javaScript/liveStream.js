@@ -263,7 +263,8 @@ function onForbideClicked(element) {
     let msg = "用户「" + chatter.user + "」已被管理员禁言";
     let data = { "user": "系统消息", "id": "sysInfo", "text": msg, "attitude": "neutral" };
     V.blacklist.pushUnique(chatter.id);
-    V.stream.chat.push(data);
+    V.stream.chat.pushUnique(data);
+    V.forbiddenChats.pushUnique(chatter);
     let index = V.stream.chat.length - 1
     let innerHTML = '<span class="streamchatIndex">' + index + '</span><span class="streamchatmsg"><span class="streamchatname" style="color: rgb(226, 191, 171)">系统消息：</span>' + msg + '</span><div class="streamchatsep">&nbsp;</div>'
     let parentElement = element.parentNode.parentNode;
@@ -299,6 +300,7 @@ function onDeleteClicked(element) {
     let chatIndex = element.parentNode.previousElementSibling.innerText;
     chatIndex = parseInt(chatIndex);
     console.log("点击删除，当前chatIndex是" + chatIndex);
+    V.deletedChats.pushUnique(V.stream.chat[chatIndex]);
     V.stream.chat.deleteAt(chatIndex);
     element.parentNode.nextElementSibling.remove();
     element.parentNode.remove();
