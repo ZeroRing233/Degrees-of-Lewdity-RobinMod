@@ -257,7 +257,11 @@
     <aside id="streamAside">
         <div id="streamstats">
             <b>观众：</b>
-            <<= $stream.viewers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")>><br>
+            <<= $stream.viewers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")>>
+            <span class="streamstatsTip">
+                <b>打赏：</b>£<<= $stream.tip.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")>>
+            </span>
+            <br>
             <div class="streamchatheader">直播弹幕</div>
         </div>
         <div id="streamchat">
@@ -269,6 +273,8 @@
                     <span class="streamchatmsg"><span class="streamchatname" @style="_color"><<= _user>></span>
                     <<if _chat.attitude is "negative">>
                         <i class="liveStreamForbide"></i>
+                    <<elseif _chat.isFans>>
+                        <i class="liveStreamFans"></i>
                     <</if>>
                     ：<<= _chat.text>>
                     <<if _chat.attitude is "negative">>
@@ -279,16 +285,7 @@
                     <<if _chat.tip>>
                         <span class="streamchatmsg"><span class="streamchatname" @style="_color"><<= _user>></span>
                         <b>
-                        <<if _chat.offer>>
-                            悬赏了
-                        <<else>>
-                            打赏了
-                        <</if>>
-                        <<if $stream.subtype is "x">>
-                            <<highlight cash>><<= _chat.tip * 10>>直播币<</highlight>>。
-                        <<else>>
-                            <<highlight cash>>$<<= _chat.tip>><</highlight>>。
-                        <</if>>
+                        打赏了<<highlight cash>>£<<= _chat.tip>><</highlight>>。
                         </b></span>
                         <div class="streamchatsep"> </div>
                     <</if>>
@@ -309,6 +306,7 @@
 <<widget "startstream">>
     <<set $stream to {}>>
     <<set $stream.viewers to getRandomInt(300,500)>>
+    <<set $stream.tip to 0>>
     /% <<set $stream.chatters to {}>> %/
     <<set $stream.chat to []>>
     /% 之后记得搬到设置里哈，黑名单和粉丝不该在这里初始化 %/
@@ -386,7 +384,21 @@
         <<else>>
             <<set  _msg to setup.random_msg[_attitude+"_list"].random()>>
         <</if>>
-        <<set _data to {id:_chatter.id, user: _chatter.username, text: _msg, attitude: _attitude }>>
+        /% 粉丝概率触发打赏 %/
+        <<if _chatter.isFans and random(1,3) is 1>>
+            /% 金额50%的概率1-10，50%*20%=10%的概率51到100，剩下40%的概率11-50 %/
+            <<if random(1,2) is 1>>
+                <<set _tip to random(1,10)>>
+            <<elseif random(1,4) is 1>>
+                <<set _tip to random(51,100)>>
+            <<else>>
+                <<set _tip to random(11,50)>>
+            <</if>>
+            <<set $stream.tip += _tip>>
+            <<set _data to {id:_chatter.id, user: _chatter.username, text: _msg, attitude: _attitude, isFans:_chatter.isFans,tip:_tip}>>
+        <<else>>
+            <<set _data to {id:_chatter.id, user: _chatter.username, text: _msg, attitude: _attitude, isFans:_chatter.isFans}>>
+        <</if>>
         <<run $stream.chat.push(_data)>>
     <</for>>
 <</widget>>

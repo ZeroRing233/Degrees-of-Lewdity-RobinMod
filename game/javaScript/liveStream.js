@@ -5,43 +5,52 @@ setup.users = {
         attitude: ["supportive"],
         specialSpeech: ["嘿，大家好，我是零环",
             "告诉你们一个秘密，我是这个直播平台的管理员，遇到问题可以联系我，看到侧边栏的蓝色爱心了吗，那里有我的联系方式",
-        ]
+        ],
+        isFans: true
     },
     "benzene": {
         id: "benzene",
         username: "苯环",
         attitude: ["supportive"],
-        specialSpeech: ["好看爱看⌬ω⌬", '主播你那是不是卡了(>﹏<)']
+        specialSpeech: ["好看爱看⌬ω⌬", '主播你那是不是卡了(>﹏<)'],
+        isFans: true
     },
     "random123": {
         id: "random123",
         username: "用户123",
-        attitude: ["supportive", "neutral", "negative"],
+        attitude: ["supportive", "supportive", "neutral", "neutral", "negative"],
         specialSpeech: []
     },
     "random456": {
         id: "random456",
         username: "用户456",
-        attitude: ["supportive", "neutral", "negative"],
+        attitude: ["supportive", "supportive", "neutral", "neutral", "negative"],
         specialSpeech: []
     },
     "random789": {
         id: "random789",
         username: "用户789",
-        attitude: ["supportive", "neutral", "negative"],
+        attitude: ["supportive", "supportive", "neutral", "neutral", "negative"],
         specialSpeech: []
     },
     "random123456": {
         id: "random123456",
         username: "用户123456",
-        attitude: ["supportive", "neutral", "negative"],
+        attitude: ["supportive", "supportive", "neutral", "neutral", "negative"],
+        specialSpeech: []
+    },
+    "random456789": {
+        id: "random123456",
+        username: "用户123456",
+        attitude: ["supportive", "supportive", "neutral", "neutral", "negative"],
         specialSpeech: []
     },
     "random2": {
         id: "random2",
         username: "我是好猫",
         attitude: ["supportive"],
-        specialSpeech: []
+        specialSpeech: [],
+        isFans: true
     },
     "random3": {
         id: "random3",
@@ -53,25 +62,28 @@ setup.users = {
         id: "random4",
         username: "彩彩彩彩彩虹马",
         attitude: ["supportive"],
-        specialSpeech: []
+        specialSpeech: [],
+        isFans: true
     },
     "random5": {
         id: "random5",
         username: "抢不到草莓的蛋糕教授",
         attitude: ["supportive"],
-        specialSpeech: ["主播好强好可爱，可以分享下经验吗(´இ皿இ｀)"]
+        specialSpeech: ["主播好强好可爱，可以分享下经验吗(´இ皿இ｀)"],
+        isFans: true
     },
     "random6": {
         id: "random6",
         username: "tuyu丶涂鱼🐟",
         attitude: ["supportive"],
-        specialSpeech: []
+        specialSpeech: [],
+        isFans: true
     },
     "random7": {
         id: "random7",
         username: "彭猫猫",
         attitude: ["supportive"],
-        specialSpeech: []
+        specialSpeech: [],
     },
     "random8": {
         id: "random8",
@@ -89,7 +101,8 @@ setup.users = {
         id: "random10",
         username: "查查今天工作了吗",
         attitude: ["supportive"],
-        specialSpeech: []
+        specialSpeech: [],
+        isFans: true
     },
     "random11": {
         id: "random11",
@@ -119,25 +132,29 @@ setup.users = {
         id: "random15",
         username: "miyako4828",
         attitude: ["supportive"],
-        specialSpeech: []
+        specialSpeech: [],
+        isFans: true
     },
     "random16": {
         id: "random16",
         username: "黎明破晓",
         attitude: ["supportive"],
-        specialSpeech: ["主播声音真好听，能唱一首歌吗？想多听听主播的声音。"]
+        specialSpeech: ["主播声音真好听，能唱一首歌吗？想多听听主播的声音。"],
+        isFans: true
     },
     "random17": {
         id: "random17",
         username: "一辆车创了过来",
         attitude: ["supportive"],
-        specialSpeech: ["对不起刚才冲晕了过去，主播太可爱了"]
+        specialSpeech: ["对不起刚才冲晕了过去，主播太可爱了"],
+        isFans: true
     },
     "random18": {
         id: "random18",
         username: "Ca",
         attitude: ["supportive"],
-        specialSpeech: ["感觉主播的声音听起来好有安全感！一定是一位在生活中特别努力的人吧！"]
+        specialSpeech: ["感觉主播的声音听起来好有安全感！一定是一位在生活中特别努力的人吧！"],
+        isFans: true
     },
     "random19": {
         id: "random19",
@@ -223,6 +240,14 @@ Macro.add('streamscreen', {
     tags: null,
     handler: function() {
         $(this.output).wiki('<main class="streamscreen">' + this.payload[0].contents + '</main>');
+    }
+});
+
+Macro.add('highlight', {
+    tags: null,
+    handler: function() {
+        let hlclass = this.payload[0].args[0] || "notice";
+        $(this.output).wiki('<span class="' + hlclass + '">' + this.payload[0].contents + '</span>');
     }
 });
 
