@@ -305,7 +305,15 @@
 
 <<widget "startstream">>
     <<set $stream to {}>>
-    <<set $stream.viewers to getRandomInt(300,500)>>
+    <<if $liveStreamStage lte 1>>
+        <<set $stream.viewers to random(100,300)>>
+    <<elseif $liveStreamStage lte 3>>
+        <<set $stream.viewers to random(300,700)>>
+    <<elseif $liveStreamStage lte 5>>
+        <<set $stream.viewers to random(700,1500)>>
+    <<else>>
+        <<set $stream.viewers to random(1500,2000)>>
+    <</if>>
     <<set $stream.tip to 0>>
     /% <<set $stream.chatters to {}>> %/
     <<set $stream.chat to []>>
@@ -313,12 +321,33 @@
     <<if $blacklist is undefined>>
         <<set $blacklist to []>>
     <</if>>
-    <<if $fanslist is undefined>>
-        <<set $fanslist to []>>
+    <<if $fanslist is undefined or $fanslist.length is 0>>
+        <<set $fanslist to Object.keys(setup.users).filter(user => setup.users[user].isFans)>>
     <</if>>
     /% 当前界面被删除/禁言的条数 %/
     <<set $deletedChats to []>>
     <<set $forbiddenChats to []>>
+<</widget>>
+
+<<widget "updatestream">>
+    /% 指示观众是否增加，减少 %/
+    <<switch _args[0]>>
+        <<case "higher">>
+            <<set $stream.viewers += random(Math.round($stream.viewers/10), 
+            Math.round($stream.viewers/5))>>
+        <<case "high">>
+            <<set $stream.viewers += random(Math.round($stream.viewers/20), 
+            Math.round($stream.viewers/10))>>
+        <<case "low">>
+            <<set $stream.viewers += random(Math.round(-$stream.viewers/10), 
+            Math.round(-$stream.viewers/20))>>
+        <<case "lower">>
+            <<set $stream.viewers += random(Math.round(-$stream.viewers/5), 
+            Math.round(-$stream.viewers/10))>>
+        <<case "random">>
+            <<set $stream.viewers += random(Math.round(-$stream.viewers/20), 
+            Math.round($stream.viewers/20))>>
+    <</switch>>
 <</widget>>
 
 <<widget "streameffects">>
@@ -370,11 +399,12 @@
     <<set $forbiddenChats to []>>
 <</widget>>
 
+
 <<widget "addstreamchat">>
-    /%<<addstreamchatter>>%/
-    /% 10不应当为固定数量，之后调整一下%/
+    <<set _base to _args[0]>>
+    <<set _amount to Math.round(_base * $stream.viewers/200)>>
     <<set  _chatterList to getAllPossibleUser()>>
-    <<set  _chatterList to getRandomElements(_chatterList,10)>>
+    <<set  _chatterList to getRandomElements(_chatterList,_amount)>>
     /% <<set _chatterList.push("headteacher")>> %/ 
     <<for _i to 1; _i lt _chatterList.length;_i++>>
         <<set _chatter to setup.users[_chatterList[_i]]>>
@@ -385,7 +415,7 @@
             <<set  _msg to setup.random_msg[_attitude+"_list"].random()>>
         <</if>>
         /% 粉丝概率触发打赏 %/
-        <<if _chatter.isFans and random(1,3) is 1>>
+        <<if $fanslist.includes(_chatter.id) and random(1,3) is 1>>
             /% 金额50%的概率1-10，50%*20%=10%的概率51到100，剩下40%的概率11-50 %/
             <<if random(1,2) is 1>>
                 <<set _tip to random(1,10)>>
@@ -395,11 +425,13 @@
                 <<set _tip to random(11,50)>>
             <</if>>
             <<set $stream.tip += _tip>>
-            <<set _data to {id:_chatter.id, user: _chatter.username, text: _msg, attitude: _attitude, isFans:_chatter.isFans,tip:_tip}>>
+            <<set _data to {id:_chatter.id, user: _chatter.username, text: _msg, attitude: _attitude, isFans:$fanslist.includes(_chatter.id),tip:_tip}>>
         <<else>>
-            <<set _data to {id:_chatter.id, user: _chatter.username, text: _msg, attitude: _attitude, isFans:_chatter.isFans}>>
+            <<set _data to {id:_chatter.id, user: _chatter.username, text: _msg, attitude: _attitude, isFans:$fanslist.includes(_chatter.id)}>>
         <</if>>
         <<run $stream.chat.push(_data)>>
     <</for>>
 <</widget>>
+
+
 

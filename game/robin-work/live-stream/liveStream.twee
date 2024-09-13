@@ -398,21 +398,20 @@
 
 :: Live Stream Together
 <<set $outside to 0>><<set $location to "home">><<effects>>
-<<startstream>>
-<<addstreamchat>>
+<<startstream>><<addstreamchat 10>>
 <div class="streaming">
     <<streamscreen>>
         你和罗宾所操作的角色身处一个巨大的迷宫中，一眼望不到出口。
         <br><br>
-        <<link [[向左走|Live Stream Together Left]]>><<endevent>><</link>><br>
-        <<link [[向右走|Live Stream Together Right]]>><<endevent>><</link>>
+        <<link [[向左走(0:15)|Live Stream Together Left]]>><<addstreamchat 15>><</link>><br>
+        <<link [[向右走(0:15)|Live Stream Together Right]]>><<addstreamchat 15>><</link>>
     <</streamscreen>>
     <<streamchat>>
 </div>
 
 
 :: Live Stream Together Left
-<<effects>><<streameffects>><<addstreamchat>>
+<<effects>><<streameffects>><<updatestream "lower">>
  <div class="streaming">
     <<streamscreen>>
         你和罗宾决定向左走，观众们大失所望。
@@ -425,7 +424,7 @@
 
 
 :: Live Stream Together Right
-<<effects>><<streameffects>><<addstreamchat>>
+<<effects>><<streameffects>><<updatestream "higher">>
  <div class="streaming">
     <<streamscreen>>
         你和罗宾决定向右走，观众们看起来很期待。
