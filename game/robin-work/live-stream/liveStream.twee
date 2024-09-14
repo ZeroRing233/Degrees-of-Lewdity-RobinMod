@@ -396,9 +396,34 @@
 <<endcombat>>
 <<link [[继续|Orphanage]]>><<endevent>><</link>>
 
-:: Live Stream Together
+:: Live Stream Together Prepare
+<<set $outside to 0>><<set $location to "home">><<effects>><<startstream>>
+你和罗宾调整了一下直播设备，确保画质、音频和网络都保持在良好的状态，然后准备开始今天的直播。
+<br><br>
+<<set _fanslist to getFanslist()>>
+<details class="journal">
+	<summary class="journal">查看粉丝列表</summary>
+	<<for _i to 0; _i lt _fanslist.length; _i++>>
+        <<set _color to 'color: ' + setup.rbg_from_string(_fanslist[_i])>>
+        <span class="fanslist" @style="_color"><<= _fanslist[_i]>> <br></span>
+    <</for>>
+</details>
+<br><br>
+<details class="journal">
+	<summary class="journal">查看黑名单</summary>
+	
+</details>
+<br><br>
+<details class="journal">
+	<summary class="journal">查看直播题材</summary>
+	
+</details>
+<br><br>
+<<link [[开始直播|Live Stream Together Start]]>><</link>>
+
+:: Live Stream Together Start
 <<set $outside to 0>><<set $location to "home">><<effects>>
-<<startstream>><<addstreamchat 10>>
+<<addstreamchat 10>>
 <div class="streaming">
     <<streamscreen>>
         你和罗宾所操作的角色身处一个巨大的迷宫中，一眼望不到出口。

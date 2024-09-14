@@ -20,7 +20,7 @@
 		<span class="blue">你今天已经溜进去过了。</span>
 	<</if>>
 	<br>
-	<<link [[一起直播（调试选项）|Live Stream Together]]>><</link>>
+	<<link [[一起直播（调试选项）|Live Stream Together Prepare]]>><</link>>
 	<br>
 	<<getouticon>><<link [[离开|Orphanage]]>><</link>>
 <<elseif _robin_location is "school">>
