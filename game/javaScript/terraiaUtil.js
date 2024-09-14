@@ -41,7 +41,7 @@ setup.eatableFish = {
         icon: "fishing/fish/Trout.png"
     },
     "Armored_Cavefish": {
-        name: "Trout",
+        name: "Armored_Cavefish",
         cn_name: "装甲洞穴鱼",
         type: "fish",
         price: 10,
@@ -49,7 +49,7 @@ setup.eatableFish = {
         icon: "fishing/fish/Armored_Cavefish.png"
     },
     "Specular_Fish": {
-        name: "Trout",
+        name: "Specular_Fish",
         cn_name: "镜面鱼",
         type: "fish",
         price: 7,
@@ -170,8 +170,7 @@ window.getEatableFishList_fishOnly = getEatableFishList_fishOnly;
 //获取当前卖烤鱼的总价值，因为可能吃了一条所以要重新遍历
 function getEatableFishPrice() {
     let price = 0;
-    let all_eatable_fish_list = getEatableFishList_fishOnly();
-    all_eatable_fish_list.forEach(fish => {
+    V.fishList.forEach(fish => {
         price += setup.eatableFish[fish].amount * setup.eatableFish[fish].price;
     });
     return price;
