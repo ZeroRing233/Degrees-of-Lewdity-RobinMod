@@ -327,6 +327,8 @@
     /% 当前界面被删除/禁言的条数 %/
     <<set $deletedChats to []>>
     <<set $forbiddenChats to []>>
+    <<set $currUsers to clone(setup.users)>>
+    <<run generateRandomUser()>>
 <</widget>>
 
 <<widget "updatestream">>
@@ -407,7 +409,7 @@
     <<set  _chatterList to getRandomElements(_chatterList,_amount)>>
     /% <<set _chatterList.push("headteacher")>> %/ 
     <<for _i to 1; _i lt _chatterList.length;_i++>>
-        <<set _chatter to setup.users[_chatterList[_i]]>>
+        <<set _chatter to $currUsers[_chatterList[_i]]>>
         <<set _attitude to _chatter.attitude.random()>>
         <<if $fanslist.includes(_chatter.id)>>
             <<set _attitude to "supportive">>
@@ -443,5 +445,4 @@
     <</for>>
 <</widget>>
 
-
-
+/% 下一步要做的：随机生成大量用户 %/
