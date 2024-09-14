@@ -130,7 +130,7 @@ setup.users = {
     },
     "random15": {
         id: "random15",
-        username: "miyako4828",
+        username: "某人要求保持低调555",
         attitude: ["supportive"],
         specialSpeech: [],
         isFans: true
@@ -603,7 +603,30 @@ hcp救一下啊
 八百万阴兵
 `;
 
-setup.moreUsers = usernames.split('\n').map(item => item.trim());
+const inthash = str => {
+    let arr = str.split('');
+    return Math.abs(arr.reduce(
+        (hashCode, currentVal) =>
+        (hashCode = currentVal.charCodeAt(0) + (hashCode << 6) + (hashCode << 16) - hashCode),
+        0
+    ));
+};
+setup.inthash = inthash;
+
+const randomUsers = usernames.split('\n').map(item => item.trim());
+setup.moreUsers = {};
+for (let user of randomUsers) {
+    let id = inthash(user).toString();
+    let attitude = ["supportive", "supportive", "neutral", "neutral", "negative"];
+    let specialSpeech = [];
+    let data = {
+        "id": id,
+        "username": user,
+        "attitude": attitude,
+        "specialSpeech": specialSpeech
+    }
+    setup.moreUsers[id] = data;
+}
 
 setup.random_msg = {
     supportive_list: ["这里在播什么，好热闹的样子。", "主播的笑容，是今天最温暖的阳光！", "主播主播，旁边是你<<girlfriend>>吗？",
@@ -656,16 +679,6 @@ setup.rbg_from_string = function(name) {
 
     return "rgb(" + r + ", " + g + ", " + b + ")";
 }
-
-const inthash = str => {
-    let arr = str.split('');
-    return Math.abs(arr.reduce(
-        (hashCode, currentVal) =>
-        (hashCode = currentVal.charCodeAt(0) + (hashCode << 6) + (hashCode << 16) - hashCode),
-        0
-    ));
-};
-setup.inthash = inthash;
 
 setup.rir = function(min, max) {
     return Math.floor(State.random() * (max - min) + min);
@@ -775,18 +788,15 @@ window.getAllPossibleUser = getAllPossibleUser;
 
 // 随机挑选一些用户进用户池，确保三分之一左右为罗宾mod专属用户
 function generateRandomUser() {
-    let randomUsers = getRandomElements(setup.moreUsers, 70);
+    let randomUsers = getRandomElements(Object.keys(setup.moreUsers), 70);
     for (let user of randomUsers) {
-        let id = inthash(user).toString();
-        let attitude = ["supportive", "supportive", "neutral", "neutral", "negative"];
-        let specialSpeech = [];
-        let data = {
-            "id": id,
-            "username": user,
-            "attitude": attitude,
-            "specialSpeech": specialSpeech
-        }
-        V.currUsers[id] = data;
+        V.currUsers[user] = setup.moreUsers[user];
     }
 }
 window.generateRandomUser = generateRandomUser;
+
+// 获取黑名单内的用户名
+function getBlacklist() {
+
+}
+window.getBlacklist = getBlacklist;
