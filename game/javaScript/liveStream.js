@@ -795,8 +795,34 @@ function generateRandomUser() {
 }
 window.generateRandomUser = generateRandomUser;
 
-// 获取黑名单内的用户名
-function getBlacklist() {
+// 获取粉丝列表(用户名即可)
+function getFanslist() {
+    let result = [];
+    for (let id of V.fanslist) {
+        if (setup.users[id]) {
+            result.pushUnique(setup.users[id].username);
+        } else if (setup.moreUsers[id]) {
+            result.pushUnique(setup.moreUsers[id].username);
+        } else {
+            console.error("getFanslist当前id" + id + "不存在对应的用户");
+        }
+    }
+    return result;
+}
+window.getFanslist = getFanslist;
 
+// 获取黑名单列表（用户名+id，捞人用）
+function getBlacklist() {
+    let result = [];
+    for (let id of V.blacklist) {
+        if (setup.users[id]) {
+            result.pushUnique({ "id": id, "name": setup.users[id].username });
+        } else if (setup.moreUsers[id]) {
+            result.pushUnique({ "id": id, "name": setup.moreUsers[id].username });
+        } else {
+            console.error("getBlacklist当前id" + id + "不存在对应的用户");
+        }
+    }
+    return result;
 }
 window.getBlacklist = getBlacklist;
