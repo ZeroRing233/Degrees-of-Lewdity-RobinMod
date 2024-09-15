@@ -4,7 +4,7 @@
 - [安装方式说明](#安装方式说明)
 - [反馈与讨论方式](#反馈与讨论方式)
 - [更新日志](#更新日志)
-    - [0.05-temp](#005-temp)
+    - [0.05-alpha](#005-alpha)
     - [0.04-alpha](#004-alpha)
 - [详细内容介绍](#详细内容介绍)
     - [1. 柠檬水摊升级](#1柠檬水摊升级)
@@ -35,19 +35,17 @@
 模组名称补充说明：dom罗宾主要是在玩罗宾的自信在代码里是dom这个梗，同时游戏内高自信的罗宾本身就会对pc更有保护欲，在关系中也会是更占主导的一方，而在加入这个童话向/爽向的模组后，罗宾的自信甚至会被特质锁定为100，所以希望各位都是喜欢高自信罗宾的玩家。
 
 ## 安装方式说明
-本模组基于当前最新版本(0.5.1.x)进行自测，旧版本会存在不兼容的问题，请确保您手上的游戏是最新版本，然后下载release下[0.04-alpha](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.04-alpha)中的domRobin.mod.zip（请不要下载source code），并使用平时游玩汉化版时使用的mod管理器加载完汉化模组后，再加载此模组。
+本模组基于0.5.1.x及以上版本进行自测，旧版本会存在不兼容的问题，请确保您手上的游戏是最新版本，然后下载release下[0.05-alpha](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.05-alpha)中的domRobin.mod.zip（请不要下载source code），并使用平时游玩汉化版时使用的mod管理器加载完汉化模组后，再加载此模组。
 <details>
   <summary>点击查看图片</summary>
 
 ![需要安装的文件](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/blob/master/assets/download.png)
 </details>
 
-PS：如果您想体验模组当前的最新版本，可以尝试下载[0.05-temp](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.05-temp)，注意此版本随时会被作者原地替换。
-
 ## 反馈与讨论方式
 bug反馈群群号：964015275
 
-讨论群群号：789448964（进讨论群需写一小段角色或游戏理解）
+讨论群群号：789448964
 
 贴吧开发过程记录贴：[试图做一个罗宾mod](https://tieba.baidu.com/p/9001189698) 
 
@@ -56,8 +54,7 @@ bug反馈群群号：964015275
 ## 更新日志
 注意：更新日志只含0.04-alpha以及之后的版本，之前的内容请见[详细内容介绍](#详细内容介绍)。
 
-### 0.05-temp
-(注意temp版本随时随地会被作者原地替换，仅供想体验最新版本的玩家游玩)
+### 0.05-alpha
 
 ### 模组新增内容
 1. 新增「荒原观星」剧情，具体内容包括：
@@ -275,7 +272,7 @@ pc无行动力的情况下，所有人都来攻击罗宾，反之亦然。
 
 - 感谢 [脸木挤白/苯环](https://github.com/Nephthelana) 为模组间联动所进行的代码更改和建议！
 
-- 感谢 [杰神](https://github.com/Lyoko-Jeremie) 对Modloader进行的改进（虽然不只是为了本模组，划掉）
+- 感谢 [Lyoko-Jeremie](https://github.com/Lyoko-Jeremie) 对Modloader进行的改进和代码示范。
 
 - 感谢群友"蜜雪冰城分店"为观星创作的两种精美图标。（已用在荒原观星）
 
@@ -295,7 +292,7 @@ pc无行动力的情况下，所有人都来攻击罗宾，反之亦然。
 
 
 ## 未实现的功能构想
-（纯粹是在画饼）
+（纯粹是在画饼，下一步更新应该是为三种工作填充具体内容，直播界面已有）
 
 1. 在码头救援替换罗宾后，新增各种重逢场景
 2. 野餐时判断罗宾是否处于哺乳期（随便加个规则），如果是的话就可以喝奶
