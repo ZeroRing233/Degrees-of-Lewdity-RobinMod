@@ -181,9 +181,12 @@ window.getEatableFishPrice = getEatableFishPrice;
 function clearEatableFish() {
     let all_eatable_fish_list = getEatableFishList_fishOnly();
     all_eatable_fish_list.forEach(fish => {
-        setup.eatableFish[fish].amount = 0;
-        V[fish] = 0;
+        if (V.fishList.includes(fish)) {
+            setup.eatableFish[fish].amount = 0;
+            V[fish] = 0;
+        }
     });
+    V.fishList = []
 }
 window.clearEatableFish = clearEatableFish;
 

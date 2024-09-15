@@ -8,7 +8,7 @@
 <span id="eatableFishForRobinList"><<eatableFishForRobinList>></span>
 <br>
 <span id="eatableFishForRobinlinks"><<eatableFishForRobinlinks>></span>
-<<link [[返回|Robin's Lemonade]]>>'<</link>>
+<<link [[返回|Robin's Lemonade]]>><</link>>
 
 :: eatableFishForRobinList [widget]
 <<widget "eatableFishForRobinList">>
@@ -88,7 +88,7 @@
 /* 仅当$fishList中有鱼类时，显示“交给罗宾”的选项 */
 <<if $fishList.length gte 1>>
 	<<link [[交给罗宾|Robin's Lemonade Give Fish]]>>
-		<<set $randomFish to setup.eatableFish[$fishList[random(0,$fishList.length)]]>>	
+		<<set $randomFish to setup.eatableFish[$fishList[random(0,$fishList.length-1)]]>>	
 	<</link>>
 <</if>>
 

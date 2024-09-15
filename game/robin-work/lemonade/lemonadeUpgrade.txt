@@ -30,20 +30,20 @@
 <<set _eatableFishList to getEatableFishList_fishOnly()>>
 <<set _lobster to setup.eatableFish["Rock_Lobster"]>>
 <<set _Loach to setup.eatableFish["Greenwave_Loach"]>>
-<<if  _eatableFishList.length gt 0>>
+<<if  _eatableFishList.length gt 0 and hasTerrariaInfo()>>
         <<set _randomFish to setup.eatableFish[_eatableFishList.random()]>>
         <<icon `_randomFish.icon`>>
         <<link [[给罗宾鱼类|Robin's Lemonade Give Fish List]]>>
                 <<npcincr Robin love 2>>
-        <</link>><<glove>>
+        <</link>><<glove>><<terraHint>>
         <br>
 <</if>>
-<<if _lobster.amount gt 0 and $hasGivenFish>>
-        <<icon `_lobster.icon`>><<link [[给罗宾岩石龙虾|Robin's Lemonade Give Lobster]]>><<set $amount to _lobster.amount>><</link>> <<glove>>
+<<if _lobster.amount gt 0 and $hasGivenFish and hasTerrariaInfo()>>
+        <<icon `_lobster.icon`>><<link [[给罗宾岩石龙虾|Robin's Lemonade Give Lobster]]>><<set $amount to _lobster.amount>><</link>> <<glove>><<terraHint>>
         <br>
 <</if>>
-<<if _Loach.amount gt 0 and $hasGivenFish>>
-        <<icon `_Loach.icon`>><<link [[给罗宾绿波泥鳅|Robin's Lemonade Give Loach]]>><<set $amount to _Loach.amount>><</link>> <<glove>>
+<<if _Loach.amount gt 0 and $hasGivenFish and hasTerrariaInfo()>>
+        <<icon `_Loach.icon`>><<link [[给罗宾绿波泥鳅|Robin's Lemonade Give Loach]]>><<set $amount to _Loach.amount>><</link>> <<glove>><<terraHint>>
         <br>
 <</if>>
 <<if $lemonadeUpgraded and $robinromance and $promiscuity gte 55 and !$daily.robin.crawl>>
