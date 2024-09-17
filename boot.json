@@ -1,6 +1,6 @@
 {
     "name": "DomRobin",
-    "version": "0.0.5-temp",
+    "version": "0.0.5-alpha",
     "scriptFileList_inject_early": [
         "game/javaScript/robinModInject_early.js"
     ],
