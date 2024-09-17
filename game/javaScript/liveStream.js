@@ -197,6 +197,24 @@ setup.users = {
         username: "陆昀兮",
         attitude: ["supportive", "neutral"],
         specialSpeech: []
+    },
+    "random25": {
+        id: "random25",
+        username: "山月桂玩偶",
+        attitude: ["supportive"],
+        specialSpeech: [],
+        isFans: true
+    },
+    "random26": {
+        id: "random26",
+        username: "丽芙莲",
+        attitude: ["supportive"],
+        specialSpeech: ["杂鱼今天又开始直播了呢。居然这样简单的游戏，真不愧是杂鱼呢♡～ ",
+            "主播不知道该选什么吗？杂鱼～杂鱼～ ",
+            "就勉强给杂鱼一点一点钱吧",
+            "主播今天已经很厉害了，毕竟是杂鱼嘛"
+        ],
+        isFans: true
     }
 }
 

@@ -401,7 +401,6 @@
     <<set $forbiddenChats to []>>
 <</widget>>
 
-
 <<widget "addstreamchat">>
     <<set _base to _args[0]>>
     <<set _amount to Math.round(_base * $stream.viewers/200)>>
@@ -419,7 +418,7 @@
         <<else>>
             <<set  _msg to setup.random_msg[_attitude+"_list"].random()>>
         <</if>>
-        /% 粉丝概率触发打赏 %/
+        /% 粉丝概率触发打赏 特殊对话后面必然跟着打赏%/
         <<if $fanslist.includes(_chatter.id) and random(1,3) is 1>>
             /% 金额50%的概率1-10，50%*20%=10%的概率51到100，剩下40%的概率11-50 %/
             <<if random(1,2) is 1>>
@@ -444,5 +443,3 @@
         <</if>>
     <</for>>
 <</widget>>
-
-/% 下一步要做的：随机生成大量用户 %/
