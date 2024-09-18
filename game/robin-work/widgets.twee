@@ -419,7 +419,11 @@
             <<set  _msg to setup.random_msg[_attitude+"_list"].random()>>
         <</if>>
         /% 粉丝概率触发打赏 特殊对话后面必然跟着打赏%/
-        <<if $fanslist.includes(_chatter.id) and random(1,3) is 1>>
+        <<if _msg is "就勉强给杂鱼一点一点钱吧">>
+            <<set _tip to 5>>
+            <<set $stream.tip += _tip>>
+            <<set _data to {id:_chatter.id, user: _chatter.username, text: _msg, attitude: _attitude, isFans:$fanslist.includes(_chatter.id),tip:_tip}>>
+        <<elseif $fanslist.includes(_chatter.id) and random(1,3) is 1>>
             /% 金额50%的概率1-10，50%*20%=10%的概率51到100，剩下40%的概率11-50 %/
             <<if random(1,2) is 1>>
                 <<set _tip to random(1,10)>>

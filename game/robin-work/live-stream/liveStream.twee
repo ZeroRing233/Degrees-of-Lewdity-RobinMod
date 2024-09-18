@@ -401,21 +401,42 @@
 你和罗宾调整了一下直播设备，确保画质、音频和网络都保持在良好的状态，然后准备开始今天的直播。
 <br><br>
 <<set _fanslist to getFanslist()>>
-<details class="journal">
-	<summary class="journal">查看粉丝列表</summary>
-	<<for _i to 0; _i lt _fanslist.length; _i++>>
-        <<set _color to 'color: ' + setup.rbg_from_string(_fanslist[_i])>>
-        <span class="fanslist" @style="_color"><<= _fanslist[_i]>> <br></span>
-    <</for>>
+<<set _blacklist to getBlacklist()>>
+<details class="liveStream">
+	<summary class="liveStream">查看直播说明</summary>
+    <div class="liveStream">
+        <li>在直播中，如果遇到不友善的弹幕，可点击 <i class="liveStreamDelete"></i> 删除该弹幕，也可点击
+        <i class="liveStreamForbide"></i> 禁言该用户。</li>
+        <li>直播中会慢慢增加粉丝，粉丝的昵称前会带有  <i class="liveStreamFans"></i>。</li>
+        <li>打赏是随机的，但与观众数，粉丝数量，玩家选择等因素有关。</li>
+    </div>
 </details>
-<br><br>
-<details class="journal">
-	<summary class="journal">查看黑名单</summary>
-	
+<br>
+<details class="liveStream">
+	<summary class="liveStream">查看粉丝列表</summary>
+    <div class="liveStream">
+        <<for _i to 0; _i lt _fanslist.length; _i++>>
+            <<set _color to 'color: ' + setup.rbg_from_string(_fanslist[_i])>>
+            <span class="fanslist" @style="_color"><<= _fanslist[_i]>> <br></span>
+        <</for>>
+    </div>
 </details>
-<br><br>
-<details class="journal">
-	<summary class="journal">查看直播题材</summary>
+<br>
+<details class="liveStream">
+	<summary class="liveStream">查看黑名单</summary>
+    <div class="liveStream">
+        <<if _blacklist.length is 0>>
+            暂无黑名单。
+        <</if>>
+        <<for _i to 0; _i lt _blacklist.length; _i++>>
+            <<set _color to 'color: ' + setup.rbg_from_string(_blacklist[_i].name)>>
+            <span class="fanslist" @style="_color"><<= _fanslist[_i].name>> <br></span>
+        <</for>>
+    </div>
+</details>
+<br>
+<details class="liveStream">
+	<summary class="liveStream">查看直播题材</summary>
 	
 </details>
 <br><br>

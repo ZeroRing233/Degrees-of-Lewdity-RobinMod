@@ -105,3 +105,27 @@ span.streamchatname {
 div.streamchatsep {
     height: 0.8em;
 }
+
+summary.liveStream {
+    padding: 0.5rem;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+details.liveStream {
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid lightgray;
+    margin-top: -0.25rem;
+}
+
+div.liveStream {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
