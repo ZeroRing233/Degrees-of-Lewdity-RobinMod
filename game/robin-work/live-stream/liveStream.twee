@@ -410,7 +410,7 @@
         <li>在直播中，如果遇到不友善的弹幕，可点击 <i class="liveStreamDelete"></i> 删除该弹幕，也可点击
         <i class="liveStreamForbide"></i> 禁言该用户。</li>
         <li>已经被禁言的用户，可以在「查看黑名单」中点击  <i class="blacklistRemove"></i> 解除禁言。</li>
-        <li>直播中会慢慢增加粉丝，粉丝的昵称前会带有  <i class="liveStreamFans"></i>。</li>
+        <li>直播中会慢慢增加粉丝，粉丝的昵称后会带有  <i class="liveStreamFans"></i>。</li>
         <li>打赏是随机的，但与观众数，粉丝数量，玩家选择和正面/负面名声等因素有关。</li>
         <li>初始观众数由罗宾当前直播周数决定，注意玩家的参与可能会增加/减少罗宾的直播进度。</li>
         <li>可点击「查看直播题材」切换本次直播的内容。</li>
@@ -422,7 +422,9 @@
     <div class="liveStream">
         <<for _i to 0; _i lt _fanslist.length; _i++>>
             <<set _color to 'color: ' + setup.rbg_from_string(_fanslist[_i])>>
-            <span class="fanslist" @style="_color"><<= _fanslist[_i]>> <br></span>
+            <span class="fanslist" @style="_color"><<= _fanslist[_i]>>
+             <i class="liveStreamFans"></i>
+             <br></span>
         <</for>>
     </div>
 </details>
@@ -446,11 +448,28 @@
 <br>
 <details class="liveStream">
 	<summary class="liveStream">查看直播题材</summary>
-	
+        <div class="liveStream">
+            <label><<radiobutton "$stream.topic" "Maze" autocheck>> 走迷宫RPG游戏</label>
+            <br>
+            <label><<radiobutton "$stream.topic" "Disco" autocheck>> 文字RPG游戏</label>
+            <br>
+            <label><<radiobutton "$stream.topic" "Civilization" autocheck>> 历史策略游戏</label>
+            <br>
+            <label><<radiobutton "$stream.topic" "Pm" autocheck>> 养成游戏</label>
+            <br>
+            <label><<radiobutton "$stream.topic" "Needygirl" autocheck>> 模拟主播游戏</label>
+            <br>
+            <label><<radiobutton "$stream.topic" "Dol" autocheck>> 一款神秘的游戏</label>
+            <br>
+            <label><<radiobutton "$stream.topic" "Daily" autocheck>> 日常闲聊</label>
+            <br>
+        </div>
 </details>
 <<run blacklistRemoveClicked()>>
 <br><br>
-<<link [[开始直播|Live Stream Together Start]]>><</link>>
+<<link [[开始直播|"Live Stream Together Start " + $stream.topic]]>><</link>>
+
+:: Live Stream Together Start Maze
 
 :: Live Stream Together Start
 <<set $outside to 0>><<set $location to "home">><<effects>>

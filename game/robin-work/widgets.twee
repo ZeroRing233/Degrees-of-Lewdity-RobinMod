@@ -314,10 +314,9 @@
     <<else>>
         <<set $stream.viewers to random(1500,2000)>>
     <</if>>
+    <<set $stream.topic to "Maze">>
     <<set $stream.tip to 0>>
-    /% <<set $stream.chatters to {}>> %/
     <<set $stream.chat to []>>
-    /% 之后记得搬到设置里哈，黑名单和粉丝不该在这里初始化 %/
     <<if $blacklist is undefined>>
         <<set $blacklist to []>>
     <</if>>
