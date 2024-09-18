@@ -778,6 +778,7 @@ function onDeleteClicked(element) {
     console.log("点击删除，当前chatIndex是" + chatIndex);
     V.deletedChats.pushUnique(V.stream.chat[chatIndex]);
     V.stream.chat.deleteAt(chatIndex);
+    element.parentNode.previousElementSibling.remove();
     element.parentNode.nextElementSibling.remove();
     element.parentNode.remove();
 }
@@ -829,3 +830,32 @@ function getBlacklist() {
     return result;
 }
 window.getBlacklist = getBlacklist;
+
+function blacklistRemoveClicked() {
+    // 假设你有一个元素数组
+    $(function() {
+        let elements = document.querySelectorAll('.blacklistRemove');
+        console.log("元素数组长度是" + elements.length)
+            // 循环通过元素数组，绑定点击事件
+        elements.forEach(function(element, index) {
+            element.onclick = (function(fixedIndex) {
+                return function() {
+                    // 在这里处理点击事件，使用固定参数
+                    //console.log("点击删除成功！当前index是" + fixedIndex)
+                    blacklistRemove(element);
+                };
+            })(index); // 调用立即执行函数并传递当前的index作为固定参数
+        });
+    });
+}
+window.blacklistRemoveClicked = blacklistRemoveClicked;
+
+
+function blacklistRemove(element) {
+    let id = element.parentNode.previousElementSibling.innerText;
+    console.log("点击回收黑名单，当前id是" + id);
+    V.blacklist.delete(id)
+    element.parentNode.previousElementSibling.remove();
+    element.parentNode.nextElementSibling.remove();
+    element.parentNode.remove();
+}

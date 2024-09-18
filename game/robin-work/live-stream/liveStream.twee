@@ -401,14 +401,19 @@
 你和罗宾调整了一下直播设备，确保画质、音频和网络都保持在良好的状态，然后准备开始今天的直播。
 <br><br>
 <<set _fanslist to getFanslist()>>
+/% 调试用黑名单 %/
+<<set $blacklist to ['1752985983', 'headteacher', '9289260980', '4724046236', '1410873828', '1700875084']>>
 <<set _blacklist to getBlacklist()>>
 <details class="liveStream">
 	<summary class="liveStream">查看直播说明</summary>
     <div class="liveStream">
         <li>在直播中，如果遇到不友善的弹幕，可点击 <i class="liveStreamDelete"></i> 删除该弹幕，也可点击
         <i class="liveStreamForbide"></i> 禁言该用户。</li>
+        <li>已经被禁言的用户，可以在「查看黑名单」中点击  <i class="blacklistRemove"></i> 解除禁言。</li>
         <li>直播中会慢慢增加粉丝，粉丝的昵称前会带有  <i class="liveStreamFans"></i>。</li>
-        <li>打赏是随机的，但与观众数，粉丝数量，玩家选择等因素有关。</li>
+        <li>打赏是随机的，但与观众数，粉丝数量，玩家选择和正面/负面名声等因素有关。</li>
+        <li>初始观众数由罗宾当前直播周数决定，注意玩家的参与可能会增加/减少罗宾的直播进度。</li>
+        <li>可点击「查看直播题材」切换本次直播的内容。</li>
     </div>
 </details>
 <br>
@@ -430,7 +435,11 @@
         <</if>>
         <<for _i to 0; _i lt _blacklist.length; _i++>>
             <<set _color to 'color: ' + setup.rbg_from_string(_blacklist[_i].name)>>
-            <span class="fanslist" @style="_color"><<= _fanslist[_i].name>> <br></span>
+            <span class="blacklistid" style="display:none;"><<= _blacklist[_i].id>></span>
+            <span class="blacklistname" @style="_color"><<= _blacklist[_i].name>>
+            <i class="blacklistRemove"></i>
+            </span>
+            <br>
         <</for>>
     </div>
 </details>
@@ -439,6 +448,7 @@
 	<summary class="liveStream">查看直播题材</summary>
 	
 </details>
+<<run blacklistRemoveClicked()>>
 <br><br>
 <<link [[开始直播|Live Stream Together Start]]>><</link>>
 
