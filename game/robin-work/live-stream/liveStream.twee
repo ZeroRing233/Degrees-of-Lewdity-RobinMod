@@ -449,9 +449,9 @@
 <details class="liveStream">
 	<summary class="liveStream">查看直播题材</summary>
         <div class="liveStream">
-            <label><<radiobutton "$stream.topic" "Maze" autocheck>> 走迷宫RPG游戏</label>
+            <label><<radiobutton "$stream.topic" "Maze" autocheck>> 游戏直播-1</label>
             <br>
-            <label><<radiobutton "$stream.topic" "Disco" autocheck>> 文字RPG游戏</label>
+           /% <label><<radiobutton "$stream.topic" "Disco" autocheck>> 文字RPG游戏</label>
             <br>
             <label><<radiobutton "$stream.topic" "Civilization" autocheck>> 历史策略游戏</label>
             <br>
@@ -459,31 +459,57 @@
             <br>
             <label><<radiobutton "$stream.topic" "Needygirl" autocheck>> 模拟主播游戏</label>
             <br>
-            <label><<radiobutton "$stream.topic" "Dol" autocheck>> 一款神秘的游戏</label>
+            <label><<radiobutton "$stream.topic" "Dol" autocheck>> 一款神秘的游戏</label> 
+            <br>%/
+            <label><<radiobutton "$stream.topic" "Daily" autocheck>> 日常闲聊-1</label>
             <br>
-            <label><<radiobutton "$stream.topic" "Daily" autocheck>> 日常闲聊</label>
-            <br>
+            （更多选项会在之后添加）
         </div>
 </details>
 <<run blacklistRemoveClicked()>>
+<<run checkFame()>> /% 就这样写吧，我偷个懒 %/
+<<switch _viewerChange>>
+    <<case 1>>
+        <<updatestream "higher">>
+    <<case 2>>
+        <<updatestream "high">>
+    <<case -1>>
+        <<updatestream "low">>
+    <<case -2>>
+        <<updatestream "lower">>
+<</switch>>
 <br><br>
-<<link [[开始直播|"Live Stream Together Start " + $stream.topic]]>><</link>>
-
-:: Live Stream Together Start Maze
+<<link [[开始直播|Live Stream Together Start]]>><</link>>
 
 :: Live Stream Together Start
 <<set $outside to 0>><<set $location to "home">><<effects>>
-<<addstreamchat 10>>
+<<set $streamchatBegin to true>><<addstreamchat 5>><<unset $streamchatBegin>>
+<<run checkFame()>><<addFixedChat  _fixedChatFans "fans">><<addFixedChat _fixedChatNegative "negative">>
+一切准备就绪，你们点击了开始直播，镜头和弹幕列表出现在了你眼前，你感到有一些紧张。
+<br><br>
 <div class="streaming">
     <<streamscreen>>
-        你和罗宾所操作的角色身处一个巨大的迷宫中，一眼望不到出口。
+        罗宾微笑着面对镜头说："大家好，欢迎来到我的直播间！今天，我邀请了一位特别嘉宾，<<pshe>>是我<<robinPC>>，也是我的青梅竹马，大家欢迎！"
         <br><br>
-        <<link [[向左走(0:15)|Live Stream Together Left]]>><<addstreamchat 15>><</link>><br>
-        <<link [[向右走(0:15)|Live Stream Together Right]]>><<addstreamchat 15>><</link>>
+        在罗宾积极地向观众们介绍你时，你看了一眼侧边的弹幕栏，观众们的反应各异，
+        <<switch _viewerChange>>
+            <<case 0>>
+                你不确定自己的出场对罗宾有没有帮助。
+            <<case 1>>
+                但整体是偏积极的，你的正面名声似乎起了一些作用。<<lstress>><<gviewers>>
+            <<case 2>>
+                但绝大多数人对你的到来都反响热烈，你的正面名声在其中起了不少作用。<<lstress>><<ltrauma>><<ggviewers>>
+            <<case -1>>
+                但整体并不积极，你的名声似乎起了一些副作用。<<gstress>><<lviewers>>
+            <<case -2>>
+                但绝大多数人对你的到来都表示了抵触，你的负面名声在其中起了不少副作用。<<gstress>><<gtrauma>><<llviewers>>
+        <</switch>>
+        <br><br>
+        <<link [[微笑着打招呼|Live Stream Together Left]]>><<addstreamchat 15>><</link>><br>
+        <<link [[保持沉默|Live Stream Together Right]]>><<addstreamchat 15>><</link>>
     <</streamscreen>>
     <<streamchat>>
 </div>
-
 
 :: Live Stream Together Left
 <<effects>><<streameffects>><<updatestream "lower">>

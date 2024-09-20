@@ -606,6 +606,11 @@ hcp救一下啊
 八百万阴兵
 `;
 
+statDisplay.create("lviewers", () => statDisplay.statChange("观众数", -1, "red"));
+statDisplay.create("llviewers", () => statDisplay.statChange("观众数", -2, "red"));
+statDisplay.create("gviewers", () => statDisplay.statChange("观众数", 1, "green"));
+statDisplay.create("ggviewers", () => statDisplay.statChange("观众数", 2, "green"));
+
 const inthash = str => {
     let arr = str.split('');
     return Math.abs(arr.reduce(
@@ -638,6 +643,12 @@ setup.random_msg = {
     ],
     neutral_list: ["主播主播，这是直播吗？", "在播什么呀？", '不错，继续看看。', "主播在忙什么呢？", "看起来挺有趣的", "画面挺清晰的", "直播挺流畅的", "节奏把握得不错。", "挺有新意的直播", "期待更多内容", "内容有一点无聊", "内容有一点平淡", "这不是有手就行", "主播有一点菜", "感觉我上我也行"],
     negative_list: ["这播得是什么东西", "无聊，来播点更刺激的东西吧", "把你的衣服脱了", "垃圾主播，趁早改行吧", "傻X", "脑残主播", "装什么纯洁呢，看看你的"]
+}
+
+setup.begin_msg = {
+    supportive_list: ["欢迎欢迎~", "欢迎新朋友！", "主播主播，你<<robinFriend>>平时也爱玩游戏吗？", "主播的<<robinFriend>>真可爱，羡慕了", "青梅竹马一起直播，真是太有爱了！"],
+    neutral_list: ["不知道新人的技术怎么样？", "直播间更热闹了，挺好。"],
+    negative_list: ["主播的<<robinFriend>>朋友看起来好骚啊", "新人？多少钱一次", "垃圾主播，从哪找的这么好看的<<robinFriend>>", "一看就技术很垃圾"]
 }
 
 setup.randomrelfreq = function(array) {
@@ -783,9 +794,18 @@ function onDeleteClicked(element) {
     element.parentNode.remove();
 }
 
-function getAllPossibleUser() {
+function getAllPossibleUser(type) {
     // 之后要做教师组互斥内容
     let userList = Object.keys(V.currUsers).filter(user => !V.blacklist.includes(user));
+    if (!type) {
+        return userList;
+    }
+    if (type === "fans") {
+        userList = userList.filter(user => V.fanslist.includes(user));
+    }
+    if (type === "negative") {
+        userList = userList.filter(user => V.currUsers[user].attitude.includes("negative"));
+    }
     return userList;
 }
 window.getAllPossibleUser = getAllPossibleUser;
@@ -859,3 +879,77 @@ function blacklistRemove(element) {
     element.parentNode.nextElementSibling.remove();
     element.parentNode.remove();
 }
+
+function checkFame() {
+    T.fixedChatFans = [];
+    T.fixedChatNegative = [];
+    T.viewerChange = 0;
+    let hasOnePos = false,
+        hasOneNeg = false,
+        hasMorePos = false,
+        hasMoreNeg = false;
+    if (V.fame.scrap >= 600) {
+        T.fixedChatFans.push("天哪，这不是最近赫赫有名的拳皇吗？主播的<<robinFriend>>居然是<<pher>>？");
+        hasOnePos = true;
+    } else if (V.fame.scrap >= 200) {
+        T.fixedChatFans.push("主播的<<robinFriend>>在打架方面很在行，我听说过<<pher>>");
+    }
+    if (V.fame.good >= 600) {
+        T.fixedChatFans.push("主播的<<robinFriend>>在慈善领域非常有名，不愧是主播。");
+        hasOnePos = true;
+    } else if (V.fame.good >= 200) {
+        T.fixedChatFans.push("主播的<<robinFriend>>朋友据说是个很善良的人。");
+    }
+    if (V.fame.business >= 600) {
+        T.fixedChatFans.push("主播的<<robinFriend>>好像是一个知名的企业家，真厉害。");
+        hasOnePos = true;
+    } else if (V.fame.business >= 200) {
+        T.fixedChatFans.push("主播的<<robinFriend>>好像在商业上有一些名气。");
+    }
+    if (V.fame.social >= 600) {
+        T.fixedChatFans.push("主播的<<robinFriend>>好像是社交界的名流，真的是本人吗？");
+        hasOnePos = true;
+    } else if (V.fame.social >= 200) {
+        T.fixedChatFans.push("我好像在社交界听说过主播的<<robinFriend>>。");
+    }
+    if (V.fame.model >= 600) {
+        T.fixedChatFans.push("天哪，这不是那位知名的模特吗？我也是<<pher>>的粉丝呢。");
+        hasOnePos = true;
+    } else if (V.fame.model >= 200) {
+        T.fixedChatFans.push("我好像在模特杂志上见过主播的<<robinFriend>>。");
+    }
+    if (V.fame.scrap + V.fame.good + V.fame.business + V.fame.social + V.fame.model >= 3000) {
+        T.fixedChatFans.push("主播的<<robinFriend>>实在是太完美了，我真的太羡慕主播了。");
+        hasMorePos = true;
+    }
+    if (V.fame.prostitution >= 200 || V.fame.rape >= 200 || V.fame.bestiality >= 200 || V.fame.exhibitionism >= 200 || V.fame.pregnancy >= 200 || V.fame.impreg >= 200) {
+        T.fixedChatNegative.push("主播的<<robinFriend>>好像有一些不太好的传闻...");
+    }
+    if (V.fame.prostitution >= 600 || V.fame.rape >= 600 || V.fame.bestiality >= 600 || V.fame.exhibitionism >= 600 || V.fame.pregnancy >= 600 || V.fame.impreg >= 600) {
+        T.fixedChatNegative.push("主播的<<robinFriend>>不是一个知名的骚货吗？这样是不是不太好？");
+        hasOneNeg = true;
+    }
+    if (V.fame.prostitution + V.fame.rape + V.fame.bestiality + V.fame.exhibitionism + V.fame.pregnancy + V.fame.impreg >= 3000) {
+        T.fixedChatFans.push("我听说主播的<<robinFriend>>朋友简直是个变态，为什么主播会有这样的<<robinFriend>>？");
+        hasMoreNeg = true;
+    }
+    if (hasMorePos) {
+        T.viewerChange += 2;
+    } else if (hasOnePos) {
+        T.viewerChange += 1;
+    }
+    if (hasMoreNeg) {
+        T.viewerChange -= 2;
+    } else if (hasOneNeg) {
+        T.viewerChange -= 1;
+    }
+    if (T.viewerChange === 2 && !V.weekly.liveStreamStageChanged) {
+        V.weekly.liveStreamStageChanged = true;
+        V.liveStreamStage += 1;
+    }
+    if (T.viewerChange === -2 && !V.weekly.liveStreamStageChanged) {
+        V.weekly.liveStreamStageChanged = true;
+        V.liveStreamStage -= 1;
+    }
+}
+window.checkFame = checkFame;
