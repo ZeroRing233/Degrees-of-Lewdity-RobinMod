@@ -467,24 +467,13 @@
         </div>
 </details>
 <<run blacklistRemoveClicked()>>
-<<run checkFame()>> /% 就这样写吧，我偷个懒 %/
-<<switch _viewerChange>>
-    <<case 1>>
-        <<updatestream "higher">>
-    <<case 2>>
-        <<updatestream "high">>
-    <<case -1>>
-        <<updatestream "low">>
-    <<case -2>>
-        <<updatestream "lower">>
-<</switch>>
 <br><br>
 <<link [[开始直播|Live Stream Together Start]]>><</link>>
 
 :: Live Stream Together Start
 <<set $outside to 0>><<set $location to "home">><<effects>>
 <<set $streamchatBegin to true>><<addstreamchat 5>><<unset $streamchatBegin>>
-<<run checkFame()>><<addFixedChat  _fixedChatFans "fans">><<addFixedChat _fixedChatNegative "negative">>
+<<run checkFame()>><<addFixedChat  _fixedChatFans "supportive">><<addFixedChat _fixedChatNegative "negative">>
 一切准备就绪，你们点击了开始直播，镜头和弹幕列表出现在了你眼前，你感到有一些紧张。
 <br><br>
 <div class="streaming">
@@ -496,42 +485,56 @@
             <<case 0>>
                 你不确定自己的出场对罗宾有没有帮助。
             <<case 1>>
-                但整体是偏积极的，你的正面名声似乎起了一些作用。<<lstress>><<gviewers>>
+                但整体是偏积极的，你的正面名声似乎起了一些作用。<<lstress>><<gviewers>><<stress -6>><<updatestream "high">>
             <<case 2>>
-                但绝大多数人对你的到来都反响热烈，你的正面名声在其中起了不少作用。<<lstress>><<ltrauma>><<ggviewers>>
+                但绝大多数人对你的到来都反响热烈，你的正面名声在其中起了不少作用。<<lstress>><<ltrauma>><<stress -6>><<trauma -3>><<ggviewers>> <<updatestream "higher">>
             <<case -1>>
-                但整体并不积极，你的名声似乎起了一些副作用。<<gstress>><<lviewers>>
+                但整体并不积极，你的名声似乎起了一些副作用。<<gstress>><<lviewers>><<stress 6>><<updatestream "low">>
             <<case -2>>
-                但绝大多数人对你的到来都表示了抵触，你的负面名声在其中起了不少副作用。<<gstress>><<gtrauma>><<llviewers>>
+                但绝大多数人对你的到来都表示了抵触，你的负面名声在其中起了不少副作用。<<gstress>><<gtrauma>><<llviewers>><<stress 6>><<trauma 3>><<updatestream "lower">>
         <</switch>>
         <br><br>
-        <<link [[微笑着打招呼|Live Stream Together Left]]>><<addstreamchat 15>><</link>><br>
-        <<link [[保持沉默|Live Stream Together Right]]>><<addstreamchat 15>><</link>>
+        <<link [[微笑着打招呼|Live Stream Together Smile]]>><<addstreamchat 5>><<set $phase to _viewerChange>><</link>><br>
+        <<link [[保持沉默|Live Stream Together Slient]]>><<addstreamchat 5>><</link>>
     <</streamscreen>>
     <<streamchat>>
 </div>
 
-:: Live Stream Together Left
-<<effects>><<streameffects>><<updatestream "lower">>
+:: Live Stream Together Smile
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["主播的<<robinFriend>>笑起来真可爱","笑起来还是挺可爱的嘛~"]>>
+<<addFixedChat _fixedChat "supportive">>
  <div class="streaming">
     <<streamscreen>>
-        你和罗宾决定向左走，观众们大失所望。
+        你微笑着向观众们打了招呼，
+        <<if $phase is 0>>
+            这似乎起了些作用。
+        <<elseif $phase gt 0>>
+            观众们的反应更热烈了。
+        <<else>>
+            这似乎弥补了一些之前的负面印象。
+        <</if>>
+        <<gviewers>><<updatestream "high">>
         <br><br>
-        <<link [[向左走(0:15)|Live Stream Together Left]]>><<addstreamchat 15>><</link>><br>
-        <<link [[向右走(0:15)|Live Stream Together Right]]>><<addstreamchat 15>><</link>>
+        现在，是时候正式开始今天的直播了。
+        <br><br>
+        <<link [[继续(0:10)|Live Stream Together Maze]]>><<addstreamchat 10>><<pass 10>><</link>>
     <</streamscreen>>
     <<streamchat>>
 </div>
 
 
-:: Live Stream Together Right
-<<effects>><<streameffects>><<updatestream "higher">>
+:: Live Stream Together Slient
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["咦，好高冷","装什么装呢。"]>>
+<<addFixedChat _fixedChat "negative">>
  <div class="streaming">
     <<streamscreen>>
-        你和罗宾决定向右走，观众们看起来很期待。
+        你没有理会观众们的反应，而是直接和罗宾开始了今天的直播，观众们似乎对此有些不满。<<lviewers>><<updatestream "low">>
         <br><br>
-        <<link [[向左走(0:15)|Live Stream Together Left]]>><<addstreamchat 15>><</link>><br>
-        <<link [[向右走(0:15)|Live Stream Together Right]]>><<addstreamchat 15>><</link>>
+        <<link [[继续(0:10)|Live Stream Together Maze]]>><<addstreamchat 10>><<pass 10>><</link>>
     <</streamscreen>>
     <<streamchat>>
 </div>
+
+:: Live Stream Together Maze

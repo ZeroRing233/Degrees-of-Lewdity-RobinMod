@@ -429,7 +429,7 @@
             <<set _tip to 5>>
             <<set $stream.tip += _tip>>
             <<set _data to {id:_chatter.id, user: _chatter.username, text: _msg, attitude: _attitude, isFans:$fanslist.includes(_chatter.id),tip:_tip}>>
-        <<elseif $fanslist.includes(_chatter.id) and random(1,3) is 1>>
+        <<elseif ($fanslist.includes(_chatter.id) and random(1,3) is 1) or (_attitude is "supportive" and random(1,10) is 1)>>
             /% 金额50%的概率1-10，50%*20%=10%的概率51到100，剩下40%的概率11-50 %/
             <<if random(1,2) is 1>>
                 <<set _tip to random(1,10)>>
@@ -466,9 +466,9 @@
     <<set  _chatterList to getRandomElements(_chatterList,_fixedMsg.length)>>
     <<for _i to 0; _i lt _chatterList.length;_i++>>
         <<set _chatter to $currUsers[_chatterList[_i]]>>
-        <<set _attitude to "none">> /% 有特殊需要再改吧 %/
+        <<set _attitude to _type>> /% 有特殊需要再改吧 %/
         <<set _msg to _fixedMsg[_i]>>
-        <<if $fanslist.includes(_chatter.id) and random(1,3) is 1>>
+        <<if ($fanslist.includes(_chatter.id) and random(1,3) is 1) or (_attitude is "supportive" and random(1,10) is 1)>>
             /% 金额50%的概率1-10，50%*20%=10%的概率51到100，剩下40%的概率11-50 %/
             <<if random(1,2) is 1>>
                 <<set _tip to random(1,10)>>

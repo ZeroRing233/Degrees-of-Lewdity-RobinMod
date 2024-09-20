@@ -267,7 +267,6 @@ ___小巷姑娘
 游禽的左眼
 感谢傻逼54
 卢比扬卡卫生员71
-开心快乐喵震天
 毛毛怪
 PMM一号机
 懒癌晚期患者28
@@ -553,7 +552,6 @@ hcp救一下啊
 龙眼树
 大铁棍子医院捅主任
 成都肛肠医院王医生
-我是凯拉尔的狗
 你是那那个那那那个那个那那\n体弱多病就是屌硬\n你狗叫什么\n哥们你口渴别脱我裤子\n飞元真君忠孝帝君万寿帝君
 少林寺驻武当山办事处大神父王
 太田顺也_Official\n见习键盘侠\n欢乐肥宅水\n我永远喜欢三上悠亚\n还在go还在go\n圆蛤镇女高\n御坂24601号\n叮咚鸡\n思想家牢二\n魔理沙偷走了重要的东西\n我要唱一回坠子书\n名字已被占用\n樱岛麻衣\n多吃点辣椒我喜欢颗粒感\n初升的东汐\n彼阳的晚意\n梁山伯和猪硬来
@@ -800,8 +798,11 @@ function getAllPossibleUser(type) {
     if (!type) {
         return userList;
     }
-    if (type === "fans") {
-        userList = userList.filter(user => V.fanslist.includes(user));
+    if (type === "neutral") {
+        userList = userList.filter(user => V.currUsers[user].attitude.includes("neutral"));
+    }
+    if (type === "supportive") {
+        userList = userList.filter(user => V.currUsers[user].attitude.includes("supportive"));
     }
     if (type === "negative") {
         userList = userList.filter(user => V.currUsers[user].attitude.includes("negative"));
@@ -922,15 +923,15 @@ function checkFame() {
         T.fixedChatFans.push("主播的<<robinFriend>>实在是太完美了，我真的太羡慕主播了。");
         hasMorePos = true;
     }
-    if (V.fame.prostitution >= 200 || V.fame.rape >= 200 || V.fame.bestiality >= 200 || V.fame.exhibitionism >= 200 || V.fame.pregnancy >= 200 || V.fame.impreg >= 200) {
+    if (V.fame.sex >= 200 || V.fame.prostitution >= 200 || V.fame.rape >= 200 || V.fame.bestiality >= 200 || V.fame.exhibitionism >= 200 || V.fame.pregnancy >= 200 || V.fame.impreg >= 200) {
         T.fixedChatNegative.push("主播的<<robinFriend>>好像有一些不太好的传闻...");
     }
-    if (V.fame.prostitution >= 600 || V.fame.rape >= 600 || V.fame.bestiality >= 600 || V.fame.exhibitionism >= 600 || V.fame.pregnancy >= 600 || V.fame.impreg >= 600) {
+    if (V.fame.sex >= 200 || V.fame.prostitution >= 600 || V.fame.rape >= 600 || V.fame.bestiality >= 600 || V.fame.exhibitionism >= 600 || V.fame.pregnancy >= 600 || V.fame.impreg >= 600) {
         T.fixedChatNegative.push("主播的<<robinFriend>>不是一个知名的骚货吗？这样是不是不太好？");
         hasOneNeg = true;
     }
-    if (V.fame.prostitution + V.fame.rape + V.fame.bestiality + V.fame.exhibitionism + V.fame.pregnancy + V.fame.impreg >= 3000) {
-        T.fixedChatFans.push("我听说主播的<<robinFriend>>朋友简直是个变态，为什么主播会有这样的<<robinFriend>>？");
+    if (V.fame.sex + V.fame.prostitution + V.fame.rape + V.fame.bestiality + V.fame.exhibitionism + V.fame.pregnancy + V.fame.impreg >= 3000) {
+        T.fixedChatNegative.push("我听说主播的<<robinFriend>>朋友简直是个变态，为什么主播会有这样的<<robinFriend>>？");
         hasMoreNeg = true;
     }
     if (hasMorePos) {
