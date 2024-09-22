@@ -1,0 +1,513 @@
+:: Live Stream Together Maze
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["主播对<<robinFriend>>真好~","主播的<<robinFriend>>是第一次玩吗？那选剑士可能更简单些","我觉得主播的<<robinFriend>>更适合选法师。"]>>
+<<addFixedChat _fixedChat "supportive">>
+<<set $toolList to []>>
+ <div class="streaming">
+    <<streamscreen>>
+    你和罗宾打开了一款充满挑战的<span class="green">RPG游戏</span>，屏幕上的画面色彩斑斓，给人一种怀念的感觉。
+    <br><br>
+    游戏有两个职业可以选择，分别是剑士和法师。剑士以物理攻击为主，拥有强大的近战能力和生存能力；而法师则以魔法攻击为主，拥有高爆发力和控制能力，同时也能为队友提供辅助和支持。
+    <br><br>
+    "你先选吧。" 罗宾谦让道，<<he>>默默等待着你做出决定。
+     <br><br>
+    <<link [[选剑士（0:05)|Live Stream Together Maze Swordsman]]>><<addstreamchat 5>><<pass 5>><</link>><br>
+    <<link [[选法师（0:05)|Live Stream Together Maze Magician]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Maze Swordsman
+<<effects>><<streameffects>><<updatestream "random">>
+<<set $PcRole to "swordsman">>
+<<set _fixedChat to ["主播刚才好像说了什么不得了的话233。", "很好的选择，剑士更适合新玩家。", "我还是觉得主播的<<robinFriend>>更适合玩法师，可惜~", "原来主播喜欢玩法师，我都不知道。"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div class="streaming">
+    <<streamscreen>>
+    你犹豫了一会，然后选择了剑士，罗宾看上去十分开心："其实我本来就喜欢玩法师，因为这个职业既可以暴力输出，又可以辅助队友。"
+    <br><br>
+    你有点难以想象这两种技能是怎么结合的，不过还是赞同地点了点头。
+    <br><br>
+    在确定完各自的职业和技能之后，你们操作着游戏内的角色向前方走去。
+    <br><br>
+    <<link [[继续（0:05）|Live Stream Together Maze Fork]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Maze Magician
+<<effects>><<streameffects>><<updatestream "random">>
+<<set $PcRole to "magician">>
+<<set _fixedChat to [ "主播的<<robinFriend>>好皮。","我就说主播的<<robinFriend>>适合玩法师嘛。","其实还是剑士更适合新玩家","原来主播喜欢玩法师，我都不知道。"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div class="streaming">
+    <<streamscreen>>
+    你犹豫了一会，然后选择了法师，罗宾看上去稍微有一点失落，但还是微笑着说："其实我更喜欢玩法师一点，不过玩玩剑士也很不错。"
+    <br><br>
+    "抱歉抢了你喜欢的职业，就当换换口味吧。"你俏皮地对着罗宾眨了眨眼。
+    <br><br>
+    在确定完各自的职业和技能之后，你们操作着游戏内的角色向前方走去。
+    <br><br>
+    <<link [[继续（0:05）|Live Stream Together Maze Fork]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Maze Fork
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["选光明之路，一看就是主角的选择！", "我也觉得光明之路好。 " ,"光明之路！光明之路！" ,"冒险一把，走暗影小径！","我也想走暗影小径，纯属好奇。"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div class="streaming">
+    <<streamscreen>>
+    你们继续前行，突然，一个叉路口出现在了你们面前，提示牌上分别写着“光明之路”和“暗影小径”。
+    <br><br>
+    罗宾看着你："你觉得选哪条路比较好？我觉得我们可以先去光明之路看看，不过还是由你来决定。"
+    <br><br>
+    <<link [[光明之路（0:05）|Live Stream Together Maze Light]]>><<addstreamchat 5>><<pass 5>><</link>><br>
+    <<link [[暗影小径（0:10）|Live Stream Together Maze Dark]]>><<addstreamchat 10>><<pass 10>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Maze Light
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["接受任务，一定要接受！", "这还能不接受吗？" ,"快救救那些村民吧。", "主播按自己的心意选择就好","好棒的NPC啊"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div class="streaming">
+    <<streamscreen>>
+    你选择了走光明之路，大多数观众都对这个决定表示满意。<<gviewers>><<updatestream "high">>
+    <br><br>
+    在光明之路的尽头，你们踏入了一片被光芒轻柔拥抱的区域。那里站立着一位身披长袍、面容慈祥的神秘NPC。
+    <br><br>
+    他手持一根雕刻着古老符文的法杖，周身环绕着淡淡的、仿佛能洞察人心的光芒。他缓缓开口，语气中带着一丝不容置疑的威严与恳求：
+    <br><br>
+    “勇敢的旅人啊，你们终于来到了这里。在这片被光明眷顾的土地上，有一个村庄正遭受着前所未有的灾难。邪恶的势力侵扰了他们的安宁，许多无辜的村民被囚禁在暗无天日的地牢之中。我，作为这片土地的守护者，在此恳请你们，伸出援手，解救那些被困的村民，让光明再次照耀他们的心灵。”
+    <br><br>
+    罗宾继续征求你的意见："我们选择接受这个任务，好吗？"
+    <br><br>
+    <<link [[答应（0:05）|Live Stream Together Maze Light Agree]]>><<addstreamchat 5>><<pass 5>><</link>><br>
+    <<link [[拒绝（0:05）|Live Stream Together Maze Light Disagree]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Maze Light Agree
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["我就知道主播会选择接受的" ,"好期待接下俩的发展啊" ,"加油加油"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div class="streaming">
+    <<streamscreen>>
+    你点了点头，于是罗宾毫不犹豫地选择了答应神秘NPC的请求。
+    <br><br>
+    NPC的脸上露出了欣慰的笑容，他轻轻一挥法杖，一道光芒在你们面前凝聚成一张古老的地图，上面标记着通往地牢的秘密路径以及可能遇到的陷阱与守卫。
+    <br><br>
+    “这张地图将指引你们前往地牢，但请记住，真正的考验不仅仅在于战斗，更在于你们内心的勇气与智慧。”
+    <br><br>
+    你们接过地图，向着地牢的方向走去。
+    <br><br>
+    <<link [[继续（0:05）|Live Stream Together Maze Dungeon]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Maze Light Disagree
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["为什么要选择拒绝呢？","你们就不管那些村民了吗？","即使是在游戏中这样也有点自私吧。"]>>
+<<addFixedChat _fixedChat "negative">>
+ <div class="streaming">
+    <<streamscreen>>
+    你摇摇头："我对这个任务没有兴趣，我们去另一边看看吧。"
+    <br><br>
+    "好，就按你的想法来。"罗宾有些无奈地选择了拒绝NPC的请求，观众们似乎对此有些失望。<<lviewers>><<updatestream "low">>
+    <br><br>
+    随后，你们沿着光明之路的另一侧，向着暗影小径的方向走去。
+    <br><br>
+    <<link [[继续（0:05）|Live Stream Together Maze Dark]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Maze Dungeon
+<<effects>><<streameffects>><<updatestream "random">>
+ <div class="streaming">
+    <<streamscreen>>
+    你们来到了阴森的地牢入口，刚踏入门槛，一阵低沉的咆哮声骤然响起，紧接着，一群形态各异的怪物从黑暗中冲出，它们的眼中闪烁着贪婪与暴戾的光芒。
+    <br><br>
+    <<if $PcRole is "swordsman">>
+        <<set _fixedChat to ["选疾风剑术，伤害高" ,"赶紧用剑气护体防御","可以用影遁闪避逃课"]>>
+        <<addFixedChat _fixedChat "supportive">>
+        你迅速做出了反应，操作着自己的角色拔出长剑，剑身闪烁着寒光。罗宾紧随其后，<<he>>双手紧握法杖，准备释放魔法支援。
+        <br><br>
+        战斗瞬间爆发，你的角色以矫健的身姿穿梭于怪物之间，每一次剑芒挥舞都伴随着敌人倒下的身影。而罗宾则精准地释放着魔法，火球术、冰霜新星轮番上阵，将怪物们困于冰火两重天之中。
+        <br><br>
+        包围着你们的怪物一个个减少，而你的体力值即将耗尽。是时候选择你要使用的最后一项技能了。
+        <br><br>
+        <<link [[疾风剑术（0:05）|Live Stream Together Maze Dungeon Skill 1]]>><<addstreamchat 5>><<pass 5>><</link>><br>
+        <<link [[剑气护体（0:05）|Live Stream Together Maze Dungeon Skill 2]]>><<addstreamchat 5>><<pass 5>><</link>><br>
+        <<link [[影遁闪避（0:05）|Live Stream Together Maze Dungeon Skill 3]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <<else>>
+        <<set _fixedChat to ["选火焰冲击，伤害高", "赶紧用治愈之光回血", "可以用隐身术逃课"]>>
+        <<addFixedChat _fixedChat "supportive">>
+        罗宾迅速做出了反应，<<he>>操作着自己的角色拔出长剑，剑尖闪烁着寒光，你则紧随其后，双手紧握法杖，准备释放魔法支援。
+        <br><br>
+        战斗瞬间爆发，罗宾的角色以矫健的身姿穿梭于怪物之间，每一次剑芒挥舞都伴随着敌人倒下的身影。而你则精准地释放着魔法，火球术、冰霜新星轮番上阵，将怪物们困于冰火两重天之中。
+        <br><br>
+        包围着你们的怪物一个个减少，而你的魔法值即将耗尽，是时候选择你要使用的最后一项技能了。
+        <br><br>
+        <<link [[火焰冲击（0:05）|Live Stream Together Maze Dungeon Skill 4]]>><<addstreamchat 5>><<pass 5>><</link>><br>
+        <<link [[治愈之光（0:05）|Live Stream Together Maze Dungeon Skill 5]]>><<addstreamchat 5>><<pass 5>><</link>><br>
+        <<link [[隐身术（0:05）|Live Stream Together Maze Dungeon Skill 6]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</if>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Maze Dungeon Skill 1
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["天啊，这也太酷了", "我就说应该选这个吧","加油"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div class="streaming">
+    <<streamscreen>>
+    你紧握长剑，所有的精气神凝聚于剑尖，随后一记凌厉的疾风剑术自你臂间挥出，宛若划破夜空的闪电，迅猛地席卷战场。剑光所至，怪物们惊呼着被剑气切割，剑风凌厉，带起一阵呼啸的狂风，将它们一一击溃。<<gviewers>><<updatestream "high">>
+    <br><br>
+    经过一番苦战，怪物们终于被一一击倒，地牢中恢复了宁静。你和罗宾相视一笑，继续深入地牢中。
+    <br><br>
+    <<link [[继续（0:05）|Live Stream Together Maze Rescue]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Maze Dungeon Skill 2
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["没想到防御系技能也能有奇效", "我就说应该选这个吧","加油"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div class="streaming">
+    <<streamscreen>>
+    随着你长剑的轻轻一划，一道银色的剑气护体瞬间环绕在你与罗宾的周围，如同一层闪耀的铠甲，为你们抵挡了即将到来的攻击。
+    <br><br>
+    在你们的共同努力下，怪物们被一一击退，地牢中恢复了宁静。你和罗宾相视一笑，继续深入地牢中。
+    <br><br>
+    <<link [[继续（0:05）|Live Stream Together Maze Rescue]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Maze Dungeon Skill 3
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["主播和<<robinFriend>>配合地好默契啊。" ,"我就说应该选这个吧" ,"加油"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div class="streaming">
+    <<streamscreen>>
+    你操作角色，让身体仿佛化作了虚无，灵活地在怪物群中穿梭。你每一次轻盈的跳跃与转身，都巧妙地避开了敌人的攻击，仿佛你的身影只是战场上的一道幻影。
+    <br><br>
+    当你们找到最佳的攻击时机时，你猛然间爆发出惊人的剑速，每一击都精准地落在怪物的要害之上；而罗宾则在一旁以法术辅助，为你们创造更加有利的战斗环境。
+    <br><br>
+    在你们的默契配合下，怪物们逐一被击溃，地牢中恢复了宁静。你和罗宾相视一笑，继续深入地牢中。
+    <br><br>
+    <<link [[继续（0:05）|Live Stream Together Maze Rescue]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Maze Dungeon Skill 4
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["天啊，这也太酷了", "我就说应该选这个吧","加油"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div class="streaming">
+    <<streamscreen>>
+    你紧握法杖，所有的魔力汇聚于一点，随后一道耀眼的火焰冲击自你手中爆发而出，如同愤怒的火龙般席卷整个战场。火焰所过之处，怪物们哀嚎着被点燃，火焰的烈焰迅速蔓延，将它们一一吞噬。<<gviewers>><<updatestream "high">>
+    <br><br>
+    经过一番苦战，怪物们终于被一一击倒，地牢中恢复了宁静。你和罗宾相视一笑，继续深入地牢中。
+    <br><br>
+    <<link [[继续（0:05）|Live Stream Together Maze Rescue]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+
+:: Live Stream Together Maze Dungeon Skill 5
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["没想到治愈系技能也能有奇效", "我就说应该选这个吧","加油"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div class="streaming">
+    <<streamscreen>>
+    随着你法杖的轻轻一挥，一束温暖而柔和的光芒洒落在罗宾和你自己的角色身上，你们瞬间恢复了部分生命值，重新投入到战斗之中。
+    <br><br>
+    在你们的共同努力下，怪物们被一一击退，地牢中恢复了宁静。你和罗宾相视一笑，继续深入地牢中。
+    <br><br>
+    <<link [[继续（0:05）|Live Stream Together Maze Rescue]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Maze Dungeon Skill 6
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["真是出人意料的战术，太厉害了" ,"我就说应该选这个吧" ,"加油"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div class="streaming">
+    <<streamscreen>>
+    你操作角色让身体逐渐融入周围的阴影之中。随着一阵轻微的波动，你和罗宾仿佛从怪物们的视线中消失了一般。
+    <br><br>
+    隐身状态下，你们悄无声息地绕过了怪物群的密集区域，找到了一个相对安全的突破口。随后，你们迅速展开反击，利用隐身术带来的优势，逐一消灭落单的怪物，最终成功摆脱了困境。
+    <br><br>
+    地牢中恢复了宁静。你和罗宾相视一笑，继续深入地牢中。
+    <br><br>
+    <<link [[继续（0:05）|Live Stream Together Maze Rescue]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Maze Rescue
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["真是圆满的结果。", "好温暖啊。","天哪，好丰厚的奖励","我就说应该先走光明之路吧。","赶紧去打巨龙吧！"]>>
+<<addFixedChat _fixedChat "supportive">>
+<<set $toolList to ["Potion","Scroll","Gear"]>>
+<<set $resucedVillager to true>>
+ <div class="streaming">
+    <<streamscreen>>
+    你们在地牢深处的一间昏暗石室中找到了那些被困的村民，他们或坐或卧，面容憔悴。你们迅速展开行动，解开束缚村民的锁链，将他们一一搀扶起来。村民们纷纷用颤抖的声音诉说着对你们的感激之情。<<gviewers>><<updatestream "high">>
+    <br><br>
+    就在这时，那位神秘的NPC悄然出现在石室入口，他缓缓走到你们面前，用庄重而诚恳的语气说道：“勇敢的旅人啊，你们的行为证明了光明与正义的力量。为了报答你们的义举，我将为你们提供丰厚的奖励。”
+    <br><br>
+    说着，他轻轻一挥法杖，只见石室中央突然光芒大盛，一件件闪耀着璀璨光芒的宝物凭空出现，有增强力量的<span class="green">神秘药剂</span>、提升技能等级的<span class="green">稀有卷轴</span>，还有能够保护你们免受伤害的<span class="green">强力装备</span>。
+    <br><br>
+    你们对NPC的慷慨表示了感谢，正当你们准备离开时，一位村民叫住了你们："我听说在暗影小径的尽头有一条巨龙，打败它可以获得巨大的力量，它就隐藏在<span class="gold">遗迹深处的密室</span>里，我可以告诉你们通往密室的捷径。"
+    <br><br>
+    在向村民打听了巨龙的具体位置之后，罗宾兴奋地提议道："我们立刻出发吧。" 说完，<<he>>就迫不及待地带着你向暗影小径的方向走去。
+    <br><br>
+    <<link [[继续（0:05）|Live Stream Together Maze Dark]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Maze Dark
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["好神秘的样子","很好奇接下来的进展","我有一点紧张"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div class="streaming">
+    <<streamscreen>>
+    你们踏入了暗影小径的尽头，一股古老而神秘的气息扑面而来，仿佛穿越了时空的界限。眼前，一座庞大的遗迹静静矗立，岁月在其表面刻下了斑驳的痕迹，却也赋予了它一种难以言喻的庄严与沧桑。
+    <br><br>
+    遗迹的大门半掩着，仿佛是通往另一个世界的门户，正等待着勇敢的探索者去揭开它的秘密。你和罗宾对视了一眼，随后默契地向前走去，准备一探究竟。
+    <br><br>
+    <<link [[进入遗迹（0:05）|Live Stream Together Maze Enter Relics]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Maze Enter Relics
+<<effects>><<streameffects>><<updatestream "random">>
+ <div class="streaming">
+    <<streamscreen>>
+    随着你们踏入遗迹，周围的空气似乎变得更加凝重，遗迹内部错综复杂，通道蜿蜒曲折，墙壁上雕刻着奇异的图案和符号，仿佛在诉说着古老的故事和传说。
+    <br><br>
+    <<if $resucedVillager>>
+        <<set _fixedChat to ["快摸摸看，这肯定是关键道具。","感觉有些危险，还是别了吧","好紧张啊。"]>>
+        <<addFixedChat _fixedChat "supportive">>
+        你们按照村民提供的捷径快速前进着，最终发现了一个隐藏在遗迹深处的密室。
+        <br><br>
+        密室内摆放着一件看似普通的物品，但当你们靠近时，却感受到了一股前所未有的强大能量波动，这件道具显然与村民之前提到的巨龙有关。
+        <br><br>
+        "怎么样，要不要触碰一下试试？" 罗宾期待地看着你，<<his>>的声音似乎也有一些紧张。
+        <br><br>
+        <<link [[触碰物品（0:05）|Live Stream Together Maze Touch]]>><<addstreamchat 5>><<pass 5>><</link>><br>
+        <<link [[放弃（0:10）|Live Stream Together Maze Giveup]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <<else>>
+        <<set _fixedChat to ["是宝箱唉。", "好经典的场景。", "快开开看吧。"]>>
+        <<addFixedChat _fixedChat "supportive">>
+        你们小心翼翼地穿梭于遗迹之中，时而停下脚步，仔细观察那些古老的壁画和雕塑，试图从中寻找线索；时而又警惕地环顾四周，以防不测。
+        <br><br>
+        突然，你们发现了一个神秘的宝箱，它静静地躺在一块被时光遗忘的石台上，四周散落着几块破碎的石砖，似乎曾有人试图打开它而未果。
+        <br><br>
+        <<set $skulduggerydifficulty to 600>>
+        <<link [[尝试打开宝箱（0:05）|Live Stream Together Open Chest]]>><<addstreamchat 5>><<pass 5>><</link>><<skulduggerydifficulty>><br>
+        <<link [[忽略宝箱（0:05）|Live Stream Together Ignore Chest]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</if>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Open Chest
+<<effects>><<streameffects>><<updatestream "random">>
+ <div class="streaming">
+    <<streamscreen>>
+    你仔细观察宝箱的每一个细节，从锁孔到周围的雕刻，寻找着可能存在的机关或线索。
+    <br><br>
+    <<if $skulduggerysuccess is 1>>
+        <<set _fixedChat to ["主播的<<robinFriend>>好厉害。", "哇，意外收获。"]>>
+        <<addFixedChat _fixedChat "supportive">>
+        经过一番仔细的推敲和尝试，你注意到宝箱的侧面有一个几乎被岁月完全掩盖的小凹槽，其形状与你们之前在某个角落发现的一块奇异石头完美契合。你迅速从背包中取出那块石头，轻轻地将其嵌入凹槽之中。
+        <<skulduggeryuse>>
+        <<set _result to ["Potion","Scroll","Gear"].random()>>
+        <<set $toolList.pushUnique(_result)>>
+        宝箱盖缓缓打开了，你和罗宾兴奋地拿走了宝箱里<span class="green">
+        <<switch _result>>
+            <<case "Potion">>
+                增强力量的神秘药剂
+            <<case "Scroll">>
+                提升技能等级的稀有卷轴
+            <<case "Gear">>
+                能够保护你们免受伤害的强力装备
+        <</switch>>
+        </span>。<<gviewers>><<updatestream "high">>
+        <br><br>
+    <<else>>
+        <<set _fixedChat to ["看来这个宝箱很难开。", "我也想试试看了。"]>>
+        <<addFixedChat _fixedChat "supportive">>
+        经过一番仔细的推敲和尝试，宝箱依旧紧闭，没有丝毫打开的迹象。
+        <<skulduggeryuse>>
+        "没关系，至少我们尝试过了。" 罗宾安慰你说。
+    <</if>>
+    <br><br>
+     <<link [[继续（0:05）|Live Stream Together Maze Relics Fight]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Ignore Chest
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["唉，连尝试都没有嘛。","不合格的游戏主播。"]>>
+<<addFixedChat _fixedChat "negative">>
+ <div class="streaming">
+    <<streamscreen>>
+    你忽略了眼前的宝箱，继续和罗宾一起向前探索，观众们似乎有一些失望。<<lviewers>><<updatestream "low">>
+    <br><br>
+     <<link [[继续（0:05）|Live Stream Together Maze Relics Fight]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Maze Relics Fight
+<<effects>><<streameffects>><<updatestream "random">>
+ <div class="streaming">
+    <<streamscreen>>
+    你们继续朝着遗迹深处前进，一阵低沉的咆哮声骤然响起，紧接着，一群形态各异的怪物从黑暗中冲出，它们的眼中闪烁着贪婪与暴戾的光芒。
+    <br><br>
+    <<if $PcRole is "swordsman">>
+        <<set _fixedChat to ["选疾风剑术，伤害高" ,"赶紧用剑气护体防御","可以用影遁闪避逃课"]>>
+        <<addFixedChat _fixedChat "supportive">>
+        你迅速做出了反应，操作着自己的角色拔出长剑，剑身闪烁着寒光。罗宾紧随其后，<<he>>双手紧握法杖，准备释放魔法支援。
+        <br><br>
+        战斗瞬间爆发，你的角色以矫健的身姿穿梭于怪物之间，每一次剑芒挥舞都伴随着敌人倒下的身影。而罗宾则精准地释放着魔法，火球术、冰霜新星轮番上阵，将怪物们困于冰火两重天之中。
+        <br><br>
+        包围着你们的怪物一个个减少，而你的体力值即将耗尽。是时候选择你要使用的最后一项技能了。
+        <br><br>
+        <<link [[疾风剑术（0:05）|Live Stream Together Maze Relics Skill 1]]>><<addstreamchat 5>><<pass 5>><</link>><br>
+        <<link [[剑气护体（0:05）|Live Stream Together Maze Relics Skill 2]]>><<addstreamchat 5>><<pass 5>><</link>><br>
+        <<link [[影遁闪避（0:05）|Live Stream Together Maze Relics Skill 3]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <<else>>
+        <<set _fixedChat to ["选火焰冲击，伤害高", "赶紧用治愈之光回血", "可以用隐身术逃课"]>>
+        <<addFixedChat _fixedChat "supportive">>
+        罗宾迅速做出了反应，<<he>>操作着自己的角色拔出长剑，剑尖闪烁着寒光，你则紧随其后，双手紧握法杖，准备释放魔法支援。
+        <br><br>
+        战斗瞬间爆发，罗宾的角色以矫健的身姿穿梭于怪物之间，每一次剑芒挥舞都伴随着敌人倒下的身影。而你则精准地释放着魔法，火球术、冰霜新星轮番上阵，将怪物们困于冰火两重天之中。
+        <br><br>
+        包围着你们的怪物一个个减少，而你的魔法值即将耗尽，是时候选择你要使用的最后一项技能了。
+        <br><br>
+        <<link [[火焰冲击（0:05）|Live Stream Together Maze Relics Skill 4]]>><<addstreamchat 5>><<pass 5>><</link>><br>
+        <<link [[治愈之光（0:05）|Live Stream Together Maze Relics Skill 5]]>><<addstreamchat 5>><<pass 5>><</link>><br>
+        <<link [[隐身术（0:05）|Live Stream Together Maze Relics Skill 6]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</if>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+      
+:: Live Stream Together Maze Relics Skill 1
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["天啊，这也太酷了", "我就说应该选这个吧","加油"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div class="streaming">
+    <<streamscreen>>
+    你紧握长剑，所有的精气神凝聚于剑尖，随后一记凌厉的疾风剑术自你臂间挥出，宛若划破夜空的闪电，迅猛地席卷战场。剑光所至，怪物们惊呼着被剑气切割，剑风凌厉，带起一阵呼啸的狂风，将它们一一击溃。<<gviewers>><<updatestream "high">>
+    <br><br>
+    经过一番苦战，怪物们终于被一一击倒，地牢中恢复了宁静。你和罗宾相视一笑，继续深入地牢中。
+    <br><br>
+    <<link [[继续（0:05）|Live Stream Together Maze Rescue]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Maze Relics Skill 2
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["没想到防御系技能也能有奇效", "我就说应该选这个吧","加油"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div class="streaming">
+    <<streamscreen>>
+    随着你长剑的轻轻一划，一道银色的剑气护体瞬间环绕在你与罗宾的周围，如同一层闪耀的铠甲，为你们抵挡了即将到来的攻击。
+    <br><br>
+    在你们的共同努力下，怪物们被一一击退，地牢中恢复了宁静。你和罗宾相视一笑，继续深入地牢中。
+    <br><br>
+    <<link [[继续（0:05）|Live Stream Together Maze Rescue]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Maze Relics Skill 3
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["主播和<<robinFriend>>配合地好默契啊。" ,"我就说应该选这个吧" ,"加油"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div class="streaming">
+    <<streamscreen>>
+    你操作角色，让身体仿佛化作了虚无，灵活地在怪物群中穿梭。你每一次轻盈的跳跃与转身，都巧妙地避开了敌人的攻击，仿佛你的身影只是战场上的一道幻影。
+    <br><br>
+    当你们找到最佳的攻击时机时，你猛然间爆发出惊人的剑速，每一击都精准地落在怪物的要害之上；而罗宾则在一旁以法术辅助，为你们创造更加有利的战斗环境。
+    <br><br>
+    在你们的默契配合下，怪物们逐一被击溃，地牢中恢复了宁静。你和罗宾相视一笑，继续深入地牢中。
+    <br><br>
+    <<link [[继续（0:05）|Live Stream Together Maze Rescue]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Maze Relics Skill 4
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["天啊，这也太酷了", "我就说应该选这个吧","加油"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div class="streaming">
+    <<streamscreen>>
+    你紧握法杖，所有的魔力汇聚于一点，随后一道耀眼的火焰冲击自你手中爆发而出，如同愤怒的火龙般席卷整个战场。火焰所过之处，怪物们哀嚎着被点燃，火焰的烈焰迅速蔓延，将它们一一吞噬。<<gviewers>><<updatestream "high">>
+    <br><br>
+    经过一番苦战，怪物们终于被一一击倒，地牢中恢复了宁静。你和罗宾相视一笑，继续深入地牢中。
+    <br><br>
+    <<link [[继续（0:05）|Live Stream Together Maze Rescue]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+
+:: Live Stream Together Maze Relics Skill 5
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["没想到治愈系技能也能有奇效", "我就说应该选这个吧","加油"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div class="streaming">
+    <<streamscreen>>
+    随着你法杖的轻轻一挥，一束温暖而柔和的光芒洒落在罗宾和你自己的角色身上，你们瞬间恢复了部分生命值，重新投入到战斗之中。
+    <br><br>
+    在你们的共同努力下，怪物们被一一击退，地牢中恢复了宁静。你和罗宾相视一笑，继续深入地牢中。
+    <br><br>
+    <<link [[继续（0:05）|Live Stream Together Maze Rescue]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Maze Relics Skill 6
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["真是出人意料的战术，太厉害了" ,"我就说应该选这个吧" ,"加油"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div class="streaming">
+    <<streamscreen>>
+    你操作角色让身体逐渐融入周围的阴影之中。随着一阵轻微的波动，你和罗宾仿佛从怪物们的视线中消失了一般。
+    <br><br>
+    隐身状态下，你们悄无声息地绕过了怪物群的密集区域，找到了一个相对安全的突破口。随后，你们迅速展开反击，利用隐身术带来的优势，逐一消灭落单的怪物，最终成功摆脱了困境。
+    <br><br>
+    地牢中恢复了宁静。你和罗宾相视一笑，继续深入地牢中。
+    <br><br>
+    <<link [[继续（0:05）|Live Stream Together Maze Rescue]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Maze Touch
+
+:: Live Stream Together Maze Giveup
+    
