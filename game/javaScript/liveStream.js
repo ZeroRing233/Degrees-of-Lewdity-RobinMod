@@ -799,13 +799,15 @@ function getAllPossibleUser(type) {
         return userList;
     }
     if (type === "neutral") {
-        userList = userList.filter(user => V.currUsers[user].attitude.includes("neutral"));
+        userList = userList.filter(user => V.currUsers[user].attitude.includes("neutral") &&
+            !V.fanslist.includes(user));
     }
     if (type === "supportive") {
         userList = userList.filter(user => V.currUsers[user].attitude.includes("supportive"));
     }
     if (type === "negative") {
-        userList = userList.filter(user => V.currUsers[user].attitude.includes("negative"));
+        userList = userList.filter(user => V.currUsers[user].attitude.includes("negative") &&
+            !V.fanslist.includes(user));
     }
     return userList;
 }

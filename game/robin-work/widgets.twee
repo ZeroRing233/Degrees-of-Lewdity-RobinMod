@@ -483,6 +483,12 @@
             <<set _data to {id:_chatter.id, user: _chatter.username, text: _msg, attitude: _attitude, isFans:$fanslist.includes(_chatter.id)}>>
         <</if>>
         <<run $stream.chat.push(_data)>>
+        <<if _attitude is "supportive" and !$fanslist.includes(_chatter.id) and random(1,20) is 1>>
+            <<set _msg to "用户「" + _chatter.username + "」已成为你的粉丝">>
+            <<set _data to { "user": "系统消息", "id": "sysInfo", "text": _msg, "attitude": "neutral"}>>
+            <<set $fanslist.pushUnique(_chatter.id)>>
+            <<run $stream.chat.push(_data)>>
+        <</if>>
     <</for>>
 <</widget>>
 

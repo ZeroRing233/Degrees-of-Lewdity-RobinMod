@@ -414,6 +414,7 @@
         <li>打赏是随机的，但与观众数，粉丝数量，玩家选择和正面/负面名声等因素有关。</li>
         <li>初始观众数由罗宾当前直播周数决定，注意玩家的参与可能会增加/减少罗宾的直播进度。</li>
         <li>可点击「查看直播题材」切换本次直播的内容。</li>
+        <li>小贴士：<span class="gold">手机端请横屏游玩直播内容。</span></li>
     </div>
 </details>
 <br>
@@ -518,7 +519,9 @@
         <br><br>
         现在，是时候正式开始今天的直播了。
         <br><br>
-        <<link [[继续(0:10)|Live Stream Together Maze]]>><<addstreamchat 10>><<pass 10>><</link>>
+        <<if $stream.topic is "Maze">>
+            <<link [[继续|Live Stream Together Maze]]>><<addstreamchat 5>><</link>>
+        <</if>>
     <</streamscreen>>
     <<streamchat>>
 </div>
@@ -532,9 +535,28 @@
     <<streamscreen>>
         你没有理会观众们的反应，而是直接和罗宾开始了今天的直播，观众们似乎对此有些不满。<<lviewers>><<updatestream "low">>
         <br><br>
-        <<link [[继续(0:10)|Live Stream Together Maze]]>><<addstreamchat 10>><<pass 10>><</link>>
+        <<if $stream.topic is "Maze">>
+            <<link [[继续|Live Stream Together Maze]]>><<addstreamchat 5>><</link>>
+        <</if>>
     <</streamscreen>>
     <<streamchat>>
 </div>
 
 :: Live Stream Together Maze
+<<effects>><<streameffects>><<updatestream "random">>
+ <div class="streaming">
+    <<streamscreen>>
+    你们在地牢深处的一间昏暗石室中找到了那些被困的村民，他们或坐或卧，面容憔悴。你们迅速展开行动，解开束缚村民的锁链，将他们一一搀扶起来。村民们纷纷用颤抖的声音诉说着对你们的感激之情。（+观众数）
+    <br><br>
+    就在这时，那位神秘的NPC悄然出现在石室入口，他缓缓走到你们面前，用庄重而诚恳的语气说道：“勇敢的旅人啊，你们的行为证明了光明与正义的力量。为了报答你们的义举，我将为你们提供丰厚的奖励。”
+    <br><br>
+    说着，他轻轻一挥法杖，只见石室中央突然光芒大盛，一件件闪耀着璀璨光芒的宝物凭空出现，有（绿字）增强力量的神秘药剂、提升技能等级的稀有卷轴，还有能够保护你们免受伤害的强力装备。
+    <br><br>
+    你们对NPC的慷慨表示了感谢，正当你们准备离开时，一位村民叫住了你们："我听说在暗影小径的尽头有一条巨龙，打败它可以获得巨大的力量，它就隐藏在（金字）遗迹深处的密室里，我可以告诉你们通往密室的捷径。"
+    <br><br>
+    在向村民打听了巨龙的具体位置之后，罗宾兴奋地提议道："我们立刻出发吧。" 说完，<<he>>就迫不及待地带着你向暗影小径的方向走去。
+     <br><br>
+        <<link [[继续(0:10)|Live Stream Together Maze]]>><<addstreamchat 10>><<pass 10>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
