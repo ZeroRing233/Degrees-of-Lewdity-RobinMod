@@ -321,6 +321,9 @@
     <<if $stream.topic is undefined>>
         <<set $stream.topic to "Maze">>
     <</if>>
+    <<if $player.commission is undefined>>
+        <<set $stream.commission to 30>>
+    <</if>>
     <<if $stream.layout is undefined>>
         <<set $stream.layout to "streamingLeftRight">>
     <</if>>

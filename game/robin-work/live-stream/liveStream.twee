@@ -415,7 +415,7 @@
         <li>打赏是随机的，但与观众数，粉丝数量，玩家选择和正面/负面名声等因素有关。</li>
         <li>初始观众数由罗宾当前直播周数决定，注意玩家的参与可能会增加/减少罗宾的直播进度。</li>
         <li>可点击「查看直播题材」切换本次直播的内容。</li>
-        <li>小贴士：<span class="gold">手机端请横屏游玩直播内容。</span></li>
+        <li>可点击「直播设置」调整平台抽成比例和弹幕位置。</li>
     </div>
 </details>
 <br>
@@ -462,10 +462,21 @@
             <label><<radiobutton "$stream.topic" "Needygirl" autocheck>> 模拟主播游戏</label>
             <br>
             <label><<radiobutton "$stream.topic" "Dol" autocheck>> 一款神秘的游戏</label> 
-            <br>%/
-            <label><<radiobutton "$stream.topic" "Daily" autocheck>> 日常闲聊-1</label>
             <br>
+            <label><<radiobutton "$stream.topic" "Daily" autocheck>> 日常闲聊-1</label>
+            <br> %/
             （更多选项会在之后添加）
+        </div>
+</details>
+<br>
+<details class="liveStream">
+	<summary class="liveStream">直播设置</summary>
+        <div class="liveStream">
+            <label>平台抽成调整：<<numberslider "$stream.commission" $stream.commission 10 90 1>></label>
+            <br><br>
+            弹幕位置：<br>
+            <label><<radiobutton "$stream.layout" "streamingLeftRight" autocheck>> 屏幕右侧（默认）</label>
+            <label><<radiobutton "$stream.layout" "streamingUpDown" autocheck>> 屏幕下方（适合手机竖屏）</label>
         </div>
 </details>
 <<run blacklistRemoveClicked()>>
@@ -543,3 +554,49 @@
 </div>
 
 :: Live Stream Together End
+<<effects>>
+"今天真是令人难忘，我们下次再一起直播吧。" 面对罗宾的邀请，你爽快地点了点头，表示同意。
+<<glove>><<gdom>><<npcincr Robin love 2>><<npcincr Robin dom 2>>
+<<set _streamIncome to $stream.tip * (100-$stream.commission) / 2>>
+<<set _tip to $stream.tip * 100>>
+<br><br>
+本次直播共获得打赏<<printmoney _tip>>
+，除去平台抽成<span class="green"><<print $stream.commission>>%</span>后，
+罗宾获得了<<printmoney _streamIncome>>，你获得了<<printmoney _streamIncome>>。
+<<set $money += _streamIncome>>
+<<set $robinmoney += _streamIncome / 100>>
+<<set _fanslist to getFanslist()>>
+<<set _blacklist to getBlacklist()>>
+<br><br>
+<details class="liveStream">
+	<summary class="liveStream">查看粉丝列表</summary>
+    <div class="liveStream">
+        <<for _i to 0; _i lt _fanslist.length; _i++>>
+            <<set _color to 'color: ' + setup.rbg_from_string(_fanslist[_i])>>
+            <span class="fanslist" @style="_color"><<= _fanslist[_i]>>
+             <i class="liveStreamFans"></i>
+             <br></span>
+        <</for>>
+    </div>
+</details>
+<br>
+<details class="liveStream">
+	<summary class="liveStream">查看黑名单</summary>
+    <div class="liveStream">
+        <<if _blacklist.length is 0>>
+            暂无黑名单。
+        <</if>>
+        <<for _i to 0; _i lt _blacklist.length; _i++>>
+            <<set _color to 'color: ' + setup.rbg_from_string(_blacklist[_i].name)>>
+            <span class="blacklistid" style="display:none;"><<= _blacklist[_i].id>></span>
+            <span class="blacklistname" @style="_color"><<= _blacklist[_i].name>>
+            <i class="blacklistRemove"></i>
+            </span>
+            <br>
+        <</for>>
+    </div>
+</details>
+<<run blacklistRemoveClicked()>>
+<br><br>
+<<link [[继续|Orphanage]]>><<endevent>><</link>>
+

@@ -8,6 +8,10 @@ div.streamingUpDown {
     grid-column-gap: 1.001em;
 }
 
+#numberslider-value-streamcommission::after {
+    content: "%";
+}
+
 #streamAside {
     border: 1px solid lightgray;
 }
