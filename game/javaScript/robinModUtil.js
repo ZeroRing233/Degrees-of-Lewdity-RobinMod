@@ -352,3 +352,9 @@ function getRandomElements(arr, count) {
     return result;
 }
 window.getRandomElements = getRandomElements;
+
+// 两个数组的差集
+function getDifference(arr1, arr2) {
+    return arr1.filter(item => !arr2.includes(item));
+}
+window.getDifference = getDifference;

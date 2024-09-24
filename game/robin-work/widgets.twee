@@ -318,7 +318,12 @@
     <<else>>
         <<set $stream.viewers to random(1500,2000)>>
     <</if>>
-    <<set $stream.topic to "Maze">>
+    <<if $stream.topic is undefined>>
+        <<set $stream.topic to "Maze">>
+    <</if>>
+    <<if $stream.layout is undefined>>
+        <<set $stream.layout to "streamingLeftRight">>
+    <</if>>
     <<set $stream.tip to 0>>
     <<set $stream.chat to []>>
     <<if $blacklist is undefined>>
@@ -508,4 +513,26 @@
         <<set $_text_output to "朋友">>
     <</if>>
     <<print $_text_output>>
+<</widget>>
+
+<<widget "relicsDrop">>
+    <<set _result to getDifference(["Potion","Scroll","Gear"],$toolList).random()>>
+    <<set $toolList.pushUnique(_result)>>
+    你和罗宾拿起了怪物们掉落的<span class="green">
+        <<switch _result>>
+            <<case "Potion">>
+                增强力量的神秘药剂
+            <<case "Scroll">>
+                提升技能等级的稀有卷轴
+            <<case "Gear">>
+                能够保护你们免受伤害的强力装备
+        <</switch>>
+        </span>，继续深入遗迹内部。
+<</widget>>
+
+<<widget "endstream">>
+    <<if $stream.topic is "Maze">>
+        <<set $resucedVillager to false>>
+        <<set $avoidTraps to false>>
+    <</if>>
 <</widget>>

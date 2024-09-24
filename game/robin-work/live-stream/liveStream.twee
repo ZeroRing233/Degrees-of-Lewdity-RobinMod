@@ -478,7 +478,7 @@
 <<run checkFame()>><<addFixedChat  _fixedChatFans "supportive">><<addFixedChat _fixedChatNegative "negative">>
 一切准备就绪，你们点击了开始直播，镜头和弹幕列表出现在了你眼前，你感到有一些紧张。
 <br><br>
-<div class="streaming">
+<div @class="$stream.layout">
     <<streamscreen>>
         罗宾微笑着面对镜头说："大家好，欢迎来到我的直播间！今天，我邀请了一位特别嘉宾，<<pshe>>是我<<robinPC>>，也是我的青梅竹马，大家欢迎！"
         <br><br>
@@ -506,7 +506,7 @@
 <<effects>><<streameffects>><<updatestream "random">>
 <<set _fixedChat to ["主播的<<robinFriend>>笑起来真可爱","笑起来还是挺可爱的嘛~"]>>
 <<addFixedChat _fixedChat "supportive">>
- <div class="streaming">
+ <div @class="$stream.layout">
     <<streamscreen>>
         你微笑着向观众们打了招呼，
         <<if $phase is 0>>
@@ -527,12 +527,11 @@
     <<streamchat>>
 </div>
 
-
 :: Live Stream Together Slient
 <<effects>><<streameffects>><<updatestream "random">>
 <<set _fixedChat to ["咦，好高冷","装什么装呢。"]>>
 <<addFixedChat _fixedChat "negative">>
- <div class="streaming">
+ <div @class="$stream.layout">
     <<streamscreen>>
         你没有理会观众们的反应，而是直接和罗宾开始了今天的直播，观众们似乎对此有些不满。<<lviewers>><<updatestream "low">>
         <br><br>
@@ -542,3 +541,5 @@
     <</streamscreen>>
     <<streamchat>>
 </div>
+
+:: Live Stream Together End

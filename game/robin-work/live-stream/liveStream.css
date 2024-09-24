@@ -1,6 +1,10 @@
-div.streaming {
+div.streamingLeftRight {
     display: grid;
     grid-template-columns: auto 33%;
+    grid-column-gap: 1.001em;
+}
+
+div.streamingUpDown {
     grid-column-gap: 1.001em;
 }
 
