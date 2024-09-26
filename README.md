@@ -36,6 +36,9 @@
 
 ## 安装方式说明
 本模组基于0.5.1.x及以上版本进行自测，旧版本会存在不兼容的问题，请确保您手上的游戏是最新版本，然后下载release下[0.05-alpha](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.05-alpha)中的domRobin.mod.zip（请不要下载source code），并使用平时游玩汉化版时使用的mod管理器加载完汉化模组后，再加载此模组。
+
+PS:如果想体验模组最新试玩版本，可下载release下[0.06-temp](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.06-temp)版本, 注意此版本会随时被原地替换。
+
 <details>
   <summary>点击查看图片</summary>
 
