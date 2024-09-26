@@ -396,14 +396,44 @@
 <<endcombat>>
 <<link [[继续|Orphanage]]>><<endevent>><</link>>
 
+:: Live Stream Together Agree
+<<set $outside to 0>><<set $location to "home">><<effects>>
+<<set $liveStreamTogether to true>>
+<<if $phase is 1>>
+    "太棒了！我当然愿意和你一起直播，我们什么时候开始？" 你满怀期待地说。
+<<else>>
+    "是的，我改变主意了，我们什么时候开始一起直播？" 你期待地说。
+<</if>>
+<br><br>
+罗宾看上去十分高兴："我就知道你会同意的，每天<span class="gold">晚上七点</span>，我开始直播的时候，你都可以加入进来。
+还有，我想给你<span class="gold">房间管理员权限</span>，这样你就能第一时间处理掉那些糟糕的评论，你觉得怎么样？"
+<<glove>><<gdom>><<npcincr Robin love 2>><<npcincr Robin dom 2>>
+<br><br>
+"好，就按你说的办。" 你欣然接受了罗宾的提议。
+<br><br>
+<span class="gold">每天晚上七点，你都可以去罗宾房间和罗宾一起直播。</span>
+<br><br>
+<<robinoptions>>
+
+:: Live Stream Together Disagree
+<<set $outside to 0>><<set $location to "home">><<effects>>
+<<set $liveStreamTogether to false>>
+"抱歉，我需要再考虑一下"，你摇头拒绝了罗宾的邀请。
+<br><br>
+"好吧...那我们先不聊这个话题了。" 罗宾的语气似乎有点失落，但没有再多说什么。<<ldom>><<npcincr Robin dom -2>>
+<br><br>
+<<robinoptions>>
+
 :: Live Stream Together Prepare
 <<set $outside to 0>><<set $location to "home">><<effects>><<startstream>>
 <<npc Robin>><<person1>>
-你和罗宾调整了一下直播设备，确保画质、音频和网络都保持在良好的状态，然后准备开始今天的直播。
+<<if $fromOutside>>
+    你敲了敲门，罗宾很快就跑出来开了门："你来得正好，我正准备开始今晚的直播呢！"说着，<<he>>将你拉到电脑前。
+    <br><br>
+<</if>>
+    你和罗宾调整了一下直播设备，确保画质、音频和网络都保持在良好的状态，然后开始进行最后的准备。
 <br><br>
 <<set _fanslist to getFanslist()>>
-/% 调试用黑名单 %/
-/% <<set $blacklist to ['1752985983', 'headteacher', '9289260980', '4724046236', '1410873828', '1700875084']>> %/
 <<set _blacklist to getBlacklist()>>
 <details class="liveStream">
 	<summary class="liveStream">查看直播说明</summary>
@@ -475,7 +505,7 @@
             <label>平台抽成调整：<<numberslider "$stream.commission" $stream.commission 10 90 1>></label>
             <br><br>
             弹幕位置：<br>
-            <label><<radiobutton "$stream.layout" "streamingLeftRight" autocheck>> 屏幕右侧（默认）</label>
+            <label><<radiobutton "$stream.layout" "streamingLeftRight" autocheck>> 屏幕右侧（适合电脑和手机横屏）</label>
             <label><<radiobutton "$stream.layout" "streamingUpDown" autocheck>> 屏幕下方（适合手机竖屏）</label>
         </div>
 </details>

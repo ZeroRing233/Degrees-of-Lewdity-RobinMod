@@ -46,7 +46,7 @@
         你敲了敲门，罗宾飞奔了出来，<<he>>激动地说："还记得你之前提到的直播的事吗？现在我已经攒够需要的钱了，我们赶紧开始吧。" <<gggdom>> <<npcincr Robin dom 10>>
         <br><br>
         <<link [[与罗宾一起准备直播设备(3:00)|Live Stream Prepare Together]]>><<set $phase to 1>><</link>>
-        <br><br>
+        <<exit>>
     
     <<elseif $liveStreamStage isnot undefined and !$weeklyLiveStreamTalked>>
         /% 差分一:100，300，差分二:500，700，差分三：1000,1500，差分四：2000 %/
@@ -67,6 +67,20 @@
         <<npcincr Robin dom 2>>
         <<set $weeklyLiveStreamTalked to true>>
         <br><br>
+        <<if !$liveStreamTogetherTalked>>
+            <<set $liveStreamTogetherTalked to true>>
+            罗宾稍微顿了顿，又继续说道："怎么样，这周你有没有兴趣和我一起直播？我想把我<<robinPC>>介绍给我的粉丝们。"
+            <br><br>
+            <<link [[答应|Live Stream Together Agree]]>><<set $phase to 1>><</link>><br>
+            <<link [[拒绝|Live Stream Together Disagree]]>><</link>>
+            <<exit>>
+        <<elseif !$liveStreamTogether>>
+            罗宾稍微顿了顿，又继续说道："关于和我一起直播这件事，你是否改变注意了呢？我真心想把你介绍给我的粉丝们。"
+            <br><br>
+            <<link [[答应|Live Stream Together Agree]]>><<set $phase to 2>><</link>><br>
+            <<link [[拒绝|Live Stream Together Disagree]]>><</link>>
+            <<exit>>
+        <</if>>
      
     <<elseif $photography is 1 and !$weeklyPhotographyTalked and $photographyIncomePC isnot undefined>>
         <<if $photographyIncomePC is 0>>
