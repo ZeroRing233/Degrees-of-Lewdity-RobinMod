@@ -536,6 +536,14 @@
             <<case -2>>
                 但绝大多数人对你的到来都表示了抵触，你的负面名声在其中起了不少副作用。<<gstress>><<gtrauma>><<llviewers>><<stress 6>><<trauma 3>><<updatestream "lower">>
         <</switch>>
+        <<switch _viewerChange>>
+            <<case -1 -2>>
+                <br><br>
+                罗宾见状，温柔地对你说道："没事的，不要在意这些弹幕。" 你轻轻点了点头。<<lstress>><<ltrauma>><<stress -6>><<trauma -3>>
+            <<case 1 2>>
+                <br><br>
+                罗宾惊喜地说："快看那些弹幕，你真的太棒了！" 你对着<<him>>笑了笑。<<lstress>><<ltrauma>><<stress -6>><<trauma -3>>
+        <</switch>>
         <br><br>
         <<link [[微笑着打招呼|Live Stream Together Smile]]>><<addstreamchat 5>><<set $phase to _viewerChange>><</link>><br>
         <<link [[保持沉默|Live Stream Together Slient]]>><<addstreamchat 5>><</link>>
