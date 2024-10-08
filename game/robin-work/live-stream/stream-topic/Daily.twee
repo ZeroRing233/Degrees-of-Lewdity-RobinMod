@@ -1,0 +1,331 @@
+:: Live Stream Together Daily
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["好耶，是聊天直播。","聊天万岁","真难得啊~","换换风格也不错","我真的特别好奇主播和<<robinFriend>>的日常生活。"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div @class="$stream.layout">
+    <<streamscreen>>
+    你和罗宾这次没有选择打开游戏，而是开始了一场<span class="green">聊天直播</span>。
+    <br><br>
+    "趁这次难得的机会，我们一起来聊聊天吧。" 罗宾微笑着说，观众们对此反响热烈。<<gviewers>><<updatestream "high">>
+    <br><br>
+    <<He>>征求着你的意见："我们可以先从我们的日常生活聊起，你想聊什么呢？是关于我们的学校生活...还是？"
+    <br><br>
+    <<link [[聊你们在学校的生活(0:10)|Live Stream Together Daily School]]>><<addstreamchat 10>><<pass 10>><</link>><br>
+    <<link [[聊你们在孤儿院的生活(0:10)|Live Stream Together Daily Orphanage]]>><<addstreamchat 10>><<pass 10>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Daily School
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["好温馨的感觉。","这种青梅竹马一起上学的感觉好棒，真让人羡慕。","天，主播还被骚扰过，那些混混真该死。","主播的<<robinFriend>>威武~","主播真是个好学生啊。"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div @class="$stream.layout">
+    <<streamscreen>>
+    "那就聊我们在学校的生活吧。" 你回应道，"学校里总体还算...有趣，我和<<he>>一起上历史课，上课时，我们总是坐在一起，在食堂里也经常一起吃饭..."
+    <br><br>
+    罗宾立刻接上了你的话题："是的，有时我在食堂会被混混骚扰，这时<<pher>>总是会出面保护我，
+    <<if C.npc.Robin.dom gte 80>>
+        不过现在我已经不需要保护啦。"
+    <<else>>
+        我真的很感激<<pher>>为我做的一切。"
+    <</if>>
+    <br><br>
+    <<He>>对你眨了眨眼睛，然后接着说道，"再说说我们上课的内容吧，我很喜欢历史课上那些古老又神奇的故事，当然，其他科目我也很喜欢..."
+    <br><br>
+    罗宾滔滔不绝地说完了<<He>>对学校生活的看法后，又转向了你："你呢？喜欢在学校里的一切吗？"
+    <br><br>
+    <<link [[说你很喜欢(0:05)|Live Stream Together Daily School Like]]>><<addstreamchat 5>><<pass 5>><</link>><br>
+    <<link [[沉默(0:05)|Live Stream Together Daily School Slient]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Daily School Like
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["主播的反应好可爱","主播的<<robinFriend>>也好棒","两位要加油啊。","主播课后是不是还需要打工来养活自己？","我也好奇，除了直播外主播还有其他工作吗？"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div @class="$stream.layout">
+    <<streamscreen>>
+    <<set _content to "">>
+    <<if $cool gte 160>>
+        <<set _content += "同学们都认为我很酷，">>
+    <</if>>
+    <<if $delinquency lte 10>>
+        <<set _content += "老师们都视我为模范学生，">>
+    <</if>>
+    <<if $schooltrait gte 4>>
+        <<set _content += "学校的课程对我来说也很有吸引力，">>
+    <</if>>
+    <<if $trauma is 0>>
+        <<set _content += "我的学校生活总体还算顺利，">>
+    <</if>>
+    你点点头："是的，我很喜欢学校，毕竟<<print _content>>
+    <<if _content isnot "">>
+        当然，更重要的是，有青梅竹马和我一起上学，这使我每天都充满了动力。"
+    <<else>>
+        ...你犹豫了一下，然后说："有青梅竹马和我一起上学，就没有什么困难是过不去的了。"
+    <</if>>
+    说完，你直视着罗宾。<<gviewers>><<updatestream "high">>
+    <br><br>
+    罗宾在听了你的话后，脸瞬间红了起来，<<he>>轻咳了一声，然后准备开始下一轮话题："我看到有弹幕在好奇我是否还在做其他工作，
+    我确实还有其他工作要做，这些工作也和我的<<robinFriend>>息息相关，比如..."<<He>>又看向了你。
+    <br><br>
+    <<link [[聊周末的柠檬水摊(0:10)|Live Stream Together Daily Lemonade]]>><<addstreamchat 10>><<pass 10>><</link>>
+    <<if $danubeTutorIntro is 4>>
+        <br><<link [[聊放学后的家教(0:10)|Live Stream Together Daily Tutor]]>><<addstreamchat 10>><<pass 10>><</link>>
+    <</if>>
+    <<if $photography is 1>>
+        <br><<link [[聊每周一次的摄影(0:10)|Live Stream Together Daily Photography]]>><<addstreamchat 10>><<pass 10>><</link>>
+    <</if>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Daily School Slient
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["发生什么事了？感觉有内情。","这反应感觉不对劲啊。","主播的<<robinFriend>>没事吧？","主播课后是不是还需要打工来养活自己？","我也好奇，除了直播外主播还有其他工作吗？"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div @class="$stream.layout">
+    <<streamscreen>>
+    你一时间不知道该如何回答罗宾的问题，而是陷入了短暂的沉默，罗宾担忧地看着你，<<he>>轻声对你说："没关系的，我们可以换个话题。"
+    <br><br>
+    接着，<<He>>看着弹幕说道："我看到有许多人在好奇我是否还在做其他工作，
+    我确实还有其他工作要做，这些工作也和我的<<robinFriend>>息息相关，比如..."<<He>>又看向了你。
+    <br><br>
+    <<link [[聊周末的柠檬水摊(0:10)|Live Stream Together Daily Lemonade]]>><<addstreamchat 10>><<pass 10>><</link>>
+    <<if $danubeTutorIntro is 4>>
+        <br><<link [[聊放学后的家教(0:10)|Live Stream Together Daily Tutor]]>><<addstreamchat 10>><<pass 10>><</link>>
+    <</if>>
+    <<if $photography is 1>>
+        <br><<link [[聊每周一次的摄影(0:10)|Live Stream Together Daily Photography]]>><<addstreamchat 10>><<pass 10>><</link>>
+    <</if>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Daily Orphanage
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["天，我是第一次知道主播的身世。","主播真不容易啊","这种青梅竹马互相扶持的感觉好棒，真让人羡慕。","天，主播是不是还遇到过什么不好的事情啊？","感觉悲伤中带着一点温馨呢。"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div @class="$stream.layout">
+    <<streamscreen>>
+    "我想聊聊我和你一起长大的地方。"你回应道，"不知道大家知不知道，我们两个都是孤儿，从小就一起在这所孤儿院长大，因此，我们对彼此都非常熟悉..."
+    <br><br>
+    罗宾顿了下，然后接上了你的话题："是的，孤儿院的生活有时候并不容易，但我们有许多能够互相扶持的兄弟姐妹，
+    有时候监护人也会帮我们赶走一些威胁，当然更多的时候我们都需要学会保护自己..."
+    <br><br>
+    罗宾滔滔不绝地说完了<<He>>对孤儿院生活的看法后，又转向了你："你呢？喜欢在这里的一切吗？"
+    <br><br>
+    <<link [[说你很喜欢(0:05)|Live Stream Together Daily Orphanage Like]]>><<addstreamchat 5>><<pass 5>><</link>><br>
+    <<link [[沉默(0:05)|Live Stream Together Daily Orphanage Slient]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Daily Orphanage Like
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["主播的反应好可爱","主播的<<robinFriend>>也好棒","两位要加油啊。","那主播是不是还需要打工来养活自己？","我也好奇，除了直播外主播还有其他工作吗？"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div @class="$stream.layout">
+    <<streamscreen>>
+    <<set _content to "">>
+    <<if $orphan_hope gte 40>>
+        <<set _content += "这里有很多心怀希望的同伴，">>
+    <</if>>
+    <<if $orphan_reb gte 40>>
+        <<set _content += "我们中的很多人都相当有个性，">>
+    <</if>>
+    <<set _content += "我们有地方可以自己种花，">>
+    <<if $loft_river is 1>>
+        <<set _content += "还有能够供自己使用的厨房，">>
+    <</if>>
+    <<if $trauma is 0>>
+        <<set _content += "我在孤儿院过得总体还算顺利，">>
+    <</if>>
+    你点点头："是的，我很喜欢在这里的生活，毕竟<<print _content>>当然，更重要的是，在这里我认识了<<he>>，这让我感到自己非常幸运。"
+    说完，你直视着罗宾。<<gviewers>><<updatestream "high">>
+    <br><br>
+    罗宾在听了你的话后，脸瞬间红了起来，<<he>>轻咳了一声，然后准备开始下一轮话题："我看到有弹幕在好奇我是否还在做其他工作，
+    我确实还有其他工作要做，这些工作也和我的<<robinFriend>>息息相关，比如..."<<He>>又看向了你。
+    <br><br>
+    <<link [[聊周末的柠檬水摊(0:10)|Live Stream Together Daily Lemonade]]>><<addstreamchat 10>><<pass 10>><</link>>
+    <<if $danubeTutorIntro is 4>>
+        <br><<link [[聊放学后的家教(0:10)|Live Stream Together Daily Tutor]]>><<addstreamchat 10>><<pass 10>><</link>>
+    <</if>>
+    <<if $photography is 1>>
+        <br><<link [[聊每周一次的摄影(0:10)|Live Stream Together Daily Photography]]>><<addstreamchat 10>><<pass 10>><</link>>
+    <</if>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Daily Orphanage Slient
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["发生什么事了？感觉有内情。","这反应感觉不对劲啊。","主播的<<robinFriend>>没事吧？","那主播是不是还需要打工来养活自己？","我也好奇，除了直播外主播还有其他工作吗？"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div @class="$stream.layout">
+    <<streamscreen>>
+    你一时间不知道该如何回答罗宾的问题，而是陷入了短暂的沉默，罗宾担忧地看着你，<<he>>轻声对你说："没关系的，我们可以换个话题。"
+    <br><br>
+    接着，<<He>>看着弹幕说道："我看到有许多人在好奇我是否还在做其他工作，
+    我确实还有其他工作要做，这些工作也和我的<<robinFriend>>息息相关，比如..."<<He>>又看向了你。
+    <br><br>
+    <<link [[聊周末的柠檬水摊(0:10)|Live Stream Together Daily Lemonade]]>><<addstreamchat 10>><<pass 10>><</link>>
+    <<if $danubeTutorIntro is 4>>
+        <br><<link [[聊放学后的家教(0:10)|Live Stream Together Daily Tutor]]>><<addstreamchat 10>><<pass 10>><</link>>
+    <</if>>
+    <<if $photography is 1>>
+        <br><<link [[聊每周一次的摄影(0:10)|Live Stream Together Daily Photography]]>><<addstreamchat 10>><<pass 10>><</link>>
+    <</if>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Daily Lemonade
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["好棒啊，这种互相扶持的感觉。","在海边卖柠檬水嘛，听起来还有点浪漫。","我光顾过主播的柠檬水摊，确实很棒。","真的嘛，改天我也去一下。","怎么听起来像广告（逃）"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div @class="$stream.layout">
+    <<streamscreen>>
+    "比如周末的柠檬水摊。" 你接上了罗宾的话题，"从很早之前开始，<<He>>每个周末都会去海滩卖柠檬水，这些柠檬水非常受欢迎，我有时也会去帮忙。"
+    <br><br>
+    罗宾轻轻地点了点头："是的，我卖柠檬水时也会遇到一些麻烦，不过总得来说那都是一些美好的回忆。"
+    <<if $lemonadeUpgraded>>
+        <br><br>
+        "尤其是最近，在我<<robinFriend>>的帮助下，我的柠檬水摊进行了一次升级，我们新增了很多新商品和新饮料，顾客数量也越来越多了。
+        这些都要多亏<<pher>>的帮助。"
+    <</if>>
+    <br><br>
+    说着，罗宾和你相视一笑。<<gviewers>><<updatestream "high">>
+    <br><br>
+    <<link [[继续(0:05)|Live Stream Together Daily Walk]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Daily Tutor
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["好棒啊，这种互相扶持的感觉。","看来主播和<<robinFriend>>都是学霸啊。","我也想找这么好的工作。","其实主要还是因为主播你厉害。","据说住多瑙河街的都是土豪。"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div @class="$stream.layout">
+    <<streamscreen>>
+    "比如放学后的家教。" 你接上了罗宾的话题，"在一次偶然的机会下，我在多瑙河街做家教时，向雇主推荐了<<him>>，雇主答应了给<<him>>一次机会。"
+    <br><br>
+    罗宾轻轻地点了点头："是的，当我去尝试后，那家人对我的表现非常满意，于是我就成为了他们的常驻家庭教师，每天放学都要去一趟。
+    他们给的报酬非常丰厚，学生也很礼貌，我很高兴能在<<robinFriend>>的帮助下找到这么好的工作。"
+    <br><br>
+    说着，罗宾和你相视一笑。<<gviewers>><<updatestream "high">>
+    <br><br>
+    <<link [[继续(0:05)|Live Stream Together Daily Walk]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Daily Photography
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["好棒啊，这种互相扶持的感觉。","我就说我在杂志上见过主播的<<robinFriend>>嘛。","我也见过，主播的<<robinFriend>>确实很适合当模特。",
+"主播的摄影技术是从哪里学的？","主播和<<robinFriend>>都好厉害啊。"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div @class="$stream.layout">
+    <<streamscreen>>
+    "比如每周一次的摄影。" 你接上了罗宾的话题，"这份工作还是<<he>>主动提出来的，在此之前，我都不知道<<his>>的摄影技术会那么好。
+    不仅如此，当我没有合适的衣服时，<<he>>还会主动为我提供合身的摄影服。"
+    <br><br>
+    罗宾不好意思地笑了笑："但我们的摄影作品能够被发表在杂志上，主要还是因为我的<<robinFriend>>是一个非常优秀的模特，如果没有<<pher>>，
+    我们的作品可能不会这么受欢迎。"
+    <br><br>
+    说着，罗宾和你相视一笑。<<gviewers>><<updatestream "high">>
+    <br><br>
+    <<link [[继续(0:05)|Live Stream Together Daily Walk]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Daily Walk
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["要到了激动人心的约会环节了嘛？","当然想了解，快说快说。","会不会有意想不到的地方呢？","别吊胃口了，快说吧。","好奇~"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div @class="$stream.layout">
+    <<streamscreen>>
+    在弹幕火热的讨论氛围中，罗宾接着说："除了日常的工作和生活外，我们有时也会出门放松放松，大家想不想了解我们都会去哪呢？"
+    <br><br>
+    看到观众们纷纷对新话题表示了好奇，<<he>>再次询问了你的意见："还是你来选吧，你想从哪里开始聊起呢？"
+    <br><br>
+    <<link [[森林(0:10)|Live Stream Together Daily Forest]]>><<addstreamchat 10>><<pass 10>><</link>> <br>
+    <<link [[电影院(0:10)|Live Stream Together Daily Cinema]]>><<addstreamchat 10>><<pass 10>><</link>>
+    <<if $stargazingCount gte 1>>
+        <br><<link [[观星(0:10)|Live Stream Together Daily Star]]>><<addstreamchat 10>><<pass 10>><</link>>
+    <</if>>
+    <<if $swimmingCount gte 1>>
+        <br><<link [[海边游泳(0:10)|Live Stream Together Daily Beach]]>><<addstreamchat 10>><<pass 10>><</link>>
+    <</if>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Daily Forest
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["听起来很浪漫啊。","听得我也想去森林看看了。","我也很喜欢亲近自然。"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div @class="$stream.layout">
+    <<streamscreen>>
+    你想了想，对观众们说："我们有时候会去森林，那里一年四季都很美，天气好的时候，我们会在森林里野餐，雨天，我们还会在森林里爬树..."
+    <br><br>
+    罗宾补充道:"是的，森林里的确很美，不同季节还会有不同的景色，也会有不同的小动物，我和<<pher>>在森林中度过了许多愉快的时光，自然也给予了我们许多的灵感。"
+    <<he>>一边说，一边用余光和你进行着眼神交流。
+    <br><br>
+    <<link [[继续(0:05)|Live Stream Together Daily Talent]]>><<addstreamchat 10>><<pass 10>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Daily Cinema
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["听起来很有趣啊。","听得我也想去看电影了。","主播有推荐的电影吗？"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div @class="$stream.layout">
+    <<streamscreen>>
+    你想了想，对观众们说："我们有时候会去镇上的电影院，那里会上映各种不同类型的电影，我们都很喜欢看电影，电影院里还会卖甜咸的爆米花..."
+    <br><br>
+    罗宾补充道:"是的，我们会看超级英雄电影和浪漫电影，有时也会看恐怖电影，虽然我其实不太擅长看恐怖片...不过有<<pher>>陪着，看什么都很有趣。"
+    <<he>>一边说，一边用余光和你进行着眼神交流。
+    <br><br>
+    <<link [[继续(0:05)|Live Stream Together Daily Talent]]>><<addstreamchat 10>><<pass 10>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Daily Star
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["听起来很浪漫啊。","听得我也想去看星星了。", "我也想去买一台望远镜，有推荐的型号吗？"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div @class="$stream.layout">
+    <<streamscreen>>
+    你想了想，对观众们说："有时候我们会去阁楼上看星星，我们在那里偷偷放了一台天文望远镜，每个晴朗的夜晚，我们都会透过这台望远镜来看星空..."
+    <br><br>
+    罗宾补充道:"是的，说起来这台望远镜还是我随口一提后，<<pher>>主动给我买的，真是一个很大的惊喜，每次看到美丽的星空时，我都感觉很感动。"
+    <<he>>一边说，一边用余光和你进行着眼神交流。
+    <br><br>
+    <<link [[继续(0:05)|Live Stream Together Daily Talent]]>><<addstreamchat 10>><<pass 10>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Daily Beach
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["听起来很浪漫啊。","听得我也想去看海了。","主播平时在海边赚钱，放假在海边游泳，完美。"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div @class="$stream.layout">
+    <<streamscreen>>
+    你想了想，对观众们说："学校放假时，我们有时会去海边游泳，大海蔚蓝而又一望无际，在海里游泳的感觉非常好，在去海边前，我们还会互相给对方挑泳衣..."
+    <br><br>
+    罗宾补充道:"是的，去海边游泳也是我一直以来的愿望，除了一起游泳以外，我们还会在海边做很多有趣的事情，比如堆沙堡，捡贝壳，喂...喂海鸥，等等。"
+    <<he>>一边说，一边用余光和你进行着眼神交流。
+    <br><br>
+    <<link [[继续(0:05)|Live Stream Together Daily Talent]]>><<addstreamchat 10>><<pass 10>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Daily Talent
