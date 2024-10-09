@@ -272,7 +272,7 @@
     <<streamscreen>>
     你想了想，对观众们说："我们有时候会去森林，那里一年四季都很美，天气好的时候，我们会在森林里野餐，雨天，我们还会在森林里爬树..."
     <br><br>
-    罗宾补充道:"是的，森林里的确很美，不同季节还会有不同的景色，也会有不同的小动物，我和<<pher>>在森林中度过了许多愉快的时光，自然也给予了我们许多的灵感。"
+    罗宾补充道："是的，森林里的确很美，不同季节还会有不同的景色，也会有不同的小动物，我和<<pher>>在森林中度过了许多愉快的时光，自然也给予了我们许多的灵感。"
     <<he>>一边说，一边用余光和你进行着眼神交流。
     <br><br>
     <<link [[继续(0:05)|Live Stream Together Daily Talent]]>><<addstreamchat 10>><<pass 10>><</link>>
@@ -288,7 +288,7 @@
     <<streamscreen>>
     你想了想，对观众们说："我们有时候会去镇上的电影院，那里会上映各种不同类型的电影，我们都很喜欢看电影，电影院里还会卖甜咸的爆米花..."
     <br><br>
-    罗宾补充道:"是的，我们会看超级英雄电影和浪漫电影，有时也会看恐怖电影，虽然我其实不太擅长看恐怖片...不过有<<pher>>陪着，看什么都很有趣。"
+    罗宾补充道："是的，我们会看超级英雄电影和浪漫电影，有时也会看恐怖电影，虽然我其实不太擅长看恐怖片...不过有<<pher>>陪着，看什么都很有趣。"
     <<he>>一边说，一边用余光和你进行着眼神交流。
     <br><br>
     <<link [[继续(0:05)|Live Stream Together Daily Talent]]>><<addstreamchat 10>><<pass 10>><</link>>
@@ -304,7 +304,7 @@
     <<streamscreen>>
     你想了想，对观众们说："有时候我们会去阁楼上看星星，我们在那里偷偷放了一台天文望远镜，每个晴朗的夜晚，我们都会透过这台望远镜来看星空..."
     <br><br>
-    罗宾补充道:"是的，说起来这台望远镜还是我随口一提后，<<pher>>主动给我买的，真是一个很大的惊喜，每次看到美丽的星空时，我都感觉很感动。"
+    罗宾补充道："是的，说起来这台望远镜还是我随口一提后，<<pher>>主动给我买的，真是一个很大的惊喜，每次看到美丽的星空时，我都感觉很感动。"
     <<he>>一边说，一边用余光和你进行着眼神交流。
     <br><br>
     <<link [[继续(0:05)|Live Stream Together Daily Talent]]>><<addstreamchat 10>><<pass 10>><</link>>
@@ -320,7 +320,7 @@
     <<streamscreen>>
     你想了想，对观众们说："学校放假时，我们有时会去海边游泳，大海蔚蓝而又一望无际，在海里游泳的感觉非常好，在去海边前，我们还会互相给对方挑泳衣..."
     <br><br>
-    罗宾补充道:"是的，去海边游泳也是我一直以来的愿望，除了一起游泳以外，我们还会在海边做很多有趣的事情，比如堆沙堡，捡贝壳，喂...喂海鸥，等等。"
+    罗宾补充道："是的，去海边游泳也是我一直以来的愿望，除了一起游泳以外，我们还会在海边做很多有趣的事情，比如堆沙堡，捡贝壳，喂...喂海鸥，等等。"
     <<he>>一边说，一边用余光和你进行着眼神交流。
     <br><br>
     <<link [[继续(0:05)|Live Stream Together Daily Talent]]>><<addstreamchat 10>><<pass 10>><</link>>
@@ -329,3 +329,87 @@
 </div>
 
 :: Live Stream Together Daily Talent
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["好耶，是才艺表演。","期待期待~","不知道主播的<<robinFriend>>会表演什么样的才艺呢？","我之前听过主播唱歌，真的很好听。","主播的歌声真的太治愈了。"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div @class="$stream.layout">
+    <<streamscreen>>
+    在你们又交流了一会一起出门时的趣事后，罗宾看了看表，然后对着观众们说道："
+    聊了这么久，我想大家都期待能看到更多的内容吧，接下来的时间里，大家想不想欣赏一下我们的才艺表演呢？" 
+    <br><br>
+    看到观众们反响热烈，罗宾随即轻轻哼起了一首你熟悉的歌曲，观众们似乎都沉浸在了<<his>>的歌声中。<<gviewers>><<updatestream "high">>
+    <br><br>
+    罗宾用眼神示意你和<<him>>一起合唱。
+    <br><br>
+    <<link [[和罗宾一起唱歌（0:10)|Live Stream Together Daily Sing]]>><<addstreamchat 10>><<pass 10>><</link>><br>
+    <<link [[随着罗宾的歌声起舞（0:10)|Live Stream Together Daily Dance]]>><<addstreamchat 10>><<pass 10>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Daily Sing
+<<effects>><<streameffects>><<updatestream "random">>
+ <div @class="$stream.layout">
+    <<streamscreen>>
+    你跟上罗宾的节奏，和<<he>>唱起了同一首歌。
+    <<if $harpy gte 6>>
+        你的歌声异常优美，很快就盖过了罗宾的声音，罗宾放低了音量让你来主导这首歌，你们的合唱和谐而又动人，你仿佛能通过弹幕听到观众们如雷的掌声。<<ggviewers>><<updatestream "higher">>
+        <<set _fixedChat to ["天哪，简直是天籁。","主播的<<robinFriend>>居然比主播还要会唱歌。","我从来没听到过这么好听的歌声。","简直就像两只小鸟在合唱。","今天真是太惊喜了。"]>>
+        <<addFixedChat _fixedChat "supportive">>
+    <<else>>
+        你放低了音量，让罗宾来主导这首歌，你们的合唱和谐而又动人。<<gviewers>><<updatestream "high">>
+        <<set _fixedChat to ["主播的<<robinFriend>>唱歌也很好听。", "两人的声音好协调，配合好默契。", "我很喜欢这首歌。"]>>
+        <<addFixedChat _fixedChat "supportive">>
+    <</if>>
+    <br><br>
+    一曲过后，你们的直播也进入了尾声，是时候和观众们告别了。
+    <br><br>
+    <<link [[和观众们告别（0:05）|Live Stream Together Daily Goodbye]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Daily Dance
+<<effects>><<streameffects>><<updatestream "random">>
+ <div @class="$stream.layout">
+    <<streamscreen>>
+    你对着罗宾轻轻摇了摇头，然后开始在<<him>>的歌声下翩翩起舞。
+    <<if $danceskill gte 1000>>
+        你的舞姿惊艳了众人，你仿佛能通过弹幕听到观众们如雷的掌声。<<ggviewers>><<updatestream "higher">>
+        <<set _fixedChat to ["主播的<<robinFriend>>的舞姿实在是太美了。","我仿佛看到了神仙在跳舞。","这是我能够看得吗。"]>>
+        <<addFixedChat _fixedChat "supportive">>
+    <<elseif $danceskill gte 800>>
+        你的舞姿和罗宾的歌声互相映衬，画面显得十分和谐。<<gviewers>><<updatestream "high">>
+        <<set _fixedChat to ["主播的<<robinFriend>>挺会跳舞的。","主播和<<robinFriend>>配合挺默契的。","这首歌和这支舞真的挺配。"]>>
+        <<addFixedChat _fixedChat "supportive">>
+    <<elseif $danceskill gte 400>>
+        你的舞姿勉强能跟上罗宾的伴奏，你们的表演差强人意。
+        <<set _fixedChat to ["主播的<<robinFriend>>跳得还行。","主播和<<robinFriend>>配合得还行。","这首歌和这支舞还算般配。"]>>
+        <<addFixedChat _fixedChat "supportive">>
+    <<else>>
+        你的舞姿完全跟不上罗宾的伴奏，你们的表演看上去有些凌乱。<<lviewers>><<updatestream "low">>
+        <<set _fixedChat to ["主播的<<robinFriend>>跳得还行。","主播和<<robinFriend>>配合得还行。","这首歌和这支舞还算般配。"]>>
+        <<addFixedChat _fixedChat "negative">>
+    <</if>>
+    <br><br>
+    表演结束后，你们的直播也进入了尾声，是时候和观众们告别了。
+    <br><br>
+    <<link [[和观众们告别（0:05）|Live Stream Together Daily Goodbye]]>><<addstreamchat 5>><<pass 5>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>
+
+:: Live Stream Together Daily Goodbye
+<<effects>><<streameffects>><<updatestream "random">>
+<<set _fixedChat to ["完结撒花。","主播们辛苦了。","期待下次再见","今天聊得很愉快","希望下次也能看到主播的<<robinFriend>>。"]>>
+<<addFixedChat _fixedChat "supportive">>
+ <div @class="$stream.layout">
+    <<streamscreen>>
+    在直播结束前，罗宾微笑着面对镜头说："非常感谢大家今天的陪伴和支持，我们下次直播再见！"
+    <br><br>
+    随后，你们依依不舍地和观众们挥手告别，然后关闭了直播镜头。
+    <br><br>
+    <<link [[结束直播|Live Stream Together End]]>><<endstream>><</link>>
+    <</streamscreen>>
+    <<streamchat>>
+</div>

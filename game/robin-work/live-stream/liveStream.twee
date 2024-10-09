@@ -492,9 +492,9 @@
             <label><<radiobutton "$stream.topic" "Needygirl" autocheck>> 模拟主播游戏</label>
             <br>
             <label><<radiobutton "$stream.topic" "Dol" autocheck>> 一款神秘的游戏</label> 
-            <br>
-            <label><<radiobutton "$stream.topic" "Daily" autocheck>> 日常闲聊-1</label>
             <br> %/
+            <label><<radiobutton "$stream.topic" "Daily" autocheck>>  聊天直播-1</label>
+            <br>
             （更多选项会在之后添加）
         </div>
 </details>
@@ -571,6 +571,10 @@
         <br><br>
         <<if $stream.topic is "Maze">>
             <<link [[继续|Live Stream Together Maze]]>><<addstreamchat 5>><</link>>
+        <<elseif $stream.topic is "Daily">>
+            <<link [[继续|Live Stream Together Daily]]>><<addstreamchat 5>><</link>>
+        <<else>>
+            <span class="blue">你们似乎还没决定要播什么，请向模组作者反馈该问题。</span>
         <</if>>
     <</streamscreen>>
     <<streamchat>>
