@@ -411,10 +411,10 @@
         <<else>>
             <<ltrauma>>
         <</if>>
+        <br><br>
     <</if>>
     <<set $deletedChats to []>>
     <<set $forbiddenChats to []>>
-    <br><br>
     /% 教师组相关 %/
     <<if $currUsers.headteacher is undefined and $rng gte 96>>
         <<if !$liveStreamTeachers>>
