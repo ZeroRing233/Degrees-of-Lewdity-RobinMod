@@ -590,6 +590,10 @@
         <br><br>
         <<if $stream.topic is "Maze">>
             <<link [[继续|Live Stream Together Maze]]>><<addstreamchat 5>><</link>>
+        <<elseif $stream.topic is "Daily">>
+            <<link [[继续|Live Stream Together Daily]]>><<addstreamchat 5>><</link>>
+        <<else>>
+            <span class="blue">你们似乎还没决定要播什么，请向模组作者反馈该问题。</span>
         <</if>>
     <</streamscreen>>
     <<streamchat>>

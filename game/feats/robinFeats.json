@@ -34,5 +34,12 @@
         "series": "",
         "filter": ["All", "Discoveries", "Discoveries-Other"],
         "hint": "提示：与罗宾一起去荒原观星。"
+    },
+    "The Unexpected Guest": {
+        "title": "直播间的意外来客",
+        "desc": "这些弹幕看起来有些温暖。",
+        "difficulty": 1,
+        "series": "",
+        "filter": ["All", "Social"]
     }
 }

@@ -80,7 +80,7 @@
 <<else>>
     "不...不行，我觉得这样更舒服。"你试图回绝罗宾。
  <</if>>
-<br><Br>
+<br><br>
 <<if C.npc.Robin.dom gte (100 - ($submissive/20))>>
     <<storeon $condition>><<exposure>>
     罗宾叹了口气，<span class="gold">但并没有妥协，</span>

@@ -219,7 +219,45 @@ setup.users = {
     }
 }
 
-// AI帮忙跑下新用户名
+setup.teather_users = {
+    "Doren": {
+        id: "Doren",
+        username: "专刀预言家",
+        attitude: ["supportive"],
+        firstSpeech: ["孩子们，你们好啊，真高兴能在这里见到你们，你们做得很棒。"], //第一句话
+        specialSpeech: ["又见到你们了，孩子们", "我希望你们一切顺利", "你们真的都很有天赋", "直播和演讲某种程度上是相关的，孩子们好好加油。", "不要理会其他人的闲言碎语，勇敢展现自己。"]
+    },
+    "River": {
+        id: "River",
+        username: "随机用户R",
+        attitude: ["supportive"],
+        firstSpeech: ["天哪，居然真的是你们俩，你们怎么会..."],
+        specialSpeech: ["我希望你们不会因此而耽误学习", "记得控制好直播时间", "多播一些积极向上的内容"]
+    },
+    "Sirris": {
+        id: "Sirris",
+        username: "❤️q✨q用品❤️专售，私❤️电：xxxx",
+        attitude: ["supportive"],
+        firstSpeech: ["有什么关系嘛，又不违反校规，我还挺期待他们的表现的。"],
+        specialSpeech: ["嗨，你们好", "可以在直播间多普及一些科学知识", "不错不错，直播内容很有趣"]
+    },
+    "Winter": {
+        id: "Winter",
+        username: "牛津街博物馆—每周上线历史直播",
+        attitude: ["supportive"],
+        firstSpeech: ["记得发挥下你们在课上学到的东西，在直播时多普及些历史知识。"],
+        specialSpeech: ["很高兴再次见到你们", "可以在直播间多提一些历史故事，以及博物馆里的藏品", "生活中和游戏内的很多事情都有其历史原型，希望你们能好好挖掘"]
+    },
+    "Mason": {
+        id: "Mason",
+        username: "孤泳者",
+        attitude: ["supportive"],
+        firstSpeech: ["别忘了还有我，我也在支持着你们呢。"],
+        specialSpeech: ["很高兴看到你们这么有活力", "你们想不想去户外直播？", "记得久坐之后要多运动"]
+    }
+}
+
+// AI帮忙跑了下新用户名，虽然和原来区别不大
 const usernames = `这种治好了也流口水娃
 风灵月影宗首席弟子
 誓死捍卫猫猫帽
@@ -757,6 +795,8 @@ function getFanslist() {
             result.pushUnique(setup.users[id].username);
         } else if (setup.moreUsers[id]) {
             result.pushUnique(setup.moreUsers[id].username);
+        } else if (setup.teather_users[id]) {
+            result.pushUnique(setup.teather_users[id].username);
         } else {
             console.error("getFanslist当前id" + id + "不存在对应的用户");
         }

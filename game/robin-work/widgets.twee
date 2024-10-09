@@ -340,6 +340,10 @@
     <<set $forbiddenChats to []>>
     /% 生成随机用户 %/
     <<set $currUsers to clone(setup.users)>>
+    /% 50%的概率校长不出场，挪位给教师组 %/
+    <<if $rng gte 51>>
+        <<run delete V.currUsers['headteacher']>>
+    <</if>>
     <<run generateRandomUser()>>
 <</widget>>
 
@@ -407,19 +411,77 @@
         <<else>>
             <<ltrauma>>
         <</if>>
-        <br><br>
     <</if>>
     <<set $deletedChats to []>>
     <<set $forbiddenChats to []>>
+    <br><br>
+    /% 教师组相关 %/
+    <<if $currUsers.headteacher is undefined and $rng gte 96>>
+        <<if !$liveStreamTeachers>>
+            <<set $liveStreamTeachers to true>>
+            <<earnFeat "The Unexpected Guest">>
+            <<if _lstress lt 0>>
+                与其同时，
+            <</if>>
+            你和罗宾注意到了弹幕中的几位意外来客，
+            <<if C.npc.Robin.dom gte (100 - ($submissive/20))>>
+                你感到有些紧张，罗宾轻轻握住了你的手，
+            <<else>>
+                罗宾看上去有些紧张，你轻轻握住了<<his>>的手，
+            <</if>>
+            弹幕的内容很快使你们放松了下来，你们继续专注于接下来的直播。 <<lstress>><<ltrauma>><<stress -6>><<trauma -3>>
+            <br><br>
+            <<addTeacherChat true>>
+        <<else>>
+            <<addTeacherChat false>>
+        <</if>>
+    <</if>>
+<</widget>>
+
+<<widget "addTeacherChat">>
+    <<set _isFirst to _args[0]>>
+    <<if _isFirst>>
+        <<set  _chatterList to Object.keys(setup.teather_users)>>
+        <<for _i to 0; _i lt _chatterList.length;_i++>>
+            <<set _chatter to setup.teather_users[_chatterList[_i]]>>
+            <<set  _msg to _chatter.firstSpeech[0]>>
+            <<set _data to {id:_chatter.id, user: _chatter.username, text: _msg, attitude: "supportive", isFans:$fanslist.includes(_chatter.id)}>>
+            <<run $stream.chat.push(_data)>>
+            <<set _msg to "用户「" + _chatter.username + "」已成为你的粉丝">>
+            <<set _data to { "user": "系统消息", "id": "sysInfo", "text": _msg, "attitude": "neutral"}>>
+            <<set $fanslist.pushUnique(_chatter.id)>>
+            <<run $stream.chat.push(_data)>>
+        <</for>>
+        <<set _fixedChat to ["！上面几个弹幕看上去很有故事","好像都是学校的老师？但这些昵称好像又不像...","如果都是主播的老师的话，感觉他们人都还不错的样子？","主播主播，快点注意一下弹幕~","吃瓜.jpg"]>>
+        <<addFixedChat _fixedChat "supportive">>
+    <<else>>
+        <<set _chatter to setup.teather_users[Object.keys(setup.teather_users).random()]>>
+        <<set  _msg to _chatter.specialSpeech.random()>>
+        <<set _data to {id:_chatter.id, user: _chatter.username, text: _msg, attitude: "supportive", isFans:$fanslist.includes(_chatter.id)}>>
+        <<if ($fanslist.includes(_chatter.id) and random(1,3) is 1) or (_attitude is "supportive" and random(1,10) is 1)>>
+            /% 金额50%的概率1-10，50%*20%=10%的概率51到100，剩下40%的概率11-50 %/
+            <<if random(1,2) is 1>>
+                <<set _tip to random(1,10)>>
+            <<elseif random(1,4) is 1>>
+                <<set _tip to random(51,100)>>
+            <<else>>
+                <<set _tip to random(11,50)>>
+            <</if>>
+            <<set $stream.tip += _tip>>
+            <<set _data to {id:_chatter.id, user: _chatter.username, text: _msg, attitude: _attitude, isFans:$fanslist.includes(_chatter.id),tip:_tip}>>
+        <<else>>
+            <<set _data to {id:_chatter.id, user: _chatter.username, text: _msg, attitude: _attitude, isFans:$fanslist.includes(_chatter.id)}>>
+        <</if>>
+        <<run $stream.chat.push(_data)>>
+    <</if>>
 <</widget>>
 
 <<widget "addstreamchat">>
     <<set _base to _args[0]>>
     <<set _amount to Math.round(_base * $stream.viewers/500)>>
     <<set  _chatterList to getAllPossibleUser()>>
-    <<set  _chatterList to getRandomElements(_chatterList,_amount)>>
-    /% <<set _chatterList.push("headteacher")>> %/ 
-    <<for _i to 1; _i lt _chatterList.length;_i++>>
+    <<set  _chatterList to getRandomElements(_chatterList,_amount)>> 
+    <<for _i to 0; _i lt _chatterList.length;_i++>>
         <<set _chatter to $currUsers[_chatterList[_i]]>>
         <<set _attitude to _chatter.attitude.random()>>
         <<if $fanslist.includes(_chatter.id)>>
