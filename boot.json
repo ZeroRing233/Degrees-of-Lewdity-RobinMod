@@ -14,7 +14,8 @@
         "game/javaScript/robinTraitEffects.js",
         "game/javaScript/terraiaUtil.js",
         "game/javaScript/orphanagePoster.js",
-        "game/javaScript/liveStream.js"
+        "game/javaScript/liveStream.js",
+        "game/javaScript/introduction.js"
     ],
     "tweeFileList": [
         "game/robin-work/lemonade/lemonadeUpgrade.twee",
@@ -25,6 +26,7 @@
         "game/robin-work/photography/photography.twee",
         "game/robin-work/live-stream/liveStream.twee",
         "game/robin-work/live-stream/stream-topic/Maze.twee",
+        "game/robin-work/live-stream/stream-topic/Daily.twee",
         "game/robin-work/widgets.twee",
         "game/robin-trait/robinTrait.twee",
         "game/robin-trait/widgets.twee",
@@ -993,6 +995,10 @@
         {
             "modName": "GameVersion",
             "version": ">=0.5.1.0"
+        },
+        {
+            "modName": "SweetAlert2Mod",
+            "version": "^1.0.0"
         }
     ]
 }
