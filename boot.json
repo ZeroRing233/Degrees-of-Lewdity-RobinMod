@@ -12,6 +12,7 @@
     "scriptFileList": [
         "game/javaScript/robinModUtil.js",
         "game/javaScript/robinTraitEffects.js",
+        "game/javaScript/robinModSettings.js",
         "game/javaScript/terraiaUtil.js",
         "game/javaScript/orphanagePoster.js",
         "game/javaScript/liveStream.js",
@@ -587,7 +588,7 @@
                     "passage": "Options Overlay",
                     "findRegex": "\\s*<<if \\$passage isnot \"Start\">>",
                     "replaceFile": "game/orphanage-poster/optionsOverlay.txt",
-                    "comments": "在选项-通用里添加海报设置"
+                    "comments": "在选项-通用里添加是否隐藏蓝爱心"
                 },
                 {
                     "passage": "Widgets variablesVersionUpdate",
@@ -629,7 +630,7 @@
                     "passage": "Options Overlay",
                     "findString": "<<widget \"optionsgeneral\">>",
                     "replace": "<<widget \"optionsgeneral\">><<setupOptions>>",
-                    "comments": "修改海报设置后重新渲染页面（疑似为原版bug)"
+                    "comments": "修改设置后重新渲染页面（疑似为原版bug)"
                 },
                 {
                     "passage": "Robin Bed Dominant",

@@ -41,8 +41,103 @@
 			<<toggleTab>>
 			<<replace #customOverlayContent>><<robinModHint>><</replace>>
 		<</button>>
+        <<button "dom罗宾模组设置">>
+			<<toggleTab>>
+			<<replace #customOverlayContent>><<robinModSettings>><</replace>>
+		<</button>>
 	</div>
 	<<closeButton>>
+<</widget>>
+
+<<widget "robinModSettings">>
+    <<set $robinModSetting to true>>
+    <div class="settingsGrid">
+		<div class="settingsHeader options">孤儿院大厅海报和房间便条设置</div>
+        <div class="settingsToggleItem">
+			<span class="gold">是否展示孤儿院大厅海报：</span>
+			<mouse class="tooltip linkBlue">(?)<span>如果选择"是"，孤儿院高希望/高叛逆海报事件中将会出现cg</span></mouse>
+			<br>
+			<!-- 单选按钮，就手动实现把我不管了，可能方式有点离奇 -->
+			<<if $options.showPoster>>
+				<input type="radio" id="showPoster" name="showPoster" value="showPoster" onclick="showPostClicked()" checked>
+				<label for="showPoster">是</label>
+				<br>
+				<input type="radio" id="notShowPoster" name="showPoster" value="notShowPoster" onclick="showPostClicked()">
+				<label for="notShowPoster">否</label>
+			<<else>>
+				<input type="radio" id="showPoster" name="showPoster" value="showPoster" onclick="showPostClicked()">
+				<label for="showPoster">是</label>
+				<br>
+				<input type="radio" id="notShowPoster" name="showPoster" value="notShowPoster" onclick="showPostClicked()" checked>
+				<label for="notShowPoster">否</label>
+			<</if>>
+		</div> 
+
+		<div class="settingsToggleItem orphanagePosterSetting"  @style="$options.showPoster? '' : 'display:none;'">
+			<span class="gold">请选择孤儿院大厅海报风格：</span>
+			<br>
+			<label><<radiobutton "$options.posterStyle" "pixel" autocheck>>像素风（推荐）</label>
+			<mouse class="tooltip linkBlue">(?)<span>像素风的孤儿院大厅海报</span></mouse>
+			<br>
+			<label><<radiobutton "$options.posterStyle" "pixel-en" autocheck>>像素风（英文）</label>
+			<mouse class="tooltip linkBlue">(?)<span>像素风的孤儿院大厅海报，文本内容为英文</span></mouse>
+			<br>
+			<label><<radiobutton "$options.posterStyle" "non-pixel" autocheck>>非像素风</label>
+			<mouse class="tooltip linkBlue">(?)<span>精细化的孤儿院大厅海报</span></mouse>
+		</div>
+		<div class="settingsToggleItem orphanagePosterSetting" @style="$options.showPoster? '' : 'display:none;'">
+			<span class="gold">请选择孤儿院大厅海报宽度：</span>
+			<br>
+			<label><<radiobutton "$options.posterWidth" "poster-60" autocheck>>60%（推荐）</label>
+			<mouse class="tooltip linkBlue">(?)<span>海报宽度占当前文字展示宽度的60%</span></mouse>
+			<br>
+			<label><<radiobutton "$options.posterWidth" "poster-80" autocheck>>80%</label>
+			<mouse class="tooltip linkBlue">(?)<span>海报宽度占当前文字展示宽度的80%</span></mouse>
+			<br>
+			<label><<radiobutton "$options.posterWidth" "poster-100" autocheck>>100%</label>
+			<mouse class="tooltip linkBlue">(?)<span>海报宽度占当前文字展示宽度的100%</span></mouse>
+		</div>
+
+		<div class="settingsToggleItem">
+			<span class="gold">是否展示罗宾房间门口的便条：</span>
+			<mouse class="tooltip linkBlue">(?)<span>如果选择"是"，罗宾外出时会展示可爱的像素风便条，目前只有上学/柠檬水/巧克力/睡觉四种便条。</span></mouse>
+			<br>
+			<<if $options.showRobinNote>>
+				<input type="radio" id="showRobinNote" name="showRobinNote" value="showRobinNote" onclick="showRobinNoteClicked()" checked>
+				<label for="showPoster">是</label>
+				<br>
+				<input type="radio" id="notShowRobinNote" name="showRobinNote" value="notShowRobinNote" onclick="showRobinNoteClicked()">
+				<label for="notShowPoster">否</label>
+			<<else>>
+				<input type="radio" id="showRobinNote" name="showRobinNote" value="showRobinNote" onclick="showRobinNoteClicked()">
+				<label for="showPoster">是</label>
+				<br>
+				<input type="radio" id="notShowRobinNote" name="showRobinNote" value="notShowRobinNote" onclick="showRobinNoteClicked()" checked>
+				<label for="notShowPoster">否</label>
+			<</if>>
+		</div> 
+		<div class="settingsToggleItem robinNoteSetting" @style="$options.showRobinNote? '' : 'display:none;'">
+			<span class="gold">请选择便条宽度：</span>
+			<br>
+			<label><<radiobutton "$options.robinNoteWidth" "poster-60" autocheck>>60%（推荐）</label>
+			<mouse class="tooltip linkBlue">(?)<span>便条宽度占当前文字展示宽度的60%</span></mouse>
+			<br>
+			<label><<radiobutton "$options.robinNoteWidth" "poster-80" autocheck>>80%</label>
+			<mouse class="tooltip linkBlue">(?)<span>便条宽度占当前文字展示宽度的80%</span></mouse>
+			<br>
+			<label><<radiobutton "$options.robinNoteWidth" "poster-100" autocheck>>100%</label>
+			<mouse class="tooltip linkBlue">(?)<span>便条宽度占当前文字展示宽度的100%</span></mouse>
+		</div>
+	</div>
+     <<if $photography is 1>>
+        <div class="settingsGrid">
+            <div class="settingsHeader options">摄影照片设置</div>
+            <div class="settingsToggleItem">
+                <input type="file" id="file_input" onchange="show_image()" />
+                <img src="" alt="" id="show_img" width="100px" height="100px" style="display: none;" />
+            </div>
+        </div>
+    <</if>>
 <</widget>>
 
 /% 在线markdown转html %/
