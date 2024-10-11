@@ -18,6 +18,7 @@ function show_image() {
         // alert("我觉得我还可以抢救一下" + e.target.result);
         show_img.src = e.target.result;
         show_img.style.display = 'block';
+        V.photographyImg = e.target.result;
     };
     reader.readAsDataURL(file);
 }

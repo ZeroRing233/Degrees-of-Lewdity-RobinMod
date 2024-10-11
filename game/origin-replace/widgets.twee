@@ -133,8 +133,13 @@
         <div class="settingsGrid">
             <div class="settingsHeader options">摄影照片设置</div>
             <div class="settingsToggleItem">
+            <<if $photographyImg>>
+                <input type="file" id="file_input" onchange="show_image()" />
+                <img @src="$photographyImg" alt="" id="show_img" width="100px" height="100px" style="display: block;" />
+            <<else>>
                 <input type="file" id="file_input" onchange="show_image()" />
                 <img src="" alt="" id="show_img" width="100px" height="100px" style="display: none;" />
+            <</if>>
             </div>
         </div>
     <</if>>
