@@ -79,6 +79,12 @@
 
 /* The Close Button */
 
+.img-delete {
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+}
+
 .modal-close {
     position: absolute;
     top: 15px;
@@ -103,4 +109,9 @@
     .modal-content {
         width: 100%;
     }
+}
+
+.uploadFileInput {
+    width: 90%;
+    height: auto;
 }

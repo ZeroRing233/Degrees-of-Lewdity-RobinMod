@@ -131,14 +131,38 @@
 	</div>
      <<if $photography is 1>>
         <div class="settingsGrid">
-            <div class="settingsHeader options">摄影照片设置</div>
+            <div class="settingsHeader options">
+                摄影照片设置
+                <mouse class="tooltip linkBlue">(?)<span>说明：上传的图片可在相应剧情中点击放大浏览，如未上传则不展示图片。</span></mouse>
+            </div>
             <div class="settingsToggleItem">
+                <span class="gold">
+                    请上传PC的通用摄影时照片：
+                    <mouse class="tooltip linkBlue">(?)<span>说明：指定条件下无照片时，直接使用该照片，否则使用指定条件下的照片。</span></mouse>
+                </span>
+			    <br>
+                <input type="file" id="file_input_photographyImg" onchange="show_image('photographyImg')" single accept="image/*" class="uploadFileInput" />
+                <br>
                 <<if $photographyImg>>
-                    <input type="file" id="file_input" onchange="show_image()" single accept="image/*"/>
-                    <img @src="$photographyImg" alt="" id="show_img" width="100px" height="100px" style="display: block;" onclick="image_click()"/>
+                    <span class="img-delete" id="img_delete_photographyImg" onclick="img_delete_click('photographyImg')" style="display: block;">×</span>
+                    <img @src="$photographyImg" alt="" id="show_img_photographyImg" width="100px" height="100px" style="display: block;" />
                 <<else>>
-                    <input type="file" id="file_input" onchange="show_image()" single accept="image/*" />
-                    <img src="" alt="" id="show_img" width="100px" height="100px" style="display: none;" onclick="image_click()"/>
+                    <span class="img-delete" id="img_delete_photographyImg" onclick="img_delete_click('photographyImg')" style="display: none;">×</span>
+                    <img src="" alt="" id="show_img_photographyImg" width="100px" height="100px" style="display: none;" />
+                <</if>>
+            </div>
+            <div class="settingsToggleItem">
+                <span class="gold">
+                    请上传清晨在花园摄影时PC的照片：
+                </span>
+			    <br>
+                <input type="file" id="file_input_photographyImgGarden" onchange="show_image('photographyImgGarden')" single accept="image/*" class="uploadFileInput" />
+                <br>
+                <<if $photographyImgGarden>>
+                    <span class="img-delete" id="img_delete_photographyImgGarden" onclick="img_delete_click('photographyImgGarden')">×</span>
+                    <img @src="$photographyImgGarden" alt="" id="show_img_photographyImgGarden" width="100px" height="100px" style="display: block;" />
+                <<else>>
+                    <img src="" alt="" id="show_img_photographyImgGarden" width="100px" height="100px" style="display: none;" />
                 <</if>>
             </div>
         </div>
