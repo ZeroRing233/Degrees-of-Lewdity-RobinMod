@@ -36,7 +36,7 @@
 
 /* Caption of Modal Image */
 
-#caption {
+#modal-caption {
     margin: auto;
     display: block;
     width: 80%;
@@ -79,7 +79,7 @@
 
 /* The Close Button */
 
-.close {
+.modal-close {
     position: absolute;
     top: 15px;
     right: 35px;
@@ -89,8 +89,8 @@
     transition: 0.3s;
 }
 
-.close:hover,
-.close:focus {
+.modal-close:hover,
+.modal-close:focus {
     color: #bbb;
     text-decoration: none;
     cursor: pointer;

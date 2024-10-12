@@ -35,7 +35,7 @@ function image_click(id) {
     }
     let modal = document.getElementById('myModal');
     let modalImg = document.getElementById("img01");
-    let captionText = document.getElementById("caption");
+    let captionText = document.getElementById("modal-caption");
     modal.style.display = "block";
     modalImg.src = img.src;
     modalImg.alt = img.alt;

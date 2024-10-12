@@ -5,9 +5,9 @@
         <br><br>
         /% 来自菜鸟教程，我不想改名了直接复制吧，不要打我 %/
         <div id="myModal" class="modal">
-            <span class="close" onclick="close_click()">×</span>
+            <span class="modal-close" onclick="close_click()">×</span>
             <img class="modal-content" id="img01">
-            <div id="caption"></div>
+            <div id="modal-caption"></div>
         </div>
     <</if>>
 <</widget>>
