@@ -1,7 +1,13 @@
 :: Widgets Robin Room Note [widget]
 <<widget "robin-room-note">>
     <<if robinRoomNoteCondition()>>
-        <img @src="'img/robin-note/'+ _robin_location +'.jpg'" @class=$options.robinNoteWidth>
+        <img id="robinNoteImg" @src="'img/robin-note/'+ _robin_location +'.jpg'" @class=$options.robinNoteWidth onclick="image_click('robinNoteImg')">
         <br><br>
+        /% 来自菜鸟教程，我不想改名了直接复制吧，不要打我 %/
+        <div id="myModal" class="modal">
+            <span class="close" onclick="close_click()">×</span>
+            <img class="modal-content" id="img01">
+            <div id="caption"></div>
+        </div>
     <</if>>
 <</widget>>

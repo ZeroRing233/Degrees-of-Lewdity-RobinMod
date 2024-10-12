@@ -27,7 +27,12 @@
 			当你经过海报时，一股暖意在你心中涌动。<<greb>><<reb 1>>
 			<br><br>
 			<<if $options.showPoster>>
-				<img @src="'img/poster/'+$options.posterStyle+'/reb/'+ _poster_pic +'.jpg'" @class=$options.posterWidth>
+				<img @src="'img/poster/'+$options.posterStyle+'/reb/'+ _poster_pic +'.jpg'" @class=$options.posterWidth id="rebPoster" onclick="image_click('rebPoster')">
 				<br><br>
 			<</if>>
+			<div id="myModal" class="modal">
+                <span class="close" onclick="close_click()">×</span>
+                <img class="modal-content" id="img01">
+                <div id="caption"></div>
+            </div>
 			<<link [[继续|Orphanage]]>><<endevent>><</link>>

@@ -42,7 +42,12 @@
                 <<set _poster_pic to ["sunrise","together","flower","alone","thumbs","seed","mountain","heart"].random()>>
 			<</if>>
             <<if $options.showPoster>>
-                <img @src="'img/poster/'+$options.posterStyle+'/hope/'+ _poster_pic +'.jpg'" @class=$options.posterWidth> 
+                <img @src="'img/poster/'+$options.posterStyle+'/hope/'+ _poster_pic +'.jpg'" @class=$options.posterWidth id="hopePoster" onclick="image_click('hopePoster')"> 
                 <br><br>
             <</if>>
+            <div id="myModal" class="modal">
+                <span class="close" onclick="close_click()">×</span>
+                <img class="modal-content" id="img01">
+                <div id="caption"></div>
+            </div>
 			<<link [[继续|Orphanage]]>><<endevent>><</link>>

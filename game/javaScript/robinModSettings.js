@@ -24,10 +24,16 @@ function show_image() {
 }
 window.show_image = show_image;
 
-function image_click() {
+function image_click(id) {
     // 获取图片模态框，alt 属性作为图片弹出中文本描述
+    if (!id) {
+        return;
+    }
+    let img = document.getElementById(id);
+    if (!img) {
+        return;
+    }
     let modal = document.getElementById('myModal');
-    let img = document.getElementById('show_img');
     let modalImg = document.getElementById("img01");
     let captionText = document.getElementById("caption");
     modal.style.display = "block";
