@@ -23,3 +23,22 @@ function show_image() {
     reader.readAsDataURL(file);
 }
 window.show_image = show_image;
+
+function image_click() {
+    // 获取图片模态框，alt 属性作为图片弹出中文本描述
+    let modal = document.getElementById('myModal');
+    let img = document.getElementById('show_img');
+    let modalImg = document.getElementById("img01");
+    let captionText = document.getElementById("caption");
+    modal.style.display = "block";
+    modalImg.src = img.src;
+    modalImg.alt = img.alt;
+    captionText.innerHTML = img.alt;
+}
+window.image_click = image_click;
+
+function close_click() {
+    let modal = document.getElementById('myModal');
+    modal.style.display = "none";
+}
+window.close_click = close_click;
