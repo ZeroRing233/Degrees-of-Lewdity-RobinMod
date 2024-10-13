@@ -10,20 +10,21 @@ $(document).on(":oncloseoverlay", () => {
 
 function show_image(id) {
     //首先获取到文件输入框和img元素
+    //alert('show_iamge_id是' + id)
     if (!id) {
         return;
     }
-    let file_input = document.getElementById("file_input_" + id);
-    let show_img = document.getElementById("show_img_" + id);
-    let img_delete = document.getElementById("img_delete_" + id);
+    let file_input = document.getElementById(id);
+    let type = id.split("_").slice(-1)[0];
+    let show_img = document.getElementById("show_img_" + type);
+    let img_delete = document.getElementById("img_delete_" + type);
     let file = file_input.files[0];
     let reader = new FileReader();
     reader.onload = function(e) {
-        // alert("我觉得我还可以抢救一下" + e.target.result);
         show_img.src = e.target.result;
         show_img.style.display = 'block';
         img_delete.style.display = 'block';
-        V[id] = e.target.result;
+        V.robinPhotography[id] = e.target.result;
     };
     reader.readAsDataURL(file);
 }
@@ -33,13 +34,15 @@ function img_delete_click(id) {
     if (!id) {
         return;
     }
-    let file_input = document.getElementById("file_input_" + id);
-    let show_img = document.getElementById("show_img_" + id);
-    let img_delete = document.getElementById("img_delete_" + id);
-    show_img.src = "";
+    let type = id.split("_").slice(-1)[0];
+    let file_input = document.getElementById("file_input_" + type);
+    let show_img = document.getElementById("show_img_" + type);
+    let img_delete = document.getElementById("img_delete_" + type);
+    show_img.src = '';
+    file_input.value = '';
     show_img.style.display = 'none';
     img_delete.style.display = 'none';
-    delete V.id;
+    delete V.robinPhotography[id];
 }
 window.img_delete_click = img_delete_click;
 

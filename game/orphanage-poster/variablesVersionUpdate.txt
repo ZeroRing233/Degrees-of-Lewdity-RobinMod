@@ -21,4 +21,7 @@
 <<if $robinMoney isnot undefined>>
     <<unset $robinMoney>>
 <</if>>
+<<if $robinPhotography is undefined>>
+    <<set $robinPhotography to {}>>
+<</if>>
 <!-- 5.0.3 -->

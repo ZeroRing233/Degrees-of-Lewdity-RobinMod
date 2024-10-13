@@ -133,40 +133,72 @@
         <div class="settingsGrid">
             <div class="settingsHeader options">
                 摄影照片设置
-                <mouse class="tooltip linkBlue">(?)<span>说明：上传的图片可在相应剧情中点击放大浏览，如未上传则不展示图片。</span></mouse>
+                <mouse class="tooltip linkBlue">(?)<span>说明：上传的图片只影响对应剧情有无配图，不影响具体情节，剧情内可点击图片放大欣赏。</span></mouse>
             </div>
-            <div class="settingsToggleItem">
-                <span class="gold">
-                    请上传PC的通用摄影时照片：
-                    <mouse class="tooltip linkBlue">(?)<span>说明：指定条件下无照片时，直接使用该照片，否则使用指定条件下的照片。</span></mouse>
-                </span>
-			    <br>
-                <input type="file" id="file_input_photographyImg" onchange="show_image('photographyImg')" single accept="image/*" class="uploadFileInput" />
-                <br>
-                <<if $photographyImg>>
-                    <span class="img-delete" id="img_delete_photographyImg" onclick="img_delete_click('photographyImg')" style="display: block;">×</span>
-                    <img @src="$photographyImg" alt="" id="show_img_photographyImg" width="100px" height="100px" style="display: block;" />
-                <<else>>
-                    <span class="img-delete" id="img_delete_photographyImg" onclick="img_delete_click('photographyImg')" style="display: none;">×</span>
-                    <img src="" alt="" id="show_img_photographyImg" width="100px" height="100px" style="display: none;" />
-                <</if>>
-            </div>
-            <div class="settingsToggleItem">
-                <span class="gold">
-                    请上传清晨在花园摄影时PC的照片：
-                </span>
-			    <br>
-                <input type="file" id="file_input_photographyImgGarden" onchange="show_image('photographyImgGarden')" single accept="image/*" class="uploadFileInput" />
-                <br>
-                <<if $photographyImgGarden>>
-                    <span class="img-delete" id="img_delete_photographyImgGarden" onclick="img_delete_click('photographyImgGarden')">×</span>
-                    <img @src="$photographyImgGarden" alt="" id="show_img_photographyImgGarden" width="100px" height="100px" style="display: block;" />
-                <<else>>
-                    <img src="" alt="" id="show_img_photographyImgGarden" width="100px" height="100px" style="display: none;" />
-                <</if>>
-            </div>
+            <<set $_typeList to ["photographyImg","photographyImgGardenMorning","photographyImgGardenEvening","photographyImgForestMorning","photographyImgForestEvening",
+            "photographyImg2","photographyImgGardenMorning2","photographyImgGardenEvening2","photographyImgForestMorning2","photographyImgForestEvening2",
+            "photographyImgRobin","photographyImgGardenMorningRobin","photographyImgGardenEveningRobin","photographyImgForestMorningRobin","photographyImgForestEveningRobin"]>>
+            <<for _i to 0; _i lt $_typeList.length; _i++>>
+                <<set $_type to $_typeList[_i]>>
+                <<photographyImgUpload $_type>>
+            <</for>>
         </div>
     <</if>>
+<</widget>>
+
+<<widget "photographyImgUpload">>
+    <<set $_type to _args[0]>>
+    <div class="settingsToggleItem">
+        <span class="gold">      
+            <<switch $_type>>
+                <<case "photographyImg">>
+                    请上传PC单人照（通用）：
+                    <mouse class="tooltip linkBlue">(?)<span>说明：指定条件无照片时，直接使用该照片，否则使用指定条件下的照片。</span></mouse>
+                <<case "photographyImgGardenMorning">>
+                    请上传PC单人照（清晨花园摄影专用）：
+                <<case "photographyImgGardenEvening">>
+                    请上传PC单人照（傍晚花园摄影专用）：
+                <<case "photographyImgForestMorning">>
+                    请上传PC单人照（清晨森林摄影专用）：
+                 <<case "photographyImgForestEvening">>
+                    请上传PC单人照（傍晚森林摄影专用）：
+                <<case "photographyImg2">>
+                    请上传罗宾和pc的合照（通用）：
+                    <mouse class="tooltip linkBlue">(?)<span>说明：指定条件无照片时，直接使用该照片，否则使用指定条件下的照片。</span></mouse>
+                <<case "photographyImgGardenMorning2">>
+                    请上传罗宾和pc的合照（清晨花园摄影专用）：
+                <<case "photographyImgGardenEvening2">>
+                    请上传罗宾和pc的合照（傍晚花园摄影专用）：
+                <<case "photographyImgForestMorning2">>
+                    请上传罗宾和pc的合照（清晨森林摄影专用）：
+                <<case "photographyImgForestEvening2">>
+                    请上传罗宾和pc的合照（傍晚森林摄影专用）：
+                <<case "photographyImgRobin">>
+                    请上传罗宾的单人照（通用）：
+                    <mouse class="tooltip linkBlue">(?)<span>说明：指定条件无照片时，直接使用该照片，否则使用指定条件下的照片。</span></mouse>
+                <<case "photographyImgGardenMorningRobin">>
+                    请上传罗宾的单人照（清晨花园摄影专用）：
+                <<case "photographyImgGardenEveningRobin">>
+                    请上传罗宾的单人照（傍晚花园摄影专用）：
+                <<case "photographyImgForestMorningRobin">>
+                    请上传罗宾的单人照（清晨森林摄影专用）：
+                <<case "photographyImgForestEveningRobin">>
+                    请上传罗宾的单人照（傍晚森林摄影专用）：
+                <<default>>
+                    <span class="blue">请联系模组作者反馈该问题。</span>
+            <</switch>>   
+        </span>
+        <br>
+        <input type="file" @id="'file_input_'+ $_type" onchange="show_image(this.id)" single accept="image/*" class="uploadFileInput" />
+        <br>
+        <<if $robinPhotography[$_type]>>
+            <span class="img-delete" @id="'img_delete_'+ $_type" onclick="img_delete_click(this.id)" style="display: block;">×</span>
+            <img @src="$robinPhotography[$_type]" alt="" @id="'show_img_'+ $_type" width="64px" height="64px" style="display: block;" />
+        <<else>>
+            <span class="img-delete" @id="'img_delete_'+ $_type" onclick="img_delete_click(this.id)" style="display: none;">×</span>
+            <img @src="$robinPhotography[$_type]" alt="" @id="'show_img_'+ $_type" width="64px" height="64px" style="display: none;" />
+        <</if>>
+    </div>
 <</widget>>
 
 /% 在线markdown转html %/
