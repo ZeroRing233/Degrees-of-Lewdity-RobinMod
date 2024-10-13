@@ -130,15 +130,35 @@
 		</div>
 	</div>
      <<if $photography is 1>>
-        <div class="settingsGrid">
-            <div class="settingsHeader options">
-                摄影照片设置
-                <mouse class="tooltip linkBlue">(?)<span>说明：上传的图片只影响对应剧情有无配图，不影响具体情节，剧情内可点击图片放大欣赏。</span></mouse>
-            </div>
-            <<set $_typeList to ["photographyImg","photographyImgGardenMorning","photographyImgGardenEvening","photographyImgForestMorning","photographyImgForestEvening",
+        <<set $_typeList to ["photographyImg","photographyImgGardenMorning","photographyImgGardenEvening","photographyImgForestMorning","photographyImgForestEvening",
             "photographyImg2","photographyImgGardenMorning2","photographyImgGardenEvening2","photographyImgForestMorning2","photographyImgForestEvening2",
             "photographyImgRobin","photographyImgGardenMorningRobin","photographyImgGardenEveningRobin","photographyImgForestMorningRobin","photographyImgForestEveningRobin"]>>
-            <<for _i to 0; _i lt $_typeList.length; _i++>>
+        <div class="settingsGrid">
+            <div class="settingsHeader options">
+                摄影照片设置(PC单人)
+                <mouse class="tooltip linkBlue">(?)<span>说明：上传的图片只影响对应剧情有无配图，不影响具体情节，剧情内可点击图片放大欣赏。</span></mouse>
+            </div>
+            <<for _i to 0; _i lt 5; _i++>>
+                <<set $_type to $_typeList[_i]>>
+                <<photographyImgUpload $_type>>
+            <</for>>
+        </div>
+        <div class="settingsGrid">
+            <div class="settingsHeader options">
+                摄影照片设置(合照)
+                <mouse class="tooltip linkBlue">(?)<span>说明：上传的图片只影响对应剧情有无配图，不影响具体情节，剧情内可点击图片放大欣赏。</span></mouse>
+            </div>
+            <<for _i to 5; _i lt 10; _i++>>
+                <<set $_type to $_typeList[_i]>>
+                <<photographyImgUpload $_type>>
+            <</for>>
+        </div>
+        <div class="settingsGrid">
+            <div class="settingsHeader options">
+                摄影照片设置(罗宾单人)
+                <mouse class="tooltip linkBlue">(?)<span>说明：上传的图片只影响对应剧情有无配图，不影响具体情节，剧情内可点击图片放大欣赏。</span></mouse>
+            </div>
+            <<for _i to 10; _i lt 15; _i++>>
                 <<set $_type to $_typeList[_i]>>
                 <<photographyImgUpload $_type>>
             <</for>>

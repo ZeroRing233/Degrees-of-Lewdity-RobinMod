@@ -11,6 +11,7 @@ $(document).on(":oncloseoverlay", () => {
 function show_image(id) {
     //首先获取到文件输入框和img元素
     //alert('show_iamge_id是' + id)
+    //todo: 限制文件上传的大小（512kb一张?像素我不确定要不要限制，再看）
     if (!id) {
         return;
     }
@@ -24,7 +25,7 @@ function show_image(id) {
         show_img.src = e.target.result;
         show_img.style.display = 'block';
         img_delete.style.display = 'block';
-        V.robinPhotography[id] = e.target.result;
+        V.robinPhotography[type] = e.target.result;
     };
     reader.readAsDataURL(file);
 }
@@ -42,7 +43,7 @@ function img_delete_click(id) {
     file_input.value = '';
     show_img.style.display = 'none';
     img_delete.style.display = 'none';
-    delete V.robinPhotography[id];
+    delete V.robinPhotography[type];
 }
 window.img_delete_click = img_delete_click;
 
