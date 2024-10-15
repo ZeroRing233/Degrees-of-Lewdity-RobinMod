@@ -88,3 +88,17 @@ function close_click() {
     modal.style.display = "none";
 }
 window.close_click = close_click;
+
+function tutorParentGenderClicked() {
+    let value = $('input[name="tutorParentGender"]:checked').val();
+    if (value === "f") {
+        V.tutor.parentGender = "f";
+        $('.tutorParentGenderFemale').show();
+        $('.tutorParentGenderMale').hide();
+    } else {
+        V.tutor.parentGender = "m";
+        $('.tutorParentGenderFemale').hide();
+        $('.tutorParentGenderMale').show();
+    }
+}
+window.tutorParentGenderClicked = tutorParentGenderClicked;

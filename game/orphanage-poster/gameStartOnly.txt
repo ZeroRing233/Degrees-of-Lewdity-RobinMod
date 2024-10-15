@@ -21,3 +21,10 @@
 <<if $robinPhotography is undefined>>
     <<set $robinPhotography to {}>>
 <</if>>
+<<if $tutor is undefined>>
+    <<set $tutor to {}>>
+    <<set $tutor.studentGender to "f">>
+    <<set $tutor.studentDesc to "瘦小">>
+    <<set $tutor.parentGender to "f">>
+    <<set $tutor.parentGenderDesc to "柔婉">>
+<</if>>

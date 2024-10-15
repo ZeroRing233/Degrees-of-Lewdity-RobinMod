@@ -51,84 +51,8 @@
 
 <<widget "robinModSettings">>
     <<set $robinModSetting to true>>
-    <div class="settingsGrid">
-		<div class="settingsHeader options">孤儿院大厅海报和房间便条设置</div>
-        <div class="settingsToggleItem">
-			<span class="gold">是否展示孤儿院大厅海报：</span>
-			<mouse class="tooltip linkBlue">(?)<span>如果选择"是"，孤儿院高希望/高叛逆海报事件中将会出现cg</span></mouse>
-			<br>
-			<!-- 单选按钮，就手动实现把我不管了，可能方式有点离奇 -->
-			<<if $options.showPoster>>
-				<input type="radio" id="showPoster" name="showPoster" value="showPoster" onclick="showPostClicked()" checked>
-				<label for="showPoster">是</label>
-				<br>
-				<input type="radio" id="notShowPoster" name="showPoster" value="notShowPoster" onclick="showPostClicked()">
-				<label for="notShowPoster">否</label>
-			<<else>>
-				<input type="radio" id="showPoster" name="showPoster" value="showPoster" onclick="showPostClicked()">
-				<label for="showPoster">是</label>
-				<br>
-				<input type="radio" id="notShowPoster" name="showPoster" value="notShowPoster" onclick="showPostClicked()" checked>
-				<label for="notShowPoster">否</label>
-			<</if>>
-		</div> 
-
-		<div class="settingsToggleItem orphanagePosterSetting"  @style="$options.showPoster? '' : 'display:none;'">
-			<span class="gold">请选择孤儿院大厅海报风格：</span>
-			<br>
-			<label><<radiobutton "$options.posterStyle" "pixel" autocheck>>像素风（推荐）</label>
-			<mouse class="tooltip linkBlue">(?)<span>像素风的孤儿院大厅海报</span></mouse>
-			<br>
-			<label><<radiobutton "$options.posterStyle" "pixel-en" autocheck>>像素风（英文）</label>
-			<mouse class="tooltip linkBlue">(?)<span>像素风的孤儿院大厅海报，文本内容为英文</span></mouse>
-			<br>
-			<label><<radiobutton "$options.posterStyle" "non-pixel" autocheck>>非像素风</label>
-			<mouse class="tooltip linkBlue">(?)<span>精细化的孤儿院大厅海报</span></mouse>
-		</div>
-		<div class="settingsToggleItem orphanagePosterSetting" @style="$options.showPoster? '' : 'display:none;'">
-			<span class="gold">请选择孤儿院大厅海报宽度：</span>
-			<br>
-			<label><<radiobutton "$options.posterWidth" "poster-60" autocheck>>60%（推荐）</label>
-			<mouse class="tooltip linkBlue">(?)<span>海报宽度占当前文字展示宽度的60%</span></mouse>
-			<br>
-			<label><<radiobutton "$options.posterWidth" "poster-80" autocheck>>80%</label>
-			<mouse class="tooltip linkBlue">(?)<span>海报宽度占当前文字展示宽度的80%</span></mouse>
-			<br>
-			<label><<radiobutton "$options.posterWidth" "poster-100" autocheck>>100%</label>
-			<mouse class="tooltip linkBlue">(?)<span>海报宽度占当前文字展示宽度的100%</span></mouse>
-		</div>
-
-		<div class="settingsToggleItem">
-			<span class="gold">是否展示罗宾房间门口的便条：</span>
-			<mouse class="tooltip linkBlue">(?)<span>如果选择"是"，罗宾外出时会展示可爱的像素风便条，目前只有上学/柠檬水/巧克力/睡觉四种便条。</span></mouse>
-			<br>
-			<<if $options.showRobinNote>>
-				<input type="radio" id="showRobinNote" name="showRobinNote" value="showRobinNote" onclick="showRobinNoteClicked()" checked>
-				<label for="showPoster">是</label>
-				<br>
-				<input type="radio" id="notShowRobinNote" name="showRobinNote" value="notShowRobinNote" onclick="showRobinNoteClicked()">
-				<label for="notShowPoster">否</label>
-			<<else>>
-				<input type="radio" id="showRobinNote" name="showRobinNote" value="showRobinNote" onclick="showRobinNoteClicked()">
-				<label for="showPoster">是</label>
-				<br>
-				<input type="radio" id="notShowRobinNote" name="showRobinNote" value="notShowRobinNote" onclick="showRobinNoteClicked()" checked>
-				<label for="notShowPoster">否</label>
-			<</if>>
-		</div> 
-		<div class="settingsToggleItem robinNoteSetting" @style="$options.showRobinNote? '' : 'display:none;'">
-			<span class="gold">请选择便条宽度：</span>
-			<br>
-			<label><<radiobutton "$options.robinNoteWidth" "poster-60" autocheck>>60%（推荐）</label>
-			<mouse class="tooltip linkBlue">(?)<span>便条宽度占当前文字展示宽度的60%</span></mouse>
-			<br>
-			<label><<radiobutton "$options.robinNoteWidth" "poster-80" autocheck>>80%</label>
-			<mouse class="tooltip linkBlue">(?)<span>便条宽度占当前文字展示宽度的80%</span></mouse>
-			<br>
-			<label><<radiobutton "$options.robinNoteWidth" "poster-100" autocheck>>100%</label>
-			<mouse class="tooltip linkBlue">(?)<span>便条宽度占当前文字展示宽度的100%</span></mouse>
-		</div>
-	</div>
+    <<posterSettings>>
+    <<tutorSettings>>
     <<set $_typeList to ["photographyImg","photographyImgGardenMorning","photographyImgGardenEvening","photographyImgForestMorning","photographyImgForestEvening",
             "photographyImg2","photographyImgGardenMorning2","photographyImgGardenEvening2","photographyImgForestMorning2","photographyImgForestEvening2",
             "photographyImgRobin","photographyImgGardenMorningRobin","photographyImgGardenEveningRobin","photographyImgForestMorningRobin","photographyImgForestEveningRobin"]>>
@@ -161,6 +85,135 @@
             <<set $_type to $_typeList[_i]>>
             <<photographyImgUpload $_type>>
         <</for>>
+    </div>
+<</widget>>
+
+<<widget "posterSettings">>
+    <div class="settingsGrid">
+        <div class="settingsHeader options">孤儿院大厅海报和罗宾房间便条设置</div>
+        <div class="settingsToggleItem">
+            <span class="gold">是否展示孤儿院大厅海报：</span>
+            <mouse class="tooltip linkBlue">(?)<span>如果选择"是"，孤儿院高希望/高叛逆海报事件中将会出现cg</span></mouse>
+            <br>
+            <!-- 单选按钮，就手动实现把我不管了，可能方式有点离奇 -->
+            <<if $options.showPoster>>
+                <input type="radio" id="showPoster" name="showPoster" value="showPoster" onclick="showPostClicked()" checked>
+                <label for="showPoster">是</label>
+                <br>
+                <input type="radio" id="notShowPoster" name="showPoster" value="notShowPoster" onclick="showPostClicked()">
+                <label for="notShowPoster">否</label>
+            <<else>>
+                <input type="radio" id="showPoster" name="showPoster" value="showPoster" onclick="showPostClicked()">
+                <label for="showPoster">是</label>
+                <br>
+                <input type="radio" id="notShowPoster" name="showPoster" value="notShowPoster" onclick="showPostClicked()" checked>
+                <label for="notShowPoster">否</label>
+            <</if>>
+        </div> 
+
+        <div class="settingsToggleItem orphanagePosterSetting"  @style="$options.showPoster? '' : 'display:none;'">
+            <span class="gold">请选择孤儿院大厅海报风格：</span>
+            <br>
+            <label><<radiobutton "$options.posterStyle" "pixel" autocheck>>像素风（推荐）</label>
+            <mouse class="tooltip linkBlue">(?)<span>像素风的孤儿院大厅海报</span></mouse>
+            <br>
+            <label><<radiobutton "$options.posterStyle" "pixel-en" autocheck>>像素风（英文）</label>
+            <mouse class="tooltip linkBlue">(?)<span>像素风的孤儿院大厅海报，文本内容为英文</span></mouse>
+            <br>
+            <label><<radiobutton "$options.posterStyle" "non-pixel" autocheck>>非像素风</label>
+            <mouse class="tooltip linkBlue">(?)<span>精细化的孤儿院大厅海报</span></mouse>
+        </div>
+        <div class="settingsToggleItem orphanagePosterSetting" @style="$options.showPoster? '' : 'display:none;'">
+            <span class="gold">请选择孤儿院大厅海报宽度：</span>
+            <br>
+            <label><<radiobutton "$options.posterWidth" "poster-60" autocheck>>60%（推荐）</label>
+            <mouse class="tooltip linkBlue">(?)<span>海报宽度占当前文字展示宽度的60%</span></mouse>
+            <br>
+            <label><<radiobutton "$options.posterWidth" "poster-80" autocheck>>80%</label>
+            <mouse class="tooltip linkBlue">(?)<span>海报宽度占当前文字展示宽度的80%</span></mouse>
+            <br>
+            <label><<radiobutton "$options.posterWidth" "poster-100" autocheck>>100%</label>
+            <mouse class="tooltip linkBlue">(?)<span>海报宽度占当前文字展示宽度的100%</span></mouse>
+        </div>
+        <div class="settingsToggleItem">
+            <span class="gold">是否展示罗宾房间门口的便条：</span>
+            <mouse class="tooltip linkBlue">(?)<span>如果选择"是"，罗宾外出时会展示可爱的像素风便条，目前只有上学/柠檬水/巧克力/睡觉四种便条。</span></mouse>
+            <br>
+            <<if $options.showRobinNote>>
+                <input type="radio" id="showRobinNote" name="showRobinNote" value="showRobinNote" onclick="showRobinNoteClicked()" checked>
+                <label for="showPoster">是</label>
+                <br>
+                <input type="radio" id="notShowRobinNote" name="showRobinNote" value="notShowRobinNote" onclick="showRobinNoteClicked()">
+                <label for="notShowPoster">否</label>
+            <<else>>
+                <input type="radio" id="showRobinNote" name="showRobinNote" value="showRobinNote" onclick="showRobinNoteClicked()">
+                <label for="showPoster">是</label>
+                <br>
+                <input type="radio" id="notShowRobinNote" name="showRobinNote" value="notShowRobinNote" onclick="showRobinNoteClicked()" checked>
+                <label for="notShowPoster">否</label>
+            <</if>>
+        </div> 
+        <div class="settingsToggleItem robinNoteSetting" @style="$options.showRobinNote? '' : 'display:none;'">
+            <span class="gold">请选择便条宽度：</span>
+            <br>
+            <label><<radiobutton "$options.robinNoteWidth" "poster-60" autocheck>>60%（推荐）</label>
+            <mouse class="tooltip linkBlue">(?)<span>便条宽度占当前文字展示宽度的60%</span></mouse>
+            <br>
+            <label><<radiobutton "$options.robinNoteWidth" "poster-80" autocheck>>80%</label>
+            <mouse class="tooltip linkBlue">(?)<span>便条宽度占当前文字展示宽度的80%</span></mouse>
+            <br>
+            <label><<radiobutton "$options.robinNoteWidth" "poster-100" autocheck>>100%</label>
+            <mouse class="tooltip linkBlue">(?)<span>便条宽度占当前文字展示宽度的100%</span></mouse>
+        </div>
+    </div>
+<</widget>>
+
+<<widget "tutorSettings">>
+    <div class="settingsGrid">
+        /% 原版内容，范围为0-17 %/
+        <<set $_descT to ["瘦小","柔婉","精瘦","瘦削","苗条","娇软","纤细","强健","优雅","纤瘦","羞怯","可爱","性感","娇小","健壮","匀称","壮硕","圆润","纯真","蛮横","圆胖","魁伟","狡黠"].slice(0,18)>>
+        <<set $_desAF to  ["瘦小","柔婉","精瘦","瘦削","苗条","娇软","纤细","强健","娇小","纤瘦","阳刚","有致的","健壮","圆润","丰腴","匀称","壮硕","性感","俊美","粗俗","圆胖","魁伟","狡黠"].slice(0,18)>>
+        <<set $_descAM to ["娇小","瘦小","纤细","瘦削","苗条","瘦高","娇软","柔婉","纤瘦","精瘦","强健","圆润","健壮","庞大","宽硕","壮硕","粗犷","阳刚","魁梧","蛮横","圆胖","魁伟","狡黠"].slice(0,18)>>
+		<div class="settingsHeader options">
+            家教设置
+            <mouse class="tooltip linkBlue">(?)<span>本设置项初衷是为了防止已经触发过家教剧情的老玩家感到违和，不过也欢迎各位自定义npc。</span></mouse>
+        </div>
+        <div class="settingsToggleItem">
+			<span class="gold">请选择家教学生性别：</span><br>
+            <label><<radiobutton "$tutor.studentGender" "m" autocheck>>男</label>
+            <br>
+            <label><<radiobutton "$tutor.studentGender" "f" autocheck>>女</label>
+		</div>
+        <div class="settingsToggleItem">
+			<span class="gold">请选择家教学生描述：</span><br>
+            <<listbox "$tutor.studentDesc" autoselect>>
+                <<optionsfrom $_descT>>
+            <</listbox>>   
+		</div>
+        <div class="settingsToggleItem">
+			<span class="gold">请选择家教家长性别：</span><br>
+            <input type="radio" id="tutorParentMale" name="tutorParentGender" value="m" onclick="tutorParentGenderClicked()" checked>
+            <label for="tutorParentMale">男</label>
+            <br>
+            <input type="radio" id="tutorParentFemale" name="tutorParentGender" value="f" onclick="tutorParentGenderClicked()">
+            <label for="tutorParentFemale">女</label>
+		</div>
+        <<if $tutor.parentGender is "f">>
+            <div class="settingsToggleItem">
+                <span class="gold">请选择家教家长描述：</span><br>
+                <<listbox "$tutor.parentDesc" autoselect>>
+                    <<optionsfrom $_desAF>>
+                <</listbox>>   
+		    </div>
+        <<else>>
+            <div class="settingsToggleItem">
+                <span class="gold">请选择家教家长描述：</span><br>
+                <<listbox "$tutor.parentDesc" autoselect>>
+                    <<optionsfrom $_desAM>>
+                <</listbox>>   
+		    </div>
+        <</if>>
+        <!-- <<generatey1>><<generate2>><<person2>><<person>> -->
     </div>
 <</widget>>
 
