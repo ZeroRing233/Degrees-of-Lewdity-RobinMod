@@ -129,41 +129,39 @@
 			<mouse class="tooltip linkBlue">(?)<span>便条宽度占当前文字展示宽度的100%</span></mouse>
 		</div>
 	</div>
-     <<if $photography is 1>>
-        <<set $_typeList to ["photographyImg","photographyImgGardenMorning","photographyImgGardenEvening","photographyImgForestMorning","photographyImgForestEvening",
+    <<set $_typeList to ["photographyImg","photographyImgGardenMorning","photographyImgGardenEvening","photographyImgForestMorning","photographyImgForestEvening",
             "photographyImg2","photographyImgGardenMorning2","photographyImgGardenEvening2","photographyImgForestMorning2","photographyImgForestEvening2",
             "photographyImgRobin","photographyImgGardenMorningRobin","photographyImgGardenEveningRobin","photographyImgForestMorningRobin","photographyImgForestEveningRobin"]>>
-        <div class="settingsGrid">
-            <div class="settingsHeader options">
-                摄影照片设置(PC单人)
-                <mouse class="tooltip linkBlue">(?)<span>说明：上传的图片只影响对应剧情有无配图，不影响具体情节，剧情内可点击图片放大欣赏。</span></mouse>
-            </div>
-            <<for _i to 0; _i lt 5; _i++>>
-                <<set $_type to $_typeList[_i]>>
-                <<photographyImgUpload $_type>>
-            <</for>>
+    <div class="settingsGrid">
+        <div class="settingsHeader options">
+            摄影照片设置(PC单人-单张图片大小请勿超过0.5mb/512kb)
+            <mouse class="tooltip linkBlue">(?)<span>说明：上传的图片只影响对应剧情有无配图，不影响具体情节，剧情内可点击图片放大欣赏。</span></mouse>
         </div>
-        <div class="settingsGrid">
-            <div class="settingsHeader options">
-                摄影照片设置(合照)
-                <mouse class="tooltip linkBlue">(?)<span>说明：上传的图片只影响对应剧情有无配图，不影响具体情节，剧情内可点击图片放大欣赏。</span></mouse>
-            </div>
-            <<for _i to 5; _i lt 10; _i++>>
-                <<set $_type to $_typeList[_i]>>
-                <<photographyImgUpload $_type>>
-            <</for>>
+        <<for _i to 0; _i lt 5; _i++>>
+            <<set $_type to $_typeList[_i]>>
+            <<photographyImgUpload $_type>>
+        <</for>>
+    </div>
+    <div class="settingsGrid">
+        <div class="settingsHeader options">
+            摄影照片设置(合照-单张图片大小请勿超过0.5mb/512kb)
+            <mouse class="tooltip linkBlue">(?)<span>说明：上传的图片只影响对应剧情有无配图，不影响具体情节，剧情内可点击图片放大欣赏。</span></mouse>
         </div>
-        <div class="settingsGrid">
-            <div class="settingsHeader options">
-                摄影照片设置(罗宾单人)
-                <mouse class="tooltip linkBlue">(?)<span>说明：上传的图片只影响对应剧情有无配图，不影响具体情节，剧情内可点击图片放大欣赏。</span></mouse>
-            </div>
-            <<for _i to 10; _i lt 15; _i++>>
-                <<set $_type to $_typeList[_i]>>
-                <<photographyImgUpload $_type>>
-            <</for>>
+        <<for _i to 5; _i lt 10; _i++>>
+            <<set $_type to $_typeList[_i]>>
+            <<photographyImgUpload $_type>>
+        <</for>>
+    </div>
+    <div class="settingsGrid">
+        <div class="settingsHeader options">
+            摄影照片设置(罗宾单人-单张图片大小请勿超过0.5mb/512kb)
+            <mouse class="tooltip linkBlue">(?)<span>说明：上传的图片只影响对应剧情有无配图，不影响具体情节，剧情内可点击图片放大欣赏。</span></mouse>
         </div>
-    <</if>>
+        <<for _i to 10; _i lt 15; _i++>>
+            <<set $_type to $_typeList[_i]>>
+            <<photographyImgUpload $_type>>
+        <</for>>
+    </div>
 <</widget>>
 
 <<widget "photographyImgUpload">>

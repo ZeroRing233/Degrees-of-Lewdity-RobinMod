@@ -11,7 +11,6 @@ $(document).on(":oncloseoverlay", () => {
 function show_image(id) {
     //首先获取到文件输入框和img元素
     //alert('show_iamge_id是' + id)
-    //todo: 限制文件上传的大小（512kb一张?像素我不确定要不要限制，再看）
     if (!id) {
         return;
     }
@@ -20,6 +19,24 @@ function show_image(id) {
     let show_img = document.getElementById("show_img_" + type);
     let img_delete = document.getElementById("img_delete_" + type);
     let file = file_input.files[0];
+    let size = file.size;
+    let size_limit = 512 * 1024;
+    if (size > size_limit) {
+        window.modSweetAlert2Mod.fire(
+            // do anything the ``Swal.fire()`` can do
+            {
+                icon: 'warning',
+                text: '上传图片的大小不能超过0.5mb（512kb)',
+                showCancelButton: false,
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK',
+            }
+        );
+        file_input.value = '';
+        return;
+    }
     let reader = new FileReader();
     reader.onload = function(e) {
         show_img.src = e.target.result;
