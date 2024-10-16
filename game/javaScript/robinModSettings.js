@@ -93,12 +93,12 @@ function tutorParentGenderClicked() {
     let value = $('input[name="tutorParentGender"]:checked').val();
     if (value === "f") {
         V.tutor.parentGender = "f";
-        $('.tutorParentGenderFemale').show();
-        $('.tutorParentGenderMale').hide();
+        $('.tutorParentDescFemale').show();
+        $('.tutorParentDescMale').hide();
     } else {
         V.tutor.parentGender = "m";
-        $('.tutorParentGenderFemale').hide();
-        $('.tutorParentGenderMale').show();
+        $('.tutorParentDescFemale').hide();
+        $('.tutorParentDescMale').show();
     }
 }
 window.tutorParentGenderClicked = tutorParentGenderClicked;

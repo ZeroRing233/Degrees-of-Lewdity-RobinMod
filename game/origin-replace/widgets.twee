@@ -172,7 +172,7 @@
     <div class="settingsGrid">
         /% 原版内容，范围为0-17 %/
         <<set $_descT to ["瘦小","柔婉","精瘦","瘦削","苗条","娇软","纤细","强健","优雅","纤瘦","羞怯","可爱","性感","娇小","健壮","匀称","壮硕","圆润","纯真","蛮横","圆胖","魁伟","狡黠"].slice(0,18)>>
-        <<set $_desAF to  ["瘦小","柔婉","精瘦","瘦削","苗条","娇软","纤细","强健","娇小","纤瘦","阳刚","有致的","健壮","圆润","丰腴","匀称","壮硕","性感","俊美","粗俗","圆胖","魁伟","狡黠"].slice(0,18)>>
+        <<set $_descAF to  ["瘦小","柔婉","精瘦","瘦削","苗条","娇软","纤细","强健","娇小","纤瘦","阳刚","有致的","健壮","圆润","丰腴","匀称","壮硕","性感","俊美","粗俗","圆胖","魁伟","狡黠"].slice(0,18)>>
         <<set $_descAM to ["娇小","瘦小","纤细","瘦削","苗条","瘦高","娇软","柔婉","纤瘦","精瘦","强健","圆润","健壮","庞大","宽硕","壮硕","粗犷","阳刚","魁梧","蛮横","圆胖","魁伟","狡黠"].slice(0,18)>>
 		<div class="settingsHeader options">
             家教设置
@@ -192,28 +192,32 @@
 		</div>
         <div class="settingsToggleItem">
 			<span class="gold">请选择家教家长性别：</span><br>
-            <input type="radio" id="tutorParentMale" name="tutorParentGender" value="m" onclick="tutorParentGenderClicked()" checked>
-            <label for="tutorParentMale">男</label>
-            <br>
-            <input type="radio" id="tutorParentFemale" name="tutorParentGender" value="f" onclick="tutorParentGenderClicked()">
-            <label for="tutorParentFemale">女</label>
-		</div>
-        <<if $tutor.parentGender is "f">>
-            <div class="settingsToggleItem">
-                <span class="gold">请选择家教家长描述：</span><br>
-                <<listbox "$tutor.parentDesc" autoselect>>
-                    <<optionsfrom $_desAF>>
-                <</listbox>>   
-		    </div>
-        <<else>>
-            <div class="settingsToggleItem">
-                <span class="gold">请选择家教家长描述：</span><br>
-                <<listbox "$tutor.parentDesc" autoselect>>
-                    <<optionsfrom $_desAM>>
-                <</listbox>>   
-		    </div>
-        <</if>>
-        <!-- <<generatey1>><<generate2>><<person2>><<person>> -->
+            <<if $tutor.parentGender is "f">>
+                <input type="radio" id="tutorParentMale" name="tutorParentGender" value="m" onclick="tutorParentGenderClicked()">
+                <label for="tutorParentMale">男</label>
+                <br>
+                <input type="radio" id="tutorParentFemale" name="tutorParentGender" value="f" onclick="tutorParentGenderClicked()" checked>
+                <label for="tutorParentFemale">女</label>
+            <<else>>
+                <input type="radio" id="tutorParentMale" name="tutorParentGender" value="m" onclick="tutorParentGenderClicked()" checked>
+                <label for="tutorParentMale">男</label>
+                <br>
+                <input type="radio" id="tutorParentFemale" name="tutorParentGender" value="f" onclick="tutorParentGenderClicked()">
+                <label for="tutorParentFemale">女</label>
+            <</if>>
+		</div>  
+        <div class="settingsToggleItem tutorParentDescFemale" @style="V.tutor.parentGender==='f'?'display:block':'display:none'">
+            <span class="gold">请选择家教家长描述：</span><br>
+            <<listbox "$tutor.parentDesc" autoselect>>
+                <<optionsfrom $_descAF>>
+            <</listbox>>   
+        </div>
+        <div class="settingsToggleItem tutorParentDescMale" @style="V.tutor.parentGender==='m'?'display:block':'display:none'">
+            <span class="gold">请选择家教家长描述：</span><br>
+            <<listbox "$tutor.parentDesc" autoselect>>
+                <<optionsfrom $_descAM>>
+            <</listbox>>   
+        </div>
     </div>
 <</widget>>
 
