@@ -128,7 +128,10 @@
 罗宾拿起了相机，你配合着<<him>>摆出各种各样的姿势。
 在<<print Time.hour lte 9? "朝阳":"晚霞">>和森林中各种生灵的映衬下，相机里的画面美得仿佛一幅油画。
 <br><br>
-<<link [[继续|Photography Together Finish]]>><</link>>
+<<set _type to Time.hour lte 9? "photographyImgForestMorning": "photographyImgForestEvening">>
+<<showImage _type>>
+<<link [[提出你想给罗宾拍照|Photography Together Reverse]]>><</link>><br>
+<<link [[结束拍摄|Photography Together Finish]]>><</link>>
 
 :: Photography Together Garden
 <<set $outside to 1>><<set $location to "home">><<effects>>
@@ -140,7 +143,12 @@
 罗宾拿起了相机，你配合着<<him>>摆出各种各样的姿势。
 在花园里的鲜花的映衬下，相机里的画面充满了生气。
 <br><br>
-<<link [[继续|Photography Together Finish]]>><</link>>
+<<set _type to Time.hour lte 9? "photographyImgGardenMorning": "photographyImgGardenEvening">>
+<<showImage _type>>
+<<link [[提出你想给罗宾拍照|Photography Together Reverse]]>><</link>><br>
+<<link [[结束拍摄|Photography Together Finish]]>><</link>>
+
+:: Photography Together Reverse
 
 :: Photography Together Finish
 <<set $outside to 0>><<set $location to "home">><<effects>>
