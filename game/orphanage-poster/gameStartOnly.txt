@@ -28,3 +28,15 @@
     <<set $tutor.parentGender to "f">>
     <<set $tutor.parentDesc to "柔婉">>
 <</if>>
+<<if $stream is undefined>>
+    <<set $stream to {}>>
+    <<set $stream.topic to "Maze">>
+    <<set $stream.commission to 30>>
+    <<set $stream.layout to "streamingLeftRight">>
+<</if>>
+<<if $blacklist is undefined>>
+    <<set $blacklist to []>>
+<</if>>
+<<if $fanslist is undefined or $fanslist.length is 0>>
+    <<set $fanslist to Object.keys(setup.users).filter(user => setup.users[user].isFans)>>
+<</if>>

@@ -53,6 +53,7 @@
     <<set $robinModSetting to true>>
     <<posterSettings>>
     <<tutorSettings>>
+    <<liveStreamSettings>>
     <<set $_typeList to ["photographyImg","photographyImgGardenMorning","photographyImgGardenEvening","photographyImgForestMorning","photographyImgForestEvening",
             "photographyImg2","photographyImgGardenMorning2","photographyImgGardenEvening2","photographyImgForestMorning2","photographyImgForestEvening2",
             "photographyImgRobin","photographyImgGardenMorningRobin","photographyImgGardenEveningRobin","photographyImgForestMorningRobin","photographyImgForestEveningRobin"]>>
@@ -218,6 +219,72 @@
                 <<optionsfrom $_descAM>>
             <</listbox>>   
         </div>
+    </div>
+<</widget>>
+
+<<widget "liveStreamSettings">>
+    <<set _fanslist to getFanslist()>>
+    <<set _blacklist to getBlacklist()>>
+    <<run blacklistRemoveClicked()>>
+    <div class="settingsGrid">
+        <div class="settingsHeader options">
+            直播设置
+            <mouse class="tooltip linkBlue">(?)<span>下列设置项在直播开始前也可以调整，在直播过程中调整直播题材不会生效。</span></mouse>
+        </div>
+        <div class="settingsToggleItem">
+            <span class="gold">弹幕位置：</span><br>
+            <label><<radiobutton "$stream.layout" "streamingLeftRight" autocheck>> 屏幕右侧（适合电脑和手机横屏）</label><br>
+            <label><<radiobutton "$stream.layout" "streamingUpDown" autocheck>> 屏幕下方（适合手机竖屏）</label>
+        </div>
+        <div class="settingsToggleItem">
+            <span class="gold">直播题材：</span><br>
+            <label><<radiobutton "$stream.topic" "Maze" autocheck>> 游戏直播-1</label>
+            <br>
+            <label><<radiobutton "$stream.topic" "Daily" autocheck>> 聊天直播-1</label>
+            <br>
+            （更多选项会在之后添加）
+        </div>
+        <div class="settingsToggleItem">
+            <span class="gold">平台抽成调整：</span><br>
+            <<numberslider "$stream.commission" $stream.commission 10 90 1>>
+        </div>
+    </div>
+    <div class="settingsGrid">
+        <details>
+            <summary class="settingsHeader options">
+                直播-点击查看粉丝列表
+                <mouse class="tooltip linkBlue">(?)<span>粉丝会在一起直播时慢慢积累</span></mouse>
+            </summary>
+            <div class="settingsToggleItem">
+                <<for _i to 0; _i lt _fanslist.length; _i++>>
+                    <<set _color to 'color: ' + setup.rbg_from_string(_fanslist[_i])>>
+                    <span class="fanslist" @style="_color"><<= _fanslist[_i]>>
+                    <i class="liveStreamFans"></i>
+                    <br></span>
+                <</for>>
+            </div>
+        </details>
+    </div>
+    <div class="settingsGrid">
+        <details>
+            <summary class="settingsHeader options">
+                直播-点击查看黑名单
+                <mouse class="tooltip linkBlue">(?)<span>点击 <i class="blacklistRemove"></i> 可解除禁言</span></mouse>
+            </summary>
+            <div class="settingsToggleItem">
+                <<if _blacklist.length is 0>>
+                    暂无黑名单。
+                <</if>>
+                <<for _i to 0; _i lt _blacklist.length; _i++>>
+                    <<set _color to 'color: ' + setup.rbg_from_string(_blacklist[_i].name)>>
+                    <span class="blacklistid" style="display:none;"><<= _blacklist[_i].id>></span>
+                    <span class="blacklistname" @style="_color"><<= _blacklist[_i].name>>
+                    <i class="blacklistRemove"></i>
+                    </span>
+                    <br>
+                <</for>>
+            </div>
+        </details>
     </div>
 <</widget>>
 

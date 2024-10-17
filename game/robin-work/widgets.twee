@@ -304,7 +304,9 @@
 <</widget>>
 
 <<widget "startstream">>
-    <<set $stream to {}>>
+    <<if $stream is undefined>>
+        <<set $stream to {}>>
+    <</if>>
     /% 防止第一周还没初始化 %/
     <<if $liveStreamStage is undefined>>
         <<set $liveStreamStage to 0>>
@@ -321,7 +323,7 @@
     <<if $stream.topic is undefined>>
         <<set $stream.topic to "Maze">>
     <</if>>
-    <<if $player.commission is undefined>>
+    <<if $stream.commission is undefined>>
         <<set $stream.commission to 30>>
     <</if>>
     <<if $stream.layout is undefined>>
