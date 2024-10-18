@@ -29,8 +29,7 @@
 .modal-content {
     margin: auto;
     display: block;
-    width: 80%;
-    max-width: 700px;
+    max-width: 80%;
 }
 
 
@@ -114,4 +113,8 @@
 .uploadFileInput {
     width: 90%;
     height: auto;
+}
+
+.myImage {
+    max-width: 80%;
 }

@@ -619,7 +619,7 @@
         <<set $_src to $robinPhotography["photographyImg"]>>
     <</if>>
     <<if $_src isnot "">>
-        <img @src="$_src" alt="" id="photographyImg" onclick="image_click('photographyImg')">
+        <img @src="$_src" alt="" id="photographyImg" onclick="image_click('photographyImg')" class="myImage">
         <br><br>
         <div id="myModal" class="modal">
             <span class="modal-close" onclick="close_click()">×</span>

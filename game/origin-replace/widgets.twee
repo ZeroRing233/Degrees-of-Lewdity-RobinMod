@@ -37,11 +37,11 @@
 	<<setupTabs>>
 	<div id="overlayTabs" class="tab">
 		<<closeButtonMobile>>
-		<<button "dom罗宾模组介绍">>
+		<<button "模组介绍">>
 			<<toggleTab>>
 			<<replace #customOverlayContent>><<robinModHint>><</replace>>
 		<</button>>
-        <<button "dom罗宾模组设置">>
+        <<button "模组设置">>
 			<<toggleTab>>
 			<<replace #customOverlayContent>><<robinModSettings>><</replace>>
 		<</button>>
