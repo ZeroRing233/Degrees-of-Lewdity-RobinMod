@@ -128,6 +128,9 @@
 罗宾拿起了相机，你配合着<<him>>摆出各种各样的姿势。
 在<<print Time.hour lte 9? "朝阳":"晚霞">>和森林中各种生灵的映衬下，相机里的画面美得仿佛一幅油画。
 <br><br>
+拍摄结束后，罗宾将冲洗好的照片递给了你，说道："我还留了几张备份，这张留给你作纪念吧。"
+你接过照片，小心翼翼地把它收了起来。
+<br><br>
 <<set _type to Time.hour lte 9? "photographyImgForestMorning": "photographyImgForestEvening">>
 <<showImage _type>>
 <<link [[提出你想给罗宾拍照|Photography Together Reverse]]>><</link>><br>
@@ -143,12 +146,74 @@
 罗宾拿起了相机，你配合着<<him>>摆出各种各样的姿势。
 在花园里的鲜花的映衬下，相机里的画面充满了生气。
 <br><br>
+拍摄结束后，罗宾将冲洗好的照片递给了你，说道："我还留了几张备份，这张留给你作纪念吧。"
+你接过照片，小心翼翼地把它收了起来。
+<br><br>
 <<set _type to Time.hour lte 9? "photographyImgGardenMorning": "photographyImgGardenEvening">>
 <<showImage _type>>
 <<link [[提出你想给罗宾拍照|Photography Together Reverse]]>><</link>><br>
 <<link [[结束拍摄|Photography Together Finish]]>><</link>>
 
 :: Photography Together Reverse
+<<effects>>
+<<if !$photographyReverseTalked>>
+    <<set $photographyReverseTalked to true>>
+    当罗宾准备收工时，你叫住了<<him>>："等等，一直都是你在为我拍照，如果可以的话，我也想为你拍一张。"
+    <br><br>
+    你注意到罗宾有一些犹豫，于是连忙补充道："别担心，这些照片不会被用于任何商业目的，仅仅作为我们两人之间的纪念，好吗？"
+    <br><br>
+    罗宾听后，似乎松了一口气："当然可以，让我来教你如何操作这台相机……而且，如果我们使用自拍模式的话，还能一起拍张合影呢。"
+    你听着罗宾的介绍，感觉有一些心动。
+<<else>>
+    当罗宾准备收工时，你叫住了<<him>>："等等，这次我也想给你拍张照片，可以吗？"
+    <br><br>
+    罗宾点了点头："当然可以，这次你是想和我一起合影，还是想为我拍张单人照呢？"
+<</if>>
+<br><br>
+<<link [[拍合影|Photography Together Both]]>><</link>><br>
+<<link [[为罗宾拍单人照|Photography Together Robin]]>><</link>>
+
+:: Photography Together Both
+<<effects>>
+"我想想...那我们这次就一起拍张合照吧！"你说着，接过相机，按照罗宾的指示调整好自拍模式。
+<br><br>
+你们并肩站着，对着镜头露出灿烂的笑容。
+<br><br>
+合影结束后，罗宾拿着洗出的照片递给你："你看看，拍得还不错吧？"
+<br><br>
+你看着照片中笑容灿烂的彼此，欣然点头："嗯，很棒！"
+<br><br>
+之后，你和罗宾各自拿了一张冲洗好的照片，作为对这次合影的纪念。
+<br><br>
+<<if $location is "forest">>
+    <<set _type to Time.hour lte 9? "photographyImgForestMorning2": "photographyImgForestEvening2">>
+<<else>>
+    <<set _type to Time.hour lte 9? "photographyImgGardenMorning2": "photographyImgGardenEvening2">>
+<</if>>
+<<showImage _type>>
+<<link [[结束拍摄|Photography Together Finish]]>><</link>>
+
+:: Photography Together Robin
+<<effects>>
+"我想想...不如这次就让我为你拍张照片吧！"你提议道，并从罗宾手中接过相机。
+<br><br>
+罗宾欣然同意，在你的指示下找到了一个合适的位置和姿势。
+<br><br>
+你调整好焦距和光圈，按下快门，捕捉下这美好的瞬间。
+<br><br>
+照片冲洗出来后，你将它递给罗宾："看，你真的很上镜！"
+<br><br>
+罗宾接过照片仔细看了看，然后轻轻点了点头：“嗯，拍得很好，我很喜欢。”
+<br><br>
+之后，你和罗宾各自拿了一张冲洗好的照片，作为对这次"额外拍摄"的纪念。
+<br><br>
+<<if $location is "forest">>
+    <<set _type to Time.hour lte 9? "photographyImgForestMorningRobin": "photographyImgForestEveningRobin">>
+<<else>>
+    <<set _type to Time.hour lte 9? "photographyImgGardenMorningRobin": "photographyImgGardenEveningRobin">>
+<</if>>
+<<showImage _type>>
+<<link [[结束拍摄|Photography Together Finish]]>><</link>>
 
 :: Photography Together Finish
 <<set $outside to 0>><<set $location to "home">><<effects>>
