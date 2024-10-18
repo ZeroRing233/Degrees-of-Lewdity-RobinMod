@@ -118,3 +118,20 @@
 .myImage {
     max-width: 80%;
 }
+
+#gallery {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+.image-container {
+    margin: 10px;
+    border: 1px solid lightgray;
+}
+
+.image-container>img {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+}

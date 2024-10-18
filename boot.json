@@ -17,7 +17,8 @@
         "game/javaScript/terraiaUtil.js",
         "game/javaScript/orphanagePoster.js",
         "game/javaScript/liveStream.js",
-        "game/javaScript/introduction.js"
+        "game/javaScript/introduction.js",
+        "game/javaScript/photography.js"
     ],
     "tweeFileList": [
         "game/robin-work/lemonade/lemonadeUpgrade.twee",
@@ -891,6 +892,16 @@
                     "findString": "<<set _n to $active_enemy>>",
                     "replace": "<<set _n to $active_enemy>><<if $fightCondition is \"moorStars\">><<set _n to _args[0]>><</if>>",
                     "comments": "观星不易第三弹"
+                },
+                {
+                    "passage": "Widgets",
+                    "findString": "<<homeStudyOptions>>",
+                    "replace": "<<homeStudyOptions>><<photographyImageOptions>>"
+                },
+                {
+                    "passage": "Widgets",
+                    "findString": "if _projectOptions",
+                    "replace": "if ($photographyImageList isnot undefined and $photographyImageList.length > 0) || _projectOptions"
                 }
             ]
         },

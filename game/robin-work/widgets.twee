@@ -626,5 +626,15 @@
             <img class="modal-content" id="img01">
             <div id="modal-caption"></div>
         </div>
+        <<if $photographyImageList is undefined>>
+            <<set $photographyImageList to []>>
+        <</if>>
+        <<set $photographyImageList.pushUnique($_src)>>
+    <</if>>
+<</widget>>
+
+<<widget "photographyImageOptions">>
+    <<if $photographyImageList isnot undefined and $photographyImageList.length > 0>>
+        <<photographystudioicon>><<link [[查看摄影照片集|Show Photography Image List]]>><</link>><br>
     <</if>>
 <</widget>>

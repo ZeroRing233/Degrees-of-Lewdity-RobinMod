@@ -226,3 +226,17 @@
 <<famemodel 20>>
 <br><br>
 <<robinoptions>>
+
+:: Show Photography Image List
+<<effects>>
+你翻阅着和罗宾一起摄影时保留下来的照片，它们记录了你们相处时一点一滴。
+<br><br>
+<div id="gallery"></div>
+<div id="myModal" class="modal">
+    <span class="modal-close" onclick="close_click()">×</span>
+    <img class="modal-content" id="img01">
+    <div id="modal-caption"></div>
+</div>
+<br><br>
+<<run getPhotographyImageList()>>
+<<link [[合上照片集|Bedroom]]>><<endevent>><</link>>
