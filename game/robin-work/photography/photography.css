@@ -126,12 +126,12 @@
 }
 
 .image-container {
-    margin: 10px;
+    margin: 5px;
     border: 1px solid lightgray;
 }
 
 .image-container>img {
-    width: 64px;
-    height: 64px;
-    object-fit: cover;
+    width: 100px;
+    height: 75px;
+    object-fit: contain;
 }
