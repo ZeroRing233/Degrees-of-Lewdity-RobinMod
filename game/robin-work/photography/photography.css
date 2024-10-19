@@ -135,3 +135,9 @@
     height: 75px;
     object-fit: contain;
 }
+
+.setting-img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}

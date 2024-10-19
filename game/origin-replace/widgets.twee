@@ -335,10 +335,10 @@
         <br>
         <<if $robinPhotography[$_type]>>
             <span class="img-delete" @id="'img_delete_'+ $_type" onclick="img_delete_click(this.id)" style="display: block;">×</span>
-            <img @src="$robinPhotography[$_type]" alt="" @id="'show_img_'+ $_type" width="64px" height="64px" style="display: block;" />
+            <img @src="$robinPhotography[$_type]" alt="" @id="'show_img_'+ $_type" width="64px" height="64px" style="display: block;" class="setting-img"/>
         <<else>>
             <span class="img-delete" @id="'img_delete_'+ $_type" onclick="img_delete_click(this.id)" style="display: none;">×</span>
-            <img @src="$robinPhotography[$_type]" alt="" @id="'show_img_'+ $_type" width="64px" height="64px" style="display: none;" />
+            <img @src="$robinPhotography[$_type]" alt="" @id="'show_img_'+ $_type" width="64px" height="64px" style="display: none;" class="setting-img"/>
         <</if>>
     </div>
 <</widget>>
