@@ -81,6 +81,7 @@
         "game/robin-work/danube-tutor/danubeTutorAfterWalkHomeTopless1.txt",
         "game/robin-work/danube-tutor/danubeTutorAfterWalkHomeTopless2.txt",
         "game/robin-work/danube-tutor/danubeTutorWalkHome.txt",
+        "game/robin-work/danube-tutor/danubeTutorMeetRobin.txt",
         "game/robin-work/live-stream/robinWatch.txt",
         "game/robin-work/live-stream/robinOptions.txt",
         "game/robin-work/live-stream/cinemaChange1.txt",
@@ -902,6 +903,11 @@
                     "passage": "Widgets",
                     "findString": "if _projectOptions",
                     "replace": "if ($photographyImageList isnot undefined and $photographyImageList.length > 0) || _projectOptions"
+                },
+                {
+                    "passage": "Danube Street",
+                    "findString": "<<streeteffects>>",
+                    "replaceFile": "game/robin-work/danube-tutor/danubeTutorMeetRobin.txt"
                 }
             ]
         },

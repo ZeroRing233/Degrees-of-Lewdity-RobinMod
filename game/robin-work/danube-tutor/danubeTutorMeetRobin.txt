@@ -1,0 +1,5 @@
+<<streeteffects>>
+<<if getRobinLocation() is "danube">>
+    <br><br>
+    你突然想到，现在正是罗宾做家教的时间，也许你可以去拜访一下<<him>>？或者只是去偷偷看一眼？
+<</if>>
