@@ -1,5 +1,5 @@
 <<streeteffects>>
-<<if getRobinLocation() is "danube">>
+<<if getRobinLocation() is "danube" and !$daily.danubeTutorMeetRobin>>
     <br><br>
-    你突然想到，现在正是罗宾做家教的时间，也许你可以去拜访一下<<him>>？或者只是去偷偷看一眼？
+    你突然想到，现在正是罗宾做家教的时间，也许你可以去拜访一下<<nnpc_him Robin>>？或者只是去偷偷看一眼？
 <</if>>

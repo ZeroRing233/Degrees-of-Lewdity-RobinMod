@@ -5,7 +5,14 @@
 <<if $phase is 3>>
 	你向<<person2>><<person>>推荐了另一个家教，
 	<span class="gold">你渊博的知识和把问题描述清晰的能力折服了<<person2>><<person>>，<<he>>同意尝试雇佣对方来做家教。</span>
-<<set $danubeTutorIntro to 1>>
+	<<set $danubeTutorIntro to 1>>
+	<<set $tutor to {}>>
+    <<set $tutor.studentGender to $NPCList[0].gender>>
+    <<set $tutor.studentDesc to $NPCList[0].description>> 
+    <<set $tutor.parentGender $NPCList[1].gender>>
+    <<set $tutor.parentDesc to $NPCList[1].description>>
+	<<saveNPC 0 "danubeTutorStudent">>
+	<<saveNPC 1 "danubeTutorParent">>
 <<else>>
 	你向<<person2>><<person>>推荐了另一个家教，
     <span class="blue">但<<person2>><<person>>对你并不足够满意，</span><<he>>只是说"等你表现得足够好了，再来提这件事吧"。
@@ -20,9 +27,7 @@
 <br>
 <span class="gold">罗宾已答应去尝试多瑙河街的家教工作，可在两天后再次与罗宾沟通。</span>
 <<set $danubeTutorIntro to 2>>
-
 <br><br>
-
 <<robinoptions>>
 
 :: Danube Tutor Result
@@ -42,5 +47,253 @@
 <br>
 <span class="gold">罗宾现在已经在多瑙河街找到了新工作，此后放学后需在15:05之前才能和罗宾一起回家。</span>
 <br><br>
-
 <<robinoptions>>
+
+:: Danube Tutor Meet Robin
+<<set $outside to 1>><<set $location to "town">><<effects>><<set $bus to "danube">>
+<<generateDanubeTutorNPCs>><<npc Robin 3>>
+<<set $daily.danubeTutorMeetRobin to true>>
+你找到了罗宾做家教的那栋房子，屋内隐隐传出了交谈声，你不由开始想象里面的情况。
+<br><br>
+<<set $skulduggerydifficulty to 400>>
+<<link [[偷看 (1:00)|Danube Tutor Sneak Look]]>><<pass 60>><</link>><<skulduggerydifficulty>>
+<br>
+<<link [[敲门 (1:00)|Danube Street Knock Door]]>><<pass 60>><</link>>
+<br>
+<<getouticon>><<link [[直接离开|Danube Street]]>><<endevent>><</link>>
+
+:: Danube Tutor Sneak Look
+<<set $outside to 1>><<set $location to "town">><<effects>><<set $bus to "danube">>
+你试图透过窗户偷看屋里的情形。
+<br><br>
+<<skulduggerycheck>>
+<<if $skulduggerysuccess is 1>>
+	<<set _subject to ["science","english","history","math"].random()>>
+	屋内没有人发现你，你看到罗宾和<<danubeTutorStudent>>正在上一节<<danubeTutorSubject _subject>>。
+	<br><br>
+	<<if _subject is "science">>
+		罗宾指着课本上的细胞结构图，讲解着细胞的基本功能，<<danubeTutorStudent>>则聚精会神地听着，时不时提出一些问题。
+		<br><br>
+		随着罗宾通俗易懂的讲解，<<danubeTutorStudent>>原本有些茫然的眼神也逐渐变得明亮起来，<<person1>><<he>>看上去对微观世界充满了好奇。
+	<<elseif _subject is "english">>
+		罗宾正拿着一本诗集，低声朗读着一首经典的浪漫主义诗歌，<<person3>><<his>>富有情感的语调引导着<<danubeTutorStudent>>体会诗歌的意境和韵律。
+		<br><br>
+		随着罗宾抑扬顿挫的朗读，<<danubeTutorStudent>>也开始感受到了这首诗歌的优美和力量，<<person1>><<he>>看上去沉浸在了文学之美中。
+	<<elseif _subject is "history">>
+		罗宾正坐在沙发上，手里拿着一本厚厚的历史书，讲述着某个历史事件。<<danubeTutorStudent>>则认真地听着，时不时提出自己的见解。
+		<br><br>
+		你注意到，罗宾对历史知识的掌握非常扎实，而且能够将历史事件与现实生活联系起来，这使<<danubeTutorStudent>>也开始对历史产生了浓厚的兴趣。
+	<<else>>
+		罗宾正站在一块白板前，上面写满了代数公式。<<danubeTutorStudent>>坐在桌前，眉头紧锁，似乎正在努力理解这些抽象的符号。罗宾则用通俗易懂的语言解释着公式的含义，并一步步演示解题步骤。
+		<br><br>
+		随着罗宾深入浅出的讲解，<<danubeTutorStudent>>原本迷茫的眼神逐渐变得清澈起来，脸上露出了恍然大悟的表情。
+	<</if>>
+	<br><br>
+	<<skulduggeryuse>>
+	<<link [[继续|Danube Tutor Sneak Look End]]>><</link>>
+<<else>>
+	屋内传来轻微的声响，你意识到自己可能被发现了。三双目光齐刷刷地投向你，你顿时感到一阵尴尬。<<gstress>><<stress 6>>
+	<br><br>
+	<<danubeTutorParent>>咳嗽了一声，走过来打开了房门："进来吧，下次不要在外面偷看了。"
+	<br><br>
+	你脸颊发烫，低着头走进屋内。
+    <br><br>
+    <<skulduggeryuse>>
+    <<link [[继续|Danube Tutor Enter Room]]>><</link>>
+<</if>>
+
+:: Danube Tutor Sneak Look End
+<<effects>>
+课程结束后，<<danubeTutorStudent>>兴奋地对罗宾说道："你真的是个很棒的老师！我今天学到了好多东西，下次能不能再教我一些更有趣的东西呢？"
+<br><br>
+<<danubeTutorParent>>也热情地将这次工作的报酬递给了罗宾，罗宾接过报酬，微笑着与这家人告别："谢谢，下次我会更加用心准备的。"
+<br><br>
+当罗宾走出房门时，你犹豫着要不要上前去和<<person3>><<him>>打个招呼。
+<br><br>
+<<link [[打招呼|Danube Tutor Say Hi]]>><</link>>
+<br>
+<<getouticon>><<link [[直接离开|Danube Street]]>><<endevent>><</link>>
+
+:: Danube Tutor Say Hi
+<<effects>>
+你快步走到罗宾面前，脸上带着自然的微笑，装作不经意地问道："嘿，真巧啊，你这是刚做完家教吗？"
+<br><br>
+罗宾略带惊讶地看着你，迟疑了一下说道："是啊，你该不会……是特意在这里等我吧？" <<glove>><<npcincr Robin love 2>>
+<br><br>
+<<He>>停顿片刻，随即露出笑容："不过，很高兴在这里遇见你。我们一起回家吧？"
+<br><br>
+<<link [[一起回家（0:15)|Danube Tutor Walk Home After Sneak Look]]>><<pass 15>><</link>><br>
+<<link [[说你还有事|Danube Tutor Leave After Sneak Look]]>><</link>>
+
+:: Danube Tutor Walk Home After Sneak Look
+<<set $outside to 1>><<set $location to "town">><<effects>>
+你点点头，轻轻拉起罗宾的手。<<takeHandholdingVirginity "Robin" "consensual">>
+<br><br>
+你们手牵着手，一起走回了孤儿院。一路上，罗宾和你分享着做家教时的趣事，你时不时地点头回应着<<him>>。<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
+<br><br>
+<<link [[继续|Orphanage]]>><<endevent>><</link>>
+
+:: Danube Tutor Leave After Sneak Look
+<<effects>>
+你轻轻摇了摇头，表示你还有其他事情要处理。 
+<br><br>
+罗宾看上去有些失落，但还是给了你一个拥抱："那好吧，祝你一切顺利！回见！" <<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
+<br><br>
+<<link [[继续|Danube Street]]>><<endevent>><</link>>
+
+:: Danube Tutor Knock Door
+<<effects>>
+你敲了敲门，屋内响起<<danubeTutorParent>>的声音："请进。"
+<br><br>
+当看到是你的时候，<<person2>><<he>>露出了微笑："欢迎，你是来找朋友的吧？"
+<br><br>
+你点点头，礼貌地说了句"打扰了"，然后走进了屋内。
+<br><br>
+<<link [[继续|Danube Tutor Enter Room]]>><</link>>
+
+:: Danube Tutor Enter Room
+<<set $outside to 0>><<set $location to "town">><<effects>><<set $bus to "danube">>
+<<set _subjectList to []>>
+<<if $mathstrait gte 3>>
+	<<set _subjectList.push("math")>>
+<</if>>
+<<if $englishtrait gte 3>>
+	<<set _subjectList.push("english")>>
+<</if>>
+<<if $historytrait gte 3>>
+	<<set _subjectList.push("history")>>
+<</if>>
+<<if $sciencetrait gte 3>>
+	<<set _subjectList.push("science")>>
+<</if>>
+<<if _subjectList.length gt 0>>
+	<<set _subject to _subjectList.random()>>
+<</if>>
+<<if !$danubeTutorEntered>>
+	<<set $danubeTutorEntered to true>>
+	你走到罗宾和<<danubeTutorStudent>>身边，罗宾惊讶地问道："你怎么来了？"
+	<br><br>
+	你解释道："我只是有点好奇你做家教时是什么样子的，所以过来看看，我会尽量保持安静，不打扰你们。"
+	<br><br>
+	罗宾听后，想了想说道："没问题，或许你也可以在旁边帮我一起辅导<<person1>><<him>>?"
+	<br><br>
+	一旁的<<danubeTutorStudent>>也兴奋地附和道："好啊好啊，你上次来时真的令我印象深刻，我也很想听你再讲一次课呢。"
+<<else>>
+	你走到罗宾和<<danubeTutorStudent>>身边，罗宾对你露出一个灿烂的笑容，问道："欢迎！这次要不要和我一起上课？"
+	<br><br>
+	一旁的<<danubeTutorStudent>>看上去也很期待你的表现。
+<</if>>
+<br><br>
+<<if _subject isnot undefined>>
+	<<link [[参与授课|Danube Tutor Together]]>><<set $phase to _subject>><</link>><br>
+<<else>>
+	<span class="blue">你还没做好和罗宾一起授课的准备。</span><br>
+<</if>>
+<<link [[旁听|Danube Tutor Audit]]>>
+
+:: Danube Tutor Together
+<<effects>>
+"那我就恭敬不如从命啦！"你说着，兴致勃勃地准备开始和罗宾一起授课。
+<br><br>
+你们一起上了一节<<danubeTutorSubject $phase>>，
+<<if $phase is "science">>
+	罗宾指着课本上的细胞结构图，讲解着细胞的基本功能，<<danubeTutorStudent>>则聚精会神地听着，时不时提出一些问题。
+	<br><br>
+	你在一旁补充着一些有趣的细胞趣闻，例如不同细胞的奇特形状、细胞的寿命等等，<<danubeTutorStudent>>听得津津有味。
+	<br><br>
+	随着罗宾通俗易懂的讲解和你生动的补充，<<danubeTutorStudent>>原本有些茫然的眼神也逐渐变得明亮起来，<<he>>看上去对微观世界充满了好奇。
+<<elseif $phase is "english">>
+	罗宾拿着一本诗集，低声朗读着一首经典的浪漫主义诗歌，<<person3>><<his>>富有情感的语调引导着<<danubeTutorStudent>>体会诗歌的意境和韵律。
+	<br><br>
+	你在一旁静静聆听，并在罗宾朗读结束后，引导<<danubeTutorStudent>>思考诗歌中的一些细节，例如诗歌的主题、作者的情感、以及诗歌中运用的修辞手法等等。
+	<br><br>
+	随着罗宾抑扬顿挫的朗读和你的引导分析，<<danubeTutorStudent>>也开始感受到了这首诗歌的优美和力量，<<he>>看上去沉浸在了文学之美中，并开始积极地表达自己的理解和感受。
+<<elseif $phase is "history">>
+	罗宾坐在沙发上，手里拿着一本厚厚的历史书，讲述着某个历史事件。<<danubeTutorStudent>>则认真地听着，时不时提出自己的见解。
+	<br><br>
+	你注意到，罗宾对历史知识的掌握非常扎实，而且能够将历史事件与现实生活联系起来。你适时地补充了一些相关的历史纪录片和电影推荐，希望能进一步拓展（学生）的视野。
+	<br><br>
+	你们和<<danubeTutorStudent>>则一起讨论着历史事件的起因、经过和影响，这使<<danubeTutorStudent>>也开始对历史产生了浓厚的兴趣。
+<<else>>
+	罗宾站在一块白板前，上面写满了代数公式。<<danubeTutorStudent>>坐在桌前，眉头紧锁，似乎正在努力理解这些抽象的符号。罗宾则用通俗易懂的语言解释着公式的含义，并一步步演示解题步骤。
+	<br><br>
+	你发现<<danubeTutorStudent>>在某个知识点上有些卡壳，于是你走到他身边，用更简单易懂的方式为他讲解，并举了一些生活中的例子帮助他理解。
+	<br><br>
+	随着罗宾深入浅出的讲解和你的耐心引导，<<danubeTutorStudent>>原本迷茫的眼神逐渐变得清澈起来，脸上露出了恍然大悟的表情。
+<</if>>
+<br><br>
+<<link [[继续|Danube Tutor End]]>><<set $phase to "together">><</link>><br>
+
+:: Danube Tutor Audit
+<<effects>>
+<<set _subject to ["science","english","history","math"].random()>>
+"我还是旁听就好，毕竟这是你的家教时间。" 你对罗宾笑了笑，然后走到一旁，开始观察<<he>>如何辅导学生。
+<br><br>
+你看到罗宾和<<danubeTutorStudent>>正在上一节<<danubeTutorSubject _subject>>
+<br><br>
+<<if _subject is "science">>
+	罗宾指着课本上的细胞结构图，讲解着细胞的基本功能，<<danubeTutorStudent>>则聚精会神地听着，时不时提出一些问题。
+	<br><br>
+	随着罗宾通俗易懂的讲解，<<danubeTutorStudent>>原本有些茫然的眼神也逐渐变得明亮起来，<<person1>><<he>>看上去对微观世界充满了好奇。
+<<elseif _subject is "english">>
+	罗宾正拿着一本诗集，低声朗读着一首经典的浪漫主义诗歌，<<person3>><<his>>富有情感的语调引导着<<danubeTutorStudent>>体会诗歌的意境和韵律。
+	<br><br>
+	随着罗宾抑扬顿挫的朗读，<<danubeTutorStudent>>也开始感受到了这首诗歌的优美和力量，<<person1>><<he>>看上去沉浸在了文学之美中。
+<<elseif _subject is "history">>
+	罗宾正坐在沙发上，手里拿着一本厚厚的历史书，讲述着某个历史事件。<<danubeTutorStudent>>则认真地听着，时不时提出自己的见解。
+	<br><br>
+	你注意到，罗宾对历史知识的掌握非常扎实，而且能够将历史事件与现实生活联系起来，这使<<danubeTutorStudent>>也开始对历史产生了浓厚的兴趣。
+<<else>>
+	罗宾正站在一块白板前，上面写满了代数公式。<<danubeTutorStudent>>坐在桌前，眉头紧锁，似乎正在努力理解这些抽象的符号。罗宾则用通俗易懂的语言解释着公式的含义，并一步步演示解题步骤。
+	<br><br>
+	随着罗宾深入浅出的讲解，<<danubeTutorStudent>>原本迷茫的眼神逐渐变得清澈起来，脸上露出了恍然大悟的表情。
+<</if>>
+<br><br>
+<<link [[继续|Danube Tutor End]]>><<set $phase to "audit">><</link>>
+
+:: Danube Tutor End
+<<effects>>
+<<if $phase is "audit">>
+	课程结束后，<<danubeTutorStudent>>兴奋地对罗宾说道："你真的是个很棒的老师！我今天学到了好多东西，下次能不能再教我一些更有趣的知识呢？"
+	<br><br>
+	<<danubeTutorParent>>也热情地将这次工作的报酬递给了罗宾，并对<<person3>><<him>>说道："今天真是太感谢你了！也欢迎你的朋友再来拜访。"
+	<br><br>
+	罗宾接过报酬，微笑着与这家人告别："谢谢，下次我会更加用心准备的。" 说着，<<he>>自然地牵起你的手，一起走出了房门。<<takeHandholdingVirginity "Robin" "consensual">>
+	<br><br>	
+	"这次的家教很顺利呢，也许是因为有你在身边，"罗宾转头对你微笑，"我们一起回家吧？" <<glove>><<npcincr Robin love 2>>
+<<else>>
+	课程结束后，<<danubeTutorStudent>>兴奋地对罗宾说道："你真的是个很棒的老师！你的朋友也很厉害！多亏了你们，我今天学到了很多东西。"
+	<br><br>
+	<<if !$danubeTutorNameIntro>>
+		<<set $danubeTutorNameIntro to true>>
+		说完，<<person1>><<he>>又转向了你："说起来，我还没有对你做过自我介绍呢，我叫<<danubeTutorStudent>>，
+		旁边那位是我的<<print $NPCList[1].pronoun is "f" ? "母亲": "父亲">>，<<person2>><<him>>叫<<danubeTutorParent>>，
+		我们都很喜欢你，希望你也能经常过来。"
+		<br><br>
+	<</if>>
+	<<danubeTutorParent>>也热情地对你们说道："今天真是太感谢你们了！欢迎你们再一起来。"<<he>>一边说，一边将报酬递给了罗宾。
+	<br><br>
+	罗宾接过报酬，微笑着与这家人告别："谢谢，下次我会更加用心准备的。" 说着，<<person3>><<he>>自然地牵起你的手，一起走出了房门。<<takeHandholdingVirginity "Robin" "consensual">>
+	<br><br>
+	"这次的家教很顺利呢，多亏了你在一旁帮忙，"罗宾转头对你微笑，"我们一起回家吧？" <<glove>><<npcincr Robin love 2>>
+<</if>>
+<br><br>
+<<link [[一起回家（0:15）|Danube Tutor Walk Home]]>><<pass 15>><</link>>
+<br>
+<<link [[说你还有事|Danube Tutor Leave]]>><</link>>
+
+:: Danube Tutor Walk Home
+<<set $outside to 1>><<set $location to "town">><<effects>>
+你点了点头，你们手牵着手，一起走回了孤儿院。
+<br><br>
+一路上，罗宾和你分享着做家教时的趣事，你时不时地点头回应着<<him>>。<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
+<br><br>
+<<link [[继续|Orphanage]]>><<endevent>><</link>>
+
+:: Danube Tutor Leave
+<<effects>>
+你轻轻摇了摇头，表示你还有其他事情要处理。 
+<br><br>
+罗宾看上去有些失落，但还是给了你一个拥抱："那好吧，祝你一切顺利！回见！" <<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
+<br><br>
+<<link [[继续|Danube Street]]>><<endevent>><</link>>

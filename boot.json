@@ -82,6 +82,7 @@
         "game/robin-work/danube-tutor/danubeTutorAfterWalkHomeTopless2.txt",
         "game/robin-work/danube-tutor/danubeTutorWalkHome.txt",
         "game/robin-work/danube-tutor/danubeTutorMeetRobin.txt",
+        "game/robin-work/danube-tutor/danubeTutorMeetRobin2.txt",
         "game/robin-work/live-stream/robinWatch.txt",
         "game/robin-work/live-stream/robinOptions.txt",
         "game/robin-work/live-stream/cinemaChange1.txt",
@@ -908,6 +909,11 @@
                     "passage": "Danube Street",
                     "findString": "<<streeteffects>>",
                     "replaceFile": "game/robin-work/danube-tutor/danubeTutorMeetRobin.txt"
+                },
+                {
+                    "passage": "Danube Street",
+                    "findRegex": "<<elseif \\$exposed lte 0>>(.|\n)*?<</if>>",
+                    "replaceFile": "game/robin-work/danube-tutor/danubeTutorMeetRobin2.txt"
                 }
             ]
         },

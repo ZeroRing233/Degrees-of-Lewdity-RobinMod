@@ -638,3 +638,62 @@
         <<photographystudioicon>><<link [[查看摄影照片集|Show Photography Image List]]>><</link>><br>
     <</if>>
 <</widget>>
+
+/% 暂时定死学生是1，家长是2，应该不会有什么特殊情况 %/
+<<widget "generateDanubeTutorNPCs">>
+    <<if $per_npc["danubeTutorStudent"] is undefined or $per_npc["danubeTutorParent"] is undefined>>
+        <<generatey1>><<generate2>>
+    <<else>>
+        <<loadNPC 0 "danubeTutorStudent">><<loadNPC 1 "danubeTutorParent">>
+    <</if>>
+    <<if $tutor isnot undefined>>
+        <<set $NPCList[0].gender to $tutor.studentGender>>
+        <<set $NPCList[0].pronoun to $tutor.studentGender>>
+        <<set $NPCList[0].description to $tutor.studentDesc>>
+        <<set $NPCList[0].fullDescription to $tutor.studentDesc>>
+        <<set $NPCList[1].gender to $tutor.parentGender>>
+        <<set $NPCList[1].pronoun to $tutor.parentGender>>
+        <<set $NPCList[1].description to $tutor.parentDesc>>
+        <<set $NPCList[1].fullDescription to $tutor.parentDesc>>
+    <</if>>
+    <<set $NPCList[0].fullDescription += ($NPCList[0].pronoun is "f" ? "女孩": "男孩")>>
+    <<set $NPCList[1].fullDescription += ($NPCList[1].pronoun is "f" ? "女人": "男人")>>
+    <<if !$danubeTutorNameIntro>>
+        <<set $NPCList[0].name to ($NPCList[0].pronoun is "f" ? $NPC_names_f.random() : $NPC_names_m.random())>>
+        <<set $NPCList[1].name to ($NPCList[1].pronoun is "f" ? $NPC_names_f.random() : $NPC_names_m.random())>>
+    <</if>>
+    <<saveNPC 0 "danubeTutorStudent">>
+	<<saveNPC 1 "danubeTutorParent">>
+<</widget>>
+
+<<widget "danubeTutorStudent">>
+    <<if $danubeTutorNameIntro>>
+        <span class="green"><<print $NPCList[0].name>></span>
+    <<else>>
+        <<print $NPCList[0].fullDescription>>
+    <</if>>
+<</widget>>
+
+<<widget "danubeTutorParent">>
+    <<if $danubeTutorNameIntro>>
+        <span class="green"><<print $NPCList[1].name>></span>
+    <<else>>
+        <<print $NPCList[1].fullDescription>>
+    <</if>>
+<</widget>>
+
+<<widget "danubeTutorSubject">>
+    <<set $_subject to _args[0]>>
+    <<if $_subject is "science">>
+        <span class="green">科学课</span>
+    <</if>>
+    <<if $_subject is "english">>
+        <span class="green">语文课</span>
+    <</if>>
+    <<if $_subject is "history">>
+        <span class="green">历史课</span>
+    <</if>>
+     <<if $_subject is "math">>
+        <span class="green">数学课</span>
+    <</if>>
+<</widget>>

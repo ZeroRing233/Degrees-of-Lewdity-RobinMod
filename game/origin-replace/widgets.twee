@@ -177,7 +177,7 @@
         <<set $_descAM to ["娇小","瘦小","纤细","瘦削","苗条","瘦高","娇软","柔婉","纤瘦","精瘦","强健","圆润","健壮","庞大","宽硕","壮硕","粗犷","阳刚","魁梧","蛮横","圆胖","魁伟","狡黠"].slice(0,18)>>
 		<div class="settingsHeader options">
             家教设置
-            <mouse class="tooltip linkBlue">(?)<span>本设置项初衷是为了防止已经触发过家教剧情的老玩家感到违和，不过也欢迎各位自定义npc。</span></mouse>
+            <mouse class="tooltip linkBlue">(?)<span>本设置项初衷是为了防止已经触发过家教剧情的老玩家感到违和，所以只有开启家教后才会生效，注意知晓npc姓名后再改性别不会造成姓名变化。</span></mouse>
         </div>
         <div class="settingsToggleItem">
 			<span class="gold">请选择家教学生性别：</span><br>

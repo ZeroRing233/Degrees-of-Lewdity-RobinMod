@@ -1,0 +1,8 @@
+    <<elseif $exposed lte 0>>
+        <<dooricon "danube">><<link [[敲其中一间房子的门 (0:02)|Danube House Knock]]>><<pass 2>><</link>>
+        <br>
+    <</if>>
+    <<if getRobinLocation() is "danube" and !$daily.danubeTutorMeetRobin>>
+        <<dooricon "danube">><<link [[接近罗宾的家教地点|Danube Tutor Meet Robin]]>><<endevent>><</link>>
+        <br>
+    <</if>>
