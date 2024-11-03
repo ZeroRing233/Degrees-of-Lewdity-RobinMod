@@ -4,12 +4,14 @@
 :: Danube Tutor Intro Robin
 <<if $phase is 3>>
 	你向<<person2>><<person>>推荐了另一个家教，
-	<span class="gold">你渊博的知识和把问题描述清晰的能力折服了<<person2>><<person>>，<<he>>同意尝试雇佣对方来做家教。</span>
+	<span class="gold">你渊博的知识和把问题描述清晰的能力折服了<<person2>><<person>>，</span> <<he>>同意尝试雇佣对方来做家教。
+	<br><br>
+	<span class="gold">你可以在回家后和罗宾沟通这件事。</span>
 	<<set $danubeTutorIntro to 1>>
 	<<set $tutor to {}>>
     <<set $tutor.studentGender to $NPCList[0].gender>>
     <<set $tutor.studentDesc to $NPCList[0].description>> 
-    <<set $tutor.parentGender $NPCList[1].gender>>
+    <<set $tutor.parentGender to $NPCList[1].gender>>
     <<set $tutor.parentDesc to $NPCList[1].description>>
 	<<saveNPC 0 "danubeTutorStudent">>
 	<<saveNPC 1 "danubeTutorParent">>
@@ -44,8 +46,8 @@
 <<npcincr Robin love 5>> 
 <<gggdom>>
 <<gglove>>
-<br>
-<span class="gold">罗宾现在已经在多瑙河街找到了新工作，此后放学后需在15:05之前才能和罗宾一起回家。</span>
+<br><br>
+<span class="gold">罗宾现在已经在多瑙河街找到了新工作，此后放学后需在15:05之前才能和罗宾一起回家，你也可以在多瑙河街找到罗宾。</span>
 <br><br>
 <<robinoptions>>
 
@@ -58,7 +60,7 @@
 <<set $skulduggerydifficulty to 400>>
 <<link [[偷看 (1:00)|Danube Tutor Sneak Look]]>><<pass 60>><</link>><<skulduggerydifficulty>>
 <br>
-<<link [[敲门 (1:00)|Danube Street Knock Door]]>><<pass 60>><</link>>
+<<link [[敲门 (1:00)|Danube Tutor Knock Door]]>><<pass 60>><</link>>
 <br>
 <<getouticon>><<link [[直接离开|Danube Street]]>><<endevent>><</link>>
 
@@ -189,7 +191,7 @@
 <<else>>
 	<span class="blue">你还没做好和罗宾一起授课的准备。</span><br>
 <</if>>
-<<link [[旁听|Danube Tutor Audit]]>>
+<<link [[旁听|Danube Tutor Audit]]>><</link>>
 
 :: Danube Tutor Together
 <<effects>>
@@ -229,7 +231,7 @@
 <<set _subject to ["science","english","history","math"].random()>>
 "我还是旁听就好，毕竟这是你的家教时间。" 你对罗宾笑了笑，然后走到一旁，开始观察<<he>>如何辅导学生。
 <br><br>
-你看到罗宾和<<danubeTutorStudent>>正在上一节<<danubeTutorSubject _subject>>
+你看到罗宾和<<danubeTutorStudent>>正在上一节<<danubeTutorSubject _subject>>。
 <br><br>
 <<if _subject is "science">>
 	罗宾指着课本上的细胞结构图，讲解着细胞的基本功能，<<danubeTutorStudent>>则聚精会神地听着，时不时提出一些问题。
