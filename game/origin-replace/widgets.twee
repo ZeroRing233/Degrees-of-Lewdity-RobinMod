@@ -331,6 +331,14 @@
             <</switch>>   
         </span>
         <br>
+        <<if $_type is "photographyImgRobin">>
+            <<if $enableDefaultPhotography.photographyImgRobin>>
+                <input type="checkbox" @id="'enable_default_photo_'+ $_type" onchange="enable_default_photo(this.id,this.checked)" checked>使用默认照片<br>
+            <<else>>
+                <input type="checkbox" @id="'enable_default_photo_'+ $_type" onchange="enable_default_photo(this.id,this.checked)">使用默认照片<br>
+            <</if>>
+            <<run enable_default_photo_onload()>>
+        <</if>>
         <input type="file" @id="'file_input_'+ $_type" onchange="show_image(this.id)" single accept="image/*" class="uploadFileInput" />
         <br>
         <<if $robinPhotography[$_type]>>

@@ -89,6 +89,45 @@ function close_click() {
 }
 window.close_click = close_click;
 
+// 点击勾选，原先的图片被替换为默认图片，不展示删除按钮，上传图片按钮无法点击；取消勾选，则清空当前图片，上传图片按钮恢复为可点击，再次上传回复删除按钮。
+// 目前只有一张，所以简化了图片获取逻辑。
+async function enable_default_photo(id, checked) {
+    let type = id.split("_").slice(-1)[0];
+    let file_input = document.getElementById("file_input_" + type);
+    let show_img = document.getElementById("show_img_" + type);
+    let img_delete = document.getElementById("img_delete_" + type);
+    if (checked) {
+        let imageData = "";
+        if (C.npc.Robin.pronoun === "m") {
+            imageData = await window.modSC2DataManager.getHtmlTagSrcHook().requestImageBySrc("img/photography/default-robin-m.jpg");
+        } else {
+            imageData = await window.modSC2DataManager.getHtmlTagSrcHook().requestImageBySrc("img/photography/default-robin-f.jpg");
+        }
+        show_img.style.display = 'block';
+        show_img.src = imageData;
+        V.robinPhotography[type] = imageData;
+        img_delete.style.display = 'none';
+        file_input.disabled = true;
+        V.enableDefaultPhotography.photographyImgRobin = true;
+    } else {
+        show_img.style.display = 'none';
+        show_img.src = "";
+        V.robinPhotography[type] = "";
+        img_delete.style.display = 'none';
+        file_input.disabled = false;
+        V.enableDefaultPhotography.photographyImgRobin = false;
+    }
+}
+window.enable_default_photo = enable_default_photo;
+
+// 偷个懒，页面加载完先手动执行一遍
+async function enable_default_photo_onload() {
+    $(function() {
+        enable_default_photo("enable_default_photo_photographyImgRobin", V.enableDefaultPhotography.photographyImgRobin);
+    });
+}
+window.enable_default_photo_onload = enable_default_photo_onload;
+
 function tutorParentGenderClicked() {
     let value = $('input[name="tutorParentGender"]:checked').val();
     if (value === "f") {

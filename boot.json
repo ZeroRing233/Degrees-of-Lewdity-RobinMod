@@ -995,7 +995,7 @@
             "modVersion": "^2.0.0",
             "params": {
                 "types": [{
-                    "type": "robinModImg",
+                    "type": "robinModImg（罗宾mod图片，请勿禁用，无顺序要求）",
                     "imgFileListFile": "robinModImg/imgFileListFile.json"
                 }]
             }

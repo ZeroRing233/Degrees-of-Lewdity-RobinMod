@@ -24,6 +24,10 @@
 <<if $robinPhotography is undefined>>
     <<set $robinPhotography to {}>>
 <</if>>
+<<if $enableDefaultPhotography is undefined>>
+    <<set $enableDefaultPhotography to {}>>
+    <<set $enableDefaultPhotography.photographyImgRobin to true>>
+<</if>>
 <<if $tutor is undefined>>
     <<set $tutor to {}>>
     <<set $tutor.studentGender to "f">>
