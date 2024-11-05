@@ -36,9 +36,7 @@
 模组名称补充说明：dom罗宾主要是在玩罗宾的自信在代码里是dom这个梗，同时游戏内高自信的罗宾本身就会对pc更有保护欲，在关系中也会是更占主导的一方，而在加入这个童话向/爽向的模组后，罗宾的自信甚至会被特质锁定为100，所以希望各位都是喜欢高自信罗宾的玩家。
 
 ## 安装方式说明
-本模组基于0.5.1.x及以上版本进行自测，旧版本会存在不兼容的问题，请确保您手上的游戏是最新版本，然后下载release下[0.05-alpha](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.05-alpha)中的domRobin.mod.zip（请不要下载source code），并使用平时游玩汉化版时使用的mod管理器加载完汉化模组后，再加载此模组。
-
-PS:如果想体验模组最新试玩版本，可下载release下[0.06-temp](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.06-temp)版本, 注意此版本会随时被原地替换。
+本模组基于0.5.1.x及以上版本进行自测，旧版本会存在不兼容的问题，请确保您手上的游戏是最新版本，然后下载release下[0.06-alpha](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.06-alpha)中的domRobin.mod.zip（请不要下载source code），并使用平时游玩汉化版时使用的mod管理器加载完汉化模组后，再加载此模组。
 
 <details>
   <summary>点击查看图片</summary>
@@ -58,7 +56,7 @@ bug反馈群群号：964015275
 ## 更新日志
 注意：更新日志只含0.04-alpha以及之后的版本，之前的内容请见[详细内容介绍](#详细内容介绍)。
 
-### 0.06-temp
+### 0.06-alpha
 
 #### 模组新增内容
 1. 新增「和罗宾一起直播」剧情：
@@ -86,6 +84,7 @@ bug反馈群群号：964015275
 1. 游戏加载时会弹出模组介绍弹窗，点击“继续”即可关闭弹窗。
 2. 侧边栏“蓝爱心”新增了“模组设置”功能，可在其中对家教，直播，摄影，孤儿院大厅海报等内容进行一些调整。
 3. 孤儿院大厅海报和罗宾房间门口便条支持点击放大功能，手机党可以横屏欣赏。
+
 
 ### 0.05-alpha
 
