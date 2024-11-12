@@ -611,7 +611,7 @@ setup.random_msg = {
 setup.begin_msg = {
     supportive_list: ["欢迎欢迎~", "欢迎新朋友！", "主播主播，你<<robinFriend>>平时也爱玩游戏吗？", "主播的<<robinFriend>>真可爱，羡慕了", "青梅竹马一起直播，真是太有爱了！"],
     neutral_list: ["不知道新人的技术怎么样？", "直播间更热闹了，挺好。"],
-    negative_list: ["主播的<<robinFriend>>朋友看起来好骚啊", "新人？多少钱一次", "垃圾主播，从哪找的这么好看的<<robinFriend>>", "一看就技术很垃圾"]
+    negative_list: ["主播的<<robinFriend>>看起来好骚啊", "新人？多少钱一次", "垃圾主播，从哪找的这么好看的<<robinFriend>>", "一看就技术很垃圾"]
 }
 
 setup.randomrelfreq = function(array) {
@@ -703,22 +703,21 @@ window.forbideClicked = forbideClicked;
 
 function onForbideClicked(element) {
     let chatIndex = element.parentNode.previousElementSibling.innerText;
-    chatIndex = parseInt(chatIndex);
-    console.log("点击禁言，当前chatIndex是" + chatIndex);
-    let chatter = V.stream.chat[chatIndex];
+    console.log("点击禁言，当前chatIndex是：" + chatIndex);
+    let chatter = getElementByUUID(V.stream.chat, chatIndex);
     if (V.blacklist.includes(chatter.id)) {
         console.log("当前用户「" + chatter.user + "」已被禁言，重复点击无效");
         return;
     }
     let msg = "用户「" + chatter.user + "」已被管理员禁言";
     let data = { "user": "系统消息", "id": "sysInfo", "text": msg, "attitude": "neutral" };
+    let uuid = generateUUID();
+    data.uuid = uuid;
     V.blacklist.pushUnique(chatter.id);
     V.stream.chat.pushUnique(data);
     V.forbiddenChats.pushUnique(chatter);
-    let index = V.stream.chat.length - 1
-    let innerHTML = '<span class="streamchatIndex">' + index + '</span><span class="streamchatmsg"><span class="streamchatname" style="color: rgb(226, 191, 171)">系统消息：</span>' + msg + '</span><div class="streamchatsep">&nbsp;</div>'
+    let innerHTML = '<span class="streamchatIndex">' + uuid + '</span><span class="streamchatmsg"><span class="streamchatname" style="color: rgb(226, 191, 171)">系统消息：</span>' + msg + '</span><div class="streamchatsep">&nbsp;</div>'
     let parentElement = element.parentNode.parentNode;
-    // console.log("修改前的innerHTML是" + parentElement.innerHTML)
     parentElement.innerHTML = parentElement.innerHTML + innerHTML;
     forbideClicked();
     deleteClicked();
@@ -748,10 +747,10 @@ function onDeleteClicked(element) {
     // let elements = document.querySelectorAll('.liveStreamDelete');
     // let element = elements[fixedIndex];
     let chatIndex = element.parentNode.previousElementSibling.innerText;
-    chatIndex = parseInt(chatIndex);
     console.log("点击删除，当前chatIndex是" + chatIndex);
-    V.deletedChats.pushUnique(V.stream.chat[chatIndex]);
-    V.stream.chat.deleteAt(chatIndex);
+    let chatter = getElementByUUID(V.stream.chat, chatIndex);
+    V.deletedChats.pushUnique(chatter);
+    V.stream.chat = removeElementByUUID(V.stream.chat, chatIndex);
     element.parentNode.previousElementSibling.remove();
     element.parentNode.nextElementSibling.remove();
     element.parentNode.remove();
@@ -923,3 +922,38 @@ function checkFame() {
     }
 }
 window.checkFame = checkFame;
+
+// 杀鸡用牛刀之UUID版ID
+function generateUUID() {
+    let d = new Date().getTime();
+    if (typeof performance !== 'undefined' && typeof performance.now === 'function') {
+        d += performance.now(); //use high-precision timer if available
+    }
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        let r = (d + Math.random() * 16) % 16 | 0;
+        d = Math.floor(d / 16);
+        return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+}
+window.generateUUID = generateUUID;
+
+function getElementByUUID(arr, uuid) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].uuid === uuid) {
+            return arr[i];
+        }
+    }
+    return null;
+}
+window.getElementByUUID = getElementByUUID;
+
+function removeElementByUUID(arr, uuid) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].uuid === uuid) {
+            arr.splice(i, 1);
+            return arr;
+        }
+    }
+    return arr;
+}
+window.removeElementByUUID = removeElementByUUID;

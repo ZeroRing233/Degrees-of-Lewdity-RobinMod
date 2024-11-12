@@ -269,7 +269,7 @@
                 <<for _index, _chat range $stream.chat>>
                     <<set _user to _chat.user>>
                     <<set _color to 'color: ' + setup.rbg_from_string(_user)>>
-                    <span class="streamchatIndex"><<= _index>></span>
+                    <span class="streamchatIndex"><<= _chat.uuid>></span>
                     <span class="streamchatmsg"><span class="streamchatname" @style="_color"><<= _user>></span>
                     <<if _chat.attitude is "negative">>
                         <i class="liveStreamForbide"></i>
@@ -448,11 +448,11 @@
             <<set _chatter to setup.teather_users[_chatterList[_i]]>>
             <<set  _msg to _chatter.firstSpeech[0]>>
             <<set _data to {id:_chatter.id, user: _chatter.username, text: _msg, attitude: "supportive", isFans:$fanslist.includes(_chatter.id)}>>
-            <<run $stream.chat.push(_data)>>
+           <<addOneChat _data>>
             <<set _msg to "用户「" + _chatter.username + "」已成为你的粉丝">>
             <<set _data to { "user": "系统消息", "id": "sysInfo", "text": _msg, "attitude": "neutral"}>>
             <<set $fanslist.pushUnique(_chatter.id)>>
-            <<run $stream.chat.push(_data)>>
+           <<addOneChat _data>>
         <</for>>
         <<set _fixedChat to ["！上面几个弹幕看上去很有故事","好像都是学校的老师？但这些昵称好像又不像...","如果都是主播的老师的话，感觉他们人都还不错的样子？","主播主播，快点注意一下弹幕~","吃瓜.jpg"]>>
         <<addFixedChat _fixedChat "supportive">>
@@ -474,7 +474,7 @@
         <<else>>
             <<set _data to {id:_chatter.id, user: _chatter.username, text: _msg, attitude: _attitude, isFans:$fanslist.includes(_chatter.id)}>>
         <</if>>
-        <<run $stream.chat.push(_data)>>
+       <<addOneChat _data>>
     <</if>>
 <</widget>>
 
@@ -515,15 +515,26 @@
         <<else>>
             <<set _data to {id:_chatter.id, user: _chatter.username, text: _msg, attitude: _attitude, isFans:$fanslist.includes(_chatter.id)}>>
         <</if>>
-        <<run $stream.chat.push(_data)>>
+        <<addOneChat _data>>
          /% 粉丝转化 %/
         <<if _attitude is "supportive" and !$fanslist.includes(_chatter.id) and random(1,20) is 1>>
             <<set _msg to "用户「" + _chatter.username + "」已成为你的粉丝">>
             <<set _data to { "user": "系统消息", "id": "sysInfo", "text": _msg, "attitude": "neutral"}>>
             <<set $fanslist.pushUnique(_chatter.id)>>
-            <<run $stream.chat.push(_data)>>
+           <<addOneChat _data>>
         <</if>>
     <</for>>
+<</widget>>
+
+/% 修复逆天bug-给弹幕加上uuid %/
+<<widget "addOneChat">>
+    <<if $stream.chat is undefined>>
+        <<set $stream.chat to []>>
+    <</if>>
+    <<set $_data to _args[0]>>
+    <<set $_uuid to generateUUID()>>
+    <<set $_data.uuid to $_uuid>>
+    <<run $stream.chat.push($_data)>>
 <</widget>>
 
 /% 当前界面的固定弹幕，粉丝向，负面向 %/
@@ -554,12 +565,12 @@
         <<else>>
             <<set _data to {id:_chatter.id, user: _chatter.username, text: _msg, attitude: _attitude, isFans:$fanslist.includes(_chatter.id)}>>
         <</if>>
-        <<run $stream.chat.push(_data)>>
+       <<addOneChat _data>>
         <<if _attitude is "supportive" and !$fanslist.includes(_chatter.id) and random(1,20) is 1>>
             <<set _msg to "用户「" + _chatter.username + "」已成为你的粉丝">>
             <<set _data to { "user": "系统消息", "id": "sysInfo", "text": _msg, "attitude": "neutral"}>>
             <<set $fanslist.pushUnique(_chatter.id)>>
-            <<run $stream.chat.push(_data)>>
+           <<addOneChat _data>>
         <</if>>
     <</for>>
 <</widget>>
