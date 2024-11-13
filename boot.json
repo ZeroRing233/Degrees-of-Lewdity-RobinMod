@@ -18,7 +18,7 @@
         "game/javaScript/orphanagePoster.js",
         "game/javaScript/liveStream.js",
         "game/javaScript/introduction.js",
-        "game/javaScript/photography.js"
+        "dist/photography_result.js"
     ],
     "tweeFileList": [
         "game/robin-work/lemonade/lemonadeUpgrade.twee",
@@ -76,7 +76,6 @@
         "game/robin-work/chocolate/chocolateUpgradeResultWeather2.txt",
         "game/robin-work/chocolate/chocolateUpgradeDevice.txt",
         "game/robin-work/danube-tutor/danubeTutorIntro.txt",
-        "game/robin-work/danube-tutor/danubeTutorTalk.txt",
         "game/robin-work/danube-tutor/danubeTutorAfterWalkHome.txt",
         "game/robin-work/danube-tutor/danubeTutorAfterWalkHomeTopless1.txt",
         "game/robin-work/danube-tutor/danubeTutorAfterWalkHomeTopless2.txt",

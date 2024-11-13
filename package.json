@@ -1,0 +1,11 @@
+{
+    "name": "dom-robin",
+    "version": "0.0.7-temp",
+    "dependencies": {
+        "sortablejs": "^1.15.3"
+    },
+    "devDependencies": {
+        "webpack": "^5.96.1",
+        "webpack-cli": "^5.1.4"
+    }
+}
