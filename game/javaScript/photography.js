@@ -1,3 +1,5 @@
+const Sortable = require('sortablejs');
+
 function getPhotographyImageList() {
     $(function() {
         const gallery = document.getElementById("gallery");
@@ -8,12 +10,13 @@ function getPhotographyImageList() {
             imgElement.id = "image-" + index;
             imgElement.src = image;
             imgElement.alt = "相册图片 " + (index + 1);
+            Sortable.create(imageContainer);
             //拖动相关，只能拖动框不能拖图片
-            imgElement.draggable = false;
-            imageContainer.draggable = true;
-            imageContainer.addEventListener('dragstart', handleDragStart_photo);
-            imageContainer.addEventListener('dragover', handleDragOver_photo);
-            imageContainer.addEventListener('drop', handleDrop_photo);
+            // imgElement.draggable = false;
+            // imageContainer.draggable = true;
+            // imageContainer.addEventListener('dragstart', handleDragStart_photo);
+            // imageContainer.addEventListener('dragover', handleDragOver_photo);
+            // imageContainer.addEventListener('drop', handleDrop_photo);
             imgElement.onclick = function() {
                 // 点击图片时执行的代码
                 // 例如：放大图片、显示图片信息等
