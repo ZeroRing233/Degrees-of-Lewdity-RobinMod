@@ -107,8 +107,8 @@ function photograhyConfirmClicked() {
         if (result.isConfirmed) {
             // 用户点击了确认按钮
             window.modSweetAlert2Mod.fire('已确认', '操作已执行！', 'success');
+            savePhotographyResult();
             SugarCube.Engine.play("Bedroom");
-            //  window.modSweetAlert2Mod.fire('已确认', '操作已执行！', 'success');
         } else if (result.dismiss === Swal.DismissReason.cancel) {
             // 用户点击了取消按钮
             console.log("用户击取消，应当无事发生");
@@ -119,8 +119,9 @@ window.photograhyConfirmClicked = photograhyConfirmClicked;
 
 function savePhotographyResult() {
     let tempImg = [];
-    for (dataId in window.order) {
-        let imgElement = document.querySelector(`[data-id="${dataId}"] img`);
+    for (let dataId of window.order) {
+        console.log('dataId是' + dataId);
+        let imgElement = document.querySelector(`div[data-id='${dataId}'] > img`);
         console.log("获取到的imgElement是" + imgElement);
         tempImg.pushUnique(imgElement.src);
     }
