@@ -630,6 +630,20 @@
         <<set $_src to $robinPhotography["photographyImg"]>>
     <</if>>
     <<if $_src isnot "">>
+        <<if $photographyImageList is undefined>>
+            <<set $photographyImageList to []>>
+        <</if>>
+        <<set $oldLen to $photographyImageList.length>>
+        <<set $photographyImageList.pushUnique($_src)>>
+        <<set $newLen to $photographyImageList.length>>
+        <<if $oldLen lt $newLen>>
+            <<if $newLen is 1>>
+                <span class="gold">你的卧室里开放了新选项。</span>
+            <<else>>
+                <span class="gold">你卧室里的照片集更新了。</span>
+            <</if>>
+            <br><br>
+        <</if>>
         <img @src="$_src" alt="" id="photographyImg" onclick="image_click('photographyImg')" class="myImage">
         <br><br>
         <div id="myModal" class="modal">
@@ -637,16 +651,13 @@
             <img class="modal-content" id="img01">
             <div id="modal-caption"></div>
         </div>
-        <<if $photographyImageList is undefined>>
-            <<set $photographyImageList to []>>
-        <</if>>
-        <<set $photographyImageList.pushUnique($_src)>>
     <</if>>
 <</widget>>
 
 <<widget "photographyImageOptions">>
     <<if $photographyImageList isnot undefined and $photographyImageList.length > 0>>
         <<photographystudioicon>><<link [[查看摄影照片集|Show Photography Image List]]>><</link>><br>
+        <<photographystudioicon>><<link [[整理摄影照片集|Manage Photography Image List]]>><</link>><br>
     <</if>>
 <</widget>>
 

@@ -240,3 +240,16 @@
 <br><br>
 <<run getPhotographyImageList()>>
 <<link [[合上照片集|Bedroom]]>><<endevent>><</link>>
+
+:: Manage Photography Image List
+<<effects>>
+你开始整理和罗宾一起拍摄时保留下来的照片。(补充说明待扩展)
+<div id="gallery2"></div>
+<br><br>
+<br><br>
+<div id="delete-zone">这里应当有一个垃圾桶</div>
+<<run managePhotographyImageList()>>
+<<link "保存更改">><<run photograhyConfirmClicked()>><</link>><br>
+<<link "取消更改">><<run photograhyCancelClicked()>><</link>>
+
+
