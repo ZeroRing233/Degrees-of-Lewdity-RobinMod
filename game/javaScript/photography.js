@@ -50,17 +50,25 @@ function managePhotographyImageList() {
             onEnd: function(evt) {
                 // 获取排序后的元素顺序
                 window.order = sortable.toArray();
-                // 将排序结果发送到服务器或本地存储
-                console.log("当前item是" + evt.item.outerHTML)
-                console.log("当前oldIndex是" + evt.oldIndex)
-                console.log("当前newIndex是" + evt.newIndex)
-                console.log("当前数组元素的顺序是" + window.order);
-                console.log("当前evt.to是" + evt.to.outerHTML);
                 if (evt.to === document.getElementById('delete-zone')) {
                     evt.item.remove();
                 }
+            },
+            onMove: function(evt) {
+                // Check if the item was dropped into the delete zone
+                let deleteZone = document.getElementById('delete-zone');
+                if (evt.to === deleteZone) {
+                    console.log("移到了deleteZone");
+                    deleteZone.style.content = "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9IiNkM2QzZDMiIGQ9Im0yMC4zNyA4LjkxbC0xIDEuNzNsLTEyLjEzLTdsMS0xLjczbDMuMDQgMS43NWwxLjM2LS4zN2w0LjMzIDIuNWwuMzcgMS4zN3pNNiAxOVY3aDUuMDdMMTggMTF2OGEyIDIgMCAwIDEtMiAySDhhMiAyIDAgMCAxLTItMiIvPjwvc3ZnPg==')";
+                } else {
+                    console.log("移到了其他区域");
+                    deleteZone.style.content = "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9IiNkM2QzZDMiIGQ9Ik0xOSA0aC0zLjVsLTEtMWgtNWwtMSAxSDV2MmgxNE02IDE5YTIgMiAwIDAgMCAyIDJoOGEyIDIgMCAwIDAgMi0yVjdINnoiLz48L3N2Zz4=')";
+                }
             }
         });
+
+        // 防止用户不做任何操作就保存
+        window.order = sortable.toArray();
 
         Sortable.create(document.getElementById('delete-zone'), {
             animation: 150,
@@ -84,6 +92,7 @@ function photograhyCancelClicked() {
         if (result.isConfirmed) {
             // 用户点击了确认按钮
             window.modSweetAlert2Mod.fire('已取消', '操作被取消', 'info');
+            zoom(V.options.zoom);
             SugarCube.Engine.play("Bedroom");
             //  window.modSweetAlert2Mod.fire('已确认', '操作已执行！', 'success');
         } else if (result.dismiss === Swal.DismissReason.cancel) {
@@ -108,6 +117,7 @@ function photograhyConfirmClicked() {
             // 用户点击了确认按钮
             window.modSweetAlert2Mod.fire('已确认', '操作已执行！', 'success');
             savePhotographyResult();
+            zoom(V.options.zoom);
             SugarCube.Engine.play("Bedroom");
         } else if (result.dismiss === Swal.DismissReason.cancel) {
             // 用户点击了取消按钮
@@ -120,9 +130,7 @@ window.photograhyConfirmClicked = photograhyConfirmClicked;
 function savePhotographyResult() {
     let tempImg = [];
     for (let dataId of window.order) {
-        console.log('dataId是' + dataId);
         let imgElement = document.querySelector(`div[data-id='${dataId}'] > img`);
-        console.log("获取到的imgElement是" + imgElement);
         tempImg.pushUnique(imgElement.src);
     }
     V.photographyImageList = tempImg;

@@ -144,3 +144,10 @@
         height: 64px;
         object-fit: contain;
     }
+    
+    #delete-zone {
+        content: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9IiNkM2QzZDMiIGQ9Ik0xOSA0aC0zLjVsLTEtMWgtNWwtMSAxSDV2MmgxNE02IDE5YTIgMiAwIDAgMCAyIDJoOGEyIDIgMCAwIDAgMi0yVjdINnoiLz48L3N2Zz4=');
+        /* 替换为你的图片URL */
+        display: inline;
+        width: 100px;
+    }

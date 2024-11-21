@@ -243,12 +243,22 @@
 
 :: Manage Photography Image List [exitCheckBypass]
 <<effects>>
-你开始整理和罗宾一起拍摄时保留下来的照片。(补充说明待扩展)
+你开始整理和罗宾一起拍摄时保留下来的照片。
+<br><br>
+<details class="liveStream">
+	<summary class="liveStream">查看补充说明</summary>
+    <div class="liveStream">
+        <li>为确保拖动效果，进入此页面后，页面缩放会强制为100%，退出时则会恢复为用户在选项-高级中设置的值。</li>
+        <li>可拖动图片进行排序，将图片拖动到垃圾桶中进行删除。</li>
+        <li>排序和删除的结果只有在点击「保存更改」后才会被保存。</li>
+    </div>
+</details>
+<br><br>
 <div id="gallery2"></div>
 <br><br>
+<div id="delete-zone"></div>
 <br><br>
-<div id="delete-zone">拖动到此区域删除。</div>
-<br><br>
+<<run zoom(100)>>
 <<run managePhotographyImageList()>>
 <<link "保存更改">><<run photograhyConfirmClicked()>><</link>><br>
 <<link "取消更改">><<run photograhyCancelClicked()>><</link>>
