@@ -1,12 +1,14 @@
 <<lrtrauma>>
         <br>
-        <<if $money gt 200 and $drinkUpgradedList isnot undefined and $drinkUpgradedList.length gt 0>>
-            <<foodicon "hotcider">><<link [[购买其他饮料(0:15)|Robin Chocolate Purchase Other]]>><<pass 15>><<stress -6>><<trauma -1>> <</link>> <<lstress>><<ltrauma>>
-            <br>
-        <</if>>
-        <<if $lemonadeNewGoodsList isnot undefined and $lemonadeNewGoodsList.length gt 0>>
-            <<robinicon "cocoa">><<link [[查看其他商品|Robin Chocolate Show Other Goods]]>><</link>>
-            <br>
+        <<if $chocolateUpgraded is 1>>
+            <<if $money gt 200 and $drinkUpgradedList isnot undefined and $drinkUpgradedList.length gt 0>>
+                <<foodicon "hotcider">><<link [[购买其他饮料(0:15)|Robin Chocolate Purchase Other]]>><<pass 15>><<stress -6>><<trauma -1>> <</link>> <<lstress>><<ltrauma>>
+                <br>
+            <</if>>
+            <<if $lemonadeNewGoodsList isnot undefined and $lemonadeNewGoodsList.length gt 0>>
+                <<robinicon "cocoa">><<link [[查看其他商品|Robin Chocolate Show Other Goods]]>><</link>>
+                <br>
+            <</if>>
         <</if>>
         <<if $robindebtknown is 1 and $chocolateUpgraded isnot 1>>
             <<if $lemonadeUpgraded is 1>>

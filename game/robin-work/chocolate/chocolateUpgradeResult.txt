@@ -1,7 +1,7 @@
 <<if $chocolateUpgraded is 1>>
     新招牌上的雪人仿佛正在向你招手。
 <</if>>
-<<if $drinkUpgradedList isnot undefined and $drinkUpgradedList.length gt 0>>
+<<if $drinkUpgradedList isnot undefined and $drinkUpgradedList.length gt 0 and $chocolateUpgraded is 1>>
     饮料单上新增了许多新品种，包括：
     <<for _i to 0; _i lt $drinkUpgradedList.length; _i++>>
         <<set _fruitType to $drinkUpgradedList[_i]>>
