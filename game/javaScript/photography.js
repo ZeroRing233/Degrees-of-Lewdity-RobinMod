@@ -1,5 +1,4 @@
 import Sortable from 'sortablejs'
-console.log("sortable导入成功")
 
 function getPhotographyImageList() {
     $(function() {
@@ -115,8 +114,8 @@ function photograhyConfirmClicked() {
     }).then((result) => {
         if (result.isConfirmed) {
             // 用户点击了确认按钮
-            window.modSweetAlert2Mod.fire('已确认', '操作已执行！', 'success');
             savePhotographyResult();
+            window.modSweetAlert2Mod.fire('已确认', '操作已执行！', 'success');
             zoom(V.options.zoom);
             SugarCube.Engine.play("Bedroom");
         } else if (result.dismiss === Swal.DismissReason.cancel) {

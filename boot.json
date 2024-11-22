@@ -901,8 +901,9 @@
                 },
                 {
                     "passage": "Widgets",
-                    "findString": "if _projectOptions",
-                    "replace": "if ($photographyImageList isnot undefined and $photographyImageList.length > 0) || _projectOptions"
+                    "findString": "<<set _projectOptions to [$scienceproject, $mathsproject].includes(\"ongoing\")>>",
+                    "replace": "<<set _projectOptions to [$scienceproject, $mathsproject].includes(\"ongoing\")>><<if $photographyImageList isnot undefined and $photographyImageList.length>><<set _projectOptions to true>><</if>>",
+                    "comment": "为兼容模拟人生0.77以及之前的版本，换个地方改"
                 },
                 {
                     "passage": "Danube Street",
