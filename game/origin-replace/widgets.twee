@@ -353,14 +353,14 @@
 
 /% 在线markdown转html %/
 <<widget "robinModHintContent">>
-	<h1>DomRobin扩展mod（0.06-alpha版）</h1>
+	<h1>DomRobin扩展mod（0.06-beta版）</h1>
 <ul>
     <li><a href="#introduction">基本介绍</a></li>
     <li><a href="#install">安装方式说明</a></li>
     <li><a href="#discussion">反馈与讨论方式</a></li>
     <li><a href="#changelog">更新日志</a>
         <ul>
-            <li><a href="#006">0.06-alpha</a></li>
+            <li><a href="#006">0.06-beta</a></li>
             <li><a href="#005">0.05-alpha</a></li>
             <li><a href="#004">0.04-alpha</a></li>
         </ul>
@@ -403,7 +403,25 @@ details">详细内容介绍</a>中查看具体触发条件）</p>
 <h2 id="changelog">更新日志</h2>
 <p>注意：更新日志只含0.04-alpha以及之后的版本，之前的内容请见<a href="#details">详细内容介绍</a>。</p>
 
-<h3 id="006">0.06-alpha</h3>
+<h3 id="006">0.06-beta</h3>
+<p>(过渡小版本，主要对0.06-alpha进行了细节修复)</p>
+<h4>新增功能</h4>
+<ol>
+<li>在卧室「查看照片集」下方新增了「编辑照片集」选项，支持照片的拖动排序和删除操作。</li>
+<li>游戏加载时弹出的提示窗口现可勾选「不再显示此提示」。</li>
+</ol>
+<h4>Bug修复</h4>
+<ol>
+<li>修复了照片集位置与模拟人生0.77及之前版本的兼容性问题。</li>
+<li>修复了荒原观星战斗中偶尔出现的无法结束战斗的bug。</li>
+<li>修复了柠檬水摊/巧克力摊在升级前错误显示升级后才会出现的选项问题。</li>
+</ol>
+<h4>代码修改备注（普通玩家无需关注）</h4>
+<ol>
+<li>尝试使用webpack打包（目前仅应用于照片集功能），如果想查看照片集相关代码，请直接下载源码，release里是编译后的版本。</li>
+</ol>
+
+<h3>0.06-alpha</h3>
 <h4>模组新增内容</h4>
 <ol>
 <li>新增「和罗宾一起直播」剧情：</li>
