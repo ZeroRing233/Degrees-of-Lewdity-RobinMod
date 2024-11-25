@@ -1,4 +1,4 @@
-# DomRobin扩展mod（0.06-alpha版）
+# DomRobin扩展mod（0.06-beta版）
 
 - [基本介绍](#基本介绍)
 - [安装方式说明](#安装方式说明)
