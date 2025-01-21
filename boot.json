@@ -164,7 +164,7 @@
                 },
                 {
                     "passage": "Widgets Robin",
-                    "findString": "\t\t<br>\n\t\t<<robinbully>>",
+                    "findRegex": "\\s*<<robinbully>>",
                     "replaceFile": "game/robin-work/RobinWorkTalk.txt"
                 },
                 {
