@@ -311,7 +311,7 @@
                 },
                 {
                     "passage": "Widgets Robin",
-                    "findString": "\t<<set $money += ($robinmoney * 100)>>",
+                    "findString": "<<money `($robinmoney * 100)` \"robin\">>",
                     "replaceFile": "game/robin-trait/robinPayBackCount.txt"
                 },
                 {
