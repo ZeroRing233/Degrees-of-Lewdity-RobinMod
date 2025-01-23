@@ -886,7 +886,7 @@
                 },
                 {
                     "passage": "Widgets Text",
-                    "findString": "<<if $npc_named is 1 and $description isnot \"pale figure\">>",
+                    "findRegex": "<<widget \"combatperson\">><<silently>>\n*\\s*<<if \\$npc_named is 1>>",
                     "replaceFile": "game/robin-daily/combatperson.txt",
                     "comments": "观星不易第二弹"
                 },

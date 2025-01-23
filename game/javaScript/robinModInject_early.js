@@ -10,36 +10,36 @@
             logger.log(`[robinMod_inject_early] 获取passage信息成功: [${passage1.name}]`);
             let regex = new RegExp("<<getouticon>>.*", 'g');
             let content = passage1.content;
-            if (content.match(regex).length === 12) {
+            if (content.match(regex).length === 14) {
                 let count = 0;
                 let contentReplaced = content.replace(regex, function(match) {
                     count++;
                     console.log("当前match是：" + match);
-                    if (count <= 2 || count === 12) {
+                    if (count <= 2 || count === 14) {
                         // 被过滤的情况：异装一、异装二、海滩
                         console.log("当前match不做处理");
                         return match;
-                    } else if (count === 3) {
-                        // 有创伤时拒绝一起上学
+                    } else if (count === 3 || count === 4) {
+                        // 有创伤时拒绝一起上学（有衣服，无衣服版）
                         let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"schoolRefuseTramua\">>");
                         console.log("当前match替换后是" + replaceString);
                         return replaceString;
-                    } else if (count === 4) {
+                    } else if (count === 5 || count === 6) {
                         // 无创伤时拒绝一起上学
                         let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"schoolRefuse\">>");
                         console.log("当前match替换后是" + replaceString);
                         return replaceString;
-                    } else if (count === 6) {
+                    } else if (count === 8) {
                         // 有创伤时拒绝留宿，无创伤时不做特殊处理
                         let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"sleepRefuseTramua\">>");
                         console.log("当前match替换后是" + replaceString);
                         return replaceString;
-                    } else if (count === 8) {
+                    } else if (count === 10) {
                         // 拒绝陪罗宾写作业
                         let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"studyRefuse\">>");
                         console.log("当前match替换后是" + replaceString);
                         return replaceString;
-                    } else if (count === 9) {
+                    } else if (count === 11) {
                         // 不一起搭摊子
                         let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"lemonade\">>");
                         console.log("当前match替换后是" + replaceString);
@@ -61,10 +61,10 @@
                 );
 
             } else {
-                logger.warn(`[robinMod_inject_early] <<getouticon>>.* 匹配passage异常: [${passage1.name}]`);
+                logger.error(`[robinMod_inject_early] <<getouticon>>.* 匹配passage异常: [${passage1.name}]`);
             }
         } else {
-            logger.warn(`[robinMod_inject_early] 获取passage信息失败`);
+            logger.error(`[robinMod_inject_early] 获取passage信息失败`);
         }
     }
 
@@ -108,10 +108,10 @@
                     passage1.id,
                 );
             } else {
-                logger.warn(`[robinMod_inject_early] 第二次匹配passage信息异常: [${passage1.name}]`);
+                logger.error(`[robinMod_inject_early] 第二次匹配passage信息异常: [${passage1.name}]`);
             }
         } else {
-            logger.warn(`[robinMod_inject_early] 第二次获取passage信息失败`);
+            logger.error(`[robinMod_inject_early] 第二次获取passage信息失败`);
         }
     }
 
