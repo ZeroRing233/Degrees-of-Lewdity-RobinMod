@@ -1,6 +1,6 @@
 {
     "name": "DomRobin",
-    "version": "0.0.6-beta",
+    "version": "0.0.6-for-dol-0.5.3",
     "scriptFileList_inject_early": [
         "game/javaScript/robinModInject_early.js"
     ],
@@ -361,7 +361,7 @@
                 },
                 {
                     "passage": "Robin Forest",
-                    "findString": "<<elseif Weather.isOvercast>>",
+                    "findRegex": "<<elseif Weather.isOvercast.*",
                     "replaceFile": "game/robin-work/photography/photographyIntro.txt"
                 },
                 {

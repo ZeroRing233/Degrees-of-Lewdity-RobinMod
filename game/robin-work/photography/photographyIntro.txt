@@ -7,4 +7,4 @@
     <br><br>
     <<set $workTopicList.pushUnique("photography")>>
     <<link [[继续|photography Intro]]>><</link>>
-<<elseif Weather.isOvercast>>
+<<elseif Weather.isOvercast or Weather.name is 'heavyClouds'>>
