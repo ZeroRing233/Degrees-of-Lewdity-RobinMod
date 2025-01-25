@@ -362,7 +362,8 @@
                 {
                     "passage": "Robin Forest",
                     "findRegex": "<<elseif Weather.isOvercast.*",
-                    "replaceFile": "game/robin-work/photography/photographyIntro.txt"
+                    "replaceFile": "game/robin-work/photography/photographyIntro.txt",
+                    "comment": "解决和泰拉瑞亚新版的冲突"
                 },
                 {
                     "passage": "Rent Intro",
