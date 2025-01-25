@@ -89,7 +89,7 @@
     <<famebusiness 5>>
     <<set _evenPrice to Math.round(_fishPrice/2)>>
     <<set $robinmoney += _evenPrice>>
-    <<set $money +=  _evenPrice * 100>>
+    <<money `_evenPrice * 100` "（dom罗宾）卖烤鱼">>
     <<run clearEatableFish()>>
     之后，你们平分了卖烤鱼的收益，<span class="gold">罗宾的存款增加了£<<print _evenPrice>>，你获得了£<<print _evenPrice>>。</span>
 <</if>>
@@ -120,7 +120,7 @@
 <<set _fishPrice to getEatableFishPrice()>>
 <<set _evenPrice to Math.round(_fishPrice/2)>>
 <<set $robinmoney += _evenPrice>>
-<<set $money +=  _evenPrice * 100>>
+<<money `_evenPrice * 100` "（dom罗宾）卖烤鱼">>
 <<run clearEatableFish()>>
 最后，你们平分了卖烤鱼的收益，<span class="gold">罗宾的存款增加了£<<print _evenPrice>>，你获得了£<<print _evenPrice>>。</span>
 <br><br>
@@ -162,7 +162,7 @@
         <<famebusiness 5>>
         <<set _evenPrice to Math.round(_lobsterPrice /2)>>
         <<set $robinmoney += _evenPrice>>
-        <<set $money +=  _evenPrice * 100>>
+        <<money `_evenPrice * 100` "（dom罗宾）卖烤鱼">>
         <<run clearLobster()>>
         你们平分了卖烤龙虾的收益，<span class="gold">罗宾的存款增加了£<<print _evenPrice>>，你获得了£<<print _evenPrice>>。</span>
     <</if>>
@@ -206,7 +206,7 @@
 <<set _lobsterPrice to getLobsterPrice()>>
 <<set _evenPrice to Math.round(_lobsterPrice /2)>>
 <<set $robinmoney += _evenPrice>>
-<<set $money +=  _evenPrice * 100>>
+<<money `_evenPrice * 100` "（dom罗宾）卖烤鱼">>
 <<run clearLobster()>>
 你们平分了卖烤龙虾的收益，<span class="gold">罗宾的存款增加了£<<print _evenPrice>>，你获得了£<<print _evenPrice>>。</span>
 <br><br>
@@ -232,7 +232,7 @@
         <<famebusiness 5>>
         <<set _evenPrice to Math.round(_loachPrice /2)>>
         <<set $robinmoney += _evenPrice>>
-        <<set $money +=  _evenPrice * 100>>
+        <<money `_evenPrice * 100` "（dom罗宾）卖烤鱼">>
         <<run clearLoach()>>
         你们平分了卖烤泥鳅的收益，<span class="gold">罗宾的存款增加了£<<print _evenPrice>>，你获得了£<<print _evenPrice>>。</span>
     <</if>>
@@ -277,7 +277,7 @@
 <<set _loachPrice to getLoachPrice()>>
 <<set _evenPrice to Math.round(_loachPrice /2)>>
 <<set $robinmoney += _evenPrice>>
-<<set $money +=  _evenPrice * 100>>
+<<money `_evenPrice * 100` "（dom罗宾）卖烤鱼">>
 <<run clearLoach()>>
 你们平分了卖烤泥鳅的收益，<span class="gold">罗宾的存款增加了£<<print _evenPrice>>，你获得了£<<print _evenPrice>>。</span>
 <br><br>

@@ -25,7 +25,7 @@
 	<<npcincr Robin love 5>>
 	<<pass 120>>
 	<<set $chocolateUpgraded to 1>>
-	<<set $money -= 30000>>
+	<<money -30000 "robin">>
 	<</link>><<lldom>><<gglove>>
 	<br>
 <<else>>
@@ -86,7 +86,7 @@
 	<<npcincr Robin love 5>>
 	<<pass 120>>
 	<<set $chocolateUpgraded to 1>>
-	<<set $money -= 60000>>
+	<<money -60000 "robin">>
 	<</link>><<lldom>><<gglove>>
 	<br>
 <<else>>
@@ -196,7 +196,7 @@
 /% 复制粘贴大法好 %/
 :: Robin Chocolate Purchase Other
 <<npc Robin>><<person1>>
-<<set $money -= 200>>
+<<money -200 "robin">>
 <<set _fruitType to getRandomValueFromArray($drinkUpgradedList)>>
 你向罗宾购买了热<<print $plants[_fruitType].plural>>汁。
 <br><br>
@@ -214,7 +214,7 @@
 <<elseif $robinpaid is 1 and $daily.robin.freeDrink isnot 1>>
 	<<set $daily.robin.freeDrink to 1>>
 	"我，我不能收你的钱……"<<He>>说着，把钱推回给了你，"你已经为我向贝利付款了。而且你知道的，反正我最后也会把这些钱给你的。"
-	<<set $money += 200>>
+	<<money 200 "robin">>
 
 <<elseif $robinpaid is 1>>
 	<<set $robinmoney += 2>>

@@ -134,21 +134,21 @@
 	<<switch $select>>
 		<<case "school">>
 			<<if $pronoun is "m">>
-				<<set $money -= 8000>>
+				<<money -8000 "robin">>
 			<<else>>
-				<<set $money -= 2500>>
+				<<money -2500 "robin">>
 			<</if>>
 		<<case "normal">>
 			<<if $pronoun is "m">>
-				<<set $money -= 3500>>
+				<<money -3500 "robin">>
 			<<else>>
-				<<set $money -= 4000>>
+				<<money -4000 "robin">>
 			<</if>>
 		<<case "crossdress">>
 			<<if $pronoun is "m">>
-				<<set $money -= 4000>>
+				<<money -4000 "robin">>
 			<<else>>
-				<<set $money -= 3500>>
+				<<money -3500 "robin">>
 			<</if>>
 	<</switch>>
 	<<set $robinSwimsuit to $select>>

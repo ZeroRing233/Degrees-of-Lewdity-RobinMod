@@ -35,7 +35,7 @@
         <</for>>
         </span>
         <br><br>
-        <<set $money += $soldFlowerMoney>>
+        <<money `$soldFlowerMoney` "（dom罗宾）卖花">>
         <<set $soldFlowerMoney to $soldFlowerMoney/100>>
         <span class="gold">你获得了£<<print $soldFlowerMoney>>。</span>    
         <br><br>
@@ -102,7 +102,7 @@
             在你盯着杂志微笑时，罗宾打断了你："对了，我应该先把属于你的那份报酬交给你的，给，非常感谢！"
             <br><br>
             <span class="gold">你获得了£<<print $photographyIncomePC>>。</span>
-            <<set $money += $photographyIncomePC * 100>>
+            <<money `$photographyIncomePC * 100` "（dom罗宾）摄影">>
         <</if>>
         <<set $weeklyPhotographyTalked to true>>
         <br><br>
@@ -123,7 +123,7 @@
         你们相拥了好一会儿，才慢慢放开了对方。
         <br><br>
         <<set $robinmoney -= $robinShouldPayBack>>
-        <<set $money += $robinShouldPayBack * 100>>
+        <<money `$robinShouldPayBack * 100` "robin">>
         <<set $robinShouldPayBack to 0>>
     
     <<elseif getPayBackAmount() gt 0 and $robinmoney gte _PayBackAmount>>  
@@ -138,7 +138,7 @@
         你点了点头，接过罗宾递来的钱，心中不由地感到温暖。<<ltrauma>><<lstress>><<stress -12>><<trauma -6>>
         <br><br>
         <<set $robinmoney -= _PayBackAmount>>
-        <<set $money += _PayBackAmount * 100>>
+        <<money `_PayBackAmount * 100` "robin">>
         /% 偷懒，直接全设为false，如果有未触发会在剧情中重新被设为true。%/
         <<set $lemonadeShouldPayBack to false>>
         <<set $liveStreamShouldPayBack to false>>

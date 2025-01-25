@@ -216,6 +216,13 @@ setup.users = {
         username: "七曜日的七",
         attitude: ["supportive", "neutral"],
         specialSpeech: []
+    },
+    "random29": {
+        id: "random29",
+        username: "槐安",
+        attitude: ["supportive"],
+        specialSpeech: [],
+        isFans: true
     }
 }
 
