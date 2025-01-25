@@ -213,7 +213,7 @@
 <<elseif $phase is "history">>
 	罗宾坐在沙发上，手里拿着一本厚厚的历史书，讲述着某个历史事件。<<danubeTutorStudent>>则认真地听着，时不时提出自己的见解。
 	<br><br>
-	你注意到，罗宾对历史知识的掌握非常扎实，而且能够将历史事件与现实生活联系起来。你适时地补充了一些相关的历史纪录片和电影推荐，希望能进一步拓展（学生）的视野。
+	你注意到，罗宾对历史知识的掌握非常扎实，而且能够将历史事件与现实生活联系起来。你适时地补充了一些相关的历史纪录片和电影推荐，希望能进一步拓展<<danubeTutorStudent>>的视野。
 	<br><br>
 	你们和<<danubeTutorStudent>>则一起讨论着历史事件的起因、经过和影响，这使<<danubeTutorStudent>>也开始对历史产生了浓厚的兴趣。
 <<else>>
@@ -277,7 +277,11 @@
 	<br><br>
 	罗宾接过报酬，微笑着与这家人告别："谢谢，下次我会更加用心准备的。" 说着，<<person3>><<he>>自然地牵起你的手，一起走出了房门。<<takeHandholdingVirginity "Robin" "consensual">>
 	<br><br>
-	"这次的家教很顺利呢，多亏了你在一旁帮忙，"罗宾转头对你微笑，"我们一起回家吧？" <<glove>><<npcincr Robin love 2>>
+	"这次的家教很顺利呢，多亏了你在一旁帮忙，"罗宾仔细清点了一下刚才收到的报酬，然后将其中的一半递给了你："拿着吧，这是你应得的。"<<glove>><<npcincr Robin love 2>>
+	<br><br>
+	你没有推辞，收下了属于你的<span class="gold">£75</span>。<<money 7500 "（dom罗宾）家教">>
+	<br><br>
+	"我们一起回家吧？"罗宾微笑着问。
 <</if>>
 <br><br>
 <<link [[一起回家（0:15）|Danube Tutor Walk Home]]>><<pass 15>><</link>>
