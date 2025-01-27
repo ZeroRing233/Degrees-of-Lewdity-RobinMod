@@ -23,7 +23,7 @@
     <<case "normal" "lemonade">>
         你站起身与罗宾告别，
         <<if $condition is "normal">>
-            罗宾点了点头，微笑着拥抱了一下你："愿你度过愉快的<<print $dayStateText>>，回头见！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
+            罗宾点了点头，微笑着拥抱了一下你："回头见啦！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
             <br><br>
             在离开前，你轻轻地<<print $closeText>>了罗宾的房门。
             <br><br>
@@ -44,7 +44,7 @@
     <<case "schoolRefuse" "studyRefuse">>
         你摇了摇头，表示你还有其他事情要做，在你起身准备离开时，
         <<if $condition is "normal">>
-            罗宾关切地提醒你："好吧，<<print $remindText>>回头见！" 说着，<<He>>给了你一个拥抱。<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
+            罗宾关切地提醒你："好吧，<<print $remindText>>回头见啦！" 说着，<<He>>给了你一个拥抱。<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
             <br><br>
             在离开前，你轻轻地<<print $closeText>>了罗宾的房门。
             <br><br>
@@ -58,7 +58,7 @@
 <<effects>>
 <<storeon $condition>><<exposure>>
 <<if $exposed lte 0>>
-    你穿上了罗宾递来的<span class="green"><<print $clothesOriginal.cn_name_cap>></span>等衣物，<<He>>欣慰地点了点头，微笑着拥抱了一下你："愿你度过愉快的<<print $dayStateText>>，<<print $remindText>>回头见！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
+    你穿上了罗宾递来的<span class="green"><<print $clothesOriginal.cn_name_cap>></span>等衣物，<<He>>欣慰地点了点头，微笑着拥抱了一下你："祝你度过愉快的<<print $dayStateText>>，<<print $remindText>>回头见啦！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
     <br><br>
 <<else>>
     <<set _chosen to peekNormalClothes()>><<wearNewClothes _chosen>>
@@ -66,7 +66,7 @@
     <<He>>皱着眉头说："不行，你这样穿还是不够...要不我来送你一件衣服吧？"
     说着，<<He>>从衣柜里拿出了一件<span class="green"><<print _chosen[0].cn_name_cap>></span><<if _chosen.length is 2>>和一件<span class="green"><<print _chosen[1].cn_name_cap>></span><</if>>。
     <br><br>
-    你换上衣服后，<<he>>欣慰地点了点头："这样好多了。" 随后，<<He>>微笑着拥抱了一下你："愿你度过愉快的<<print $dayStateText>>，<<print $remindText>>回头见！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
+    你换上衣服后，<<he>>欣慰地点了点头："这样好多了。" 随后，<<He>>微笑着拥抱了一下你："祝你度过愉快的<<print $dayStateText>>，<<print $remindText>>回头见啦！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
     <br><br>
 <</if>>
 在离开前，你轻轻地<<print $closeText>>了罗宾的房门。
@@ -89,12 +89,12 @@
     你默默地看着罗宾，<<his>>眼神中的某种东西打动了你，于是你不再抗拒，穿上了罗宾递来的<span class="green"><<print $clothesOriginal.cn_name_cap>></span>等衣物。
     <br><br>
     <<if $exposed lte 0>>
-        罗宾欣慰地点了点头，微笑着拥抱了一下你："愿你度过愉快的<<print $dayStateText>>，<<print $remindText>>回头见！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
+        罗宾欣慰地点了点头，微笑着拥抱了一下你："祝你度过愉快的<<print $dayStateText>>，<<print $remindText>>回头见啦！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
     <<else>>
         <<set _chosen to peekNormalClothes()>><<wearNewClothes _chosen>>
         罗宾端详了一下你，但并不满意，<<He>>皱着眉头说："不行，你这样穿还是不够...要不我来送你一件衣服吧？"说着，<<He>>从衣柜里拿出了一件<span class="green"><<print _chosen[0].cn_name_cap>></span><<if _chosen.length is 2>>和一件<span class="green"><<print _chosen[1].cn_name_cap>></span><</if>>。
         <br><br>
-        你换上衣服后，<<he>>欣慰地点了点头："这样好多了。" 随后，<<He>>微笑着拥抱了一下你："愿你度过愉快的<<print $dayStateText>>，<<print $remindText>>回头见！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
+        你换上衣服后，<<he>>欣慰地点了点头："这样好多了。" 随后，<<He>>微笑着拥抱了一下你："祝你度过愉快的<<print $dayStateText>>，<<print $remindText>>回头见啦！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
     <</if>>
 <<else>>
     罗宾叹了口气，<span class="blue">但最终妥协了，</span><<he>>关切地看着你说："答应我，千万要保护好自己，好吗？"
@@ -111,7 +111,7 @@
 <<storeon $condition>>
 "多谢提醒。"你说着，穿上了你留在床上的<span class="green"><<print $clothesOriginal.cn_name_cap>></span>等衣物。
 <br><br>
-罗宾点了点头，微笑着拥抱了一下你："愿你度过愉快的<<print $dayStateText>>，<<print $remindText>>回头见！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
+罗宾点了点头，微笑着拥抱了一下你："祝你度过愉快的<<print $dayStateText>>，<<print $remindText>>回头见啦！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
 <br><br>
 在离开前，你轻轻地<<print $closeText>>了罗宾的房门。
 <br><br>
@@ -123,7 +123,7 @@
 <<storeon $condition "return">>
 "多谢提醒。"你说着，拿起了你留在床上的<span class="green"><<print $clothesOriginal.cn_name_cap>></span>等衣物。
 <br><br>
-罗宾点了点头，微笑着拥抱了一下你："愿你度过愉快的<<print $dayStateText>>，<<print $remindText>>回头见！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
+罗宾点了点头，微笑着拥抱了一下你："祝你度过愉快的<<print $dayStateText>>，<<print $remindText>>回头见啦！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
 <br><br>
 在离开前，你轻轻地<<print $closeText>>了罗宾的房门，然后回到房间，将手上的衣物放回了衣柜中。
 <br><br>
@@ -148,7 +148,7 @@
     <<link [[放回衣柜|Robin Room Leave Return Wardrobe]]>><</link>><br>
 <</if>>
 <<if !_refuse>>
-    随后，<<He>>微笑着拥抱了一下你："愿你度过愉快的<<print $dayStateText>>，<<print $remindText>>回头见！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
+    随后，<<He>>微笑着拥抱了一下你："祝你度过愉快的<<print $dayStateText>>，<<print $remindText>>回头见啦！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
     <br><br>
     在离开前，你轻轻地<<print $closeText>>了罗宾的房门。
     <br><br>
@@ -158,7 +158,7 @@
 :: Robin Room Leave Wear New
 /% 罗宾新送的衣服并不会有穿上后还露着的问题 %/
 <<effects>>
-你穿上了罗宾递来的衣物，<<He>>欣慰地点了点头，微笑着拥抱了一下你:"愿你度过愉快的<<print $dayStateText>>，<<print $remindText>>回头见！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
+你穿上了罗宾递来的衣物，<<He>>欣慰地点了点头，微笑着拥抱了一下你:"祝你度过愉快的<<print $dayStateText>>，<<print $remindText>>回头见啦！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
 <br><br>
 在离开前，你轻轻地<<print $closeText>>了罗宾的房门。
 <br><br>
@@ -179,7 +179,7 @@
     <br><br>
     你默默地看着罗宾，<<his>>眼神中的某种东西打动了你，于是你不再抗拒，穿上了罗宾递来的衣物。
     <br><br>
-    罗宾欣慰地点了点头，微笑着拥抱了一下你："愿你度过愉快的<<print $dayStateText>>，<<print $remindText>>回头见！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
+    罗宾欣慰地点了点头，微笑着拥抱了一下你："祝你度过愉快的<<print $dayStateText>>，<<print $remindText>>回头见啦！"<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
 <<else>>
     罗宾叹了口气，<span class="blue">但最终妥协了，</span><<he>>关切地看着你说："答应我，千万要保护好自己，好吗？"
     <br><br>
