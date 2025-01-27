@@ -3,6 +3,8 @@ dist/
 .vscode/
 .DS_Store
 self-use.sh
+self-use.txt
 test.html
 test2.html
 test3.html
+plants.json
