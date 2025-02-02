@@ -1,12 +1,12 @@
 <<if $robinPayBothTalked and $robinmissing is 0 and $robinnote isnot 1 and C.npc.Robin.lust gte 10 and C.npc.Robin.love gte 60 and C.npc.Robin.trauma lt 10>>
 	<span class="gold">窗边貌似有张便条。</span>
 	<br>
-	<<askicon>><<link [[阅读|Robin Note Pay Both]]>><<set $robinnote to 1>><<set $robinPayBothNote to true>><</link>>
+	<<mysteryicon>><<link [[阅读|Robin Note Pay Both]]>><<set $robinnote to 1>><<set $robinPayBothNote to true>><</link>>
 	<br><br>
 <<elseif $robinPaySelfTalked and $robinmissing is 0 and $robinnote isnot 1 and C.npc.Robin.lust gte 10 and C.npc.Robin.love gte 60 and C.npc.Robin.trauma lt 10>>
     <span class="gold">窗边貌似有张便条。</span>
 	<br>
-	<<askicon>><<link [[阅读|Robin Note Pay Self]]>><<set $robinnote to 1>><<set $robinPaySelfNote to true>><</link>>
+	<<mysteryicon>><<link [[阅读|Robin Note Pay Self]]>><<set $robinnote to 1>><<set $robinPaySelfNote to true>><</link>>
 	<br><br>
 <</if>>
 <<if $robinpaid is 1 and $robinmissing is 0 and $robinnote isnot 1 and C.npc.Robin.lust gte 10 and C.npc.Robin.love gte 60 and C.npc.Robin.trauma lt 10>>

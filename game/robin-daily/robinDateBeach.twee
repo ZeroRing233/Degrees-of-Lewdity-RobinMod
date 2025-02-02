@@ -134,21 +134,21 @@
 	<<switch $select>>
 		<<case "school">>
 			<<if $pronoun is "m">>
-				<<set $money -= 8000>>
+				<<money -8000 "robin">>
 			<<else>>
-				<<set $money -= 2500>>
+				<<money -2500 "robin">>
 			<</if>>
 		<<case "normal">>
 			<<if $pronoun is "m">>
-				<<set $money -= 3500>>
+				<<money -3500 "robin">>
 			<<else>>
-				<<set $money -= 4000>>
+				<<money -4000 "robin">>
 			<</if>>
 		<<case "crossdress">>
 			<<if $pronoun is "m">>
-				<<set $money -= 4000>>
+				<<money -4000 "robin">>
 			<<else>>
-				<<set $money -= 3500>>
+				<<money -3500 "robin">>
 			<</if>>
 	<</switch>>
 	<<set $robinSwimsuit to $select>>
@@ -218,7 +218,7 @@
 :: Robin Beach Start
 <<location "promenade">><<effects>>
 你和罗宾一起来到了海滩。
-<<if Weather.isOvercast>>
+<<if Weather.isOvercast or Weather.name is 'heavyClouds'>>
 	云层驱散了大多数原本打算前来的游客，但依旧有人在海岸上随着海潮漫步。
 <<else>>
 	海滩上满是游客。孩子们建起沙堡，在水中玩耍，他们的父母则晒着日光浴。远处有一群学生正在打排球。
@@ -266,7 +266,7 @@
 	<br><br>
 	<<link [[继续|Robin Beach Changing Room Leave]]>><<pass 25>><</link>>
 <<else>>
-	<<if !Weather.isOvercast>>
+	<<if !Weather.isOvercast and Weather.name isnot 'heavyClouds'>>
 		海滩上满是游客。孩子们建起沙堡，在水中玩耍，他们的父母则晒着日光浴。远处有一群学生正在打排球。
 	<<else>>
 		云层驱散了大多数原本打算前来的游客，但依旧有人在海岸上随着海潮漫步。

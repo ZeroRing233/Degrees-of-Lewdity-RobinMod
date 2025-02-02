@@ -64,7 +64,7 @@
 <<if $phase is 1>>
     <<set $robinmoney -= 2000>>
 <<else>>
-    <<set $money -= 200000>>
+    <<money -200000 "robin">>
  <</if>>
 <<set $workTopicList to $workTopicList.filter(topic => topic!="liveStream")>>
 <<set $liveStream to 1>>
@@ -610,6 +610,7 @@
 ，除去平台抽成<span class="green"><<print $stream.commission>>%</span>后，
 罗宾获得了<<printmoney _streamIncome>>，你获得了<<printmoney _streamIncome>>。
 <<set $money += _streamIncome>>
+<<money `_streamIncome` "（dom罗宾）直播">>
 <<set $robinmoney += _streamIncome / 100>>
 <<set _fanslist to getFanslist()>>
 <<set _blacklist to getBlacklist()>>

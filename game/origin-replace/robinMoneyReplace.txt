@@ -9,7 +9,9 @@
 	    "好，"<<he>>说着，拿出钱，交给了你。<<He>>看起来有点担心。
         "贝利的要求是有点苛刻...我很抱歉你也得为我付钱。" 你获得了£<<print $robinmoney>>。
         <br><br>
-		<<set $money += ($robinmoney * 100)>><<set $robinmoney to 0>>
+		<<money `($robinmoney * 100)` "robin">><<set $robinmoney to 0>>
 		<<robinoptions>>
 	<</if>>
 <<else>>
+
+

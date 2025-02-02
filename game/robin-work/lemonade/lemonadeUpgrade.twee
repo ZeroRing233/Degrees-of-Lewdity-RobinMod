@@ -48,7 +48,7 @@
 	<<npcincr Robin love 5>>
 	<<pass 180>>
 	<<set $lemonadeUpgraded to 1>>
-	<<set $money-= 60000>>
+	<<money -60000 "robin">>
 	<</link>><<lldom>><<gglove>>
 	<br>
 <<else>>
@@ -252,7 +252,7 @@
 :: Robin's Lemonade Purchase Other
 <<location "beach">><<set $outside to 0>><<effects>>
 <<npc Robin>><<person1>>
-<<set $money -= 200>>
+<<money -200 "robin">>
 <<set _fruitType to getRandomValueFromArray($drinkUpgradedList)>>
 你向罗宾购买了<<print $plants[_fruitType].plural>>汁。
 <br><br>
@@ -269,7 +269,7 @@
 <<elseif $robinpaid is 1 and $daily.robin.freeDrink isnot 1>>
 	<<set $daily.robin.freeDrink to 1>>
 	"我，我不能收你的钱……"<<He>>把钱还给了你，"你已经为我向贝利付款了。而且你知道的，反正我最后也会把这些钱给你的。"
-	<<set $money += 200>>
+	<<money 200 "robin">>
 
 <<elseif $robinpaid is 1>>
 	<<set $robinmoney += 2>>
@@ -310,7 +310,7 @@
 :: Robin's Lemonade Purchase Honey
 <<location "beach">><<set $outside to 0>><<effects>>
 <<npc Robin>><<person1>>
-<<set $money -= 200>>
+<<money -200 "robin">>
 
 "<<print $robin.timer.hurt gte 1 ? "大概可以，" : "没问题！">>只要一分钟……"罗宾说着，把柠檬水倒进一个玻璃杯里，然后加了一小勺蜂蜜。
 <br><br>
@@ -325,7 +325,7 @@
 <<elseif $robinpaid is 1 and $daily.robin.freeDrink isnot 1>>
 	<<set $daily.robin.freeDrink to 1>>
 	"我，我不能收你的钱……"<<He>>把钱还给了你，"你已经为我向贝利付款了。而且你知道的，反正我最后也会把这些钱给你的。"
-	<<set $money += 200>>
+	<<money 200 "robin">>
 
 <<elseif $robinpaid is 1>>
 	<<set $robinmoney += 1>>

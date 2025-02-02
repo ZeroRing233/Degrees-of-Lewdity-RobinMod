@@ -386,7 +386,7 @@
     <<if $bogProgress gte 1>>
         <<foresticon "bog">><<link [[朝沼泽顺流而行 (0:20)|Bog Intro Robin]]>><<set $foresthunt to 0>><<pass 20>><<tiredness 6>><<set $forest to 0>><</link>><<note "单行道" "red">><<gtiredness>>
     <<else>>
-        <<askicon>><<link [[探索下游 (0:20)|Bog Intro Robin]]>><<set $foresthunt to 0>><<pass 20>><<tiredness 6>><<set $forest to 0>><</link>><<note "单行道" "red">><<gtiredness>>
+        <<mysteryicon>><<link [[探索下游 (0:20)|Bog Intro Robin]]>><<set $foresthunt to 0>><<pass 20>><<tiredness 6>><<set $forest to 0>><</link>><<note "单行道" "red">><<gtiredness>>
     <</if>>
     <br><br>
     <<foresticon>><<link [[森林 (0:10)|Forest]]>><<pass 10>><<set $forest to 80>><</link>>
