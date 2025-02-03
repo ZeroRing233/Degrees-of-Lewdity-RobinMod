@@ -37,9 +37,13 @@
 模组名称补充说明：dom罗宾主要是在玩罗宾的自信在代码里是dom这个梗，同时游戏内高自信的罗宾本身就会对pc更有保护欲，在关系中也会是更占主导的一方，而在加入这个童话向/爽向的模组后，罗宾的自信甚至会被特质锁定为100，所以希望各位都是喜欢高自信罗宾的玩家。
 
 ## 安装方式说明
-本模组基于0.5.1.x和0.5.2.x版本进行自测，旧版本会存在不兼容的问题，请确保您手上的游戏是最新版本，然后下载release下[0.06-beta](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.06-beta)中的domRobin.mod.zip（请不要下载source code），并使用平时游玩汉化版时使用的mod管理器加载完汉化模组后，再加载此模组。
+请根据您的游戏本体版本选择对应的模组文件进行下载：
 
-如果你的游戏本体已更新到0.5.3.x，请下载[0.06-for-dol-0.5.3](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.06-for-dol-0.5.3)，其他版本与0.5.3.x均无法兼容。
+如果你的游戏本体已更新到0.5.3.x版本，请下载[0.06-for-dol-0.5.3](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.06-for-dol-0.5.3)中的domRobin.mod.zip(请不要下载source code)。
+
+如果你的游戏本体是0.5.1.x或0.5.2.x版本，请下载release下的[0.06-beta](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.06-beta)，更早的版本**无法**与本模组兼容。
+
+请使用平时游玩汉化版时使用的模组管理器，在加载完汉化模组后，再加载此模组。
 
 <details>
   <summary>点击查看图片</summary>

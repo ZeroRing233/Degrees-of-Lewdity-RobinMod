@@ -1,16 +1,16 @@
-// 我也不知道会不会覆盖，总之先这样加
 $(document).on(":oncloseoverlay", () => {
+    console.log('robinmodSetting-oncloseoverlay被触发了！');
+    // 理论上，重新渲染passage不可能出现循环调用，以防万一把删除提前一行，定可确保只执行一次
     if (V.robinModSetting) {
-        SugarCube.State.show();
         delete V.robinModSetting;
+        SugarCube.State.show();
     }
-    if (!Renderer.lastModel) return;
-    Renderer.refresh(Renderer.lastModel);
 });
 
 function show_image(id) {
     //首先获取到文件输入框和img元素
     //alert('show_iamge_id是' + id)
+    console.log('robinmodSetting-showimage被触发了！');
     if (!id) {
         return;
     }
@@ -49,6 +49,7 @@ function show_image(id) {
 window.show_image = show_image;
 
 function img_delete_click(id) {
+    console.log('robinmodSetting-imgdeleteClick被触发了！');
     if (!id) {
         return;
     }
@@ -65,6 +66,7 @@ function img_delete_click(id) {
 window.img_delete_click = img_delete_click;
 
 function image_click(id) {
+    console.log('robinmodSetting-imageclick被触发了！');
     // 获取图片模态框，alt 属性作为图片弹出中文本描述
     if (!id) {
         return;
@@ -84,14 +86,17 @@ function image_click(id) {
 window.image_click = image_click;
 
 function close_click() {
+    console.log('robinmodSetting-closeClick被触发了！');
     let modal = document.getElementById('myModal');
     modal.style.display = "none";
 }
+2
 window.close_click = close_click;
 
 // 点击勾选，原先的图片被替换为默认图片，不展示删除按钮，上传图片按钮无法点击；取消勾选，则清空当前图片，上传图片按钮恢复为可点击，再次上传回复删除按钮。
 // 目前只有一张，所以简化了图片获取逻辑。
 async function enable_default_photo(id, checked) {
+    console.log('robinmodSetting-enable_default_photo被触发了！');
     let type = id.split("_").slice(-1)[0];
     let file_input = document.getElementById("file_input_" + type);
     let show_img = document.getElementById("show_img_" + type);
@@ -122,6 +127,7 @@ window.enable_default_photo = enable_default_photo;
 
 // 偷个懒，页面加载完先手动执行一遍
 async function enable_default_photo_onload() {
+    console.log('robinmodSetting-enable_default_photo_onload被触发了！');
     $(function() {
         enable_default_photo("enable_default_photo_photographyImgRobin", V.enableDefaultPhotography.photographyImgRobin);
     });
@@ -129,6 +135,7 @@ async function enable_default_photo_onload() {
 window.enable_default_photo_onload = enable_default_photo_onload;
 
 function tutorParentGenderClicked() {
+    console.log('robinmodSetting-tutorParentGenderClicked被触发了！');
     let value = $('input[name="tutorParentGender"]:checked').val();
     if (value === "f") {
         V.tutor.parentGender = "f";
