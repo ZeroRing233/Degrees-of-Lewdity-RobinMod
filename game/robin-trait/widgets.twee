@@ -41,14 +41,8 @@
 	<br><br>
 	<<set $NPCList[1].rentPaidAmount to _randomRent>>
 	<<set $NPCList[1].rentPaidDay to Time.days>>
-	<<if random(1,2) is 1>>
-		<<set $NPCList[1].willPayBack to true>>
-		<<set $NPCList[1].couldPayBackDay to random(7,35)>>
-		<<set $NPCList[1].payBacked to false>>
-	<<else>>
-		<<set $NPCList[1].willPayBack to false>>
-		<<set $NPCList[1].payBacked to false>>
-	<</if>>
+	<<set $NPCList[1].willPayBack to false>>
+	<<set $NPCList[1].payBacked to false>>
 	<<set $robinmoney -= _randomRent>>
 	<<if $robinPayOthersCount is undefined>>
 		<<set $robinPayOthersCount to 0>>
