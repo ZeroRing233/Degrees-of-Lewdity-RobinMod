@@ -47,7 +47,7 @@ window.setRandomOrphanWillPayBack = function() {
     else if (V.orphan_hope >= 30 && Rng >= 50) {
         shouldPayBack = true;
     }
-    else if (V.orphan_hope >= 15 && Rng >= 90) {
+    else if (V.orphan_hope >= 15 && Rng >= 95) {
         shouldPayBack = true;
     }
 
@@ -57,6 +57,6 @@ window.setRandomOrphanWillPayBack = function() {
     }
 
     if (!V.per_npc[selected.key].couldPayBackDay) {
-        V.per_npc[selected.key].couldPayBackDay = Math.floor(Math.random() * 35) + 1;
+        V.per_npc[selected.key].couldPayBackDay = Math.floor(Math.random() * 29) + 7;
     }
 };
