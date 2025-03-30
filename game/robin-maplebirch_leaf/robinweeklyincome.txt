@@ -1,0 +1,10 @@
+	<</if>>
+    <<if $weeklyMoneyFixedChange>>
+		<<if !$weeklymoneyask>>
+			<<highicon>><<link [[询问罗宾这周的收入|Ask Robin Weekly Income]]>><<set $weeklymoneyask to true>><</link>>
+		<<else>>
+			<i><<note "你这周已经问过罗宾了。" "teal">></i>
+		<</if>>
+		<br>
+	<</if>>
+    <<if $robinmoney gt 0 and !$robinromance>>
