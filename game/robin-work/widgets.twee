@@ -1,5 +1,9 @@
 :: Widgets Weekly Robin Money Check [widget]
 <<widget "weeklymoneycheck">>
+    <!-- 罗宾周收入询问一周限一次 -->
+    <<unset $weeklymoneyask>>
+    <!-- 每周保底检测 -->
+    <<run setRandomOrphanWillPayBack()>>
     <<if !$ronbinRentStage>>
         <<set $ronbinRentStage to Math.floor(Time.days/7)>>
     <<else>>
@@ -79,16 +83,22 @@
     <</if>>
 <</widget>>
 
-/% 柠檬水摊相关检查 %/
+/% 柠檬水摊相关检查 %/<!-- 稍有改动，对话一次性检测 -->
 <<widget "weeklyLemonadeCheck">>
     /% 升级柠檬水摊 %/
     <<if $lemonadeUpgraded is 1 and Time.season isnot "winter">>
         <<set $weeklyMoneyFixedChange += 600>>
+        <<if !$lemonade_talk>>
+            <<set $lemonade_talk to 1>>
+        <</if>>
     <</if>>
 
     /% 升级热巧克力摊，偷懒写一起了 %/
     <<if $chocolateUpgraded is 1 and Time.season is "winter">>
         <<set $weeklyMoneyFixedChange += 600>>
+        <<if !$chocolate_talk>>
+            <<set $chocolate_talk to 1>>
+        <</if>>
     <</if>>
 
     /% 送柠檬/血柠檬 %/
