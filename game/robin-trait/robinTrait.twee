@@ -18,6 +18,7 @@
 <<link [[继续|Orphanage]]>><<endevent>><</link>>
 
 :: Home Event Robin Pay Others
+<<run statusCheck("Robin")>><!-- 枫桦叶改动-->
 贝利从罗宾手里夺过钱，仔细清点了起来，然后满意地点了点头，转身离开了。
 <br><br>
 “谢谢你，”当贝利走出能听见的范围时，<<person2>><<person>>对罗宾说道，
@@ -33,6 +34,7 @@
 <br><br>
 罗宾又安慰了一会<<person>>，等人群散去之后，<<person3>><<he>>才回到了自己的房间。
 <br><br>
+<<if _robin_location isnot "orphanage">><<set $RobinPayEvent to _robin_location>><<run setRobinLocationOverride("orphanage", Time.hour)>><</if>>
 <<link [[继续|Orphanage]]>><<endevent>><</link>>
 
 :: Home Event Pay Back Accept

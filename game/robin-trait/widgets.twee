@@ -39,6 +39,8 @@
 			<<set $NPCList[1].traits.push("meek")>>
 	<</switch>>
 	<br><br>
+	<!-- 枫桦叶改动-->
+	<<set $RobinPayEvent_pronoun to $NPCList[1].pronoun is "m" ? "他" : "她">>
 	<<set $NPCList[1].rentPaidAmount to _randomRent>>
 	<<set $NPCList[1].rentPaidDay to Time.days>>
 	<<set $NPCList[1].willPayBack to false>>
