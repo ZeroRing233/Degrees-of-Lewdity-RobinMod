@@ -1,4 +1,4 @@
-    <<elseif Time.hour is 19 and $liveStream is 1 and !$daily.liveStreamExcuse>>
+    <<elseif Time.hour is 19 and $liveStream is 1 and !$daily.liveStreamExcuse && !$RobinPayEvent>>
         罗宾看着墙上的钟。
         <<if $liveStreamTogether>>
             "又到了我的直播时间啦"，<<He>>询问你："怎么样，今天要不要和我一起直播？"
