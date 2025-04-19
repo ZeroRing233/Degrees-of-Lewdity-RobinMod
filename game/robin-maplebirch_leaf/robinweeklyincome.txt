@@ -1,4 +1,8 @@
 	<</if>>
+	<<if $RobinPayEvent>>
+		<<socialiseicon "ask">><<link [[询问罗宾刚刚发生了什么|Ask Robin Pay Event]]>><</link>>
+		<br>
+	<</if>>
     <<if $weeklyMoneyFixedChange>>
 		<<if !$weeklymoneyask>>
 			<<highicon>><<link [[询问罗宾这周的收入|Ask Robin Weekly Income]]>><<set $weeklymoneyask to true>><</link>>

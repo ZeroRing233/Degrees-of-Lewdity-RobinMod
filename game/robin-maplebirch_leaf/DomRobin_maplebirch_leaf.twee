@@ -1,3 +1,12 @@
+:: MaplebirchLeaf DomRobin Widgets [widget]
+
+<<widget "domRobinOrphanageGetUp">>
+    感觉到脸上有温热的呼吸声，你睁开眼看到是罗宾在旁边亲了亲你的脸颊。当<<nnpc_He "Robin">>反应到你醒时，罗宾的脸一下就红了。
+    <br><br>
+    “该上学了，臭懒虫！”罗宾对你完后就跑离了你的房间，<<nnpc_He "Robin">>在跑之前对你说：“记得来我房间和我一起上学哦！”
+    <<stress -6>><<lstress>><<trauma -6>><<ltrauma>>
+<</widget>>
+
 :: Ask Robin Weekly Income
 <<set $outside to 0>><<set $location to "home">><<effects>>
 <<npc Robin>><<person1>>
@@ -19,3 +28,47 @@
 之后罗宾小心翼翼将本子收好重新放回了<<He>>的抽屉中。
 <br><br>
 <<robinoptions>>
+
+:: Robin Live Stream Clothes Wear
+<<effects>>
+你穿上了罗宾递来的衣物，<<He>>欣慰地点了点头，微笑着拥抱了一下你:“好啦！我们现在可以开始直播了。”
+<br><br>
+在你穿完后，罗宾便开心地去调试<<nnpc_He "Robin">>的直播设备了。
+<br><br>
+<<link [[继续|Live Stream Together Prepare]]>><<endevent>><<robinRoomLeaveEnd>><</link>>
+
+:: Ask Robin Pay Event
+<<set $outside to 0>><<set $location to "home">><<effects>>
+<<npc Robin>><<person1>>
+<<if $speech_attitude is "meek">>
+    你小声的对罗宾说：“刚……刚刚贝利没有伤害到你吧，我有点担心你。”
+<<elseif $speech_attitude is "bratty">>
+    你对罗宾说：“刚刚贝利那个混蛋没有碰你吧，我真不希望<<nnpc_He "Bailey">>伤害你。”
+<<else>>
+    你询问罗宾刚刚在大厅发生了什么事？
+<</if>>
+<br><br>
+<<switch $RobinPayEvent>>
+    <<case "bath">>
+        “我当时在浴室里洗澡，听到大厅有哭喊声后，我就迅速地结束沐浴来看看发生了什么。
+    <<case "sleep">>
+        “我当时在房间里睡觉，听到大厅有哭喊声后，我就立刻从床上起来看看发生了什么。
+    <<case "liveStream">>
+        “我当时在房间里直播，听到大厅有哭喊声后，我就急忙地暂停了直播来看看发生了什么。
+<</switch>>
+然后我在大厅发现了一位可怜地孤儿真被贝利伤害着，这让我想起了我曾经也处到过相同的境地，我不想<<print $RobinPayEvent_pronoun>>收到也受到贝利的伤害，所以我决定去帮助<<print $RobinPayEvent_pronoun>>。”
+<br><br>
+罗宾转过头看着你，“不过你不用担心我，我会好好地保护自己的！”罗宾靠近你亲了亲你的脸颊。
+<br><br>
+<<unset $RobinPayEvent>><<unset $RobinPayEvent_pronoun>>
+<<robinoptions>>
+
+:: Robin's Lemonade Confident
+<<location "beach">><<effects>>
+<<endevent>><<npc Robin>><<person1>>
+穿着警察制服的人都走后，你想把胳膊搭在罗宾的肩膀上安慰<<nnpc_He "Robin">>。
+<br><br>
+但是罗宾笑着脸对你说：“对不起，我确实没有许可证，但是你不必担心他们拿走钱的。”罗宾反过来抱住你，“我很感谢你，你让我现在赚了很多让我不必担心以后的生活了。”
+<<npcincr Robin dom 3>><<gdom>>
+<br><br>
+<<lemonade_stand_options>>
