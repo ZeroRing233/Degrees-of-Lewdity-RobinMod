@@ -1,8 +1,8 @@
-<<elseif meetOrphangePayBackCondition()>>
+<<elseif meetOrphangePayBackCondition() && _robin_location is "orphanage">>
     <<homeeventRobin2 _npcSelected>>
 <<elseif $rng gte 71>>
     <<rng 9>>
-    <<if $rng gte 9>>
+    <<if $rng gte 9 && _robin_location is "orphanage">>
         <<set _randomRent to getRandomValueFromArray([100,300,500,700,1000,1500,2000])>>
         <<if $robinPaySelfTalked and ["orphanage", "bath", "sleep", "liveStream"].includes(getRobinLocation()) and $robinmoney gte _randomRent>>
             <<homeeventRobin1 _randomRent>>
