@@ -159,7 +159,7 @@ window.getWineType = getWineType;
 
 
 function meetOrphangePayBackCondition() {
-    if (!["orphanage", "bath", "sleep", "liveStream"].includes(getRobinLocation())) {
+    if (!["orphanage"].includes(getRobinLocation())) {
         return false;
     }
     for (let key in V.per_npc) {
@@ -306,8 +306,9 @@ function peekNormalClothes() {
 }
 window.peekNormalClothes = peekNormalClothes;
 
+// 枫桦叶有改动
 function rightNormalClothesCondition(clothes) {
-    return !clothes.shop.includes("adult") && clothes.type.includes("normal") &&
+    return !clothes.shop.includes("adult") && clothes.type.includes("normal") && !clothes.type.includes("bellyHide") &&
         (clothes.gender === V.player.gender_appearance || clothes.gender === "n");
 }
 
