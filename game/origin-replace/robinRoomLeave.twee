@@ -6,7 +6,7 @@
 <<else>>
     <<set $dayStateText to "一天">>
 <</if>>
-<<if ["lemonade","schoolRefuseTramua","schoolRefuse"].includes($phase)>>
+<<if ["lemonade","schoolRefuseTramua","schoolRefuse","templeRefuseTramua"].includes($phase)>>
     <<set $closeText to "虚掩">>
 <<else>>
     <<set $closeText to "关上">>
@@ -16,6 +16,8 @@
     <<set $remindText to "但注意不要迟到了，">>
 <<elseif $phase is "studyRefuse">>
     <<set $remindText to "但别忘了按时写作业哦，">>
+<<elseif $phase is "templeRefuse">>
+    <<set $remindText to "如果想来找我，记得去神殿哦，">>
 <<else>>
     <<set $remindText to "">>
 <</if>>
@@ -31,7 +33,7 @@
         <<else>>
             <<robinRoomLeaveSpecial>>
         <</if>>
-    <<case "schoolRefuseTramua" "sleepRefuseTramua">>
+    <<case "schoolRefuseTramua" "sleepRefuseTramua" "templeRefuseTramua">>
         你摇了摇头，表示你还有其他事情要做，罗宾看上去非常失望，但还是默默接受了。
         <br><br>
         <<if $exposed lte 0>>
@@ -41,7 +43,7 @@
         <<else>>
             <<robinRoomLeaveSpecialTramua>>
         <</if>>
-    <<case "schoolRefuse" "studyRefuse">>
+    <<case "schoolRefuse" "studyRefuse" "templeRefuse">>
         你摇了摇头，表示你还有其他事情要做，在你起身准备离开时，
         <<if $condition is "normal">>
             罗宾关切地提醒你："好吧，<<print $remindText>>回头见啦！" 说着，<<He>>给了你一个拥抱。<<stress -6>><<trauma -3>><<lstress>><<ltrauma>>
