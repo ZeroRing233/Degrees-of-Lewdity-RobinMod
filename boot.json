@@ -1,6 +1,6 @@
 {
     "name": "DomRobin",
-    "version": "0.0.6-for-dol-0.5.3",
+    "version": "0.0.7-for-dol-0.5.3",
     "scriptFileList_inject_early": [
         "game/javaScript/robinModInject_early.js"
     ],
@@ -18,7 +18,8 @@
         "game/javaScript/orphanagePoster.js",
         "game/javaScript/liveStream.js",
         "game/javaScript/introduction.js",
-        "dist/photography_result.js"
+        "dist/photography_result.js",
+        "game/robin-maplebirch_leaf/DomRobin_maplebirch_leaf.js"
     ],
     "tweeFileList": [
         "game/robin-work/lemonade/lemonadeUpgrade.twee",
@@ -49,7 +50,8 @@
         "game/origin-replace/robinRoomLeave.twee",
         "game/origin-replace/robinForest.twee",
         "game/origin-replace/introContentWidgets.twee",
-        "game/orphanage-poster/widgets.twee"
+        "game/orphanage-poster/widgets.twee",
+        "game/robin-maplebirch_leaf/DomRobin_maplebirch_leaf.twee"
     ],
     "imgFileList": [],
     "additionDir": [
@@ -142,7 +144,8 @@
         "game/orphanage-poster/variablesVersionUpdate.txt",
         "game/orphanage-poster/gameStartOnly.txt",
         "game/orphanage-poster/homeeventhopehi.txt",
-        "game/orphanage-poster/homeeventrebhi.txt"
+        "game/orphanage-poster/homeeventrebhi.txt",
+        "game/robin-maplebirch_leaf/robinweeklyincome.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -918,6 +921,12 @@
                     "passage": "Danube Street",
                     "findRegex": "<<elseif \\$exposed lte 0>>(.|\n)*?<</if>>",
                     "replaceFile": "game/robin-work/danube-tutor/danubeTutorMeetRobin2.txt"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "\t<</if>>\n\t<<if $robinmoney gt 0 and !$robinromance>>",
+                    "replaceFile": "game/robin-maplebirch_leaf/robinweeklyincome.txt",
+                    "_comment": "罗宾周收入询问"
                 }
             ]
         },

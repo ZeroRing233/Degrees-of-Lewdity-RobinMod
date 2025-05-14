@@ -103,24 +103,25 @@
             let content = passage1.content;
             let regex = new RegExp("<<if .* lte 0>>", 'g');
             let replaceString = "<<set _condition to getRobinWalkSchoolCondition()>>\n<<if [\"Robin's Room\",\"Robin's Room Photography\"].includes(_condition)>><<schoolicon \"building\">><<link [[\"换好校服，一起去学校 (0:25)\"|Robin Walk School]]>><<storeon _condition>><<run setRobinLocationOverride(\"school\", 7)>><<pass 25>><<handheldon 1>><</link>><br><<elseif $exposed lte 0>>";
-            if (content.match(regex).length === 10) {
+            if (content.match(regex).length === 13) {
                 let count = 0;
                 let contentReplaced = content.replace(regex, function(match) {
                     count++;
                     console.log("当前match是：" + match);
-                    // count说明：1 2 5 9 一起上学 3 4 6 7 10其他情况（去市政厅太特殊，不做处理）
+                    // count说明：1 2 7 11 一起上学 3 4 6 7 10其他情况（去市政厅太特殊，不做处理）
                     switch (count) {
                         case 1:
                         case 2:
-                        case 5:
-                        case 9:
+                        case 7:
+                        case 11:
                             console.log("当前match为一起去上学");
                             return replaceString;
                         case 3:
                         case 4:
+                        case 5:
                         case 6:
-                        case 7:
                         case 8:
+                        case 9:
                         case 10:
                             console.log("当前match不做处理");
                             return match;
