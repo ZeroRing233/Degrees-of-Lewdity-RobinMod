@@ -417,7 +417,7 @@
                 },
                 {
                     "passage": "Widgets Robin",
-                    "findRegex": "\\s+<<loveicon>>.*<</link>>",
+                    "findRegex": "\\s+<<loveicon \"kiss\">>.*<</link>>",
                     "replaceFile": "game/robin-trait/robinRomance.txt"
                 },
                 {
@@ -626,7 +626,7 @@
                 },
                 {
                     "passage": "Widgets Home Events",
-                    "findString": "<<switch random(1, 9)>>",
+                    "findString": "<<switch random(1, 10)>>",
                     "replace": "<<rng 9>><<switch $rng>>",
                     "comments": "修改高叛逆海报的进入方式（原因：方便使用修改rng的方式调测)"
                 },
@@ -752,8 +752,8 @@
                 },
                 {
                     "passage": "Robin's Room Entrance",
-                    "findString": "<<getouticon>><<link [[离开|Orphanage]]>><</link>>",
-                    "replace": "<<robin-room-note>><<getouticon>><<link [[离开|Orphanage]]>><</link>>",
+                    "findRegex": "<<main_hall_icon>>.*<</link>",
+                    "replace": "<<robin-room-note>><<main_hall_icon>><<link [[大厅 (0:01)|Orphanage]]>><<pass 1>><</link>>",
                     "all": true,
                     "comments": "为罗宾房间门口的便条添加图片"
                 },
@@ -848,13 +848,7 @@
                 },
                 {
                     "passage": "Robin Room Wake",
-                    "findString": "<<getouticon>><<link [[离开|Orphanage]]>><<endevent>><<storeon \"bed\">><</link>>",
-                    "replace": "<<getouticon>><<link [[离开|Orphanage]]>><<endevent>><</link>>",
-                    "comments": "写的时候findRegex+all有误，故出此下策"
-                },
-                {
-                    "passage": "Robin Room Wake",
-                    "findString": "<<getouticon>><<link [[离开|Orphanage]]>><<endevent>><</link>>",
+                    "findRegex": "<<main_hall_icon>>.*</link>>",
                     "replaceFile": "game/origin-replace/robinRoomWake.txt",
                     "all": true,
                     "comments": "写的时候findRegex+all有误，故出此下策"
