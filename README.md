@@ -4,6 +4,7 @@
 - [安装方式说明](#安装方式说明)
 - [反馈与讨论方式](#反馈与讨论方式)
 - [更新日志](#更新日志)
+    - [0.07-alpha](#007-alpha)
     - [0.06-beta](#006-beta)
     - [0.06-alpha](#006-alpha)
     - [0.05-alpha](#005-alpha)
@@ -39,9 +40,11 @@
 ## 安装方式说明
 请根据您的游戏本体版本选择对应的模组文件进行下载：
 
-如果你的游戏本体已更新到0.5.3.x版本，请下载[0.06-for-dol-0.5.3](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.06-for-dol-0.5.3)中的domRobin.mod.zip(请不要下载source code)。
+如果你的游戏本体已更新到0.5.4.x版本，请下载[0.07-for-dol-0.5.4](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.07-for-dol-0.5.4)中的domRobin.mod.zip(请不要下载source code)
 
-如果你的游戏本体是0.5.1.x或0.5.2.x版本，请下载release下的[0.06-beta](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.06-beta)，更早的版本**无法**与本模组兼容。
+如果你的游戏本体已更新到0.5.3.x版本，请下载[0.06-for-dol-0.5.3](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.06-for-dol-0.5.3)中的domRobin.mod.zip(请不要下载source code)
+
+如果你的游戏本体仍在0.5.1.x或0.5.2.x版本，请下载release下的[0.06-beta](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.06-beta)，更早的版本**无法**与本模组兼容。
 
 请使用平时游玩汉化版时使用的模组管理器，在加载完汉化模组后，再加载此模组。
 
@@ -75,15 +78,15 @@ bug反馈群群号：964015275
 5. 获得“被罗宾守护”以及"贝利的反抗者”特质时能在上学日孤儿院被罗宾叫醒起床。
 
 #### 问题修复
-1. 罗宾不会再赠送”茧“服装。
+1. 罗宾不会再赠送“茧”服装。
 2. 直播开始时pc不能是暴露状态了。
 3. 摄影时新增了着装要求的提示。
 4. 修复了直播结束时重复获得收入的问题。
 
 #### 致谢
-1. 由于笔者（零环零理想）正在尝试当一名网文写手，因而疏忽了对模组的更新，007-alpha版本的**全部内容**都由[枫桦叶](https://github.com/MaplebirchLeaf)贡献，是ta延续了本模组的生命。
+1. 由于笔者（零环零理想）正企图当一名网文写手，因而疏忽了对模组的更新，007-alpha版本的**全部内容**都由[枫桦叶](https://github.com/MaplebirchLeaf)贡献，是ta为本模组续了命。
 
-2. 感谢[丧心病](https://github.com/MissedHeart)对dom罗宾所做的适配（战胜贝利后，免听许可将不再需要贝利的同意）。
+2. 感谢模拟人生模组作者[丧心病](https://github.com/MissedHeart)对dom罗宾所做的适配（战胜贝利后，免听许可将不再需要贝利的同意）。
 
 
 ### 0.06-beta

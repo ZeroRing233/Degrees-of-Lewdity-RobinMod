@@ -1,12 +1,13 @@
 :: Intro Content Widgets [widget]
 /% 在线markdown转html %/
 <<widget "robinModHintContent">>
-	<h1>DomRobin扩展mod（0.06-for-dol-0.5.3版）</h1>
+	<h1>DomRobin扩展mod（0.07-alpha版）</h1>
 <ul>
     <li><a href="#introduction">基本介绍</a></li>
     <li><a href="#discussion">反馈与讨论方式</a></li>
     <li><a href="#changelog">更新日志</a>
         <ul>
+            <li><a href="#007">0.07</a></li>
             <li><a href="#006">0.06</a></li>
             <li><a href="#005">0.05-alpha</a></li>
             <li><a href="#004">0.04-alpha</a></li>
@@ -47,6 +48,35 @@
 
 <h2 id="changelog">更新日志</h2>
 <p>注意：更新日志只含0.04-alpha以及之后的版本，之前的内容请见<a href="#details">详细内容介绍</a>。</p>
+
+<h3 id="007">0.07-alpha</h3>
+<p>（注意0.07-alpha只适配0.5.4.x版本）</p>
+<h4>新增内容</h4>
+<ol>
+<li>可以从罗宾那里得知罗宾的周收入以及罗宾的存款。</li>
+<li>罗宾帮助的孤儿每周会进行一次检测，防止帮助的孤儿不还钱！<br>
+关于新规则：根据孤儿院的希望计算，如果希望为满值50，必定有一人计算天数还钱。如果希望大于30，50%概率开始计算天数还钱。如果希望大于15，5%概率计算天数还钱。</li>
+<li>罗宾救助/回赠孤儿事件优化。</li>
+<li>罗宾柠檬水摊许可证剧情优化。</li>
+<li>获得“被罗宾守护”以及"贝利的反抗者”特质时能在上学日孤儿院被罗宾叫醒起床。</li>
+</ol>
+<h4>问题修复</h4>
+<ol>
+<li>罗宾不会再赠送“茧”服装。</li>
+<li>直播开始时pc不能是暴露状态了。</li>
+<li>摄影时新增了着装要求的提示。</li>
+<li>修复了直播结束时重复获得收入的问题。</li>
+</ol>
+<h4>致谢</h4>
+<ol>
+<li>
+<p>由于笔者（零环零理想）正企图当一名网文写手，因而疏忽了对模组的更新，007-alpha版本的<strong>全部内容</strong>都由<a href="https://github.com/MaplebirchLeaf" target="_blank">枫桦叶</a>贡献，是ta为本模组续了命。</p>
+</li>
+<li>
+<p>感谢模拟人生作者<a href="https://github.com/MissedHeart" target="_blank">丧心病</a>对dom罗宾所做的适配（战胜贝利后，免听许可将不再需要贝利的同意）。</p>
+</li>
+</ol>
+
 
 <h3 id="006">0.06-for-dol-0.5.3</h3>
     <p>为适配dol游戏0.5.3.x而发布的版本，只进行了一些细节修改，包括：</p>
