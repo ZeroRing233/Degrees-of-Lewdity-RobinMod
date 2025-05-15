@@ -427,91 +427,114 @@
 :: Live Stream Together Prepare
 <<set $outside to 0>><<set $location to "home">><<effects>><<startstream>>
 <<npc Robin>><<person1>>
-<<if $fromOutside>>
-    你敲了敲门，罗宾很快就跑出来开了门："你来得正好，我正准备开始今晚的直播呢！"说着，<<he>>将你拉到电脑前。
-    <br><br>
-<</if>>
-    你和罗宾调整了一下直播设备，确保画质、音频和网络都保持在良好的状态，然后开始进行最后的准备。
-<br><br>
-<<set _fanslist to getFanslist()>>
-<<set _blacklist to getBlacklist()>>
-<details class="liveStream">
-	<summary class="liveStream">查看直播说明</summary>
-    <div class="liveStream">
-        <li>在直播中，如果遇到不友善的弹幕，可点击 <i class="liveStreamDelete"></i> 删除该弹幕，也可点击
-        <i class="liveStreamForbide"></i> 禁言该用户。</li>
-        <li>已经被禁言的用户，可以在「查看黑名单」中点击  <i class="blacklistRemove"></i> 解除禁言。</li>
-        <li>直播中会慢慢增加粉丝，粉丝的昵称后会带有  <i class="liveStreamFans"></i>。</li>
-        <li>打赏是随机的，但与观众数，粉丝数量，玩家选择和正面/负面名声等因素有关。</li>
-        <li>初始观众数由罗宾当前直播周数决定，注意玩家的参与可能会增加/减少罗宾的直播进度。</li>
-        <li>可点击「查看直播题材」切换本次直播的内容。</li>
-        <li>可点击「直播设置」调整平台抽成比例和弹幕位置。</li>
-    </div>
-</details>
-<br>
-<details class="liveStream">
-	<summary class="liveStream">查看粉丝列表</summary>
-    <div class="liveStream">
-        <<for _i to 0; _i lt _fanslist.length; _i++>>
-            <<set _color to 'color: ' + setup.rbg_from_string(_fanslist[_i])>>
-            <span class="fanslist" @style="_color"><<= _fanslist[_i]>>
-             <i class="liveStreamFans"></i>
-             <br></span>
-        <</for>>
-    </div>
-</details>
-<br>
-<details class="liveStream">
-	<summary class="liveStream">查看黑名单</summary>
-    <div class="liveStream">
-        <<if _blacklist.length is 0>>
-            暂无黑名单。
-        <</if>>
-        <<for _i to 0; _i lt _blacklist.length; _i++>>
-            <<set _color to 'color: ' + setup.rbg_from_string(_blacklist[_i].name)>>
-            <span class="blacklistid" style="display:none;"><<= _blacklist[_i].id>></span>
-            <span class="blacklistname" @style="_color"><<= _blacklist[_i].name>>
-            <i class="blacklistRemove"></i>
-            </span>
-            <br>
-        <</for>>
-    </div>
-</details>
-<br>
-<details class="liveStream">
-	<summary class="liveStream">查看直播题材</summary>
-        <div class="liveStream">
-            <label><<radiobutton "$stream.topic" "Maze" autocheck>> 游戏直播-1</label>
-            <br>
-           /% <label><<radiobutton "$stream.topic" "Disco" autocheck>> 文字RPG游戏</label>
-            <br>
-            <label><<radiobutton "$stream.topic" "Civilization" autocheck>> 历史策略游戏</label>
-            <br>
-            <label><<radiobutton "$stream.topic" "Pm" autocheck>> 养成游戏</label>
-            <br>
-            <label><<radiobutton "$stream.topic" "Needygirl" autocheck>> 模拟主播游戏</label>
-            <br>
-            <label><<radiobutton "$stream.topic" "Dol" autocheck>> 一款神秘的游戏</label> 
-            <br> %/
-            <label><<radiobutton "$stream.topic" "Daily" autocheck>>  聊天直播-1</label>
-            <br>
-            （更多选项会在之后添加）
-        </div>
-</details>
-<br>
-<details class="liveStream">
-	<summary class="liveStream">直播设置</summary>
-        <div class="liveStream">
-            <label>平台抽成调整：<<numberslider "$stream.commission" $stream.commission 10 90 1>></label>
+<!-- 枫桦叶的改动 -->
+<<set $condition to getRobinLeaveRoomCondition()>>
+<<switch $condition>>
+    <<case "needClothes">>
+        <<set _chosen to peekNormalClothes()>>
+            罗宾羞红着脸捂着眼睛尴尬地看着你：“你...你打算这样陪我直播吗？”
             <br><br>
-            弹幕位置：<br>
-            <label><<radiobutton "$stream.layout" "streamingLeftRight" autocheck>> 屏幕右侧（适合电脑和手机横屏）</label>
-            <label><<radiobutton "$stream.layout" "streamingUpDown" autocheck>> 屏幕下方（适合手机竖屏）</label>
-        </div>
-</details>
-<<run blacklistRemoveClicked()>>
-<br><br>
-<<link [[开始直播|Live Stream Together Start]]>><</link>>
+            <<if $speech_attitude is "meek">>
+                你不确定地说："是...是的，我觉得应该没什么问题。"
+            <<elseif $speech_attitude is "bratty">>
+                你毫不在意地说："是啊，应该没什么问题吧？"
+            <<else>>
+                你肯定地说："是的，我觉得应该没什么问题。"
+            <</if>>
+            <br><br>
+            罗宾摇了摇头，对你说了句“稍等”，然后从衣柜里拿出了一件<span class="green"><<print _chosen[0].cn_name_cap>></span><<if _chosen.length is 2>>和一件<span class="green"><<print _chosen[1].cn_name_cap>></span><</if>>，
+            <<he>>严肃地将衣服递给你：“我不希望你在我的直播上穿得如此暴露，穿上它吧，求你了。”
+            <br><br>
+            <<link [[穿上|Robin Live Stream Clothes Wear]]>><<wearNewClothes _chosen>><</link>><br>
+            <!-- <<link [[拒绝|]]>><<set $chosen to _chosen>><</link>> 恶趣味呢/或许后台罗宾暴露癖等级？应该不可能吧。-->
+    <<default>>
+        <<if $fromOutside>>
+            你敲了敲门，罗宾很快就跑出来开了门："你来得正好，我正准备开始今晚的直播呢！"说着，<<he>>将你拉到电脑前。
+            <br><br>
+        <</if>>
+            你和罗宾调整了一下直播设备，确保画质、音频和网络都保持在良好的状态，然后开始进行最后的准备。
+        <br><br>
+        <<set _fanslist to getFanslist()>>
+        <<set _blacklist to getBlacklist()>>
+        <details class="liveStream">
+            <summary class="liveStream">查看直播说明</summary>
+            <div class="liveStream">
+                <li>在直播中，如果遇到不友善的弹幕，可点击 <i class="liveStreamDelete"></i> 删除该弹幕，也可点击
+                <i class="liveStreamForbide"></i> 禁言该用户。</li>
+                <li>已经被禁言的用户，可以在「查看黑名单」中点击  <i class="blacklistRemove"></i> 解除禁言。</li>
+                <li>直播中会慢慢增加粉丝，粉丝的昵称后会带有  <i class="liveStreamFans"></i>。</li>
+                <li>打赏是随机的，但与观众数，粉丝数量，玩家选择和正面/负面名声等因素有关。</li>
+                <li>初始观众数由罗宾当前直播周数决定，注意玩家的参与可能会增加/减少罗宾的直播进度。</li>
+                <li>可点击「查看直播题材」切换本次直播的内容。</li>
+                <li>可点击「直播设置」调整平台抽成比例和弹幕位置。</li>
+            </div>
+        </details>
+        <br>
+        <details class="liveStream">
+            <summary class="liveStream">查看粉丝列表</summary>
+            <div class="liveStream">
+                <<for _i to 0; _i lt _fanslist.length; _i++>>
+                    <<set _color to 'color: ' + setup.rbg_from_string(_fanslist[_i])>>
+                    <span class="fanslist" @style="_color"><<= _fanslist[_i]>>
+                    <i class="liveStreamFans"></i>
+                    <br></span>
+                <</for>>
+            </div>
+        </details>
+        <br>
+        <details class="liveStream">
+            <summary class="liveStream">查看黑名单</summary>
+            <div class="liveStream">
+                <<if _blacklist.length is 0>>
+                    暂无黑名单。
+                <</if>>
+                <<for _i to 0; _i lt _blacklist.length; _i++>>
+                    <<set _color to 'color: ' + setup.rbg_from_string(_blacklist[_i].name)>>
+                    <span class="blacklistid" style="display:none;"><<= _blacklist[_i].id>></span>
+                    <span class="blacklistname" @style="_color"><<= _blacklist[_i].name>>
+                    <i class="blacklistRemove"></i>
+                    </span>
+                    <br>
+                <</for>>
+            </div>
+        </details>
+        <br>
+        <details class="liveStream">
+            <summary class="liveStream">查看直播题材</summary>
+                <div class="liveStream">
+                    <label><<radiobutton "$stream.topic" "Maze" autocheck>> 游戏直播-1</label>
+                    <br>
+                /% <label><<radiobutton "$stream.topic" "Disco" autocheck>> 文字RPG游戏</label>
+                    <br>
+                    <label><<radiobutton "$stream.topic" "Civilization" autocheck>> 历史策略游戏</label>
+                    <br>
+                    <label><<radiobutton "$stream.topic" "Pm" autocheck>> 养成游戏</label>
+                    <br>
+                    <label><<radiobutton "$stream.topic" "Needygirl" autocheck>> 模拟主播游戏</label>
+                    <br>
+                    <label><<radiobutton "$stream.topic" "Dol" autocheck>> 一款神秘的游戏</label> 
+                    <br> %/
+                    <label><<radiobutton "$stream.topic" "Daily" autocheck>>  聊天直播-1</label>
+                    <br>
+                    （更多选项会在之后添加）
+                </div>
+        </details>
+        <br>
+        <details class="liveStream">
+            <summary class="liveStream">直播设置</summary>
+                <div class="liveStream">
+                    <label>平台抽成调整：<<numberslider "$stream.commission" $stream.commission 10 90 1>></label>
+                    <br><br>
+                    弹幕位置：<br>
+                    <label><<radiobutton "$stream.layout" "streamingLeftRight" autocheck>> 屏幕右侧（适合电脑和手机横屏）</label>
+                    <label><<radiobutton "$stream.layout" "streamingUpDown" autocheck>> 屏幕下方（适合手机竖屏）</label>
+                </div>
+        </details>
+        <<run blacklistRemoveClicked()>>
+        <br><br>
+        <<link [[开始直播|Live Stream Together Start]]>><<robinRoomLeaveEnd>><</link>>
+<</switch>>
+
 
 :: Live Stream Together Start
 <<set $outside to 0>><<set $location to "home">><<effects>>
