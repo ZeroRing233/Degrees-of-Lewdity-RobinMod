@@ -609,7 +609,6 @@
 本次直播共获得打赏<<printmoney _tip>>
 ，除去平台抽成<span class="green"><<print $stream.commission>>%</span>后，
 罗宾获得了<<printmoney _streamIncome>>，你获得了<<printmoney _streamIncome>>。
-<<set $money += _streamIncome>>
 <<money `_streamIncome` "（dom罗宾）直播">>
 <<set $robinmoney += _streamIncome / 100>>
 <<set _fanslist to getFanslist()>>

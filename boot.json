@@ -1,6 +1,6 @@
 {
     "name": "DomRobin",
-    "version": "0.0.7-for-dol-0.5.3",
+    "version": "0.0.7-for-dol-0.5.4",
     "scriptFileList_inject_early": [
         "game/javaScript/robinModInject_early.js"
     ],
@@ -851,7 +851,7 @@
                     "findRegex": "<<main_hall_icon>>.*</link>>",
                     "replaceFile": "game/origin-replace/robinRoomWake.txt",
                     "all": true,
-                    "comments": "写的时候findRegex+all有误，故出此下策"
+                    "comments": "findRegex+all已经没问题了"
                 },
                 {
                     "passage": "Widgets Robin",
@@ -931,9 +931,10 @@
             "params": {
                 "js": [{
                         "from": "if (V.robinpaid !== 1 && V.robindebt >= V.robindebtlimit && V.robindebtevent <= 0) ",
-                        "to": "fragment.append(wikifier(\"weeklymoneycheck\")); if (V.robinpaid !== 1 && V.robindebtevent <= 0 && V.robinInDebt) ",
+                        "to": "$.wiki(\"<<weeklymoneycheck>>\");if (V.robinpaid !== 1 && V.robindebtevent <= 0 && V.robinInDebt) ",
                         "fileName": "time.js",
-                        "_comment1": "每周结束时，检查当前已有的工作并调widget函数加钱, 并修改罗宾码头惩罚条件（罗宾金钱必须小于0，与robindebt和robindebtlimit无关）"
+                        "_comment1": "每周结束时，检查当前已有的工作并调widget函数加钱, 并修改罗宾码头惩罚条件（罗宾金钱必须小于0，与robindebt和robindebtlimit无关）",
+                        "_comment2": "007版本修改原因-报错fragment is not defined"
                     },
                     {
                         "from": "function dayPassed() {",

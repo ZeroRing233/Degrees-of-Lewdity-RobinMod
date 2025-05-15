@@ -34,7 +34,8 @@
 <br><br>
 罗宾又安慰了一会<<person>>，等人群散去之后，<<person3>><<he>>才回到了自己的房间。
 <br><br>
-<<if _robin_location isnot "orphanage">><<set $RobinPayEvent to _robin_location>><<run setRobinLocationOverride("orphanage", Time.hour)>><</if>>
+/% 零环：我觉得触发询问的条件有点苛刻 所以删了if %/
+<<set $RobinPayEvent to _robin_location>><<run setRobinLocationOverride("orphanage", Time.hour)>>
 <<link [[继续|Orphanage]]>><<endevent>><</link>>
 
 :: Home Event Pay Back Accept

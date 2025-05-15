@@ -156,7 +156,7 @@
                     count++;
                     console.log("当前match是：" + match);
                     if (count === 16) {
-                        let replaceString = match.replace("<br><br>", "<br><br>\n\t\t\t<<if $robinmoney >= ($rentShouldPay + 100)>>罗宾小心地数着手里的钱。\n\t\t\t<br><br<<<link [[继续|Robin's Lemonade Confident]]>><</link>><<exit>><</if>>")
+                        let replaceString = match.replace("<br><br>", "<br><br>\n\t\t\t<<if $robinmoney >= ($rentShouldPay + 100)>>罗宾小心地数着手里的钱。\n\t\t\t<br><br><<link [[继续|Robin's Lemonade Confident]]>><</link>><<exit>><</if>>")
                         console.log("当前match替换后是" + replaceString);
                         return replaceString;
                     } else {
@@ -250,7 +250,8 @@
                 // 可选钩子
                 console.log('[robinMod_inject_early]', '  ', '所有 mod 数据覆盖到游戏后');
                 changeRobinRoomLeave();
-                changeRobinRoomWalkTogether();
+                // 咸鱼零环：这个先不改了，反正只影响摄影时不能穿校服上学一个问题
+                // changeRobinRoomWalkTogether();
                 changeRobinLemonLicense();
                 domRobinSleepGetUp();
             }
