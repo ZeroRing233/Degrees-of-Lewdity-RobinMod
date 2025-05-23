@@ -1,95 +1,85 @@
 :: Robin's Lemonade Give Fish List
-
-/* 这span是防止简易框架带来的报错弹窗的() */
-<span></span>
-
-/* 生成交给罗宾的鱼列表 */
+<!-- 生成交给罗宾的鱼列表 -->
 <<set $fishList to []>>
 <span id="eatableFishForRobinList"><<eatableFishForRobinList>></span>
 <br>
 <span id="eatableFishForRobinlinks"><<eatableFishForRobinlinks>></span>
-<<link [[返回|Robin's Lemonade]]>><</link>>
+<br>
+<<link [[返回|Robin's Lemonade]]>>'<<unset $fishList>><</link>>
 
 :: eatableFishForRobinList [widget]
 <<widget "eatableFishForRobinList">>
-
-/* 运行物品栏内物品信息@tooltip所需的function */
-<<run initializeTooltips()>>
-
-/* no-numberify控制物品栏内链接不显示数字编号 */
-<span class="no-numberify">
-可食用渔获
-<<set _eatableFishList to getAllEatableFishList()>>
-<div class="itemTerra">
-	<<for _i to 0; _i lt _eatableFishList.length; _i++>>
-		<<set _fish to setup.eatableFish[_eatableFishList[_i]]>>
-		/* 筛选并列出不在$fishList中的鱼类 */
-		<<if !$fishList.includes(_fish.name) and _fish.type is "fish">>
-			<<capture _fish>>
-				<div class="item" >
-					<div @tooltip="`${_fish.cn_name}`">
-						<<icon `_fish.icon`>>
-						<hr>
-						_fish.amount
-					</div>
-					<hr>
-					<<link "⬇">>
-						/* 将指定鱼加入$fishList中，并更新页面的两个列表和link */
-						<<set $fishList.pushUnique(_fish.name)>>
-						<<replace #eatableFishForRobinList>>
-							<<eatableFishForRobinList>>
-						<</replace>>
-						<<replace #eatableFishForRobinlinks>>
-							<<eatableFishForRobinlinks>>
-						<</replace>>
-					<</link>>
-				</div>
-			<</capture>>
+	<!-- no-numberify控制物品栏内链接不显示数字编号 -->
+	<span class="no-numberify">
+		可食用渔获
+		<<set _eatableFishList to getAllEatableFishList()>>
+		<div class="terraInventory">
+			<<for _f range _eatableFishList>>
+				<<set _fish to setup.eatableFish[_f]>>
+				<!-- 筛选并列出不在$fishList中的鱼类 -->
+				<<if !$fishList.includes(_fish.name) and _fish.type is "fish">>
+					<<capture _fish>>
+						<div class="terraItem">
+							<div class="terraIcon" @tooltip="`${_fish.cn_name}`">
+								<<icon `_fish.icon`>>
+							</div>
+							<div class="terraDivider"></div>
+							_fish.amount
+							<div class="terraDivider"></div>
+							<<link "⬇">>
+								<!-- 将指定鱼加入$fishList中，并更新页面的两个列表和link -->
+								<<set $fishList.pushUnique(_fish.name)>>
+								<<replace #eatableFishForRobinList>>
+								<<eatableFishForRobinList>>
+								<</replace>>
+								<<replace #eatableFishForRobinlinks>>
+									<<eatableFishForRobinlinks>>
+								<</replace>>
+							<</link>>
+						</div>
+					<</capture>>
+				<</if>>
+			<</for>>
+		</div>
+		交给罗宾的渔获
+		<<if $fishList.length gt 0>>
+			<div class="terraInventory">
+				<<for _sf range $fishList>>
+					<<set _fishR to setup.eatableFish[$fishList[_sf]]>>
+					<!-- 列出在$fishList中的鱼类 -->
+					<<capture _fishR>>
+						<div class="terraItem" >
+							<div class="terraIcon" @tooltip="`${_fish.cn_name}`">
+								<<icon `_fish.icon`>>
+							</div>
+							<div class="terraDivider"></div>
+							_fish.amount
+							<div class="terraDivider"></div>
+							<<link "⬆">>
+								<!-- 将指定鱼移出$fishList，并更新页面的两个列表和link -->
+								<<set $fishList.delete(_fish.name)>>
+								<<replace #eatableFishForRobinList>>
+									<<eatableFishForRobinList>>
+								<</replace>>
+								<<replace #eatableFishForRobinlinks>>
+									<<eatableFishForRobinlinks>>
+								<</replace>>
+							<</link>>
+						</div>
+					<</capture>>
+				<</for>>
+			</div>
+		<<else>>
+			<br><span class="black"><i>你需要交给罗宾至少一种鱼类。</i></span><br>
 		<</if>>
-	<</for>>
-</div>
-交给罗宾的渔获
-<<if $fishList.length gt 0>>
-	<div class="itemTerra">
-		<<for _j to 0; _j lt $fishList.length; _j++>>
-			<<set _fish to setup.eatableFish[$fishList[_j]]>>
-			/* 列出在$fishList中的鱼类 */
-			<<capture _fish>>
-				<div class="item" >
-					<div @tooltip="`${_fish.cn_name}`">
-						<<icon `_fish.icon`>>
-						<hr>
-						_fish.amount
-					</div>
-					<hr>
-					<<link "⬆">>
-						/* 将指定鱼移出$fishList，并更新页面的两个列表和link */
-						<<set $fishList.delete(_fish.name)>>
-						<<replace #eatableFishForRobinList>>
-							<<eatableFishForRobinList>>
-						<</replace>>
-						<<replace #eatableFishForRobinlinks>>
-							<<eatableFishForRobinlinks>>
-						<</replace>>
-					<</link>>
-				</div>
-			<</capture>>
-		<</for>>
-	</div>
-<<else>>
-	<br><span class="black"><i>你需要交给罗宾至少一种鱼类。</i></span>
-<</if>>
-</span>
-
+	</span>
 <</widget>>
 
 <<widget "eatableFishForRobinlinks">>
-
-/* 仅当$fishList中有鱼类时，显示“交给罗宾”的选项 */
-<<if $fishList.length gte 1>>
-	<<link [[交给罗宾|Robin's Lemonade Give Fish]]>>
-		<<set $randomFish to setup.eatableFish[$fishList[random(0,$fishList.length-1)]]>>	
-	<</link>>
-<</if>>
-
+	<!-- 仅当$fishList中有鱼类时，显示“交给罗宾”的选项 -->
+	<<if $fishList.length gte 1>>
+		<<link [[交给罗宾|Robin's Lemonade Give Fish]]>>
+			<<set $randomFish to setup.eatableFish[$fishList.random()]>>	
+		<</link>>
+	<</if>>
 <</widget>>
