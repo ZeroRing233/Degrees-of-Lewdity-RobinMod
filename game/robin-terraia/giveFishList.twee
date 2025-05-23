@@ -45,19 +45,19 @@
 		<<if $fishList.length gt 0>>
 			<div class="terraInventory">
 				<<for _sf range $fishList>>
-					<<set _fishR to setup.eatableFish[$fishList[_sf]]>>
+					<<set _fishR to setup.eatableFish[_sf]>>
 					<!-- 列出在$fishList中的鱼类 -->
 					<<capture _fishR>>
 						<div class="terraItem" >
-							<div class="terraIcon" @tooltip="`${_fish.cn_name}`">
-								<<icon `_fish.icon`>>
+							<div class="terraIcon" @tooltip="`${_fishR.cn_name}`">
+								<<icon `_fishR.icon`>>
 							</div>
 							<div class="terraDivider"></div>
-							_fish.amount
+							_fishR.amount
 							<div class="terraDivider"></div>
 							<<link "⬆">>
 								<!-- 将指定鱼移出$fishList，并更新页面的两个列表和link -->
-								<<set $fishList.delete(_fish.name)>>
+								<<set $fishList.delete(_fishR.name)>>
 								<<replace #eatableFishForRobinList>>
 									<<eatableFishForRobinList>>
 								<</replace>>
