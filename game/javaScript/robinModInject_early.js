@@ -101,28 +101,28 @@
         if (passage1) {
             logger.log(`[robinMod_inject_early] 第二次获取passage信息成功: [${passage1.name}]`);
             let content = passage1.content;
-            let regex = new RegExp("<<if .* lte 0>>", 'g');
-            let replaceString = "<<set _condition to getRobinWalkSchoolCondition()>>\n<<if [\"Robin's Room\",\"Robin's Room Photography\"].includes(_condition)>><<schoolicon \"building\">><<link [[\"换好校服，一起去学校 (0:25)\"|Robin Walk School]]>><<storeon _condition>><<run setRobinLocationOverride(\"school\", 7)>><<pass 25>><<handheldon 1>><</link>><br><<elseif $exposed lte 0>>";
-            if (content.match(regex).length === 12) {
+            let regex = new RegExp(/\t\t\t<<if \$exposed lte 0>>/, 'g');
+            let replaceString1 = "\t\t\t<<set _condition to getRobinWalkSchoolCondition()>>\n\t\t\t\t<<if [\"Robin's Room\",\"Robin's Room Photography\"].includes(_condition)>>\n\t\t\t\t\t<<schoolicon \"building\">><<link [[换好校服，一起去学校 (0:25)|Robin Walk School]]>><<storeon _condition>><<run setRobinLocationOverride(\"school\", 7)>><<pass 25>><<handheldon 1>><</link>>\n\t\t\t\t\t<br>\n\t\t\t\t<<elseif $exposed lte 0>>";
+            let replaceString2 = "\t\t\t<<set _condition to getRobinWalkSchoolCondition()>>\n\t\t\t<<if [\"Robin's Room\",\"Robin's Room Photography\"].includes(_condition)>>\n\t\t\t\t<<schoolicon \"building\">><<link [[换好校服，一起去学校 (0:25)|Robin Walk School]]>><<storeon _condition>><<run setRobinLocationOverride(\"school\", 7)>><<pass 25>><<handheldon 1>><</link>>\n\t\t\t\t<br>\n\t\t\t<<elseif $exposed lte 0>>";
+            let replaceString3 = "\t\t\t<<set _condition to getRobinWalkSchoolCondition()>>\n\t\t\t<<if [\"Robin's Room\",\"Robin's Room Photography\"].includes(_condition)>><<set _schoolTime += 5>>\n\t\t\t\t<<schoolicon \"building\">><<link [[\"换好校服，一起去学校 (0:\" + _schoolTime + \")\"|Robin Walk School]]>><<storeon _condition>><<run setRobinLocationOverride(\"school\", 7)>><<pass _schoolTime>><<handheldon 1>><</link>>\n\t\t\t\t<br>\n\t\t\t<<elseif $exposed lte 0>>";
+            if (content.match(regex).length === 5) {
                 let count = 0;
                 let contentReplaced = content.replace(regex, function(match) {
                     count++;
                     console.log("当前match是：" + match);
-                    // count说明：1 2 7 11 一起上学 3 4 6 7 10其他情况（去市政厅太特殊，不做处理）
+                    // count说明：1 2 3 5 一起上学 4 罗宾摆摊
                     switch (count) {
                         case 1:
                         case 2:
-                        case 7:
-                        case 11:
                             console.log("当前match为一起去上学");
-                            return replaceString;
+                            return replaceString1;
                         case 3:
-                        case 4:
+                            console.log("当前match为一起去上学");
+                            return replaceString2;
                         case 5:
-                        case 6:
-                        case 8:
-                        case 9:
-                        case 10:
+                            console.log("当前match为一起去上学特殊处理");
+                            return replaceString3;
+                        case 4:
                             console.log("当前match不做处理");
                             return match;
                     }
@@ -251,7 +251,8 @@
                 console.log('[robinMod_inject_early]', '  ', '所有 mod 数据覆盖到游戏后');
                 changeRobinRoomLeave();
                 // 咸鱼零环：这个先不改了，反正只影响摄影时不能穿校服上学一个问题
-                // changeRobinRoomWalkTogether();
+                // 枫桦叶：按照代码格式替换了摄影
+                changeRobinRoomWalkTogether();
                 changeRobinLemonLicense();
                 domRobinSleepGetUp();
             }
