@@ -21,27 +21,27 @@
                     return match;
                 } else if (count1 === 3) {
                     // 有创伤时拒绝一起上学（有衣服，无衣服版）
-                    let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"schoolRefuseTramua\">>");
+                    let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"schoolRefuseTramua\">><<endevent>>");
                     console.log("当前match替换后是" + replaceString);
                     return replaceString;
                 } else if (count1 === 4) {
                     // 无创伤时拒绝一起上学
-                    let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"schoolRefuse\">>");
+                    let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"schoolRefuse\">><<endevent>>");
                     console.log("当前match替换后是" + replaceString);
                     return replaceString;
                 } else if (count1 === 5) {
                     // 有创伤时拒绝留宿，无创伤时不做特殊处理
-                    let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"sleepRefuseTramua\">>");
+                    let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"sleepRefuseTramua\">><<endevent>>");
                     console.log("当前match替换后是" + replaceString);
                     return replaceString;
                 } else if (count1 === 7) {
                     // 不一起搭摊子
-                    let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"lemonade\">>");
+                    let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"lemonade\">><<endevent>>");
                     console.log("当前match替换后是" + replaceString);
                     return replaceString;
                 } else {
                     // 剩余情况为：搭摊子，万圣节，无创伤不留宿，平时
-                    let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"normal\">>");
+                    let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"normal\">><<endevent>>");
                     console.log("当前match替换后是" + replaceString);
                     return replaceString;
                 }
@@ -51,27 +51,27 @@
                 count2++;
                 if (count2 === 1) {
                     // 有创伤时拒绝一起上学（有衣服，无衣服版）
-                    let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"schoolRefuseTramua\">>");
+                    let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"schoolRefuseTramua\">><<endevent>>");
                     console.log("当前match替换后是" + replaceString);
                     return replaceString;
                 } else if (count2 === 2) {
                     // 无创伤时拒绝一起上学
-                    let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"schoolRefuse\">>");
+                    let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"schoolRefuse\">><<endevent>>");
                     console.log("当前match替换后是" + replaceString);
                     return replaceString;
                 } else if (count2 === 3) {
                     // 直播
-                    let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"normal\">>");
+                    let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"normal\">><<endevent>>");
                     console.log("当前match替换后是" + replaceString);
                     return replaceString;
                 } else if (count2 === 4) {
                     // 拒绝陪罗宾写作业
-                    let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"studyRefuse\">>");
+                    let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"studyRefuse\">><<endevent>>");
                     console.log("当前match替换后是" + replaceString);
                     return replaceString;
                 } else if (count2 === 5) {
                     // 泰拉联动
-                    let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"normal\">>");
+                    let replaceString = match.replace("Orphanage", "Robin Room Leave").replace("<<endevent>>", "<<set $phase to \"normal\">><<endevent>>");
                     console.log("当前match替换后是" + replaceString);
                     return modUtils.getMod('Terraria Expand Mod') ? replaceString : match;
                 } else {
