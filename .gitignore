@@ -3,7 +3,6 @@ dist/
 .vscode/
 .DS_Store
 self-use.txt
-self-use.sh
 self-use.txt
 test.html
 test2.html
