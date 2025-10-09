@@ -1,0 +1,58 @@
+/% 暂定为每次进入海滩都判定一次 %/
+:: balloon Stand Warning
+<<set $balloonStandWarning to true>>
+<span class = "blue">(dom罗宾）模组提示</span>
+<br><br>
+检测到您已达成开启与气球摊摊主竞争线/合作线的初步条件。
+<br><br>
+<<if $balloonStand.open is true>>
+    同时，检测到气球摊摊主已经出场，是否让摊主换一个人重新出场？以方便您体验模组内容。
+<<else>>
+    是否让摊主无视原版时间（夏季晴天）直接出场？以方便您体验模组内容。
+<</if>>
+<br><br>
+<span class = "blue">如果选择体验合作线，罗宾的柠檬水摊上将不再售卖气球和爆米花，但您仍可以重新获得售卖它们的机会。</span>
+<br><br>
+<span class = "blue">如果选择体验竞争线，罗宾的商品不会变动，但气球摊摊主会重新/提前出场。</span>
+<br><br>
+<span class = "blue">如果选择保持现状，游戏内不会发生任何变动，但您仍可以在条件达到时照常体验模组内容。</span>
+<br><br>
+<span class = "blue">注意此提示只会出现一次，请谨慎选择。</span>
+<br><br>
+
+<<link [[是，我想体验合作线|balloon Stand Warning Coop]]>><</link>><br>
+<<link [[是，我想体验竞争线|balloon Stand Warning Comp]]>><</link>><br>
+<<link [[保持现状就好|balloon Stand Warning No Change]]>><</link>>
+
+:: balloon Stand Warning Coop
+<<set _elementToRemove to ["balloon","popcorn"]>>
+<<set $lemonadeNewGoodsList = $lemonadeNewGoodsList.filter(item => !_elementToRemove.includes(item));>>
+<<set $balloonStandOverride to true>>
+<<set $balloonStand to {
+	open: false,
+	owner: "friendly",
+	freeDrink: false,
+	robin: {status: "unaffected", talked: false, knows: false}
+}>>
+明白了！罗宾的柠檬水摊上已不再售卖气球和爆米花，气球摊摊主将重新/提前出场，请尽管继续！
+<br><br>
+<<link [[继续|Beach]]>><<endevent>><<set $eventskip to 1>><</link>>
+
+:: balloon Stand Warning Comp
+明白了!气球摊摊主将重新/提前出场，请尽管继续！
+<<set $balloonStandOverride to true>>
+<<set $balloonStand to {
+	open: false,
+	owner: "friendly",
+	freeDrink: false,
+	robin: {status: "unaffected", talked: false, knows: false}
+}>>
+<br><br>
+<<link [[继续|Beach]]>><<endevent>><<set $eventskip to 1>><</link>>
+
+
+:: balloon Stand Warning No Change
+明白了！游戏内未发生任何变动，请尽管继续！
+<<set $balloonStandOverride to false>>
+<br><br>
+<<link [[继续|Beach]]>><<endevent>><<set $eventskip to 1>><</link>>

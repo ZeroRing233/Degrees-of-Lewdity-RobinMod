@@ -1,0 +1,4 @@
+:: Widgets Balloon Stand [widget]
+<<widget "balloonStandWarning">>
+    /% 没有用到，转js写了 %/
+<</widget>>
