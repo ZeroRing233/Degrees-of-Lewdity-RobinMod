@@ -40,7 +40,7 @@
 ## 安装方式说明
 请根据您的游戏本体版本选择对应的模组文件进行下载：
 
-如果你的游戏本体已更新到0.5.4.x版本，请下载[0.07-for-dol-0.5.4](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.07-for-dol-0.5.4)中的domRobin.mod.zip(请不要下载source code)
+如果你的游戏本体已更新到0.5.4.x/0.5.5.x版本，请下载[0.07-for-dol-0.5.4](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.07-for-dol-0.5.4)中的domRobin.mod.zip(请不要下载source code)
 
 如果你的游戏本体已更新到0.5.3.x版本，请下载[0.06-for-dol-0.5.3](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.06-for-dol-0.5.3)中的domRobin.mod.zip(请不要下载source code)
 
@@ -68,7 +68,7 @@ bug反馈群群号：964015275
 
 
 ### 0.07-alpha
-（注意0.07-alpha只适配0.5.4.x版本）
+（注意0.07-alpha只适配0.5.4.x及以上版本）
 #### 新增内容
 1. 可以从罗宾那里得知罗宾的周收入以及罗宾的存款。
 2. 罗宾帮助的孤儿每周会进行一次检测，防止帮助的孤儿不还钱！
