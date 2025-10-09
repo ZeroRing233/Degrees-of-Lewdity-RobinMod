@@ -1,6 +1,6 @@
 // 气球摊相关代码
 
-// 达成合作条
+// 达成合作条件
 function could_coop() {
     const robinStatus = C.npc.Robin.dom >= 90 && C.npc.Robin.trauma == 0;
     const robinIncome = V.robinFightTalked || V.robinPayBothTalked;
@@ -24,13 +24,13 @@ function could_comp() {
     if (robinStatus && robinIncome && upgraded && pcStatus && other) {
         return true;
     }
-    return true;
+    return false;
 }
 window.could_comp = could_comp;
 
 function meet_warning_condition() {
     if (!V.balloonStandWarning) {
-        if (could_coop() || could_comp) {
+        if (could_coop() || could_comp()) {
             $(document).one(":passageend", () => {
                 SugarCube.Engine.play("balloon Stand Warning");
             })

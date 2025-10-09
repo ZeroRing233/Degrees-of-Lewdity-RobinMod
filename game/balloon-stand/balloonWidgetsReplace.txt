@@ -1,0 +1,5 @@
+<<if !$balloonStand.coopTalked and $balloonStand.robin.status is "helped" and $balloonStand.robin.talked and could_coop()>>
+    <br>
+    <<foodicon "popcorn">><<link [[给罗宾买一份外卖 (0:30 £10)|Balloon Purchase Coop]]>><<money -1000>><<pass 30>><</link>>
+<</if>>
+<<if $popcorn gte 3>>

@@ -171,7 +171,7 @@
     <<set _noSellFlower to ["poppy","strange_flower"]>>
 
     <<for _i to 0; _i lt _plant_keys.length; _i++>>
-	    <<if setup.plants[_plant_keys[_i]].type is "flower" and !_noSellFlower.includes(_plant_keys[_i])>>
+	    <<if setup.plants[_plant_keys[_i]] and setup.plants[_plant_keys[_i]].type is "flower" and !_noSellFlower.includes(_plant_keys[_i])>>
 		    <<set _plantItems[_plant_keys[_i]] to clone($plants[_plant_keys[_i]])>>
             <<if C.npc.Robin.dom gte 80>>
                 <<set _amount to random(101,150)>>

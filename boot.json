@@ -54,6 +54,7 @@
         "game/orphanage-poster/widgets.twee",
         "game/robin-maplebirch_leaf/DomRobin_maplebirch_leaf.twee",
         "game/balloon-stand/balloonStandWarning.twee",
+        "game/balloon-stand/balloonStandCoop.twee",
         "game/balloon-stand/widgets.twee"
     ],
     "imgFileList": [],
@@ -148,7 +149,8 @@
         "game/orphanage-poster/gameStartOnly.txt",
         "game/orphanage-poster/homeeventhopehi.txt",
         "game/orphanage-poster/homeeventrebhi.txt",
-        "game/robin-maplebirch_leaf/robinweeklyincome.txt"
+        "game/robin-maplebirch_leaf/robinweeklyincome.txt",
+        "game/balloon-stand/balloonWidgetsReplace.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -942,8 +944,19 @@
                     "findString": "<<set $balloonStand.open to true>>",
                     "replace": "<<set $balloonStand.open to true>><<set $balloonStandOverride to false>>",
                     "_comment": "低级错误"
+                },
+                {
+                    "passage": "Balloon Consume",
+                    "findRegex": ".*<<set \\$phase to \"sabotage\">>.*",
+                    "replace": "<span class=\"blue\">由于您安装了dom罗宾模组，选项【提议摊主卖饮料】已禁用</span>",
+                    "_comment": "直接禁选"
+                },
+                {
+                    "passage": "Balloon Widgets",
+                    "findString": "<<if $popcorn gte 3>>",
+                    "replaceFile": "game/balloon-stand/balloonWidgetsReplace.txt",
+                    "_comment": "气球摊新增选项"
                 }
-
             ]
         },
         {

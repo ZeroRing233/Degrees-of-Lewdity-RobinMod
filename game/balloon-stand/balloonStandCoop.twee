@@ -1,0 +1,124 @@
+:: Balloon Purchase Coop
+<<effects>>
+<<if $speech_attitude is "meek">>
+    “我想买一份爆米花，”
+    你掏出一些钱递给<<person>>，
+    “我想请你把这份送到我<<robinFriend>>那里，我愿意付额外的小费，可以吗？”
+<<elseif $speech_attitude is "bratty">>
+	“来一份爆米花，”你掏出一些钱递给<<person>>，
+    “请帮忙送到我<<robinFriend>>那儿......什么？配送费4£？有点贵，不过没问题！”
+<<else>>
+    “我想给我<<robinFriend>>买一份爆米花，”你掏出一些钱递给<<person>>，
+    “能请你帮我送过去吗？”那个<<person>>表示需要额外的配送费，你爽快地答应了。
+<</if>>
+<br><br>
+“非常感谢你们照顾我的生意，稍等一下，我给你爆一份新鲜的！”
+老板一边说，一边从摊位旁边的大桶里斟出满满一大杯玉米，倒进爆米花机里。
+“你们这对小情侣真叫人羡慕，每次看到你们，我就想起我的爱人。”
+<br><br>
+你发觉<<he>>的眼底流过一抹忧伤。
+<br><br>
+<<link [[继续|Balloon Purchase Coop 2]]>><</link>>
+
+:: Balloon Purchase Coop 2
+<<effects>>
+/% 零环：其实可以控制性别，但我想支持LGBT %/
+/% PS：这个一会1一会2的代码太离谱了 %/
+<<generate2>><<saveNPC 1 stall_owner_partner>><<person2>>
+<<if $speech_attitude is "meek">>
+    <<he>>让你难过了吗？”你小心地问道。
+<<elseif $speech_attitude is "bratty">>
+	“<<he>>对你不好吗？真是太过分了！”你感到愤愤不平。
+<<else>>
+    “你们之间是不是有什么矛盾？”你试探地问道。
+<</if>>
+<br><br>
+“不不，<<he>>非常爱我，我也一样，”
+气球摊老板似乎有些惊讶，连忙对你解释，
+“我们一直相处得不错，甚至还有一个孩子，但是几个月前<<he>>......得了怪病......”
+<br><br>
+<<person1>><<he>>的声音越来越小，似乎出于对窃听者的恐惧，<<he>>环顾四周，确定没有人靠近之后，才继续讲述。
+<br><br>
+“<<person2>><<he>>曾经受人委托，去了一趟荒原......之后失踪了，后来我接到医院的通知......
+再次见到<<he>>的时候，<<he>>头上长出了像牛一样的角，嘴里说着胡话，看起来完全不清醒，甚至不认识孩子了......”
+<br><br>
+你看到几滴眼泪落在桌布上。
+/% 表明pc去过地下农场 %/
+<<if $remySeen.includes("livestock")>>
+    <br><br>
+    <span class="red">你知道这是雷米干的“好事”，不由得
+    <<if $speech_attitude is "meek">>
+        攥紧了衣角。
+    <<elseif $speech_attitude is "bratty">>
+	    攥紧了拳头。
+    <<else>>
+        皱起了眉头。
+    <</if>>
+    </span>
+<</if>>
+<br><br>
+<<link [[尝试安慰|Balloon Purchase Coop 3]]>><<set $phase to "comfort">><</link>><br>
+<<link [[保持沉默|Balloon Purchase Coop 3]]>><<set $phase to "silent">><</link>>
+
+:: Balloon Purchase Coop 3
+<<effects>>
+<<if $phase is "comfort">>
+    你尝试说些什么来安慰<<person1>><<him>>，但是你很快意识到，再多的语言都是单薄的，于是你也陷入沉默。
+<<else>>
+    你明白任何语言都是单薄的，或许沉默才是最好的同情，于是你一言不发。
+<</if>>
+<br><br>
+<span class="red">如果遭遇这一切事情的是罗宾呢？</span>
+<br><br>
+这个可怕的念头在你脑海里闪过，你的心好像被什么冰冷的东西刺了一下。<br>
+你摇摇头，驱散这个思绪。
+<br><br>
+<<link [[继续|Balloon Purchase Coop 4]]>><</link>>
+
+:: Balloon Purchase Coop 4
+<<effects>>
+<<if $phase is "comfort">> 
+    “谢谢关心......”
+<<else>>
+    “说出来感觉好多了，谢谢你听我诉苦......”
+<</if>>
+那个<<person1>><<person>>平复了心情，
+“我的爱人已经好转很多了，虽然仍然每天晚上都做噩梦，但我相信<<person2>><<he>>会好起来的。”
+<br><br>
+香味从爆米花机里溢了出来，<<person1>><<he>>小心地掀开盖子，一团水汽立刻蹿了上去。
+<br><br>
+“现在<<person2>><<he>>完全没法工作，收入全靠我这个小气球摊了，”
+那个<<person1>><<person>>把爆米花桶装得满满的，并开始打包，“再次感谢你们照顾我的生意，这对我真的很重要。”
+<br><br>
+<<link [[提议合作|Balloon Purchase Coop 5]]>><</link>>
+
+:: Balloon Purchase Coop 5
+<<effects>>
+你不禁低头沉思，这段日子里你和罗宾为了赚钱做了许多尝试，而你现在也确确实实掌握了一些商业经验，
+如果这位气球摊老板值得信任，或许你可以像帮助罗宾一样帮助<<he>>升级摊位，甚至开展更深入的合作。
+<br><br>
+你叫住气球摊老板，表示自己或许可以给<<he>>一些帮助。
+<<he>>有点惊讶，但快微笑着向你回应：“你们帮助我很多了，而且我说这些话也不是为了卖惨......你是个好人，我只是忍不住想倾诉一下。
+其实摆摊带来的收入还算宽裕，只不过是占用的时间比较多，你看我无论工作日还是周末都在摆摊。请不必为我担心。”
+<br><br>
+“你误会了，我想说的是，或许我们可以谈一笔生意。”你给<<him>>一个wink，<<he>>也展现出感兴趣的样子。
+<br><br>
+<<link [[讲下去|Balloon Purchase Coop 6]]>><</link>>
+
+:: Balloon Purchase Coop 6
+<<effects>>
+你告诉<<he>>把罗宾的柠檬水摊是如何从一个几乎只有一把伞和一张折叠桌的形态一步步升级到现在这个规模的。
+<br><br>
+“4......4000£一个月？？？我的主啊......我想都不敢想小镇上还有房租这么高的地方......
+但......但是这恰恰说明了你们的商业能力，对吧？”
+<br><br>
+你还说到罗宾当初为几乎要卖掉唯一值钱的家当——那台400£的游戏机，才能维持生计，到如今每个月交4000£的租金仍有不少盈余。
+这件事似乎对<<he>>产生了巨大的震撼。<br>
+当然了，你并没有告诉他那租金4000£一个月的房子其实就是孤儿院。
+<br><br>
+“说实在的，我很心动，如果我赚钱的效率能提高的话，我就有更多时间可以照顾家人了......也可以抽点时间好好休息。”<br>
+<<he>>不再掩饰目光里的疲惫，“我非常愿意与你们进一步地合作，但你要先和你的<<robinFriend>>商量一下对吧？
+我会等你的消息，你们商量好了，只要我有出摊，随时可以来找我。”
+<br><br>
+<<set $balloonStand.coopTalked to true>>
+<<link [[继续|Beach]]>><<set $eventskip to 1>><<endevent>><</link>>
