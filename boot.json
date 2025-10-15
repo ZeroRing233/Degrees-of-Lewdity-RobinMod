@@ -55,6 +55,7 @@
         "game/robin-maplebirch_leaf/DomRobin_maplebirch_leaf.twee",
         "game/balloon-stand/balloonStandWarning.twee",
         "game/balloon-stand/balloonStandCoop.twee",
+        "game/balloon-stand/balloonStandCoopIntro.twee",
         "game/balloon-stand/widgets.twee"
     ],
     "imgFileList": [],
@@ -150,7 +151,8 @@
         "game/orphanage-poster/homeeventhopehi.txt",
         "game/orphanage-poster/homeeventrebhi.txt",
         "game/robin-maplebirch_leaf/robinweeklyincome.txt",
-        "game/balloon-stand/balloonWidgetsReplace.txt"
+        "game/balloon-stand/balloonWidgetsReplace.txt",
+        "game/balloon-stand/OceanBreezeReplace.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -956,6 +958,12 @@
                     "findString": "<<if $popcorn gte 3>>",
                     "replaceFile": "game/balloon-stand/balloonWidgetsReplace.txt",
                     "_comment": "气球摊新增选项"
+                },
+                {
+                    "passage": "Ocean Breeze",
+                    "findString": "<<passoutshop>>",
+                    "replaceFile": "game/balloon-stand/OceanBreezeReplace.txt",
+                    "_comment": "海风咖啡馆商量合作事宜"
                 }
             ]
         },

@@ -29,7 +29,7 @@ function could_comp() {
 window.could_comp = could_comp;
 
 function meet_warning_condition() {
-    if (!V.balloonStandWarning) {
+    if (!V.balloonStandWarning && Time.season !== "winter") {
         if (could_coop() || could_comp()) {
             $(document).one(":passageend", () => {
                 SugarCube.Engine.play("balloon Stand Warning");

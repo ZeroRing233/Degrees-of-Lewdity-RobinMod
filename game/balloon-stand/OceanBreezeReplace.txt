@@ -1,0 +1,6 @@
+<<passoutshop>>
+<<elseif $openinghours is 1 and $exposed lt 1 and $balloonStand.coop is "ready">>
+    气球摊老板和罗宾已经在愉快地交谈了。
+    <br><br>
+    <<link [[靠近（1:00）|Ocean Breeze Coop Talk]]>><<pass 60>><</link>>
+	<br>

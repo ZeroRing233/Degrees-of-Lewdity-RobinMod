@@ -118,7 +118,7 @@
 <br><br>
 “说实在的，我很心动，如果我赚钱的效率能提高的话，我就有更多时间可以照顾家人了......也可以抽点时间好好休息。”<br>
 <<he>>不再掩饰目光里的疲惫，“我非常愿意与你们进一步地合作，但你要先和你的<<robinFriend>>商量一下对吧？
-我会等你的消息，你们商量好了，只要我有出摊，随时可以来找我。”
+我会等你的消息，你们商量好了之后，随时可以来附近的<span class="gold">海风咖啡馆</span>找我。”
 <br><br>
-<<set $balloonStand.coopTalked to true>>
+<<set $balloonStand.coop to "talked">>
 <<link [[继续|Beach]]>><<set $eventskip to 1>><<endevent>><</link>>

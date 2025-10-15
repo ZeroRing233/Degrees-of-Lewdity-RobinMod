@@ -1,0 +1,59 @@
+/% 在家和柠檬水摊都可以触发，巧克力摊就先算了
+talked-和气球摊老板谈话，ready-和罗宾商量，complete 众人商量完毕%/
+
+:: Balloon Stand Coop Intro Home
+<<set $outside to 0>><<set $location to "home">><<effects>>
+“当然可以！我们也确实需要帮手！”罗宾十分激动，“只是我们怎样做才好呢？”
+<br><br>
+你和罗宾花了一些时间进行了详细的商讨。
+<br><br>
+最终，你们决定由气球摊老板在<span class="gold">星期一到星期五</span>帮助罗宾经营柠檬水摊，
+而罗宾则在周末帮助气球摊老板售卖气球和爆米花。
+<br><br>
+这样，气球摊老板就有时间休息和照顾家人了，而罗宾也可以获得更多的收入。
+<br><br>
+“这真的是一个很好的主意，你的想法总是那么棒！”
+罗宾说着，在你的<<print C.npc.Robin.lust gte 60? "嘴唇":"脸颊">>上轻轻地啄了一下。
+<<glove>><<npcincr Robin love 2>>
+<br><br>
+<span class="gold">你现在可以前往海风咖啡馆商量合作事宜了！</span>
+<<set $balloonStand.coop to "ready">>
+<br><br>
+<<robinoptions>>
+
+:: Balloon Stand Coop Intro Lemonade
+<<location "beach">><<set $outside to 0>><<effects>><<npc Robin>>
+“当然可以！我们也确实需要帮手！”罗宾十分激动，“只是我们怎样做才好呢？”
+<br><br>
+你和罗宾花了一些时间进行了详细的商讨。
+<br><br>
+最终，你们决定由气球摊老板在<span class="gold">星期一到星期五</span>帮助罗宾经营柠檬水摊，
+而罗宾则在周末帮助气球摊老板售卖气球和爆米花。
+<br><br>
+这样，气球摊老板就有时间休息和照顾家人了，而罗宾也可以获得更多的收入。
+<br><br>
+“这真的是一个很好的主意，你的想法总是那么棒！”
+罗宾说着，在你的<<print C.npc.Robin.lust gte 60? "嘴唇":"脸颊">>上轻轻地啄了一下。
+<<glove>><<npcincr Robin love 2>>
+<br><br>
+<span class="gold">你现在可以前往海风咖啡馆商量合作事宜了！</span>
+<<set $balloonStand.coop to "ready">>
+<br><br>
+<<endevent>>
+<<lemonade_stand_options>>
+
+:: Ocean Breeze Coop Talk
+<<effects>>
+<<loadNPC 0 "stall_owner">><<loadNPC 1 "stall_owner_partner">><<npc Robin 3>>
+看起来会谈非常顺利，罗宾和气球摊摊主相处得很融洽，二人相见恨晚。
+从他们的对话中，你得知了气球摊老板名叫<span class="green"><<print $NPCList[0].name>></span>，
+而<<person1>><<he>>的伴侣名叫<span class="green"><<print $NPCList[1].name>></span>。
+<br><br>
+你掏出了早已准备好的协议书，再次确认了一些工作细节，之后在欢声笑语之中，你们顺利地达成了合作。
+<br><br>
+<span class="gold">由于气球摊老板的加入，现在罗宾的柠檬水摊将在工作日时由对方经营。</span>
+<br><br>
+<span class="gold">罗宾的柠檬水摊相关收入翻倍。</span>
+<<set $balloonStand.coop to "complete">>
+<br><br>
+<<link [[继续|Ocean Breeze]]>><<endevent>><</link>>

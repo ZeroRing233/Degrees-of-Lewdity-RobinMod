@@ -47,5 +47,13 @@
             <<mysteryicon>><<link [[说服罗宾一起反抗贝利(0:15)|Robin Fight Intro]]>><<pass 15>><<set $weekly.robinFightConvince to true>><</link>><<defianttext>>
         <br>
         <</if>>
+        <<if $robinPaySelfTalked and !$robinFightTalked and !$weekly.robinFightConvince and $submissive lte 500>>
+            <<mysteryicon>><<link [[说服罗宾一起反抗贝利(0:15)|Robin Fight Intro]]>><<pass 15>><<set $weekly.robinFightConvince to true>><</link>><<defianttext>>
+        <br>
+        <</if>>
+        <<if $balloonStand.coop is "talked">>
+            <<stallicon "balloon">><<link [[告诉罗宾气球摊老板的事情(1:00)|Balloon Stand Coop Intro Home]]>><<pass 60>><</link>>
+            <br>
+        <</if>>
         <br>
         <<robinbully>>
