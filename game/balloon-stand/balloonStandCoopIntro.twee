@@ -54,6 +54,19 @@ talked-和气球摊老板谈话，ready-和罗宾商量，complete 众人商量�
 <span class="gold">由于气球摊老板的加入，现在罗宾的柠檬水摊将在工作日时由对方经营。</span>
 <br><br>
 <span class="gold">罗宾的柠檬水摊相关收入翻倍。</span>
+<<if !$lemonadeNewGoodsList.includes("balloon")>>
+    <<set $lemonadeNewGoodsList.pushUnique("balloon")>>
+    <br><br>
+    <span class="gold">罗宾的柠檬水摊新增商品：气球。</span>
+<</if>>
+<<if !$lemonadeNewGoodsList.includes("popcorn")>>
+    <<set $lemonadeNewGoodsList.pushUnique("popcorn")>>
+    <br><br>
+    <span class="gold">罗宾的柠檬水摊新增商品：爆米花。</span>
+<</if>>
 <<set $balloonStand.coop to "complete">>
 <br><br>
 <<link [[继续|Ocean Breeze]]>><<endevent>><</link>>
+
+
+	

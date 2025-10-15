@@ -1,0 +1,7 @@
+<<if $openinghours is 1 and $balloonStand.open is true and $balloonStand.coop isnot "complete">>
+	<br>
+	<<stallicon "balloon">><<link [[气球摊|Balloon Stand]]>><</link>>
+<<elseif $openinghours is 1 and $balloonStand.coop is "complete" and !Time.isWeekEnd()>>
+	<br>
+	<<robinicon "lemonade">><<link [[柠檬水摊|Lemonade Stand]]>><</link>>
+<</if>>

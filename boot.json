@@ -56,6 +56,7 @@
         "game/balloon-stand/balloonStandWarning.twee",
         "game/balloon-stand/balloonStandCoop.twee",
         "game/balloon-stand/balloonStandCoopIntro.twee",
+        "game/balloon-stand/lemonadeStand.twee",
         "game/balloon-stand/widgets.twee"
     ],
     "imgFileList": [],
@@ -152,7 +153,8 @@
         "game/orphanage-poster/homeeventrebhi.txt",
         "game/robin-maplebirch_leaf/robinweeklyincome.txt",
         "game/balloon-stand/balloonWidgetsReplace.txt",
-        "game/balloon-stand/OceanBreezeReplace.txt"
+        "game/balloon-stand/OceanBreezeReplace.txt",
+        "game/balloon-stand/beachReplace.txt"
     ],
     "addonPlugin": [{
             "modName": "TweeReplacer",
@@ -964,6 +966,12 @@
                     "findString": "<<passoutshop>>",
                     "replaceFile": "game/balloon-stand/OceanBreezeReplace.txt",
                     "_comment": "海风咖啡馆商量合作事宜"
+                },
+                {
+                    "passage": "Beach",
+                    "findRegex": "<<if \\$openinghours is 1 (.|\n)*?<</if>>",
+                    "replaceFile": "game/balloon-stand/beachReplace.txt",
+                    "_comment": "合作结果-气球摊位置变化"
                 }
             ]
         },

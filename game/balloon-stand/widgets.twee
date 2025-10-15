@@ -1,4 +1,79 @@
 :: Widgets Balloon Stand [widget]
-<<widget "balloonStandWarning">>
-    /% 没有用到，转js写了 %/
+<<widget "lemonadeStall-main">>
+    <<if $tryOn.autoReset isnot false>><<tryOnReset>><</if>><<unset $tempDisable>>
+    <<set $outside to 0>><<effects>>
+    <<set $shopName = "stall">>
+    <<lemonadeStall-text>>
+    <div id="tryonstats-div"><<tryOnStats>></div>
+    <<unset $shopListStartCount>>
+    <<unset $clothes_choice>>
+    <<set $shopPage = 0>>
+
+    <div id="warmth-description" class="hidden">
+        <<warmthscale>>
+        <<warmth_description>>
+    </div>
+
+    <<gifticon "balloons">><<link "浏览物品">><<replace "#clothingShop-div">><<HandheldShop>><</replace>><<set $phase to 0>><</link>>
+    <<run linkifyDivs('.button-back-to-shop')>>
+    <<if ndef $popcorn>><<set $popcorn to 0>><</if>>
+    <<if ndef $daily.ex.popcorn>><<set $daily.ex.popcorn to 0>><</if>>
+    <<if $popcorn gte 3>>
+        <br>
+        <span class="blue">你一次只能携带三份<<foodicon "popcorn">>爆米花。</span>
+    <<elseif $money gte 600 and $daily.ex.popcorn lt 3>>
+        <br>
+        <<foodicon "popcorn">><<link [[买爆米花 (0:02 £6)|Lemonade Purchase Popcorn]]>><<money -600>><<set $phase to "popcorn">><<pass 2>><</link>>
+    <</if>>
+    <<if $lemonadeNewGoodsList.includes("snack") and $money gte 300>>
+        <br>
+        <<foodicon "pancakes">><<link [[买小点心 (0:15 £3)|Lemonade Purchase Snack]]>><<run recoverLemonadeShop()>><<pass 15>><<set $money -= 300>><</link>>
+    <</if>>
+    <<run getCurrentFlowerList()>>
+    <<if $lemonadeNewGoodsList.includes("flower") and _currentFlowerList is not "">>
+        <br>
+        <<icon "tending/daisy.png">> <<link [[查看鲜花 (0:05)|Lemonade Show Flower]]>><<run recoverLemonadeShop()>><<pass 5>><</link>>
+    <</if>>
+    <<if $money gte 100 and !$weeklyHoneyCombGiven>>
+        <br>
+        <<foodicon "lemonade">><<link [[买柠檬水 (0:15 £1)|Lemonade Purchase]]>><<endevent>><<stress -6>><<trauma -1>><<pass 15>><</link>><<lstress>><<ltrauma>>
+    <</if>>
+    <<if $money gte 200 and $weeklyHoneyCombGiven>>
+        <br>
+        <<foodicon "lemonade">><<link [[买蜂蜜柠檬水 (0:15)|Lemonade Purchase Honey]]>><<stress -6>><<trauma -1>><<pass 15>><</link>><<lstress>><<ltrauma>>
+    <</if>>
+     <<if $money gte 200 and $drinkUpgradedList isnot undefined and $drinkUpgradedList.length gt 0>>
+        <br>
+        <<foodicon "strawberrylemonade">><<link [[购买其他饮料(0:15 £2)|Lemonade Purchase Other Drink]]>><<pass 15>><<stress -6>><<trauma -1>> <</link>> <<lstress>><<ltrauma>>
+     <</if>>
+    <br><br>
+    <<if $tryOn.value gt 0>>
+        <<if $tryOn.value lte $money>>
+            <<sendItemsToDropdown>>
+            <<shopicon "register">><<link "购买">><<buyTryOnClothes "wear">><<updateclothingshop>><</link>>
+            <br>
+            <<wardrobeicon>><<link "买完送到衣柜">>
+                <<buyTryOnClothes "wardrobe">>
+                <<updatesidebarmoney>>
+                <<updatewarmthscale>>
+                <<updatewarmthdescription>>
+                <<updatesidebarimg>>
+                <<updatesidebardescription>>
+                <<updateallure>>
+                <<updatetryonstats>>
+                <<updateclothingshop>>
+                <<run updateMoment()>>
+            <</link>>
+            <br>
+        <</if>>
+    <<else>>
+        <<getouticon>><<link [[离开|Beach]]>><<shopClothingFilterReset>><<set $tryOn.autoReset to true>><<endevent>><</link>>
+    <</if>>
+<</widget>>
+
+<<widget "lemonadeStall-text">>
+    当你浏览<<he>>代为经营的摊位时，
+    <span class="green"><<print $NPCList[0].name>></span>微笑着向你打了个招呼：
+    “<<print either("你好，最近过得怎么样？","是你，你<<robinFriend>>最近还好吗？","嘿！要不要来点果汁？第一杯免费！")>>”
+    <br><br>
 <</widget>>

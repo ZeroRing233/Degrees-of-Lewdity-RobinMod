@@ -1,0 +1,65 @@
+:: Lemonade Stand [exitCheckBypass]
+<<loadNPC 0 "stall_owner">><<person1>>
+<div id="clothingShop-div" class="main-shop-div">
+	<<lemonadeStall-main>>
+</div>
+
+:: Lemonade Purchase Popcorn
+<<effects>>
+<<He>>舀了一些刚爆好的爆米花。当<<he>>递给你时，袋子还是温热的。
+<<set $daily.ex.popcorn to ($daily.ex.popcorn or 0) + 1>>
+<<wearProp "popcorn">>
+<<if $daily.ex.popcorn is 3>>
+    <br><br>
+    “我得为其他顾客留些，所以之后我不得不停止供应给你。”<<He>>给你一个歉意的微笑.
+<</if>>
+<br><br>
+<<link [[吃爆米花 (0:15)|Lemonade Purchase Popcorn Eat]]>><</link>><br>
+<<link [[等下再享用|Beach]]>><<set $eventskip to 1>><<set $popcorn += 1>><<endevent>><</link>>
+
+:: Lemonade Purchase Popcorn Eat
+<<effects>>
+你塞了一把爆米花进嘴里。它既有黄油香气又带着咸味，让你怀恋起去电影院的美好时光。<<lstress>><<ltrauma>><<stress -6>><<trauma -3>>
+<br><br>
+<<link [[继续|Beach]]>><<set $eventskip to 1>><<endevent>><</link>>
+
+:: Lemonade Purchase Snack
+<<effects>>
+<<wearProp "pancake">>
+<<set _snack to ["松饼","司康","巧克力曲奇","草莓挞","戚风蛋糕"].random()>>
+你购买了一款<span class="green"><<print _snack>></span>。
+<br><br>
+你三下五除二地消灭了眼前的美食，香甜的<span class="green"><<print _snack>></span>令你的心情好了不少。<<lstress>><<ltrauma>><<stress -6>><<trauma -3>>
+<br><br>
+<<link [[继续|Beach]]>><<set $eventskip to 1>><<endevent>><</link>>
+
+:: Lemonade Show Flower
+<<effects>>
+<<run getCurrentFlowerList()>>
+你静静地欣赏着摊位上的<span class="green"><<print _currentFlowerList>></span>等鲜花，
+它们让你回想起了在孤儿院的花园里和罗宾相处时的点点滴滴。<<lstress>><<ltrauma>><<stress -6>><<trauma -3>>
+<br><br>
+<<link [[继续|Beach]]>><<set $eventskip to 1>><<endevent>><</link>>
+
+:: Lemonade Purchase
+<<effects>>
+<<set _fruitType to getRandomValueFromArray($drinkUpgradedList)>>
+你购买了一份<<print $plants[_fruitType].plural>>汁。
+<<if $daily.robin.freeDrink isnot 1>>
+    ”就像我所承诺的那样，第一杯果汁免费！“
+    <<set $daily.robin.freeDrink to 1>>
+<<else>>
+    <<money -100>>
+    ”免费的果汁一天只能有一杯，你应该能理解吧？“
+<</if>>
+ <span class="green"><<print $NPCList[0].name>>热切地为你现榨了一杯新鲜的<<print $plants[_fruitType].plural>>汁。
+ <br><br>
+<<link [[继续|Beach]]>><<set $eventskip to 1>><<endevent>><</link>>
+
+:: Lemonade Purchase Honey
+<<effects>>
+
+:: Lemonade Purchase Other Drink
+<<effects>>
+
+/% PS：记得修改物品的价格，并同步补充罗宾摊位上的物品 %/
