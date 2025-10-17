@@ -251,6 +251,10 @@ window.getCurrentFlowerList = getCurrentFlowerList;
 
 // 获取离开罗宾房间时pc的衣物状况
 function getRobinLeaveRoomCondition() {
+    // 摄影，继续偷懒
+    if (V.passage === 'Live Stream Together Prepare' && V.exposed >= 1) {
+        return "needClothes";
+    }
     if (V.store.upper.find(item => item.location == "Robin's Room") && V.store.lower.find(item => item.location === "Robin's Room")) {
         return "Robin's Room";
     }
