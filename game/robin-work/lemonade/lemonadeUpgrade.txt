@@ -54,7 +54,7 @@
 <</if>>
 
 <<if is_comping()>>
-        <<stallicon "balloon">><<link [[帮助罗宾与气球摊摊主竞争(0:30)|Balloon Stand Comp Help]]>><<pass 30>><</link>>
+        <<stallicon "balloon">><<link [[帮助罗宾与气球摊摊主竞争(1:00)|Balloon Stand Comp Help]]>><<pass 60>><</link>>
         <br>
 <</if>>
 <<if $lemonadeUpgraded and $robinromance and $promiscuity gte 55 and !$daily.robin.crawl>>

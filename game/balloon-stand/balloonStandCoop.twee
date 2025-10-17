@@ -26,7 +26,7 @@
 /% PS：这个一会1一会2的代码太离谱了 %/
 <<generate2>><<saveNPC 1 stall_owner_partner>><<person2>>
 <<if $speech_attitude is "meek">>
-    <<he>>让你难过了吗？”你小心地问道。
+    “<<he>>让你难过了吗？”你小心地问道。
 <<elseif $speech_attitude is "bratty">>
 	“<<he>>对你不好吗？真是太过分了！”你感到愤愤不平。
 <<else>>
@@ -107,7 +107,7 @@
 
 :: Balloon Purchase Coop 6
 <<effects>>
-你告诉<<he>>把罗宾的柠檬水摊是如何从一个几乎只有一把伞和一张折叠桌的形态一步步升级到现在这个规模的。
+你告诉<<he>>你们是如何把罗宾的柠檬水摊从一个几乎只有一把伞和一张折叠桌的形态一步步升级到现在这个规模的。
 <br><br>
 “4......4000£一个月？？？我的主啊......我想都不敢想小镇上还有房租这么高的地方......
 但......但是这恰恰说明了你们的商业能力，对吧？”
@@ -121,4 +121,5 @@
 我会等你的消息，你们商量好了之后，随时可以来附近的<span class="gold">海风咖啡馆</span>找我。”
 <br><br>
 <<set $balloonStand.coop to "talked">>
+<<run delete $balloonStand.comp>>
 <<link [[继续|Beach]]>><<set $eventskip to 1>><<endevent>><</link>>

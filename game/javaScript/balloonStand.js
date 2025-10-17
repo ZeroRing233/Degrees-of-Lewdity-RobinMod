@@ -62,3 +62,11 @@ function is_comping() {
     return false;
 }
 window.is_comping = is_comping;
+
+// 选择一种气球，让气球摊老板送
+function chooseBalloon() {
+    let balloonList = setup.clothes.handheld.filter(clothes => clothes.name === 'balloon' || clothes.name === 'heart balloon');
+    let chosen = balloonList.random();
+    return chosen;
+}
+window.chooseBalloon = chooseBalloon;

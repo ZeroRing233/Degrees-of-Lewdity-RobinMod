@@ -2,75 +2,206 @@
 /% V.fame.business >= 400 && V.fame.social >= 200 && V.fame.good >=100%/
 :: Balloon Stand Comp Help
 <<effects>><<npc Robin 1>>
-你看了看隔壁同样在卖气球和爆米花的气球摊，它不可避免地分走了罗宾的一部分生意。
-<<if $balloonStand.comp.stage lte 3>>
-    <span class="red">你意识到你必须尽快采取行动了。</span>
-<<elseif $balloonStand.comp.stage lte 6>>
-    <span class="blue">你感到你应该为罗宾做些什么。</span>
+<<if $balloonStand.comp.stage lte 10>>
+    你看了看隔壁同样在卖气球和爆米花的气球摊，它不可避免地分走了罗宾的一部分生意。
+    <<if $balloonStand.comp.stage lte 3>>
+        <span class="red">你意识到你必须尽快采取行动了。</span>
+    <<elseif $balloonStand.comp.stage lte 6>>
+        <span class="blue">你感到你应该为罗宾做些什么。</span>
+    <<else>>
+        <span class="green">尽管这对罗宾的摊位并不构成威胁，你仍觉得自己应该为<<robinFriend>>做点事。</span>
+    <</if>>
+    <br><br>
+    <<set _test to either("good", "social", "business")>>
+    <<switch _test>>
+        <<case "good">>
+            <<generatey2>>
+            于是，你来到了一位看上去犹豫不决的<<person2>><<person>>面前，询问道：“请问有什么可以帮你的吗？”
+            <br><br>
+            <<if $fame.good gte 100>>
+                <<he>>窘迫地看了你一眼，随后，
+                <span class="green"><<he>>似乎是认出了你</span>，
+                支支吾吾地开了口：“我想要一杯柠檬水来解渴……但我身上没带钱，请问我可以赊账吗？”
+                <br><br>
+                “当前可以！”你爽快地递给了<<he>>一杯新鲜的柠檬水， <<person>>接过柠檬水，对你露出了一个感激的微笑。
+                <br><br>
+                不知为何，在<<person>>离开后，你们的摊位突然吸引到了更多的顾客。
+                <<set _success to true>><<set $balloonStand.comp.stage += 1>><<gCompStage>>
+            <<else>>
+                <<person2>><<he>>窘迫地看了你一眼，低声说了句“不，没什么”，
+                <span class="red">然后迅速地离开了现场。</span>
+                <<set _success to false>>
+            <</if>>
+        <<case "social">>
+            于是，你走上前，热情地招呼路过的游客们来看一看罗宾的柠檬水摊。
+            <<if $fame.social gte 200>>
+                <span class="green">有不少游客都被你吸引了注意力，</span>他们停在了你们的摊位前，仔细地挑选起了商品。
+                <<set _success to true>><<set $balloonStand.comp.stage += 1>><<gCompStage>>
+            <<else>>
+                <span class="red">但他们对你的宣传不敢兴趣。</span>
+                <<set _success to false>>
+            <</if>>
+        <<case "business">>
+            于是，你走到罗宾身边，和<<he>>商量起了能不能靠一些优惠措施来吸引更多顾客。
+            <br><br>
+            在短暂的商讨后，罗宾在柠檬水摊的招牌上添了一行醒目的大字：“柠檬水买一送一，限时优惠”。
+            <br><br>
+            <<if $fame.bussiness gte 400>>
+                你们的优惠政策很快就起了效果，柠檬水摊前很快就排起了长队，
+                <span class="green">罗宾也借此卖出了更多的商品。</span>
+                <<set _success to true>><<set $balloonStand.comp.stage += 1>><<gCompStage>>
+            <<else>>
+                有一些顾客被你们的优惠政策吸引了过来，
+                <span class="red">但这只是堪堪填补了罗宾的成本损失。</span>
+                <<set _success to false>>
+            <</if>>
+    <</switch>>
+    <br><br>
+    <<if _success>>
+        罗宾兴奋地握住了你的手：“感谢你为我出谋划策！这下，我再也不用担心自己的顾客被分走了。”<<glove>><<npcincr Robin love 2>>
+    <<else>>
+        罗宾轻轻地拍了拍你的肩：“没事的，不用气妥，感谢你这样为我着想。”<<glove>><<npcincr Robin love 2>>
+    <</if>>
+    <br><br>
+    <<if Time.hour gte 17>>
+        "我需要把我的小摊带回家了。"罗宾说道，"现在这个时间没什么人会买柠檬水的，能请你帮帮我吗？"
+        <<endevent>>
+        <br><br>
+        <<link [[同意 (0:30)|Orphanage]]>><<npcincr Robin love 1>><<pass 30>><</link>><<glove>>
+        <br>
+        <<link [[拒绝|Beach]]>><</link>>
+        <br>
+    <<else>>
+        <<endevent>>
+        <<lemonade_stand_options>>
+    <</if>>
 <<else>>
-    <span class="green">尽管这对罗宾的摊位并不构成威胁，你仍觉得自己应该为<<robinFriend>>做点事。</span>
+    “感谢你的好意。”罗宾对你轻轻摇了摇头，“但我觉得你已经不需要再为我招揽生意了，毕竟，这场竞争，胜负已分。”
+    <<he>>边说边向气球摊的方向看了过去。
+    <br><br>
+    你顺着罗宾的视线，将目光落在了空空如也的气球摊上，爆米花机已经被搬走了，原本飘着的气球也不见了，遮阳棚也已经拆下放在一旁，看来这场商业竞争的获胜者确实是罗宾。
+    <br><br>
+    你的心底涌起一股胜利的喜悦，但是又有一丝对气球摊摊主的愧疚衔尾而来。
+    <br><br>
+    <<link [[靠近气球摊|Balloon Stand Comp End]]>><<endevent>><</link>>
+<</if>>
+
+:: Balloon Stand Comp End
+<<effects>><<loadNPC 0 "stall_owner">><<generate2>>
+<<saveNPC 1 stall_owner_partner>>
+<<if $NPCList[1].pronoun is 'f'>>
+    <<set $partner_pron to "妻子">>
+<<else>>
+    <<set $partner_pron to "丈夫">>
+<</if>>
+你心情复杂地靠近了气球摊，发现写着商品价格和宣传标语的小黑板还摆在地上，上面写着极具视觉冲击力的艺术字，还画着可爱的卡通人物，你很难相信这是用粉笔完成的。
+如果可以请气球摊老板给罗宾的摊子也做这样的宣传……你思索着，不禁叹了口气。
+<br><br>
+“哦，是你啊……”你的身后传来一个有点熟悉的声音，你回头，是那个<<person1>><<person>>，气球摊的老板，<<he>>带着一个小推车，看来是准备收拾剩下的东西。
+<br><br>
+“我得承认，是你们赢了，可能我根本不适合干这个。今天是来收摊的，明天起你们就见不到我啦。”
+虽然老板的语气像是在开玩笑，但你从<<he>>的眼神里看出了落寞，“还是你们年轻人会做生意呀！这两个气球送给你们，就当留个纪念。”
+<br><br>
+<<set _chosen to chooseBalloon()>>
+<<generalWear handheld _chosen.index>>
+<<updateOwned handheld>>
+你接受了纪念品，并向他道谢。沉默片刻后，你试探着询问老板今后的去向。
+<br><br>
+“自然是另谋出路了，我还有一些存款，可以支持我找到下一份工作……希望不用去太远的地方，要是有足够的业余时间照顾我的<<print $partner_pron>>就更好了……”
+<br><br>
+<<link [[询问气球摊老板的家庭情况|Balloon Stand Comp End 2]]>><</link>>
+
+:: Balloon Stand Comp End 2
+<<effects>>
+“你的<<print $partner_pron>>怎么了？”你小心地问道。
+<br><br>
+“<<person2>><<he>>……病了，病的很严重……”气球摊老板的神色变得无比沉重，仿佛想起来什么可怕的事情。
+<br><br>
+<<person1>><<he>>左顾右盼再三确认没附近没有其他人在听，之后才继续说，你认为<<he>>的声音在颤抖，
+“几年前<<person2>><<he>>得到了一种怪病，整个人神志不清，说话语无伦次，好像梦游一般，头上还长出牛一样的角……医院也不知道是怎么回事。
+对了，荒原！<<he>>发病之前去过荒原，一定是荒原里动物在传播这种该死的疾病，你一定要远离那个鬼地方，唉……我本想去镇东边的农场工作的，但那里距荒原很近，我……”
+<br><br>
+<<person1>><<he>>沉沉地低下头去，空气中只剩叹息。
+/% 表明pc去过地下农场 %/
+<<if $remySeen.includes("livestock")>>
+    <br><br>
+    <span class="red">你知道这是雷米干的“好事”，不由得
+    <<if $speech_attitude is "meek">>
+        攥紧了衣角。
+    <<elseif $speech_attitude is "bratty">>
+	    攥紧了拳头。
+    <<else>>
+        皱起了眉头。
+    <</if>>
+    </span>
 <</if>>
 <br><br>
-<<set _test to either("good", "social", "business")>>
-<<switch _test>>
-    <<case "good">>
-        <<generatey2>>
-        于是，你来到了一位看上去犹豫不决的<<person2>><<person>>面前，询问道：“请问有什么可以帮你的吗？”
-        <br><br>
-         <<if $fame.good gte 100>>
-            <<he>>窘迫地看了你一眼，随后，
-             <span class="green"><<he>>似乎是认出了你</span>，
-             支支吾吾地开了口：“我想要一杯柠檬水来解渴……但我身上没带钱，请问我可以赊账吗？”
-             <br><br>
-             “当前可以！”你爽快地递给了<<he>>一杯新鲜的柠檬水， <<person>>接过柠檬水，对你露出了一个感激的微笑。
-             <br><br>
-             不知为何，在<<person>>离开后，你们的摊位突然吸引到了更多的顾客。
-            <<set _success to true>><<set $balloonStand.comp.stage += 1>><<gCompStage>>
-        <<else>>
-            <<person2>><<he>>窘迫地看了你一眼，低声说了句“不，没什么”，
-            <span class="red">然后迅速地离开了现场。</span>
-            <<set _success to false>>
-        <</if>>
-    <<case "social">>
-        于是，你走上前，热情地招呼路过的游客们来看一看罗宾的柠檬水摊。
-        <<if $fame.social gte 200>>
-            <span class="green">有不少游客都被你吸引了注意力，</span>他们停在了你们的摊位前，仔细地挑选起了商品。
-            <<set _success to true>><<set $balloonStand.comp.stage += 1>><<gCompStage>>
-        <<else>>
-            <span class="red">但他们对你的宣传不敢兴趣。</span>
-            <<set _success to false>>
-        <</if>>
-    <<case "business">>
-        于是，你走到罗宾身边，和<<he>>商量起了能不能靠一些优惠措施来吸引更多顾客。
-        <br><br>
-        在短暂的商讨后，罗宾在柠檬水摊的招牌上添了一行醒目的大字：“柠檬水买一送一，限时优惠”。
-        <br><br>
-        <<if $fame.bussiness gte 400>>
-            你们的优惠政策很快就起了效果，柠檬水摊前很快就排起了长队，
-            <span class="green">罗宾也借此卖出了更多的商品。</span>
-            <<set _success to true>><<set $balloonStand.comp.stage += 1>><<gCompStage>>
-        <<else>>
-            有一些顾客被你们的优惠政策吸引了过来，
-            <span class="red">但这只是堪堪填补了罗宾的成本损失。</span>
-            <<set _success to false>>
-        <</if>>
-<</switch>>
-<br><br>
-<<if _success>>
-    罗宾兴奋地握住了你的手：“感谢你为我出谋划策！这下，我再也不用担心自己的顾客被分走了。”<<glove>><<npcincr Robin love 2>>
+<<link [[尝试安慰|Balloon Stand Comp End 3]]>><<set $phase to "comfort">><</link>><br>
+<<link [[保持沉默|Balloon Stand Comp End 3]]>><<set $phase to "silent">><</link>>
+
+
+:: Balloon Stand Comp End 3
+<<effects>>
+<<if $phase is "comfort">>
+    你尝试说些什么来安慰<<he>>，但是你很快意识到，再多的语言都是单薄的，于是你也陷入沉默。
 <<else>>
-    罗宾轻轻地拍了拍你的肩：“没事的，不用气妥，感谢你这样为我着想。”<<glove>><<npcincr Robin love 2>>
+    你明白任何语言都是单薄的，或许沉默才是最好的同情，于是你一言不发。
 <</if>>
 <br><br>
-<<if Time.hour gte 17>>
-	"我需要把我的小摊带回家了。"罗宾说道，"现在这个时间没什么人会买柠檬水的，能请你帮帮我吗？"
-	<<endevent>>
-	<br><br>
-	<<link [[同意 (0:30)|Orphanage]]>><<npcincr Robin love 1>><<pass 30>><</link>><<glove>>
-	<br>
-	<<link [[拒绝|Beach]]>><</link>>
-	<br>
+<span class="red">如果遭遇这一切事情的是罗宾呢？</span>
+<br><br>
+这个可怕的念头在你脑海里闪过，你的心好像被什么冰冷的东西刺了一下。<br>
+你摇摇头，驱散这个思绪。
+<br><br>
+<<link [[继续|Balloon Stand Comp End 4]]>><</link>>
+
+:: Balloon Stand Comp End 4
+<<effects>>
+<<if $phase is "comfort">> 
+    “谢谢关心......”
 <<else>>
-	<<endevent>>
-	<<lemonade_stand_options>>
+    “说出来感觉好多了，谢谢你听我诉苦......”
 <</if>>
+那个<<person>>平复了心情，“我的爱人已经好转很多了，虽然仍然每天晚上都做噩梦，但我相信<<person2>><<he>>会好起来的。”
+<br><br>
+“<<he>>的状态依然很糟糕，所以我一直在找一份能兼顾家庭的工作，只可惜并不是那么顺利。”
+那个<<person1>><<person>>抬头往罗宾的方向看了一样，然后又自嘲般地摇摇头。
+<br><br>
+你感到有些难为情，毕竟你就是<<he>>最近的一个挫折！
+<br><br>
+<<link [[提议合作|Balloon Stand Comp End 5]]>><</link>>
+
+:: Balloon Stand Comp End 5
+<<effects>>
+你不禁低头沉思，这段日子里你和罗宾为了赚钱做了许多尝试，而你现在也确确实实掌握了一些商业经验，而这位原气球摊老板似乎是个好人，也许可以试试招揽<<he>>为罗宾工作？
+<br><br>
+<<if $speech_attitude is "meek">>
+    “对不起，我们不知道你的困难……我在想能不能请你帮助我们的生意，我们很愿意与你分享好处的。”你鼓起勇气。
+<<elseif $speech_attitude is "bratty">>
+	“嘿，我说，反正你也要去找个班上，为什么不加入我们呢？”
+<<else>>
+    “嗯......也许我们可以试试合作？”你看着<<he>>的眼睛，希望自己的眼神看起来足够真诚。
+<</if>>
+<br><br>
+<<he>>似乎觉得你在开玩笑，但看你一脸认真的模样，决定听一听你的提议。
+<br><br>
+<<link [[讲下去|Balloon Stand Comp End 6]]>><</link>>
+
+:: Balloon Stand Comp End 6
+<<effects>>
+你告诉<<he>>你们是如何把罗宾的柠檬水摊从一个几乎只有一把伞和一张折叠桌的形态一步步升级到现在这个规模的。
+<br><br>
+“4......4000£一个月？？？我的主啊......我想都不敢想小镇上还有房租这么高的地方......
+但......但是这恰恰说明了你们的商业能力，对吧？”
+<br><br>
+你还说到罗宾当初为几乎要卖掉唯一值钱的家当——那台400£的游戏机，才能维持生计，到如今每个月交4000£的租金仍有不少盈余。
+这件事似乎对<<he>>产生了巨大的震撼。<br>
+当然了，你并没有告诉他那租金4000£一个月的房子其实就是孤儿院。
+<br><br>
+“说实在的，我很心动，我也非常相信你们比我更懂商业，最重要的是，这也正是我所期待的工作。”
+<<he>>不再掩饰目光里的激动，
+“我非常愿意与你们进一步地合作，但你要先和你的<<robinFriend>>商量一下对吧？我会等你的消息，你们商量好了，随时可以来找我，我会在<span class="gold">海风咖啡馆</span>等你们的消息。”
+<br><br>
+<<set $balloonStand.coop to "talked">>
+<<run delete $balloonStand.comp>>
+<<link [[继续|Beach]]>><<set $eventskip to 1>><<endevent>><</link>>
