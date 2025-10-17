@@ -1,0 +1,76 @@
+/% 有效帮助次数 0/1 2/3 4/5/6 7/8/9 10%/
+/% V.fame.business >= 400 && V.fame.social >= 200 && V.fame.good >=100%/
+:: Balloon Stand Comp Help
+<<effects>><<npc Robin 1>>
+你看了看隔壁同样在卖气球和爆米花的气球摊，它不可避免地分走了罗宾的一部分生意。
+<<if $balloonStand.comp.stage lte 3>>
+    <span class="red">你意识到你必须尽快采取行动了。</span>
+<<elseif $balloonStand.comp.stage lte 6>>
+    <span class="blue">你感到你应该为罗宾做些什么。</span>
+<<else>>
+    <span class="green">尽管这对罗宾的摊位并不构成威胁，你仍觉得自己应该为<<robinFriend>>做点事。</span>
+<</if>>
+<br><br>
+<<set _test to either("good", "social", "business")>>
+<<switch _test>>
+    <<case "good">>
+        <<generatey2>>
+        于是，你来到了一位看上去犹豫不决的<<person2>><<person>>面前，询问道：“请问有什么可以帮你的吗？”
+        <br><br>
+         <<if $fame.good gte 100>>
+            <<he>>窘迫地看了你一眼，随后，
+             <span class="green"><<he>>似乎是认出了你</span>，
+             支支吾吾地开了口：“我想要一杯柠檬水来解渴……但我身上没带钱，请问我可以赊账吗？”
+             <br><br>
+             “当前可以！”你爽快地递给了<<he>>一杯新鲜的柠檬水， <<person>>接过柠檬水，对你露出了一个感激的微笑。
+             <br><br>
+             不知为何，在<<person>>离开后，你们的摊位突然吸引到了更多的顾客。
+            <<set _success to true>><<set $balloonStand.comp.stage += 1>><<gCompStage>>
+        <<else>>
+            <<person2>><<he>>窘迫地看了你一眼，低声说了句“不，没什么”，
+            <span class="red">然后迅速地离开了现场。</span>
+            <<set _success to false>>
+        <</if>>
+    <<case "social">>
+        于是，你走上前，热情地招呼路过的游客们来看一看罗宾的柠檬水摊。
+        <<if $fame.social gte 200>>
+            <span class="green">有不少游客都被你吸引了注意力，</span>他们停在了你们的摊位前，仔细地挑选起了商品。
+            <<set _success to true>><<set $balloonStand.comp.stage += 1>><<gCompStage>>
+        <<else>>
+            <span class="red">但他们对你的宣传不敢兴趣。</span>
+            <<set _success to false>>
+        <</if>>
+    <<case "business">>
+        于是，你走到罗宾身边，和<<he>>商量起了能不能靠一些优惠措施来吸引更多顾客。
+        <br><br>
+        在短暂的商讨后，罗宾在柠檬水摊的招牌上添了一行醒目的大字：“柠檬水买一送一，限时优惠”。
+        <br><br>
+        <<if $fame.bussiness gte 400>>
+            你们的优惠政策很快就起了效果，柠檬水摊前很快就排起了长队，
+            <span class="green">罗宾也借此卖出了更多的商品。</span>
+            <<set _success to true>><<set $balloonStand.comp.stage += 1>><<gCompStage>>
+        <<else>>
+            有一些顾客被你们的优惠政策吸引了过来，
+            <span class="red">但这只是堪堪填补了罗宾的成本损失。</span>
+            <<set _success to false>>
+        <</if>>
+<</switch>>
+<br><br>
+<<if _success>>
+    罗宾兴奋地握住了你的手：“感谢你为我出谋划策！这下，我再也不用担心自己的顾客被分走了。”<<glove>><<npcincr Robin love 2>>
+<<else>>
+    罗宾轻轻地拍了拍你的肩：“没事的，不用气妥，感谢你这样为我着想。”<<glove>><<npcincr Robin love 2>>
+<</if>>
+<br><br>
+<<if Time.hour gte 17>>
+	"我需要把我的小摊带回家了。"罗宾说道，"现在这个时间没什么人会买柠檬水的，能请你帮帮我吗？"
+	<<endevent>>
+	<br><br>
+	<<link [[同意 (0:30)|Orphanage]]>><<npcincr Robin love 1>><<pass 30>><</link>><<glove>>
+	<br>
+	<<link [[拒绝|Beach]]>><</link>>
+	<br>
+<<else>>
+	<<endevent>>
+	<<lemonade_stand_options>>
+<</if>>

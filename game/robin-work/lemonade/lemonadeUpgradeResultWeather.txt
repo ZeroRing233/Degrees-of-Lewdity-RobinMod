@@ -2,15 +2,29 @@
     <<set $outside to 0>><<effects>>
     /% 作者偷懒，不想研究新版本非冬天有没有可能零度以下了，不要吐槽 %/
     <<if Weather.precipitation is "rain">>
-        在遮阳伞的庇护下，你不用再担心风吹雨打。小小的柠檬水摊形成了一个温暖的避风港。
-        <br><br>
+        在遮阳伞的庇护下，你不用再担心风吹雨打。小小的柠檬水摊形成了一个温暖的避风港。 
     <<elseif Weather.precipitation is "snow">>
         在遮阳伞的庇护下，你不用再担心风雪交加。小小的柠檬水摊形成了一个温暖的避风港。
-        <br><br>
     <<else>>
         在遮阳伞的庇护下，你不用再担心风吹日晒。小小的柠檬水摊带来了一片凉爽的背阴处。
-        <br><br>
     <</if>>
+    <<if is_comping()>>
+        <<switch $balloonStand.comp.stage>>
+            <<case 0 1>>
+                <span class="red">游客径直走向气球摊，甚至不看罗宾一眼。</span>
+            <<case 2 3>>
+                <span class="purple">围绕在气球摊前的顾客比这里更多。</span>
+            <<case 4 5 6>>
+                <span class="blue">有些顾客在两个摊位之间犹豫着。</span>
+            <<case 7 8 9>>
+                <span class="lblue">罗宾的摊位吸引了更多的顾客。</span>
+            <<default>>
+                <span class="green">罗宾在竞争中占尽上风。</span>
+        <</switch>>
+    <</if>>
+    <br><br>
 <<else>>
     <<effects>>
 <</if>>
+
+

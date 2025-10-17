@@ -1,4 +1,5 @@
 // 气球摊相关代码
+statDisplay.create("gCompStage", () => statDisplay.statChange("柠檬水摊人气", 1, "green"));
 
 // 达成合作条件
 function could_coop() {
@@ -50,3 +51,14 @@ function initLemonadeStallShop() {
     });
 }
 window.initLemonadeStallShop = initLemonadeStallShop;
+
+function is_comping() {
+    // 没合作就卖气球，意味着是竞争线
+    const notCoop = V.balloonStand.comp && V.lemonadeNewGoodsList.includes("balloon") && V.balloonStand.robin.status !== "unaffected" && V.balloonStand.robin.status !== "helped";
+    const present = V.openinghours === 1 && V.balloonStand.open;
+    if (notCoop && present) {
+        return true;
+    }
+    return false;
+}
+window.is_comping = is_comping;

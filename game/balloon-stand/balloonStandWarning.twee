@@ -17,7 +17,7 @@
 <br><br>
 <span class = "blue">如果选择保持现状，游戏内不会发生任何变动，但您仍可以在条件达到时照常体验模组内容。</span>
 <br><br>
-<span class = "blue">注意此提示只会出现一次，请谨慎选择。</span>
+<span class = "gold">注意此提示只会出现一次，请谨慎选择。</span>
 <br><br>
 
 <<link [[是，我想体验合作线|balloon Stand Warning Coop]]>><</link>><br>
@@ -32,14 +32,17 @@
 	open: false,
 	owner: "friendly",
 	freeDrink: false,
-	robin: {status: "unaffected", talked: false, knows: false}
+	robin: {status: "unaffected", talked: false, knows: false},
 }>>
+<<set $balloonStand.coop to "">>
+<<set $balloonStand.comp to {}>>
+<<set $balloonStand.comp.stage to 0>>
 明白了！罗宾的柠檬水摊上已不再售卖气球和爆米花，气球摊摊主将重新/提前出场，请尽管继续！
 <br><br>
 <<link [[继续|Beach]]>><<endevent>><<set $eventskip to 1>><</link>>
 
 :: balloon Stand Warning Comp
-明白了!气球摊摊主将重新/提前出场，请尽管继续！
+明白了！气球摊摊主将重新/提前出场，请尽管继续！
 <<set $balloonStandOverride to true>>
 <<set $balloonStand to {
 	open: false,
@@ -47,6 +50,9 @@
 	freeDrink: false,
 	robin: {status: "unaffected", talked: false, knows: false}
 }>>
+<<set $balloonStand.coop to "">>
+<<set $balloonStand.comp to {}>>
+<<set $balloonStand.comp.stage to 0>>
 <br><br>
 <<link [[继续|Beach]]>><<endevent>><<set $eventskip to 1>><</link>>
 
@@ -54,5 +60,9 @@
 :: balloon Stand Warning No Change
 明白了！游戏内未发生任何变动，请尽管继续！
 <<set $balloonStandOverride to false>>
+/% 气球摊初始化改在开局/读取存档时了，所以这样写没问题 %/
+<<set $balloonStand.coop to "">>
+<<set $balloonStand.comp to {}>>
+<<set $balloonStand.comp.stage to 0>>
 <br><br>
 <<link [[继续|Beach]]>><<endevent>><<set $eventskip to 1>><</link>>
