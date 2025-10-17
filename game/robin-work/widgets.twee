@@ -160,6 +160,11 @@
         /% 给卖花单独写个部件 %/
         <<sellFlower>>
     <</if>>
+    /% 合作开启后，收入翻倍 %/
+    <<if $balloonStand.coop is "complete">>
+        <<set $weeklyMoneyFixedChange = $weeklyMoneyFixedChange * 2>>
+        <<set $weeklyMoneyRandomChange = $weeklyMoneyRandomChange * 2>>
+    <</if>>
 <</widget>>
 
 <<widget "sellFlower">>

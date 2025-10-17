@@ -1,7 +1,7 @@
 :: Lemonade Stand [exitCheckBypass]
 <<loadNPC 0 "stall_owner">><<person1>>
 <div id="clothingShop-div" class="main-shop-div">
-	<<lemonadeStall-main>>
+	<<lemonadeStallShop-main>>
 </div>
 
 :: Lemonade Purchase Popcorn
@@ -41,25 +41,58 @@
 <br><br>
 <<link [[继续|Beach]]>><<set $eventskip to 1>><<endevent>><</link>>
 
-:: Lemonade Purchase
+:: Lemonade Purchase Other Drink
 <<effects>>
 <<set _fruitType to getRandomValueFromArray($drinkUpgradedList)>>
 你购买了一份<<print $plants[_fruitType].plural>>汁。
+<br><br>
 <<if $daily.robin.freeDrink isnot 1>>
     ”就像我所承诺的那样，第一杯果汁免费！“
     <<set $daily.robin.freeDrink to 1>>
 <<else>>
     <<money -100>>
-    ”免费的果汁一天只能有一杯，你应该能理解吧？“
+    ”抱歉，免费的果汁一天只能有一杯，你应该能理解吧？“
 <</if>>
- <span class="green"><<print $NPCList[0].name>>热切地为你现榨了一杯新鲜的<<print $plants[_fruitType].plural>>汁。
+ <span class="green"><<print $NPCList[0].name>></span>热切地为你现榨了一杯新鲜的<<print $plants[_fruitType].plural>>汁。
+ <br><br>
+你看着海潮翻滚，聆听着海浪声，几乎一口气喝完了手中的<<print $plants[_fruitType].plural>>汁。<<lstress>><<ltrauma>><<stress -6>><<trauma -3>>
  <br><br>
 <<link [[继续|Beach]]>><<set $eventskip to 1>><<endevent>><</link>>
 
 :: Lemonade Purchase Honey
 <<effects>>
+你购买了一杯蜂蜜柠檬水。
+<br><br>
+<<if $daily.robin.freeDrink isnot 1>>
+    ”就像我所承诺的那样，第一杯果汁免费！“
+    <<set $daily.robin.freeDrink to 1>>
+<<else>>
+    <<money -200>>
+    ”抱歉，免费的果汁一天只能有一杯，你应该能理解吧？“
+<</if>>
+ <span class="green"><<print $NPCList[0].name>></span>热切地为你倒了一杯加了蜂蜜的柠檬水。
+ <br><br>
+你看着海潮翻滚，聆听着海浪声，几乎一口气喝完了手中的柠檬水。蜂蜜均匀地混合在柠檬水里，使它更加甜蜜。
+<<ltiredness>><<tiredness -6>>
+<<lstress>><<ltrauma>><<stress -6>><<trauma -3>>
+ <br><br>
+ <<link [[继续|Beach]]>><<set $eventskip to 1>><<endevent>><</link>>
 
-:: Lemonade Purchase Other Drink
+:: Lemonade Purchase
 <<effects>>
+你购买了一杯柠檬水。
+<<if $daily.robin.freeDrink isnot 1>>
+    ”就像我所承诺的那样，第一杯果汁免费！“
+    <<set $daily.robin.freeDrink to 1>>
+<<else>>
+    <<money -100>>
+    ”抱歉，免费的果汁一天只能有一杯，你应该能理解吧？“
+<</if>>
+ <span class="green"><<print $NPCList[0].name>></span>热切地为你倒了一杯经典款的柠檬水。
+ <br><br>
+你看着海潮翻滚，聆听着海浪声，几乎一口气喝完了手中的柠檬水。<<lstress>><<ltrauma>><<stress -6>><<trauma -3>>
+ <br><br>
+ <<link [[继续|Beach]]>><<set $eventskip to 1>><<endevent>><</link>>
+
 
 /% PS：记得修改物品的价格，并同步补充罗宾摊位上的物品 %/

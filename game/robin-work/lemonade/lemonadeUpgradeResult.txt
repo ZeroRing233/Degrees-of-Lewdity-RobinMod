@@ -5,10 +5,12 @@
     饮料单上新增了许多新品种，包括：
     <<for _i to 0; _i lt $drinkUpgradedList.length; _i++>>
         <<set _fruitType to $drinkUpgradedList[_i]>>
-        <<if _i is $drinkUpgradedList.length - 1>>
-            <<print $plants[_fruitType].plural>>汁。
-        <<else>>
-            <<print $plants[_fruitType].plural>>汁,
+        <<if $plants[_fruitType]>>
+            <<if _i is $drinkUpgradedList.length - 1>>
+                <<print $plants[_fruitType].plural>>汁。
+            <<else>>
+                <<print $plants[_fruitType].plural>>汁,
+            <</if>>
         <</if>>
     <</for>>
     <br>

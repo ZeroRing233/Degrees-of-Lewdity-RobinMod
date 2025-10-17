@@ -38,3 +38,15 @@ function meet_warning_condition() {
     }
 }
 window.meet_warning_condition = meet_warning_condition;
+
+function initLemonadeStallShop() {
+    setup.clothes.handheld.forEach(clothes => {
+        if (clothes.shop.includes("stall")) {
+            // 两加店均售卖原气球摊的商品，给pc半价
+            clothes.shop.pushUnique("lemonade");
+            clothes.shop.pushUnique("lemonadeStall");
+            clothes.cost = 250;
+        }
+    });
+}
+window.initLemonadeStallShop = initLemonadeStallShop;

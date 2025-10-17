@@ -22,6 +22,10 @@
         <<warmth_description>>
     </div>
     <<run initLemonadeShop()>>
+    /% 偷个懒 %/
+    <<if $balloonStand.coop is "complete">>
+        <<run initLemonadeStallShop()>>
+    <</if>>
     <<if $flowerCrownTalked and $lemonadeNewGoodsList.includes("balloon")>>
         <<icon "clothes/flower_crown.png">><<link "查看花冠和气球">><<replace "#clothingShop-div">><<AllShop>><</replace>><<set $phase to 0>><</link>>
         <br>

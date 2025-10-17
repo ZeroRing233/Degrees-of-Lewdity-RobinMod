@@ -64,6 +64,8 @@ talked-和气球摊老板谈话，ready-和罗宾商量，complete 众人商量�
     <br><br>
     <span class="gold">罗宾的柠檬水摊新增商品：爆米花。</span>
 <</if>>
+<br><br>
+<span class="gold">罗宾的柠檬水摊和气球摊商品已同步。</span>
 <<set $balloonStand.coop to "complete">>
 <br><br>
 <<link [[继续|Ocean Breeze]]>><<endevent>><</link>>

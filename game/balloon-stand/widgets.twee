@@ -1,10 +1,11 @@
-:: Widgets Balloon Stand [widget]
-<<widget "lemonadeStall-main">>
+:: Widgets Lemonade Balloon Stand [widget]
+<<widget "lemonadeStallShop-main">>
     <<if $tryOn.autoReset isnot false>><<tryOnReset>><</if>><<unset $tempDisable>>
     <<set $outside to 0>><<effects>>
-    <<set $shopName = "stall">>
+    <<set $shopName = "lemonadeStall">>
+    <<run initLemonadeStallShop()>>
     <<lemonadeStall-text>>
-    <div id="tryonstats-div"><<tryOnStats>></div>
+    /% <div id="tryonstats-div"><<tryOnStats>></div> %/
     <<unset $shopListStartCount>>
     <<unset $clothes_choice>>
     <<set $shopPage = 0>>
@@ -36,11 +37,11 @@
     <</if>>
     <<if $money gte 100 and !$weeklyHoneyCombGiven>>
         <br>
-        <<foodicon "lemonade">><<link [[买柠檬水 (0:15 £1)|Lemonade Purchase]]>><<endevent>><<stress -6>><<trauma -1>><<pass 15>><</link>><<lstress>><<ltrauma>>
+        <<foodicon "lemonade">><<link [[买柠檬水 (0:15 £1)|Lemonade Purchase]]>><<stress -6>><<trauma -1>><<pass 15>><</link>><<lstress>><<ltrauma>>
     <</if>>
     <<if $money gte 200 and $weeklyHoneyCombGiven>>
         <br>
-        <<foodicon "lemonade">><<link [[买蜂蜜柠檬水 (0:15)|Lemonade Purchase Honey]]>><<stress -6>><<trauma -1>><<pass 15>><</link>><<lstress>><<ltrauma>>
+        <<foodicon "lemonade">><<link [[买蜂蜜柠檬水 (0:15 £2)|Lemonade Purchase Honey]]>><<stress -6>><<trauma -1>><<pass 15>><</link>><<lstress>><<ltrauma>>
     <</if>>
      <<if $money gte 200 and $drinkUpgradedList isnot undefined and $drinkUpgradedList.length gt 0>>
         <br>

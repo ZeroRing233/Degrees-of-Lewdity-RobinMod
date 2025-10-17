@@ -188,10 +188,10 @@ function initLemonadeShop() {
             clothes.shop.pushUnique("lemonade");
         }
         if (clothes.name === 'balloon') {
-            clothes.cost = 200; //pc价
+            clothes.cost = 250; //pc价
         }
         if (clothes.name === 'heart balloon') {
-            clothes.cost = 300; //pc价
+            clothes.cost = 250; //pc价
         }
     });
     setup.clothes.head.forEach(clothes => {
