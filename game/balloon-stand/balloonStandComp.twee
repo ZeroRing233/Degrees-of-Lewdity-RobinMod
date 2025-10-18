@@ -46,7 +46,7 @@
             <br><br>
             在短暂的商讨后，罗宾在柠檬水摊的招牌上添了一行醒目的大字：“柠檬水买一送一，限时优惠”。
             <br><br>
-            <<if $fame.bussiness gte 400>>
+            <<if $fame.business gte 400>>
                 你们的优惠政策很快就起了效果，柠檬水摊前很快就排起了长队，
                 <span class="green">罗宾也借此卖出了更多的商品。</span>
                 <<set _success to true>><<set $balloonStand.comp.stage += 1>><<gCompStage>>
@@ -123,7 +123,7 @@
 <br><br>
 <<person1>><<he>>沉沉地低下头去，空气中只剩叹息。
 /% 表明pc去过地下农场 %/
-<<if $remySeen.includes("livestock")>>
+<<if $remySeen and $remySeen.includes("livestock")>>
     <br><br>
     <span class="red">你知道这是雷米干的“好事”，不由得
     <<if $speech_attitude is "meek">>

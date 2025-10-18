@@ -44,7 +44,7 @@
 <br><br>
 你看到几滴眼泪落在桌布上。
 /% 表明pc去过地下农场 %/
-<<if $remySeen.includes("livestock")>>
+<<if $remySeen and $remySeen.includes("livestock")>>
     <br><br>
     <span class="red">你知道这是雷米干的“好事”，不由得
     <<if $speech_attitude is "meek">>
