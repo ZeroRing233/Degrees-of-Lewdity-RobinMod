@@ -1,6 +1,6 @@
 {
     "name": "DomRobin",
-    "version": "0.0.7-for-dol-0.5.4",
+    "version": "0.0.8-for-dol-0.5.5",
     "scriptFileList_inject_early": [
         "game/javaScript/robinModInject_early.js"
     ],
@@ -1079,7 +1079,7 @@
         },
         {
             "modName": "GameVersion",
-            "version": ">=0.5.4.0"
+            "version": ">=0.5.5.0"
         },
         {
             "modName": "SweetAlert2Mod",
