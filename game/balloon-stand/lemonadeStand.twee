@@ -93,6 +93,3 @@
 你看着海潮翻滚，聆听着海浪声，几乎一口气喝完了手中的柠檬水。<<lstress>><<ltrauma>><<stress -6>><<trauma -3>>
  <br><br>
  <<link [[继续|Beach]]>><<set $eventskip to 1>><<endevent>><</link>>
-
-
-/% PS：记得修改物品的价格，并同步补充罗宾摊位上的物品 %/
