@@ -42,7 +42,7 @@
 请根据您的游戏本体版本选择对应的模组文件进行下载：
 
 
-如果你的游戏本体已更新到0.5.5.x版本，请下载[0.08-for-dol-0.5.5](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.07-for-dol-0.5.5)中的domRobin.mod.zip(请不要下载source code)
+如果你的游戏本体已更新到0.5.5.x版本，请下载[0.08-for-dol-0.5.5](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.08-for-dol-0.5.5)中的domRobin.mod.zip(请不要下载source code)
 
 如果你的游戏本体已更新到0.5.4.x版本，请下载[0.07-for-dol-0.5.4](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.07-for-dol-0.5.4)中的domRobin.mod.zip(请不要下载source code)
 
@@ -61,7 +61,7 @@
 ## 反馈与讨论方式
 bug反馈群群号：964015275
 
-讨论群群号：789448964（进讨论群需要提一嘴对模组的想法/建议）
+讨论群群号：789448964
 
 贴吧模组发布贴：[dom罗宾mod模组介绍&更新日志存放处](https://tieba.baidu.com/p/9069099240) 
 
