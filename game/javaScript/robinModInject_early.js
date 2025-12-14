@@ -105,24 +105,28 @@
             let replaceString1 = "\t\t\t<<set _condition to getRobinWalkSchoolCondition()>>\n\t\t\t\t<<if [\"Robin's Room\",\"Robin's Room Photography\"].includes(_condition)>>\n\t\t\t\t\t<<schoolicon \"building\">><<link [[换好校服，一起去学校 (0:25)|Robin Walk School]]>><<storeon _condition>><<run setRobinLocationOverride(\"school\", 7)>><<pass 25>><<handheldon 1>><</link>>\n\t\t\t\t\t<br>\n\t\t\t\t<<elseif $exposed lte 0>>";
             let replaceString2 = "\t\t\t<<set _condition to getRobinWalkSchoolCondition()>>\n\t\t\t<<if [\"Robin's Room\",\"Robin's Room Photography\"].includes(_condition)>>\n\t\t\t\t<<schoolicon \"building\">><<link [[换好校服，一起去学校 (0:25)|Robin Walk School]]>><<storeon _condition>><<run setRobinLocationOverride(\"school\", 7)>><<pass 25>><<handheldon 1>><</link>>\n\t\t\t\t<br>\n\t\t\t<<elseif $exposed lte 0>>";
             let replaceString3 = "\t\t\t<<set _condition to getRobinWalkSchoolCondition()>>\n\t\t\t<<if [\"Robin's Room\",\"Robin's Room Photography\"].includes(_condition)>><<set _schoolTime += 5>>\n\t\t\t\t<<schoolicon \"building\">><<link [[\"换好校服，一起去学校 (0:\" + _schoolTime + \")\"|Robin Walk School]]>><<storeon _condition>><<run setRobinLocationOverride(\"school\", 7)>><<pass _schoolTime>><<handheldon 1>><</link>>\n\t\t\t\t<br>\n\t\t\t<<elseif $exposed lte 0>>";
-            if (content.match(regex).length === 5) {
+            if (content.match(regex).length === 8) {
                 let count = 0;
                 let contentReplaced = content.replace(regex, function(match) {
                     count++;
                     console.log("当前match是：" + match);
+                    // 1 2 3 是格威岚咖啡馆
                     // count说明：1 2 3 5 一起上学 4 罗宾摆摊
                     switch (count) {
-                        case 1:
-                        case 2:
+                        case 4:
+                        case 5:
                             console.log("当前match为一起去上学");
                             return replaceString1;
-                        case 3:
+                        case 6:
                             console.log("当前match为一起去上学");
                             return replaceString2;
-                        case 5:
+                        case 8:
                             console.log("当前match为一起去上学特殊处理");
                             return replaceString3;
-                        case 4:
+                        case 1:
+                        case 2:
+                        case 3:
+                        case 7:
                             console.log("当前match不做处理");
                             return match;
                     }
