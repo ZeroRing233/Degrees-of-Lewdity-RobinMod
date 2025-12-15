@@ -1,1083 +1,1077 @@
 {
- "name": "DomRobin",
- "version": "0.0.8-for-dol-0.5.5",
- "scriptFileList_inject_early": [
-  "game/javaScript/robinModInject_early.js"
- ],
- "styleFileList": [
-  "game/orphanage-poster/poster.css",
-  "game/origin-replace/button.css",
-  "game/robin-work/live-stream/liveStream.css",
-  "game/robin-work/photography/photography.css"
- ],
- "scriptFileList": [
-  "game/javaScript/robinModUtil.js",
-  "game/javaScript/robinTraitEffects.js",
-  "game/javaScript/robinModSettings.js",
-  "game/javaScript/terraiaUtil.js",
-  "game/javaScript/orphanagePoster.js",
-  "game/javaScript/liveStream.js",
-  "game/javaScript/introduction.js",
-  "game/javaScript/balloonStand.js",
-  "dist/photography_result.js",
-  "game/robin-maplebirch_leaf/DomRobin_maplebirch_leaf.js"
- ],
- "tweeFileList": [
-  "game/robin-work/lemonade/lemonadeUpgrade.twee",
-  "game/robin-work/lemonade/goods-list/lemonadeGoods.twee",
-  "game/robin-work/lemonade/goods-list/widgets.twee",
-  "game/robin-work/chocolate/chocolateUpgrade.twee",
-  "game/robin-work/danube-tutor/danubeTutor.twee",
-  "game/robin-work/photography/photography.twee",
-  "game/robin-work/live-stream/liveStream.twee",
-  "game/robin-work/live-stream/stream-topic/Maze.twee",
-  "game/robin-work/live-stream/stream-topic/Daily.twee",
-  "game/robin-work/widgets.twee",
-  "game/robin-trait/robinTrait.twee",
-  "game/robin-trait/widgets.twee",
-  "game/robin-daily/robinDate.twee",
-  "game/robin-daily/robinDateBeach.twee",
-  "game/robin-daily/climbBed.twee",
-  "game/robin-daily/giveWine.twee",
-  "game/robin-daily/widgets.twee",
-  "game/robin-daily/moorStars.twee",
-  "game/robin-fight/robinFight.twee",
-  "game/robin-fight/widgets.twee",
-  "game/robin-terraia/giveFish.twee",
-  "game/robin-terraia/giveFishList.twee",
-  "game/origin-replace/widgets.twee",
-  "game/origin-replace/balloonRobin.twee",
-  "game/origin-replace/bedAskMore.twee",
-  "game/origin-replace/robinRoomLeave.twee",
-  "game/origin-replace/robinForest.twee",
-  "game/origin-replace/introContentWidgets.twee",
-  "game/orphanage-poster/widgets.twee",
-  "game/robin-maplebirch_leaf/DomRobin_maplebirch_leaf.twee",
-  "game/balloon-stand/balloonStandWarning.twee",
-  "game/balloon-stand/balloonStandCoop.twee",
-  "game/balloon-stand/balloonStandComp.twee",
-  "game/balloon-stand/balloonStandCoopIntro.twee",
-  "game/balloon-stand/lemonadeStand.twee",
-  "game/balloon-stand/widgets.twee"
- ],
- "imgFileList": [],
- "additionDir": [
-  "robinModImg"
- ],
- "additionFile": [
-  "README.md",
-  "robinModImg/imgFileListFile.json",
-  "game/feats/robinFeats.json",
-  "game/robin-work/lemonade/lemonadeUpgradeResult.txt",
-  "game/robin-work/lemonade/lemonadeUpgrade.txt",
-  "game/robin-work/lemonade/lemonadeUpgradeResultWeather.txt",
-  "game/robin-work/lemonade/lemonadeUpgradeResultWeather2.txt",
-  "game/robin-work/lemonade/lemonadeUpgradeDevice.txt",
-  "game/robin-work/lemonade/goods-list/PopcornIntro.txt",
-  "game/robin-work/lemonade/goods-list/PopcornIntroRobinPay.txt",
-  "game/robin-work/lemonade/goods-list/snackIntro.txt",
-  "game/robin-work/lemonade/goods-list/flowerIntro.txt",
-  "game/robin-work/lemonade/goods-list/balloonIntro.txt",
-  "game/robin-work/lemonade/goods-list/sellBalloonResult.txt",
-  "game/robin-work/lemonade/goods-list/sellBalloonResult2.txt",
-  "game/robin-work/lemonade/goods-list/robinCrown.txt",
-  "game/robin-work/lemonade/goods-list/cinemaPopcorn.txt",
-  "game/robin-work/chocolate/chocolateUpgrade.txt",
-  "game/robin-work/chocolate/chocolateUpgradeResult.txt",
-  "game/robin-work/chocolate/chocolateUpgradeResultWeather.txt",
-  "game/robin-work/chocolate/chocolateUpgradeResultWeather2.txt",
-  "game/robin-work/chocolate/chocolateUpgradeDevice.txt",
-  "game/robin-work/danube-tutor/danubeTutorIntro.txt",
-  "game/robin-work/danube-tutor/danubeTutorAfterWalkHome.txt",
-  "game/robin-work/danube-tutor/danubeTutorAfterWalkHomeTopless1.txt",
-  "game/robin-work/danube-tutor/danubeTutorAfterWalkHomeTopless2.txt",
-  "game/robin-work/danube-tutor/danubeTutorWalkHome.txt",
-  "game/robin-work/danube-tutor/danubeTutorMeetRobin.txt",
-  "game/robin-work/danube-tutor/danubeTutorMeetRobin2.txt",
-  "game/robin-work/live-stream/robinWatch.txt",
-  "game/robin-work/live-stream/robinOptions.txt",
-  "game/robin-work/live-stream/cinemaChange1.txt",
-  "game/robin-work/live-stream/cinemaChange2.txt",
-  "game/robin-work/live-stream/cinemaChange3.txt",
-  "game/robin-work/live-stream/cinemaChange4.txt",
-  "game/robin-work/photography/photographyIntro.txt",
-  "game/robin-work/locationReplace.txt",
-  "game/robin-work/RobinWorkTalk.txt",
-  "game/origin-replace/robinMoneyReplace.txt",
-  "game/origin-replace/bedFinish.txt",
-  "game/origin-replace/canteenWhitney.txt",
-  "game/origin-replace/schoolWhitney.txt",
-  "game/origin-replace/schoolWhitney2.txt",
-  "game/origin-replace/balloonRobinIntro.txt",
-  "game/origin-replace/robinForestEden.txt",
-  "game/origin-replace/StoryCaption.txt",
-  "game/origin-replace/overlayReplace.txt",
-  "game/origin-replace/bedRobinSexFinish.txt",
-  "game/origin-replace/bedRobinSexFinish2.txt",
-  "game/origin-replace/bedRobinSexFinishAsk.txt",
-  "game/origin-replace/cinemaPopcorn.txt",
-  "game/origin-replace/photographyClothesCheck.txt",
-  "game/origin-replace/photographyClothesCheck2.txt",
-  "game/origin-replace/robinRoomWake.txt",
-  "game/origin-replace/robinMischief.txt",
-  "game/robin-trait/robinTrait.txt",
-  "game/robin-trait/robinRoomEntranceTalk.txt",
-  "game/robin-trait/robinPayBackCount.txt",
-  "game/robin-trait/rentIntroProtect.txt",
-  "game/robin-trait/journalUpdate.txt",
-  "game/robin-trait/npcincrUpdate.txt",
-  "game/robin-trait/robinHugBreak.txt",
-  "game/robin-trait/robinHugCry.txt",
-  "game/robin-trait/homeEvents.txt",
-  "game/robin-trait/robinNote.txt",
-  "game/robin-trait/robinRomance.txt",
-  "game/robin-daily/lemonadePurchase.txt",
-  "game/robin-daily/chocolatePurchase.txt",
-  "game/robin-daily/shoppingCenter.txt",
-  "game/robin-daily/robinWalk.txt",
-  "game/robin-daily/wardrobe.txt",
-  "game/robin-daily/caughtCD.txt",
-  "game/robin-daily/roomEntrance.txt",
-  "game/robin-daily/oceanBreeze.txt",
-  "game/robin-daily/journal.txt",
-  "game/robin-daily/robinRoomBedIntro.txt",
-  "game/robin-daily/robinSpeech.txt",
-  "game/robin-daily/combatperson.txt",
-  "game/robin-fight/orphanage.txt",
-  "game/robin-fight/manCombat.txt",
-  "game/robin-fight/defeatnpc.txt",
-  "game/robin-terraia/journal.txt",
-  "game/orphanage-poster/optionsOverlay.txt",
-  "game/orphanage-poster/variablesVersionUpdate.txt",
-  "game/orphanage-poster/gameStartOnly.txt",
-  "game/orphanage-poster/homeeventhopehi.txt",
-  "game/orphanage-poster/homeeventrebhi.txt",
-  "game/robin-maplebirch_leaf/robinweeklyincome.txt",
-  "game/balloon-stand/balloonWidgetsReplace.txt",
-  "game/balloon-stand/OceanBreezeReplace.txt",
-  "game/balloon-stand/beachReplace.txt"
- ],
- "addonPlugin": [
-  {
-   "modName": "TweeReplacer",
-   "addonName": "TweeReplacerAddon",
-   "modVersion": "1.0.0",
-   "params": [
-    {
-     "passage": "Robin's Lemonade",
-     "findString": "<<print $robin.timer.hurt",
-     "replaceFile": "game/robin-work/lemonade/lemonadeUpgradeResult.txt"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findString": "<<lrtrauma>>\n\t\t<br>",
-     "replaceFile": "game/robin-work/lemonade/lemonadeUpgrade.txt"
-    },
-    {
-     "passage": "Danube Tutor",
-     "findString": "<</if>>\n<br>",
-     "replaceFile": "game/robin-work/danube-tutor/danubeTutorIntro.txt"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findRegex": "\\s*<<robinbully>>",
-     "replaceFile": "game/robin-work/RobinWorkTalk.txt"
-    },
-    {
-     "passage": "Oxford Street",
-     "findString": "\t\t<<if $robindebtevent gte 1>>",
-     "replaceFile": "game/robin-work/danube-tutor/danubeTutorWalkHome.txt"
-    },
-    {
-     "passage": "Robin Walk Home",
-     "findString": "<<endevent>>",
-     "replaceFile": "game/robin-work/danube-tutor/danubeTutorAfterWalkHome.txt"
-    },
-    {
-     "passage": "Robin Walk Home Topless",
-     "findString": "\t<<link [[继续|Orphanage]]>><<endevent>><</link>>",
-     "replaceFile": "game/robin-work/danube-tutor/danubeTutorAfterWalkHomeTopless1.txt",
-     "all": true
-    },
-    {
-     "passage": "Robin Walk Home Topless",
-     "findString": "\t<<endevent>>\n\t<<link [[继续|Orphanage]]>><</link>>",
-     "replaceFile": "game/robin-work/danube-tutor/danubeTutorAfterWalkHomeTopless2.txt",
-     "all": true
-    },
-    {
-     "passage": "Robin Walk Home Refuse",
-     "findString": "<<endevent>>",
-     "replaceFile": "game/robin-work/danube-tutor/danubeTutorAfterWalkHome.txt"
-    },
-    {
-     "passage": "Robin Walk Home Towel",
-     "findString": "<<endevent>>",
-     "replaceFile": "game/robin-work/danube-tutor/danubeTutorAfterWalkHome.txt"
-    },
-    {
-     "passage": "Robin's Room Entrance",
-     "findString": "<<elseif _robin_location is \"school\">>",
-     "replaceFile": "game/robin-work/locationReplace.txt"
-    },
-    {
-     "passage": "Robin's Room Entrance",
-     "findString": "<<if $robindebt gte $robindebtlimit and $robindebtintro isnot 1 and $robinpaid isnot 1>>",
-     "replace": "<<if $robinInDebt and $robindebtintro isnot 1 and $robinpaid isnot 1>>"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findString": "\t\t<<elseif $robinconsole is 1 and $robinpaid isnot 1 and $robindebt gte ($robindebtlimit - 1) and $robinconsolelost isnot 1>>",
-     "replace": "\t\t<<elseif $robinconsole is 1 and $robinpaid isnot 1 and $robinSoldConsole and $robinconsolelost isnot 1>>"
-    },
-    {
-     "passage": "Robin's Lemonade Help",
-     "findString": "<<effects>>",
-     "replaceFile": "game/robin-work/lemonade/lemonadeUpgradeResultWeather2.txt"
-    },
-    {
-     "passage": "Robin's Lemonade Purchase",
-     "findString": "<<effects>>",
-     "replaceFile": "game/robin-work/lemonade/lemonadeUpgradeResultWeather2.txt"
-    },
-    {
-     "passage": "Robin's Lemonade",
-     "findString": "<<effects>>",
-     "replaceFile": "game/robin-work/lemonade/lemonadeUpgradeResultWeather.txt"
-    },
-    {
-     "passage": "Robin's Lemonade",
-     "findString": "<<lemonade_stand_options>>",
-     "replaceFile": "game/robin-work/lemonade/lemonadeUpgradeDevice.txt"
-    },
-    {
-     "passage": "Robin Money",
-     "findString": "\t<</if>>\n<<else>>",
-     "replaceFile": "game/origin-replace/robinMoneyReplace.txt"
-    },
-    {
-     "passage": "Robin Hug Cry",
-     "findString": "<<set $robincrycount to 0>>",
-     "replace": "<<set $robincrycount to 1>>"
-    },
-    {
-     "passage": "Robin Hug Cry",
-     "findString": "<<if _robinlove gte 80 and $robincrycount gte 5>>",
-     "replace": "<<if _robinlove gte 80 and $robincrycount gte 2>>"
-    },
-    {
-     "passage": "Robin Cinema Popcorn",
-     "findString": "\t<<if $money gte 1000>>",
-     "replaceFile": "game/robin-work/lemonade/goods-list/PopcornIntro.txt"
-    },
-    {
-     "passage": "Robin Cinema Popcorn",
-     "findString": "<<set $robinmoney -= 10>><<set $popcorn += 1>>\n\t\t\t<br><br>",
-     "replaceFile": "game/robin-work/lemonade/goods-list/PopcornIntroRobinPay.txt"
-    },
-    {
-     "passage": "Orphanage Loft",
-     "findString": "<br>\n<<if $loft_spray isnot 1 and $spray lt $spraymax and $loft_kylar>>",
-     "replaceFile": "game/robin-work/lemonade/goods-list/snackIntro.txt"
-    },
-    {
-     "passage": "Robin Chocolate Widgets",
-     "findString": "<<lrtrauma>>\n\t\t<br>",
-     "replaceFile": "game/robin-work/chocolate/chocolateUpgrade.txt"
-    },
-    {
-     "passage": "Robin Chocolate",
-     "findString": "<<robinChocolateOfferHelp>>",
-     "replaceFile": "game/robin-work/chocolate/chocolateUpgradeDevice.txt"
-    },
-    {
-     "passage": "Robin Chocolate Help",
-     "findString": "<<effects>>",
-     "replaceFile": "game/robin-work/chocolate/chocolateUpgradeResultWeather2.txt"
-    },
-    {
-     "passage": "Robin Chocolate Purchase",
-     "findString": "<<effects>>",
-     "replaceFile": "game/robin-work/chocolate/chocolateUpgradeResultWeather2.txt"
-    },
-    {
-     "passage": "Robin Chocolate",
-     "findString": "<<effects>>",
-     "replaceFile": "game/robin-work/chocolate/chocolateUpgradeResultWeather.txt"
-    },
-    {
-     "passage": "Robin Chocolate",
-     "findString": "<<print $robin.timer.hurt",
-     "replaceFile": "game/robin-work/chocolate/chocolateUpgradeResult.txt"
-    },
-    {
-     "passage": "Traits",
-     "findString": "$robinpaid gte 1",
-     "replace": "$robinpaid gte 1 and !$robinPaySelfTalked and !$robinPayBothTalked"
-    },
-    {
-     "passage": "Traits",
-     "findString": "\t\t\t\t{\n\t\t\t\t\tname: \"罗宾的守护者\",",
-     "replaceFile": "game/robin-trait/robinTrait.txt"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findString": "\t<<elseif _robin.trauma gte 40>>",
-     "replaceFile": "game/robin-trait/robinRoomEntranceTalk.txt"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findString": "<<money `($robinmoney * 100)` \"robin\">>",
-     "replaceFile": "game/robin-trait/robinPayBackCount.txt"
-    },
-    {
-     "passage": "Garden Robin Help",
-     "findString": "<</if>>\n<br><br>",
-     "replaceFile": "game/robin-work/lemonade/goods-list/flowerIntro.txt"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findString": "<<if $money gte 100>>",
-     "replace": "<<if $money gte 100 and !$weeklyHoneyCombGiven>>"
-    },
-    {
-     "passage": "Beach",
-     "findRegex": "\\s*<<if \\$scienceproject is \"ongoing\" and .*>>",
-     "replaceFile": "game/robin-work/lemonade/goods-list/balloonIntro.txt"
-    },
-    {
-     "passage": "Balloon Consume",
-     "findString": "\t<<link [[提议让摊主和罗宾合作|Balloon Partner]]>><<set $phase to \"help\">><<handheldon>><</link>><br>",
-     "replaceFile": "game/robin-work/lemonade/goods-list/sellBalloonResult.txt"
-    },
-    {
-     "passage": "Balloon Widgets",
-     "findString": "\t\t\t<<socialiseicon>><<link [[说服摊主和罗宾合作|Balloon Convince]]>><<set $phase to \"persuade\">><</link>><<englishdifficulty 1 1000>>",
-     "replaceFile": "game/robin-work/lemonade/goods-list/sellBalloonResult2.txt"
-    },
-    {
-     "passage": "Bailey's Office",
-     "findString": "<<if $robinpaid isnot 1 and $robindebtknown is 1>>",
-     "replace": "<<if !$robinPaySelfTalked and $robinpaid isnot 1 and $robindebtknown is 1>>"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findString": "<<if $robinpaid isnot 1>>",
-     "replace": "<<if !$robinPaySelfTalked and $robinpaid isnot 1>>"
-    },
-    {
-     "passage": "Robin Watch",
-     "findString": "<<if $rng gte 81>>",
-     "replaceFile": "game/robin-work/live-stream/robinWatch.txt"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findString": "\t<<elseif Time.hour gte 21 or Time.hour lte 5>>",
-     "replaceFile": "game/robin-work/live-stream/robinOptions.txt"
-    },
-    {
-     "passage": "Robin Forest",
-     "findRegex": "<<elseif Weather.isOvercast.*",
-     "replaceFile": "game/robin-work/photography/photographyIntro.txt",
-     "comment": "解决和泰拉瑞亚新版的冲突"
-    },
-    {
-     "passage": "Rent Intro",
-     "findString": "<<effects>>",
-     "replaceFile": "game/robin-trait/rentIntroProtect.txt"
-    },
-    {
-     "passage": "Rent Intro",
-     "findString": "\t<br>\n<</if>>",
-     "replace": "\t<br>\n<</if>>\n<</if>>"
-    },
-    {
-     "passage": "Widgets Journal",
-     "findString": "<<if $renttime lte 0>>",
-     "replaceFile": "game/robin-trait/journalUpdate.txt"
-    },
-    {
-     "passage": "Widgets Named Npcs",
-     "findString": "<<set $NPCName[_i].dom += _val>>",
-     "replaceFile": "game/robin-trait/npcincrUpdate.txt"
-    },
-    {
-     "passage": "Robin Hug Cry",
-     "findString": "<<if _robinlove gte 80 and $robincrycount gte 2>>",
-     "replaceFile": "game/robin-trait/robinHugCry.txt"
-    },
-    {
-     "passage": "Robin Hug Cry",
-     "findString": "<<robinhug>>",
-     "replace": "<<robinhug>>\n<</if>>"
-    },
-    {
-     "passage": "Robin Hug Break",
-     "findString": "<<if C.npc.Robin.love gte 80 and $robinhugbreak gte 1>>",
-     "replaceFile": "game/robin-trait/robinHugBreak.txt"
-    },
-    {
-     "passage": "Widgets Home Events",
-     "findRegex": "<<elseif \\$rng gte 71>>\n\\s*<<rng 7>>\n\\s+<<if \\$rng gte 7>>",
-     "replaceFile": "game/robin-trait/homeEvents.txt",
-     "comment": "修改孤儿反馈方式"
-    },
-    {
-     "passage": "Bedroom",
-     "findRegex": "<<if \\$robinpaid is 1 and.*>>",
-     "replaceFile": "game/robin-trait/robinNote.txt"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findRegex": "\\s+<<loveicon \"kiss\">>.*<</link>>",
-     "replaceFile": "game/robin-trait/robinRomance.txt"
-    },
-    {
-     "passage": "Robin's Lemonade Purchase",
-     "findRegex": "\"<<print either\\(.*\n.*\n.*\n.*\\)>>\"",
-     "replaceFile": "game/robin-daily/lemonadePurchase.txt"
-    },
-    {
-     "passage": "Robin's Lemonade Purchase Other",
-     "findRegex": "\"<<print either\\(.*\n.*\n.*\n.*\\)>>\"",
-     "replaceFile": "game/robin-daily/lemonadePurchase.txt"
-    },
-    {
-     "passage": "Robin's Lemonade Purchase Honey",
-     "findRegex": "\"<<print either\\(.*\n.*\n.*\n.*\\)>>\"",
-     "replaceFile": "game/robin-daily/lemonadePurchase.txt"
-    },
-    {
-     "passage": "Robin Chocolate Purchase",
-     "findRegex": "\"<<print either\\(.*\n.*\n.*\n.*\\)>>”",
-     "replaceFile": "game/robin-daily/chocolatePurchase.txt"
-    },
-    {
-     "passage": "Robin Chocolate Purchase Other",
-     "findRegex": "\"<<print either\\(.*\n.*\n.*\n.*\\)>>\"",
-     "replaceFile": "game/robin-daily/chocolatePurchase.txt"
-    },
-    {
-     "passage": "Shopping Centre",
-     "findRegex": "\\s*<</if>>\n\\s*<<hairdressericon>>",
-     "replaceFile": "game/robin-daily/shoppingCenter.txt"
-    },
-    {
-     "passage": "Robin Walk",
-     "findString": "<<if $halloween_robin is 1",
-     "replaceFile": "game/robin-daily/robinWalk.txt"
-    },
-    {
-     "passage": "Widgets Wardrobe",
-     "findRegex": "\\s*<<case \"Sydney Beach Changing Room\">>",
-     "replaceFile": "game/robin-daily/wardrobe.txt"
-    },
-    {
-     "passage": "Robin Caught CD",
-     "findRegex": "\\s*<<elseif _robin.cdstart is \"halloween\">>",
-     "replaceFile": "game/robin-daily/caughtCD.txt"
-    },
-    {
-     "passage": "Robin's Room Entrance",
-     "findString": "\t\t<<link [[关门|Robin Mischief Close]]>><</link>>\n\t<<else>>\n\t\t<br><br>",
-     "replaceFile": "game/robin-daily/roomEntrance.txt"
-    },
-    {
-     "passage": "Orphanage",
-     "findString": "<<elseif $renttime lte 0>>",
-     "replaceFile": "game/robin-fight/orphanage.txt"
-    },
-    {
-     "passage": "Widgets NPCs",
-     "findRegex": "\\s*<<man-combat _mancombatcontrol>>",
-     "replaceFile": "game/robin-fight/manCombat.txt"
-    },
-    {
-     "passage": "Widgets NPC Damage",
-     "findString": "<<lltrauma>><<trauma -18>>",
-     "replaceFile": "game/robin-fight/defeatnpc.txt"
-    },
-    {
-     "passage": "Widgets NPC Damage",
-     "findString": "<<if $NPCList[_args[0]].health lte 0>>",
-     "replace": "<<if $NPCList[_args[0]].health lte 0 and $passage isnot \"Robin Fight Together\">>"
-    },
-    {
-     "passage": "Widgets NPC Damage",
-     "findString": "<<if $enemyno gte 2>>",
-     "replace": "<<if $enemyno gte 2 and $passage isnot \"Robin Fight Together\">>"
-    },
-    {
-     "passage": "Widgets Effects Hands",
-     "findString": "<<if $enemyno gte 2>>",
-     "replace": "<<if $enemyno gte 2 and $passage isnot \"Robin Fight Together\">>"
-    },
-    {
-     "passage": "Bed Robin Sex Finish",
-     "findRegex": "<<His>>.*\\n\\s*<br><br>",
-     "replaceFile": "game/origin-replace/bedFinish.txt"
-    },
-    {
-     "passage": "Canteen",
-     "findRegex": ".*Canteen Robin Whitney.*",
-     "replaceFile": "game/origin-replace/canteenWhitney.txt"
-    },
-    {
-     "passage": "Widgets School Events",
-     "findRegex": "\\s*<<if C.npc.Robin.trauma lte 30>>",
-     "replaceFile": "game/origin-replace/schoolWhitney.txt"
-    },
-    {
-     "passage": "Widgets School Events",
-     "findRegex": ".*Bully Pantsing Robin.*\n.*\n.*",
-     "replaceFile": "game/origin-replace/schoolWhitney2.txt"
-    },
-    {
-     "passage": "Robin Cinema Romance",
-     "findRegex": "<<else>>(.|\n)*?<br><br>",
-     "replaceFile": "game/robin-work/live-stream/cinemaChange1.txt"
-    },
-    {
-     "passage": "Robin Cinema Romance",
-     "findRegex": "<<set \\$dateCount.Robin\\++>>(.|\n)*?<br><br>",
-     "replaceFile": "game/robin-work/live-stream/cinemaChange2.txt"
-    },
-    {
-     "passage": "Robin Cinema Superhero",
-     "findRegex": "<<wearProp \"popcorn\">><</if>>(.|\n)*?<br><br>",
-     "replaceFile": "game/robin-work/live-stream/cinemaChange3.txt"
-    },
-    {
-     "passage": "Robin Cinema Horror",
-     "findRegex": "<<wearProp \"popcorn\">><</if>>(.|\n)*?<<He>>",
-     "replaceFile": "game/robin-work/live-stream/cinemaChange4.txt"
-    },
-    {
-     "passage": "Ocean Breeze",
-     "findString": "<<if $money gte 300>>",
-     "replaceFile": "game/robin-daily/oceanBreeze.txt"
-    },
-    {
-     "passage": "Widgets Journal",
-     "findRegex": "<<if \\$popcorn .*>>",
-     "replaceFile": "game/robin-daily/journal.txt",
-     "comments": "为了兼容5.0和5.1的日志，出此下策"
-    },
-    {
-     "passage": "Robin Room Bed Intro",
-     "findString": "<<listsleepoutfits \"Robin Bed\">>",
-     "replaceFile": "game/robin-daily/robinRoomBedIntro.txt"
-    },
-    {
-     "passage": "Widgets Speech",
-     "findString": "<<if $robinmist>>",
-     "replaceFile": "game/robin-daily/robinSpeech.txt"
-    },
-    {
-     "passage": "Widgets Journal",
-     "findRegex": "<<if .*\\$plants_known.length.*",
-     "replaceFile": "game/robin-terraia/journal.txt",
-     "comments": "为了兼容5.0和5.1的日志，出此下策"
-    },
-    {
-     "passage": "Robin Study Concentrate",
-     "findString": "<<if $robinfirstrentfight is 1>>",
-     "replace": "<<if $robinfirstrentfight is 1 or $robinFightTalked>>",
-     "all": true
-    },
-    {
-     "passage": "Beach",
-     "findString": "<<balloonRobinIntro>>",
-     "replaceFile": "game/origin-replace/balloonRobinIntro.txt"
-    },
-    {
-     "passage": "Balloon Decline",
-     "findString": "<<balloonRobinIntro>>",
-     "replaceFile": "game/origin-replace/balloonRobinIntro.txt"
-    },
-    {
-     "passage": "Park",
-     "findString": "<<balloonRobinIntro>>",
-     "replaceFile": "game/origin-replace/balloonRobinIntro.txt"
-    },
-    {
-     "passage": "Robin Forest Crash Taken",
-     "findRegex": "<<if C.npc.Robin.dom gte 60>>(.|\n)*?<</link>>",
-     "replaceFile": "game/origin-replace/robinForestEden.txt",
-     "comment": "修改伊甸修罗场"
-    },
-    {
-     "passage": "Options Overlay",
-     "findRegex": "\\s*<<if \\$passage isnot \"Start\">>",
-     "replaceFile": "game/orphanage-poster/optionsOverlay.txt",
-     "comments": "在选项-通用里添加是否隐藏蓝爱心"
-    },
-    {
-     "passage": "Widgets variablesVersionUpdate",
-     "findString": "<!-- 5.0.3 -->",
-     "replaceFile": "game/orphanage-poster/variablesVersionUpdate.txt",
-     "comments": "玩家导入存档时添加默认的海报设置"
-    },
-    {
-     "passage": "gameStartOnly",
-     "findString": "<<set $passageChangesCount to 0>>",
-     "replaceFile": "game/orphanage-poster/gameStartOnly.txt",
-     "comments": "在开始游戏时添加默认的海报设置"
-    },
-    {
-     "passage": "Widgets Home Events",
-     "findString": "<<switch random(1, 6)>>",
-     "replace": "<<rng 6>><<switch $rng>>",
-     "comments": "修改高希望海报的进入方式（原因：方便使用修改rng的方式调测)"
-    },
-    {
-     "passage": "Widgets Home Events",
-     "findRegex": "\\s*<<case 5>>\n.*<<rng>>(.|\n)*?<</link>>",
-     "replaceFile": "game/orphanage-poster/homeeventhopehi.txt",
-     "comments": "修改高希望海报的具体内容"
-    },
-    {
-     "passage": "Widgets Home Events",
-     "findString": "<<switch random(1, 10)>>",
-     "replace": "<<rng 9>><<switch $rng>>",
-     "comments": "修改高叛逆海报的进入方式（原因：方便使用修改rng的方式调测)"
-    },
-    {
-     "passage": "Widgets Home Events",
-     "findRegex": "\\s*<<case 7>>\n\\s*<<generatey1>>(.|\n)*?<</link>>",
-     "replaceFile": "game/orphanage-poster/homeeventrebhi.txt",
-     "comments": "修改高叛逆海报的具体内容"
-    },
-    {
-     "passage": "Options Overlay",
-     "findString": "<<widget \"optionsgeneral\">>",
-     "replace": "<<widget \"optionsgeneral\">><<setupOptions>>",
-     "comments": "修改设置后重新渲染页面（疑似为原版bug)"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findString": "<<handheldon 1>><</link>><<glove>><<ltrauma>><<lstress>>",
-     "replace": "<<handheldon 1>><<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<glove>><<ltrauma>><<lstress>><<if $exposed gte 1>><<glust>><</if>>",
-     "comments": "看罗宾玩游戏，加欲望（为了和一起玩区分，调整剧情）"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findString": "<<handheldon 1>><</link>><<glove>><<lrtrauma>><<ldom>><<gstress>>",
-     "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><<handheldon 1>><</link>><<glove>><<lrtrauma>><<ldom>><<gstress>><<if $exposed gte 1>><<glust>><</if>>",
-     "comments": "交谈，加欲望"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findString": "<<handheldon 1>><</link>><<glove>><<ltrauma>>",
-     "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><<handheldon 1>><</link>><<glove>><<ltrauma>><<if $exposed gte 1>><<glust>><</if>>",
-     "comments": "一起玩游戏，加欲望"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findString": "<<handheldon 1>><</link>><<ltrauma>><<lstress>><<glove>>",
-     "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><<handheldon 1>><</link>><<ltrauma>><<lstress>><<glove>><<if $exposed gte 1>><<glust>><</if>>",
-     "comments": "拥抱，加欲望"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findString": "<</link>><<cat>><<gdom>><<glove>><<ltrauma>><<lstress>>",
-     "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<cat>><<gdom>><<glove>><<ltrauma>><<lstress>><<if $exposed gte 1>><<glust>><</if>>",
-     "comments": "猫化，加欲望"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findString": "<</link>><<cow>><<gdom>><<glove>><<ltrauma>><<lstress>>",
-     "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<cow>><<gdom>><<glove>><<ltrauma>><<lstress>><<if $exposed gte 1>><<glust>><</if>>",
-     "comments": "牛化，加欲望"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findString": "<</link>><<harpy>><<gdom>><<glove>><<ltrauma>><<lstress>>",
-     "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<harpy>><<ldom>><<glove>><<ltrauma>><<lstress>><<if $exposed gte 1>><<glust>><</if>>",
-     "comments": "哈比1，加欲望"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findString": "<</link>><<harpy>><<ldom>><<glove>><<ltrauma>><<lstress>>",
-     "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<harpy>><<ldom>><<glove>><<ltrauma>><<lstress>><<if $exposed gte 1>><<glust>><</if>>",
-     "comments": "哈比2，加欲望"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findString": "<</link>><<wolfgirl>><<gdom>><<glove>><<ltrauma>><<lstress>>",
-     "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<wolfgirl>><<gdom>><<glove>><<ltrauma>><<lstress>><<if $exposed gte 1>><<glust>><</if>>",
-     "comments": "狼化，加欲望"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findString": "<</link>><<fox>><<gdom>><<glove>><<ltrauma>><<lstress>>",
-     "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<fox>><<gdom>><<glove>><<ltrauma>><<lstress>><<if $exposed gte 1>><<glust>><</if>>",
-     "comments": "狐化，加欲望"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findString": "<</link>><<promiscuous1>><<glove>>",
-     "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<promiscuous1>><<glove>><<if $exposed gte 1>><<glust>><</if>>",
-     "comments": "调情，加欲望"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findString": "<</link>><<lstress>><<glove>>",
-     "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<lstress>><<glove>><<if $exposed gte 1>><<glust>><</if>>",
-     "comments": "提供奶昔"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findString": "<</link>><<lstress>><<gglove>>",
-     "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<lstress>><<gglove>><<if $exposed gte 1>><<glust>><</if>>",
-     "comments": "分享奶昔"
-    },
-    {
-     "passage": "Clothing Shop v2 Widgets",
-     "findString": "<<unset $clothes_choice>><<updateclotheslist>>",
-     "replace": "<<unset $clothes_choice>><<if _shopLocation is \"lemonade\">><<updateclotheslist \"lemonade\" \"all\">><<else>><<updateclotheslist>><</if>>",
-     "comments": "点击返回时应当查看所有商品"
-    },
-    {
-     "passage": "Garden Robin Crown",
-     "findString": "<<link [[继续|Garden Flowers]]>><<endevent>><</link>>",
-     "replaceFile": "game/robin-work/lemonade/goods-list/robinCrown.txt",
-     "comments": "还是加个提示吧"
-    },
-    {
-     "passage": "Robin Cinema Popcorn",
-     "findRegex": "<<switch \\$phase>>(.|\n)*?<<if \\$popcorn is 1>>",
-     "replaceFile": "game/robin-work/lemonade/goods-list/cinemaPopcorn.txt",
-     "comments": "罗宾自制爆米花"
-    },
-    {
-     "passage": "Robin's Room Entrance",
-     "findRegex": "<<main_hall_icon>>.*<</link>>",
-     "replace": "<<robin-room-note>><<main_hall_icon>><<link [[大厅 (0:01)|Orphanage]]>><<pass 1>><</link>>",
-     "all": true,
-     "comments": "为罗宾房间门口的便条添加图片"
-    },
-    {
-     "passage": "StoryCaption",
-     "findString": "<<if $options.sidebarStats isnot \"disabled\">>",
-     "replaceFile": "game/origin-replace/StoryCaption.txt",
-     "comments": "添加模组介绍"
-    },
-    {
-     "passage": "overlayReplace",
-     "findString": "<<switch _key>>",
-     "replaceFile": "game/origin-replace/overlayReplace.txt",
-     "comments": "添加模组介绍"
-    },
-    {
-     "passage": "Bed Robin Sex Finish",
-     "findString": "<<His>>闭上了眼睛，平稳地进入了梦乡。",
-     "replaceFile": "game/origin-replace/bedRobinSexFinish.txt",
-     "all": true,
-     "comments": "破一次例，直接查找中文文本"
-    },
-    {
-     "passage": "Bed Robin Sex Finish",
-     "findString": "<<clotheson>>",
-     "replaceFile": "game/origin-replace/bedRobinSexFinish2.txt"
-    },
-    {
-     "passage": "Bed Robin Sex Finish",
-     "findString": "<<link [[继续|Bed]]>><<clotheson>><</link>>",
-     "replaceFile": "game/origin-replace/bedRobinSexFinishAsk.txt"
-    },
-    {
-     "passage": "Robin Room Bed Sex Finish",
-     "findString": "<<His>>闭上了眼睛，平稳地进入了梦乡。",
-     "replaceFile": "game/origin-replace/bedRobinSexFinish.txt",
-     "all": true,
-     "comments": "破一次例，直接查找中文文本"
-    },
-    {
-     "passage": "Robin Room Bed Sex Finish",
-     "findString": "<<link [[继续|Robin Bed]]>><<endevent>><</link>>",
-     "replaceFile": "game/origin-replace/bedRobinSexFinishAsk.txt"
-    },
-    {
-     "passage": "Robin Room Bed Sex Finish",
-     "findString": "<<clotheson>>",
-     "replaceFile": "game/origin-replace/bedRobinSexFinish2.txt"
-    },
-    {
-     "passage": "Robin Mischief Sex Finish",
-     "findString": "<<His>>闭上了眼睛，平稳地进入了梦乡。",
-     "replaceFile": "game/origin-replace/bedRobinSexFinish.txt",
-     "comments": "破一次例，直接查找中文文本"
-    },
-    {
-     "passage": "Robin Mischief Sex Finish",
-     "findString": "<<clotheson>>",
-     "replaceFile": "game/origin-replace/bedRobinSexFinish2.txt"
-    },
-    {
-     "passage": "Robin Mischief Sex Finish",
-     "findString": "<<link [[继续|Orphanage]]>><</link>>",
-     "replaceFile": "game/origin-replace/bedRobinSexFinishAsk.txt"
-    },
-    {
-     "passage": "Robin Cinema Popcorn",
-     "findString": "<<if $balloonStand.robin.status is \"helped\">>",
-     "replaceFile": "game/origin-replace/cinemaPopcorn.txt"
-    },
-    {
-     "passage": "Orphanage",
-     "findString": "<<set _robinAtOrphanage to [\"orphanage\",\"bath\",\"sleep\"].includes(_robin_location)>>",
-     "replace": "<<set _robinAtOrphanage to [\"orphanage\",\"bath\",\"sleep\",\"liveStream\"].includes(_robin_location)>>"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findString": "<<set _robin to statusCheck(\"Robin\")>>",
-     "replaceFile": "game/origin-replace/photographyClothesCheck.txt"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findString": "<<if Time.schoolDay and (Time.hour is 8 or Time.hour is 7)>>",
-     "replaceFile": "game/origin-replace/photographyClothesCheck2.txt"
-    },
-    {
-     "passage": "Robin's Room Entrance",
-     "findString": "|Orphanage]]>><<endevent>><</link>>",
-     "all": true,
-     "replace": "|Robin Room Leave]]>><<set $phase to \"studyRefuse\">><</link>>",
-     "comments": "只可能是写作业，其他情况没<<endevent>>"
-    },
-    {
-     "passage": "Robin Room Wake",
-     "findRegex": "<<main_hall_icon>>.*</link>>",
-     "replaceFile": "game/origin-replace/robinRoomWake.txt",
-     "all": true,
-     "comments": "findRegex+all已经没问题了"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findString": "<<if _anyItemsInRoom>>",
-     "replace": "<<if $exposed gte 1 and (_anyItemsInRoom or $anyPhotograhyItemsInRoom)>>",
-     "comments": "搭摊子，我放弃治疗了，不要吐槽"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findString": "<<if $exposed lte 0 or _anyItemsInRoom>>",
-     "replace": "<<if $exposed lte 0 or _anyItemsInRoom or $anyPhotograhyItemsInRoom>>",
-     "comments": "搭摊子，我放弃治疗了，不要吐槽"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findString": "<<if $exposed gte 1 and _anyItemsInRoom>><<storeon \"Robin's Room\">><</if>>",
-     "all": true,
-     "replace": "<<if $exposed gte 1 and _anyItemsInRoom>><<storeon \"Robin's Room\">><<elseif $exposed gte 1 and $anyPhotograhyItemsInRoom>><<storeon \"Robin's Room Photography\">><</if>>",
-     "comments": "搭摊子，我放弃治疗了，不要吐槽"
-    },
-    {
-     "passage": "Robin Mischief",
-     "findString": "<<arousal 600>><<garousal>>",
-     "replaceFile": "game/origin-replace/robinMischief.txt"
-    },
-    {
-     "passage": "Widgets Actions Generation",
-     "findString": "<<if $NPCList[0].type isnot \"human\" and $NPCList[0].type isnot \"plant\">>",
-     "replace": "<<if $NPCList[0].type isnot \"human\" and $NPCList[0].type isnot \"plant\" and $fightCondition isnot \"moorStars\">>",
-     "comments": "这星星看的，太不容易了"
-    },
-    {
-     "passage": "Widgets Text",
-     "findRegex": "<<widget \"combatperson\">><<silently>>\n*\\s*<<if \\$npc_named is 1>>",
-     "replaceFile": "game/robin-daily/combatperson.txt",
-     "comments": "观星不易第二弹"
-    },
-    {
-     "passage": "Widgets Combat Beast",
-     "findString": "<<set _n to $active_enemy>>",
-     "replace": "<<set _n to $active_enemy>><<if $fightCondition is \"moorStars\">><<set _n to _args[0]>><</if>>",
-     "comments": "观星不易第三弹"
-    },
-    {
-     "passage": "Widgets",
-     "findString": "<<homeStudyOptions>>",
-     "replace": "<<homeStudyOptions>><<photographyImageOptions>>"
-    },
-    {
-     "passage": "Widgets",
-     "findString": "<<set _projectOptions to [$scienceproject, $mathsproject].includes(\"ongoing\")>>",
-     "replace": "<<set _projectOptions to [$scienceproject, $mathsproject].includes(\"ongoing\")>><<if $photographyImageList isnot undefined and $photographyImageList.length>><<set _projectOptions to true>><</if>>",
-     "comment": "为兼容模拟人生0.77以及之前的版本，换个地方改"
-    },
-    {
-     "passage": "Danube Street",
-     "findString": "<<streeteffects>>",
-     "replaceFile": "game/robin-work/danube-tutor/danubeTutorMeetRobin.txt"
-    },
-    {
-     "passage": "Danube Street",
-     "findRegex": "<<elseif \\$exposed lte 0>>(.|\n)*?<</if>>",
-     "replaceFile": "game/robin-work/danube-tutor/danubeTutorMeetRobin2.txt"
-    },
-    {
-     "passage": "Widgets Robin",
-     "findString": "\t<</if>>\n\t<<if $robinmoney gt 0 and !$robinromance>>",
-     "replaceFile": "game/robin-maplebirch_leaf/robinweeklyincome.txt",
-     "_comment": "罗宾周收入询问"
-    },
-    {
-     "passage": "Beach",
-     "findString": "<<set $eventskip to 0>>",
-     "replace": "<<set $eventskip to 0>><<run meet_warning_condition()>>",
-     "_comment": "就暂定为进入海滩时提示吧"
-    },
-    {
-     "passage": "Beach",
-     "findString": "<<elseif Time.season is \"summer\"",
-     "replace": "<<elseif $balloonStandOverride or Time.season is \"summer\"",
-     "_comment": "生效原因：&&优先级高于||"
-    },
-    {
-     "passage": "Beach",
-     "findString": "<<set $balloonStand.open to true>>",
-     "replace": "<<set $balloonStand.open to true>><<set $balloonStandOverride to false>>",
-     "_comment": "低级错误"
-    },
-    {
-     "passage": "Balloon Consume",
-     "findRegex": ".*<<set \\$phase to \"sabotage\">>.*",
-     "replace": "<span class=\"blue\">由于您安装了dom罗宾模组，选项【提议摊主卖饮料】已禁用</span>",
-     "_comment": "直接禁选"
-    },
-    {
-     "passage": "Balloon Widgets",
-     "findString": "<<if $popcorn gte 3>>",
-     "replaceFile": "game/balloon-stand/balloonWidgetsReplace.txt",
-     "_comment": "气球摊新增选项"
-    },
-    {
-     "passage": "Ocean Breeze",
-     "findString": "<<passoutshop>>",
-     "replaceFile": "game/balloon-stand/OceanBreezeReplace.txt",
-     "_comment": "海风咖啡馆商量合作事宜"
-    },
-    {
-     "passage": "Beach",
-     "findRegex": "<<if \\$openinghours is 1 (.|\n)*?<</if>>",
-     "replaceFile": "game/balloon-stand/beachReplace.txt",
-     "_comment": "合作结果-气球摊位置变化"
-    }
-   ]
-  },
-  {
-   "modName": "ReplacePatcher",
-   "addonName": "ReplacePatcherAddon",
-   "modVersion": "1.0.0",
-   "params": {
-    "js": [
-     {
-      "from": "if (V.robinpaid !== 1 && V.robindebt >= V.robindebtlimit && V.robindebtevent <= 0) ",
-      "to": "$.wiki(\"<<weeklymoneycheck>>\");if (V.robinpaid !== 1 && V.robindebtevent <= 0 && V.robinInDebt) ",
-      "fileName": "time.js",
-      "_comment1": "每周结束时，检查当前已有的工作并调widget函数加钱, 并修改罗宾码头惩罚条件（罗宾金钱必须小于0，与robindebt和robindebtlimit无关）",
-      "_comment2": "007版本修改原因-报错fragment is not defined"
-     },
-     {
-      "from": "function dayPassed() {",
-      "to": "function dayPassed() { if (V.danubeTutorIntro && V.danubeTutorIntro == 2){ V.danubeTutorIntro = 3;}",
-      "fileName": "time.js",
-      "_comment1": "如果当前家教状态为阶段2，一天后变为阶段3"
-     },
-     {
-      "from": "else if (Time.schoolDay && between(Time.hour, 8, 15))",
-      "to": "else if (V.liveStream === 1 && Time.hour === 19){T.robin_location = \"liveStream\";} \n else if (V.danubeTutorIntro == 4 && Time.schoolDay && ((Time.hour === 15 && between(Time.minute, 6, 59)) || (Time.hour === 16 && between(Time.minute, 0, 20)))) \n { T.robin_location = \"danube\";} \n else if (Time.schoolDay && between(Time.hour, 8, 15))",
-      "fileName": "ingame.js",
-      "_comment1": "罗宾当前状态调整: 做家教成功后每天上学日3：06—4:20位置在多瑙河街; 开始直播后每天晚上七点到八点进行直播"
-     },
-     {
-      "from": "if (V.combat === 0 && V.ironmanmode === true)",
-      "to": "if (V.robinPayBothMessage) {sWikifier(`<span class=\"gold\">罗宾现在已经能够承担你的债务，当你需要帮助时，会有惊喜等着你。</span> <br>`); V.robinPayBothMessage = 0;} \n if (V.robinPaySelfMessage) {sWikifier(`<span class=\"gold\">罗宾现在已经能够承担自己的债务，去罗宾的房间时会有惊喜。</span> <br>`); delete V.robinPaySelfMessage;}\nif (V.combat === 0 && V.ironmanmode === true)",
-      "fileName": "effect.js",
-      "_comment1": "当罗宾能够承担自己的债务时，展示提示信息表示你应该去找罗宾了。当罗宾可以承担两人债务时，同样展示提示信息。"
-     },
-     {
-      "from": "if (V.robinromance === 1 && C.npc.Robin.dom >= 40)",
-      "to": "dailyRobinTraitEffects(); \n if (V.robinromance === 1 && C.npc.Robin.dom >= 40)",
-      "fileName": "time.js",
-      "_comment1": "两种新特质对应的属性变化。"
-     },
-     {
-      "from": "return statDisplay.statChange(\"罗宾的自信\", -1, \"lblue\");",
-      "to": "return statDisplay.statChange(\"罗宾的自信\", -1, \"lblue\", needLowerDom);",
-      "fileName": "text.js",
-      "_comment1": "有特质直接不显示减属性。"
-     },
-     {
-      "from": "return statDisplay.statChange(\"罗宾的自信\", -2, \"lblue\");",
-      "to": "return statDisplay.statChange(\"罗宾的自信\", -2, \"lblue\", needLowerDom);",
-      "fileName": "text.js",
-      "_comment1": "有特质直接不显示减属性。"
-     },
-     {
-      "from": "return statDisplay.statChange(\"罗宾的自信\", -3, \"lblue\");",
-      "to": "return statDisplay.statChange(\"罗宾的自信\", -3, \"lblue\", needLowerDom);",
-      "fileName": "text.js",
-      "_comment1": "有特质直接不显示减属性。"
-     },
-     {
-      "from": "if (V.robinmoney > 4000) V.robinmoney = 4000;",
-      "to": "",
-      "fileName": "time.js",
-      "_comment1": "就和罗宾过不去是吧，删了删了"
-     }
+    "name": "DomRobin",
+    "version": "0.0.8-for-dol-0.5.6",
+    "scriptFileList_inject_early": [
+        "game/javaScript/robinModInject_early.js"
+    ],
+    "styleFileList": [
+        "game/orphanage-poster/poster.css",
+        "game/origin-replace/button.css",
+        "game/robin-work/live-stream/liveStream.css",
+        "game/robin-work/photography/photography.css"
+    ],
+    "scriptFileList": [
+        "game/javaScript/robinModUtil.js",
+        "game/javaScript/robinTraitEffects.js",
+        "game/javaScript/robinModSettings.js",
+        "game/javaScript/terraiaUtil.js",
+        "game/javaScript/orphanagePoster.js",
+        "game/javaScript/liveStream.js",
+        "game/javaScript/introduction.js",
+        "game/javaScript/balloonStand.js",
+        "dist/photography_result.js",
+        "game/robin-maplebirch_leaf/DomRobin_maplebirch_leaf.js"
+    ],
+    "tweeFileList": [
+        "game/robin-work/lemonade/lemonadeUpgrade.twee",
+        "game/robin-work/lemonade/goods-list/lemonadeGoods.twee",
+        "game/robin-work/lemonade/goods-list/widgets.twee",
+        "game/robin-work/chocolate/chocolateUpgrade.twee",
+        "game/robin-work/danube-tutor/danubeTutor.twee",
+        "game/robin-work/photography/photography.twee",
+        "game/robin-work/live-stream/liveStream.twee",
+        "game/robin-work/live-stream/stream-topic/Maze.twee",
+        "game/robin-work/live-stream/stream-topic/Daily.twee",
+        "game/robin-work/widgets.twee",
+        "game/robin-trait/robinTrait.twee",
+        "game/robin-trait/widgets.twee",
+        "game/robin-daily/robinDate.twee",
+        "game/robin-daily/robinDateBeach.twee",
+        "game/robin-daily/climbBed.twee",
+        "game/robin-daily/giveWine.twee",
+        "game/robin-daily/widgets.twee",
+        "game/robin-daily/moorStars.twee",
+        "game/robin-fight/robinFight.twee",
+        "game/robin-fight/widgets.twee",
+        "game/robin-terraia/giveFish.twee",
+        "game/robin-terraia/giveFishList.twee",
+        "game/origin-replace/widgets.twee",
+        "game/origin-replace/balloonRobin.twee",
+        "game/origin-replace/bedAskMore.twee",
+        "game/origin-replace/robinRoomLeave.twee",
+        "game/origin-replace/robinForest.twee",
+        "game/origin-replace/introContentWidgets.twee",
+        "game/orphanage-poster/widgets.twee",
+        "game/robin-maplebirch_leaf/DomRobin_maplebirch_leaf.twee",
+        "game/balloon-stand/balloonStandWarning.twee",
+        "game/balloon-stand/balloonStandCoop.twee",
+        "game/balloon-stand/balloonStandComp.twee",
+        "game/balloon-stand/balloonStandCoopIntro.twee",
+        "game/balloon-stand/lemonadeStand.twee",
+        "game/balloon-stand/widgets.twee"
+    ],
+    "imgFileList": [],
+    "additionDir": [
+        "robinModImg"
+    ],
+    "additionFile": [
+        "README.md",
+        "robinModImg/imgFileListFile.json",
+        "game/feats/robinFeats.json",
+        "game/robin-work/lemonade/lemonadeUpgradeResult.txt",
+        "game/robin-work/lemonade/lemonadeUpgrade.txt",
+        "game/robin-work/lemonade/lemonadeUpgradeResultWeather.txt",
+        "game/robin-work/lemonade/lemonadeUpgradeResultWeather2.txt",
+        "game/robin-work/lemonade/lemonadeUpgradeDevice.txt",
+        "game/robin-work/lemonade/goods-list/PopcornIntro.txt",
+        "game/robin-work/lemonade/goods-list/PopcornIntroRobinPay.txt",
+        "game/robin-work/lemonade/goods-list/snackIntro.txt",
+        "game/robin-work/lemonade/goods-list/flowerIntro.txt",
+        "game/robin-work/lemonade/goods-list/balloonIntro.txt",
+        "game/robin-work/lemonade/goods-list/sellBalloonResult.txt",
+        "game/robin-work/lemonade/goods-list/sellBalloonResult2.txt",
+        "game/robin-work/lemonade/goods-list/robinCrown.txt",
+        "game/robin-work/lemonade/goods-list/cinemaPopcorn.txt",
+        "game/robin-work/chocolate/chocolateUpgrade.txt",
+        "game/robin-work/chocolate/chocolateUpgradeResult.txt",
+        "game/robin-work/chocolate/chocolateUpgradeResultWeather.txt",
+        "game/robin-work/chocolate/chocolateUpgradeResultWeather2.txt",
+        "game/robin-work/chocolate/chocolateUpgradeDevice.txt",
+        "game/robin-work/danube-tutor/danubeTutorIntro.txt",
+        "game/robin-work/danube-tutor/danubeTutorAfterWalkHome.txt",
+        "game/robin-work/danube-tutor/danubeTutorAfterWalkHomeTopless1.txt",
+        "game/robin-work/danube-tutor/danubeTutorAfterWalkHomeTopless2.txt",
+        "game/robin-work/danube-tutor/danubeTutorWalkHome.txt",
+        "game/robin-work/danube-tutor/danubeTutorMeetRobin.txt",
+        "game/robin-work/danube-tutor/danubeTutorMeetRobin2.txt",
+        "game/robin-work/live-stream/robinWatch.txt",
+        "game/robin-work/live-stream/robinOptions.txt",
+        "game/robin-work/live-stream/cinemaChange1.txt",
+        "game/robin-work/live-stream/cinemaChange2.txt",
+        "game/robin-work/live-stream/cinemaChange3.txt",
+        "game/robin-work/live-stream/cinemaChange4.txt",
+        "game/robin-work/photography/photographyIntro.txt",
+        "game/robin-work/locationReplace.txt",
+        "game/robin-work/RobinWorkTalk.txt",
+        "game/origin-replace/robinMoneyReplace.txt",
+        "game/origin-replace/bedFinish.txt",
+        "game/origin-replace/canteenWhitney.txt",
+        "game/origin-replace/schoolWhitney.txt",
+        "game/origin-replace/schoolWhitney2.txt",
+        "game/origin-replace/balloonRobinIntro.txt",
+        "game/origin-replace/robinForestEden.txt",
+        "game/origin-replace/StoryCaption.txt",
+        "game/origin-replace/overlayReplace.txt",
+        "game/origin-replace/bedRobinSexFinish.txt",
+        "game/origin-replace/bedRobinSexFinish2.txt",
+        "game/origin-replace/bedRobinSexFinishAsk.txt",
+        "game/origin-replace/cinemaPopcorn.txt",
+        "game/origin-replace/photographyClothesCheck.txt",
+        "game/origin-replace/photographyClothesCheck2.txt",
+        "game/origin-replace/robinRoomWake.txt",
+        "game/origin-replace/robinMischief.txt",
+        "game/robin-trait/robinTrait.txt",
+        "game/robin-trait/robinRoomEntranceTalk.txt",
+        "game/robin-trait/robinPayBackCount.txt",
+        "game/robin-trait/rentIntroProtect.txt",
+        "game/robin-trait/journalUpdate.txt",
+        "game/robin-trait/npcincrUpdate.txt",
+        "game/robin-trait/robinHugBreak.txt",
+        "game/robin-trait/robinHugCry.txt",
+        "game/robin-trait/homeEvents.txt",
+        "game/robin-trait/robinNote.txt",
+        "game/robin-trait/robinRomance.txt",
+        "game/robin-daily/lemonadePurchase.txt",
+        "game/robin-daily/chocolatePurchase.txt",
+        "game/robin-daily/shoppingCenter.txt",
+        "game/robin-daily/robinWalk.txt",
+        "game/robin-daily/wardrobe.txt",
+        "game/robin-daily/caughtCD.txt",
+        "game/robin-daily/roomEntrance.txt",
+        "game/robin-daily/oceanBreeze.txt",
+        "game/robin-daily/journal.txt",
+        "game/robin-daily/robinRoomBedIntro.txt",
+        "game/robin-daily/robinSpeech.txt",
+        "game/robin-daily/combatperson.txt",
+        "game/robin-fight/orphanage.txt",
+        "game/robin-fight/manCombat.txt",
+        "game/robin-fight/defeatnpc.txt",
+        "game/robin-terraia/journal.txt",
+        "game/orphanage-poster/optionsOverlay.txt",
+        "game/orphanage-poster/variablesVersionUpdate.txt",
+        "game/orphanage-poster/gameStartOnly.txt",
+        "game/orphanage-poster/homeeventhopehi.txt",
+        "game/orphanage-poster/homeeventrebhi.txt",
+        "game/robin-maplebirch_leaf/robinweeklyincome.txt",
+        "game/balloon-stand/balloonWidgetsReplace.txt",
+        "game/balloon-stand/OceanBreezeReplace.txt",
+        "game/balloon-stand/beachReplace.txt"
+    ],
+    "addonPlugin": [{
+            "modName": "TweeReplacer",
+            "addonName": "TweeReplacerAddon",
+            "modVersion": "1.0.0",
+            "params": [{
+                    "passage": "Robin's Lemonade",
+                    "findString": "<<print $robin.timer.hurt",
+                    "replaceFile": "game/robin-work/lemonade/lemonadeUpgradeResult.txt"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<<lrtrauma>>\n\t\t<br>",
+                    "replaceFile": "game/robin-work/lemonade/lemonadeUpgrade.txt"
+                },
+                {
+                    "passage": "Danube Tutor",
+                    "findString": "<</if>>\n<br>",
+                    "replaceFile": "game/robin-work/danube-tutor/danubeTutorIntro.txt"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findRegex": "\\s*<<robinbully>>",
+                    "replaceFile": "game/robin-work/RobinWorkTalk.txt"
+                },
+                {
+                    "passage": "Oxford Street",
+                    "findString": "\t\t<<if $robindebtevent gte 1>>",
+                    "replaceFile": "game/robin-work/danube-tutor/danubeTutorWalkHome.txt"
+                },
+                {
+                    "passage": "Robin Walk Home",
+                    "findString": "<<endevent>>",
+                    "replaceFile": "game/robin-work/danube-tutor/danubeTutorAfterWalkHome.txt"
+                },
+                {
+                    "passage": "Robin Walk Home Topless",
+                    "findString": "\t<<link [[继续|Orphanage]]>><<endevent>><</link>>",
+                    "replaceFile": "game/robin-work/danube-tutor/danubeTutorAfterWalkHomeTopless1.txt",
+                    "all": true
+                },
+                {
+                    "passage": "Robin Walk Home Topless",
+                    "findString": "\t<<endevent>>\n\t<<link [[继续|Orphanage]]>><</link>>",
+                    "replaceFile": "game/robin-work/danube-tutor/danubeTutorAfterWalkHomeTopless2.txt",
+                    "all": true
+                },
+                {
+                    "passage": "Robin Walk Home Refuse",
+                    "findString": "<<endevent>>",
+                    "replaceFile": "game/robin-work/danube-tutor/danubeTutorAfterWalkHome.txt"
+                },
+                {
+                    "passage": "Robin Walk Home Towel",
+                    "findString": "<<endevent>>",
+                    "replaceFile": "game/robin-work/danube-tutor/danubeTutorAfterWalkHome.txt"
+                },
+                {
+                    "passage": "Robin's Room Entrance",
+                    "findString": "<<elseif _robin_location is \"school\">>",
+                    "replaceFile": "game/robin-work/locationReplace.txt"
+                },
+                {
+                    "passage": "Robin's Room Entrance",
+                    "findString": "<<if $robindebt gte $robindebtlimit and $robindebtintro isnot 1 and $robinpaid isnot 1>>",
+                    "replace": "<<if $robinInDebt and $robindebtintro isnot 1 and $robinpaid isnot 1>>"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "\t\t<<elseif $robinconsole is 1 and $robinpaid isnot 1 and $robindebt gte ($robindebtlimit - 1) and $robinconsolelost isnot 1>>",
+                    "replace": "\t\t<<elseif $robinconsole is 1 and $robinpaid isnot 1 and $robinSoldConsole and $robinconsolelost isnot 1>>"
+                },
+                {
+                    "passage": "Robin's Lemonade Help",
+                    "findString": "<<effects>>",
+                    "replaceFile": "game/robin-work/lemonade/lemonadeUpgradeResultWeather2.txt"
+                },
+                {
+                    "passage": "Robin's Lemonade Purchase",
+                    "findString": "<<effects>>",
+                    "replaceFile": "game/robin-work/lemonade/lemonadeUpgradeResultWeather2.txt"
+                },
+                {
+                    "passage": "Robin's Lemonade",
+                    "findString": "<<effects>>",
+                    "replaceFile": "game/robin-work/lemonade/lemonadeUpgradeResultWeather.txt"
+                },
+                {
+                    "passage": "Robin's Lemonade",
+                    "findString": "<<lemonade_stand_options>>",
+                    "replaceFile": "game/robin-work/lemonade/lemonadeUpgradeDevice.txt"
+                },
+                {
+                    "passage": "Robin Money",
+                    "findString": "\t<</if>>\n<<else>>",
+                    "replaceFile": "game/origin-replace/robinMoneyReplace.txt"
+                },
+                {
+                    "passage": "Robin Hug Cry",
+                    "findString": "<<set $robincrycount to 0>>",
+                    "replace": "<<set $robincrycount to 1>>"
+                },
+                {
+                    "passage": "Robin Hug Cry",
+                    "findString": "<<if _robinlove gte 80 and $robincrycount gte 5>>",
+                    "replace": "<<if _robinlove gte 80 and $robincrycount gte 2>>"
+                },
+                {
+                    "passage": "Robin Cinema Popcorn",
+                    "findString": "\t<<if $money gte 1000>>",
+                    "replaceFile": "game/robin-work/lemonade/goods-list/PopcornIntro.txt"
+                },
+                {
+                    "passage": "Robin Cinema Popcorn",
+                    "findString": "<<set $robinmoney -= 10>><<set $popcorn += 1>>\n\t\t\t<br><br>",
+                    "replaceFile": "game/robin-work/lemonade/goods-list/PopcornIntroRobinPay.txt"
+                },
+                {
+                    "passage": "Orphanage Loft",
+                    "findString": "<br>\n<<if $loft_spray isnot 1 and $spray lt $spraymax and $loft_kylar>>",
+                    "replaceFile": "game/robin-work/lemonade/goods-list/snackIntro.txt"
+                },
+                {
+                    "passage": "Robin Chocolate Widgets",
+                    "findString": "<<lrtrauma>>\n\t\t<br>",
+                    "replaceFile": "game/robin-work/chocolate/chocolateUpgrade.txt"
+                },
+                {
+                    "passage": "Robin Chocolate",
+                    "findString": "<<robinChocolateOfferHelp>>",
+                    "replaceFile": "game/robin-work/chocolate/chocolateUpgradeDevice.txt"
+                },
+                {
+                    "passage": "Robin Chocolate Help",
+                    "findString": "<<effects>>",
+                    "replaceFile": "game/robin-work/chocolate/chocolateUpgradeResultWeather2.txt"
+                },
+                {
+                    "passage": "Robin Chocolate Purchase",
+                    "findString": "<<effects>>",
+                    "replaceFile": "game/robin-work/chocolate/chocolateUpgradeResultWeather2.txt"
+                },
+                {
+                    "passage": "Robin Chocolate",
+                    "findString": "<<effects>>",
+                    "replaceFile": "game/robin-work/chocolate/chocolateUpgradeResultWeather.txt"
+                },
+                {
+                    "passage": "Robin Chocolate",
+                    "findString": "<<print $robin.timer.hurt",
+                    "replaceFile": "game/robin-work/chocolate/chocolateUpgradeResult.txt"
+                },
+                {
+                    "passage": "Traits",
+                    "findString": "$robinpaid gte 1",
+                    "replace": "$robinpaid gte 1 and !$robinPaySelfTalked and !$robinPayBothTalked"
+                },
+                {
+                    "passage": "Traits",
+                    "findString": "\t\t\t\t{\n\t\t\t\t\tname: \"罗宾的守护者\",",
+                    "replaceFile": "game/robin-trait/robinTrait.txt"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "\t<<elseif _robin.trauma gte 40>>",
+                    "replaceFile": "game/robin-trait/robinRoomEntranceTalk.txt"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<<money `($robinmoney * 100)` \"robin\">>",
+                    "replaceFile": "game/robin-trait/robinPayBackCount.txt"
+                },
+                {
+                    "passage": "Garden Robin Help",
+                    "findString": "<</if>>\n<br><br>",
+                    "replaceFile": "game/robin-work/lemonade/goods-list/flowerIntro.txt"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<<if $money gte 100>>",
+                    "replace": "<<if $money gte 100 and !$weeklyHoneyCombGiven>>"
+                },
+                {
+                    "passage": "Beach",
+                    "findRegex": "\\s*<<if \\$scienceproject is \"ongoing\" and .*>>",
+                    "replaceFile": "game/robin-work/lemonade/goods-list/balloonIntro.txt"
+                },
+                {
+                    "passage": "Balloon Consume",
+                    "findString": "\t<<link [[提议让摊主和罗宾合作|Balloon Partner]]>><<set $phase to \"help\">><<handheldon>><</link>><br>",
+                    "replaceFile": "game/robin-work/lemonade/goods-list/sellBalloonResult.txt"
+                },
+                {
+                    "passage": "Balloon Widgets",
+                    "findString": "\t\t\t<<socialiseicon>><<link [[说服摊主和罗宾合作|Balloon Convince]]>><<set $phase to \"persuade\">><</link>><<englishdifficulty 1 1000>>",
+                    "replaceFile": "game/robin-work/lemonade/goods-list/sellBalloonResult2.txt"
+                },
+                {
+                    "passage": "Bailey's Office",
+                    "findString": "<<if $robinpaid isnot 1 and $robindebtknown is 1>>",
+                    "replace": "<<if !$robinPaySelfTalked and $robinpaid isnot 1 and $robindebtknown is 1>>"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<<if $robinpaid isnot 1>>",
+                    "replace": "<<if !$robinPaySelfTalked and $robinpaid isnot 1>>"
+                },
+                {
+                    "passage": "Robin Watch",
+                    "findString": "<<if $rng gte 81>>",
+                    "replaceFile": "game/robin-work/live-stream/robinWatch.txt"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "\t<<elseif Time.hour gte 21 or Time.hour lte 5>>",
+                    "replaceFile": "game/robin-work/live-stream/robinOptions.txt"
+                },
+                {
+                    "passage": "Robin Forest",
+                    "findRegex": "<<elseif Weather.isOvercast.*",
+                    "replaceFile": "game/robin-work/photography/photographyIntro.txt",
+                    "comment": "解决和泰拉瑞亚新版的冲突"
+                },
+                {
+                    "passage": "Rent Intro",
+                    "findString": "<<effects>>",
+                    "replaceFile": "game/robin-trait/rentIntroProtect.txt"
+                },
+                {
+                    "passage": "Rent Intro",
+                    "findString": "\t<br>\n<</if>>",
+                    "replace": "\t<br>\n<</if>>\n<</if>>"
+                },
+                {
+                    "passage": "Widgets Journal",
+                    "findString": "<<if $renttime lte 0>>",
+                    "replaceFile": "game/robin-trait/journalUpdate.txt"
+                },
+                {
+                    "passage": "Widgets Named Npcs",
+                    "findString": "<<set $NPCName[_i].dom += _val>>",
+                    "replaceFile": "game/robin-trait/npcincrUpdate.txt"
+                },
+                {
+                    "passage": "Robin Hug Cry",
+                    "findString": "<<if _robinlove gte 80 and $robincrycount gte 2>>",
+                    "replaceFile": "game/robin-trait/robinHugCry.txt"
+                },
+                {
+                    "passage": "Robin Hug Cry",
+                    "findString": "<<robinhug>>",
+                    "replace": "<<robinhug>>\n<</if>>"
+                },
+                {
+                    "passage": "Robin Hug Break",
+                    "findString": "<<if C.npc.Robin.love gte 80 and $robinhugbreak gte 1>>",
+                    "replaceFile": "game/robin-trait/robinHugBreak.txt"
+                },
+                {
+                    "passage": "Widgets Home Events",
+                    "findRegex": "<<elseif \\$rng gte 71>>\n\\s*<<rng 7>>\n\\s+<<if \\$rng gte 7>>",
+                    "replaceFile": "game/robin-trait/homeEvents.txt",
+                    "comment": "修改孤儿反馈方式"
+                },
+                {
+                    "passage": "Bedroom",
+                    "findRegex": "<<if \\$robinpaid is 1 and.*>>",
+                    "replaceFile": "game/robin-trait/robinNote.txt"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findRegex": "\\s+<<loveicon \"kiss\">>.*<</link>>",
+                    "replaceFile": "game/robin-trait/robinRomance.txt"
+                },
+                {
+                    "passage": "Robin's Lemonade Purchase",
+                    "findRegex": "\"<<print either\\(.*\n.*\n.*\n.*\\)>>\"",
+                    "replaceFile": "game/robin-daily/lemonadePurchase.txt"
+                },
+                {
+                    "passage": "Robin's Lemonade Purchase Other",
+                    "findRegex": "\"<<print either\\(.*\n.*\n.*\n.*\\)>>\"",
+                    "replaceFile": "game/robin-daily/lemonadePurchase.txt"
+                },
+                {
+                    "passage": "Robin's Lemonade Purchase Honey",
+                    "findRegex": "\"<<print either\\(.*\n.*\n.*\n.*\\)>>\"",
+                    "replaceFile": "game/robin-daily/lemonadePurchase.txt"
+                },
+                {
+                    "passage": "Robin Chocolate Purchase",
+                    "findRegex": "\"<<print either\\(.*\n.*\n.*\n.*\\)>>”",
+                    "replaceFile": "game/robin-daily/chocolatePurchase.txt"
+                },
+                {
+                    "passage": "Robin Chocolate Purchase Other",
+                    "findRegex": "\"<<print either\\(.*\n.*\n.*\n.*\\)>>\"",
+                    "replaceFile": "game/robin-daily/chocolatePurchase.txt"
+                },
+                {
+                    "passage": "Shopping Centre",
+                    "findRegex": "\\s*<</if>>\n\\s*<<hairdressericon>>",
+                    "replaceFile": "game/robin-daily/shoppingCenter.txt"
+                },
+                {
+                    "passage": "Robin Walk",
+                    "findString": "<<if $halloween_robin is 1",
+                    "replaceFile": "game/robin-daily/robinWalk.txt"
+                },
+                {
+                    "passage": "Widgets Wardrobe",
+                    "findRegex": "\\s*<<case \"Sydney Beach Changing Room\">>",
+                    "replaceFile": "game/robin-daily/wardrobe.txt"
+                },
+                {
+                    "passage": "Robin Caught CD",
+                    "findRegex": "\\s*<<elseif _robin.cdstart is \"halloween\">>",
+                    "replaceFile": "game/robin-daily/caughtCD.txt"
+                },
+                {
+                    "passage": "Robin's Room Entrance",
+                    "findString": "\t\t<<link [[关门|Robin Mischief Close]]>><</link>>\n\t<<else>>\n\t\t<br><br>",
+                    "replaceFile": "game/robin-daily/roomEntrance.txt"
+                },
+                {
+                    "passage": "Orphanage",
+                    "findString": "<<elseif $renttime lte 0>>",
+                    "replaceFile": "game/robin-fight/orphanage.txt"
+                },
+                {
+                    "passage": "Widgets NPCs",
+                    "findRegex": "\\s*<<man-combat _mancombatcontrol>>",
+                    "replaceFile": "game/robin-fight/manCombat.txt"
+                },
+                {
+                    "passage": "Widgets NPC Damage",
+                    "findString": "<<lltrauma>><<trauma -18>>",
+                    "replaceFile": "game/robin-fight/defeatnpc.txt"
+                },
+                {
+                    "passage": "Widgets NPC Damage",
+                    "findString": "<<if $NPCList[_args[0]].health lte 0>>",
+                    "replace": "<<if $NPCList[_args[0]].health lte 0 and $passage isnot \"Robin Fight Together\">>"
+                },
+                {
+                    "passage": "Widgets NPC Damage",
+                    "findString": "<<if $enemyno gte 2>>",
+                    "replace": "<<if $enemyno gte 2 and $passage isnot \"Robin Fight Together\">>"
+                },
+                {
+                    "passage": "Widgets Effects Hands",
+                    "findString": "<<if $enemyno gte 2>>",
+                    "replace": "<<if $enemyno gte 2 and $passage isnot \"Robin Fight Together\">>"
+                },
+                {
+                    "passage": "Bed Robin Sex Finish",
+                    "findRegex": "<<His>>.*\\n\\s*<br><br>",
+                    "replaceFile": "game/origin-replace/bedFinish.txt"
+                },
+                {
+                    "passage": "Canteen",
+                    "findRegex": ".*Canteen Robin Whitney.*",
+                    "replaceFile": "game/origin-replace/canteenWhitney.txt"
+                },
+                {
+                    "passage": "Widgets School Events",
+                    "findRegex": "\\s*<<if C.npc.Robin.trauma lte 30>>",
+                    "replaceFile": "game/origin-replace/schoolWhitney.txt"
+                },
+                {
+                    "passage": "Widgets School Events",
+                    "findRegex": ".*Bully Pantsing Robin.*\n.*\n.*",
+                    "replaceFile": "game/origin-replace/schoolWhitney2.txt"
+                },
+                {
+                    "passage": "Robin Cinema Romance",
+                    "findRegex": "<<else>>(.|\n)*?<br><br>",
+                    "replaceFile": "game/robin-work/live-stream/cinemaChange1.txt"
+                },
+                {
+                    "passage": "Robin Cinema Romance",
+                    "findRegex": "<<set \\$dateCount.Robin\\++>>(.|\n)*?<br><br>",
+                    "replaceFile": "game/robin-work/live-stream/cinemaChange2.txt"
+                },
+                {
+                    "passage": "Robin Cinema Superhero",
+                    "findRegex": "<<wearProp \"popcorn\">><</if>>(.|\n)*?<br><br>",
+                    "replaceFile": "game/robin-work/live-stream/cinemaChange3.txt"
+                },
+                {
+                    "passage": "Robin Cinema Horror",
+                    "findRegex": "<<wearProp \"popcorn\">><</if>>(.|\n)*?<<He>>",
+                    "replaceFile": "game/robin-work/live-stream/cinemaChange4.txt"
+                },
+                {
+                    "passage": "Ocean Breeze",
+                    "findString": "<<if $money gte 300>>",
+                    "replaceFile": "game/robin-daily/oceanBreeze.txt"
+                },
+                {
+                    "passage": "Widgets Journal",
+                    "findRegex": "<<if \\$popcorn .*>>",
+                    "replaceFile": "game/robin-daily/journal.txt",
+                    "comments": "为了兼容5.0和5.1的日志，出此下策"
+                },
+                {
+                    "passage": "Robin Room Bed Intro",
+                    "findString": "<<listsleepoutfits \"Robin Bed\">>",
+                    "replaceFile": "game/robin-daily/robinRoomBedIntro.txt"
+                },
+                {
+                    "passage": "Widgets Speech",
+                    "findString": "<<if $robinmist>>",
+                    "replaceFile": "game/robin-daily/robinSpeech.txt"
+                },
+                {
+                    "passage": "Widgets Journal",
+                    "findRegex": "<<if .*\\$plants_known.length.*",
+                    "replaceFile": "game/robin-terraia/journal.txt",
+                    "comments": "为了兼容5.0和5.1的日志，出此下策"
+                },
+                {
+                    "passage": "Robin Study Concentrate",
+                    "findString": "<<if $robinfirstrentfight is 1>>",
+                    "replace": "<<if $robinfirstrentfight is 1 or $robinFightTalked>>",
+                    "all": true
+                },
+                {
+                    "passage": "Beach",
+                    "findString": "<<balloonRobinIntro>>",
+                    "replaceFile": "game/origin-replace/balloonRobinIntro.txt"
+                },
+                {
+                    "passage": "Balloon Decline",
+                    "findString": "<<balloonRobinIntro>>",
+                    "replaceFile": "game/origin-replace/balloonRobinIntro.txt"
+                },
+                {
+                    "passage": "Park",
+                    "findString": "<<balloonRobinIntro>>",
+                    "replaceFile": "game/origin-replace/balloonRobinIntro.txt"
+                },
+                {
+                    "passage": "Robin Forest Crash Taken",
+                    "findRegex": "<<if C.npc.Robin.dom gte 60>>(.|\n)*?<</link>>",
+                    "replaceFile": "game/origin-replace/robinForestEden.txt",
+                    "comment": "修改伊甸修罗场"
+                },
+                {
+                    "passage": "Options Overlay",
+                    "findRegex": "\\s*<<if \\$passage isnot \"Start\">>",
+                    "replaceFile": "game/orphanage-poster/optionsOverlay.txt",
+                    "comments": "在选项-通用里添加是否隐藏蓝爱心"
+                },
+                {
+                    "passage": "Widgets variablesVersionUpdate",
+                    "findString": "<!-- 5.0.3 -->",
+                    "replaceFile": "game/orphanage-poster/variablesVersionUpdate.txt",
+                    "comments": "玩家导入存档时添加默认的海报设置"
+                },
+                {
+                    "passage": "gameStartOnly",
+                    "findString": "<<set $passageChangesCount to 0>>",
+                    "replaceFile": "game/orphanage-poster/gameStartOnly.txt",
+                    "comments": "在开始游戏时添加默认的海报设置"
+                },
+                {
+                    "passage": "Widgets Home Events",
+                    "findString": "<<switch random(1, 6)>>",
+                    "replace": "<<rng 6>><<switch $rng>>",
+                    "comments": "修改高希望海报的进入方式（原因：方便使用修改rng的方式调测)"
+                },
+                {
+                    "passage": "Widgets Home Events",
+                    "findRegex": "\\s*<<case 5>>\n.*<<rng>>(.|\n)*?<</link>>",
+                    "replaceFile": "game/orphanage-poster/homeeventhopehi.txt",
+                    "comments": "修改高希望海报的具体内容"
+                },
+                {
+                    "passage": "Widgets Home Events",
+                    "findString": "<<switch random(1, 10)>>",
+                    "replace": "<<rng 9>><<switch $rng>>",
+                    "comments": "修改高叛逆海报的进入方式（原因：方便使用修改rng的方式调测)"
+                },
+                {
+                    "passage": "Widgets Home Events",
+                    "findRegex": "\\s*<<case 7>>\n\\s*<<generatey1>>(.|\n)*?<</link>>",
+                    "replaceFile": "game/orphanage-poster/homeeventrebhi.txt",
+                    "comments": "修改高叛逆海报的具体内容"
+                },
+                {
+                    "passage": "Options Overlay",
+                    "findString": "<<widget \"optionsgeneral\">>",
+                    "replace": "<<widget \"optionsgeneral\">><<setupOptions>>",
+                    "comments": "修改设置后重新渲染页面（疑似为原版bug)"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<<handheldon 1>><</link>><<glove>><<ltrauma>><<lstress>>",
+                    "replace": "<<handheldon 1>><<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<glove>><<ltrauma>><<lstress>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "看罗宾玩游戏，加欲望（为了和一起玩区分，调整剧情）"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<<handheldon 1>><</link>><<glove>><<lrtrauma>><<ldom>><<gstress>>",
+                    "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><<handheldon 1>><</link>><<glove>><<lrtrauma>><<ldom>><<gstress>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "交谈，加欲望"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<<handheldon 1>><</link>><<glove>><<ltrauma>>",
+                    "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><<handheldon 1>><</link>><<glove>><<ltrauma>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "一起玩游戏，加欲望"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<<handheldon 1>><</link>><<ltrauma>><<lstress>><<glove>>",
+                    "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><<handheldon 1>><</link>><<ltrauma>><<lstress>><<glove>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "拥抱，加欲望"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<</link>><<cat>><<gdom>><<glove>><<ltrauma>><<lstress>>",
+                    "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<cat>><<gdom>><<glove>><<ltrauma>><<lstress>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "猫化，加欲望"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<</link>><<cow>><<gdom>><<glove>><<ltrauma>><<lstress>>",
+                    "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<cow>><<gdom>><<glove>><<ltrauma>><<lstress>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "牛化，加欲望"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<</link>><<harpy>><<gdom>><<glove>><<ltrauma>><<lstress>>",
+                    "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<harpy>><<ldom>><<glove>><<ltrauma>><<lstress>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "哈比1，加欲望"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<</link>><<harpy>><<ldom>><<glove>><<ltrauma>><<lstress>>",
+                    "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<harpy>><<ldom>><<glove>><<ltrauma>><<lstress>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "哈比2，加欲望"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<</link>><<wolfgirl>><<gdom>><<glove>><<ltrauma>><<lstress>>",
+                    "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<wolfgirl>><<gdom>><<glove>><<ltrauma>><<lstress>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "狼化，加欲望"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<</link>><<fox>><<gdom>><<glove>><<ltrauma>><<lstress>>",
+                    "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<fox>><<gdom>><<glove>><<ltrauma>><<lstress>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "狐化，加欲望"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<</link>><<promiscuous1>><<glove>>",
+                    "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<promiscuous1>><<glove>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "调情，加欲望"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<</link>><<lstress>><<glove>>",
+                    "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<lstress>><<glove>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "提供奶昔"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<</link>><<lstress>><<gglove>>",
+                    "replace": "<<if $exposed gte 1>><<npcincr Robin lust 1>><</if>><</link>><<lstress>><<gglove>><<if $exposed gte 1>><<glust>><</if>>",
+                    "comments": "分享奶昔"
+                },
+                {
+                    "passage": "Clothing Shop v2 Widgets",
+                    "findString": "<<unset $clothes_choice>><<updateclotheslist>>",
+                    "replace": "<<unset $clothes_choice>><<if _shopLocation is \"lemonade\">><<updateclotheslist \"lemonade\" \"all\">><<else>><<updateclotheslist>><</if>>",
+                    "comments": "点击返回时应当查看所有商品"
+                },
+                {
+                    "passage": "Garden Robin Crown",
+                    "findString": "<<link [[继续|Garden Flowers]]>><<endevent>><</link>>",
+                    "replaceFile": "game/robin-work/lemonade/goods-list/robinCrown.txt",
+                    "comments": "还是加个提示吧"
+                },
+                {
+                    "passage": "Robin Cinema Popcorn",
+                    "findRegex": "<<switch \\$phase>>(.|\n)*?<<if \\$popcorn is 1>>",
+                    "replaceFile": "game/robin-work/lemonade/goods-list/cinemaPopcorn.txt",
+                    "comments": "罗宾自制爆米花"
+                },
+                {
+                    "passage": "Robin's Room Entrance",
+                    "findRegex": "<<main_hall_icon>>.*<</link>>",
+                    "replace": "<<robin-room-note>><<main_hall_icon>><<link [[大厅 (0:01)|Orphanage]]>><<pass 1>><</link>>",
+                    "all": true,
+                    "comments": "为罗宾房间门口的便条添加图片"
+                },
+                {
+                    "passage": "StoryCaption",
+                    "findString": "<<if $options.sidebarStats isnot \"disabled\">>",
+                    "replaceFile": "game/origin-replace/StoryCaption.txt",
+                    "comments": "添加模组介绍"
+                },
+                {
+                    "passage": "overlayReplace",
+                    "findString": "<<switch _key>>",
+                    "replaceFile": "game/origin-replace/overlayReplace.txt",
+                    "comments": "添加模组介绍"
+                },
+                {
+                    "passage": "Bed Robin Sex Finish",
+                    "findString": "<<His>>闭上了眼睛，平稳地进入了梦乡。",
+                    "replaceFile": "game/origin-replace/bedRobinSexFinish.txt",
+                    "all": true,
+                    "comments": "破一次例，直接查找中文文本"
+                },
+                {
+                    "passage": "Bed Robin Sex Finish",
+                    "findString": "<<clotheson>>",
+                    "replaceFile": "game/origin-replace/bedRobinSexFinish2.txt"
+                },
+                {
+                    "passage": "Bed Robin Sex Finish",
+                    "findString": "<<link [[继续|Bed]]>><<clotheson>><</link>>",
+                    "replaceFile": "game/origin-replace/bedRobinSexFinishAsk.txt"
+                },
+                {
+                    "passage": "Robin Room Bed Sex Finish",
+                    "findString": "<<His>>闭上了眼睛，平稳地进入了梦乡。",
+                    "replaceFile": "game/origin-replace/bedRobinSexFinish.txt",
+                    "all": true,
+                    "comments": "破一次例，直接查找中文文本"
+                },
+                {
+                    "passage": "Robin Room Bed Sex Finish",
+                    "findString": "<<link [[继续|Robin Bed]]>><<endevent>><</link>>",
+                    "replaceFile": "game/origin-replace/bedRobinSexFinishAsk.txt"
+                },
+                {
+                    "passage": "Robin Room Bed Sex Finish",
+                    "findString": "<<clotheson>>",
+                    "replaceFile": "game/origin-replace/bedRobinSexFinish2.txt"
+                },
+                {
+                    "passage": "Robin Mischief Sex Finish",
+                    "findString": "<<His>>闭上了眼睛，平稳地进入了梦乡。",
+                    "replaceFile": "game/origin-replace/bedRobinSexFinish.txt",
+                    "comments": "破一次例，直接查找中文文本"
+                },
+                {
+                    "passage": "Robin Mischief Sex Finish",
+                    "findString": "<<clotheson>>",
+                    "replaceFile": "game/origin-replace/bedRobinSexFinish2.txt"
+                },
+                {
+                    "passage": "Robin Mischief Sex Finish",
+                    "findString": "<<link [[继续|Orphanage]]>><</link>>",
+                    "replaceFile": "game/origin-replace/bedRobinSexFinishAsk.txt"
+                },
+                {
+                    "passage": "Robin Cinema Popcorn",
+                    "findString": "<<if $balloonStand.robin.status is \"helped\">>",
+                    "replaceFile": "game/origin-replace/cinemaPopcorn.txt"
+                },
+                {
+                    "passage": "Orphanage",
+                    "findString": "<<set _robinAtOrphanage to [\"orphanage\",\"bath\",\"sleep\"].includes(_robin_location)>>",
+                    "replace": "<<set _robinAtOrphanage to [\"orphanage\",\"bath\",\"sleep\",\"liveStream\"].includes(_robin_location)>>"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<<set _robin to statusCheck(\"Robin\")>>",
+                    "replaceFile": "game/origin-replace/photographyClothesCheck.txt"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<<if Time.schoolDay and (Time.hour is 8 or Time.hour is 7)>>",
+                    "replaceFile": "game/origin-replace/photographyClothesCheck2.txt"
+                },
+                {
+                    "passage": "Robin's Room Entrance",
+                    "findString": "|Orphanage]]>><<endevent>><</link>>",
+                    "all": true,
+                    "replace": "|Robin Room Leave]]>><<set $phase to \"studyRefuse\">><</link>>",
+                    "comments": "只可能是写作业，其他情况没<<endevent>>"
+                },
+                {
+                    "passage": "Robin Room Wake",
+                    "findRegex": "<<main_hall_icon>>.*</link>>",
+                    "replaceFile": "game/origin-replace/robinRoomWake.txt",
+                    "all": true,
+                    "comments": "findRegex+all已经没问题了"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<<if _anyItemsInRoom>>",
+                    "replace": "<<if $exposed gte 1 and (_anyItemsInRoom or $anyPhotograhyItemsInRoom)>>",
+                    "comments": "搭摊子，我放弃治疗了，不要吐槽"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<<if $exposed lte 0 or _anyItemsInRoom>>",
+                    "replace": "<<if $exposed lte 0 or _anyItemsInRoom or $anyPhotograhyItemsInRoom>>",
+                    "comments": "搭摊子，我放弃治疗了，不要吐槽"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "<<if $exposed gte 1 and _anyItemsInRoom>><<storeon \"Robin's Room\">><</if>>",
+                    "all": true,
+                    "replace": "<<if $exposed gte 1 and _anyItemsInRoom>><<storeon \"Robin's Room\">><<elseif $exposed gte 1 and $anyPhotograhyItemsInRoom>><<storeon \"Robin's Room Photography\">><</if>>",
+                    "comments": "搭摊子，我放弃治疗了，不要吐槽"
+                },
+                {
+                    "passage": "Robin Mischief",
+                    "findString": "<<arousal 600>><<garousal>>",
+                    "replaceFile": "game/origin-replace/robinMischief.txt"
+                },
+                {
+                    "passage": "Widgets Actions Generation",
+                    "findString": "<<if $NPCList[0].type isnot \"human\" and $NPCList[0].type isnot \"plant\">>",
+                    "replace": "<<if $NPCList[0].type isnot \"human\" and $NPCList[0].type isnot \"plant\" and $fightCondition isnot \"moorStars\">>",
+                    "comments": "这星星看的，太不容易了"
+                },
+                {
+                    "passage": "Widgets Text",
+                    "findRegex": "<<widget \"combatperson\">><<silently>>\n*\\s*<<if \\$npc_named is 1>>",
+                    "replaceFile": "game/robin-daily/combatperson.txt",
+                    "comments": "观星不易第二弹"
+                },
+                {
+                    "passage": "Widgets Combat Beast",
+                    "findString": "<<set _n to $active_enemy>>",
+                    "replace": "<<set _n to $active_enemy>><<if $fightCondition is \"moorStars\">><<set _n to _args[0]>><</if>>",
+                    "comments": "观星不易第三弹"
+                },
+                {
+                    "passage": "Widgets",
+                    "findString": "<<homeStudyOptions>>",
+                    "replace": "<<homeStudyOptions>><<photographyImageOptions>>"
+                },
+                {
+                    "passage": "Widgets",
+                    "findString": "<<set _projectOptions to [$scienceproject, $mathsproject].includes(\"ongoing\")>>",
+                    "replace": "<<set _projectOptions to [$scienceproject, $mathsproject].includes(\"ongoing\")>><<if $photographyImageList isnot undefined and $photographyImageList.length>><<set _projectOptions to true>><</if>>",
+                    "comment": "为兼容模拟人生0.77以及之前的版本，换个地方改"
+                },
+                {
+                    "passage": "Danube Street",
+                    "findString": "<<streeteffects>>",
+                    "replaceFile": "game/robin-work/danube-tutor/danubeTutorMeetRobin.txt"
+                },
+                {
+                    "passage": "Danube Street",
+                    "findRegex": "<<elseif \\$exposed lte 0>>(.|\n)*?<</if>>",
+                    "replaceFile": "game/robin-work/danube-tutor/danubeTutorMeetRobin2.txt"
+                },
+                {
+                    "passage": "Widgets Robin",
+                    "findString": "\t<</if>>\n\t<<if $robinmoney gt 0 and !$robinromance>>",
+                    "replaceFile": "game/robin-maplebirch_leaf/robinweeklyincome.txt",
+                    "_comment": "罗宾周收入询问"
+                },
+                {
+                    "passage": "Beach",
+                    "findString": "<<set $eventskip to 0>>",
+                    "replace": "<<set $eventskip to 0>><<run meet_warning_condition()>>",
+                    "_comment": "就暂定为进入海滩时提示吧"
+                },
+                {
+                    "passage": "Beach",
+                    "findString": "<<elseif Time.season is \"summer\"",
+                    "replace": "<<elseif $balloonStandOverride or Time.season is \"summer\"",
+                    "_comment": "生效原因：&&优先级高于||"
+                },
+                {
+                    "passage": "Beach",
+                    "findString": "<<set $balloonStand.open to true>>",
+                    "replace": "<<set $balloonStand.open to true>><<set $balloonStandOverride to false>>",
+                    "_comment": "低级错误"
+                },
+                {
+                    "passage": "Balloon Consume",
+                    "findRegex": ".*<<set \\$phase to \"sabotage\">>.*",
+                    "replace": "<span class=\"blue\">由于您安装了dom罗宾模组，选项【提议摊主卖饮料】已禁用</span>",
+                    "_comment": "直接禁选"
+                },
+                {
+                    "passage": "Balloon Widgets",
+                    "findString": "<<if $popcorn gte 3>>",
+                    "replaceFile": "game/balloon-stand/balloonWidgetsReplace.txt",
+                    "_comment": "气球摊新增选项"
+                },
+                {
+                    "passage": "Ocean Breeze",
+                    "findString": "<<passoutshop>>",
+                    "replaceFile": "game/balloon-stand/OceanBreezeReplace.txt",
+                    "_comment": "海风咖啡馆商量合作事宜"
+                },
+                {
+                    "passage": "Beach",
+                    "findRegex": "<<if \\$openinghours is 1 (.|\n)*?<</if>>",
+                    "replaceFile": "game/balloon-stand/beachReplace.txt",
+                    "_comment": "合作结果-气球摊位置变化"
+                }
+            ]
+        },
+        {
+            "modName": "ReplacePatcher",
+            "addonName": "ReplacePatcherAddon",
+            "modVersion": "1.0.0",
+            "params": {
+                "js": [{
+                        "from": "if (V.robinpaid !== 1 && V.robindebt >= V.robindebtlimit && V.robindebtevent <= 0) ",
+                        "to": "$.wiki(\"<<weeklymoneycheck>>\");if (V.robinpaid !== 1 && V.robindebtevent <= 0 && V.robinInDebt) ",
+                        "fileName": "time.js",
+                        "_comment1": "每周结束时，检查当前已有的工作并调widget函数加钱, 并修改罗宾码头惩罚条件（罗宾金钱必须小于0，与robindebt和robindebtlimit无关）",
+                        "_comment2": "007版本修改原因-报错fragment is not defined"
+                    },
+                    {
+                        "from": "function dayPassed() {",
+                        "to": "function dayPassed() { if (V.danubeTutorIntro && V.danubeTutorIntro == 2){ V.danubeTutorIntro = 3;}",
+                        "fileName": "time.js",
+                        "_comment1": "如果当前家教状态为阶段2，一天后变为阶段3"
+                    },
+                    {
+                        "from": "else if (Time.schoolDay && between(Time.hour, 8, 15))",
+                        "to": "else if (V.liveStream === 1 && Time.hour === 19){T.robin_location = \"liveStream\";} \n else if (V.danubeTutorIntro == 4 && Time.schoolDay && ((Time.hour === 15 && between(Time.minute, 6, 59)) || (Time.hour === 16 && between(Time.minute, 0, 20)))) \n { T.robin_location = \"danube\";} \n else if (Time.schoolDay && between(Time.hour, 8, 15))",
+                        "fileName": "ingame.js",
+                        "_comment1": "罗宾当前状态调整: 做家教成功后每天上学日3：06—4:20位置在多瑙河街; 开始直播后每天晚上七点到八点进行直播"
+                    },
+                    {
+                        "from": "if (V.combat === 0 && V.ironmanmode === true)",
+                        "to": "if (V.robinPayBothMessage) {sWikifier(`<span class=\"gold\">罗宾现在已经能够承担你的债务，当你需要帮助时，会有惊喜等着你。</span> <br>`); V.robinPayBothMessage = 0;} \n if (V.robinPaySelfMessage) {sWikifier(`<span class=\"gold\">罗宾现在已经能够承担自己的债务，去罗宾的房间时会有惊喜。</span> <br>`); delete V.robinPaySelfMessage;}\nif (V.combat === 0 && V.ironmanmode === true)",
+                        "fileName": "effect.js",
+                        "_comment1": "当罗宾能够承担自己的债务时，展示提示信息表示你应该去找罗宾了。当罗宾可以承担两人债务时，同样展示提示信息。"
+                    },
+                    {
+                        "from": "if (V.robinromance === 1 && C.npc.Robin.dom >= 40)",
+                        "to": "dailyRobinTraitEffects(); \n if (V.robinromance === 1 && C.npc.Robin.dom >= 40)",
+                        "fileName": "time.js",
+                        "_comment1": "两种新特质对应的属性变化。"
+                    },
+                    {
+                        "from": "return statDisplay.statChange(\"罗宾的自信\", -1, \"lblue\");",
+                        "to": "return statDisplay.statChange(\"罗宾的自信\", -1, \"lblue\", needLowerDom);",
+                        "fileName": "text.js",
+                        "_comment1": "有特质直接不显示减属性。"
+                    },
+                    {
+                        "from": "return statDisplay.statChange(\"罗宾的自信\", -2, \"lblue\");",
+                        "to": "return statDisplay.statChange(\"罗宾的自信\", -2, \"lblue\", needLowerDom);",
+                        "fileName": "text.js",
+                        "_comment1": "有特质直接不显示减属性。"
+                    },
+                    {
+                        "from": "return statDisplay.statChange(\"罗宾的自信\", -3, \"lblue\");",
+                        "to": "return statDisplay.statChange(\"罗宾的自信\", -3, \"lblue\", needLowerDom);",
+                        "fileName": "text.js",
+                        "_comment1": "有特质直接不显示减属性。"
+                    },
+                    {
+                        "from": "if (V.robinmoney > 4000) V.robinmoney = 4000;",
+                        "to": "",
+                        "fileName": "time.js",
+                        "_comment1": "就和罗宾过不去是吧，删了删了"
+                    }
+                ]
+            }
+        },
+        {
+            "modName": "ModdedFeatsAddon",
+            "addonName": "ModdedFeatsAddon",
+            "modVersion": "^1.0.0",
+            "params": {
+                "feats": [
+                    "game/feats/robinFeats.json"
+                ]
+            }
+        },
+        {
+            "modName": "BeautySelectorAddon",
+            "addonName": "BeautySelectorAddon",
+            "modVersion": "^2.0.0",
+            "params": {
+                "types": [{
+                    "type": "robinModImg（罗宾mod图片，请勿禁用，无顺序要求）",
+                    "imgFileListFile": "robinModImg/imgFileListFile.json"
+                }]
+            }
+        }
+    ],
+    "dependenceInfo": [{
+            "modName": "TweeReplacer",
+            "version": "^1.0.0"
+        },
+        {
+            "modName": "ReplacePatcher",
+            "version": "^1.0.0"
+        },
+        {
+            "modName": "ModdedFeatsAddon",
+            "version": "^1.0.0"
+        },
+        {
+            "modName": "BeautySelectorAddon",
+            "version": "^2.0.0"
+        },
+        {
+            "modName": "GameVersion",
+            "version": ">=0.5.5.0"
+        },
+        {
+            "modName": "SweetAlert2Mod",
+            "version": "^1.0.0"
+        }
     ]
-   }
-  },
-  {
-   "modName": "ModdedFeatsAddon",
-   "addonName": "ModdedFeatsAddon",
-   "modVersion": "^1.0.0",
-   "params": {
-    "feats": [
-     "game/feats/robinFeats.json"
-    ]
-   }
-  },
-  {
-   "modName": "BeautySelectorAddon",
-   "addonName": "BeautySelectorAddon",
-   "modVersion": "^2.0.0",
-   "params": {
-    "types": [
-     {
-      "type": "robinModImg（罗宾mod图片，请勿禁用，无顺序要求）",
-      "imgFileListFile": "robinModImg/imgFileListFile.json"
-     }
-    ]
-   }
-  }
- ],
- "dependenceInfo": [
-  {
-   "modName": "TweeReplacer",
-   "version": "^1.0.0"
-  },
-  {
-   "modName": "ReplacePatcher",
-   "version": "^1.0.0"
-  },
-  {
-   "modName": "ModdedFeatsAddon",
-   "version": "^1.0.0"
-  },
-  {
-   "modName": "BeautySelectorAddon",
-   "version": "^2.0.0"
-  },
-  {
-   "modName": "GameVersion",
-   "version": ">=0.5.5.0"
-  },
-  {
-   "modName": "SweetAlert2Mod",
-   "version": "^1.0.0"
-  }
- ]
 }
