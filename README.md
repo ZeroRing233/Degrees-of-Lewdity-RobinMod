@@ -42,7 +42,7 @@
 请根据您的游戏本体版本选择对应的模组文件进行下载：
 
 
-如果你的游戏本体已更新到0.5.6.x版本，请下载[0.08-for-dol-0.5.8](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.08-for-dol-0.5.8)中的domRobin.mod.zip(请不要下载source code)
+如果你的游戏本体已更新到0.5.6.x版本，请下载[0.08-for-dol-5.8](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.08-for-dol-5.8)中的domRobin.mod.zip(请不要下载source code)
 
 
 
