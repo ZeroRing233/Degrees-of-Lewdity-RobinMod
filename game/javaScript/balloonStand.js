@@ -30,7 +30,8 @@ function could_comp() {
 window.could_comp = could_comp;
 
 function meet_warning_condition() {
-    if (!V.balloonStandWarning && Time.season !== "winter") {
+    // 营业时间再出场吧
+    if (!V.balloonStandWarning && Time.season !== "winter" && Time.openingHours()) {
         if (could_coop() || could_comp()) {
             $(document).one(":passageend", () => {
                 SugarCube.Engine.play("balloon Stand Warning");
