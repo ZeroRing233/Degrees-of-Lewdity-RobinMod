@@ -345,12 +345,12 @@
                 },
                 {
                     "passage": "Balloon Consume",
-                    "findString": "\t<<link [[提议让摊主和罗宾合作|Balloon Partner]]>><<set $phase to \"help\">><<handheldon>><</link>><br>",
+                    "findRegex": ".*Balloon Partner.*",
                     "replaceFile": "game/robin-work/lemonade/goods-list/sellBalloonResult.txt"
                 },
                 {
                     "passage": "Balloon Widgets",
-                    "findString": "\t\t\t<<socialiseicon>><<link [[说服摊主和罗宾合作|Balloon Convince]]>><<set $phase to \"persuade\">><</link>><<englishdifficulty 1 1000>>",
+                    "findRegex": ".*Balloon Convince.*",
                     "replaceFile": "game/robin-work/lemonade/goods-list/sellBalloonResult2.txt"
                 },
                 {
