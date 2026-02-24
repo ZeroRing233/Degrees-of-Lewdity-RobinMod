@@ -120,6 +120,7 @@
         "game/origin-replace/photographyClothesCheck2.txt",
         "game/origin-replace/robinRoomWake.txt",
         "game/origin-replace/robinMischief.txt",
+        "game/origin-replace/dailyDaddyWake.txt",
         "game/robin-trait/robinTrait.txt",
         "game/robin-trait/robinRoomEntranceTalk.txt",
         "game/robin-trait/robinPayBackCount.txt",
@@ -883,6 +884,20 @@
                     "findRegex": "<<if Time.openingHours()(.|\n)*?<</if>>",
                     "replaceFile": "game/balloon-stand/beachReplace.txt",
                     "_comment": "合作结果-气球摊位置变化"
+                },
+                {
+                    "passage": "Robin Sleep",
+                    "findString": "<<if $daily.motherWake is 1>>",
+                    "replaceFile": "game/origin-replace/dailyDaddyWake.txt",
+                    "all": true,
+                    "_comment": "偷懒，和贝利共用叫醒服务"
+                },
+                {
+                    "passage": "Sleep",
+                    "findString": "<<if $daily.motherWake is 1>>",
+                    "replaceFile": "game/origin-replace/dailyDaddyWake.txt",
+                    "all": true,
+                    "_comment": "偷懒，和贝利共用叫醒服务"
                 }
             ]
         },

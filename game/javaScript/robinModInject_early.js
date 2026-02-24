@@ -258,7 +258,8 @@
                 // 枫桦叶：按照代码格式替换了摄影
                 changeRobinRoomWalkTogether();
                 changeRobinLemonLicense();
-                domRobinSleepGetUp();
+                // 咸鱼零环：让我们用原始的方法吧
+                // domRobinSleepGetUp();
             }
         },
     );

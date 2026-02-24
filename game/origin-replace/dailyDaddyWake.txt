@@ -1,0 +1,3 @@
+<<if random(1,2) === 1 && ($robinPayBothTalked || $robinFightTogether)>>
+	<<domRobinOrphanageGetUp>>
+<<elseif $daily.motherWake is 1>>
