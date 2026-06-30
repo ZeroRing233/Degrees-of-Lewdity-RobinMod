@@ -17,15 +17,15 @@
         <<robinicon "lemonade">><<link [[建议升级柠檬水摊|Robin's Lemonade Upgrade]]>><</link>>
         <br>
 <</if>>
-<<if $plants["lemon"] isnot undefined and $plants["lemon"].amount gt 0>>
+<<if $foodstuff["lemon"] isnot undefined and $foodstuff["lemon"].amount gt 0>>
        <<icon "tending/lemon.png">> <<link [[给罗宾柠檬(0:15)|Robin's Lemonade Give Lemon]]>><<pass 15>><</link>> <<glove>> 
         <br>
 <</if>>
-<<if $plants["blood_lemon"] isnot undefined and $plants["blood_lemon"].amount gt 0>>
+<<if $foodstuff["blood_lemon"] isnot undefined and $foodstuff["blood_lemon"].amount gt 0>>
        <<icon "tending/blood_lemon.gif">> <<link [[给罗宾血柠(0:15)|Robin's Lemonade Give Blood Lemon]]>><<pass 15>><</link>> <<glove>>
        <br>
 <</if>>
-<<if $plants["wild_honeycomb"] isnot undefined and $plants["wild_honeycomb"].amount gt 0 and !$weeklyHoneyCombGiven>>
+<<if $foodstuff["wild_honeycomb"] isnot undefined and $foodstuff["wild_honeycomb"].amount gt 0 and !$weeklyHoneyCombGiven>>
        <<icon "tending/wild_honeycomb.png">> <<link [[给罗宾蜂巢(0:15)|Robin's Lemonade Give Honey Comb]]>><<pass 15>><</link>> <<glove>>
        <br>
 <</if>>

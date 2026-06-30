@@ -7,7 +7,7 @@
         <<set $triedFruitList to []>>
     <</if>>
     <<for _i to 0; _i lt $allFruitList.length; _i++>>
-        <<if $plants[$allFruitList[_i]] isnot undefined and $plants[$allFruitList[_i]].amount gt 0 and $triedFruitList.indexOf($allFruitList[_i]) is -1>>
+        <<if $foodstuff[$allFruitList[_i]] isnot undefined and $foodstuff[$allFruitList[_i]].amount gt 0 and $triedFruitList.indexOf($allFruitList[_i]) is -1>>
             <<set $untriedFruitList.pushUnique($allFruitList[_i])>>
         <</if>>
     <</for>>
@@ -20,13 +20,13 @@
 
     <<for _i to 0; _i lt $untriedFruitList.length; _i++>>
         <<set _fruitType to $untriedFruitList[_i]>>
-        <<set _name to $plants[_fruitType].name>>
+        <<set _name to setup.foodstuff[_fruitType].name>>
         <<if _name is "wild_carrot">>
             <<set _name to "carrot">>
         <</if>>
         <<icon `"tending/" + _name + ".png"`>>
         <<capture _fruitType>> 
-            <<link [["尝试给"+$plants[_fruitType].plural+"榨汁(0:15)"|Robin's Lemonade Juicing]]>>
+            <<link [["尝试给"+setup.foodstuff[_fruitType].plural+"榨汁(0:15)"|Robin's Lemonade Juicing]]>>
                 <<pass 15>><<set $fruitType to _fruitType>>
             <</link>> 
         <</capture>>

@@ -136,8 +136,8 @@
 
 :: Robin's Lemonade Give Lemon
 <<location "beach">><<set $outside to 0>><<effects>><<npc Robin>>
-<<set _amount to $plants["lemon"].amount>>
-<<set _cost to Math.round(clone(setup.plants["lemon"].plant_cost))>>
+<<set _amount to $foodstuff["lemon"].amount>>
+<<set _cost to Math.round(setup.foodstuff["lemon"].shop.sell_price)>>
 <<set _result to Math.round(_amount*_cost*4/100)>>
 你提出将自己所拥有的<span class="green"><<print _amount>></span>个柠檬送给罗宾，罗宾欣然答应了。
 <br><br>
@@ -148,7 +148,7 @@
 从森林中采摘的新鲜柠檬很受顾客欢迎。<span class = "gold">罗宾本周存款增加了£<<print _result>>。</span>
 
 <<npcincr Robin love 2>>
-<<set $plants["lemon"].amount to 0>>
+<<set $foodstuff["lemon"].amount to 0>>
 <<if $weeklyLemonadeIncrease is undefined>>
 	<<set $weeklyLemonadeIncrease to 0>> 
 <</if>>
@@ -160,8 +160,8 @@
 
 :: Robin's Lemonade Give Blood Lemon
 <<location "beach">><<set $outside to 0>><<effects>><<npc Robin>>
-<<set _amount to $plants["blood_lemon"].amount>>
-<<set _cost to Math.round(clone(setup.plants["blood_lemon"].plant_cost))>>
+<<set _amount to $foodstuff["blood_lemon"].amount>>
+<<set _cost to Math.round(clone(setup.foodstuff["blood_lemon"].shop.sell_price))>>
 <<set _result to Math.round(_amount*_cost*4/100)>>
 <<if $bloodLemonGived isnot 1>>
 	<<set $bloodLemonGived to 1>>
@@ -183,7 +183,7 @@
 <</if>>
 
 <<npcincr Robin love 2>>
-<<set $plants["blood_lemon"].amount to 0>>
+<<set $foodstuff["blood_lemon"].amount to 0>>
 <<if $weeklyLemonadeIncrease is undefined>>
 	<<set $weeklyLemonadeIncrease to 0>> 
 <</if>>
@@ -226,7 +226,7 @@
 	<br><br>
 	<span class = "gold">罗宾本周饮料收益翻倍。</span>
 <</if>>
-<<set $plants["wild_honeycomb"].amount -= 1>>
+<<set $foodstuff["wild_honeycomb"].amount -= 1>>
 <<set $weeklyHoneyCombGiven to true>>
 <br><br>
 <<endevent>>
@@ -235,15 +235,15 @@
 
 :: Robin's Lemonade Juicing
 	<<location "beach">><<set $outside to 0>><<effects>><<npc Robin>>
-    <<if $plants[$fruitType] is undefined>>
+    <<if setup.foodstuff[$fruitType] is undefined>>
 	    <span class="blue"> 砰！榨汁机爆炸了！请联系mod作者修复该问题。</span>
     <</if>>
-    你尝试了将<<print $plants[$fruitType].plural>>削皮后放入榨汁机中，不一会儿，一杯<<print $plants[$fruitType].plural>>汁就新鲜出炉了。
+    你尝试了将<<print setup.foodstuff[$fruitType].plural>>削皮后放入榨汁机中，不一会儿，一杯<<print setup.foodstuff[$fruitType].plural>>汁就新鲜出炉了。
     <br><br>
-    你和罗宾分享了新榨出来的<<print $plants[$fruitType].plural>>汁，罗宾惊喜地说:" 新饮料的味道真好，我考虑把它加入饮料单中，
+    你和罗宾分享了新榨出来的<<print setup.foodstuff[$fruitType].plural>>汁，罗宾惊喜地说:" 新饮料的味道真好，我考虑把它加入饮料单中，
     <span class="gold">下周</span>你说不定就能在饮料单上看到它了。" <<glove>> <<npcincr Robin love 1>>
     <<set $triedFruitList.pushUnique($fruitType)>>
-    <<set $plants[$fruitType].amount -= 1>>
+    <<set $foodstuff[$fruitType].amount -= 1>>
     <br><br>
     <<endevent>>
     <<lemonade_stand_options>>
@@ -254,12 +254,12 @@
 <<npc Robin>><<person1>>
 <<money -200 "robin">>
 <<set _fruitType to getRandomValueFromArray($drinkUpgradedList)>>
-你向罗宾购买了<<print $plants[_fruitType].plural>>汁。
+你向罗宾购买了<<print setup.foodstuff[_fruitType].plural>>汁。
 <br><br>
-"<<print $robin.timer.hurt gte 1 ? "大概可以，" : "没问题！">>只要一分钟……"罗宾说着，把<<print $plants[_fruitType].plural>>汁倒进一个玻璃杯里。
+"<<print $robin.timer.hurt gte 1 ? "大概可以，" : "没问题！">>只要一分钟……"罗宾说着，把<<print setup.foodstuff[_fruitType].plural>>汁倒进一个玻璃杯里。
 <br><br>
 
-<<He>><<print $robin.timer.hurt gte 1 ? "面无表情地" : "微笑着">>将<<print $plants[_fruitType].plural>>汁递给你，你也把£2放在了柜台上。
+<<He>><<print $robin.timer.hurt gte 1 ? "面无表情地" : "微笑着">>将<<print setup.foodstuff[_fruitType].plural>>汁递给你，你也把£2放在了柜台上。
 <br><br>
 
 <<if $robin.timer.hurt gte 1>>
@@ -273,7 +273,7 @@
 
 <<elseif $robinpaid is 1>>
 	<<set $robinmoney += 2>>
-	"这……这次我不得不收下了。"<<He>>看钱的时候皱着眉，"我必须花钱购买<<print $plants[_fruitType].plural>>汁的原料。虽然我想一直请你喝，但我做不到的。"
+	"这……这次我不得不收下了。"<<He>>看钱的时候皱着眉，"我必须花钱购买<<print setup.foodstuff[_fruitType].plural>>汁的原料。虽然我想一直请你喝，但我做不到的。"
 
 <<else>>
 	<<set $robinmoney += 1>>
@@ -282,7 +282,7 @@
 <</if>>
 <br><br>
 
-你看着海潮翻滚，聆听着海浪声，几乎一口气喝完了<<print $plants[_fruitType].plural>>汁。
+你看着海潮翻滚，聆听着海浪声，几乎一口气喝完了<<print setup.foodstuff[_fruitType].plural>>汁。
 <br><br>
 
 "<<print either(
