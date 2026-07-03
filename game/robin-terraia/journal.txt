@@ -23,4 +23,4 @@
 <</if>>
 
 
-<<if $museumintro is 1 or setup.foodstuff_known.length gte 0>>
+<<if $museumintro is 1 or $plants_known.length gte 0>>
