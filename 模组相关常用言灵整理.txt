@@ -52,3 +52,12 @@
 <</link>>
 （13）重置热巧克力摊升级，不重置现有商品和饮料：[[重置热巧克力摊升级|$passage][$chocolateUpgraded=0]]
 （14）修改日期为冬天：<<link [[寒冬将至|$passage]]>><<set Time.setDate(new DateTime(Time.year, 12, 4, 8,30))>><</link>>
+
+<<link [[重置萝卜异装癖|$passage]]>>
+<<set C.npc.Robin.cdquest to 0>>
+<<set C.npc.Robin.crossdress to 0>>
+<<set C.npc.Robin.crossdressing to 0>>
+<</link>>
+
+
+<<link "开启作弊模式" $passage>><<set $debug to 1>><</link>>

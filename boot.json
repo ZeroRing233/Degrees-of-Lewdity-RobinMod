@@ -417,7 +417,7 @@
                 },
                 {
                     "passage": "Widgets Home Events",
-                    "findRegex": "<<elseif \\$rng gte 71>>\n\\s*<<rng 7>>\n\\s+<<if \\$rng gte 7>>",
+                    "findRegex": "<<elseif \\$rng gte 71>>\n\\s*<<rng 9>>\n\\s+<<if \\$rng gte 9>>",
                     "replaceFile": "game/robin-trait/homeEvents.txt",
                     "comment": "修改孤儿反馈方式"
                 },

@@ -56,7 +56,7 @@ window.initLemonadeStallShop = initLemonadeStallShop;
 function is_comping() {
     // 没合作就卖气球，意味着是竞争线
     const notCoop = V.balloonStand.comp && V.lemonadeNewGoodsList.includes("balloon") && V.balloonStand.robin.status !== "unaffected" && V.balloonStand.robin.status !== "helped";
-    const present = V.openinghours === 1 && V.balloonStand.open;
+    const present = Time.openingHours() && V.balloonStand.open;
     if (notCoop && present && could_comp()) {
         return true;
     }
