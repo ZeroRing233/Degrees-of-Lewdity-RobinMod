@@ -15,7 +15,7 @@
 <br><br>
 罗宾跑到<<He>>的桌子前拉开了<<He>>的抽屉，<<He>>从里面拿出了一个小本子，上面密密麻麻地写满了很多数字。
 <<He>>看了不久之后，高兴地告诉你：“多亏了你，我这周的收入是
-<span class="gold">£<<print $weeklyMoneyFixedChange>></span>，
+<span class="gold">£<<print $weeklyMoneyFixedChange + 300>></span>，
 /% 偷个懒 %/
 <<set $robinmoney to parseFloat($robinmoney.toFixed(2))>>
 另外我现在有<span class="gold">£<<print $robinmoney>></span>的存款了。”

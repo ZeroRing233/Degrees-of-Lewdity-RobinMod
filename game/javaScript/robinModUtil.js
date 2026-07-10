@@ -239,7 +239,7 @@ function getCurrentFlowerList() {
     let currentFlowerList = "";
     let noSellFlower = ["poppy", "strange_flower"];
     for (let plant in V.foodstuff) {
-        if (setup.foodstuff[plant] && setup.foodstuff[plant].type === "flower" &&
+        if (setup.foodstuff[plant] && setup.foodstuff[plant].category === "flower" &&
             !noSellFlower.includes(plant) && V.foodstuff[plant].amount > 0) {
             currentFlowerList += (setup.foodstuff[plant].plural + "，");
         }
