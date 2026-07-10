@@ -36,9 +36,9 @@
 <</link>>
 （11）添加日志中的鲜花品种：
 <<link[[一键捡所有发发|$passage]]>>
-    <<set _plant_keys to Object.keys($plants)>>
+    <<set _plant_keys to Object.keys($foodstuff)>>
     <<for _i to 0; _i lt _plant_keys.length; _i++>>
-    <<if setup.plants[_plant_keys[_i]].type is "flower">>
+    <<if setup.foodstuff[_plant_keys[_i]].type is "flower">>
         <<tending_pick _plant_keys[_i] 100 150>>
     <</if>>
    <</for>>

@@ -574,7 +574,7 @@
                 },
                 {
                     "passage": "Widgets Journal",
-                    "findRegex": "<<if .*\\$plants_known.length.*",
+                    "findRegex": "<<if .*\\$foodstuff_known.length.*",
                     "replaceFile": "game/robin-terraia/journal.txt",
                     "comments": "为了兼容5.0和5.1的日志，出此下策"
                 },
