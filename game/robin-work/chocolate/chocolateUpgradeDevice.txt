@@ -20,7 +20,7 @@
 
      <<for _i to 0; _i lt $untriedFruitList.length; _i++>>
         <<set _fruitType to $untriedFruitList[_i]>>
-        <<set _name to $foodstuff[_fruitType].name>>
+        <<set _name to setup.foodstuff[_fruitType].name>>
         <<if _name is "wild_carrot">>
             <<set _name to "carrot">>
         <</if>>
