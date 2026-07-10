@@ -137,7 +137,7 @@
 :: Robin's Lemonade Give Lemon
 <<location "beach">><<set $outside to 0>><<effects>><<npc Robin>>
 <<set _amount to $foodstuff["lemon"].amount>>
-<<set _cost to Math.round(clone(setup.foodstuff["lemon"].plant_cost))>>
+<<set _cost to Math.round(clone(setup.foodstuff["lemon"].shop.sell_price))>>
 <<set _result to Math.round(_amount*_cost*4/100)>>
 你提出将自己所拥有的<span class="green"><<print _amount>></span>个柠檬送给罗宾，罗宾欣然答应了。
 <br><br>
@@ -161,7 +161,7 @@
 :: Robin's Lemonade Give Blood Lemon
 <<location "beach">><<set $outside to 0>><<effects>><<npc Robin>>
 <<set _amount to $foodstuff["blood_lemon"].amount>>
-<<set _cost to Math.round(clone(setup.foodstuff["blood_lemon"].plant_cost))>>
+<<set _cost to Math.round(clone(setup.foodstuff["blood_lemon"].shop.sell_price))>>
 <<set _result to Math.round(_amount*_cost*4/100)>>
 <<if $bloodLemonGived isnot 1>>
 	<<set $bloodLemonGived to 1>>
@@ -254,12 +254,12 @@
 <<npc Robin>><<person1>>
 <<money -200 "robin">>
 <<set _fruitType to getRandomValueFromArray($drinkUpgradedList)>>
-你向罗宾购买了<<print $foodstuff[_fruitType].plural>>汁。
+你向罗宾购买了<<print setup.foodstuff[_fruitType].plural>>汁。
 <br><br>
-"<<print $robin.timer.hurt gte 1 ? "大概可以，" : "没问题！">>只要一分钟……"罗宾说着，把<<print $foodstuff[_fruitType].plural>>汁倒进一个玻璃杯里。
+"<<print $robin.timer.hurt gte 1 ? "大概可以，" : "没问题！">>只要一分钟……"罗宾说着，把<<print setup.foodstuff[_fruitType].plural>>汁倒进一个玻璃杯里。
 <br><br>
 
-<<He>><<print $robin.timer.hurt gte 1 ? "面无表情地" : "微笑着">>将<<print $foodstuff[_fruitType].plural>>汁递给你，你也把£2放在了柜台上。
+<<He>><<print $robin.timer.hurt gte 1 ? "面无表情地" : "微笑着">>将<<print setup.foodstuff[_fruitType].plural>>汁递给你，你也把£2放在了柜台上。
 <br><br>
 
 <<if $robin.timer.hurt gte 1>>
@@ -273,7 +273,7 @@
 
 <<elseif $robinpaid is 1>>
 	<<set $robinmoney += 2>>
-	"这……这次我不得不收下了。"<<He>>看钱的时候皱着眉，"我必须花钱购买<<print $foodstuff[_fruitType].plural>>汁的原料。虽然我想一直请你喝，但我做不到的。"
+	"这……这次我不得不收下了。"<<He>>看钱的时候皱着眉，"我必须花钱购买<<print setup.foodstuff[_fruitType].plural>>汁的原料。虽然我想一直请你喝，但我做不到的。"
 
 <<else>>
 	<<set $robinmoney += 1>>
@@ -282,7 +282,7 @@
 <</if>>
 <br><br>
 
-你看着海潮翻滚，聆听着海浪声，几乎一口气喝完了<<print $foodstuff[_fruitType].plural>>汁。
+你看着海潮翻滚，聆听着海浪声，几乎一口气喝完了<<print setup.foodstuff[_fruitType].plural>>汁。
 <br><br>
 
 "<<print either(

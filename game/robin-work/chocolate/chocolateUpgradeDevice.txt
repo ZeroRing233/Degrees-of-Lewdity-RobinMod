@@ -26,7 +26,7 @@
         <</if>>
         <<icon `"tending/" + _name + ".png"`>>
         <<capture _fruitType>> 
-            <<link [["尝试给"+$foodstuff[_fruitType].plural+"榨汁(0:15)"|Robin Chocolate Juicing]]>>
+            <<link [["尝试给"+setup.foodstuff[_fruitType].plural+"榨汁(0:15)"|Robin Chocolate Juicing]]>>
                 <<pass 15>><<set $fruitType to _fruitType>>
             <</link>> 
         <</capture>>
