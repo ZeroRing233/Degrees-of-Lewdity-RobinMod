@@ -1,9 +1,5 @@
-<</if>>
-<<if $robindebtknown is 1 and !$danubeTutorIntro>>
-    <br><br>
-	在动身离开前，你想到了你和罗宾共同面临着的债务问题，或许这是一个很好的机会？
-	<br><br>
+<<if $robindebtknown is 1 and !$danubeTutorIntro and $phase is 3>>
 	<<link [[为罗宾推荐家教工作|Danube Tutor Intro Robin]]>><</link>>
-<<else>>
-	<br>
+	<br><br>
 <</if>>
+$&
