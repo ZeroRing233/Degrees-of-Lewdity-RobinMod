@@ -1,6 +1,6 @@
 {
     "name": "DomRobin",
-    "version": "0.0.8-for-dol-0.5.8",
+    "version": "0.0.8-for-dol-0.5.12.13",
     "scriptFileList_inject_early": [
         "game/javaScript/robinModInject_early.js"
     ],
@@ -158,11 +158,13 @@
         "game/balloon-stand/OceanBreezeReplace.txt",
         "game/balloon-stand/beachReplace.txt"
     ],
-    "addonPlugin": [{
+    "addonPlugin": [
+        {
             "modName": "TweeReplacer",
             "addonName": "TweeReplacerAddon",
             "modVersion": "1.0.0",
-            "params": [{
+            "params": [
+                {
                     "passage": "Robin's Lemonade",
                     "findString": "<<print $robin.timer.hurt",
                     "replaceFile": "game/robin-work/lemonade/lemonadeUpgradeResult.txt"
@@ -174,7 +176,7 @@
                 },
                 {
                     "passage": "Danube Tutor",
-                    "findString": "<</if>>\n<br>",
+                    "findString": "<<link [[离开|Danube Street]]>><<endevent>><</link>>",
                     "replaceFile": "game/robin-work/danube-tutor/danubeTutorIntro.txt"
                 },
                 {
@@ -437,23 +439,8 @@
                     "replaceFile": "game/robin-daily/lemonadePurchase.txt"
                 },
                 {
-                    "passage": "Robin's Lemonade Purchase Other",
-                    "findRegex": "\"<<print either\\(.*\n.*\n.*\n.*\\)>>\"",
-                    "replaceFile": "game/robin-daily/lemonadePurchase.txt"
-                },
-                {
-                    "passage": "Robin's Lemonade Purchase Honey",
-                    "findRegex": "\"<<print either\\(.*\n.*\n.*\n.*\\)>>\"",
-                    "replaceFile": "game/robin-daily/lemonadePurchase.txt"
-                },
-                {
                     "passage": "Robin Chocolate Purchase",
                     "findRegex": "\"<<print either\\(.*\n.*\n.*\n.*\\)>>”",
-                    "replaceFile": "game/robin-daily/chocolatePurchase.txt"
-                },
-                {
-                    "passage": "Robin Chocolate Purchase Other",
-                    "findRegex": "\"<<print either\\(.*\n.*\n.*\n.*\\)>>\"",
                     "replaceFile": "game/robin-daily/chocolatePurchase.txt"
                 },
                 {
@@ -568,15 +555,15 @@
                     "replaceFile": "game/robin-daily/robinRoomBedIntro.txt"
                 },
                 {
-                    "passage": "Widgets Speech",
+                    "passage": "Widgets speech-Robin",
                     "findString": "<<if $robinmist>>",
                     "replaceFile": "game/robin-daily/robinSpeech.txt"
                 },
                 {
                     "passage": "Widgets Journal",
-                    "findRegex": "<<if .*\\$foodstuff_known.length.*",
                     "replaceFile": "game/robin-terraia/journal.txt",
-                    "comments": "为了兼容5.0和5.1的日志，出此下策"
+                    "comments": "在原版物品栏开始前显示泰拉瑞亚联动渔获，保留原版物品栏状态。",
+                    "findString": "<<set _foodstuffKeys to Object.keys($foodstuff)>>"
                 },
                 {
                     "passage": "Robin Study Concentrate",
@@ -643,7 +630,7 @@
                 },
                 {
                     "passage": "Widgets Home Events",
-                    "findRegex": "\\s*<<case 7>>\n\\s*<<generatey1>>(.|\n)*?<</link>>",
+                    "findRegex": "<<case 8>>\\s*<<generatey1>>\\s*<<set _poster to either\\([\\s\\S]*?<</link>>",
                     "replaceFile": "game/orphanage-poster/homeeventrebhi.txt",
                     "comments": "修改高叛逆海报的具体内容"
                 },
@@ -875,7 +862,7 @@
                 },
                 {
                     "passage": "Ocean Breeze",
-                    "findString": "<<passoutshop>>",
+                    "findString": "<<passoutshop \"cafe\">>",
                     "replaceFile": "game/balloon-stand/OceanBreezeReplace.txt",
                     "_comment": "海风咖啡馆商量合作事宜"
                 },
@@ -906,7 +893,8 @@
             "addonName": "ReplacePatcherAddon",
             "modVersion": "1.0.0",
             "params": {
-                "js": [{
+                "js": [
+                    {
                         "from": "if (V.robinpaid !== 1 && V.robindebt >= V.robindebtlimit && V.robindebtevent <= 0) ",
                         "to": "$.wiki(\"<<weeklymoneycheck>>\");if (V.robinpaid !== 1 && V.robindebtevent <= 0 && V.robinInDebt) ",
                         "fileName": "time.js",
@@ -979,14 +967,17 @@
             "addonName": "BeautySelectorAddon",
             "modVersion": "^2.0.0",
             "params": {
-                "types": [{
-                    "type": "robinModImg（罗宾mod图片，请勿禁用，无顺序要求）",
-                    "imgFileListFile": "robinModImg/imgFileListFile.json"
-                }]
+                "types": [
+                    {
+                        "type": "robinModImg（罗宾mod图片，请勿禁用，无顺序要求）",
+                        "imgFileListFile": "robinModImg/imgFileListFile.json"
+                    }
+                ]
             }
         }
     ],
-    "dependenceInfo": [{
+    "dependenceInfo": [
+        {
             "modName": "TweeReplacer",
             "version": "^1.0.0"
         },
@@ -1004,7 +995,7 @@
         },
         {
             "modName": "GameVersion",
-            "version": ">=0.5.5.0"
+            "version": ">=0.5.12.13"
         },
         {
             "modName": "SweetAlert2Mod",

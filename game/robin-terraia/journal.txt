@@ -1,5 +1,4 @@
-/% 调试用 %/
-/% <<run addEatAbleFish()>> %/
+<<if hasTerrariaInfo()>>
 <<set _eatableFishList to getAllEatableFishList()>>
 <<if _eatableFishList.length gt 0>>
 	<br>
@@ -23,4 +22,5 @@
 <</if>>
 
 
-<<if $museumintro is 1 or $foodstuff_known.length gte 0>>
+<</if>>
+<<set _foodstuffKeys to Object.keys($foodstuff)>>

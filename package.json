@@ -1,6 +1,6 @@
 {
     "name": "dom-robin",
-    "version": "0.0.7-temp",
+    "version": "0.0.8-for-dol-0.5.12.13",
     "dependencies": {
         "sortablejs": "^1.15.3"
     },

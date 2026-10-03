@@ -1,4 +1,4 @@
-<</if>>
+<<link [[离开|Danube Street]]>><<endevent>><</link>>
 <<if $robindebtknown is 1 and !$danubeTutorIntro>>
     <br><br>
 	在动身离开前，你想到了你和罗宾共同面临着的债务问题，或许这是一个很好的机会？
