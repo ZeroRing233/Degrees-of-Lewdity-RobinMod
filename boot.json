@@ -540,8 +540,9 @@
                 },
                 {
                     "passage": "Ocean Breeze",
-                    "findString": "<<if $money gte 300>>",
-                    "replaceFile": "game/robin-daily/oceanBreeze.txt"
+                    "replaceFile": "game/robin-daily/oceanBreeze.txt",
+                    "findRegex": "<<if\\s+(?:\\$money\\s+gte\\s+300|setup\\.inflation\\.canAfford\\(300,\\s*[\"']cafe[\"']\\)|maplebirch\\.get\\([\"']VanillaPlus[\"']\\)\\.finance\\.canPay\\(300,\\s*[\"']cafe[\"']\\))\\s*>>",
+                    "comments": "兼容原版现金、通胀模组及枯木逢春的付款条件；替换文件用 $& 保留原条件。"
                 },
                 {
                     "passage": "Widgets Journal",

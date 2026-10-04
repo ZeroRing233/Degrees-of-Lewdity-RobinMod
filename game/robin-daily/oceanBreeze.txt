@@ -4,4 +4,4 @@
         <<foodicon "beerbottle">><<link [[为罗宾购买_wineType (0:02 £7)|Ocean Breeze]]>><<money -700 "robin">><<set $wine +=1>> <<pass 2>><</link>>
         <br>
     <</if>>
-<<if $money gte 300>>
+$&

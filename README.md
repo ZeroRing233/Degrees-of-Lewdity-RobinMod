@@ -41,7 +41,7 @@
 ## 安装方式说明
 请根据您的游戏本体版本选择对应的模组文件进行下载：
 
-如果你的游戏本体为 **0.5.12.13**，请下载 [0.08-for-dol-512](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.08-for-dol-512) 中的 **DomRobin.mod.zip**。此版本修复家教入口、罗宾台词补丁、海报展示、海风咖啡馆合作入口及泰拉瑞亚联动日志，删除已合并购买页面的废弃补丁。
+如果你的游戏本体为 **0.5.12.13**，请下载 [0.08-for-dol-512](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.08-for-dol-512) 中的 **DomRobin.mod.zip**。此版本修复家教入口、罗宾台词补丁、海报展示、海风咖啡馆合作入口及泰拉瑞亚联动日志，删除已合并购买页面的废弃补丁。 最新修订另修复咖啡馆购买入口与通胀模组、枯木逢春付款条件的补丁兼容。
 
 
 如果你的游戏本体已更新到0.5.10.x版本，请下载[0.08-for-dol-5.10](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod/releases/tag/0.08-for-dol-510)中的domRobin.mod.zip(请不要下载source code)
